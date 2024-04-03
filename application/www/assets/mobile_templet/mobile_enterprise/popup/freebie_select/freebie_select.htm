@@ -1,0 +1,38 @@
+{? freeGift}
+{@ freeGift}
+<div class="freebie-select">
+
+    <p class="freebie-select__count">{=trans('선택 가능한 사은품')} :
+        <span class="freebie-select__count__current" id="devSelectCnt">0</span>/<span class="freebie-select__count__total">{.gift_cnt}</span>
+    </p>
+    <input type="hidden" id="cart_ix" value="{cartIx}" />
+    <input type="hidden" id="gift_title" value="{.gift_title}" />
+    <ul class="freebie-select__list">
+        {@ .gift_products}
+        {? ..status == 'sale'}
+        <li class="freebie-select__box devGiftList" data-pid="{..pid}" data-fg_ix="{freeGift.fg_ix}">
+            <figure class="freebie-select__box__thumb">
+                <img src="{..image_src}" alt="{..pname}">
+            </figure>
+            <p class="freebie-select__box__title">{..pname}</p>
+            <div class="control">
+                <ul class="option-up-down devControlCntBox" devGiftCnt="{.gift_cnt}" devGiftStock="{..stock}">
+                    <li class="devCntMinus"><button class="down"></button></li>
+                    <!--<li><input type="text" value="{[allowBasicCnt]}" class="devMinicartPrdCnt"></li>-->
+                    <li><input type="text" value="0" class="devMinicartPrdCnt"></li>
+                    <li class="devCntPlus"><button class="up"></button></li>
+                </ul>
+            </div>
+        </li>
+        {/}
+        {/}
+    </ul>
+
+    <div class="freebie-select__btns">
+        <!--<button type="button" class="freebie-select__btns__cancel close">취소</button>-->
+        <button type="button" class="freebie-select__btns__cancel devNoChoice" data-src="{layoutCommon.templetSrc}" data-freegift_condition="{.freegift_condition}">{=trans('사은품 선택 안함')}</button>
+        <button type="button" class="freebie-select__btns__submit devSubmit" data-freegift_condition="{.freegift_condition}">{=trans('사은품 선택')}</button>
+    </div>
+</div>
+{/}
+{/}

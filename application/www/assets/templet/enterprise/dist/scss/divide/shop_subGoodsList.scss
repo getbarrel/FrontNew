@@ -1,0 +1,221 @@
+.fb {
+
+  &__subGoods-list {
+    min-height: 600px;
+    //padding-bottom: 150px; 0으로 변경!!!!!
+
+    &__slider {
+      .mainSlider__arrow--prev {
+        left: 40px;
+      }
+
+      .mainSlider__arrow--next {
+        right: 40px;
+      }
+    }
+
+    .banner {
+      margin-bottom: 60px;
+
+      &__sliderList {
+        img {
+          width: 100%;
+        }
+      }
+
+      .mainSlider__arrow {
+        margin-top: -19%;
+      }
+
+      .fb__main__slider {
+        margin-bottom: 0;
+      }
+    }
+
+    .fb {
+      &__goods {
+        &__noprice {
+          padding-right: 8px;
+        }
+
+        &-list--noBanner {
+          margin-top: 100px;
+        }
+      }
+    }
+  }
+
+
+  &__left-goodsList {
+
+    .goodsNav {
+
+      margin: 0 60px;
+
+      &__header {
+        position: relative;
+        line-height: 94px;
+
+        .goodsNav__btn {
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 22px;
+          height: 22px;
+          margin-top: -11px;
+          border: 1px solid #000;
+          box-sizing: border-box;
+          text-indent: -9999px;
+
+          span {
+            display: none;
+            position: relative;
+            top: 7px;
+            width: 11px;
+            height: 6px;
+            margin: 0 auto;
+            background: url(../images/shop/icon-subgoodslist-arrow.png ) no-repeat 0 -6px;
+            line-height: 22px;
+
+            &:first-child {
+              display: block;
+              line-height: 22px;
+            }
+            &.goodsNav__btn--close {
+              background: url(../images/shop/icon-subgoodslist-arrow.png ) no-repeat 0 0;
+            }
+          }
+          &--close {
+            span {
+              background: url(../images/shop/icon-subgoodslist-arrow.png ) no-repeat 0 bottom;
+            }
+          }
+        }
+      }
+
+      &__title {
+        color: #000;
+        font-size: 26px;
+      }
+
+      &__inner {
+        display: inline-block;
+        position: relative;
+        //padding-right: 38px;
+      }
+
+      &__list {
+        margin-bottom: 24px;
+      }
+      &__cont {
+        display: none;
+        padding-top: 20px;
+
+        &--active {
+          display: block;
+        }
+      }
+
+      &__subList {
+        color: #000;
+        font-size: 20px;
+
+        &--active {
+          color: $pcolor;
+        }
+      }
+
+      &__subHeader {
+        position: relative;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #dddddd;
+
+        .goodsNav__btn {
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 11px;
+          height: 6px;
+          margin-top: -10px;
+          background: url(../images/shop/icon-subgoodslist-arrow.png ) no-repeat 0 -6px;
+          text-indent: -9999px;
+
+          &--close {
+             background: url(../images/shop/icon-subgoodslist-arrow.png ) no-repeat 0 0;
+           }
+        }
+        a {
+          display: inline-block;
+          width: 80%;
+        }
+      }
+
+      &__subList-inner {
+        margin-top: 15px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      &__subList-link {
+        display: block;
+        color: #666666;
+        font-size: 15px;
+
+        &--active {
+          color: $pcolor;
+        }
+      }
+    }
+  }
+
+
+  &__goods {
+    &__infoBox {
+      margin-top: 20px;
+      //height: 110px;
+    }
+  }
+
+  &__goods__pre {
+
+  }
+}
+
+
+html[lang=en] {
+  .fb {
+    
+    &__goods-list__contents {
+      .filter__text-price {
+        .filter__button-apply span {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+
+    &__left-goodsList  {
+      .goodsNav {
+        margin: 0 40px 0 60px;
+
+        &__header {
+          height: 94px;
+          line-height: inherit;
+        }
+
+        &__inner {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    &__footer__descInfo:after {
+      display: none;
+    }
+  }
+}

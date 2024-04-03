@@ -1,0 +1,56 @@
+<section class="fb__join-member">
+
+    <h2 class="fb__join-member__title">{=trans('회원가입')}</h2>
+
+    <ul class="fb__join-member__top-area top-area">
+        <li class="top-area__step top-area__step01 top-area__step--active">
+            <div class="top-area__step__inner">
+                <span class="top-area__step__subtit">STEP 01</span>
+                <p class="top-area__step__tit">{=trans('본인인증')}</p>
+            </div>
+        </li>
+        <li class="top-area__step top-area__step02">
+            <div class="top-area__step__inner">
+                <span class="top-area__step__subtit">STEP 02</span>
+                <p class="top-area__step__tit">{=trans('약관동의')}</p>
+            </div>
+        </li>
+        <li class="top-area__step top-area__step03">
+            <div class="top-area__step__inner">
+                <span class="top-area__step__subtit">STEP 03</span>
+                <p class="top-area__step__tit">{=trans('정보입력')}</p>
+            </div>
+        </li>
+        <li class="top-area__step top-area__step04">
+            <div class="top-area__step__inner">
+                <span class="top-area__step__subtit">STEP 04</span>
+                <p class="top-area__step__tit">{=trans('가입완료')}</p>
+            </div>
+        </li>
+    </ul>
+
+    <section class="fb__authentication__certify">
+        <p class="fb__authentication__des">{=trans('회원님의 개인정보 보호를 위해 본인확인이 필요합니다. <br/>원하시는 본인인증 방법을 선택해 주세요.')}</p>
+        <!--{? useCertify}-->
+        <div class="certify-box">
+            <p class="certify-box__title phone">{=trans('휴대폰 인증')}</p>
+            <p class="certify-box__des">{=trans('본인 명의의 휴대폰으로 인증하실 수 있습니다.')}</p>
+            <a href="#" class="certify-box__btn" id="devCertifyButton">{=trans('인증하기')}</a>
+        </div>
+        <!--{/}-->
+        <!--{? useIpin}-->
+       <div class="certify-box">
+           <p class="certify-box__title ipin">{=trans('아이핀 인증')}</p>
+           <p class="certify-box__des">{=trans('아이핀 아이디와 비밀번호로 인증하실 수 있습니다.')}</p>
+           <a href="#" class="certify-box__btn" id="devIpinButton">{=trans('인증하기')}</a>
+       </div>
+        <!--{/}-->
+    </section>
+
+
+    <div class="wrap-btn-area fb__join-member__btn-area">
+        <button class="btn-lg btn-dark-line" id="devCancelButton">{=trans('취소')}</button>
+    </div>
+
+
+</section>

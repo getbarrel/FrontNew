@@ -1,0 +1,183 @@
+.fb {
+  &__stock-alarm {
+    &__title {
+      margin-bottom: 10px;
+      color: #222;
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    &__total {
+      color: #666;
+      font-size: 14px;
+      vertical-align: middle;
+
+      &--count {
+        padding-left: 5px;
+        color: #00bce7;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: $font_n;
+      }
+    }
+
+    &__list {
+      .alarm-list {
+        &__goods {
+          text-align:left;
+          &__thumb {
+            display:inline-block;
+            width:90px;
+            height:127px;
+            vertical-align:top;
+            a {
+              display:block;
+              width:100%;
+              height:100%;
+            }
+            img {
+              width:100%;
+              height:100%;
+              object-fit:cover;
+            }
+          }
+          &__link {
+            display:block;
+          }
+          &__info {
+            display:inline-block;
+            position:relative;
+            width:330px;
+            padding-left:20px;
+            vertical-align:top;
+          }
+          &__pname {
+            display:block;
+            color:#222;
+            font-size:14px;
+            line-height:18px;
+            @include line();
+          }
+          &__option {
+            display:block;
+            margin-top:4px;
+            color:#999;
+            font-size:13px;
+            line-height:18px;
+          }
+          &__price {
+            display:block;
+            margin-top:8px;
+            font-family:'Rb','Notosnas';
+            &--strike {
+              display:inline-block;
+              position:relative;
+              margin-right:5px;
+              color:#999;
+              font-size:14px;
+              line-height:18px;
+              &:after {
+                content:"";
+                position:absolute;
+                top:50%;
+                left:-2px;
+                right:-2px;
+                height:1px;
+                background:#999;
+              }
+            }
+            &--cost {
+              color:#222;
+              font-size:16px;
+              line-height:18px;
+              span {
+                font-weight:600;
+              }
+            }
+            &--discount {
+              color:#e60000;
+              font-size:16px;
+              font-weight:600;
+              line-height:18px;
+            }
+          }
+          &__wish {
+            display:inline-block;
+            position: relative;
+            top: 0;
+            left: 0;
+            margin-top:30px;
+            width:24px;
+            height:20px;
+            overflow:hidden;
+            background:url(../images/common/icon_wish_heart_line.png) no-repeat 0 0;
+            text-indent:-10000px;
+            color:transparent;
+
+            &--active {
+              background-position-x:-25px;
+            }
+          }
+        }
+        &__term {
+          color:#666;
+          font-size:14px;
+          line-height:20px;
+          text-align:center;
+        }
+        &__del {
+          &__btn {
+            display:inline-block;
+            overflow:hidden;
+            padding:20px;
+            text-indent:-10000px;
+            color:transparent;
+            line-height:0;
+            &:after {
+              content:"";
+              display:block;
+              overflow:hidden;
+              width:18px;
+              height:18px;
+              background:url(../images/common/icon_stock_alarm_del.png) no-repeat 0 0;
+            }
+          }
+        }
+      }
+    }
+
+    .empty-content {
+      padding: 60px 0;
+    }
+  }
+  .use-notice {
+    margin-top:50px;
+    padding:25px 40px;
+    background:#f8f8f8;
+    &__title {
+      color:#222;
+      font-size:18px;
+      line-height:28px;
+    }
+    &__list {
+      margin-top:8px;
+    }
+    &__desc {
+      position:relative;
+      padding-left:14px;
+      color:#666;
+      font-size:14px;
+      line-height:30px;
+      &:before {
+        content:"";
+        position:absolute;
+        top:13px;
+        left:0;
+        width:3px;
+        height:3px;
+        border-radius:100%;
+        background:#000;
+      }
+    }
+  }
+}

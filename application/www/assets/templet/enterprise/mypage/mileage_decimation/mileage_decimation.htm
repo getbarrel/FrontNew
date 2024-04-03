@@ -1,0 +1,89 @@
+{# mypage_top}
+
+<div class="fb__mypage wrap-mypage fb__mileage fb__mileage-zero">
+    <div class="mileage">
+        <section class="mileage__top">
+            <h2 class="fb__mypage__title">{=trans('소멸예정 적립금')}</h2>
+            <div class="mileage__inner">
+                <div class="float-l">
+                    <dl>
+                        <dt>
+                        <p class="mileage__usable-point-text">{=trans('소멸예정 적립금')}</p>
+                        </dt>
+                        <span class="fb__mileage-zero__subtext">{=trans('이후 3개월(당월포함)동안의 소멸예정 금액입니다.')}</span>
+                        <dd>{fbUnit.f}<strong>{ext_mileage_amount}</strong>{fbUnit.b}</dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <section class="mileage__detail">
+            <h2 class="fb__mypage__title">{=trans(' 적립금 내역')}</h2>
+
+
+            <form id="devExtMileageForm">
+                <input type="hidden" name="page" value="1" id="devPage"/>
+                <input type="hidden" name="max" value="10" id="devMax"/>
+                <input type="hidden" name="state" value="" id="state"/>
+                <input type="hidden" name="sDateDef" id="sDateDef" value="{sDate}" />
+                <input type="hidden" name="eDateDef" id="eDateDef" value="{eDate}" />
+
+
+            <div class="mileage__detail-box type-third"><!--tab-control-->
+                <div class="mileage__detail__content"> <!--tab-contents-->
+                    <div id="tab1"> <!-- class="tab active"-->
+                        <table class="table-default mileage-table" id="tplMileage">
+                            <colgroup>
+                                <col width="14%">
+                                <col width="*">
+                                <col width="14%">
+                            </colgroup>
+                            <thead>
+                            <th>{=trans('발생일자')}</th>
+                            <th>{=trans('상세내역')}</th>
+                            <th>{=trans('마일리지')}</th>
+                            </thead>
+
+                            <tbody id="devMileageContent">
+
+                            <tr id="devMileageLoading" class="devForbizTpl">
+                                <td colspan="3">
+                                    <div class="wrap-loading">
+                                        <div class="loading"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr id="devMileageList" class="devForbizTpl {[#if soldoutClassName]}showBg{[else]}hideBg{[/if]}">
+                                <td><span class="font-rb">{[extinction_date]}</span></td>
+                                <td class="detail">{[message]}
+                                    {[#if oid]}
+                                    <span class="devLocationOrder" data-oid="{[oid]}">({[oid]})</span>
+                                    {[/if]}
+                                </td>
+                                <td class="mileage mileage__list">
+                                    <span class="fb__n  {[log_type]}">-{fbUnit.f}{[extinction_mileage]}{fbUnit.b}</span>
+                                </td>
+                            </tr>
+
+                            <tr id="devMileageListEmpty" class="devForbizTpl">
+                                <td colspan="3">
+                                    <div class="empty-content">
+                                        <p>{=trans('적립금 내역이 없습니다.')}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div id="devPageWrap"></div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </section>
+        <div class="fb__mileage-zero__btn">
+            <a href="/mypage/mileage" class="fb__mileage-zero__btn--black">{=trans('목록')}</a>
+        </div>
+    </div>
+</div>

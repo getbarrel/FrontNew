@@ -1,0 +1,158 @@
+.fb {
+
+  &__authentication {
+    display: block;
+    padding: 60px 0;
+
+    &__des {
+      margin-bottom: 40px;
+      color: #666;
+      font-size: 16px;
+      line-height: 22px;
+      text-align: center;
+    }
+
+    &__certify {
+      @extend %clear;
+      width: 1070px;
+      margin: 40px auto 0;
+      text-align: center;
+
+      .certify-box {
+        display: inline-block;
+        width: 500px;
+        height: 320px;
+        margin: 0 15px 40px;
+        padding: 50px;
+        border: 1px solid #ccc;
+
+        &__title {
+          color: #000;
+          font-size: 24px;
+          font-weight: 600;
+          text-align: center;
+          &:before {
+            content: '';
+            display: block;
+            margin: 0 auto 20px;
+            width: 70px;
+            height: 70px;
+            background: url(../../img/bg/sprite_member.png) no-repeat;
+          }
+          &.phone {
+            &:before {
+              background-position: -200px 0;
+            }
+          }
+          &.ipin {
+            &:before {
+              width: 90px;
+              background-position: -300px 0;
+            }
+          }
+        }
+
+        &__des {
+          margin: 10px 0 25px;
+          color: #999;
+          font-size: 15px;
+          text-align: center;
+        }
+
+        &__btn {
+          display: block;
+          width: 120px;
+          margin: 20px auto 0;
+          padding: 0 30px;
+          border: 1px solid $pcolor;
+          color: $pcolor;
+          font-size: 14px;
+          line-height: 38px;
+          text-align: center;
+
+          &:active,
+          &:hover {
+            color: #fff;
+            background-color: $pcolor;
+          }
+        }
+      }
+    }
+
+    &__btn-box {
+      margin-top: 40px;
+    }
+    &__btn {
+      display: block;
+      width: 200px;
+      margin: 0 auto;
+      padding: 0 60px;
+      border: 1px solid #999;
+      color: #666;
+      font-size: 18px;
+      line-height: 52px;
+      text-align: center;
+      background: none;
+    }
+
+    &__company {
+      .authentication-company {
+        width: 500px;
+        margin: 0 auto;
+
+        &__list {
+          display: table;
+          table-layout: fixed;
+        }
+
+        &__title {
+          display: table-cell;
+          width: 120px;
+          padding-top: 10px;
+          text-align: left;
+          font-size: 15px;
+          color: #222;
+        }
+
+        &__cont {
+          display: table-cell;
+          width: 400px;
+          padding-top: 10px;
+
+          input[type="text"] {
+            width: 100%;
+          }
+
+          &-num {
+            input {
+              width: 120px;
+
+              &:first-of-type {
+                float: left;
+              }
+
+              &:last-of-type {
+                float: right;
+              }
+
+              &:nth-of-type(2) {
+                width: 100px;
+              }
+
+            }
+
+            span {
+              font-size: 16px;
+              display: inline-block;
+              margin: 0 5px;
+            }
+          }
+
+        }
+
+      }
+
+    }
+  }
+
+}

@@ -1,0 +1,105 @@
+<script src="{layoutCommon.templetSrc}/js/common/minicart.js?version={c.CLIENT_VERSION}" data-url="/controller/product/loadOptionDatas/{pid}" id="devMinicartScript"></script>
+
+<div class="br__goods-view br__cart__change"> <!-- 디자인 적용을 위한 wrap 태그 -->
+
+    <div class="goods-info" id="devSildeMinicartArea" data-pid="{pid}" data-cart_Ix="{cartIx}" data-pcount="{pcount}">
+        {* when has only 1 option *}
+        <div class="devForbizTpl" id="devSildeLonelyOption">
+            <span id="devSildeLonelyOptionName">
+                <p>{[option_name]}</p>
+            </span>
+        </div>
+        <div class="popup-content__wrap">
+            <div class="popup-content devProductContents">
+                <div class="br__goods-view br__cart__change">
+                    <div class="goods-info">
+                        <ul class="product-list">
+                            <li class="product-list__item" id="devSildeMinicartArea">
+                                <dl class="product-list__group">
+                                    <dt class="product-list__group-left">
+                                        <figure class="product-list__thumb">
+                                            <img src="{thumb_src}" alt="" />
+                                        </figure>
+                                    </dt>
+                                    <dd class="product-list__group-right">
+                                        <div class="product-list__info goods-info" data-pid="{pid}" data-cart_ix="{cartIx}" data-pcount="{pcount}">
+                                            <div class="product-list__info__title">{pname}</div>
+                                            { ? cartOptionp.options_text == '' }
+                                            <!-- 세트 상품 S -->
+                                            <input type="hidden" name="cartType" class="cartType" value="set" />
+                                            <div class="product-list__info__option set">
+                                                { @ cartOptionp.setData }
+                                                    <div class="product-list__info__option-item">
+                                                        <span class="set-tit">{ .name } :</span>
+                                                        <span class="color">{ .option }<!--</span>
+                                                        <span class="size">M--></span>
+                                                        <span class="count">{ .pcount }개</span>
+                                                    </div>
+                                                { / }
+                                            </div>
+                                            <!-- 세트 상품 E -->
+                                            { : }
+                                            <div class="product-list__info__option set">
+                                                <div class="product-list__info__option-item">
+                                                    <span class="color">{cartOptionp.add_info}</span>
+                                                    <span class="size">{=str_replace("사이즈:","",cartOptionp.options_text)}</span>
+                                                    <span class="count">{cartOptionp.pcount}개</span>
+                                                </div>
+                                            </div>
+                                            { / }
+                                            <dl class="goods-info__option"id="devSildeLonelyOptionName"></dl>
+                                            <div class="product-list__info__price">
+                                                {? discount_rate > 0}<span class="product-list__info__price--discount">{discount_rate}%</span>{/}
+                                                {? discount_rate > 0}<del class="product-list__info__price--strike">{fbUnit.f}<em>{=g_price(listprice)}</em>{fbUnit.b}</del>{/}
+                                                <span class="product-list__info__price--cost">{fbUnit.f}<em>{=g_price(dcprice)}</em>{fbUnit.b}</span>
+                                                <input type="hidden" id="dcprice" value="{dcprice}">
+                                                <!-- 판매중지 / 판매예정 / 판매종료 S -->
+                                                <!-- 숨김처리 -->
+                                                <span class="product-list__info__price--stop" style="display: none">판매중지</span>
+                                                <!-- 판매중지 / 판매예정 / 판매종료 E -->
+
+                                                <!-- 솔드아웃 S -->
+                                                <!-- 숨김처리 -->
+                                                <span class="product-list__info__price--soldout" style="display: none">품절</span>
+                                                <!-- 솔드아웃 E -->
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <div class="product-list__select goods-info__select" id="devSildeMinicartOptions" data-oprionCode="{dOpt}"></div>
+                            </li>
+                        </ul>
+                        <div class="control">
+                            <div class="control-group">
+                                <div class="control-title">수량</div>
+                                <ul class="option-up-down devAddOptionContents">
+                                    <li><button class="down devCountDownButton"></button></li>
+                                    <li><input type="text" value="{cartOptionp.pcount}" class="br__form-input devCount" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" /></li>
+                                    <li><button class="up devCountUpButton"></button></li>
+                                </ul>
+                                <input type="hidden" value="{cartIx}" class="cart_ix">
+                            </div>
+                            <!-- 수량 초과 시 노출 S -->
+                            <!-- 숨김처리 -->
+                            <div class="cart-item__warning" style="display: none">
+                                <p class="txt-error">주문 가능한 수량은 최대 <em>999</em>개입니다.</p>
+                            </div>
+                            <!-- 수량 초과 시 노출 E -->
+                        </div>
+                        <!-- 최종 금액 S -->
+                        <dl class="goods-info__total">
+                            <dt>총 상품 금액</dt>
+                            <dd>{fbUnit.f}<em id="total_dcprice">{=g_price(cartOptionp.total_dcprice)}</em>{fbUnit.b}</dd>
+                        </dl>
+                        <!-- 최종 금액 E -->
+                    </div>
+                </div>
+                <div class="popup-layout__footer">
+                    <button type="button" class="btn-lg btn-dark-line devCountUpdateButton">변경하기</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

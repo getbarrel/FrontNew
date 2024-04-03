@@ -1,0 +1,230 @@
+<!-- 컨텐츠 S -->
+<form id="devMyInquiryDetailForm">
+    <input type="hidden" name="bType" id="bType" value="qna"/>
+    <input type="hidden" name="bbsIx" id="bbsIx" value="{bbsIx}"/>
+</form>
+<section class="fb__mypage fb__mypage-board">
+	<div class="fb__bbs__detail">
+		<div class="fb__bbs__detail__title">
+			<div class="title-md">{=trans('1:1 문의')}</div>
+		</div>
+		<section class="fb__bbs__detail-content">
+			<div class="detail">
+				<div class="detail__header">
+					<div class="detail__header-group">
+						<span class="detail__category category">[{div_name}]</span>
+						{? status == '1'}
+						<span class="detail__state state">답변 대기중</span>
+						{: status == '2'}
+						<span class="detail__state state">{=trans('확인중')}</span>
+						{: status == '5'}
+						<span class="detail__state state complete">{=trans('답변완료')}</span>
+						{/}
+					</div>
+					<div class="detail__header-group">
+						<h3 class="detail__title">{bbs_subject}</h3>
+						<span class="detail__date date">{regdate}</span>
+					</div>
+				</div>
+
+				<!-- 주문 상품 영역 S -->
+				<div class="detail__product">
+					<ul class="product-item__wrap">
+						<li class="product-item__list">
+							<!-- 주문 내역 - 상품 레이아웃 커스텀 S -->
+							{? bbs_etc4 != ''}
+							{@ oInfo }
+							{? .index_ == 0}
+							<a href="/mypage/orderDetail?oid={.oid}" class="product-item__link">
+								<dl class="product-item">
+									<dt class="product-item__thumbnail-box">
+										<div class="product-item__thumb">
+											<img src="{.pimg}" alt="" />
+										</div>
+									</dt>
+									<dd class="product-item__infobox">
+										<div class="product-item__info">
+											<div class="order-day">2024.12.31</div>
+											<div class="product-item__title c-pointer">
+												<div class="title-sm">{.pname} {? oInfoCnt > 1}외 {oInfoCnt}개 상품{:}{/}</div>
+											</div>
+											<div class="order-number">{.oid}</div>
+										</div>
+										<div class="product-item__btn-area">
+											<div class="order-price">{fbUnit.f}<em>{=g_price(.dcprice)}</em>{fbUnit.b}</div>
+										</div>
+									</dd>
+								</dl>
+							</a>
+							{/}
+							{/}
+							{:}
+							{/}
+							<!-- 주문 내역 - 상품 레이아웃 커스텀 E -->
+						</li>
+					</ul>
+				</div>
+				<!-- 주문 상품 영역 E -->
+
+				<div class="content-area detail__content">
+					<div class="cont-area">
+						{=nl2br(bbs_contents)}
+					</div>
+
+					{? bbs_file_1 != ''}
+					<div class="content-area detail__content">
+						<p class="detail__file file">
+							<a class="detail__file__name" href="{bbs_filepath}{bbs_file_1}" target='_blank'>{bbs_file_1}</a>
+						</p><!--파일링크 추가 필요--> 
+					</div>
+					{/}
+
+					{? bbs_file_2 != ''}
+					<div class="content-area detail__content">
+						<p class="detail__file file">
+							<a class="detail__file__name" href="{bbs_filepath}{bbs_file_2}" target='_blank'>{bbs_file_2}</a>
+						</p><!--파일링크 추가 필요--> 
+					</div>
+					{/}
+
+					{? bbs_file_3 != ''}
+					<div class="content-area detail__content">
+						<p class="detail__file file">
+							<a class="detail__file__name" href="{bbs_filepath}{bbs_file_3}" target='_blank'>{bbs_file_3}</a>
+						</p><!--파일링크 추가 필요--> 
+					</div>
+					{/}
+
+					{? bbs_file_4 != ''}
+					<div class="content-area detail__content">
+						<p class="detail__file file">
+							<a class="detail__file__name" href="{bbs_filepath}{bbs_file_4}" target='_blank'>{bbs_file_4}</a>
+						</p><!--파일링크 추가 필요--> 
+					</div>
+					{/}
+				</div>
+
+				<!-- 답변 영역 S -->
+				{@ cInfo}
+				<div class="detail__answer">
+					<div class="detail__answer__info">
+						<span class="detail__answer__info-name">BARREL 고객센터</span>
+						<span class="detail__answer__info-date">{.resdate}</span>
+					</div>
+					<div class="detail__answer__content answer">
+						{=nl2br(.cmt_contents)}
+					</div>
+				</div>
+				{/}
+				<!-- 답변 영역 E -->
+
+				<!-- 답변 없고 / 게시글 수정할 경우 S -->
+				{? status == 1}
+				<div class="detail__footer">
+					<div class="btn-group">
+						<button type="button" class="btn-default btn-dark-line"><a href="/customer/qna/{bbsIx}" class="my-inquiry__btns__mod">수정하기</a></button>
+						<button type="button" id="devDeleteInquiry" class="btn-default btn-dark-line">삭제하기</button>
+						<button type="button" class="btn-default btn-dark-line"><a href="/mypage/myInquiry/" class="my-inquiry__btns__mod">목록으로</a></button>
+					</div>
+				</div>
+				{:}
+				<!-- 답변 완료 되었을 때 S -->
+				<div class="detail__footer">
+					<button type="button" class="btn-default btn-dark-line">목록으로</button>
+				</div>
+				<!-- 답변 완료 되었을 때 E -->
+
+				{/}
+				<!-- 답변 없고 / 게시글 수정할 경우 E -->
+			</div>
+		</section>
+	</div>
+</section>
+<!-- 컨텐츠 E -->
+<!--
+<form id="devMyInquiryDetailForm">
+    <input type="hidden" name="bType" id="bType" value="qna"/>
+    <input type="hidden" name="bbsIx" id="bbsIx" value="{bbsIx}"/>
+</form>
+<div class="fb__my-inquiry-detail br__inquiry-detail">
+    <div class="detail">
+        <div class="detail__top">
+            <span class="detail__top__date">{=trans('작성일시')} : <em class="font-rb">{regdate}</em></span>
+            {? status == '1'}
+            <span class="status--normal">{=trans('문의중')}</span>
+            {: status == '2'}
+            <span class="status--normal">{=trans('확인중')}</span>
+            {: status == '5'}
+            <span class="status--complete">{=trans('답변완료')}</span>
+            {/}
+        </div>
+
+        <div class="detail__title">
+            {bbs_subject}
+        </div>
+        <div class="detail__content wrap-question">
+            <!-- 주문번호 존재시 -- 
+            {? bbs_etc4 != ''}
+            {@ oInfo }
+            {? .index_ == 0}
+            <a href="/mypage/orderDetail?oid={.oid}">
+                <div class="detail__item">
+                    <div class="detail__item__thumb">
+                        <img src="{.pimg}" alt="img">
+                    </div>
+                    <div class="detail__item__info">
+                        <p class="detail__item__info-num order-num">{=trans('주문번호')} <span>{.oid}</span></p>
+                        <p class="detail__item__info-title">{.pname} {? oInfoCnt > 1}외 {oInfoCnt}개 상품{:}{/}</p>
+                    </div>
+                </div>
+            </a>
+            {/}
+            {/}
+            {:}
+            {/}
+
+            <div class="detail__question question">{=nl2br(bbs_contents)}</div>
+            {? bbs_file_1 != ''}
+            <p class="detail__file file">
+                <a class="detail__file__name" href="{bbs_filepath}{bbs_file_1}" target='_blank'>{bbs_file_1}</a>
+            </p><!--파일링크 추가 필요-- 
+            {/}
+
+            {? bbs_file_2 != ''}
+            <p class="detail__file file">
+                <a class="detail__file__name" href="{bbs_filepath}{bbs_file_2}" target='_blank'>{bbs_file_2}</a>
+            </p><!--파일링크 추가 필요-- 
+            {/}
+
+            {? bbs_file_3 != ''}
+            <p class="detail__file file">
+                <a class="detail__file__name" href="{bbs_filepath}{bbs_file_3}" target='_blank'>{bbs_file_3}</a>
+            </p><!--파일링크 추가 필요-- 
+            {/}
+
+            {? bbs_file_4 != ''}
+            <p class="detail__file file">
+                <a class="detail__file__name" href="{bbs_filepath}{bbs_file_4}" target='_blank'>{bbs_file_4}</a>
+            </p><!--파일링크 추가 필요-- 
+            {/}
+
+        </div>
+
+        {@ cInfo}
+        <div class="detail__answer ">
+            <div class="detail__answer__info">
+                <span class="detail__answer__info-name">BARREL</span>
+                <span class="detail__answer__info-date">{=trans('답변일시')}: <em>{.resdate}</em></span>
+            </div>
+            <div class="detail__answer__content answer">{=nl2br(.cmt_contents)}</div>
+        </div>
+        {/}
+        {? status == 1}
+        <div class="my-inquiry__btns">
+            <button class="my-inquiry__btns__del" id="devDeleteInquiry">삭제</button>
+            <a href="/customer/qna/{bbsIx}" class="my-inquiry__btns__mod">수정</a>
+        </div>
+        {/}
+    </div>
+</div>
+-->

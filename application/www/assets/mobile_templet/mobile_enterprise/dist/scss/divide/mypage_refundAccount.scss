@@ -1,0 +1,76 @@
+.br {
+  &__refund {
+    padding-top:0;
+
+    .br__join__list:first-child {
+      padding-top:rem(30px);
+      border-top:1px solid #b5b5b5;
+    }
+
+    input[type="text"],input[type="select"] {
+      height:rem(80px);
+    }
+    &__info {
+      li {
+        border-top:1px solid #b5b5b5;
+        padding:rem(30px 0);
+        &:last-of-type {
+          padding:rem(30px 0 50px 0);
+        }
+        .refund__info-title {
+          margin:rem(0 0 30px 0);
+          color:#000;
+          font-size:rem(26px);
+        }
+        .refund__info-sub {
+          color:#666;
+          font-size:rem(22px);
+        }
+      }
+    }
+    &__line {
+      height:rem(11px);
+      position:relative;
+      &.refund {
+        margin:rem(50px 0 0 0);
+      }
+      &:before {
+        content:'';
+        position:absolute;
+        top:0;
+        left:rem(-40px);
+        right:rem(-40px);
+        height:rem(11px);
+        background:#efefef;
+        border-top:1px solid #ddd;
+      }
+    }
+    &__txt {
+      padding:rem(40px 0 0 0);
+      color:#999;
+      line-height:1.4;
+      font-size:rem(20px);
+    }
+
+    .br__login__info {
+      .information__btn__join {
+        float:left;
+        border:1px solid #000;
+        background:#fff;
+        color:#000;
+      }
+      .information__btn__login {
+        float:right;
+        background:#000;
+      }
+
+    }
+
+    &__noti {
+      padding-top: rem(10px);
+      text-align: left;
+    }
+
+  }
+
+}

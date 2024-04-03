@@ -1,0 +1,2 @@
+<?php /* Template_ 2.2.8 2020/08/31 15:56:56 /home/barrel-stage/application/www/assets/mobile_templet/mobile_enterprise/brand/technology/technology.htm 000000324 */ ?>
+<iframe src="//about.getbarrel.com/technology" frameborder="0" style="width: 100%; height: 1182px;" id="brand_info__content" class="cms__iframe" ></iframe>

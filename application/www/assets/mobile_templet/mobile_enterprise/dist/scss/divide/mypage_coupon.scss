@@ -1,0 +1,279 @@
+.br {
+  &__coupon {
+    &__title {
+      padding: rem(90px 0);
+      color: #000;
+      font-size: rem(50px);
+      line-height: rem(70px);
+      text-align: center;
+    }
+    .my-coupon {
+      margin-top: rem(30px);
+      padding-top: rem(30px);
+      border-top: 1px solid #b5b5b6;
+
+      .empty-content {
+        p {
+          color:#b5b5b6;
+          font-size:rem(26px);
+          &:before {
+            display:none;
+          }
+        }
+      }
+
+      &__count {
+        padding: rem(24px 0);
+        border: 1px solid #b5b5b6;
+        background: #efefef;
+        text-align: center;
+        &__text {
+          color: #000;
+          font-size: rem(30px);
+          line-height: rem(50px);
+          text-align: center;
+          &--point {
+            color: $cPoint;
+            font-weight: 600;
+          }
+        }
+      }
+      &__action {
+        display: block;
+        width: 100%;
+        height: rem(80px);
+        border: none;
+        background: #000;
+        color: #fff;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(80px);
+        text-align: center;
+        &[data-type=available] {
+          &:before {
+            content:"";
+            display:inline-block;
+            width:rem(22px);
+            height:rem(22px);
+            margin-right:rem(10px);
+            background:$sprite22 no-repeat rem(-390px 0);
+            background-size:rem($sprite22Size);
+            vertical-align:middle;
+          }
+        }
+      }
+      &__box {
+        padding: rem(50px 30px);
+        border-top: 1px solid #b5b5b6;
+        &:first-child {
+          border-top: 0;
+        }
+      }
+      &__ticket {
+        position:relative;
+        margin:rem(0 19px);
+        padding:rem(25px 0);
+        border:rem(6px) solid $cPoint;
+        background: #fff;
+        text-align: center;
+        &:before {
+          content:"";
+          position:absolute;
+          top:rem(-6px);
+          left:rem(-19px);
+          bottom:rem(-6px);
+          width:rem(25px);
+          background:url(../images/common/bg_mycoupon_pattern.png) repeat-y left top;
+        }
+        &:after{
+          content:"";
+          position:absolute;
+          top:rem(-6px);
+          right:rem(-19px);
+          bottom:rem(-6px);
+          width:rem(25px);
+          background:url(../images/common/bg_mycoupon_pattern.png) repeat-y right top;
+        }
+        &__title {
+          min-height: rem(32px);
+          color: #1b1b17;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+        &__desc {
+          margin-top: rem(5px);
+        }
+        &__discount {
+          display: block;
+          min-height: rem(66px);
+          color: #1b1b17;
+          font-size: rem(46px);
+          font-weight: 600;
+          line-height: rem(66px);
+        }
+        &__cutline {
+          margin-top: rem(10px);
+          min-height: rem(32px);
+          color: #1b1b17;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+      }
+      &__date {
+        margin-top: rem(25px);
+        color: #000;
+        font-size: rem(22px);
+        line-height: rem(32px);
+        text-align: center;
+      }
+      &__target {
+        margin-top:rem(45px);
+        &__btn {
+          display: block;
+          width: rem(250px);
+          height: rem(80px);
+          margin: rem(45px auto 0);
+          border:1px solid #000;
+          background:#fff;
+          color: #000;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(80px);
+          text-align:center;
+        }
+      }
+      &__guide {
+        margin-top:rem(50px);
+        padding:rem(35px 30px);
+        background:#efefef;
+        &__title {
+          color:#000;
+          font-size:rem(26px);
+          font-weight:600;
+          line-height:rem(36px);
+        }
+        &__desc {
+          margin-top:rem(20px);
+          padding-left:rem(8px);
+          color:#000;
+          font-size:rem(22px);
+          line-height:rem(36px);
+          text-indent:rem(-8px);
+          word-break:keep-all;
+        }
+      }
+    }
+  }
+  .coupon-popup {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:110;
+    background:rgba(0,0,0,.6);
+    &--show {
+      display:block;
+    }
+  }
+  .coupon-reg {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:calc(100% - 3rem);  //60px
+    padding:rem(80px 30px);
+    background:#fff;
+
+    &__title {
+      padding:rem(25px 0 40px);
+      color:#000;
+      font-size:rem(42px);
+      line-height:rem(62px);
+      text-align:center;
+    }
+    &__content {
+      padding-top:rem(40px);
+      border-top:1px solid #b5b5b6;
+
+    }
+    &__desc {
+      color:#000;
+      font-size:rem(26px);
+      line-height:rem(36px);
+      text-align:center;
+    }
+    &__notice {
+      display:block;
+      margin-top:rem(15px);
+      color:#b5b5b6;
+      font-size:rem(22px);
+      line-height:rem(32px);
+      text-align:center;
+    }
+    &__input {
+      margin:rem(45px auto 0);
+      width:rem(421px);
+      input[type=text] {
+        border-color:#b5b5b6;
+      }
+      &__valid {
+        margin-top:rem(15px);
+        color:#e60000;
+        font-size:rem(22px);
+        line-height:rem(32px);
+      }
+    }
+    &__btn {
+      display:block;
+      width:rem(250px);
+      height:rem(80px);
+      margin:rem(15px auto 0);
+      background:$cPoint;
+      color:#fff;
+      font-size:rem(26px);
+      font-weight:600;
+      line-height:rem(80px);
+      text-align:center;
+    }
+    &__close {
+      position:absolute;
+      top:rem(15px);
+      right:rem(15px);
+      width:rem(60px);
+      height:rem(60px);
+      @extend %hiddenText;
+      &:after {
+        content:"";
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:rem(30px);
+        height:rem(30px);
+        margin:rem(-15px 0 0 -15px);
+        background:$sprite30 no-repeat rem(-382px -2px);
+        background-size:rem($sprite30Size);
+      }
+
+    }
+  }
+}
+
+html[lang=en] {
+  .br{
+
+    &__coupon {
+
+      .my-coupon__target__btn {
+        width: auto;
+        padding: rem(0 30px);
+      }
+      .my-coupon__guide__desc {
+        padding:0;
+        text-indent: 0;
+      }
+    }
+
+  }
+}

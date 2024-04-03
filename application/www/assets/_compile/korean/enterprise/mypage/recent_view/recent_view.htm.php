@@ -1,0 +1,74 @@
+<?php /* Template_ 2.2.8 2024/01/17 13:17:04 /home/barrel-stage/application/www/assets/templet/enterprise/mypage/recent_view/recent_view.htm 000002721 */ ?>
+<!-- 컨텐츠 S -->
+<section class="fb__mypage wrap-mypage">
+	<div class="fb__mypage-title">
+		<div class="title-md">최근 본 상품</div>
+	</div>
+	<section class="fb__mypage__section">
+        <form id="devRecentViewForm">
+		<input type="hidden" name="page" value="1" id="devPage"/>
+		<input type="hidden" name="max" value="12"/>
+		<div class="fb__recent-product">
+			<ul class="fb__goods col-3" id="devRecentViewContent">
+
+				<li id="devRecentViewLoading" class="devForbizTpl empty-content">
+					<div class="wrap-loading">
+						<div class="loading"></div>
+					</div>
+				</li>
+
+				<!--등록된 상품이 없을 시 S -->
+				<li class="empty-content" id="devRecentViewEmpty" >최근 본 상품이 없습니다.<</li>
+				<!--등록된 상품이 없을 시 E -->
+
+				<li id="devRecentViewList" class="fb__goods__list">
+					<a href="/shop/goodsView/{[id]}" class="fb__goods__link">
+						<figure class="fb__goods__img">
+							<div>
+								<img src="{[image_src]}" alt="{[pname]}">
+							</div>
+						</figure>
+						<div class="fb__goods__info">
+							<ul class="fb__goods__infoBox">
+								<li class="fb__goods__etc">
+									{[#each icons_path]}
+									<span class="fb__badge--water">
+										{[{this}]}
+									</span>
+									{[/each]}
+								</li>
+								<li class="fb__goods__name">{[pname]}</li>
+								<li class="fb__goods__option">{[add_info]}</li>
+								<li class="fb__goods__brand"></li>
+							</ul>
+						</div>
+						<div class="fb__goods__important">
+							{[#if state_soldout]}
+							<span class="fb__goods__price__state" style="display: none">[품절]</span>
+							{[else]}
+							{[#if isPercent]}
+							<div class="fb__goods__sale"><p class="per"><em>{[discount_rate]}</em>%</p></div>
+							{[/if]}
+							{[/if]}
+							<span class="fb__goods__price">{[dcprice]}</span>
+							{[#if isDiscount]}
+							<span class="fb__goods__noprice">{[listprice]}</span>
+							{[/if]}
+						</div>
+						<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+					</a>
+					<a href="#" class="product-box__heart {[#if alreadyWish]}product-box__heart--active{[/if]} " data-devWishBtn="{[id]}">hart</a>
+				</li>
+			</ul>
+        <div id="devPageWrap"></div>
+			<div class="fb__recent-product__footer">
+				<div class="title-sm">최근 본 상품 안내</div>
+				<div class="txt-desc">
+					<p>최근 본 상품은 30개까지 저장되며 순차적으로 삭제되며, 상품 보존 기간은 30일입니다.</p>
+				</div>
+			</div>
+		</div>
+        </form>
+	</section>
+</section>
+<!-- 컨텐츠 E -->

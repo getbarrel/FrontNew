@@ -1,0 +1,71 @@
+<div class="fb__infoinput-title">
+    <div class="title-md">{=trans('쿠폰 / 적립금')}</div>
+</div>
+<ul class="discount-box">
+    <li class="discount-box__list">
+        <div class="discount-box__item">
+            <div class="discount-box__tit">{=trans('쿠폰할인')}</div>
+            {? isOnlineBarrelDay}
+            <div class="discount-box__cont">
+                <span>이벤트 기간에는 쿠폰 사용이 불가능합니다.</span>
+            </div>
+            {:}
+            <div class="discount-box__cont">
+                <span>{fbUnit.f}</span><input type="text" class="discount-box__amount fb__form-input dim"  id="devUseCouponInputText" readonly /><span>{fbUnit.b}</span>
+                {? userCouponCnt > 0}
+                <button class="btn-default btn-dark-line discount-box__btn" id="devUseCouponButton">{=trans('쿠폰 선택')}</button>
+                <button class="btn-default btn-dark-line discount-box__btn discount-box__btn-cancel" id="devCouponButtonCancel">{=trans('적용 취소')}</button>
+                {/}
+            </div>
+            <div class="discount-box__number">{=trans('보유 쿠폰')} <span>{userCouponCnt}</span>{=trans('개')}</div>
+            {/}
+        </div>
+        <p class="discount-box__important" style="display: none"><!-- 오류 / 특이사항 메시지 영역(숨김처리 되어 있음/ 사용시 숨김처리 삭제) --></p>
+    </li>
+    <li class="discount-box__list">
+        <div class="discount-box__item">
+            <div class="discount-box__tit">{=trans('배송비 할인 쿠폰')}</div>
+            {? isOnlineBarrelDay}
+            <div class="discount-box__cont">
+                <span>이벤트 기간에는 쿠폰 사용이 불가능합니다.</span>
+            </div>
+            {:}
+            <div class="discount-box__cont">
+                <span>{fbUnit.f}</span><input type="text" class="discount-box__amount fb__form-input dim" id="devUseDeliveryCouponInputText" readonly /> <span>{fbUnit.b}</span>
+                {? userDeliveryCouponCnt > 0}
+                <button class="btn-default btn-dark-line discount-box__btn" id="devUseDeliveryCouponButton">{=trans('배송비')}쿠폰 선택</button>
+                <button class="btn-default btn-dark-line discount-box__btn discount-box__btn-cancel" id="devDeliveryCouponButtonCancel">{=trans('적용 취소')}</button>
+                {/}
+            </div>
+            <div class="discount-box__number">{=trans('보유 쿠폰')} <span>{userDeliveryCouponCnt}</span>{=trans('개')}</div>
+            {/}
+        </div>
+        <p class="discount-box__important" style="display: none"><!-- 오류 / 특이사항 메시지 영역(숨김처리 되어 있음/ 사용시 숨김처리 삭제) --></p>
+    </li>
+    <li class="discount-box__list">
+        <div class="discount-box__item">
+            <div class="discount-box__tit">{=trans('{mileageName}')}</div>
+            {? isOnlineBarrelDay}
+            <div class="discount-box__cont">
+                <span>이벤트 기간에는 적립금 사용이 불가능합니다.</span>
+            </div>
+            {:}
+            <div class="discount-box__cont">
+                <input type="hidden" id="mileageConditionMinBuyAmt" value="{mileageConditionMinBuyAmt}" />
+                <input type="text" id="devUseMileage" class="fb__form-input dim" value="0" /><span class="text_p">{mileageUnit}</span>
+
+                <div class="fb__form-item fb__form-btn">
+                    <input type="checkbox" id="devAllUseMileageCheckBox" devAllUseMileage="{maxUseMileage}" devMileageTargetPrice="{mileageTargetPrice}" devTotalPrice="{cartSummary.product_listprice}" />
+                    <label class="btn-default btn-dark-line" for="devAllUseMileageCheckBox">{=trans('{mileageName} 전체 사용')}</label>
+                </div>
+            </div>
+            <div class="discount-box__number">({=trans('사용가능 적립금')}<span>{=g_price(userMileage)}</span>{mileageUnit})</div>
+            {/}
+        </div>
+        <p class="discount-box__important" style="display: none"><!-- 오류 / 특이사항 메시지 영역(숨김처리 되어 있음/ 사용시 숨김처리 삭제) --></p>
+    </li>
+    <li class="discount-box__list-total">
+        <div class="discount-box__list-total__tit">{=trans('구매 시 예상 적립금')}</div>
+        <div class="discount-box__list-total__cont"><span devprice="mileage">{=g_price(cartSummary.mileage)}</span>{mileageUnit}</div>
+    </li>
+</ul>

@@ -1,0 +1,264 @@
+{? langType == 'korean'}
+<section class="br__mypage br__join br__add-manage">
+    <form id="devAddressBookAddForm">
+        <input type="hidden" name="tel1" value="" />
+        <input type="hidden" name="tel2" value="" />
+        <input type="hidden" name="tel3" value="" />
+        {? ix}
+        <input type="hidden" name="ix" value="{ix}" />
+        <input type="hidden" name="mode" value="update" id="devMode" />
+        {:}
+        <input type="hidden" name="mode" value="insert" id="devMode" />
+        {/}
+        <div class="br__mypage__pass">
+            <p class="pass-title">{=trans('{? ix}배송지 수정{:}배송지 추가{/}')}</p>
+        </div>
+
+        <!-- 주소별칭 -->
+        <dl class="br__join__list">
+            <dt>{=trans('주소 별칭 <em class="add-manage-star">*</em>')}</dt>
+            <dd>
+                <input class="join__input" type="text" name="shipping_name" value="{shipping_name}" id="devShippingName" title="{=trans('주소 별칭')}" style="border: 1px solid #ededed;" />
+            </dd>
+        </dl>
+        <!-- EOD : 주소별칭 -->
+
+        <!-- 받는분 -->
+        <dl class="br__join__list">
+            <dt>{=trans('받는분 <em class="add-manage-star">*</em>')}</dt>
+            <dd>
+                <input class="join__input" type="text" name="recipient" value="{recipient}" id="devRecipient" title="{=trans('받는 분')}" style="border: 1px solid #ededed;" />
+            </dd>
+        </dl>
+        <!-- EOD : 받는분 -->
+
+        <!-- 휴대폰 -->
+        <dl class="br__join__list">
+            <dt>{=trans('휴대폰 <em class="add-manage-star">*</em>')}</dt>
+            <dd>
+                <div class="join__phone">
+                    <select class="join__phone-first" name="pcs1" id="devPcs1" title="{=trans('휴대폰번호')}" style="border: 1px solid #ededed;">
+                        <option value="010" {? explodePcs[0]=="010"}selcted{/}>010</option>
+                        <option value="011" {? explodePcs[0]=="011"}selcted{/}>011</option>
+                        <option value="016" {? explodePcs[0]=="016"}selcted{/}>016</option>
+                        <option value="017" {? explodePcs[0]=="017"}selcted{/}>017</option>
+                        <option value="018" {? explodePcs[0]=="018"}selcted{/}>018</option>
+                        <option value="019" {? explodePcs[0]=="019"}selcted{/}>019</option>
+                    </select>
+                    {? pcs1}
+                    <script>
+                        $(function () {
+                            $('#devPcs1').val('{pcs1}');
+                        });
+                    </script>
+                    {/}
+                    <span class="join__phone-hyphen"></span>
+                    <input class="join__input join__phone-second" type="text" value="{pcs2}" name="pcs2" id="devPcs2" title="{=trans('휴대폰 번호')}" size="10" style="border: 1px solid #ededed;width:33%;" {? explodePcs[1]!='' }readonly{/} />
+                    <span class="join__phone-hyphen"></span>
+                    <input class="join__input join__phone-third" type="text" value="{pcs3}" name="pcs3" id="devPcs3" title="{=trans('휴대폰 번호')}" style="border: 1px solid #ededed;width:33%;"  {? explodePcs[2]!='' }readonly{/}/>
+                </div>
+            </dd>
+        </dl>
+        <!-- EOD : 휴대폰 -->
+
+        <!-- 주소 -->
+        <dl class="br__join__list">
+            <dt>{=trans('주소 <em class="add-manage-star">*</em>')}</dt>
+            <dd>
+                <div class="join__id">
+                    <input class="join__input" type="text" name="zip" id="devZip" value="{zipcode}" title="{=trans('우편번호 검색')}" style="border: 1px solid #ededed;" readonly/>
+                    <button class="join__id__check" id="devZipPopupButton">{=trans('우편번호 검색')}</button>
+                </div>
+                <input class="join__address" type="text"  name="addr1" id="devAddress1" value="{address1}" style="border: 1px solid #ededed;" readonly/>
+                <input class="join__address" type="text" name="addr2" id="devAddress2" value="{address2}" title="{=trans('상세주소')}" style="border: 1px solid #ededed;" placeholder="{=trans('상세주소를 입력해주세요.')}"/>
+            </dd>
+        </dl>
+        <!-- EOD : 주소 -->
+
+        <div class="br__join__terms br__add-manage-terms">
+            <div class="join__terms-all">
+                <label for="devDefaultYn">
+                    <input type="checkbox" id="devDefaultYn" name="default_yn" value="Y" class="join__terms__agree" style="border: 1px solid #ededed;" data-force_default_yn="{force_default_yn}"  {? default_yn == 'Y'}checked{/}  title="{=trans('기본 배송지로 저장')}">
+                    <span>{=trans('기본 배송지로 저장')}</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="br__login__info add-manage">
+            <div class="information__btn">
+                <button class="information__btn__join" id="devAddressBookAddCancelBtn">{=trans('취소')}</button>
+                <button class="information__btn__login" id="devAddressBookAddBtn">{=trans('{? ix}수정{:}등록{/}')}</button>
+            </div>
+        </div>
+
+        <ul class="br__address__manage">
+            <li>
+                <div class="br__address__manage-box active">
+                    {=trans('주소록 관리 안내')}
+                </div>
+                <div class="br__address__manage-info">
+                    <p class="manage-info-txt">{=trans('상품 구매시 사용하실 주소 정보를 관리하실 수 있습니다.')}</p>
+                    <p class="manage-info-txt">{=trans('배송주소록은 최대 10개까지 등록할 수 있으며, 별도로 등록하지 않을 경우 최근 배송 주소록 기준으로 자동 업데이트 됩니다.')}</p>
+                </div>
+            </li>
+        </ul>
+    </form>
+</section>
+
+{:}
+<section class="br__mypage br__join br__add-manage">
+    <form id="devAddressBookAddForm">
+        <input type="hidden" name="tel1" value="" />
+        <input type="hidden" name="tel2" value="" />
+        <input type="hidden" name="tel3" value="" />
+        {? ix}
+        <input type="hidden" name="ix" value="{ix}" />
+        <input type="hidden" name="mode" value="update" id="devMode" />
+        {:}
+        <input type="hidden" name="mode" value="insert" id="devMode" />
+        {/}
+        <div class="br__mypage__pass">
+            <p class="pass-title">{=trans('{? ix}배송지 수정{:}배송지 추가{/}')}</p>
+        </div>
+
+        <!-- 받는분 -->
+        <dl class="br__join__list">
+            <dt>{=trans('받는분 <em class="add-manage-star">*</em>')}</dt>
+            <dd>
+                <input class="join__input" type="text" name="recipient" value="{recipient}" id="devRecipient" title="{=trans('받는 분')}" />
+            </dd>
+        </dl>
+        <!-- EOD : 받는분 -->
+        <dl class="br__join__list">
+            <dt>Country <em class="add-manage-star">*</em></dt>
+            <dd>
+                <select name="country" class="devNationArea" id="devCountry" title="Country">
+                    <option value="">Select</option>
+                    {@ nation}
+                        {? mode == 'insert'}
+                            <option value="{.nation_code}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}</option>
+                        {:}
+                            <option value="{.nation_code}" data-nation_code="{.nation_code}" {? .nation_code == country} selected {/}>{.nation_name}</option>
+                        {/}
+                    {/}
+                </select>
+            </dd>
+        </dl>
+        <!-- 휴대폰 -->
+        <!-- @TODO 글로벌 휴대폰 입력타입 변경 -->
+        <dl class="br__join__list">
+            <dt>{=trans('휴대폰 <em class="add-manage-star">*</em>')}</dt>
+            <dd>
+                <div class="join__phone">
+                    <select class="join__phone-first devNationArea" name="national_phone" title="{=trans('휴대폰번호')}">
+                        {@ nation}
+                            {? mode == 'insert'}
+                                <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}(+{.national_phone})</option>
+                            {:}
+                                <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == country} selected {/}>{.nation_name}(+{.national_phone})</option>
+                            {/}
+                        {/}
+                    </select>
+                    <input class="join__input join__phone-second" type="text" value="{pcs}" name="pcs" id="devPcs" title="{=trans('휴대폰 번호')}" />
+                </div>
+            </dd>
+        </dl>
+        <!-- EOD : 휴대폰 -->
+
+        <!-- 주소 -->
+        <!-- @TODO 글로벌 주소입력타입 변경 -->
+
+        <dl class="br__join__list">
+            <dt>Zip/Postal code <em class="add-manage-star">*</em></dt>
+            <dd>
+                <input class="join__input" type="text" name="zip" id="devZip" value="{zipcode}" title="Zip/Postal code"/>
+            </dd>
+        </dl>
+        <dl class="br__join__list">
+            <dt>Address line 1 <em class="add-manage-star">*</em></dt>
+            <dd>
+                <input class="join__address" type="text"  name="addr1" id="devAddress1" value="{address1}" title="Address line 1"/>
+            </dd>
+        </dl>
+        <dl class="br__join__list">
+            <dt>Address line 2</dt>
+            <dd>
+                <input class="join__address" type="text" name="addr2" id="devAddress2" value="{address2}" title="Address line 2"/>
+            </dd>
+        </dl>
+        <dl class="br__join__list">
+            <dt>City <em class="add-manage-star">*</em></dt>
+            <dd>
+                <input class="join__input" type="text" id="devCity" name="city" value="{city}"  title="City" />
+            </dd>
+        </dl>
+        <dl class="br__join__list">
+            <dt>State/Province <em class="add-manage-star">*</em></dt>
+            <dd>
+                {? mode == 'insert'}
+                    <select id="devStateSelect" title="State/Province">
+                        <option value="">Select</option>
+                        {@ regional_information}
+                        <option value="{.reg_name}">{.reg_name}</option>
+                        {/}
+                    </select>
+                    <input class="join__input" type="text" name="state" id="devStateText" title="State/Province" style="display:none;"/>
+                {:}
+                    <!--{? country == 'US'}-->
+                    <select id="devStateSelect" title="State/Province">
+                        <option value="">Select</option>
+                        {@ regional_information}
+                        <option value="{.reg_name}" {? .reg_name == state} selected {/}>{.reg_name}</option>
+                        {/}
+                    </select>
+                    <input type="text" class="join__input" style="display:none;" name="state" value="{state}" title="State/Province" style="display:none;">
+                    <!--{:}-->
+                    <select style="display: none;" id="devStateSelect">
+                        <option value="">Select</option>
+                        {@ regional_information}
+                        <option value="{.reg_name}" {? .reg_name == state} selected {/}>{.reg_name}</option>
+                        {/}
+                    </select>
+                    <input type="text" class="join__input" id="devStateText" name="state" value="{state}" title="State/Province" >
+                    <!--{/}-->
+                {/}
+
+
+            </dd>
+        </dl>
+        <!-- EOD : 주소 -->
+
+        <div class="br__join__terms br__add-manage-terms">
+            <div class="join__terms-all">
+                <label for="devDefaultYn">
+                    <input type="checkbox" id="devDefaultYn" name="default_yn" value="Y" class="join__terms__agree"  {? default_yn == 'Y'}checked{/} {? force_default_yn == 'Y'}readonly{/} title="{=trans('기본 배송지로 저장')}">
+                    <span>{=trans('기본 배송지로 저장')}</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="br__login__info add-manage">
+            <div class="information__btn">
+                <button class="information__btn__join" id="devAddressBookAddCancelBtn">{=trans('취소')}</button>
+                <button class="information__btn__login" id="devAddressBookAddBtn">{=trans('{? ix}수정{:}등록{/}')}</button>
+            </div>
+        </div>
+
+        <ul class="br__address__manage">
+            <li>
+                <div class="br__address__manage-box active">
+                    {=trans('주소록 관리 안내')}
+                </div>
+                <div class="br__address__manage-info">
+                    <p class="manage-info-txt">{=trans('상품 구매시 사용하실 주소 정보를 관리하실 수 있습니다.')}</p>
+                    <p class="manage-info-txt">{=trans('배송주소록은 최대 10개까지 등록할 수 있으며, 별도로 등록하지 않을 경우 최근 배송 주소록 기준으로 자동 업데이트 됩니다.')}</p>
+                </div>
+            </li>
+        </ul>
+    </form>
+</section>
+
+{/}
+
+
+

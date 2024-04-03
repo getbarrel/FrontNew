@@ -1,0 +1,625 @@
+34435-contents/mobile_enterprise//event/event_detail/event_detail.htm*<div class="wrap_event_detail">
+    <form id="devEventDetailForm">
+        <input type="hidden" name="event_ix" value="166"/>
+        <input type="hidden" name="orderBy" value="ec_ix"/>
+        <input type="hidden" name="orderByType" value="desc"/>
+        <input type="hidden" name="page" value="1" id="devPage"/>
+        <input type="hidden" name="max" value="20" id="devMax"/>
+    </form>
+    <style type="text/css">.event__wrap {position: relative;}
+    .event__wrap img {max-width: 100%;}
+    .event__wrap {
+                                    background: #fff;
+                                    position: relative;
+                                    font-size: 0;
+                                    line-height: 0;
+                                }
+    #event_eventDetail .fb__goods-list__contents {
+        display: none;
+    }
+        
+                                .event__wrap .font {
+                                font-size: 12px;
+                                line-height: 1.53;
+                                }
+
+                                .event__wrap #sec2-swiper {
+                    width: 100%;
+                    height: 44.06vw;
+                    min-height: 555px;
+                    background-color: #f2f2f2
+                }
+        
+                @media only screen and (max-width: 720px) and (orientation: portrait) {
+                                .lookbook-dim .turn-image {
+                                    display: block;
+                                    position: absolute;
+                                    bottom: 7%;
+                                    width: 100%;
+                                    height: 71px;
+                                    background: url(//image.getbarrel.com/barrel_data/images/landing/lookbook_src/turn.png) 50% 50% no-repeat;
+                                    background-size: auto 100%
+                                }
+                            }
+                    
+                            @media (min-width: 700px) and (orientation: landscape) {
+                                .lookbook-dim .turn-image {
+                                    display: none
+                                }
+                            }
+                
+                 .lookbook-dim {
+                    display: none;
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: #000;
+                    opacity: .9;
+                    filter: alpha(opacity=50);
+                    z-index: 1005
+                  }
+                
+                  .lookbook-dim.on {
+                    display: block
+                  }
+                
+                  #lookbook-popup {
+                    display: none;
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 74%;
+                    height: auto;
+                    padding: 0;
+                    color: #fff;
+                    z-index: 1010
+                  }
+                
+                  #lookbook-popup p.title {
+                    font-size: 11px;
+                    margin: 0 auto;
+                    width: 100%;
+                    font-weight: 400;
+                    text-align: left;
+                    padding-bottom: 5px;
+                    color: #fff
+                  }
+                
+                  #lookbook-popup .swiper-container {
+                    margin: 0 auto;
+                    width: 100%;
+                    height: 46vw;
+                  }
+                
+                  #lookbook-popup .swiper-container img {
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: contain !important;
+                  }
+                
+                  #lookbook-popup .swiper-button {
+                    width: 13vw;
+                    height: 34px;
+                    top: 50%;
+                    position: fixed;
+                    background-size: contain !important
+                  }
+                
+                  #lookbook-popup .swiper-button-prev {
+                    background: url(//image.getbarrel.com/barrel_data/images/landing/lookbook_src/m_arrow_l.png) no-repeat center;
+                    left: -13vw
+                  }
+                
+                  #lookbook-popup .swiper-button-next {
+                    background: url(//image.getbarrel.com/barrel_data/images/landing/lookbook_src/m_arrow_r.png) no-repeat center;
+                    right: -13vw
+                  }
+                
+                  #lookbook-popup .swiper-pagination {
+                    margin: 5px auto 0;
+                    width: 99%;
+                    bottom: -20px !important;
+                    right: 0px !important;
+                    left: auto !important;
+                    text-align: right !important;
+                    color: #fff
+                  }
+                
+                  #lookbook-popup .swiper-pagination span {
+                    color: #fff
+                  }
+                
+                  #lookbook-popup .close-button {
+                    position: absolute;
+                    padding: 10px;
+                    top: 0;
+                    right: -10vw;
+                    width: 15px;
+                    cursor: pointer;
+                      opacity:0;
+                  }
+                }
+</style>
+<div class="event__wrap">
+<div><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_m_sec1.jpg" /></div>
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe allow="fullscreen" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Q5tF8_wNi5I" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
+
+<div><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_m_sec2.jpg" usemap="#1" /><map id="1" name="1"><area alt="" coords="40,6854,280,6934" href="/shop/goodsList/005015000000000" shape="rect" target="1" title="" /> <area alt="" coords="40,10563,280,10642" href="/shop/goodsView/0000010603" shape="rect" target="1" title="" /></map></div>
+
+<div><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_m_sec3.jpg" usemap="#2" /><map id="2" name="2"><area alt="" coords="200,2768,439,2847" href="/shop/goodsList/001001005000000" shape="rect" target="1" title="" /> <area alt="" coords="200,3758,439,3837" href="/shop/goodsList/001002003000000" shape="rect" target="1" title="" /><area alt="" coords="200,4747,440,4827" href="/shop/goodsList/001003003000000" shape="rect" target="1" title="" /><area alt="" coords="200,5739,440,5819" href="/shop/goodsList/001004003000000" shape="rect" target="1" title="" /></map></div>
+
+<div><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_m_sec4.jpg" usemap="#3" /><map id="3" name="3"><area alt="" coords="40,1928,279,2007" href="/shop/goodsList/005016001000000" shape="rect" target="1" title="" /><area alt="" coords="200,4297,439,4376" href="/shop/goodsList/001001006000000" shape="rect" target="1" title="" /><area alt="" coords="200,5055,439,5134" href="/shop/goodsList/001002004000000" shape="rect" target="1" title="" /><area alt="" coords="200,5813,439,5892" href="/shop/goodsList/001004004000000" shape="rect" target="1" title="" /><area alt="" coords="40,7967,279,8046" href="/shop/goodsList/007000000000000" shape="rect" target="1" title="" /></map></div>
+
+<div><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_m_sec5.jpg" usemap="#4" /><map id="4" name="4"><area alt="" coords="188,4937,450,5018" href="/customer/storeInformation" shape="rect" target="1" title="" /></map></div>
+
+<div><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_m_sec6.jpg" usemap="#5" /><map id="5" name="5"><area alt="" coords="80,1690,320,1770" href="/event/eventDetail/165" shape="rect" target="1" title="" /><area alt="" coords="80,3190,320,3270" href="/event/eventDetail/167" shape="rect" target="1" title="" /></map></div>
+
+<div class="lookbook-dim">
+<div class="turn-image">&nbsp;</div>
+</div>
+
+<div id="lookbook-popup"><img class="close-button" src="//vgfuddygerym3822368.cdn.ntruss.com/landing/lookbook_src/m_btn_close.png" />
+<p class="title">&nbsp;</p>
+
+<div class="swiper-container" id="lookbook-swiper-container">&nbsp;</div>
+
+<div class="swiper-button swiper-button-prev" id="lookbook-swiper-button-prev">&nbsp;</div>
+
+<div class="swiper-button swiper-button-next" id="lookbook-swiper-button-next">&nbsp;</div>
+<script src="//image.getbarrel.com/barrel_data/js/responsive-map.js"></script>
+
+<div class="swiper-pagination" id="lookbook-swiper-pagination">&nbsp;</div>
+</div>
+<script src="https://player.vimeo.com/api/player.js" ></script><script src="//image.getbarrel.com/barrel_data/js/imageMapResizer.min.js"></script></div>
+<link href="//image.getbarrel.com/barrel_data/css/swiper.min.css" rel="stylesheet" type="text/css" /><script src="//image.getbarrel.com/barrel_data/js/swiper.min.js"></script><script>
+                $(function(){$("#contents, #container").width("100%").show();});
+            
+                var lookbookPopup = {
+                    info: {
+                        '2020ss_kids_water': {
+                            title: '2020ss_kids_water',
+                            prefix: 'http://image2.getbarrel.com/landing/2020/2020ss_kids_water/lookbook/2020ss_kids_water_lookbook',
+                            count: 36
+                        },
+                        '2020ss_swim': {
+                            title: '020ss_swim',
+                            prefix: 'http://image2.getbarrel.com/landing/2020/2020ss_swim/lookbook/2020ss_swim_lookbook',
+                            count: 44
+                        },
+
+                        '2019fw_swim_julien': {
+                            title: '2019fw_swim_julien',
+                            prefix: 'http://image2.getbarrel.com/landing/2019/2019barrelswim_julienkang/lookbook/2019barrelswim_julienkang_lookbook',
+                            count: 17
+                        },
+                        '2019_holiday': {
+                            title: '2019_holiday',
+                            prefix: '/landing/2019/2019holidaycollection/lookbook/2019_holiday_lookbook',
+                            count: 44
+                        },
+                        '2019brgirl_risabae': {
+                            title: '2019brgirl_risabae',
+                            prefix: '/landing/2019/2019brgirl_risabae/lookbook/2019brgirl_risabae_lookbook',
+                            count: 23
+                        },
+                        '2019_barrelgirl1st': {
+                            title: '2019_barrelgirl1st',
+                            prefix: 'https://m.getbarrel.com/landing/2019/2019barrelgirl_1st/lookbook/2019barrelgirls_lookbook',
+                            count: 25
+                        },
+                        '2019_barrelfgirl_fit': {
+                            title: '2019_barrelfgirl_fit',
+                            prefix: '/landing/2019/2019barrelgirl_fit/mobile/lookbook/2019_barrelfit_landing_lookbook',
+                            count: 17
+                        },
+                        '2019_julien_kang': {
+                            title: '2019_julien_kang',
+                            prefix: 'http://image2.getbarrel.com/landing/2019/2019julien_kang/lookbook/2019_julien_kang_lookbook',
+                            count: 40
+                        },
+                        '2019_barrel_kids': {
+                            title: '2019_barrel_kids',
+                            prefix: '/landing/2019/2019barrel_kids/lookbook/barrelkids_lookbook',
+                            count: 48
+                        },
+                        '2018_cosmetic_lipstick': {
+                            title: '배럴 코스메틱스 립스틱 시리즈',
+                            prefix: 'http://getbarrel.s3.amazonaws.com/cosmetics/visual/',
+                            images: [
+                                '5_d62c4a1caed145d3823329bfc93d2673.jpg',
+                                '6_5a58d9fead8e4968a7a3ae66c44756e7.jpg',
+                                '7_71b8ad1a0599425b9f77708ef926e61b.jpg',
+                                '8_b54a2c97dab842a7b4308374272366b7.jpg',
+                                '9_1edb807bda7f49439833a374cd863976.jpg',
+                                '10_984811637c604aacb7c47a029e1f89d3.jpg',
+                                '11_2082433ab8e64978b87db217fa42581f.jpg',
+                                '12_b7d9cc05373a46a9b49c5c255226cbea.jpg',
+                                '13_502c4e396b26422883c62cf1f1b4be9f.jpg',
+                                '14_56a1c9ec05ba45748cfebac3d8f01739.jpg',
+                                '15_01aebc2a5f034b9c8c50e924ca88ed4a.jpg',
+                                '16_1073772e0b704c8890cdda8cab1f019c.jpg',
+                                '17_5181cf8f840a4da79a1784213a4284e0.jpg',
+                                '18_67cbde5a8b9a49559a6fcfd21efcea7d.jpg',
+                                '19_8e9a584adace4c5fbce087b640ea08fc.jpg',
+                                '20_4765ae56449f4c42a121af64220f5753.jpg',
+                                '21_077779dedfd04d2ba2c0a353356ea2f7.jpg',
+                                '22_12629ca171c944cbb67a7f79da446868.jpg',
+                                '23_6605ff5be91a469080de4a7d2d2f1b84.jpg',
+                                '24_d56928d148d04536860051775f54537a.jpg',
+                                '25_23fd781c33d944edb45e8615b78723ce.jpg',
+                                '26_73464db346f544c8adb986dc46d098a7.jpg',
+                                '27_0f3780daedd2454f905668bcd1944252.jpg',
+                                '28_b363145f65404da3a3f5af7797822efa.jpg',
+                                '29_f7a51db1845c4db8bf0312893e89dcca.jpg',
+                                '30_c9f19757ae8a4bc2ac0670c71c6662f0.jpg',
+                                '31_acb888ce5b9d49838ad9becc9fa5ea7d.jpg',
+                                '32_6827aa3889134387b24c1df329322dab.jpg'
+                            ],
+                            badges: ['camera', 'look_book']
+                        },
+                        '2018_cosmetic_suncare': {
+                            title: '배럴 코스메틱스 선케어 시리즈',
+                            prefix: 'http://getbarrel.s3.amazonaws.com/cosmetics/visual/',
+                            images: [
+                                '1527682505_0fed9a871de34d54a8e671aea36109a4.jpg',
+                                '1527682502_0b3a9d901226494d90515b99f2d294fb.jpg',
+                                '1527682503_39d60788f6ba487db4f8e073cf308bda.jpg',
+                                '1527682504_aaa5de686fa5495bb4514f6446047f48.jpg'
+                            ],
+                            badges: ['camera', 'look_book']
+                        },
+                        '2018_barrelgirl2': {
+                            title: '2018 Barrelgirl',
+                            prefix: 'http://getbarrel.com/landing/2018/barrelgirl2/lookbook/lookbook',
+                            count: 26,
+                            badges: ['camera', 'look_book', 'barrel_girl']
+                        },
+                        '2018_barrelfit_crew': {
+                            title: '2018 Barrel Fit Crew',
+                            prefix: 'http://getbarrel.com/landing/2018/2018barrelfit_crew/lookbook/barrelfit_lookbook',
+                            count: 40,
+                            badges: ['camera', 'look_book',]
+                        },
+                        '2018_scubadiving': {
+                            title: '2018 Scuba Diving',
+                            prefix: '/landing/2018/scubadiving/lookbook/2018freediving_lookbook_',
+                            count: 34
+                        },
+                        '2018_freediving': {
+                            title: '2018 Free Diving',
+                            prefix: '/landing/2018/freediving/lookbook/2018freediving_travel_lookbook_',
+                            count: 38
+                        },
+                        '2018_barrel_kids': {
+                            title: '2018 Barrel Kids',
+                            prefix: '/landing/2018/barrelkids/lookbook/',
+                            count: 40
+                        },
+                        '2018_holiday_with_jk': {
+                            title: 'Barrel Holiday With Julien Kang',
+                            prefix: 'http://getbarrel.com/landing/2018/holidaywithjk/lookbook/',
+                            count: 37
+                        },
+                        '2018_barrelgirl': {
+                            title: '2018 Barrelgirl',
+                            prefix: 'http://getbarrel.com/landing/2018/barrelgirl/lookbook/2018_barrelgirl_lookbook_vol01_',
+                            count: 26,
+                            badges: ['camera', 'look_book', 'barrel_girl']
+                        },
+                        '2018_surf_trip': {
+                            title: '2018 Surf trip',
+                            prefix: '/landing/2018/surftrip/lookbook/2018_surf_trip_lookbook',
+                            count: 35
+                        },
+                        '2018_barrel_swim': {
+                            title: '2018 배럴 스윔',
+                            prefix: 'http://getbarrel.com/landing/2018/barrelswim/mobile/lookbook/lookbook',
+                            count: 36,
+                            hasZeroPad: true
+                        },
+                        '2017_barrel_fit': {
+                            title: '2017 배럴걸 라이프스타일 & 배럴 핏',
+                            prefix: '/landing/2017barrelfit/mobile/lookbook/2017_BARREL_FIT_',
+                            count: 45,
+                            badges: ['camera', 'look_book', 'barrel_girl']
+                        },
+                        'lifestyle2017-18': {
+                            title: '2017-18 배럴 라이프스타일 룩북',
+                            prefix: 'http://getbarrel.s3.amazonaws.com/lookbook/',
+                            images: [
+                                '94dafe69a6c3482bb44168e17ab1c4c5.jpg',
+                                '7cfaf1085ac74761a4f1106500776f85.jpg',
+                                'ba174aebb4be4a389a5ab3663a517a90.jpg',
+                                '2490d160138c42a6b76116d823d0642c.jpg',
+                                'e6a37702fa454fd1908536e837de15eb.jpg',
+                                '1db7cb7d2f754cb7947305e57ff1c1bd.jpg',
+                                '39199574d46a43afb02c938933938892.jpg',
+                                '88dbc0dd489c40749544d27642d533b1.jpg',
+                                '234e808801074af7822cbf81358647f4.jpg',
+                                '4bd0dd4914f94c8c8c32e39f20e45f36.jpg',
+                                '7ab50a28720c4b6c88fc6dd16b609ad9.jpg',
+                                '3a8a12b3ecf84987b2cfea4127504b40.jpg',
+                                'fa55f78cdd344454b238db0f4b825742.jpg',
+                                '80dccb8201da47668671b2290581671b.jpg',
+                                '7aad7f3d072747ef9cda1fcebc9ea4c1.jpg',
+                                '35854c8661d14e08b3464fa5eb3df1a3.jpg',
+                                'aecfda0119304b15a78f0446dcea6beb.jpg',
+                                '332d7f7e8d624fa5b07516bec9c565af.jpg',
+                                '9032f3b44d7a4910b3bf8cd1e4e18bf5.jpg',
+                                'e2c5583d99c44994a3dc07db82bfad84.jpg',
+                                '3a8961497a1e4b77b90c486a1a5e8d85.jpg',
+                                '98994da42b974fb2b3c77a52e61892a0.jpg',
+                                '82d3aa452dd04d98bb4475ccb8a7341c.jpg',
+                                '535a42280d7d4d93b57c180ff7760bcc.jpg',
+                                'e6c60cd978ec4d6bafe3480e17a7e9b1.jpg',
+                                '762119ec829f4752afe8557429f18f8c.jpg',
+                                'fdc8ab52034c456caa838f5bff4e7a12.jpg',
+                                '2bb74969f693460283dda991745ca9fb.jpg',
+                                'b1a0157f60f640259ceef7263b13b922.jpg',
+                                '07ea24f6ed7542c9a337ad7c468b2e3a.jpg',
+                                'c1380d72f12544cab40310e2a41354cb.jpg',
+                                'c01fc999bcf74a5799d2589a48837e2d.jpg',
+                                '94dafe69a6c3482bb44168e17ab1c4c5.jpg',
+                                'c01fc999bcf74a5799d2589a48837e2d.jpg'
+                            ]
+                        },
+                        'barrelgirl2017-2nd': {
+                            title: '2017 배럴걸 2nd LOOKBOOK "재경& NS윤지"',
+                            prefix: 'http://getbarrel.s3.amazonaws.com/lookbook/20170615_217barrelgirl_2nd_lookbook',
+                            count: 26,
+                            hasNotStartIndex: true,
+                            badges: ['camera', 'look_book', 'barrel_girl']
+                        }
+                    },
+                    lookbookId: undefined,
+                    swiper: undefined,
+                    jDim: $('.lookbook-dim').length > 0 ? $('.lookbook-dim') : $('.main_dim'),
+                    init: function () {
+            
+                        // 다른 모듈 세팅을 위해 딜레이
+                        setTimeout(function(){
+                            $('.lookbook-popup-link').click(function () {
+                                lookbookPopup.show($(this).attr('id'));
+                                return false;
+                            });
+                        }, 200);
+            
+                        $('#lookbook-popup').find('.close-button').click(function () {
+                            lookbookPopup.hide();
+                            return false;
+                        });
+            
+                        lookbookPopup.jDim.click(function () {
+                            lookbookPopup.hide();
+                            return false;
+                        });
+            
+                        var resizeLock = false;
+                        $(window).resize(function () {
+                            if (resizeLock || lookbookPopup.swiper == undefined) {
+                                return;
+                            }
+            
+                            resizeLock = true;
+                            for (var i = 1; i <= 3; i++) {
+                                setTimeout(function () {
+                                    lookbookPopup.resize();
+                                    resizeLock = false;
+                                }, 300 * i);
+                            }
+                        });
+            
+                        var lookbookId = lookbookPopup.getParameterByName('lookbook');
+                        if (lookbookId != undefined) {
+                            lookbookPopup.show(lookbookId);
+                        }
+                    },
+                    resize: function () {
+                        var jView = $('#lookbook-popup');
+                        var windowWidth = $(window).width();
+                        var windowHeight = $(window).height();
+            
+                        var ratio = 931 / 1467;
+                        var width;
+                        var height;
+                        if (windowWidth < windowHeight) {
+                            width = windowWidth * 0.74;
+                            height = width * ratio;
+            
+                            jView.width(width + 'px');
+                            jView.height((height + 25) + 'px');
+                            $('#lookbook-swiper-container').height(height - 1 + 'px');
+                        } else {
+                            height = windowHeight * 0.9;
+                            width = (height - 25) / ratio;
+            
+                            jView.width(width + 'px');
+                            jView.height(height + 'px');
+                            $('#lookbook-swiper-container').height((height - 26) + 'px');
+                        }
+                        lookbookPopup.swiper.update();
+                        lookbookPopup.swiper.slideTo(lookbookPopup.swiper.activeIndex, false);
+                        lookbookPopup.swiper.animating = false;
+                    },
+                    hide: function () {
+                        var jView = $('#lookbook-popup');
+                        lookbookPopup.jDim.removeClass('on');
+                        $('#header').css({
+                            'z-index': 1000
+                        });
+                        $('#footer').css({
+                            'z-index': 1000
+                        });
+                        jView.fadeOut();
+                    },
+                    getInfoFrom: function(id) {
+                        var jLink = $('#' + id);
+                        var title = jLink.attr('lb-title');
+                        var prefix = jLink.attr('lb-prefix');
+                        var count = jLink.attr('lb-count');
+                        if (prefix && count) {
+                            return {
+                                title: title,
+                                prefix: prefix,
+                                count: count
+                            }
+                        } else {
+                            return null;
+                        }
+                    },
+                    show: function (id) {
+                        lookbookPopup.lookbookId = id;
+            
+                        var linkInfo = lookbookPopup.getInfoFrom(id);
+                        console.log('linkInfo')
+                        console.log(linkInfo);
+                        if(linkInfo) {
+                            lookbookPopup.info[id] = linkInfo
+                        }
+            
+                        var info = lookbookPopup.info[id];
+                        if (info == undefined) {
+                            console.log('check lookbook id: ' + id);
+                            return;
+                        }
+                        var jView = $('#lookbook-popup');
+            
+                        lookbookPopup.jDim.addClass('on');
+                        $('#header').css({
+                            'z-index': 0
+                        });
+                        $('#footer').css({
+                            'z-index': 0
+                        });
+                        jView.fadeIn();
+            
+                        jView.find('.title').text(info['title']);
+            
+                        var imagePrefix = '';
+                        if (info.prefix) {
+                            imagePrefix = info.prefix;
+                        }
+            
+                        var html = '<div class="swiper-wrapper">';
+                        if (info.images) {
+                            for (var i = 0; i < info.images.length; i++) {
+                                html += '<div class="swiper-slide"><img src="' + imagePrefix + info.images[i] + '"></div>';
+                            }
+                        }
+            
+                        if (info.count && imagePrefix.length > 0) {
+                            for (var i = 1; i <= info.count; i++) {
+                                var fileIndex = i;
+                                if (fileIndex == 1 && info.hasNotStartIndex) {
+                                    fileIndex = '';
+                                }
+                                if (fileIndex < 10 && info.hasZeroPad) {
+                                    fileIndex = '0' + fileIndex;
+                                }
+                                html += '<div class="swiper-slide"><img src="' + imagePrefix + fileIndex + '.jpg"></div>';
+                            }
+                        }
+                        html += '</div>';
+                        jView.find('.swiper-container').html(html);
+            
+                        if(lookbookPopup.swiper != undefined) {
+                            lookbookPopup.swiper.destroy();
+                        }
+                        lookbookPopup.swiper = new Swiper('#lookbook-swiper-container', {
+                            loop: true,
+                            nextButton: '#lookbook-swiper-button-next',
+                            prevButton: '#lookbook-swiper-button-prev',
+                            pagination: '#lookbook-swiper-pagination',
+                            paginationType: 'fraction',
+                            paginationFractionRender: function (swiper, currentClassName, totalClassName) {
+                                return '[ <span class="' + currentClassName + '"></span>' +
+                                        ' / ' +
+                                        '<span class="' + totalClassName + '"></span> ]';
+                            }
+                        });
+            
+                        lookbookPopup.resize();
+            
+                        html = '';
+                        var badges = info.badges ? info.badges : ['camera', 'look_book'];
+                        for (var i = 0; i < badges.length; i++) {
+                            html += '<img src="http://getbarrel.com/SkinImg/lookbook_popup/' + badges[i] + '.png">';
+                        }
+                        jView.find('.badge-wrap').html(html);
+                    },
+                    getParameterByName: function (name, url) {
+                        if (!url) url = window.location.href;
+                        name = name.replace(/[\[\]]/g, "\\$&");
+                        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                                results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, " "));
+                    }
+                };
+                lookbookPopup.init();
+            </script><script src="//image.getbarrel.com/barrel_data/js/imageMapResizer.min.js" /><script>
+    <script src="https://player.vimeo.com/api/player.js">
+    window.load = function() {
+    $('map').imageMapResize();
+    }
+    window.resize= function() {
+    $('map').imageMapResize();
+    }
+    </script>
+
+    <!--<div class="br__goods-list__wrap br__goods-list__wrap&#45;&#45;normal">-->
+        <!--<div class="goods-list">-->
+            <!--<div id="devFilterEmpty" class="empty-content" style="display:none"><p>선택하신 조건에 대한 검색 결과가 없습니다. <span>다른 옵션을 선택하여 검색해 보세요.</span></p></div>-->
+            <!--<ul class="goods-list__list">-->
+                <!--<li class="goods-list__box">-->
+                    <!--<a href="/shop/goodsView/{[id]}" class="goods-list__link">-->
+                        <!--<figure class="goods-list__thumb">-->
+                            <!--<img src="{[image_src]}" alt="상품제목">-->
+                        <!--</figure>-->
+                        <!--<div class="goods-list__info">-->
+                            <!--{[#if icons]}-->
+                            <!--<div class="goods-list__badge">-->
+                                <!--{[#each icons_path]}-->
+                                <!--<span>{[{this}]}</span>-->
+                                <!--{[/each]}-->
+                            <!--</div>-->
+                            <!--{[else]}-->
+                            <!--<div class="goods-list__badge">-->
+                                <!--<span></span>-->
+                            <!--</div>-->
+                            <!--{[/if]}-->
+                            <!--<p class="br__goods__pre">{[preface]}</p>-->
+                            <!--<p class="goods-list__title">{[pname]}</p>-->
+                            <!--<span class="goods-list__color">{[add_info]}</span>-->
+                            <!--<div class="goods-list__price">-->
+                                <!--{[#if isDiscount]}-->
+                                <!--<span class="goods-list__price__cost">{[listprice]}원</span>-->
+                                <!--{[/if]}-->
+                                <!--<span class="goods-list__price__discount">{[dcprice]}원</span>-->
+                                <!--{[#if isPercent]}-->
+                                <!--<span class="goods-list__price__percent">[{[discount_rate]}%]</span>-->
+                                <!--{[/if]}-->
+                                <!--{[#if is_soldout]}-->
+                                <!--<span class="goods-list__price__state">[품절]</span>-->
+                                <!--{[/if]}-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                    <!--<label class="goods-list__wish{[#if alreadyWish]} on{[/if]}" devwishbtn="{[id]}">-->
+                        <!--{[#if alreadyWish]}-->
+                        <!--<input type="checkbox" class="goods-list__wish__btn" checked>-->
+                        <!--{[else]}-->
+                        <!--<input type="checkbox" class="goods-list__wish__btn">-->
+                        <!--{[/if]}-->
+                    <!--</label>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    
+</div>

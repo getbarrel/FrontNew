@@ -1,0 +1,193 @@
+<!-- 컨텐츠 영역 S -->
+<section class="fb-teamBARREL__detail">
+	<div class="detail-layout">
+		<div class="detail-layout__lnb">
+			<div class="detail-slide swiper-container">
+				<div class="swiper-wrapper">
+					{ @ displayContentList.imgSrc }
+						<div class="swiper-slide"><img src="{ .imgSrcUrl }" alt="" /></div>
+					{ / }
+				</div>
+				<div class="detail-slide__control">
+					<div class="swiper-control-group">
+						<div class="swiper-scrollbar"></div>
+						<div class="swiper-pagination"></div>
+						<button type="button" class="swiper-button swiper-button-prev"></button>
+						<button type="button" class="swiper-button swiper-button-next"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="detail-layout__content">
+			<div class="fb-scroll">
+				<div class="fb-teamBARREL__profile">
+					<div class="fb-teamBARREL__profile-header">
+						<div class="title-md" style="color:{displayContentList.c_preface};{? displayContentList.b_preface == 'Y' }font-weight: bold;{ / } {? displayContentList.i_preface == 'Y' }font-style:oblique;{ / } {? displayContentList.u_preface == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.preface}</div>
+						<p style="color:{displayContentList.c_comment};{? displayContentList.b_comment == 'Y' }font-weight: bold;{ / } {? displayContentList.i_comment == 'Y' }font-style:oblique;{ / } {? displayContentList.u_comment == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.player_comment}</p>
+					</div>
+					<div class="fb-teamBARREL__profile-content">
+						<div class="fb-teamBARREL__profile-group">
+							<div class="fb-teamBARREL__profile-img">
+								<img src="{displayContentList.contentImgSrc}" alt="" />
+							</div>
+							<div class="fb-teamBARREL__profile-name">
+								<div class="title-lg layout-flex" style="text-align:{? displayContentList.s_title == 'L'}left{: displayContentList.s_title == 'C'}center{: displayContentList.s_title == 'R'}right{/};color:{displayContentList.c_title};{? displayContentList.b_title == 'Y' }font-weight: bold;{ / } {? displayContentList.i_title == 'Y' }font-style:oblique;{ / } {? displayContentList.u_title == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.title}
+									<span style="color:{displayContentList.c_title_b};{? displayContentList.b_title_b == 'Y' }font-weight: bold;{ / } {? displayContentList.i_title_b == 'Y' }font-style:oblique;{ / } {? displayContentList.u_title_b == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.title_en}</span>
+								</div>
+								<p style="color:{displayContentList.c_explanation};{? displayContentList.b_explanation == 'Y' }font-weight: bold;{ / } {? displayContentList.i_explanation == 'Y' }font-style:oblique;{ / } {? displayContentList.u_explanation == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.explanation}</p>
+								<div class="fb-teamBARREL__profile-footer">
+									{ @ displayContentList.instar }
+										<a href="{ .Url }"><i class="ico ico-instagram"></i></a>
+									{ / }
+									{ @ displayContentList.youtube }
+										<a href="{ .Url }"><i class="ico ico-youtube"></i></a>
+									{ / }
+								</div>
+							</div>
+						</div>
+						<div class="fb-teamBARREL__profile-record">
+							<div class="title-sm">Profile</div>
+							<p style="color:{displayContentList.c_profile};{? displayContentList.b_profile == 'Y' }font-weight: bold;{ / } {? displayContentList.i_profile == 'Y' }font-style:oblique;{ / } {? displayContentList.u_profile == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.player_profile}</p>
+							<!--<p>· 2015 서프엑스 롱보드 앤 비기너 챔피언십 남자 롱보드 오픈부 1위</p>
+							<p>· 2015 양양 서핑 페스티벌 남자 롱보드 스페셜부 3위</p>
+							<p>· 2015 부산시장배 국제서핑대회 남자 롱보드 오픈부 2위</p>
+							<p>· 2014 제주오픈 중문비치 국제서핑대회 남자 롱보드 오픈부 2위</p>-->
+						</div>
+					</div>
+				</div>
+				{ @ displayContentGroupList }
+					<section class="detail-goods__wrap">
+						<div class="title-sm" style="text-align:{? .s_group_title == 'L'}left{: .s_group_title == 'C'}center{: s_group_title == 'R'}right{/};color:{ .c_group_title };{? .b_group_title == 'Y' }font-weight: bold;{ / } {? .i_group_title == 'Y' }font-style:oblique;{ / } {? .u_group_title == 'Y' }text-decoration-line: underline;{ / }">{ .group_title }</div>
+						<div class="gallery-bbs">
+							<ul class="gallery-bbs__box col-2">
+								{ @ .groupList }
+									<li class="gallery-bbs__list">
+										<a href="{? ..display_gubun == 'P' }/content/focusNow2/{ : }/content/focusNow4/{ / }{ ..con_ix }">
+											<div class="gallery-bbs__category">{ ..preface }</div>
+											<div class="gallery-bbs__img-box">
+												<figure class="gallery-bbs__img">
+													<img src="{ ..contentImgSrc }" alt="" />
+												</figure>
+											</div>
+											<div class="gallery-bbs__info">
+												<button type="button" class="btn-wishlist"><i class="ico ico-wishlist"></i>좋아요</button>
+												<div class="gallery-bbs__title">{ ..title }</div>
+												<div class="gallery-bbs__title-sub">{ ..explanation }</div>
+											</div>
+										</a>
+									</li>
+								{ : }
+								<!-- 등록된 게시글이 없을 경우 S -->
+									<li class="gallery-bbs__list no-data" style="display: none">
+										<p class="empty-content">등록된 이벤트가 없습니다.</p>
+									</li>
+								<!-- 등록된 게시글이 없을 경우 E -->
+								{ / }
+							</ul>
+							<ul class="fb__goods col-3">
+								{ @ displayContentGroupList.productList }
+									<li class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{ ..image_src }" alt="상품이미지" />
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+													<p class="per"><em>{ ..discount_rate }</em>%</p>
+												</div>
+												<span class="fb__goods__price">{ ..dcprice }</span>
+												<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+												<!-- 품절일 경우 노출 S -->
+												<span class="fb__goods__price__state" style="display: none">품절</span>
+												<!-- 품절일 경우 노출 S -->
+											</div>
+											<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+										</a>
+										<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" data-devWishBtn="{ ..id }">hart</a>
+									</li>
+								{ : }
+								<!--등록된 상품이 없을 시 S -->
+									<li class="gallery-bbs__list no-data" style="display: none">
+										<p class="empty-content">등록된 상품이 없습니다.</p>
+									</li>
+								<!--등록된 상품이 없을 시 E -->
+								{ / }
+							</ul>
+						</div>
+					</section>
+				{ / }
+				<!--<section class="detail-goods__wrap">
+					<div class="title-sm">Related Contents</div>
+					<div class="gallery-bbs">
+						<ul class="gallery-bbs__box col-2">
+
+							&lt;!&ndash; 등록된 게시글이 없을 경우 S &ndash;&gt;
+							<li class="gallery-bbs__list no-data" style="display: none">
+								<p class="empty-content">등록된 이벤트가 없습니다.</p>
+							</li>
+							&lt;!&ndash; 등록된 게시글이 없을 경우 E &ndash;&gt;
+
+
+							<li class="gallery-bbs__list">
+                                <a href="#;">
+                                    <div class="gallery-bbs__category">EPISODE</div>
+                                    <div class="gallery-bbs__img-box">
+                                        <figure class="gallery-bbs__img">
+                                            <img src="/assets/templet/enterprise/assets/img/board/gallery_board_sample19.png" alt="" />
+                                        </figure>
+                                    </div>
+                                    <div class="gallery-bbs__info">
+                                        <button type="button" class="btn-wishlist"><i class="ico ico-wishlist"></i>좋아요</button>
+                                        <div class="gallery-bbs__title">2017 하와이 서프 트립</div>
+                                        <div class="gallery-bbs__title-sub">배럴의 다양한 활동 및 컬렉션 쇼케이스를 만나보세요. 배럴의 다양한 활동 및 컬렉션 쇼케이스를 만나보세요.</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="gallery-bbs__list">
+                                <a href="#;">
+                                    <div class="gallery-bbs__category">EPISODE</div>
+                                    <div class="gallery-bbs__img-box">
+                                        <figure class="gallery-bbs__img">
+                                            <img src="/assets/templet/enterprise/assets/img/board/gallery_board_sample20.png" alt="" />
+                                        </figure>
+                                    </div>
+                                    <div class="gallery-bbs__info">
+                                        <button type="button" class="btn-wishlist"><i class="ico ico-wishlist"></i>좋아요</button>
+                                        <div class="gallery-bbs__title">BALI SURFING TRIP</div>
+                                        <div class="gallery-bbs__title-sub">배럴의 다양한 활동 및 컬렉션 쇼케이스를 만나보세요. 배럴의 다양한 활동 및 컬렉션 쇼케이스를 만나보세요.배럴의 다양한 활동 및 컬렉션 쇼케이스를 만나보세요. 배럴의 다양한 활동 및 컬렉션 쇼케이스를 만나보세요.배럴의 다양한 활동</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="gallery-bbs__list">
+                                <a href="#;">
+                                    <div class="gallery-bbs__category">COLLECTION</div>
+                                    <div class="gallery-bbs__img-box">
+                                        <figure class="gallery-bbs__img">
+                                            <img src="/assets/templet/enterprise/assets/img/board/gallery_board_sample21.png" alt="" />
+                                        </figure>
+                                    </div>
+                                    <div class="gallery-bbs__info">
+                                        <button type="button" class="btn-wishlist"><i class="ico ico-wishlist"></i>좋아요</button>
+                                        <div class="gallery-bbs__title">SEA TO LAND KONA BOARDSHORT</div>
+                                        <div class="gallery-bbs__title-sub">배럴의 다양한 활동 및 컬렉션 쇼케이스를 만나보세요. 배럴의 다양한 활동 및 컬렉션 쇼케이스를 만나보세요.</div>
+                                    </div>
+                                </a>
+                            </li>
+						</ul>
+					</div>
+				</section>-->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- 컨텐츠 영역 E -->

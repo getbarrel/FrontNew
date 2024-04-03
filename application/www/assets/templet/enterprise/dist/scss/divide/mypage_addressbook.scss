@@ -1,0 +1,81 @@
+.fb {
+
+  &__addressbook {
+
+    &__table {
+
+      td {
+        padding: 10px 0;
+      }
+
+    }
+
+    &__infoWarp {
+      @extend %clear;
+
+      button {
+        float: right;
+      }
+    }
+    
+    &__info {
+      float: left;
+      color: #999999;
+      font-size: 13px;
+      line-height: 1.83;
+    }
+
+
+
+    &__default-icon {
+      color: $pcolor;
+      font-size: 12px;
+      border: 1px solid $pcolor;
+      border-radius: 10px;
+      padding: 0 8px;
+      display: inline-block;
+      margin-bottom: 5px;
+
+      & + p {
+        color: #222;
+      }
+
+    }
+
+    &__address {
+      text-align: left !important;
+      padding-left: 50px !important;
+    }
+
+  }
+
+  .address-add-popup {
+    .popup-content {
+      padding-top: 0;
+    }
+  }
+
+
+
+}
+
+
+html[lang=en] {
+
+  .fb {
+    &__addressbook {
+      .td-btn-area {
+
+        button {
+          min-width: 68px;
+        }
+      }
+    }
+
+    .address-popup {
+      .popup-content {
+        height: 420px;
+      }
+    }
+  }
+}

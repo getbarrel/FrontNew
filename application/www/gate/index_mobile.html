@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<!--Read me !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    이 페이지를 그대로 사용하거나,
+    viewport meta-tag 및 아래의 내용 모두를 포함한 페이지를 새로 만드세요.
+-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <title></title>
+
+
+
+    <!-- begin of 필수 css -->
+    <link href="//cdn.devy.kr/1004/wg/css/common.css?v=200306a" rel="stylesheet" />
+    <link href="//cdn.devy.kr/1004/wg/css/theme/basic.css?v=200306b" rel="stylesheet" />
+    <link href="LoadWebGate-mobile.css?v=200306b" rel="stylesheet" />
+    <!-- end of 필수 css -->
+
+
+</head>
+<body>
+<!--begin of wrapper-->
+<div id="app">
+    <!--대기가 있을경우 표시-->
+    <div class="wrapper" style="background-color:white; background-image: url(//cdn.devy.kr/1004/img/background-mobile.jpg?v=200306a);" v-if="waitNo>0">
+        <div class="waiting-info">
+            <div class="waiting-count">
+                남은 대기자 수: <strong>{{waitNo}}명</strong>
+            </div>
+            <div class="waiting-time">
+                <strong>{{waitTime}} 남았습니다.</strong>
+            </div>
+            <div class="progress-bar">
+                <div class="gage" v-bind:style="{width: waitPercent + '%'}"></div>
+            </div>
+        </div>
+    </div>
+    <!--대기가 없을경우 표시-->
+    <div class="wrapper" style="background-image: url(//cdn.devy.kr/1004/img/background-mobile-nowait.jpg?v=200306a);"  v-else>
+        <div style="position:absolute; left:310px; top:790px;">
+            <img src="//cdn.devy.kr/1004/wg/img/indicator-1.gif" style="width:128px; height:128px;"/>
+        </div>
+    </div>
+
+</div>
+<!--end of wrapper-->
+
+
+<!-- begin of required script link -->
+<script src="//cdn.devy.kr/1004/wg/js/webgate-core.min.js?v=200306a"></script>
+<script src="//cdn.devy.kr/1004/wg/js/webgate-init.min.js?v=200306a"></script>
+<script src="//cdn.devy.kr/dist/vue-2.6.10/vue.js"></script>
+<!-- end of required script link -->
+
+<!--scirpt for this page-->
+<script src="LoadWebGate.js?v=200306c"></script>
+
+</body>
+</html>

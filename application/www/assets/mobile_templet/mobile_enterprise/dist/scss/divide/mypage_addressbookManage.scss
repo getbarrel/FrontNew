@@ -1,0 +1,59 @@
+.br {
+  .add-manage-star {
+    color:$cPoint;
+  }
+  &__add-manage {
+    &-terms {
+      margin:0;
+      .join__terms__agree {
+        font-weight:normal;
+      }
+    }
+  }
+
+  .br__login__info.add-manage {
+    .information__btn__login {
+      float:right;
+      background:#000;
+    }
+    .information__btn__join {
+      float:left;
+    }
+
+  }
+
+
+}
+
+.crema-type {
+  .br {
+    .add-manage-star {
+      color:$cPoint;
+    }
+    &__add-manage {
+      &-terms {
+        margin:0;
+        .join__terms__agree {
+          font-weight:normal;
+        }
+      }
+    }
+
+    .br__login__info.add-manage {
+      .information__btn__login {
+        float:right;
+        background:#000;
+        line-height: rem(80px);
+        font-size: rem(26px);
+      }
+      .information__btn__join {
+        float:left;
+        line-height: rem(80px);
+        font-size: rem(26px);
+      }
+
+    }
+
+
+  }
+}

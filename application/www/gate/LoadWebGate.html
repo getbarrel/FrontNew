@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html>
+<!--Read me !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    이 페이지를 그대로 사용하거나,
+    아래의 내용 모두를 포함한 페이지를 새로 만드세요.
+-->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title></title>
+
+
+    <link href="//cdn.devy.kr/dist/fonts/NanumSquare/all.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;500;700&display=swap" rel="stylesheet">
+
+    <link href="//cdn.devy.kr/barrel/LoadWebGate2.css" rel="stylesheet" />
+
+
+</head>
+<body>
+<!------------------------------------------------------------>
+<!--begin of wrapper : 대기열 UI -->
+<!------------------------------------------------------------>
+<div id="app">
+    <!--대기열 UI for Mobile-->
+    <div class="wrapper is-mobile">
+        <div class="waiting-box">
+            <div class="banner">
+                <img class="logo" src="//cdn.devy.kr/barrel/img2/logo-mobile.png" />
+                <p class="title">배럴 공식 홈페이지를 방문해주셔서 감사합니다.</p>
+                <p class="subtitle">
+                    현재 <strong>동시접속 이용자 증가</strong>로 인해<br />
+                    홈페이지 접속이 원활하지 않습니다.<br />
+                    이점 양해 부탁드립니다.
+                </p>
+            </div>
+            <div class="devider"></div>
+            <div class="waiting-info" v-if="totalWaitSeconds >=1">
+                <p class="title">서비스 접속 대기 중</p>
+                <p class="subtitle">잠시 기다리시면 접속하신 순서대로<br />
+                    자동 이동합니다.</p>
+
+                <table class="waiting-table">
+                    <tr>
+                        <td class="count-icon">
+                            <img src="//cdn.devy.kr/barrel/img2/person-icon.png" />
+                        </td>
+                        <td class="count-text"><span>남은 대기자 수 : {{waitNo}}</span></td>
+                    </tr>
+                </table>
+
+                <div class="progress-bar">
+                    <div class="gage" v-bind:style="{width: waitPercent + '%'}"></div>
+                </div>
+                <div class="waiting-time">
+                    <span>예상대기 시간 : {{waitMinutes}}분 {{waitSeconds}}초</span>
+
+                </div>
+
+                <p class="warning">※ 재접속 및 새로고침을 할 경우,<br />대기시간이 더 길어질 수 있습니다.</p>
+            </div>
+            <div class="loading" v-else>
+                <img src="//cdn.devy.kr/barrel/img2/loading.gif" />
+            </div>
+        </div>
+    </div>
+    <!--end of wrapper-->
+
+    <!--대기열 UI for PC-->
+    <div class="wrapper is-pc">
+        <div class="waiting-box">
+            <div class="banner">
+                <img class="logo" src="//cdn.devy.kr/barrel/img2/logo-pc.png" />
+                <p class="title">배럴 공식 홈페이지를 방문해주셔서 감사합니다.</p>
+                <p class="subtitle">
+                    현재 <strong>동시접속 이용자 증가</strong>로 인해 홈페이지 접속이 원활하지 않습니다.<br />
+                    이점 양해 부탁드립니다.
+                </p>
+            </div>
+            <div class="devider"></div>
+            <div class="waiting-info" v-if="totalWaitSeconds >=1">
+                <p class="title">서비스 접속 대기 중</p>
+                <p class="subtitle">잠시 기다리시면 접속하신 순서대로 자동 이동합니다.</p>
+
+                <table class="waiting-table">
+                    <tr>
+                        <td class="count-icon">
+                            <img src="//cdn.devy.kr/barrel/img2/person-icon.png" />
+                        </td>
+                        <td class="count-text"><span>남은 대기자 수 : <strong>{{waitNo}}</strong></span></td>
+                        <td class="devider">
+                            <img src="//cdn.devy.kr/barrel/img2/vertical-devider.png" /></td>
+                        <td class="time-icon">
+                            <img src="//cdn.devy.kr/barrel/img2/time-icon.png" />
+                        </td>
+                        <td class="time-text"><span>{{waitMinutes}}분 {{waitSeconds}}초 남았습니다.</span></td>
+                    </tr>
+                </table>
+
+                <div class="progress-bar">
+                    <div class="gage" v-bind:style="{width: waitPercent + '%'}"></div>
+                </div>
+
+                <p class="warning">※ 재접속 및 새로고침을 할 경우 대기시간이 더 길어질 수 있습니다.</p>
+            </div>
+            <div class="loading" v-else>
+                <img src="//cdn.devy.kr/barrel/img2/loading.gif" />
+            </div>
+        </div>
+    </div>
+    <!--end of wrapper-->
+
+</div>
+<!--end of app-->
+
+
+<!------------------------------------------------------------>
+<!-- begin of required script link -->
+<!------------------------------------------------------------>
+<script src="//cdn.devy.kr/dist/vue-2.6.10/vue.min.js"></script>
+<script src="//cdn.devy.kr/dist/utils/NoSleep-0.9.0.min.js"></script>
+<script src="//cdn.devy.kr/barrel/wg/js/WebGate-Core.js"></script>
+<script src="//cdn.devy.kr/barrel/wg/js/WebGate-Init.js"></script>
+<!-- end of required script link -->
+
+<!------------------------------------------------------------>
+<!-- begin of 대기열 호출 script-->
+<!------------------------------------------------------------>
+<script>
+    // set global variable from url
+    _gateId = $WG.getParam( "GateId" ) || "WG_GATE_ID";           // replace 방식일 경우 "WG_GATE_ID"는 치환됨
+    _nextUrl = $WG.getParam( "NextUrl" ) || window.location.href;   // replace 방식일 경우 NextUrl parameter 없음(reload해야 하므로 현재페이지의 URL)
+
+
+    /* *
+     * 페이지 Load 시 대기열을 호출하고
+     * 대기시간이 길어졌을때 휴대폰이 sleep 모드로 전환되지 않고 계속 켜져있도록 NoSleep 호출
+     * */
+    window.addEventListener( "load", function () {
+        // Sleep 모드 방지
+        var noSleep = new NoSleep();
+        noSleep.enable();
+
+        // 대기열 호출
+        startWebGate();
+    } );
+
+    // 대기열 서비스 호출
+    function startWebGate() {
+        if ( !_gateId || !_nextUrl ) {
+            alert( "Invalid parameter" );
+            return false;
+        }
+
+        $WG.startWebGate( {
+            gateId: _gateId,
+            isShowUi: false, // 내장UI 미사용
+            onSuccess: function ( data ) {
+                /* -----------------------------------------------------------------------------
+                 * 대기가 완료 시 : 호출했던 페이지(NextUrl)로 이동
+                 * -----------------------------------------------------------------------------*/
+                window.location.href = _nextUrl;
+            },
+            onWaiting: function ( data ) {
+                /* -----------------------------------------------------------------------------
+                 * 대기 중 : 대기정보 Refresh (Vue instance)
+                 * -----------------------------------------------------------------------------*/
+                vm.response = $WG.lastResponse;
+            },
+            onFail: function () {
+                /* -----------------------------------------------------------------------------
+                 * 대기열 시스템 오류 시
+                 * -----------------------------------------------------------------------------*/
+                //restartWebGate();                 // 대기열 다시 호출
+                window.location.href = _nextUrl;    // 오류 무시하고 호출 페이지(NextUrl)로 이동
+            },
+        } );
+    }
+
+    // 대기열 서비스 재호출 (오류시)
+    function restartWebGate() {
+        startWebGate();
+    }
+</script>
+
+<!------------------------------------------------------------>
+<!-- begin of 대기열UI script-->
+<!------------------------------------------------------------>
+<script>
+    var vm = new Vue( {
+        el: "#app",
+        data: {
+            response: {},
+        },
+        computed: {
+            waitNo: function () {
+                if ( this.response ) {
+                    return this.response.WaitNo;
+                } else {
+                    return 0;
+                }
+            },
+            waitMinutes: function () {
+                if ( this.response )
+                    return parseInt( this.response.UserExpectWaitSeconds / 60 );
+                else
+                    return 0;
+            },
+            totalWaitSeconds: function () {
+                if ( this.response )
+                    return this.response.UserExpectWaitSeconds;
+                else
+                    return 0;
+            },
+            waitSeconds: function () {
+                return this.response.UserExpectWaitSeconds % 60;
+            },
+            waitTime: function () {
+                if ( isNaN( this.waitMinutes ) || isNaN( this.waitSeconds ) )
+                    return "-";
+                else
+                    return ( this.waitMinutes > 0 ? this.waitMinutes + "분 " : "" ) + ( this.waitSeconds + "초" );
+            },
+            waitPercent: function () {
+                if ( this.response ) {
+                    return this.response.ProgressPercent;
+                } else {
+                    return 0;
+                }
+            }
+        }
+    } );
+</script>
+</body>
+</html>

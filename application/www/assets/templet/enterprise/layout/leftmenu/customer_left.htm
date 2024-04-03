@@ -1,0 +1,30 @@
+<section class="fb__left-basicList">
+	<div class="basicNav">
+		<div class="basicNav__header">
+			<h2 class="basicNav__title">{=trans("고객센터")}</h2>
+		</div>
+		<div class="basicNav__wrap">
+			<div class="basicNav__item noline">
+				<ul class="basicNav__list">
+					<li class="basicNav__list-item"><a href="/customer/faq" title="{=trans("자주 묻는 질문")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/faq') > 0}on{/}">{=trans("자주 묻는 질문")}</a></li>
+					<li class="basicNav__list-item"><a href="/customer/notice" title="{=trans("공지사항")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/notice') > 0}on{/}">{=trans("공지사항")}</a></li>
+					<li class="basicNav__list-item"><a href="/customer/memberBenefit" title="{=trans("회원혜택")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/memberBenefit') > 0}on{/}">{=trans("회원혜택")}</a></li>
+					<li class="basicNav__list-item"><a href="/customer/storeInformation" title=" {=trans("매장안내")}"  class="{? substr_count(_SERVER['PHP_SELF'],'/customer/storeInformation') > 0}on{/}">{=trans("매장안내")}</a></li>
+					{? langType == 'korean'}
+					<li class="basicNav__list-item"><a href="/customer/bestReview" title="{=trans("제품 후기")}"  class="{? substr_count(_SERVER['PHP_SELF'],'/customer/bestReview') > 0}on{/}">{=trans("제품 후기")}</a></li>
+					{:}
+						<!--{* 글로벌 리뷰 (삭제) *}-->
+					{/}
+					<li class="basicNav__list-item"><a href="/customer/benefitsGuide" title="{=trans("적립금 / 쿠폰 안내")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/benefitsGuide') > 0}on{/}">{=trans("적립금 / 쿠폰 안내")}</a></li>
+					<li class="basicNav__list-item"><a href="/customer/shippingGuide" title="{=trans("배송 및 취소 안내")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/shippingGuide') > 0}on{/}">{=trans("배송 안내")}</a></li>
+					<li class="basicNav__list-item"><a href="/customer/cliamGuide" title="{=trans("반품 / 환불 안내")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/cliamGuide') > 0}on{/}">{=trans("반품 / 환불 안내")}</a></li>
+					<li class="basicNav__list-item"><a href="/customer/productPrecautions" title="{=trans("제품 주의사항")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/productPrecautions') > 0}on{/}">{=trans("제품 주의사항")}</a></li>
+					<li class="basicNav__list-item"><a href="/customer/cosmeticsCaution " title="{=trans("코스메틱스 주의사항")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/cosmeticsCaution') > 0}on{/}">{=trans("코스메틱스 주의사항")}</a></li>
+					{? langType=='korean'}
+					<li class="basicNav__list-item"><a href="/customer/contactUs" title="{=trans("제휴문의")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/contactUs') > 0}on{/}">{=trans("제휴문의")}</a></li>
+					{/}
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,777 @@
+.br {
+  .term__popup {
+    display: none;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    &-title {
+      position: relative;
+      height: rem(186px);
+      padding: rem(100px 60px 60px 60px);
+      font-size: rem(26px);
+      font-weight: 600;
+      color: #222;
+      line-height: inherit;
+      .close {
+        position: absolute;
+        width: rem(36px);
+        height: rem(36px);
+        background: url('../../img/icon/m_sprite_icon.png') no-repeat rem(0 -300px);
+        background-size: rem(1000px 1000px);
+        right: rem(24px);
+        top: rem(30px);
+      }
+    }
+    .term__popup-content {
+      height: calc(100% - 9.3rem);
+      padding: rem(0 60px 60px 60px);
+      overflow-y: auto;
+      color: #000;
+      font-size: rem(22px);
+    }
+  }
+  &__join {
+    padding: 0 rem(40px);
+
+    input {
+      color: #000;
+    }
+
+    select {
+      //background-image: url(../images/common/m_select_arrow--black.png);
+    }
+
+    .join-title {
+      color: $cPoint;
+      font-size: rem(26px);
+      margin: rem(50px 0 50px 0);
+    }
+    .join__input {
+      height: rem(80px);
+      padding: rem(0 25px);
+    }
+    select {
+      height: rem(80px);
+      padding: rem(0 20px);
+      color: #000;
+    }
+    &__add {
+      margin: rem(0 0 30px 0) !important;
+      overflow: hidden;
+      @extend %clear;
+
+      &-title {
+        display: block;
+        //margin: 4px 0 0 0;
+        color: #000;
+        font-size: rem(30px);
+      }
+
+      .join-symbol {
+        float: left;
+        width: rem(100px);
+        margin: rem(4px 0 0 0);
+        color: #000;
+        font-size: rem(30px);
+      }
+      .br__find-user__label span {
+        color: #000;
+        font-size: rem(26px);
+      }
+
+      .join__day-box {
+        position: relative;
+        height: rem(80px);
+        margin: rem(20px 140px 0 0);
+
+        select {
+          background-position: right rem(20px) center;
+        }
+
+        .join__day-first {
+          float: left;
+          width: 33.3333%;
+        }
+        .join__day-second {
+          float: left;
+          width: 33.3333%;
+        }
+        .join__day-third {
+          position: absolute;
+          width: 33.3333%;
+          right: rem(-100px);
+        }
+        .join__day-txt {
+          float: left;
+          width: rem(50px);
+          line-height: rem(80px);
+          color: #000;
+          font-size: rem(26px);
+          text-align: center;
+          &:last-child {
+            position: absolute;
+            float: none;
+            width: rem(40px);
+            text-align: right;
+            right: rem(-140px);
+          }
+        }
+
+        &.add-info {
+
+          select {
+            background-position: right 0 center;
+          }
+        }
+      }
+      .join__day-info {
+        margin: rem(20px 0 0 0);
+        color: $cPoint;
+        font-size: rem(22px);
+      }
+    }
+    &__list {
+      margin: rem(30px 0 0 0);
+      &:first-of-type {
+        margin: 0;
+      }
+      dt {
+        margin: 0 0 rem(20px 0);
+        color: #000;
+        font-size: rem(30px);
+      }
+      dd {
+        overflow: hidden;
+        .join_info-txt {
+          margin: rem(20px 0 0 0);
+          color: #898989;
+          line-height: 1.4;
+          font-size: rem(22px);
+        }
+        .join__address {
+          margin: rem(20px 0 0 0);
+        }
+        .txt-error {
+          margin: rem(20px 0);
+        }
+        .txt-success {
+          margin: rem(20px 0);
+          color: $cPoint;
+        }
+
+        .information__btn {
+          margin: rem(20px 0 0 0);
+          @extend %clear;
+
+          &__login {
+            float: left;
+            width: calc(50% - 0.5rem);
+            background: $cPoint;
+            display: block;
+            padding: 0;
+            border: none;
+            color: #fff;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(80px);
+            text-align: center;
+          }
+          &__join {
+            float: right;
+            width: calc(50% - 0.5rem);
+            background: #000;
+            display: block;
+            padding: 0;
+            border: none;
+            color: #fff;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(80px);
+            text-align: center;
+          }
+        }
+        .information__txt {
+          clear: both;
+          margin: rem(20px 0 0 0);
+          font-size: rem(22px);
+          line-height: rem(56px);
+          color: #888;
+        }
+      }
+      .join__id {
+        position: relative;
+        padding: 0 rem(220px 0 0);
+        &__input {
+          width: 100%;
+        }
+        &__check {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: rem(200px);
+          height: rem(80px);
+          background: #000;
+          color: #fff;
+        }
+      }
+      .join__eamil {
+        position: relative;
+        margin: 0 rem(280px 0 0);
+        @extend %clear;
+        .email-id {
+          float: left;
+          width: rem(230px);
+        }
+        span {
+          float: left;
+          width: rem(50px);
+          line-height: rem(80px);
+          text-align: center;
+        }
+        .email-info {
+          position: absolute;
+          top: 0;
+          right: rem(-280px);
+          width: 100%;
+        }
+        + select {
+          margin: rem(20px 0 0 0);
+        }
+      }
+      .join__phone {
+        position: relative;
+        height: rem(80px);
+        margin: 0 rem(72px 0 0);
+        &-first {
+          float: left;
+          width: 33.3333%;
+          color: #000;
+          //background-position: right 0 center;
+        }
+        &-second {
+          float: left;
+          width: 33.3333%;
+        }
+        &-third {
+          position: absolute;
+          top: 0;
+          right: rem(-72px);
+          width: 33.3333%;
+        }
+        .join__phone-hyphen {
+          float: left;
+          position: relative;
+          width: rem(36px);
+          height: rem(80px);
+          &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: rem(-1px 0 0 -10px);
+            width: rem(20px);
+            height: 1px;
+            background: #ccc;
+          }
+        }
+      }
+    }
+    &__terms {
+      margin: rem(50px 0 0 0);
+      ul {
+        padding: rem(25px 0);
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        .br__find-user__label {
+          margin: rem(25px 0 0 0);
+          &:first-of-type {
+            margin: 0;
+          }
+          span {
+            color: #000;
+            font-size: rem(22px);
+          }
+          .join__all-view {
+            float: right;
+            color: #b5b5b6;
+            font-size: rem(22px);
+            text-decoration: underline;
+          }
+        }
+      }
+      .join__terms-all {
+        display: inline-block;
+        margin: rem(30px 30px 0 0);
+        input[type=checkbox], input[type=radio] {
+          margin-right: rem(10px);
+          vertical-align: middle;
+        }
+        span {
+          vertical-align: middle;
+          color: #000;
+          font-size: rem(22px);
+          font-weight: 600;
+        }
+      }
+    }
+    &__btn {
+      margin: rem(50px 0 0 0);
+      .join__btn {
+        display: block;
+        width: 100%;
+        height: rem(80px);
+        line-height: rem(80px);
+        border: none;
+        background: $cPoint;
+        text-align: center;
+        color: #fff;
+        font-size: rem(26px);
+        font-weight: 600;
+      }
+    }
+    .join__email__check {
+      margin: rem(20px 0 0 0);
+      &-btn {
+        display: block;
+        width: 100%;
+        height: rem(80px);
+        line-height: rem(80px);
+        background: #000;
+        text-align: center;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.crema-type {
+  .term__popup {
+    display: none;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    &-title {
+      position: relative;
+      height: rem(186px);
+      padding: rem(100px 60px 60px 60px);
+      font-size: rem(26px);
+      font-weight: 600;
+      color: #222;
+      line-height: inherit;
+      .close {
+        position: absolute;
+        width: rem(36px);
+        height: rem(36px);
+        background: url('../../img/icon/m_sprite_icon.png') no-repeat rem(0 -300px);
+        background-size: 50rem 50rem;
+        right: rem(24px);
+        top: rem(30px);
+      }
+    }
+    .term__popup-content {
+      height: calc(100% - 9.3rem);
+      padding: rem(0 60px 60px 60px);
+      overflow-y: auto;
+      color: #000;
+      font-size: rem(22px);
+    }
+  }
+  .br__join {
+    padding: rem(0 40px);
+
+    input[type=text] {
+      color: #000;
+      padding: rem(0 25px);
+    }
+
+    input[type=password] {
+      font-size: rem(24px);
+    }
+
+    select {
+      //background-image: url(../images/common/m_select_arrow--black.png);
+    }
+
+    .join-title {
+      color: $cPoint;
+      font-size: rem(26px);
+      margin: rem(50px 0 50px 0);
+    }
+    .join__input {
+      height: rem(80px) !important;
+      padding: rem(0 25px);
+    }
+    select {
+      height: rem(80px);
+      padding: rem(0 20px);
+      color: #000;
+    }
+    &__add {
+      margin: rem(0 0 30px 0px) !important;
+      overflow: hidden;
+      @extend %clear;
+
+      &-title {
+        display: block;
+        //margin: 4px 0 0 0;
+        color: #000;
+        font-size: rem(30px);
+      }
+
+      .join-symbol {
+        float: left;
+        width: rem(100px);
+        margin: rem(4px 0 0 0);
+        color: #000;
+        font-size: rem(30px);
+      }
+      .br__find-user__label span {
+        color: #000;
+        font-size: rem(26px);
+      }
+
+      .join__day-box {
+        position: relative;
+        height: rem(80px);
+        margin: rem(20px 140px 0 0);
+
+        select {
+          background-position: right rem(20px) center;
+        }
+
+        .join__day-first {
+          float: left;
+          width: 33.3333%;
+        }
+        .join__day-second {
+          float: left;
+          width: 33.3333%;
+        }
+        .join__day-third {
+          position: absolute;
+          width: 33.3333%;
+          right: rem(-100px);
+        }
+        .join__day-txt {
+          float: left;
+          width: rem(50px);
+          line-height: rem(80px);
+          color: #000;
+          font-size: rem(26px);
+          text-align: center;
+          &:last-child {
+            position: absolute;
+            float: none;
+            width: rem(40px);
+            text-align: right;
+            right: rem(-140px);
+          }
+        }
+
+        &.add-info {
+
+          select {
+            background-position: right 0 center;
+          }
+        }
+      }
+      .join__day-info {
+        margin: rem(20px 0 0 0);
+        color: $cPoint;
+        font-size: rem(22px);
+      }
+    }
+    &__list {
+      margin: rem(30px 0 0 0);
+      &:first-of-type {
+        margin: 0;
+      }
+      dt {
+        margin: rem(0 0 20px 0);
+        color: #000;
+        font-size: rem(30px);
+      }
+      dd {
+        overflow: hidden;
+        .join_info-txt {
+          margin: rem(20px 0 0 0);
+          color: #898989;
+          line-height: 1.4;
+          font-size: rem(22px);
+        }
+        .join__address {
+          margin: rem(20px 0 0 0);
+        }
+        .txt-error {
+          margin: rem(20px 0);
+        }
+        .txt-success {
+          margin: rem(20px 0);
+          color: $cPoint;
+          font-size: rem(22px);
+        }
+
+        .information__btn {
+          margin: rem(20px 0 0 0);
+          @extend %clear;
+
+          &__login {
+            float: left;
+            width: calc(50% - 0.5rem);
+            background: $cPoint;
+            display: block;
+            padding: 0;
+            border: none;
+            color: #fff;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(80px);
+            text-align: center;
+          }
+          &__join {
+            float: right;
+            width: calc(50% - 0.5rem);
+            background: #000;
+            display: block;
+            padding: 0;
+            border: none;
+            color: #fff;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(80px);
+            text-align: center;
+          }
+        }
+        .information__txt {
+          clear: both;
+          margin: rem(20px 0 0 0);
+          font-size: rem(22px);
+          line-height: rem(56px);
+          color: #888;
+        }
+      }
+      .join__id {
+        position: relative;
+        padding: rem(0 220px 0 0);
+        margin-bottom: rem(1px);
+        &__input {
+          width: 100%;
+        }
+        &__check {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: rem(200px);
+          height: rem(80px) !important;
+          background: #000;
+          color: #fff;
+          font-size: rem(24px);
+        }
+      }
+      .join__eamil {
+        position: relative;
+        margin: rem(0 280px 0 0);
+        @extend %clear;
+        .email-id {
+          float: left;
+          width: rem(230px);
+        }
+        span {
+          float: left;
+          width: rem(50px);
+          line-height: rem(80px);
+          text-align: center;
+        }
+        .email-info {
+          position: absolute;
+          top: 0;
+          right: rem(-280px);
+          width: 100%;
+        }
+        + select {
+          margin: rem(20px 0 0 0);
+        }
+      }
+      .join__phone {
+        position: relative;
+        height: rem(80px);
+        margin: rem(0 72px 0 0);
+        &-first {
+          float: left;
+          width: 33.3333%;
+          color: #000;
+          //background-position: right 0 center;
+        }
+        &-second {
+          float: left;
+          width: 33.3333%;
+        }
+        &-third {
+          position: absolute;
+          top: 0;
+          right: rem(-72px);
+          width: 33.3333%;
+        }
+        .join__phone-hyphen {
+          float: left;
+          position: relative;
+          width: rem(36px);
+          height: rem(70px);
+          &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: rem(-1px 0 0 -10px);
+            width: rem(20px);
+            height: 1px;
+            background: #ccc;
+          }
+        }
+      }
+    }
+    &__terms {
+      margin: rem(50px 0 0 0);
+      ul {
+        padding: rem(25px 0);
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        .br__find-user__label {
+          position:relative;
+          margin: rem(25px 0 0 0);
+          &:first-of-type {
+            margin: 0;
+          }
+          span {
+            color: #000;
+            font-size: rem(22px);
+          }
+          .join__all-view {
+            float: right;
+            height: rem(28px);
+            color: #b5b5b6;
+            font-size: rem(22px);
+            text-decoration: underline;
+          }
+        }
+      }
+      .join__terms-all {
+        display: inline-block;
+        margin: rem(30px 30px 0 0);
+        input[type=checkbox], input[type=radio] {
+          margin-right: rem(10px);
+          vertical-align: middle;
+        }
+        span {
+          vertical-align: middle;
+          color: #000;
+          font-size: rem(22px);
+          font-weight: 600;
+        }
+      }
+    }
+    &__btn {
+      margin: rem(50px 0 0 0);
+      .join__btn {
+        display: block;
+        width: 100%;
+        height: rem(80px);
+        line-height: rem(80px);
+        border: none;
+        background: $cPoint;
+        text-align: center;
+        color: #fff;
+        font-size: rem(26px);
+        font-weight: 600;
+      }
+    }
+    .join__email__check {
+      margin: rem(20px 0 0 0);
+      &-btn {
+        display: block;
+        width: 100%;
+        height: rem(80px);
+        line-height: rem(80px);
+        background: #000;
+        text-align: center;
+        color: #fff;
+        font-size: rem(24px);
+      }
+    }
+  }
+}
+
+html[lang=en] {
+  .br {
+    &__join {
+      .join {
+        &__email {
+          &__check {
+            margin-top: rem(20px);
+          }
+        }
+      }
+    }
+  }
+
+  &.crema-type {
+
+    .br {
+      &__join {
+        &__list {
+          .join__phone-first {
+            padding: 0 2rem 0 1rem;
+          }
+        }
+
+        &__terms {
+          padding: 0;
+
+          .join__terms-all input[type=checkbox] {
+            margin-right: rem(20px);
+          }
+        }
+        input[type="checkbox"] {
+          width: rem(26px);
+          height: rem(26px);
+          background-size: rem(400px 200px);
+        }
+
+        input[type="checkbox"]:checked {
+          background-position: rem(-100px 0px);
+        }
+      }
+
+      &__find-user__label input[type=checkbox]{
+        margin-right: rem(20px);
+      }
+    }
+    .br__find-user__label.agree-content {
+      label {
+        position:relative;
+        max-width:80%;
+        padding-left:rem(46px);
+        input[type="checkbox"] {
+          position:absolute;
+          top:0;
+          left:0;
+        }
+        span {
+          display:block;
+          line-height:rem(24px);
+        }
+      }
+      .join__all-view {
+        margin-top:rem(10px);
+      }
+    }
+  }
+}

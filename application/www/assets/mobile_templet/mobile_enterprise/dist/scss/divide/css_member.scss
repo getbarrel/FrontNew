@@ -1,0 +1,550 @@
+/* 모바일 레이아웃 */
+
+/* 로그인 */
+.wrap-login {
+  padding-top: rem(60px);
+  padding-bottom: rem(80px);
+}
+
+.login-find-info {
+  text-align: center;
+  margin-top: rem(30px);
+  font-size: rem(24px);
+  color: #666;
+  padding-bottom: rem(30px);
+  border-bottom: 1px solid #ccc;
+  margin-bottom: rem(40px);
+}
+
+.login-find-info a:not(:last-child):after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: rem(18px);
+  background: #ccc;
+  margin: rem(0 15px 0 20px);
+}
+
+.login-find-info a.join {
+  color: #ff6600;
+}
+
+.wrap-login .desc {
+  font-size: rem(24px);
+  text-align: center;
+}
+
+/* 비회원 주문조회 */
+.wrap-nonmem-login {
+  padding-top: rem(30px);
+  padding-bottom: rem(80px);
+}
+
+.wrap-nonmem-login .sub-desc {
+  font-size: rem(20px);
+  color: #999;
+  margin: rem(35px 0);
+}
+
+.wrap-nonmem-login .join-area {
+  border-top: 1px solid #ccc;
+  text-align: center;
+  padding-top: rem(40px);
+}
+
+.wrap-nonmem-login .join-area .title {
+  font-size: rem(24px);
+  color: #222;
+  margin-bottom: rem(20px);
+}
+
+/* 회원가입 타입 */
+h1.join-title {
+  font-size: rem(38px);
+  color: #222;
+  text-align: center;
+  line-height: rem(46px);
+  font-weight: 400;
+}
+
+h1.join-title + .desc {
+  margin-top: rem(40px);
+  text-align: center;
+  font-size: rem(23px);
+  color: #666;
+  line-height: rem(32px);
+  margin-bottom: rem(60px);
+}
+
+h1.join-title span,
+h1.join-title + .desc span {
+  color: #ff6600;
+}
+
+.wrap-join-select {
+  padding-top: rem(60px);
+  padding-bottom: rem(80px);
+}
+
+.wrap-join-select ul li {
+  width: 100%;
+  height: rem(140px);
+  border: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.wrap-join-select ul li > div {
+  position: relative;
+  padding-left: rem(127px);
+  padding-top: rem(40px);
+}
+
+.wrap-join-select ul li > div:before {
+  content: '';
+  display: inline-block;
+  width: rem(62px);
+  height: rem(62px);
+  position: absolute;
+  left: 0;
+  background: url("../../img/icon/m_sprite_icon.png");
+  background-size: rem(1000px 1000px);
+  margin-left: rem(40px);
+}
+
+.wrap-join-select ul li > div.basic:before {
+  background-position: rem(-100px 0);
+}
+
+.wrap-join-select ul li > div.company:before {
+  background-position: rem(-200px 0);
+}
+
+.wrap-join-select ul li > div p {
+  font-size: rem(28px);
+  font-weight: 600;
+  color: #222;
+  margin-bottom: rem(5px);
+}
+
+.wrap-join-select ul li > div span {
+  font-size: rem(22px);
+  color: #999;
+}
+
+.wrap-join-select ul li + li {
+  margin-top: rem(20px);
+}
+
+/* ////// 회원가입 1tep */
+
+/*.wrap-join-step{padding:0 25px; border-bottom:1px solid #e8e8e8;height:87px; overflow:hidden;}*/
+/*.wrap-join-step p{color:#ff6600; font-size:30px; float:left;line-height:87px}*/
+/*.wrap-join-step .join-step{float:right; margin-top:25px;}*/
+/*.wrap-join-step .join-step li{position:relative;float:left;margin:0 17px;font-size:20px;line-height: 34px;width:36px; height:36px; border-radius: 50%; background:#ddd;color:#fff;text-align: center;vertical-align:middle;font-family:'rb'; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}*/
+/*.wrap-join-step .join-step li + li:before{content:''; display:inline-block; position:absolute; left:-34px; top:8px; width:34px; height:17px; background:url("../../img/icon/m_sprite_icon.png") no-repeat -500px 0;}*/
+/*.wrap-join-step .join-step li.on{border:2px solid #ff6600; background:#fff; color:#ff6600;}*/
+
+/*본인인증*/
+.wrap-join-auth-basic {
+  padding-top: rem(40px);
+  padding-bottom: rem(60px);
+}
+
+.join-title-desc {
+  font-size: rem(28px);
+  text-align: center;
+  color: #222;
+  line-height: rem(36px);
+}
+
+.sub-desc {
+  font-size: rem(20px);
+  color: #999;
+}
+
+.sub-desc span {
+  color: #ff6600;
+}
+
+.wrap-box:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.wrap-box .inner-box {
+  width: calc(50% - 0.5rem);
+  border: 1px solid #ccc;
+  float: left;
+  padding: rem(60px 0);
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.wrap-box .inner-box:only-child {
+  float: none;
+  margin: 0 auto;
+}
+
+.wrap-box .inner-box + .inner-box {
+  margin-left: rem(20px);
+}
+
+.wrap-box .inner-box p {
+  font-size: rem(28px);
+  font-weight: 600;
+  color: #222;
+  margin-bottom: rem(20px);
+}
+
+.wrap-box .inner-box p:before {
+  content: '';
+  display: block;
+  background: url("../../img/icon/m_sprite_icon.png") no-repeat;
+  background-size: rem(1000px 1000px);
+  width: rem(92px);
+  height: rem(88px);
+  margin: 0 auto;
+  margin-bottom: rem(30px);
+}
+
+.wrap-box .inner-box p.auth01:before {
+  background-position: rem(-300px 0);
+}
+
+.wrap-box .inner-box p.auth02:before {
+  background-position: rem(-400px 0);
+}
+
+.wrap-box .inner-box span {
+  font-size: rem(20px);
+  color: #666;
+}
+
+/*사업자인증*/
+.wrap-join-auth-com {
+  padding-top: rem(55px);
+  padding-bottom: rem(80px);
+}
+
+/* ////// 회원가입 1tep */
+
+/* ////// 회원가입 2 step */
+.wrap-agree-sec {
+  padding: rem(25px);
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.join-agree-desc {
+  font-size: rem(22px);
+  color: #666;
+  line-height: rem(36px);
+}
+
+.wrap-btn-area.agree {
+  padding: rem(15px 25px 80px 25px);
+}
+
+/* ////// 회원가입 2 step */
+
+/* ////// 회원가입 3 step */
+
+/*일반 정보입력*/
+.wrap-join-input {
+  padding-bottom: rem(40px);
+  padding-top: rem(30px);
+}
+
+/* ////// 회원가입 3 step */
+
+/* 회원가입 4 step 완료 */
+.wrap-join-end {
+  padding-top: rem(60px);
+  padding-bottom: rem(80px);
+}
+
+.wrap-join-end h1:before {
+  content: '';
+  display: block;
+  width: rem(72px);
+  height: rem(72px);
+  background: url("../../img/icon/m_sprite_icon.png") no-repeat rem(-800px 0);
+  background-size: rem(1000px 1000px);
+  margin: rem(0 auto 20px);
+}
+
+/* /////////회원가입 4 step 완료 */
+
+/* 아이디 비밀번호 찾기 */
+.member-search {
+  position: relative;
+  margin-top: -1px;
+  z-index: 1;
+}
+
+.member-search .layout-padding {
+  padding-top: rem(40px);
+  padding-bottom: rem(80px);
+}
+
+.search-tab {
+  width: 100%;
+  height: rem(76px);
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.search-tab a {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  float: left;
+  border: 1px solid #ccc;
+  color: #999;
+  font-size: rem(26px);
+  text-align: center;
+  line-height: rem(74px);
+}
+
+.search-tab a.active {
+  border-color: #666;
+  background: #666;
+  color: #fff;
+  font-weight: 600;
+}
+
+.member-search .sub-desc {
+  letter-spacing: rem(-1.3px);
+}
+
+/* 아이디 비밀번호 찾기 결과 */
+.result-box {
+  width: 100%;
+  padding: rem(45px 0);
+  height: auto;
+  background: #f8f8f8;
+  border: 1px solid #e8e8e8;
+  text-align: center;
+  color: #222;
+  margin: rem(40px 0);
+}
+
+.result-box .tit {
+  font-size: rem(28px);
+}
+
+.result-box .tit span {
+  color: #f60;
+}
+
+.result-box .date {
+  font-size: rem(24px);
+  margin-top: rem(15px);
+}
+
+.result-box .date span {
+  font-family: 'Rb';
+}
+
+/*비밀번호 변경*/
+.join-title.password:before {
+  content: '';
+  display: block;
+  width: rem(91px);
+  height: rem(91px);
+  background: url("../../img/icon/m_sprite_icon.png") no-repeat rem(-900px 0);
+  background-size: rem(1000px 1000px);
+  margin: rem(38px auto 35px);
+}
+
+.wrap-password {
+  padding-bottom: rem(80px);
+}
+
+/*휴면계정전환*/
+.wrap-sleep-guide {
+  padding-top: rem(90px);
+  padding-bottom: rem(90px);
+}
+
+.sleep-subtit {
+  text-align: center;
+  font-size: rem(30px);
+  color: #222;
+  margin: rem(50px 0 30px);
+}
+
+/* 셀러회원 전환 가입절차  step1*/
+.pub-m-cpn-tit2 {
+  font-size: rem(24px);
+  padding: rem(30px 0 30px 25px);
+  color: #222;
+  font-weight: 500
+}
+
+.pub-m-cpn-tit3 {
+  font-size: rem(24px);
+  border-bottom: 1px solid #eee;
+  padding: rem(30px 0 30px 25px);
+  color: #222;
+  font-weight: 500
+}
+
+.pub-m-cpn-transform-step {
+  font-size: rem(22px);
+  color: #222;
+  text-align: center;
+  margin-bottom: rem(40px);
+  display: flex;
+}
+
+.pub-m-cpn-transform-step li {
+  float: left;
+  width: 25%;
+}
+
+.pub-m-cpn-transform-step li:nth-child(1):before {
+  display: none;
+}
+
+//.pub-m-cpn-transform-step li:before {
+//  position: absolute;
+//  margin: rem(50px 0 0 -25px);
+//  content: '';
+//  display: inline-block;
+//  width: rem(14px);
+//  height: rem(24px);
+//  background: url("../img/bg/vfx_m_customer_bg.png") no-repeat rem(0 -53px);
+//}
+
+//.pub-m-cpn-transform-step-bg-01 {
+//  width: rem(120px);
+//  height: rem(120px);
+//  display: inline-block;
+//  background: url("../img/bg/vfx_m_customer_bg.png") no-repeat rem(0 -105px);
+//}
+//
+//.pub-m-cpn-transform-step-bg-02 {
+//  width: rem(120px);
+//  height: rem(120px);
+//  display: inline-block;
+//  background: url("../img/bg/vfx_m_customer_bg.png") no-repeat rem(-124px -105px);
+//}
+//
+//.pub-m-cpn-transform-step-bg-03 {
+//  width: rem(120px);
+//  height: rem(120px);
+//  display: inline-block;
+//  background: url("../img/bg/vfx_m_customer_bg.png") no-repeat rem(-248px -105px);
+//}
+//
+//.pub-m-cpn-transform-step-bg-04 {
+//  width: rem(120px);
+//  height: rem(120px);
+//  display: inline-block;
+//  background: url("../img/bg/vfx_m_customer_bg.png") no-repeat rem(-372px -105px);
+//}
+
+.pub-m-cpn-transform-step-tit {
+  font-size: rem(20px);
+  color: #f60;
+  margin-top: rem(10px);
+}
+
+.pub-m-cpn-transform-step-tit em {
+  font-weight: 500
+}
+
+.pub-m-cpn-transform-step-txt {
+  margin-top: rem(12px);
+}
+
+.pub-m-chk-wrap {
+  width: 50%;
+  float: left;
+  height: rem(60px)
+}
+
+/* 셀러회원 전환 가입절차 step2 */
+.pub-m-transform-table {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  text-align: center;
+  text-align: left;
+  vertical-align: middle;
+  border-left: none;
+  border-right: none;
+}
+
+.pub-m-transform-th {
+  width: rem(160px);
+  background: #f7f7f9;
+  border-bottom: 1px solid #ddd;
+  padding: rem(28px 20px);
+  vertical-align: middle;
+  font-size: rem(22px);
+  color: #222;
+  font-weight: 500
+}
+
+.pub-m-transform-td {
+  padding: rem(28px 20px);
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 배송지관리 */
+.pub-m-shipping-mng {
+  font-size: rem(22px);
+  color: #666;
+  font-weight: 400
+}
+
+.pub-m-shipping-nm {
+  font-size: rem(28px);
+  color: #222;
+  padding: rem(30px 25px 20px)
+}
+
+.pub-m-shipping-default {
+  margin: rem(-7px 0 0 5px);
+  display: inline-block;
+  width: rem(120px);
+  height: rem(34px);
+  box-sizing: border-box;
+  border: 1px solid #f60;
+  border-radius: rem(34px);
+  color: #f60;
+  font-size: rem(20px);
+  text-align: center;
+  vertical-align: middle;
+  line-height: rem(30px);
+}
+
+.pub-m-shipping-addr {
+  padding: rem(0px 25px);
+  line-height: 1.2
+}
+
+.pub-m-shipping-contact {
+  padding: rem(20px 25px 30px);
+}
+
+.pub-m-shipping-btn-wrap {
+  height: rem(87px);
+  border-top: 1px solid #f0f0f0;
+  position: relative;
+}
+
+.pub-m-shipping-btn-set {
+  position: absolute;
+  right: rem(25px);
+  top: rem(20px);
+}

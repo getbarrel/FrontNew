@@ -1,0 +1,2 @@
+<?php /* Template_ 2.2.8 2020/08/31 15:56:56 /home/barrel-stage/application/www/assets/mobile_templet/mobile_enterprise/brand/sponsorship/sponsorship.htm 000000326 */ ?>
+<iframe src="//about.getbarrel.com/sponsorship" frameborder="0" class="cms__iframe" style="width: 100%; height: 2182px;" id="brand_info__content"></iframe>

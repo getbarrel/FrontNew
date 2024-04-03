@@ -1,0 +1,409 @@
+.br {
+
+  &__mypage {
+    padding: rem(50px 40px);
+    &__user {
+      padding: rem(45px 0);
+      .my-user {
+        @extend %clear;
+        &__name {
+          float: left;
+          color: #000;
+          font-size: rem(50px);
+          line-height: rem(60px);
+
+          &--point {
+            font-weight: 600;
+          }
+        }
+        &__info {
+          float: left;
+          margin: rem(10px 19px);
+
+          &__btn {
+            display: inline-block;
+            margin-right: rem(10px);
+            padding: rem(0 20px);
+            border: 1px solid #b5b5b6;
+            background: #fff;
+            color: #b5b5b6;
+            font-size: rem(22px);
+            line-height: rem(40px);
+            text-align: center;
+          }
+        }
+        &__setting {
+          float: right;
+
+          &__btn {
+            display: block;
+            padding: rem(15px);
+            margin-right: rem(-15px);
+            @extend %hiddenText;
+
+            &:before {
+              content: "";
+              display: block;
+              width: rem(30px);
+              height: rem(30px);
+              background: $sprite30 no-repeat rem(-1136px -1px);
+              background-size:rem($sprite30Size);
+            }
+          }
+
+        }
+        &__btn {
+          float: right;
+
+          &__wish {
+            display: block;
+            position: relative;
+            padding: rem(15px 25px);
+            &:before {
+              content: "";
+              display: block;
+              width: rem(35px);
+              height: rem(31px);
+              background: $sprite30 no-repeat rem(-855px -1px);
+              background-size:rem($sprite30Size);
+            }
+            &--hidden {
+              display: block;
+              @extend %hiddenText;
+            }
+            &--count {
+              position: absolute;
+              top: rem(12px);
+              left: 50%;
+              margin-left: rem(10px);
+              padding: rem(0 7px);
+              border-radius: rem(23px);
+              color: #fff;
+              font-size: rem(18px);
+              line-height: rem(23px);
+              background: $cPoint;
+            }
+          }
+        }
+      }
+    }
+    &__grade {
+      padding: rem(40px 0);
+      border-top: 2px solid #000;
+      @extend %clear;
+
+      .my-grade {
+        &__thumb {
+          float: left;
+          width: rem(90px);
+          height: rem(90px);
+
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &__text {
+          float: left;
+          margin-left: rem(22px);
+          &__link {
+            display: inline-block;
+            &:after {
+              content: "";
+              display: inline-block;
+              margin-left: rem(18px);
+              width: rem(12px);
+              height: rem(22px);
+              background: $sprite22 no-repeat rem(-33px -1px);
+              background-size:rem($sprite22Size);
+            }
+          }
+          &__title {
+            &--point {
+              display: inline-block;
+              color: #000;
+              font-size: rem(34px);
+              line-height: rem(44px);
+            }
+            &--sub {
+              display: inline-block;
+              margin-left: rem(20px);
+              color: #000;
+              font-size: rem(26px);
+            }
+          }
+          &__after {
+            color: $cPoint;
+            font-size: rem(22px);
+            line-height: rem(46px);
+            &--point {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+    &__benefit {
+      padding: rem(30px 0 42px);
+
+      .my-benefit {
+        &__point {
+          display: inline-block;
+          color: #343434;
+          font-size: rem(26px);
+          line-height: rem(36px);
+
+          &--point {
+            display: block;
+            color: #000;
+            font-size: rem(30px);
+            font-weight: 600;
+            line-height: rem(48px);
+          }
+        }
+        &__coupon {
+          display: inline-block;
+          margin-left: rem(95px);
+          color: #343434;
+          font-size: rem(26px);
+          line-height: rem(36px);
+
+          &--point {
+            display: block;
+            color: #000;
+            font-size: rem(30px);
+            font-weight: 600;
+            line-height: rem(48px);
+          }
+
+        }
+      }
+    }
+    &__order {
+      position: relative;
+      padding: rem(45px 0);
+      border-top: 2px solid #000;
+
+      .my-order {
+
+        &__title {
+          color: #000;
+          font-size: rem(34px);
+          line-height: rem(44px);
+        }
+        &__link {
+          position: absolute;
+          top: rem(45px);
+          right: 0;
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(44px);
+          &:after {
+            content: "";
+            display: inline-block;
+            margin-left: rem(20px);
+            width: rem(12px);
+            height: rem(22px);
+            background: $sprite22 no-repeat rem(-33px -1px);
+            background-size: rem($sprite22Size);
+            vertical-align: rem(-2px);
+          }
+        }
+        &__seq {
+          display: table;
+          width: 100%;
+          padding: rem(40px 0 0);
+          &__box {
+            display: table-cell;
+            position: relative;
+
+            &:before {
+              content: "";
+              display: inline-block;
+              width: rem(10px);
+              height: rem(16px);
+              margin-right: rem(24px);
+              background: $sprite22 no-repeat rem(-360px 0);
+              background-size: rem($sprite22Size);
+              vertical-align: middle;
+            }
+            &:first-child {
+              &:before {
+                display: none;
+              }
+            }
+          }
+          &__link {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          &__kind {
+            display: block;
+            width: rem(54px);
+            margin: 0 auto;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+            text-align: center;
+          }
+          &__count {
+            display: block;
+            padding: rem(20px 0 0);
+            color: #b5b5b6;
+            font-size: rem(38px);
+            line-height: rem(48px);
+            text-align: center;
+
+            &--point {
+              color: $cPoint;
+            }
+          }
+        }
+      }
+    }
+    &__menu {
+      padding: rem(40px 0);
+      border-top: 2px solid #000;
+      .my-menu {
+        display: flex;
+        flex-wrap: wrap;
+
+        &__box {
+          width: 50%;
+          padding: rem(10px);
+          &:nth-child(odd) {
+            padding-left: 0;
+          }
+          &:nth-child(even) {
+            padding-right: 0;
+          }
+        }
+        &__link {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          padding: rem(31px 10px);
+          border: 1px solid #000;
+          color: #000;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(36px);
+          text-align: center;
+          word-break: break-word;
+        }
+      }
+
+    }
+    &__recent {
+      position: relative;
+      padding: rem(45px 0);
+      border-top: 2px solid #000;
+      .my-recent {
+        &__title {
+          color: #000;
+          font-size: rem(34px);
+          line-height: rem(44px);
+        }
+        &__btn {
+          position: absolute;
+          top: rem(45px);
+          right: 0;
+          padding: 0;
+          background: #fff;
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(44px);
+          &:after {
+            content: "";
+            display: inline-block;
+            margin-left: rem(20px);
+            width: rem(12px);
+            height: rem(22px);
+            background: $sprite22 no-repeat rem(-33px -1px);
+            background-size:rem($sprite22Size);
+            vertical-align: rem(-2px);
+          }
+        }
+        &__list {
+          overflow: hidden;
+          width: calc(100% + 4rem); //80px
+          height: rem(333px);
+          margin-left: rem(-40px);
+
+          &__wrap {
+            overflow: {
+              x: auto;
+              y: hidden;
+            }
+            padding: rem(50px 40px 20px 40px);
+            white-space: nowrap;
+            font-size: 0;
+          }
+          &__box {
+            display: inline-block;
+            width: rem(200px);
+            margin-left: rem(32px);
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+          &__link {
+            display: block;
+          }
+          &__thumb {
+            width: 100%;
+            height: rem(283px);
+
+            img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+        .empty-content {
+          padding: rem(100px 0);
+          font-size: rem(25px);
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+html[lang=en] {
+  .br {
+    &__mypage {
+      &__user {
+        .my-user {
+          &__info {
+            clear:both;
+            margin-left:0;
+          }
+        }
+      }
+      &__order {
+        .my-order {
+          &__seq {
+            &__kind {
+              width:rem(90px);
+            }
+          }
+        }
+      }
+      &__menu {
+        .my-menu {
+          &__link {
+            height: rem(136px);
+            font-size: rem(24px);
+          }
+        }
+      }
+    }
+  }
+}

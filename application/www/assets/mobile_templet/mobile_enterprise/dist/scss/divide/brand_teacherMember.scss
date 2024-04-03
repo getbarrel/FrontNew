@@ -1,0 +1,127 @@
+.br {
+
+  .fb__bbs__header {
+    position: relative;
+
+    .btn-s {
+      position: absolute;
+      bottom: rem(10px);
+      right: rem(10px);
+    }
+  }
+
+  &__teacher {
+    .apply {
+      &__label {
+        display: block;
+        padding-bottom: rem(10px);
+        color: #000;
+        font-size: rem(24px);
+        font-weight: 500;
+        line-height: rem(34px);
+      }
+
+      &__secret {
+        padding: rem(10px 0);
+        &__desc {
+          padding: rem(20px 10px 10px 10px);
+          text-indent: rem(-10px);
+          color: #666;
+          font-size: rem(24px);
+          line-height: rem(34px);
+        }
+      }
+
+      &__btn {
+        padding-top: rem(20px);
+        @extend %clear;
+        button {
+          float: left;
+          width: calc(50% - 0.5rem);
+          height: rem(80px);
+        }
+
+        &__cancel {
+          margin-right: rem(20px);
+        }
+        &__submit {
+            background: #000;
+          color: #fff;
+
+        }
+      }
+    }
+
+  }
+
+  &__teacher-member {
+    figure {
+      img {
+        width:100%;
+      }
+    }
+  }
+  &__teacher-member__tit {
+    padding-bottom: rem(20px) !important;
+    margin-bottom:0 !important;
+  }
+
+  &__teacher-member__desc {
+    font-size: rem(30px);
+    line-height:rem(40px);
+    padding: rem(0 20px 100px);
+    word-break: keep-all;
+    text-align:center;
+  }
+
+  .cs__noti__wrap {
+
+    .qna-detail__answer {
+      position: relative;
+      padding: rem(48px 74px);
+      background: #f8f8f8;
+      border-bottom: 1px solid #dddddd;
+
+      header {
+        @extend %clear;
+        margin-bottom: rem(20px);
+
+        h4 {
+          float: left;
+          position: relative;
+          color: #999999;
+          font-size: rem(24px);
+
+          &:after {
+            display: block;
+            position: absolute;
+            top: rem(-10px);
+            left: rem(-48px);
+            width: rem(40px);
+            height: rem(40px);
+            color: #fff;
+            font-size: rem(24px);
+            background: $cPoint;
+            border-radius: rem(25px);
+            text-align: center;
+            line-height: rem(40px);
+            content: "A";
+          }
+        }
+
+        span {
+          float: right;
+          color: #999999;
+          font-size: rem(20px);
+        }
+      }
+    }
+
+    .qna-detail__answer__desc {
+      color: #666;
+      font-size: rem(24px);
+    }
+  }
+
+
+}

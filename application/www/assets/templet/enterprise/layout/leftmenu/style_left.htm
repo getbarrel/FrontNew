@@ -1,0 +1,26 @@
+<section class="fb__left-brandList StyleCuration">
+	<div class="brandNav">
+		<div class="brandNav__header">
+			{ @ displayContentClassStyleList }
+				{ ? .index_ == 0 }
+					<h2 class="brandNav__title" style="color:{.c_preface};{? .b_preface == 'Y' }font-weight: bold;{ / } {? .i_preface == 'Y' }font-style:oblique;{ / } {? .u_preface == 'Y' }text-decoration-line: underline;{ / }">{ .cname }</h2>
+				{ / }
+			{ / }
+		</div>
+		<div class="brandNav__wrap">
+			<ul class="brandNav__list">
+				<li class="brandNav__main-menu { ? con_ix == '001002' } active{ / }">
+					<a href="/content/styleList/" class="brandNav__main-link">전체</a>
+				</li>
+				{ @ displayContentClassStyleList }
+					{ ? .index_ == 0 }
+					{ : }
+						<li class="brandNav__sub-menu{ ? con_ix == .cid } active{ / }"><!-- color:{.c_preface}; -->
+							<a href="/content/styleList/{.cid}" class="brandNav__sub-link" style="{? .b_preface == 'Y' }font-weight: bold;{ / } {? .i_preface == 'Y' }font-style:oblique;{ / } {? .u_preface == 'Y' }text-decoration-line: underline;{ / }">{ .cname }</a>
+						</li>
+					{ / }
+				{ / }
+			</ul>
+		</div>
+	</div>
+</section>

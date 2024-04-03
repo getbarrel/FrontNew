@@ -1,0 +1,75 @@
+.br {
+  .info__txt {
+    counter-reset: section;
+    margin:rem(0 0 60px 0);
+    padding:rem(40px 25px);
+    border:1px solid #ccc;
+    li {
+      margin:rem(40px 0 0 0);
+      &:first-child {
+        margin:0;
+      }
+      .info__txt-number {
+        position:relative;
+        padding:rem(0 0 0 22px);
+        color:#000;
+        font-size:rem(22px);
+        line-height:1.4;
+        letter-spacing:rem(-0.8px);
+        &:before {
+          counter-increment:section;
+          content:counter(section)".";
+          position:absolute;
+          top:0;
+          left:0;
+        }
+      }
+      .info__txt-bullet {
+        position:relative;
+        margin:rem(20px 0 0 0);
+        padding:rem(0 0 0 18px);
+        color:#666;
+        font-size:rem(20px);
+        line-height:1.4;
+        letter-spacing:rem(-0.8px);
+        &:before {
+          content:'';
+          position:absolute;
+          top:rem(11px);
+          left:rem(6px);
+          width:rem(4px);
+          height:rem(4px);
+          background:$cPoint;
+          border-radius:rem(4px);
+        }
+      }
+    }
+  }
+  &__secede {
+    &__info {
+      padding:rem(40px 20px);
+      text-align:center;
+      line-height:1.4;
+      font-size:rem(24px);
+      background:#efefef;
+      border:1px solid #ccc;
+      margin:rem(0 0 40px 0);
+    }
+    &-area {
+      width:100%;
+      height:rem(471px);
+      color:#000;
+    }
+    .secede__btn {
+      overflow:hidden;
+      .information__btn__login {
+        background:#fff;
+        border:1px solid #000;
+        color:#000;
+      }
+    }
+
+
+  }
+
+}

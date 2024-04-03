@@ -1,0 +1,26 @@
+<section class="fb__left-brandList event">
+	<div class="brandNav">
+		<div class="brandNav__header">
+			<h2 class="brandNav__title">이벤트</h2>
+		</div>
+		<div class="brandNav__wrap">
+			<ul class="brandNav__list">
+				<li class="brandNav__main-menu {? state == 'I' || state == ''}active{/}">
+					<!-- 현재 페이지 메뉴일 경우 class = active 추가 -->
+					<a href="/event/eventList/I" class="brandNav__main-link">진행 중 이벤트</a>
+
+					<ul class="brandNav__sub-list active">
+						<!-- 현재 페이지 메뉴일 경우 class = active 추가 -->
+						<li class="brandNav__sub-menu {? state == 'E'}active{/}">
+							<!-- 현재 페이지 메뉴일 경우 class = active 추가 -->
+							<a href="/event/eventList/E" class="brandNav__sub-link">종료 이벤트</a>
+						</li>
+						<li class="brandNav__sub-menu {? state == 'A'}active{/}">
+							<a href="/event/eventList/A" class="brandNav__sub-link">전체</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>

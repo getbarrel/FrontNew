@@ -1,0 +1,83 @@
+	<script>
+		//레이아웃 인클로드 js (퍼블리싱)
+		$(document).ready(function () {
+
+			/* 아코디언 형식의 리스트 js */
+			$(".board-faq__link").on("click", function () {
+				var faqiem = $(this).parents(".board-faq__item");
+				faqiem.toggleClass("active");
+				if ($(this).parents(".board-faq__item").hasClass("active")) {
+					$(".board-faq__item").removeClass("active");
+					$(".board-faq__A").stop().slideUp();
+					faqiem.addClass("active");
+					faqiem.find(".board-faq__A").stop().slideDown();
+				} else {
+					faqiem.removeClass("active");
+					faqiem.find(".board-faq__A").stop().slideUp();
+				}
+			});
+		});
+	</script>
+<!-- 컨텐츠 S -->
+<section class="wrap-board fb__bbs br__customer-notice br__customer-faq board-faq">
+	<div class="board-faq__wrap">
+		<form id="devFaqForm">
+		<input type="hidden" name="page" value="1" id="devPage"/>
+		<input type="hidden" name="max" value="10" id="devMax"/>
+		<input type="hidden" name="bType" value="{bType}" id="bType"/>
+		<input type="hidden" name="sText" value="{=sText}" id="sText"/>
+		<input type="hidden" name="divIx" value="{=divIx}" id="divIx"/>
+		<input type="hidden" name="bbsIx" value="{=bbsIx}" id="bbsIx"/>
+		<div class="board-faq__header">
+			<div class="title-md">{=trans('자주 묻는 질문')}</div>
+		</div>
+		<div class="board-tab__wrap">
+			<nav class="fb-tab__nav">
+				<ul>
+					<li id="devDivIx2" devDivIx2="" class="active">
+						<a href="javascript:void(0)"  devDivIx="" data-divix="">{=trans('전체')}</a>
+					</li>
+					{@ bbs_divs}
+					<li id="devDivIx2{.div_ix}" devDivIx2="{.div_ix}" >
+					{=divIx}
+						<a href="javascript:void(0)"  devDivIx="{.div_ix}" data-divix="{.div_ix}">{.div_name}</a>
+					</li>
+					{/}
+				</ul>
+			</nav>
+		</div>
+		</form>
+		<div id="devFaqContent" class="board-faq__list">
+			<dl id="devFaqList" class="board-faq__item">
+				<!-- 펼칠 경우 dl class = active 추가 -->
+				<dt class="board-faq__Q">
+					<a href="#;" class="board-faq__link">
+						<div class="title-sm">
+							<span>{[div_name]}</span>
+							{[bbs_q]}
+						</div>
+						<i class="ico ico-arrow-bottom"></i>
+					</a>
+				</dt>
+				<dd class="board-faq__A">
+					<div class="answer">{[{\bbs_a}]}</div>
+				</dd>
+			</dl>
+
+			<div id="devFaqLoading" class="empty-content">
+				<div class="wrap-loading">
+					<div class="loading"></div>
+				</div>
+			</div>
+
+			<div id="devFaqEmpty" class="empty-content">
+				<p id="emptyMsg"><em></em></p>
+			</div>
+		</div>
+
+		<!-- 페이지네이션 S -->
+		<div id="devPageWrap"></div>
+		<!-- 페이지네이션 E -->
+	</div>
+</section>
+<!-- 컨텐츠 E -->

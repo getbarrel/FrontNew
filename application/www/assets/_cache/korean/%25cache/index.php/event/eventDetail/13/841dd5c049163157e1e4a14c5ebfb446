@@ -1,0 +1,95 @@
+5579-contents/mobile_enterprise//event/event_detail/event_detail.htm*<div class="wrap_event_detail">
+    <form id="devEventDetailForm">
+        <input type="hidden" name="event_ix" value="13"/>
+        <input type="hidden" name="orderBy" value="ec_ix"/>
+        <input type="hidden" name="orderByType" value="desc"/>
+        <input type="hidden" name="page" value="1" id="devPage"/>
+        <input type="hidden" name="max" value="20" id="devMax"/>
+    </form>
+    <style type="text/css">.event__wrap {position: relative;}
+.event__wrap img {max-width: 100%;}
+</style>
+<div class="event__wrap">
+<div><img src="http://image2.getbarrel.com/landing/sos/mobile/landing_sos_m_sec01.jpg" usemap="#map1" /></div>
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe allow="fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/287022689?title=0&amp;byline=0&amp;portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
+
+<div><img src="http://image2.getbarrel.com/landing/sos/mobile/landing_sos_m_sec02.jpg" usemap="#map2" /></div>
+
+<div><img src="http://image2.getbarrel.com/landing/sos/mobile/landing_sos_m_sec03_1.jpg" usemap="#map3" /><map class="responsive-map" id="map3" name="map3"><area alt="" coords="134,586,504,666" href="http://lifeswim.or.kr/" shape="rect" target="_blank" title="" /><!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map></div>
+
+<div><img src="http://image2.getbarrel.com/landing/sos/mobile/landing_sos_m_sec04.jpg" usemap="#map4" /></div>
+
+<div><img src="http://image2.getbarrel.com/landing/sos/mobile/landing_sos_m_sec05_10th_6.jpg" usemap="#map5" /><map class="responsive-map" id="map5" name="map5"><area alt="" coords="134,2824,504,2902" href="https://www.instagram.com/barrel.swim/" shape="rect" target="_blank" title="" /></map></div>
+
+<div><img src="http://image2.getbarrel.com/landing/sos/mobile/landing_sos_m_sec06.jpg" usemap="#map6" /></div>
+</div>
+<script src="//image.getbarrel.com/barrel_data/js/imageMapResizer.min.js" /><script>
+<script src="https://player.vimeo.com/api/player.js">
+window.load = function() {
+$('map').imageMapResize();
+}
+window.resize= function() {
+$('map').imageMapResize();
+}
+</script>
+
+    <!--<div class="br__goods-list__wrap br__goods-list__wrap&#45;&#45;normal">-->
+        <!--<div class="goods-list">-->
+            <!--<div id="devFilterEmpty" class="empty-content" style="display:none"><p>선택하신 조건에 대한 검색 결과가 없습니다. <span>다른 옵션을 선택하여 검색해 보세요.</span></p></div>-->
+            <!--<ul class="goods-list__list">-->
+                <!--<li class="goods-list__box">-->
+                    <!--<a href="/shop/goodsView/{[id]}" class="goods-list__link">-->
+                        <!--<figure class="goods-list__thumb">-->
+                            <!--<img src="{[image_src]}" alt="상품제목">-->
+                        <!--</figure>-->
+                        <!--<div class="goods-list__info">-->
+                            <!--{[#if icons]}-->
+                            <!--<div class="goods-list__badge">-->
+                                <!--{[#each icons_path]}-->
+                                <!--<span>{[{this}]}</span>-->
+                                <!--{[/each]}-->
+                            <!--</div>-->
+                            <!--{[else]}-->
+                            <!--<div class="goods-list__badge">-->
+                                <!--<span></span>-->
+                            <!--</div>-->
+                            <!--{[/if]}-->
+                            <!--<p class="br__goods__pre">{[preface]}</p>-->
+                            <!--<p class="goods-list__title">{[pname]}</p>-->
+                            <!--<span class="goods-list__color">{[add_info]}</span>-->
+                            <!--<div class="goods-list__price">-->
+                                <!--{[#if isDiscount]}-->
+                                <!--<span class="goods-list__price__cost">{[listprice]}원</span>-->
+                                <!--{[/if]}-->
+                                <!--<span class="goods-list__price__discount">{[dcprice]}원</span>-->
+                                <!--{[#if isPercent]}-->
+                                <!--<span class="goods-list__price__percent">[{[discount_rate]}%]</span>-->
+                                <!--{[/if]}-->
+                                <!--{[#if is_soldout]}-->
+                                <!--<span class="goods-list__price__state">[품절]</span>-->
+                                <!--{[/if]}-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                    <!--<label class="goods-list__wish{[#if alreadyWish]} on{[/if]}" devwishbtn="{[id]}">-->
+                        <!--{[#if alreadyWish]}-->
+                        <!--<input type="checkbox" class="goods-list__wish__btn" checked>-->
+                        <!--{[else]}-->
+                        <!--<input type="checkbox" class="goods-list__wish__btn">-->
+                        <!--{[/if]}-->
+                    <!--</label>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="main-cate ">
+        <div class="main-cate__goods-list br__goods-list__wrap br__goods-list__wrap--normal">
+            <div class="goods-list">
+                <ul class="goods-list__list devProductTab" id="productTab00000013">
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</div>

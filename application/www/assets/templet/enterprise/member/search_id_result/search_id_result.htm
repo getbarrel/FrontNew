@@ -1,0 +1,121 @@
+<!-- 컨텐츠 영역 S -->
+<section class="fb__member-search fb__search-result">
+	<div class="search">
+		<div class="search__wrap">
+			<div class="search__header">
+				<h2 class="search__title title-md">{=trans('아이디 찾기')}</h2>
+				{=trans('<p>회원가입 시 등록한 정보로 아이디 찾기를 하실 수 있습니다.</p>')}
+			</div>
+			{? userData != "" && count(userData) > 0 }
+			<div class="search__content search__content-result">
+				<div class="search__content-item">
+					<div class="title-sm">{=trans('가입 되어 있는 ID')}</div>
+					{? count(userData) == 1}
+						{@ userData}
+						<div class="search__content__id">{.id}</div>
+						{/}
+					{:}
+						{@ userData}
+						{? userData.index_ == 0}
+						{/}
+						<div class="search__content__id">{.id}</div>
+						{/}
+					{/}
+				</div>
+			</div>
+			{:}
+			<div class="search__content search__content-result">
+				<div class="search__content-item">
+					<div class="title-sm">
+						<strong>{=trans('가입된 아이디가 없습니다.')}</strong>
+						<p>{=trans('지금 회원가입을 하시면, 배럴의 다양한 혜택을 받으실 수 있습니다.')}</p>					
+					</div>
+				</div>
+			</div>
+            {/}
+			<div class="search__footer">
+				<a href="/member/login?url=" class="btn-lg btn-dark-line" id="">{=trans('로그인')}</a>
+				<a href="/member/searchPw" class="btn-lg btn-dark-line" id="">비밀번호 찾기</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- 컨텐츠 영역 E -->
+
+<!--
+<section class="fb__member-search fb__search-result">
+    <div class="search">
+        <header class="search__header">
+            <h2 class="search__title">{=trans('아이디/비밀번호 찾기')}</h2>
+        </header>
+        <nav class="fb__tab">
+            <a href="/member/searchId" class="fb__tab-link fb__tab-link--active">
+                {=trans('아이디')}
+            </a>
+            <a href="/member/searchPw" class="fb__tab-link">
+                {=trans('비밀번호')}
+            </a>
+        </nav>
+        <section class="search__wrap">
+
+            {? userData != "" && count(userData) > 0 }
+            <!-- 아이디 찾기 성공한 경우 -- 
+                {? count(userData) == 1}
+                    {@ userData}
+                    <div id="search__id" class="search__content search__content--show">
+                        <p>{=trans('고객님의 아이디 찾기가 성공적으로 이루어졌습니다.')}</p>
+                        {? langType == 'korean'}
+                        <strong class="search__content__title">{=trans('{.name} 회원님의 아이디는<br><span class="search__content__id">{.id}</span> 입니다.')}</strong>
+                        {:}
+                        <strong class="search__content__title">your ID is<br><span class="search__content__id">{.id}</span></strong>
+                        {/}
+                        <p>{=trans('항상 고객님의 즐겁고 편안한 쇼핑을 위해 노력하는 배럴이 되도록 하겠습니다.')}</p>
+                        <div class="search__other-link">
+                            <a href="/">{=trans('확인')}</a>
+                        </div>
+                    </div>
+                    {/}
+                {:}
+                <div id="search__id" class="search__content search__content--show">
+                    <p>{=trans('고객님의 아이디 찾기가 성공적으로 이루어졌습니다.')}</p>
+                    <p>
+                        {@ userData}
+                        {? userData.index_ == 0}
+                        {? langType == 'korean'}
+                        <strong class="search__content__title">{=trans('{.name} 회원님의 아이디는')}</strong>
+                        {:}
+                        <strong class="search__content__title">your ID is</strong>
+                        {/}
+                        {/}
+                        <br><strong class="search__content__id">{.id}</strong> <!-- 다중 아이디 p 태그 수정 요망  -- 
+                        {/}
+                        {? langType == 'korean'}
+                        <p class="search__content__title">{=trans('입니다.')}</p>
+                        {/}
+                    </p>
+
+                    <p>{= trans('항상 고객님의 즐겁고 편안한 쇼핑을 위해 노력하는 배럴이 되도록 하겠습니다.')}</p>
+                    <div class="search__other-link">
+                        <a href="/">{=trans('확인')}</a>
+                    </div>
+                </div>
+                {/}
+            {:}
+
+            <!-- 아이디 없는 경우 결과페이지 불필요, 출력조건 없음 dev -- 
+            <div id="search__password" class="search__content search__content--show">
+                <div class="search__inner search__inner--show fb__join-input__form">
+                    <strong>{=trans('가입된 아이디가 없습니다.')}</strong>
+                    <p>{=trans('지금 회원가입을 하시면, 배럴의 다양한 혜택을 받으실 수 있습니다.')}</p>
+                    <p class="search__other-link">
+                        <a href="/" class="button-black">{=trans('홈으로')}</a>
+                        <a href="/member/joinInput">{=trans('회원가입')}</a>
+                    </p>
+                </div>
+            </div>
+            <!-- 불필요 -- 
+            {/}
+        </section>
+    </div>
+</section>
+-->

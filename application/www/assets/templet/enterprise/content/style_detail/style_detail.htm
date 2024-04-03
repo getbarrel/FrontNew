@@ -1,0 +1,83 @@
+<!-- 컨텐츠 영역 S -->
+<section class="fb-StyleCuration__detail">
+	<div class="detail-layout">
+		<div class="detail-layout__lnb">
+			<div class="detail-slide swiper-container">
+				<div class="swiper-wrapper">
+					{ @ displayContentList.imgSrc }
+						<div class="swiper-slide"><img src="{ .imgSrcUrl }" alt="" /></div>
+					{ / }
+					<!--<div class="swiper-slide"><img src="/assets/templet/enterprise/assets/img/StyleCuration_slide_img.png" alt="" /></div>
+					<div class="swiper-slide"><img src="/assets/templet/enterprise/assets/img/StyleCuration_slide_img.png" alt="" /></div>
+					<div class="swiper-slide"><img src="/assets/templet/enterprise/assets/img/StyleCuration_slide_img.png" alt="" /></div>-->
+				</div>
+				<div class="detail-slide__control">
+					<div class="swiper-control-group">
+						<div class="swiper-scrollbar"></div>
+						<div class="swiper-pagination"></div>
+						<button type="button" class="swiper-button swiper-button-prev"></button>
+						<button type="button" class="swiper-button swiper-button-next"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="detail-layout__content" style="padding-right:10px;">
+			<div class="fb-scroll">
+				{ @ displayContentGroupList }
+				<div class="detail-layout__header">
+					{ ? .index_ == 0 }
+						<span style="color:{displayContentList.c_preface};{? displayContentList.b_preface == 'Y' }font-weight: bold;{ / } {? displayContentList.i_preface == 'Y' }font-style:oblique;{ / } {? displayContentList.u_preface == 'Y' }text-decoration-line: underline;{ / }">{ displayContentList.preface }</span>
+					{ / }
+					<div class="title-md" style="text-align:{? .s_group_title == 'L'}left{: .s_group_title == 'C'}center{: s_group_title == 'R'}right{/};color:{ .c_group_title };{? .b_group_title == 'Y' }font-weight: bold;{ / } {? .i_group_title == 'Y' }font-style:oblique;{ / } {? .u_group_title == 'Y' }text-decoration-line: underline;{ / }">
+						{ .group_title }
+					</div>
+					<section class="detail-goods__wrap">
+						<ul class="fb__goods col-3">
+							{ @ displayContentGroupList.productList }
+								{ ? displayContentGroupList.productList }
+									<li class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src }" onmouseover="this.src='{ ..image_src2 }'" onmouseout="this.src='{ ..image_src }'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+													<p class="per"><em>{ ..discount_rate }</em>%</p>
+												</div>
+												<span class="fb__goods__price">{ ..dcprice }</span>
+												<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+												<!-- 품절일 경우 노출 S -->
+												<span class="fb__goods__price__state" style="display: none">품절</span>
+												<!-- 품절일 경우 노출 S -->
+											</div>
+											<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+										</a>
+										<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" data-devWishBtn="{ ..id }">hart</a>
+									</li>
+								{ : }
+								<!--등록된 상품이 없을 시 S -->
+									<li class="gallery-bbs__list no-data" style="display: none">
+										<p class="empty-content">등록된 상품이 없습니다.</p>
+									</li>
+								<!--등록된 상품이 없을 시 E -->
+								{ / }
+							{ / }
+						</ul>
+					</section>
+				</div>
+				{ / }
+			</div>
+		</div>
+	</div>
+</section>
+<!-- 컨텐츠 영역 E -->

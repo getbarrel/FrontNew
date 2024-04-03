@@ -1,0 +1,52 @@
+<!-- 컨텐츠 S -->
+<section class="fb__bbs__detail">
+	<input type='hidden' name='isAjaxList' id='isAjaxList' value ='N' />
+	<div class="fb__bbs__detail__title">
+		<div class="title-md">{=trans('공지사항')}</div>
+	</div>
+	<section class="fb__bbs__detail-content">
+		<div class="detail">
+			<div class="detail__header">
+				<div class="detail__header-group">
+					<div class="detail__header-sub">
+						<span class="detail__category category">[배송]</span>
+						<span class="detail__date date">{reg_date}</span>
+					</div>
+				</div>
+				<div class="detail__header-group">
+					<h3 class="detail__title">{bbs_subject}</h3>
+				</div>
+			</div>
+			<div class="content-area detail__content">
+                {=nl2br(bbs_contents)}
+                {? bbs_file_1 != ""}<div class="file"><a href="{download_path}/{bbs_file_1}" target="_blank">{bbs_file_1}</a></div>{/}
+                {? bbs_file_2 != ""}<div class="file"><a href="{download_path}/{bbs_file_2}" target="_blank">{bbs_file_2}</a></div>{/}
+                {? bbs_file_3 != ""}<div class="file"><a href="{download_path}/{bbs_file_3}" target="_blank">{bbs_file_3}</a></div>{/}
+			</div>
+			<div class="detail__footer">
+				<nav class="detail__nav">
+					<ul>
+						<li class="detail__nav-prev">
+							<span> {=trans('이전글')} </span>
+							<!--{@ before_record}-->
+							<a href="{.link}">{=trans('[공지]')}{.bbs_subject}</a>
+							<!--{:}-->
+							{=trans('이전글이 존재하지 않습니다.')}
+							<!--{/}-->
+						</li>
+						<li class="detail__nav-next">
+							<span> {=trans('다음글')} </span>
+							<!--{@ next_record}-->
+							<a href="{.link}">{=trans('[공지]{.bbs_subject}')}</a>
+							<!--{:}-->
+							{=trans('다음글이 존재하지 않습니다.')}
+							<!--{/}-->
+						</li>
+					</ul>
+				</nav>
+				<button type="button" class="btn-default btn-dark-line" onclick="location.href = '/customer/notice'">{=trans('목록으로')}</button>
+			</div>
+		</div>
+	</section>
+</section>
+<!-- 컨텐츠 E -->

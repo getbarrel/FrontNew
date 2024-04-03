@@ -1,0 +1,63 @@
+.br {
+  &__order-msg {
+    padding:rem(0 40px);
+
+    .order-msg {
+      padding:rem(45px 0 50px);
+      border-bottom:1px solid #b5b5b6;
+      &:first-child {
+        border-top:2px solid #000;
+      }
+      &__title {
+        padding-bottom:rem(25px);
+        color:#000;
+        font-size:rem(26px);
+        font-weight:600;
+        line-height:rem(36px);
+      }
+      &__request {
+        &__textarea {
+          width:100%;
+          height:rem(106px);
+          margin-top: rem(20px);
+          resize:none;
+        }
+
+        &__counting {
+          @extend %clear;
+          span {
+            float: right;
+            color: #999;
+            font-size: rem(20px);
+          }
+        }
+      }
+      &__btn {
+        float:left;
+        width:calc(50% - .5rem); //10px
+        height:rem(80px);
+        font-size:rem(26px);
+        font-weight:600;
+        line-height:rem(80px);
+        text-align:center;
+
+        &--cancel {
+          border:1px solid #000;
+          background:#fff;
+          color:#000;
+        }
+        &--submit {
+          margin-left:rem(20px);
+          border:1px solid #000;
+          background:#000;
+          color:#fff;
+        }
+
+        &__wrap {
+          padding-top:rem(50px);
+          @extend %clear;
+        }
+      }
+    }
+  }
+}

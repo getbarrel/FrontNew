@@ -1,0 +1,2 @@
+<?php /* Template_ 2.2.8 2020/08/31 15:56:56 /home/barrel-stage/application/www/assets/mobile_templet/mobile_enterprise/customer/index/customer_top.htm 000000263 */ ?>
+<!--공용으로 쓰는 곳이 없는 것 확인 후 customer/index.htm로 옮겼습니다.-->

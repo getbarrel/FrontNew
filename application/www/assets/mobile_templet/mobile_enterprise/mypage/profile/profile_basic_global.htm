@@ -1,0 +1,494 @@
+<!--
+<h1 class="wrap-title">
+    회원정보 수정
+    <button class="back"></button>
+</h1>
+-->
+
+<section class="br__join br__mypage">
+    <form id="devMemberProfileForm">
+        <div class="br__mypage__pass">
+            <p class="pass-title">{=trans('내 정보 수정')}</p>
+
+            <dl class="br__mypage__info">
+                <dt>{=trans('이름')}</dt>
+                <dd>{name}</dd>
+            </dl>
+            {? isSnsJoin != true}
+            <dl class="br__mypage__info">
+                <dt>{=trans('아이디')}</dt>
+                <dd>{id}</dd>
+            </dl>
+            {/}
+            {? isSnsJoin != true}
+            <dl class="br__join__list">
+                <dt>{=trans('비밀번호')}</dt>
+                <dd>
+                    <button class="br__mypage__btn-s btn__change-pw" id="devChangePassword" type="button" data-title="{=trans('비밀번호 변경')}">{=trans('비밀번호 변경')}</button>
+                </dd>
+            </dl>
+            {/}
+
+            <!-- 이메일 주소 -->
+            <dl class="br__join__list">
+                <dt>{=trans('이메일 주소')}</dt>
+                <dd>
+                    <div class="join__eamil">
+                        <input class="join__input email-id" type="text" name="emailId" id="devEmailId" title="{=trans('이메일')}" value="{mail[0]}"/>
+                        <span>@</span>
+                        <input class="join__input email-info" type="text" name="emailHost" id="devEmailHost" title="{=trans('이메일')}" value="{mail[1]}"/>
+                    </div>
+                    <!--<select id="devEmailHostSelect">-->
+                        <!--<option value="">{=trans('선택')}</option>-->
+                        <!--<option value="naver.com">naver.com</option>-->
+                        <!--<option value="gmail.com">gmail.com</option>-->
+                        <!--<option value="hotmail.com">hotmail.com</option>-->
+                        <!--<option value="hanmail.net">hanmail.net</option>-->
+                        <!--<option value="daum.net">daum.net</option>-->
+                        <!--<option value="nate.com">nate.com</option>-->
+                        <!--<option value="direct" >{=trans('직접입력')}</option>-->
+                    <!--</select>-->
+                    <!-- email 중복 체크 -->
+                    <div class="join__email__check">
+                        <button class="join__email__check-btn" id="devEmailDoubleCheckButton" type="button">{=trans('이메일 중복 확인')}</button>
+                        <p class="txt-error" devTailMsg=""></p>
+                    </div>
+                    <p class="txt-error mat10" devTailMsg="devEmailId devEmailHost"></p>
+                    <!-- EOD : email 중복 체크 -->
+                </dd>
+            </dl>
+            <!-- EOD : 이메일 주소 -->
+            <dl class="br__join__list">
+                <dt>Country</dt>
+                <dd>
+                    <select class="devNationArea" id="devCountry" name="country" title="Country">
+                        <option value="">Select</option>
+                        {@ nation}
+                        <option value="{.nation_code}" data-nation_code="{.nation_code}" {? .nation_code == country} selected {/}>{.nation_name}</option>
+                        {/}
+                    </select>
+                </dd>
+            </dl>
+            <!-- 휴대폰 -->
+            <dl class="br__join__list">
+                <dt>{=trans('휴대폰 번호')}</dt>
+                <dd>
+                    <div class="join__phone">
+                        <select class="join__phone-first devNationArea" name="national_phone" title="Country">
+                            {@ nation}
+                            <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == country} selected {/}>{.nation_name}(+{.national_phone})</option>
+                            {/}
+                        </select>
+                        <!--<span class="join__phone-hyphen"></span>-->
+                        <input class="join__input join__phone-second" name="pcs" id="devPcs" value="{pcs}" type="text" title="{=trans('휴대폰 번호')}" />
+                        <!--<span class="join__phone-hyphen"></span>-->
+                        <!--<input class="join__input join__phone-third" name="pcs3" value="{pcs[2]}" type="text" maxlength="4"/>-->
+                    </div>
+                </dd>
+            </dl>
+            <!-- EOD : 휴대폰 -->
+
+            <!-- 주소 -->
+            <dl class="br__join__list">
+                <dt>Address line 1</dt>
+                <dd>
+                    <input class="join__address" type="text"  name="addr1" id="devAddress1" value="{addr1}" title="Address line 1"/>
+                </dd>
+            </dl>
+            <dl class="br__join__list">
+                <dt>Address line 2</dt>
+                <dd>
+                    <input class="join__address" type="text" name="addr2" id="devAddress2" value="{addr2}" title="Address line 2" />
+                </dd>
+            </dl>
+            <dl class="br__join__list">
+                <dt>City</dt>
+                <dd>
+                    <input class="join__address" type="text" name="city" id="devCity" value="{city}" title="City" />
+                </dd>
+            </dl>
+            <dl class="br__join__list">
+                <dt>State/Province</dt>
+                <dd>
+                    <!--{? country == 'US'}-->
+                    <select id="devStateSelect">
+                        <option >Select</option>
+                        {@ regional_information}
+                        <option value="{.reg_name}" {? .reg_name == state} selected {/}>{.reg_name}</option>
+                        {/}
+                    </select>
+                    <input class="join__address" type="text" style="display:none;" id="devStateText" name="state" value="{state}" title="State/Province" />
+                    <!--{:}-->
+                    <select id="devStateSelect" style="display: none;">
+                        <option >Select</option>
+                        {@ regional_information}
+                        <option value="{.reg_name}" {? .reg_name == state} selected {/}>{.reg_name}</option>
+                        {/}
+                    </select>
+                    <input class="join__address" type="text" id="devStateText" name="state" value="{state}" title="State/Province" />
+                    <!--{/}-->
+                </dd>
+            </dl>
+            <dl class="br__join__list">
+                <dt>Zip/Postal code</dt>
+                <dd>
+                    <input class="join__address" type="text"  name="zip" id="devZip" value="{zip}" title="Zip/Postal code"/>
+                </dd>
+            </dl>
+            <!--<dl class="br__join__list">-->
+                <!--<dt>{=trans('주소')}</dt>-->
+                <!--<dd>-->
+                    <!--<div class="join__id">-->
+                        <!--<input class="join__input" type="text"  name="zip" value="{zip}" id="devZip" title="{=trans('우편번호')}" readonly />-->
+                        <!--<button class="join__id__check" id="devZipPopupButton">{=trans('우편번호 검색')}</button>-->
+                    <!--</div>-->
+                    <!--<input class="join__address" type="text" name="addr1" value="{addr1}" id="devAddress1" title="{=trans('주소')}"  readonly/>-->
+                    <!--<input class="join__address" type="text" name="addr2" value="{addr2}" id="devAddress2" title="{=trans('상세주소')}"  placeholder="{=trans('상세주소를 입력해주세요.')}"/>-->
+                <!--</dd>-->
+            <!--</dl>-->
+            <!-- EOD : 주소 -->
+
+            <!-- 추가정보 -->
+            <h3 class="join-title">{=trans('추가정보')}</h3>
+            <!--&lt;!&ndash; 성별&ndash;&gt;-->
+            <!--<div class="br__join__add">-->
+                <!--<p class="join-symbol">{=trans('성별')}</p>-->
+                <!--<div class="br__find-user__label">-->
+                    <!--<label><input type="radio" name="gender" value="M" {? sex_div == 'M' }checked{/} ><span>{=trans('남자')}</span></label>-->
+                    <!--<label><input type="radio" name="gender" value="W" {? sex_div == 'W' }checked{/}><span>{=trans('여자')}</span></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; EOD : 성별&ndash;&gt;-->
+
+            <!--&lt;!&ndash; 생일 &ndash;&gt;-->
+            <!--<div class="br__join__add">-->
+                <!--<p class="join-symbol">{=trans('생일')}</p>-->
+                <!--<div class="br__find-user__label">-->
+                    <!--<label><input type="radio" name="birthdayDiv" data-type="" value="1" {? birthday_div == '1'}checked{/}><span>{=trans('양력')}</span></label>-->
+                    <!--<label><input type="radio" name="birthdayDiv" data-type="" value="0" {? birthday_div == '0'}checked{/}><span>{=trans('음력')}</span></label>-->
+                <!--</div>-->
+                <!--<div class="join__day-box">-->
+                    <!--&lt;!&ndash;<input class="join__input join__day-first" type="number" name="birthYear" id="devBirthYear"  value="{birthdayArr[0]}" {? birthdayArr}disabled{/} />&ndash;&gt;-->
+                    <!--<select class="join__input join__day-first" name="birthYear" {? birthdayArr}disabled{/}>-->
+                    <!--<option value="">{=trans('생년')}</option>-->
+                    <!--{@ birthYear}-->
+                    <!--<option value="{.value_}" {? birthdayArr[0] == .value_} selected{/}>{.value_}</option>-->
+                    <!--{/}-->
+                    <!--</select>-->
+                    <!--<span class="join__day-txt">{=trans('년')}</span>-->
+                    <!--&lt;!&ndash;<input class="join__input join__day-second" type="number" name="birthMonth" id="devBirthMonth"  value="{birthdayArr[1]}" {? birthdayArr}disabled{/}  />&ndash;&gt;-->
+                    <!--<select class="join__input join__day-second" name="birthMonth" {? birthdayArr}disabled{/}>-->
+                    <!--<option value="">{=trans('생월')}</option>-->
+                    <!--{@ birthMonth}-->
+                    <!--<option value="{.value_}" {? birthdayArr[1] == .value_} selected{/}>{.value_}</option>-->
+                    <!--{/}-->
+                    <!--</select>-->
+                    <!--<span class="join__day-txt">{=trans('월')}</span>-->
+                    <!--&lt;!&ndash;<input class="join__input join__day-third" type="number" name="birthDay" id="devBirthDay"  value="{birthdayArr[2]}" {? birthdayArr}disabled{/} />&ndash;&gt;-->
+                    <!--<select class="join__input join__day-third" name="birthDay" {? birthdayArr}disabled{/}>-->
+                    <!--<option value="">{=trans('생일')}</option>-->
+                    <!--{@ birthDay}-->
+                    <!--<option value="{.value_}" {? birthdayArr[2] == .value_} selected{/}>{.value_}</option>-->
+                    <!--{/}-->
+                    <!--</select>-->
+                    <!--<span class="join__day-txt">{=trans('일')}</span>-->
+                <!--</div>-->
+                <!--<p class="join__day-info">{=trans('회원등급별 생일 할인 쿠폰이 증정됩니다.')}</p>-->
+                <!--{? !birthdayArr}-->
+                <!--<p class="join__day-info">{=trans('생년월일 최초 1회 입력 이후 변경이 불가능합니다.')}</p>-->
+                <!--{/}-->
+            <!--</div>-->
+            <!--&lt;!&ndash; EOD : 생일 &ndash;&gt;-->
+
+            <!--&lt;!&ndash; 지역 &ndash;&gt;-->
+            <!--<dl class="br__join__list">-->
+                <!--<dt>{=trans('지역')}</dt>-->
+                <!--<dd>-->
+                    <!--<select name="area">-->
+                        <!--<option value="">{=trans('선택')}</option>-->
+                        <!--<option value="10" {? area == '10'} selected {/} >{=trans('서울특별시')}</option>-->
+                        <!--<option value="20" {? area == '20'} selected {/} >{=trans('경기도')}</option>-->
+                        <!--<option value="21" {? area == '21'} selected {/} >{=trans('인천광역시')}</option>-->
+                        <!--<option value="30" {? area == '30'} selected {/} >{=trans('강원도')}</option>-->
+                        <!--<option value="41" {? area == '41'} selected {/} >{=trans('충청남도')}</option>-->
+                        <!--<option value="42" {? area == '42'} selected {/} >{=trans('대전광역시')}</option>-->
+                        <!--<option value="43" {? area == '43'} selected {/} >{=trans('세종특별자치시')}</option>-->
+                        <!--<option value="45" {? area == '45'} selected {/} >{=trans('충청북도')}</option>-->
+                        <!--<option value="51" {? area == '51'} selected {/} >{=trans('전라남도')}</option>-->
+                        <!--<option value="52" {? area == '52'} selected {/} >{=trans('광주광역시')}</option>-->
+                        <!--<option value="55" {? area == '55'} selected {/} >{=trans('전라북도')}</option>-->
+                        <!--<option value="61" {? area == '61'} selected {/} >{=trans('경상남도')}</option>-->
+                        <!--<option value="62" {? area == '62'} selected {/} >{=trans('부산광역시')}</option>-->
+                        <!--<option value="63" {? area == '63'} selected {/} >{=trans('울산광역시')}</option>-->
+                        <!--<option value="65" {? area == '65'} selected {/} >{=trans('경상북도')}</option>-->
+                        <!--<option value="66" {? area == '66'} selected {/} >{=trans('대구광역시')}</option>-->
+                        <!--<option value="70" {? area == '70'} selected {/} >{=trans('제주특별자치도')}</option>-->
+                        <!--<option value="90" {? area == '90'} selected {/} >{=trans('기타')}</option>-->
+                    <!--</select>-->
+                <!--</dd>-->
+            <!--</dl>-->
+            <!--&lt;!&ndash; EOD : 지역 &ndash;&gt;-->
+
+            <!--&lt;!&ndash; SMS 수신동의 &ndash;&gt;-->
+            <!--<dl class="br__join__list">-->
+                <!--<dt>{=trans('SMS 수신동의')}</dt>-->
+                <!--<dd>-->
+                    <!--<div class="br__join__add br__mypage__agree">-->
+                        <!--<div class="br__find-user__label br__join__add">-->
+                            <!--<label for="devAgreeSms">-->
+                                <!--<input type="radio" name="sms" value="1" id="devAgreeSms" {? sms == '1'}checked{/}><span>{=trans('동의함')}</span>-->
+                            <!--</label>-->
+                            <!--<label>-->
+                                <!--<input type="radio" name="sms" value="0"  data-type="" {? sms == '0'}checked{/} ><span>{=trans('동의안함')}</span>-->
+                            <!--</label>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</dd>-->
+            <!--</dl>-->
+            <!--&lt;!&ndash; EOD : SMS 수신동의 &ndash;&gt;-->
+
+            <!-- 메일 수신동의 -->
+            <dl class="br__join__list">
+                <dt>{=trans('메일 수신동의')}</dt>
+                <dd>
+                    <div class="br__join__add br__mypage__agree">
+                        <div class="br__find-user__label br__join__add">
+                            <label for="devAgreeEmail">
+                                <input type="radio" name="info" value="1" id="devAgreeEmail" data-type="" {? info == '1'}checked{/}><span>{=trans('동의함')}</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="info" value="0" data-type="" {? info == '0'}checked{/}><span>{=trans('동의안함')}</span>
+                            </label>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+            <!-- EOD : 메일 수신동의 -->
+
+            <!--
+            sns 연동
+            <dl class="br__join__list">
+                <dt>{=trans('SNS 연동')}</dt>
+                <dd>
+                    <div class="br__login__info">
+                        <ul class="information__sns">
+                            <li class="information__sns__list">
+                                <div class="information__sns__link information__sns__link&#45;&#45;naver">{=trans('네이버')}</div>
+                                <a class="information__sns__btn" href="#naver">{=trans('연결')}</a>
+                            </li>
+                            <li class="information__sns__list">
+                                <div class="information__sns__link information__sns__link&#45;&#45;kakaotalk">{=trans('카카오톡')}</div>
+                                <a class="information__sns__btn" href="#naver">{=trans('연결')}</a>
+                            </li>
+                            <li class="information__sns__list">
+                                <div class="information__sns__link information__sns__link&#45;&#45;facebook">{=trans('페이스북')}</div>
+                                <a class="information__sns__btn" href="#naver">{=trans('연결')}</a>
+                            </li>
+                            <li class="information__sns__list">
+                                <div class="information__sns__link information__sns__link&#45;&#45;google">{=trans('구글')}</div>
+                                <a class="information__sns__btn" href="#naver">{=trans('연결')}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+             EOD : sns 연동
+            -->
+
+            <div class="br__join__btn">
+                <button class="join__btn btn-lg btn-point">{=trans('저장')}</button>
+            </div>
+
+            <div class="profile__secession">
+                <a href="/mypage/secede" class="profile__secession-link">{=trans('회원탈퇴')}</a>
+            </div>
+
+        </div>
+    </form>
+</section>
+
+<!--{? false}-->
+<!--<div class="wrap-sect"></div>-->
+<!--<div class="wrap-mypage profile-detail">-->
+<!--<form id="devMemberProfileForm">-->
+<!--<div class="wrap-input-form">-->
+<!--<section>-->
+<!--&lt;!&ndash;아이디&ndash;&gt;-->
+<!--<dl>-->
+<!--<dt>아이디</dt>-->
+<!--<dd><input type="text" value="{id}" disabled></dd>-->
+<!--</dl>-->
+
+<!--&lt;!&ndash; 비밀번호 &ndash;&gt;-->
+<!--<dl>-->
+<!--<dt>비밀번호 <em>*</em></dt>-->
+<!--<dd>-->
+<!--<div class="wrap-btn-area">-->
+<!--<button type="button" class="btn-default btn-dark change-pw-btn" id="devChangePassword">비밀번호 변경</button>-->
+<!--</div>-->
+
+<!--</dd>-->
+<!--</dl>-->
+
+<!--&lt;!&ndash; 이름 &ndash;&gt;-->
+<!--<dl>-->
+<!--<dt>이름</dt>-->
+<!--<dd>-->
+<!--<input type="text" value="{name}" disabled>-->
+<!--</dd>-->
+<!--</dl>-->
+
+<!--&lt;!&ndash; 생년월일 &ndash;&gt;-->
+<!--<dl>-->
+<!--<dt>생년월일</dt>-->
+<!--<dd>-->
+<!--<input type="text" value="{birthday}" disabled>-->
+<!--</dd>-->
+<!--</dl>-->
+
+<!--&lt;!&ndash; 성별 &ndash;&gt;-->
+<!--<dl>-->
+<!--<dt>성별</dt>-->
+<!--<dd>-->
+<!--<input type="text" value="{? sex_div == 'M'}남성{:}여성{/}" disabled>-->
+<!--</dd>-->
+<!--</dl>-->
+
+<!--&lt;!&ndash; 이메일 &ndash;&gt;-->
+<!--<dl>-->
+<!--<dt>이메일 <em>*</em></dt>-->
+<!--<dd>-->
+<!--<div class="wrap-multi-input">-->
+<!--<input type="text" name="emailId" value="{mail[0]}" id="devEmailId" title="이메일" style="width:280px;">-->
+<!--<span class="hyphen_2">@</span>-->
+<!--<input type="text" name="emailHost" value="{mail[1]}" id="devEmailHost" title="이메일" style="width:270px;" readonly>-->
+<!--<select id="devEmailHostSelect"  style="width:270px;">-->
+<!--<option value="naver.com" {? mail[1] == "naver.com"}selected{/}>naver.com</option>-->
+<!--<option value="gmail.com" {? mail[1] == "gmail.com"}selected{/}>gmail.com</option>-->
+<!--<option value="hotmail.com" {? mail[1] == "hotmail.com"}selected{/}>hotmail.com</option>-->
+<!--<option value="hanmail.net" {? mail[1] == "hanmail.net"}selected{/}>hanmail.net</option>-->
+<!--<option value="daum.net" {? mail[1] == "daum.net"}selected{/}>daum.net</option>-->
+<!--<option value="nate.com" {? mail[1] == "nate.com"}selected{/}>nate.com</option>-->
+<!--</select>-->
+<!--</div>-->
+<!--<p class="txt-error mat10" devTailMsg="devEmailId devEmailHost"></p>-->
+<!--<div class="mat20">-->
+<!--<input type="checkbox" id="devDirectInputEmailCheckBox">-->
+<!--<label for="devDirectInputEmailCheckBox">메일 도메인을 직접 입력하겠습니다.</label>-->
+<!--</div>-->
+<!--<button type="button" class="btn-default btn-dark btn-full mat30" id="devEmailDoubleCheckButton">이메일 중복 확인</button>-->
+<!--</dd>-->
+<!--</dl>-->
+
+<!--&lt;!&ndash; 휴대폰 번호 &ndash;&gt;-->
+<!--<dl>-->
+<!--<dt>휴대폰 번호 <em>*</em></dt>-->
+<!--<dd>-->
+<!--<div class="wrap-multi-input">-->
+<!--<select name="pcs1" id="devPcs1" style="width:170px;" {? pcs[0] != ''}readonly{/}>-->
+<!--<option value="010" {? pcs[0]=="010"}selected{/}>010</option>-->
+<!--<option value="011" {? pcs[0]=="011"}selected{/}>011</option>-->
+<!--<option value="016" {? pcs[0]=="016"}selected{/}>016</option>-->
+<!--<option value="017" {? pcs[0]=="017"}selected{/}>017</option>-->
+<!--<option value="018" {? pcs[0]=="018"}selected{/}>018</option>-->
+<!--<option value="019" {? pcs[0]=="019"}selected{/}>019</option>-->
+<!--</select>-->
+<!--<span class="hyphen">-</span>-->
+<!--<input type="text" name="pcs2" id="devPcs2" value="{pcs[1]}" title="휴대폰번호" style="width:180px;" {? pcs[1] != ''}readonly{/} />-->
+<!--<span class="hyphen">-</span>-->
+<!--<input type="text" name="pcs3" id="devPcs3" value="{pcs[2]}" title="휴대폰번호" style="width:180px;" {? pcs[2] != ''}readonly{/} />-->
+<!--</div>-->
+<!--</dd>-->
+<!--</dl>-->
+
+<!--&lt;!&ndash; 전화번호 &ndash;&gt;-->
+<!--<dl>-->
+<!--<dt>전화번호</dt>-->
+<!--<dd>-->
+<!--<div class="wrap-multi-input">-->
+<!--<select class="pub-form-set-3rd" name="tel1" style="width:170px;">-->
+<!--<option value="02" {? tel[0]=="02"}selected{/}>02</option>-->
+<!--<option value="031" {? tel[0]=="031"}selected{/}>031</option>-->
+<!--<option value="032" {? tel[0]=="032"}selected{/}>032</option>-->
+<!--<option value="041" {? tel[0]=="041"}selected{/}>041</option>-->
+<!--<option value="042" {? tel[0]=="042"}selected{/}>042</option>-->
+<!--<option value="043" {? tel[0]=="043"}selected{/}>043</option>-->
+<!--<option value="051" {? tel[0]=="051"}selected{/}>051</option>-->
+<!--<option value="052" {? tel[0]=="052"}selected{/}>052</option>-->
+<!--<option value="053" {? tel[0]=="053"}selected{/}>053</option>-->
+<!--<option value="054" {? tel[0]=="054"}selected{/}>054</option>-->
+<!--<option value="055" {? tel[0]=="055"}selected{/}>055</option>-->
+<!--<option value="061" {? tel[0]=="061"}selected{/}>061</option>-->
+<!--<option value="062" {? tel[0]=="062"}selected{/}>062</option>-->
+<!--<option value="063" {? tel[0]=="063"}selected{/}>063</option>-->
+<!--<option value="064" {? tel[0]=="064"}selected{/}>064</option>-->
+<!--<option value="070" {? tel[0]=="070"}selected{/}>070</option>-->
+<!--<option value="080" {? tel[0]=="080"}selected{/}>080</option>-->
+<!--<option value="090" {? tel[0]=="090"}selected{/}>090</option>-->
+<!--</select>-->
+
+<!--<span class="hyphen">-</span>-->
+
+<!--<input type="text" name="tel2" id="devTel2" value="{tel[1]}" title="전화번호 가운데자리" style="width:180px;">-->
+
+<!--<span class="hyphen">-</span>-->
+
+<!--<input type="text" name="tel3" id="devTel3" value="{tel[2]}" title="전화번호 끝자리" style="width:180px;">-->
+<!--</div>-->
+<!--</dd>-->
+<!--</dl>-->
+
+<!--&lt;!&ndash; 주소 &ndash;&gt;-->
+<!--<dl>-->
+<!--<dt>주소</dt>-->
+<!--<dd>-->
+<!--<div class="wrap-multi-input">-->
+<!--<input type="text" name="zip" value="{zip}" id="devZip" style="width:170px;" readonly>-->
+<!--<button class="btn-default btn-dark mal10" id="devZipPopupButton">주소찾기</button>-->
+<!--</div>-->
+
+<!--<input type="text" class="mat10" name="addr1" value="{addr1}" id="devAddress1" readonly>-->
+<!--<input type="text" class="mat10" name="addr2" value="{addr2}" id="devAddress2" placeholder="상세주소를 입력해 주세요.">-->
+<!--</dd>-->
+<!--</dl>-->
+<!--</section>-->
+<!--</div>-->
+
+<!--<p class="subtitle">선택 동의 항목</p>-->
+
+<!--<div class="term-list">-->
+<!--<input type="checkbox"  id="devAgreeTerm" name="policy[]" value="{policyData['marketing']['ix']}" {? sms == '1' || info == '1'}checked{/} />-->
+<!--<label for="agree-term5">마케팅 활용 동의(선택)</label>-->
+<!--<span class="accord-btn"></span>-->
+<!--</div>-->
+<!--<div class="terms-content">-->
+<!--{policyData['marketing']['contents']}-->
+<!--</div>-->
+
+
+<!--<div class="marketing-wrap">-->
+<!--<p class="tit">마케팅 활용 동의 수신 여부</p>-->
+
+<!--<input type="checkbox" id="devAgreeSms" name="sms" value="1" title="SMS" {? sms == '1'}checked{/} />-->
+<!--<label for="agree-term6">SMS 수신</label>-->
+
+<!--<input type="checkbox" id="devAgreeEmail" name="email" value="1" title="E-Mail" {? info == '1'}checked{/} class="mal40" />-->
+<!--<label for="agree-term7">이메일 수신</label>-->
+
+<!--<p class="sub-txt mat20">· 쇼핑몰에서 제공되는 다양한 정보를 받아보실 수 있습니다.<br>-->
+
+<!--<p class="sub-txt">· 결제/교환/환불 등의 주문거래 관련 정보는 수신동의 여부와 상관 없이 발송됩니다.-->
+<!--</p>-->
+<!--</div>-->
+
+<!--<div class="layout-padding">-->
+<!--<div class="wrap-btn-area mat30">-->
+<!--<button type="button" class="btn-lg btn-dark-line" id="devProfileModifyCancel" >취소</button>-->
+<!--<button class="btn-lg btn-point" >저장</button>-->
+<!--</div>-->
+
+<!--<div class="desc">개명한 경우 <span class="point-color">고객센터 {companyInfo.com_phone}</span>로 문의해 주세요.</div>-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
+<!--{/}-->

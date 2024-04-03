@@ -1,0 +1,148 @@
+<section class="fb__goods-list fb__goods-best">
+
+    <h3 class="fb__goods-best__title">BEST </h3>
+
+    {? bestBannerInfo}
+    <section class="fb__main__slider fb__main__visual fb__main__slider__gap fb__best__slider">
+        <h3 class="fb__title--hidden">
+            main slider
+        </h3>
+        <div class="newSlider mainVisual">
+            <div class="newSlider__slider swiper-container">
+                <div class="swiper-wrapper">
+                    {@ bestBannerInfo}
+                    <div class="swiper-slide newSlider__list">
+                        <a href="{.bannerLink}">
+                            <figure>
+                                <img src="{.imgSrc}" alt="{.banner_name}">
+                            </figure>
+                        </a>
+                    </div>
+                    {/}
+                </div>
+            </div>
+            <div class="mainSlider__control">
+                <div class="mainSlider__dot">
+
+                </div>
+                <div class="mainSlider__arrow">
+                    <a href="#" class="mainSlider__arrow--prev">
+                        prev
+                    </a>
+                    <a href="#" class="mainSlider__arrow--next">
+                        next
+                    </a>
+                </div>
+                <div class="mainSlider__page">
+                    <span class="mainSlider__page__wrap"><span class="mainSlider__page__now">1</span>/<span class="mainSlider__page__total">{=count(mainBannerInfo)}</span></span>
+                    <a href="#" class="mainSlider__auto">
+                        <span class="mainSlider__auto--play">play</span>
+                        <span class="mainSlider__auto--stop">stop</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    {/}
+    {? promotionArea}
+        {@ promotionArea}
+
+         <div class="fb__main__slider__wrap">
+             <section class="fb__goods-list__nav {? !bannerData} fb__goods-list__nav--mt {/}">
+                 <!--<h3 class="fb__goods-list__title">{? .pg_title} {.pg_title} {:} noTitle {/}</h3>-->
+                 <nav id="goods-best-category__wrapper" class="fb__goods-list__menu fb__goods-best__tnb">
+                     <!--{@ .products}-->
+                     {? ..goods}
+                     <a href="#best-contents_{..group_code}" class="fb__goods-best__tnb-list {? ..index_ == 0} fb__goods-best__tnb-list--active {/}">
+                         {..group_name}
+                         {..index}
+                     </a>
+                     {/}
+                     <!--{/}-->
+                 </nav>
+             </section>
+        {@ .products}
+            <section id="best-contents_{..group_code}" class="fb__goods-list__contents best-contents" >
+                {? ..goods}
+                <div class="list-contents best-contents__inner" id="tab_{..group_code}" >
+                    <div class="fb__main__goods  product-box three-boxes-wrap">
+                        <p class="best-contents__title">{..group_name}</p>
+                        <ul class="fb__main__fb__goods fb__goods best-contents__box"  id="devListContents">
+                            {@ ..goods}
+                            <li class="fb__goods__list" id="devListDetail" data-fatid="{...id}">
+                                <a href="/shop/goodsView/{...id}" class="fb__goods__link">
+                                    <figure class="fb__goods__img">
+                                        {? ...timeSaleIconView}
+                                        <img src="{...timeSaleIcon}" class="product-box__time-deal" >
+                                        {/}
+                                        <div>
+                                            <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{...image_src}">
+                                        </div>
+                                    </figure>
+                                    <div class="fb__goods__info">
+                                        <div class="fb__badge">
+                                            {? ...icons_path}
+                                            {@ ...icons_path}
+                                            <span class="fb__badge--water">
+                                                {....value_}
+                                            </span>
+                                            {/}
+                                            {/}
+                                        </div>
+                                        <ul class="fb__goods__infoBox">
+                                            <li class="fb__goods__pre" style="color:#1A661D;">
+                                                {...preface}
+                                            </li>
+                                            <li class="fb__goods__name">
+                                                {...pname}
+                                            </li>
+                                            <li class="fb__goods__option">
+                                                {...add_info}
+                                            </li>
+                                            <li class="fb__goods__brand">
+                                                {...brand_name}
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </a>
+                                <div class="fb__goods__important">
+                                    <span class="fb__goods__price">
+                                        <em>{=g_price(...dcprice)}</em>
+                                    </span>
+                                    <span class="fb__goods__noprice">
+                                       {? ...isDiscount}{=g_price(...listprice)}{/}
+                                    </span>
+                                    {? ...is_soldout}
+                                    <span class="fb__goods__price__state">{=trans('품절')}</span>
+                                    {:}
+                                        {? ...discount_rate}
+                                        <span class="fb__goods__sale">
+                                            <p class="per"><em>{...discount_rate}</em>%</p>
+                                        </span>
+                                        {/}
+                                    {/}
+                                </div>
+                                <a href="#" class="product-box__heart {? ...alreadyWish}product-box__heart--active{/}" data-devWishBtn="{...id}">
+                                    hart
+                                </a>
+                            </li>
+                            {/}
+                        </ul>
+                    </div>
+                </div>
+                {/}
+            </section>
+            {/}
+            {/}
+        </div>
+    {:}
+        <div class="fb__main__slider__wrap">
+            <section class="fb__goods-list__contents best-contents" >
+                <div style="text-align: center;" >
+                {=trans('전시된 상품이 존재하지 않습니다.')}
+                </div>
+            </section>
+        </div>
+    {/}
+</section>

@@ -1,0 +1,260 @@
+<!-- 컨텐츠 S -->
+<section class="br__order-claim">
+	<div class="page-title my-title">
+		<div class="title-sm">{=trans('주문취소')}</div>
+	</div>
+	<!--취소교환반품 신청내역조회일 때 S -->
+	<div class="order-number-box">
+		<div class="order-number-box__cont">
+			<dl class="order-number-box__item">
+				<dt class="order-title">{=trans('주문번호')}</dt>
+				<dd class="order-number" id="devOid" data-oid="{order.oid}" data-status="{order.status}" data-claimstatus="{=claimstatus}">{order.oid}</dd>
+			</dl>
+			<dl class="order-number-box__item">
+				<dt class="order-title">{=trans('주문일자')}</dt>
+				<dd class="order-day">{order.order_date}</dd>
+			</dl>
+		</div>
+	</div>
+	<!--취소교환반품 신청내역조회일 때 E -->
+	<section class="br__order-content">
+		<!-- 주문 내역 - 리스트 S -->
+		<div class="br__odhistory__list">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('취소 신청 상품')}</div>
+			</div>
+			{@ order.orderDetail}
+			<ul class="product-list">
+				{@ .value_}
+				<li class="product-list__item devCancelBoxOn devCancelArea" data-odix="{..od_ix}" data-pcnt="{..pcnt}" style="display:{? (..od_ix == odIx || order.status == 'IR' || allSelected == 'Y') }block{:}none{/}">
+					<input type="hidden" class="devOdIxCls" id="devOdIx{..od_ix}" value='{..od_ix}'>
+					<!-- 부분 취소 일 때 S -->
+					{? order.status != 'IR' && cancelAbleCnt > 1 }
+						<!--사은품 포함 시 부분취소 불가 처리 를 위한 버튼 노출 제어 2020-01-08 -->
+						{? partCancelBool == true}
+						<button class="btn-sm btn-line-no devCancelMinus" data-odix="{..od_ix}" data-cancel="Y">{=trans('삭제')}</button>
+						{/}
+					{/}
+					<!-- 부분 취소 일 때 E -->
+
+					<!-- 상품 S -->
+					<dl class="product-list__group">
+						<dt class="product-list__group-left">
+							<figure class="product-list__thumb">
+								<img src="{..pimg}" alt="{..pname}">
+							</figure>
+						</dt>
+						<dd class="product-list__group-right">
+							<div class="product-list__info">
+								<div class="product-list__info__title">{..pname}</div>
+
+								<div class="product-list__info__option">
+									<div class="product-list__info__option-item">
+										{? ..add_info}<span class="color">{..add_info}</span>{/}
+										<span class="size">{..option_text}</span>
+										<span class="count">{..pcnt}{=trans('개')}</span>
+									</div>
+								</div>
+
+								<div class="product-list__info__price">
+									<span class="product-list__info__price--cost">{fbUnit.f}<em>{=g_price(..pt_dcprice)}</em>{fbUnit.b}</span>
+									<span class="product-list__info__status">{=trans(..status_text)}</span>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					<!-- 상품 E -->
+
+					<!-- 사은품 S -- 
+					<div class="product-list__freebie">
+						<div class="product-list__freebie__title"><span>구매 사은품</span></div>
+						<ul class="product-list__freebie__list">
+							<li class="product-list__freebie__box">
+								<div class="product-list__freebie__thumb">
+									<figure>
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/product/sample.png" alt="" />
+									</figure>
+								</div>
+								<div class="product-list__freebie__info">
+									<div class="product-list__freebie__name">[사은품] 키즈 데이지 튜브</div>
+									<div class="product-list__freebie__option">
+										<div class="product-list__freebie__option-item">
+											<span>페일네온옐로우</span>
+											<span>OS</span>
+											<span>1개</span>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					-- 사은품 E -->
+
+					<!-- 주문 취소 영역(입금대기&입금완료) S -->
+					<div class="reason-box">
+						<div class="reason-top">
+							<div class="title-sm">{=trans('취소 수량')}</div>
+								{? order.status == 'IR' || order.status == 'IC'}
+								<div class="cancel-quantity"><em>{..pcnt}</em>개</div>
+								<input type="hidden" name="pcnt" value="{..pcnt}"  data-odix="{..od_ix}" data-ocnt="{..pcnt}" data-dcprice="{..dcprice}" class="devPcnt">
+								{:}
+								<div class="product-quantity__control control">
+									<ul class="option-up-down devControlCntBox">
+										<li class="devCntMinus" data-odix="{..od_ix}" {? order.status != 'IC'} disabled="true" {/}><button class="down"></button></li>
+										<li><input type="text" name="pcnt" value="{..pcnt}" data-odix="{..od_ix}" data-ocnt="{..pcnt}" data-dcprice="{..dcprice}"  class="br__form-input devAddCount" readonly/></li>
+										<li class="devCntPlus" data-odix="{..od_ix}" {? order.status != 'IC'} disabled="true" {/}><button class="up"></button></li>
+									</ul>
+								</div>
+								{/}
+						</div>
+						<!-- 주문 취소 폼(입금완료) S -->
+						<dl class="reason-box__inner">
+							<div class="reason-box__cont">
+								<div class="br__form-item devCancelCodeArea" data-odix="{..od_ix}">
+									<label for="" class="hide">{=trans('취소사유')}</label>
+                                    <select name="cc_reason" class="br__form-select devCcReason" data-odix="{..od_ix}">
+                                        {@ (cancelReason)}
+                                        {? langType=='english' && ...key_ == 'ETC'}
+                                        <option value="{...key_}">Others</option>
+                                        {:}
+                                        <option value="{...key_}">{=trans(...title)}</option>
+                                        {/}
+                                        {/}
+                                    </select>
+								</div>
+								<textarea placeholder="{=trans('취소 사유를 작성해 주세요. (최대 100자)')}" name="cc_msg[{..od_ix}]" data-odIx="{..od_ix}" maxlength="100" class="br__form-textarea devCcMsg"></textarea>
+							</div>
+						</dl>
+						<!-- 주문 취소 폼(입금완료) E -->
+					</div>
+					<!-- 주문 취소 영역(입금대기&입금완료) E -->
+				</li>
+				{:}
+				<li class="product-list__item no-data">
+					<p class="empty-content">{=trans('선택한 취소 신청 상품이 없습니다.')}</p>
+				</li>
+				{/}
+			</ul>
+			{/}
+		</div>
+		<!-- 주문 내역 - 리스트 E -->
+
+		<!-- 부분취소 할 경우 - 취소 상품 선택 영역 S -->
+		<div class="cancel-area" id="devCancelItemSec1" style="display:{? cancelAbleCnt > 1 && order.status != 'IR' && partCancelBool == true}block{:}none{/}">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('취소 신청 상품 추가')}</div>
+			</div>
+			<!-- 주문 내역 - 리스트 S -->
+			<div class="cancel-area__list">
+				{@ order.orderDetail}
+				<ul class="product-list">
+					{@ .value_}
+					<li class="product-list__item devCancelBoxOff"  data-odix="{..od_ix}" style="display:{? (odIx != '' && odIx != ..od_ix)}block{:}none{/}">
+						<div class="product-list__item-top">
+							<button class="btn-sm btn-line-no devCancelPlus" data-odix="{..od_ix}" data-cancel="Y">{=trans('추가')}</button>
+						</div>
+						<!-- 상품 S -->
+						<dl class="product-list__group">
+							<dt class="product-list__group-left">
+								<figure class="product-list__thumb">
+									<img src="{..pimg}" alt="{..brand_name} {..pname}">
+								</figure>
+							</dt>
+							<dd class="product-list__group-right">
+								<div class="product-list__info">
+									<div class="product-list__info__title">{..brand_name} {..pname}</div>
+
+									<div class="product-list__info__option">
+										<div class="product-list__info__option-item">
+											{? ..add_info}<span class="color">{..add_info}</span>{/}
+											<span class="size">{..option_text}</span>
+											<span class="count">{..pcnt}{=trans('개')}</span>
+										</div>
+									</div>
+
+									<div class="product-list__info__price">
+										<span class="product-list__info__price--cost">{fbUnit.f}<em>{=g_price(..pt_dcprice)}</em>{fbUnit.b}</span>
+										<span class="product-list__info__status">{=trans(..status_text)}</span>
+									</div>
+								</div>
+							</dd>
+						</dl>
+						<!-- 상품 E -->
+					</li>
+                    {/}
+				</ul>
+				{/}
+			</div>
+			<!-- 주문 내역 - 리스트 E -->
+		</div>
+		<!-- 부분취소 할 경우 - 취소 상품 선택 영역 E -->
+
+
+		<!--결제 정보 S -->
+		{? order.status == c.ORDER_STATUS_INCOM_COMPLETE}
+		<div class="pay-comp__wrap payment">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('환불 내역')}</div>
+			</div>
+			<div class="pay-comp__payment">
+				<dl class="pay-comp__payment__total">
+					<dt>환불 예정 금액</dt>
+					<dd><em>1,265,550</em>원</dd>
+				</dl>
+
+				<!-- 가상 계좌 결제 시 노출 S -->
+				<!-- 숨김 처리 -->
+				<div class="pay-comp__payment__virtual" style="display: none">
+					<div class="title-sm">입금 정보</div>
+					<div class="pay-comp__payment__virtual-text">
+						기업은행 / 계좌번호 : <em>48002668997451</em> /<br />
+						예금주 : 주식회사 배럴
+					</div>
+					<div class="layout-flex txt-red">
+						<span>입금 기한</span>
+						<span>2024년 12월 31일까지</span>
+					</div>
+				</div>
+				<!-- 가상 계좌 결제 시 노출 E -->
+
+				<div class="pay-comp__payment__list">
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('결제방법')}</dt>
+						<dd>
+
+							가상계좌 / 기업은행 48002668997451<br />
+							예금주 : 주식회사 배럴
+						</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>취소 신청 총 결제금액</dt>
+						<dd><em>1,405,550</em>원</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>환불 예정 배송비</dt>
+						<dd><em>0</em>원</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>취소 시 차감 배송비</dt>
+						<dd><em>0</em>원</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		{/}
+		<!--결제 정보 E -->
+		
+		<div class="use-notice">
+			<h3 class="use-notice__title">{=trans('유의사항')}</h3>
+			<ul class="use-notice__list">
+				<li class="use-notice__desc">{=trans('신용카드, 간편결제, 실시간 계좌이체는 자동 환불 처리됩니다.')}</li>
+				<li class="use-notice__desc">{=trans('결제 시 사용하신 적립금은 내부정책에 따라 취소신청 완료 후 환불 처리됩니다.')}</li>
+			</ul>
+		</div>
+	</section>
+	<div class="br__order-footer">
+		<button type="button" class="btn-lg btn-dark-line" id="devClaimCancel">{=trans('취소')}</button>
+		<button type="button" class="btn-lg btn-dark" id="devClaimApply">{=trans('취소 신청')}</button>
+	</div>
+</section>
+<!-- 컨텐츠 E -->

@@ -1,0 +1,153 @@
+<div id="devModalContent" class="popup-content">
+	<section class="popup-content__wrap scrollVH">
+		<div class="fb__coupon-popup">
+			<div class="fb__coupon-popup__cont">
+				<!--{? list}-->
+				<div class="fb__coupon-popup__title">
+					<div class="title-sm">상품 쿠폰</div>
+				</div>
+				<!--{/}-->
+				<ul class="fb__coupon-popup__list" {? list}{:}style="border-top:0px;"{/}>
+					<!--{@ list}-->
+					<li class="fb__coupon-popup__item">
+						<div class="popup-product">
+							<div class="popup-product__left">
+								<figure class="popup-product__thumb">
+									<img src="{list.image_src}" alt="{list.brand_name} {list.pname}">
+								</figure>
+							</div>
+							<div class="popup-product__info goods-info">
+								<div class="goods-info__title">{list.brand_name} {list.pname}</div>
+								<!--{? list.set_group > 0}-->
+								<!-- 세트 상품 S -->
+								<input type="hidden" name="cartType" class="cartType" value="set" />
+								<dl class="goods-info__option">
+									<!--<dt>{setData.options_text}</dt>-->
+									<dd>
+										<span>{=str_replace("사이즈:","",setData.options_text)}</span>
+										{? !empty(list.add_info)}
+										<span>{list.add_info}</span>
+										{/}
+										<span>{list.pcount}{=trans('개')}</span>
+									</dd>
+								</dl>
+								<!-- 세트 상품 E -->
+								<!--{:}-->
+								<dl class="goods-info__option">
+									<!--<dt>{list.options_text}</dt>-->
+									<dd>
+										<span>{=str_replace("사이즈:","",list.options_text)}</span>
+										{? !empty(list.add_info)}
+										<span>{list.add_info}</span>
+										{/}
+										<span>{list.pcount}{=trans('개')}</span>
+									</dd>
+								</dl>
+								<!--{/}-->
+								<dl class="goods-info__price-group">
+									<dt class="goods-info__price" style="width:150px;">{fbUnit.f}{=g_price(list.total_dcprice)}{fbUnit.b}</dt>
+									<dd>
+										<div class="goods-info__price-percent">{fbUnit.f}<span devDiscountAmountText="{list.cart_ix}">0</span>{fbUnit.b} 할인</div>
+									</dd>
+								</dl>
+							</div>
+						</div>
+						<div class="popup-product__select goods-info__select">
+							<div class="goods-info__set__box">
+								<select devCouponSelect="{list.cart_ix}" class="fb__form-select">
+									<option value="">{=trans('쿠폰선택')}</option>
+									<!--{@ couponList}-->
+									{? couponList.activeBool}
+									<option value="{couponList.regist_ix}"
+											devTotalCouponWithDcprice="{couponList.total_coupon_with_dcprice}"
+											devDiscountAmount="{couponList.discount_amount}"
+											devCartOverlapUseYn="{couponList.overlap_use_yn}"
+											devPaymentMethod="{couponList.payment_method}"
+											{? couponList.isSelected}selected{/}>{couponList.publish_name}</option>
+									{/}
+									<!--{/}-->
+								</select>
+							</div>
+						</div>
+					</li>
+					<!--{/}-->
+					<!--{? cartCouponList}-->
+					<li class="fb__coupon-popup__item">
+						<div class="popup-product__title">
+							<div class="title-sm">장바구니 쿠폰</div>
+							<div class="popup-product__discount"><span devCartDiscountAmountText>0</span>원 할인</div>
+						</div>
+						<div class="popup-product__select goods-info__select">
+							<div class="goods-info__set__box">
+								<select devCartCouponSelect class="fb__form-select">
+									<option value="">{=trans('선택안함')}</option>
+									<!--{@ cartCouponList}-->
+									{? cartCouponList.activeBool}
+									<option value="{cartCouponList.regist_ix}"
+											devTotalCouponWithDcprice="{cartCouponList.total_coupon_with_dcprice}"
+											devDiscountAmount="{cartCouponList.discount_amount}"
+											{? cartCouponList.isSelected}selected{/}>{cartCouponList.publish_name}</option>
+									{/}
+									<!--{/}-->
+								</select>
+							</div>
+						</div>
+					</li>
+					<!--{/}-->
+					{? couponDiv == 'D'}
+					<li class="fb__coupon-popup__item">
+						<div class="popup-product__title">
+							<div class="title-sm">배송비 쿠폰</div>
+							<!--<div class="popup-product__discount">{fbUnit.f}<span id="devTotalCouponDiscountAmount">0</span>{fbUnit.b} 할인</div>-->
+						</div>
+						<div class="popup-product__select goods-info__select">
+							<div class="goods-info__set__box">
+								<select devDeliveryCouponSelect>
+									<option value="">{=trans('선택')}</option>
+									<!--{@ deliveryCouponList}-->
+									{? deliveryCouponList.activeBool}
+									<option value="{deliveryCouponList.regist_ix}"
+											devTotalCouponWithDcprice="{deliveryCouponList.total_coupon_with_dcprice}"
+											devDiscountAmount="{deliveryCouponList.discount_amount}"
+											{? deliveryCouponList.isSelected}selected{/}>{deliveryCouponList.publish_name}</option>
+									{/}
+									<!--{/}-->
+								</select>
+							</div>
+						</div>
+					</li>
+					<li class="fb__coupon-popup__item">
+						<dl class="popup-product__total">
+							<input type="hidden" id="devSelectedCartCouponIx" value="{selectedCartCouponIx}" />
+							<input type="hidden" id="devTotalDeliveryPrice" value="{totalDeliveryPrice}" />
+							<input type="hidden" id="devTotalCouponWithProductDcpriceFloat" value="{productDcprice}" />
+							<dt>총 쿠폰 할인 금액</dt>
+							<dd>{fbUnit.f}<span id="devTotalCouponDiscountAmount">0</span>{fbUnit.b}</dd>
+						</dl>
+					</li>
+					{:}
+					<li class="fb__coupon-popup__item">
+						<dl class="popup-product__total">
+							<input type="hidden" id="devSelectedCartCouponIx" value="{selectedCartCouponIx}" />
+							<input type="hidden" id="devTotalProductDcprice" value="{totalProductDcprice}" />
+							<input type="hidden" id="devTotalCouponWithProductDcpriceFloat" value="{productDcprice}" />
+							<dt>총 쿠폰 할인 금액</dt>
+							<dd>{fbUnit.f}<span id="devTotalCouponWithProductDcprice">{=g_price(productDcprice)}</span>{fbUnit.b}</dd>
+						</dl>
+					</li>
+					{/}
+				</ul>
+			</div>
+		</div>
+	</section>
+	<div class="popup-content__footer">
+		{? couponDiv == 'D'}
+			<button type="button" class="btn-lg btn-dark-line btn-close" id="devCouponCancelButton">취소</button>
+			<button type="button" class="btn-lg btn-dark fb__change-option__btn--submit" id="devApplyDeliveryCouponButton">쿠폰적용</button>
+		{:}
+			<button type="button" class="btn-lg btn-dark-line btn-close" id="devCouponCancelButton">취소</button>
+			<button type="button" class="btn-lg btn-dark fb__change-option__btn--submit" id="devApplyCouponButton">쿠폰적용</button>
+		{/}
+
+	</div>
+</div>

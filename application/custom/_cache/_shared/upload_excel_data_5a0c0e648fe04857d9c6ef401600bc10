@@ -1,0 +1,372 @@
+a:1:{s:50:"upload_excel_data_5a0c0e648fe04857d9c6ef401600bc10";a:1:{s:26:"qmnmag2hnpdo230am6p9cs4jh3";a:8:{i:0;a:60:{s:12:"migration_id";s:21:"상품시스템코드";s:12:"product_type";s:12:"상품구분";s:8:"category";s:12:"카테고리";s:5:"md_id";s:8:"MD설정";s:11:"disp_global";s:22:"글로벌 노출설정";s:5:"pname";s:9:"상품명";s:13:"english_pname";s:17:"상품명(영문)";s:8:"add_info";s:9:"색상명";s:16:"english_add_info";s:9:"색상명";s:5:"pcode";s:26:"상품코드(품목코드)";s:11:"filter_info";s:12:"필터정보";s:8:"shotinfo";s:18:"상품간략설명";s:16:"english_shotinfo";s:26:"상품간략소개(영문)";s:5:"og_ix";s:15:"원산지코드";s:7:"company";s:15:"제조사코드";s:5:"brand";s:15:"브랜드코드";s:11:"surtax_yorn";s:12:"면세여부";s:5:"state";s:12:"판매상태";s:4:"disp";s:12:"노출여부";s:12:"is_sell_date";s:25:"판매기간 사용여부";s:15:"sell_priod_date";s:18:"판매기간설정";s:13:"coupon_use_yn";s:25:"상품쿠폰 사용여부";s:14:"search_keyword";s:15:"검색키워드";s:22:"english_search_keyword";s:23:"검색키워드(영문)";s:5:"movie";s:13:"동영상 URL";s:7:"coprice";s:9:"공급가";s:15:"english_coprice";s:17:"공급가(영문)";s:9:"listprice";s:9:"판매가";s:17:"english_listprice";s:17:"판매가(영문)";s:9:"sellprice";s:9:"할인가";s:17:"english_sellprice";s:17:"할인가(영문)";s:13:"allow_max_cnt";s:18:"최대판매수량";s:31:"wholesale_allow_byoneperson_cnt";s:17:"ID당구매수량";s:16:"allow_order_type";s:31:"한정판매수량 사용여부";s:25:"allow_order_cnt_byonesell";s:18:"한정판매수량";s:14:"display_option";s:21:"디스플레이옵션";s:14:"mandatory_type";s:25:"상품정보 고시유형";s:14:"mandatory_info";s:18:"상품고시정보";s:21:"mandatory_type_global";s:33:"상품정보 고시유형(영문)";s:21:"mandatory_info_global";s:26:"상품고시정보(영문)";s:13:"pattern_image";s:16:"패턴 이미지";s:11:"m_basicinfo";s:28:"모바일 상품상세정보";s:19:"english_m_basicinfo";s:47:"모바일 상품상세설명(이미지)(영문)";s:9:"basicinfo";s:22:"웹 상품상세정보";s:17:"english_basicinfo";s:41:"웹 상품상세설명(이미지)(영문)";s:7:"mainimg";s:15:"상품이미지";s:11:"option_name";s:9:"옵션명";s:19:"english_option_name";s:38:"옵션명(가격+재고관리)(영문)";s:10:"option_div";s:12:"옵션구분";s:18:"english_option_div";s:20:"옵션구분(영문)";s:23:"stock_options_listprice";s:22:"옵션 소매판매가";s:31:"english_stock_options_listprice";s:51:"옵션 소매판매가(가격+재고관리)(영문)";s:23:"stock_options_sellprice";s:22:"옵션 소매할인가";s:31:"english_stock_options_sellprice";s:51:"옵션 소매할인가(가격+재고관리)(영문)";s:21:"stock_options_soldout";s:12:"품절여부";s:18:"stock_options_code";s:18:"옵션품목코드";s:6:"addimg";s:23:"상품 추가 이미지";s:7:"listimg";s:26:"상품 리스트 이미지";s:7:"preface";s:16:"상품머리말 ";s:15:"english_preface";s:23:"상품머리말(영문)";}i:1;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:7:"br_arom";s:11:"disp_global";N;s:5:"pname";s:33:"배럴핏 릴렉스 숏 슬리브";s:13:"english_pname";s:29:"Barrel Fit Relax Short Sleeve";s:8:"add_info";s:6:"블랙";s:16:"english_add_info";s:5:"BLACK";s:5:"pcode";s:12:"BG3WFSH02BLK";s:11:"filter_info";s:25:"블랙|Small|Medium|Large";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:137:"배럴핏,배럴핏 숏 슬리브,배럴핏 티셔츠,릴렉스 티셔츠,릴렉스 숏 슬리브,릴렉스 슬리브,배럴핏 슬리브";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:28000;s:15:"english_coprice";N;s:9:"listprice";d:28000;s:17:"english_listprice";N;s:9:"sellprice";d:28000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:1;s:14:"mandatory_info";s:548:"01|겉감 : 폴리에스터 92% 폴리우레탄 8%^
+02|블랙^
+03|Small,Medium,Large^
+04|㈜배럴^
+05|대한민국^
+06|1. 세탁시에는 손세탁해주세요. 2. 세제물이나 수돗물에 담궈 놓으시면 이염이나 염색 빠질 수 있습니다. 사용후 바로 세탁하세요. 3. 세탁기, 건조기, 표백제 절대 사용 금지 4. 자세한 내용 상세페이지^
+07|202007^
+08|「전기용품 및 생활용품 안전관리법」에 따른 안전관리대상 제품임^
+09|배럴 고객센터/1899-8751^
+10|상세설명 참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:16:"sleeve/black.jpg";s:11:"m_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_blk.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_blk.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_blk.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:19:"english_m_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_blk.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_blk.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_blk.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:9:"basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_blk.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_blk.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_blk.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:17:"english_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_blk.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_blk.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_blk.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:7:"mainimg";s:39:"sleeve/brf_relax_short_sleeve_blk01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:5:"S|M|L";s:18:"english_option_div";s:5:"S|M|L";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:44:"BG3WFSH02BLKSM|BG3WFSH02BLKMM|BG3WFSH02BLKLG";s:6:"addimg";s:79:"sleeve/brf_relax_short_sleeve_blk02.jpg|sleeve/brf_relax_short_sleeve_blk03.jpg";s:7:"listimg";s:38:"sleeve/brf_relax_short_sleeve_blk0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:0;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:10:"sleeve.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}i:2;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:7:"br_arom";s:11:"disp_global";N;s:5:"pname";s:33:"배럴핏 릴렉스 숏 슬리브";s:13:"english_pname";s:29:"Barrel Fit Relax Short Sleeve";s:8:"add_info";s:12:"아이보리";s:16:"english_add_info";s:5:"IVORY";s:5:"pcode";s:12:"BG3WFSH02IVR";s:11:"filter_info";s:25:"기타|Small|Medium|Large";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:137:"배럴핏,배럴핏 숏 슬리브,배럴핏 티셔츠,릴렉스 티셔츠,릴렉스 숏 슬리브,릴렉스 슬리브,배럴핏 슬리브";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:28000;s:15:"english_coprice";N;s:9:"listprice";d:28000;s:17:"english_listprice";N;s:9:"sellprice";d:28000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:1;s:14:"mandatory_info";s:554:"01|겉감 : 폴리에스터 92% 폴리우레탄 8%^
+02|아이보리^
+03|Small,Medium,Large^
+04|㈜배럴^
+05|대한민국^
+06|1. 세탁시에는 손세탁해주세요. 2. 세제물이나 수돗물에 담궈 놓으시면 이염이나 염색 빠질 수 있습니다. 사용후 바로 세탁하세요. 3. 세탁기, 건조기, 표백제 절대 사용 금지 4. 자세한 내용 상세페이지^
+07|202007^
+08|「전기용품 및 생활용품 안전관리법」에 따른 안전관리대상 제품임^
+09|배럴 고객센터/1899-8751^
+10|상세설명 참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:16:"sleeve/ivory.jpg";s:11:"m_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:19:"english_m_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:9:"basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:17:"english_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_ivr.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:7:"mainimg";s:39:"sleeve/brf_relax_short_sleeve_ivr01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:5:"S|M|L";s:18:"english_option_div";s:5:"S|M|L";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:44:"BG3WFSH02IVRSM|BG3WFSH02IVRMM|BG3WFSH02IVRLG";s:6:"addimg";s:79:"sleeve/brf_relax_short_sleeve_ivr02.jpg|sleeve/brf_relax_short_sleeve_ivr03.jpg";s:7:"listimg";s:38:"sleeve/brf_relax_short_sleeve_ivr0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:1;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:10:"sleeve.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}i:3;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:7:"br_arom";s:11:"disp_global";N;s:5:"pname";s:33:"배럴핏 릴렉스 숏 슬리브";s:13:"english_pname";s:29:"Barrel Fit Relax Short Sleeve";s:8:"add_info";s:15:"라이트퍼플";s:16:"english_add_info";s:12:"LIGHT PURPLE";s:5:"pcode";s:12:"BG3WFSH02LPP";s:11:"filter_info";s:25:"퍼플|Small|Medium|Large";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:137:"배럴핏,배럴핏 숏 슬리브,배럴핏 티셔츠,릴렉스 티셔츠,릴렉스 숏 슬리브,릴렉스 슬리브,배럴핏 슬리브";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:28000;s:15:"english_coprice";N;s:9:"listprice";d:28000;s:17:"english_listprice";N;s:9:"sellprice";d:28000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:1;s:14:"mandatory_info";s:557:"01|겉감 : 폴리에스터 92% 폴리우레탄 8%^
+02|라이트퍼플^
+03|Small,Medium,Large^
+04|㈜배럴^
+05|대한민국^
+06|1. 세탁시에는 손세탁해주세요. 2. 세제물이나 수돗물에 담궈 놓으시면 이염이나 염색 빠질 수 있습니다. 사용후 바로 세탁하세요. 3. 세탁기, 건조기, 표백제 절대 사용 금지 4. 자세한 내용 상세페이지^
+07|202007^
+08|「전기용품 및 생활용품 안전관리법」에 따른 안전관리대상 제품임^
+09|배럴 고객센터/1899-8751^
+10|상세설명 참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:22:"sleeve/lightpurple.jpg";s:11:"m_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:19:"english_m_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:9:"basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:17:"english_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_lpp.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:7:"mainimg";s:39:"sleeve/brf_relax_short_sleeve_lpp01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:5:"S|M|L";s:18:"english_option_div";s:5:"S|M|L";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:44:"BG3WFSH02LPPSM|BG3WFSH02LPPMM|BG3WFSH02LPPLG";s:6:"addimg";s:79:"sleeve/brf_relax_short_sleeve_lpp02.jpg|sleeve/brf_relax_short_sleeve_lpp03.jpg";s:7:"listimg";s:38:"sleeve/brf_relax_short_sleeve_lpp0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:2;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:10:"sleeve.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}i:4;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:7:"br_arom";s:11:"disp_global";N;s:5:"pname";s:33:"배럴핏 릴렉스 숏 슬리브";s:13:"english_pname";s:29:"Barrel Fit Relax Short Sleeve";s:8:"add_info";s:6:"민트";s:16:"english_add_info";s:4:"MINT";s:5:"pcode";s:12:"BG3WFSH02MNT";s:11:"filter_info";s:25:"기타|Small|Medium|Large";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:137:"배럴핏,배럴핏 숏 슬리브,배럴핏 티셔츠,릴렉스 티셔츠,릴렉스 숏 슬리브,릴렉스 슬리브,배럴핏 슬리브";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:28000;s:15:"english_coprice";N;s:9:"listprice";d:28000;s:17:"english_listprice";N;s:9:"sellprice";d:28000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:1;s:14:"mandatory_info";s:548:"01|겉감 : 폴리에스터 92% 폴리우레탄 8%^
+02|민트^
+03|Small,Medium,Large^
+04|㈜배럴^
+05|대한민국^
+06|1. 세탁시에는 손세탁해주세요. 2. 세제물이나 수돗물에 담궈 놓으시면 이염이나 염색 빠질 수 있습니다. 사용후 바로 세탁하세요. 3. 세탁기, 건조기, 표백제 절대 사용 금지 4. 자세한 내용 상세페이지^
+07|202007^
+08|「전기용품 및 생활용품 안전관리법」에 따른 안전관리대상 제품임^
+09|배럴 고객센터/1899-8751^
+10|상세설명 참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:21:"sleeve/mint_short.jpg";s:11:"m_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:19:"english_m_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:9:"basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:17:"english_basicinfo";s:552:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_relax_short_sleeve_mnt.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:7:"mainimg";s:39:"sleeve/brf_relax_short_sleeve_mnt01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:5:"S|M|L";s:18:"english_option_div";s:5:"S|M|L";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:44:"BG3WFSH02MNTSM|BG3WFSH02MNTMM|BG3WFSH02MNTLG";s:6:"addimg";s:79:"sleeve/brf_relax_short_sleeve_mnt02.jpg|sleeve/brf_relax_short_sleeve_mnt03.jpg";s:7:"listimg";s:38:"sleeve/brf_relax_short_sleeve_mnt0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:3;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:10:"sleeve.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}i:5;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:7:"br_arom";s:11:"disp_global";N;s:5:"pname";s:36:"배럴핏 세미오버 숏 슬리브";s:13:"english_pname";s:33:"Barrel Fit Semi-Over Short Sleeve";s:8:"add_info";s:15:"라이트블루";s:16:"english_add_info";s:10:"LIGHT BLUE";s:5:"pcode";s:12:"BG3WFSH03LBL";s:11:"filter_info";s:25:"블루|Small|Medium|Large";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:150:"배럴핏,배럴핏 숏 슬리브,배럴핏 티셔츠,세미오버 티셔츠,오버핏 티셔츠,숏 슬리브,릴렉스 슬리브,배럴핏 슬리브";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:32000;s:15:"english_coprice";N;s:9:"listprice";d:32000;s:17:"english_listprice";N;s:9:"sellprice";d:32000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:1;s:14:"mandatory_info";s:556:"01|면 53% 폴리에스터 42% 폴리우레탄 5%^
+02|라이트블루^
+03|Small,Medium,Large^
+04|㈜배럴^
+05|대한민국^
+06|1. 세탁시에는 손세탁해주세요. 2. 세제물이나 수돗물에 담궈 놓으시면 이염이나 염색 빠질 수 있습니다. 사용후 바로 세탁하세요. 3. 세탁기, 건조기, 표백제 절대 사용 금지 4. 자세한 내용 상세페이지^
+07|202007^
+08|「전기용품 및 생활용품 안전관리법」에 따른 안전관리대상 제품임^
+09|배럴 고객센터/1899-8751^
+10|상세설명 참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:20:"sleeve/lightblue.jpg";s:11:"m_basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:19:"english_m_basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:9:"basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:17:"english_basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_lbl.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:7:"mainimg";s:43:"sleeve/brf_semi_over_short_sleeve_lbl01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:5:"S|M|L";s:18:"english_option_div";s:5:"S|M|L";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:44:"BG3WFSH03LBLSM|BG3WFSH03LBLMM|BG3WFSH03LBLLG";s:6:"addimg";s:87:"sleeve/brf_semi_over_short_sleeve_lbl02.jpg|sleeve/brf_semi_over_short_sleeve_lbl03.jpg";s:7:"listimg";s:42:"sleeve/brf_semi_over_short_sleeve_lbl0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:4;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:10:"sleeve.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}i:6;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:7:"br_arom";s:11:"disp_global";N;s:5:"pname";s:36:"배럴핏 세미오버 숏 슬리브";s:13:"english_pname";s:33:"Barrel Fit Semi-Over Short Sleeve";s:8:"add_info";s:6:"라임";s:16:"english_add_info";s:4:"LIME";s:5:"pcode";s:12:"BG3WFSH03LIM";s:11:"filter_info";s:25:"기타|Small|Medium|Large";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:150:"배럴핏,배럴핏 숏 슬리브,배럴핏 티셔츠,세미오버 티셔츠,오버핏 티셔츠,숏 슬리브,릴렉스 슬리브,배럴핏 슬리브";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:32000;s:15:"english_coprice";N;s:9:"listprice";d:32000;s:17:"english_listprice";N;s:9:"sellprice";d:32000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:1;s:14:"mandatory_info";s:547:"01|면 53% 폴리에스터 42% 폴리우레탄 5%^
+02|라임^
+03|Small,Medium,Large^
+04|㈜배럴^
+05|대한민국^
+06|1. 세탁시에는 손세탁해주세요. 2. 세제물이나 수돗물에 담궈 놓으시면 이염이나 염색 빠질 수 있습니다. 사용후 바로 세탁하세요. 3. 세탁기, 건조기, 표백제 절대 사용 금지 4. 자세한 내용 상세페이지^
+07|202007^
+08|「전기용품 및 생활용품 안전관리법」에 따른 안전관리대상 제품임^
+09|배럴 고객센터/1899-8751^
+10|상세설명 참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:15:"sleeve/lime.jpg";s:11:"m_basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:19:"english_m_basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:9:"basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:17:"english_basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_lim.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:7:"mainimg";s:43:"sleeve/brf_semi_over_short_sleeve_lim01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:5:"S|M|L";s:18:"english_option_div";s:5:"S|M|L";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:44:"BG3WFSH03LIMSM|BG3WFSH03LIMMM|BG3WFSH03LIMLG";s:6:"addimg";s:87:"sleeve/brf_semi_over_short_sleeve_lim02.jpg|sleeve/brf_semi_over_short_sleeve_lim03.jpg";s:7:"listimg";s:42:"sleeve/brf_semi_over_short_sleeve_lim0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:5;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:10:"sleeve.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}i:7;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:7:"br_arom";s:11:"disp_global";N;s:5:"pname";s:36:"배럴핏 세미오버 숏 슬리브";s:13:"english_pname";s:33:"Barrel Fit Semi-Over Short Sleeve";s:8:"add_info";s:15:"뉴트럴블루";s:16:"english_add_info";s:12:"NEUTRAL BLUE";s:5:"pcode";s:12:"BG3WFSH03NLB";s:11:"filter_info";s:25:"블루|Small|Medium|Large";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:150:"배럴핏,배럴핏 숏 슬리브,배럴핏 티셔츠,세미오버 티셔츠,오버핏 티셔츠,숏 슬리브,릴렉스 슬리브,배럴핏 슬리브";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:32000;s:15:"english_coprice";N;s:9:"listprice";d:32000;s:17:"english_listprice";N;s:9:"sellprice";d:32000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:1;s:14:"mandatory_info";s:556:"01|면 53% 폴리에스터 42% 폴리우레탄 5%^
+02|뉴트럴블루^
+03|Small,Medium,Large^
+04|㈜배럴^
+05|대한민국^
+06|1. 세탁시에는 손세탁해주세요. 2. 세제물이나 수돗물에 담궈 놓으시면 이염이나 염색 빠질 수 있습니다. 사용후 바로 세탁하세요. 3. 세탁기, 건조기, 표백제 절대 사용 금지 4. 자세한 내용 상세페이지^
+07|202007^
+08|「전기용품 및 생활용품 안전관리법」에 따른 안전관리대상 제품임^
+09|배럴 고객센터/1899-8751^
+10|상세설명 참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:22:"sleeve/neutralblue.jpg";s:11:"m_basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:19:"english_m_basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:9:"basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:17:"english_basicinfo";s:564:"<center><br />
+<br />
+<!-- 코디팁 --><img src="//image2.getbarrel.com//socal/2020/fitness/tip_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/fitting_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/fitness/product_brf_semi_over_short_sleeve_nlb.jpg" />
+<!-- 사이즈 --><br />
+<br />
+<br />
+<br />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/fitness/notice_caution_barrelfit.jpg" /><br />
+<center></center>
+</center>";s:7:"mainimg";s:43:"sleeve/brf_semi_over_short_sleeve_nlb01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:5:"S|M|L";s:18:"english_option_div";s:5:"S|M|L";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:44:"BG3WFSH03NLBSM|BG3WFSH03NLBMM|BG3WFSH03NLBLG";s:6:"addimg";s:87:"sleeve/brf_semi_over_short_sleeve_nlb02.jpg|sleeve/brf_semi_over_short_sleeve_nlb03.jpg";s:7:"listimg";s:42:"sleeve/brf_semi_over_short_sleeve_nlb0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:6;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:10:"sleeve.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}}}}

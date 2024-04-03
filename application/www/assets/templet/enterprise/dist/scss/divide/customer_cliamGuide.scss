@@ -1,0 +1,15 @@
+.br {
+  &__cliamGuide {
+    .cosmetics__infoList {
+      &--color {
+        color: #00bce7;
+      }
+      &__title {
+        padding-top: 30px;
+        color: #222;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+  }
+}

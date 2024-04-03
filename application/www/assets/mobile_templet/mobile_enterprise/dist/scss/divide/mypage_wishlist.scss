@@ -1,0 +1,212 @@
+.br {
+  &__wishlist {
+    padding: rem(0 40px);
+    color: #000;
+
+    .br__more {
+      padding-top: rem(85px);
+    }
+
+    &__desc {
+      color: #000;
+      font-size: rem(20px);
+    }
+
+    .wish {
+      &__top {
+        padding: rem(20px 0);
+        border-bottom: 1px solid #b5b5b6;
+        @extend %clear;
+
+      }
+
+      &__total {
+        float: left;
+        position: relative;
+        padding-left: rem(28px);
+        font-size: rem(22px);
+        //vertical-align: text-bottom;
+        vertical-align: middle;
+        line-height: rem(44px);
+        
+        em {
+          color: $cPoint;
+          font-size: rem(26px);
+        }
+
+        &:before {
+          position: absolute;
+          top: 50%;
+          left: rem(10px);
+          font-size: rem(20px);
+          line-height: rem(26px);
+          content: '|';
+          transform: translateY(-50%);
+        }
+      }
+
+      &__del {
+        float: right;
+        margin-top:.6rem;
+        color: #000;
+        font-size: rem(22px);
+        padding: 0;
+        vertical-align: middle;
+      }
+
+      &__check {
+
+        &--all {
+          float:left;
+          font-size:2.1rem;
+          input {
+            margin-right: rem(5px);
+          }
+
+          span {
+            color: #000;
+            font-size: rem(22px);
+            vertical-align: middle;
+          }
+        }
+
+        &--each {
+          display: block;
+        }
+      }
+
+      &__each {
+        position: relative;
+        padding: rem(20px 0);
+        border-bottom: 1px solid #b5b5b6;
+
+        a {
+          display: block;
+        }
+
+        &__item {
+          display: block;
+          padding-top: rem(20px);
+          white-space: nowrap;
+          @extend %clear;
+        };
+
+        &__thumb {
+          float:left;
+          width: rem(154px);
+          height: rem(220px);
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        &__info {
+          float: left;
+          width: calc(100% - 7.7rem);  //154px
+          min-height:rem(220px);
+          padding-left: rem(20px);
+          padding-bottom:rem(40px);
+          vertical-align: top;
+          white-space: initial;
+        };
+
+        &__title {
+          max-width: 90%;
+          font-size: rem(26px);
+          line-height: rem(40px);
+          white-space: initial;
+          @include line(2);
+        };
+
+        &__option {
+          margin-top: rem(20px);
+          font-size: rem(22px);
+        };
+
+        &__soldout {
+          position: absolute;
+          top: rem(-30px);
+          left: 0;
+          color: #e60000;
+          font: {
+            weight: bold;
+            size: rem(20px);
+          }
+        };
+
+        &__price {
+          position: absolute;
+          bottom: rem(20px);
+          left: rem(174px);
+          font-size: rem(20px);
+
+          &--ori {
+            position: relative;
+            color: #808285;
+            padding-right: rem(13px);
+
+            &:after {
+              position: absolute;
+              top: 50%;
+              left: 0;
+              width: 90%;
+              height: 1px;
+              background: #e60000;
+              content: "";
+            }
+          };
+
+          &--now {
+            font: {
+              weight: bold;
+              size: rem(24px);
+            }
+          };
+
+          &--perc {
+            color: #e60000;
+            padding-left: rem(7px);
+          };
+        }
+
+        /*관심아이콘*/
+        &__wish {
+          display: inline-block;
+          position: absolute;
+          bottom: rem(20px);
+          right: 0;
+          width: rem(37px);
+          height: rem(32px);
+          background:$sprite30 no-repeat rem(-855px -2px);
+          background-size:rem($sprite30Size);
+          font-size: 0;
+          line-height: 0;
+
+          &.on {
+            //background-position-y:-41px;
+            background-position: rem(-1184px 0);
+          }
+        };
+
+      }
+
+
+
+    }
+
+  }
+}
+
+html[lang=en] {
+  .br {
+    &__wishlist .wish__each__soldout {
+      min-width: rem(150px);
+    }
+    .br__wishlist .wish__check--all {
+      margin-top:-.1rem;
+    }
+  }
+}

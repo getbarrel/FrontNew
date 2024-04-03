@@ -1,0 +1,100 @@
+			<!-- 컨텐츠 영역 S -->
+			<section class="br__teamBARREL-detail">
+				<div class="detail-layout">
+					<div class="detail-layout__lnb">
+						<div class="detail-slide swiper-container">
+							<div class="swiper-wrapper">
+								{ @ displayContentList.imgSrc }
+									<div class="swiper-slide"><img src="src="{ .imgSrcUrl }"" alt="" /></div>
+								{ / }
+							</div>
+							<div class="detail-slide__control">
+								<div class="swiper-control-group">
+									<div class="swiper-scrollbar"></div>
+									<div class="swiper-pagination"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="detail-layout__content">
+						<div class="br__teamBARREL-profile">
+							<div class="br__teamBARREL-profile__header">
+								<p style="color:{displayContentList.c_comment};{? displayContentList.b_comment == 'Y' }font-weight: bold;{ / } {? displayContentList.i_comment == 'Y' }font-style:oblique;{ / } {? displayContentList.u_comment == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.player_comment}</p>
+								<div class="title-md" style="color:{displayContentList.c_preface};{? displayContentList.b_preface == 'Y' }font-weight: bold;{ / } {? displayContentList.i_preface == 'Y' }font-style:oblique;{ / } {? displayContentList.u_preface == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.preface}</div>
+							</div>
+							<div class="br__teamBARREL-profile__content">
+								<div class="br__teamBARREL-profile__group">
+									<div class="br__teamBARREL-profile__img">
+										<img src="{displayContentList.contentImgSrc}" alt="" />
+									</div>
+									<div class="br__teamBARREL-profile__name">
+										<div class="title-sm layout-flex" style="text-align:{? displayContentList.s_title == 'L'}left{: displayContentList.s_title == 'C'}center{: displayContentList.s_title == 'R'}right{/};color:{displayContentList.c_title};{? displayContentList.b_title == 'Y' }font-weight: bold;{ / } {? displayContentList.i_title == 'Y' }font-style:oblique;{ / } {? displayContentList.u_title == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.title}
+											{ @ displayContentList.instar }
+											<a href="{ .Url }"><i class="ico ico-instargram-BK"></i></a>
+											{ / }
+											{ @ displayContentList.youtube }
+											<a href="{ .Url }"><i class="ico ico-youtube-BK"></i></a>
+											{ / }
+										</div>
+										<div class="title-lg" style="color:{displayContentList.c_title_b};{? displayContentList.b_title_b == 'Y' }font-weight: bold;{ / } {? displayContentList.i_title_b == 'Y' }font-style:oblique;{ / } {? displayContentList.u_title_b == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.title_en}</div>
+										<p style="color:{displayContentList.c_explanation};{? displayContentList.b_explanation == 'Y' }font-weight: bold;{ / } {? displayContentList.i_explanation == 'Y' }font-style:oblique;{ / } {? displayContentList.u_explanation == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.explanation}</p>
+									</div>
+								</div>
+								<div class="br__teamBARREL-profile__record">
+									<div class="title-md">Profile</div>
+									<div class="txt-list">
+										<p style="color:{displayContentList.c_profile};{? displayContentList.b_profile == 'Y' }font-weight: bold;{ / } {? displayContentList.i_profile == 'Y' }font-style:oblique;{ / } {? displayContentList.u_profile == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.player_profile}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						{ @ displayContentGroupList }
+						<section class="detail-goods__wrap">
+							<div class="title-sm" style="text-align:{? .s_group_title == 'L'}left{: .s_group_title == 'C'}center{: s_group_title == 'R'}right{/};color:{ .c_group_title };{? .b_group_title == 'Y' }font-weight: bold;{ / } {? .i_group_title == 'Y' }font-style:oblique;{ / } {? .u_group_title == 'Y' }text-decoration-line: underline;{ / }">{ .group_title }</div>
+							<div class="gallery-bbs">
+								<ul class="gallery-bbs__box">
+									{ @ .groupList }
+										<li class="gallery-bbs__list">
+											<a href="/content/focusNow2/{ ..con_ix }">
+												<div class="gallery-bbs__category">{ ..preface }</div>
+												<div class="gallery-bbs__img-box">
+													<figure class="gallery-bbs__img">
+														<img src="{ ..contentImgSrc }" alt="" />
+													</figure>
+												</div>
+												<div class="gallery-bbs__info">
+													<!-- 버튼으로 할 경우 S -->
+													<!-- 숨김처리 -->
+													<button type="button" class="btn-wishlist {? ..alreadyWish == 'Y'}active{/}" onclick="contentWish('{..id}', 'C', this)" style="z-index: 999999;">
+														<!-- 선택시 button class = active 추가-->
+														<i class="ico ico-wishlist"></i>위시리스트
+													</button>
+
+													<!-- 버튼으로 할 경우 E -->
+
+													<!-- 체크 박스로 할 경우 S -->
+													<label class="gallery-bbs__wish" style="display: none">
+														<input type="checkbox" class="gallery-bbs__wish-btn" />
+													</label>
+													<!-- 체크 박스로 할 경우 E -->
+
+													<div class="gallery-bbs__title">{ ..title }</div>
+													<div class="gallery-bbs__title-sub">{ ..explanation }</div>
+												</div>
+											</a>
+										</li>
+									{ : }
+										<!-- 등록된 게시글이 없을 경우 S -->
+										<li class="gallery-bbs__list no-data">
+											<p class="empty-content">등록된 이벤트가 없습니다.</p>
+										</li>
+										<!-- 등록된 게시글이 없을 경우 E -->
+									{ / }
+								</ul>
+							</div>
+						</section>
+						{ / }
+					</div>
+				</div>
+			</section>
+			<!-- 컨텐츠 영역 E -->

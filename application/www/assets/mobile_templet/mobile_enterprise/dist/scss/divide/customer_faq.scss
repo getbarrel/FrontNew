@@ -1,0 +1,124 @@
+.br {
+  &__faq {
+    padding: rem(0 40px);
+
+    &__select {
+      height: rem(80px);
+      background: url("../images/common/icon_faq_select.png") no-repeat right center;
+      background-size: rem(46px 9px);
+      border-color: #b5b5b6;
+      color: #000;
+      font-size: rem(26px);
+
+      option {
+        color: #000;
+        font-size: rem(26px);
+      }
+    }
+
+    &__content {
+      margin-top: rem(50px);
+      border: {
+        top: 2px solid #000;
+        bottom: 2px solid #000;
+      }
+    }
+
+    &__list {
+      border-bottom: 1px solid #b5b5b6;
+    }
+
+    &__question {
+      display: table;
+      width: 100%;
+      padding: rem(30px 0) !important;
+      background: #fff;
+      color: #000;
+      font: {
+        weight: bold;
+        size: rem(22px);
+      }
+
+      &--opened {
+        background: #efefef;
+
+        .br__faq__icon--arrow {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &__name {
+      display: table-cell;
+      position: relative;
+      width: rem(170px);
+      padding-left: rem(40px);
+      word-break: break-all;
+    }
+
+    &__title {
+      display: table-cell;
+      line-height: rem(32px);
+    }
+
+
+    &__answer {
+      display: none;
+      position: relative;
+      padding: rem(45px);
+
+      &--show {
+        display: block;
+      }
+
+      & > p,
+      & > span,
+      & p > span{font-size:1.1rem;line-height:1.6rem;}
+
+      &-text {
+        display: inline-block;
+        color: #000;
+        font-size: rem(22px);
+        line-height: rem(32px);
+        white-space: pre-line;
+        word-break: break-all;
+      }
+    }
+
+    &__icon {
+
+      &--ques {
+        position: absolute;
+        left: rem(20px);
+        width: rem(16px);
+        height: 100%;
+        vertical-align: center;
+        font-size: 0;
+        background: url("../images/common/icon_faq_ques.png") no-repeat 0 0;
+        background-size: rem(14px 21px);
+      }
+
+      &--answer {
+        position: absolute;
+        top: rem(45px);
+        left: rem(20px);
+        width: rem(14px);
+        height: rem(32px);
+        background: url("../images/common/icon_faq_answer.png") no-repeat 0 center;
+        background-size: rem(14px 17px);
+        font-size: 0 !important;
+      }
+
+      &--arrow {
+        display: table-cell;
+        width: rem(60px);
+        height: 100%;
+        background: url("../images/common/icon_faq_arrow.png") no-repeat center center;
+        background-size: rem(19px 10px);
+        font-size: 0;
+      }
+
+    }
+
+  }
+}

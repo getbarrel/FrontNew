@@ -1,0 +1,39 @@
+<script>var addressPopMode = 'member';</script>
+<div class="address-select">
+    <div>
+        <ul class="address-select__list" id="devAddressBooKContent">
+            {* Address book Loading *}
+            <li id="devAddressBooKLoading"  class="devForbizTpl">
+                <div class="mobile_address-contents">
+                    <header>
+                        <h3>Loading...</h3>
+                    </header>
+                </div>
+            </li>
+            {* Address book list *}
+            <li id="devAddressBooKList" class="address-select__box devForbizTpl">
+                <div class="address-select__info">
+                    <span class="address-select__info__title">{[recipient]} {[#if default_yn]}<span>[{=trans('기본')}]</span>{[/if]}</span>
+                    <span class="address-select__info__name">{[recipient]}</span>
+                    {[#if nation_name]}<p class="address-select__info__addr">{[nation_name]}</p>{[/if]}
+                    <p class="address-select__info__addr">{[address1]} <br>{[address2]}</p>
+                    {[#if city]}<p class="address-select__info__addr">{[city]}</p>{[/if]}
+                    {[#if state]}<p class="address-select__info__addr">{[state]}</p>{[/if]}
+                    <p class="address-select__info__phone">{[mobile]} / {[tel]}</p>
+                </div>
+                <div class="address-select__btn">
+                    <button class="devAddressBookItemSelect" data-oid="{oid}" data-ix="{[ix]}">{=trans('주소 선택')}</button>
+                </div>
+            </li>
+            {* Address book empty *}
+            <li id="devAddressBooKEmpty"  class="devForbizTpl empty-content">
+                <h3>{=trans('등록된 배송지가 없습니다.')}</h3>
+            </li>
+        </ul>
+        <div class="br__more" id="devPageWrap"></div>
+    </div>
+</div>
+
+<div class="address-select__btn btn-add-address">
+    <a href="javascript:void(0)" id="devAddressBookAddBtn" class="join__email__check-btn">{=trans('새 배송지 추가')}</a>
+</div>

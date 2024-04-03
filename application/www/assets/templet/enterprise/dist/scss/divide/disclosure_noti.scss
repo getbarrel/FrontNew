@@ -1,0 +1,62 @@
+.br {
+  &__ir {
+    &__content {
+      padding-bottom: 16px;
+      @extend %clear;
+
+      p {
+        display: inline-block;
+        padding: 10px 0 0 10px;
+        color: #666;
+        font-size: 14px;
+      }
+      .number {
+        color: #00bce7;
+      }
+    }
+
+    &__noti {
+      tbody {
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        height: 51px;
+        background: #f9f9f9;
+
+        span {
+          color: #222;
+          font-size: 14px;
+          text-align: center;
+          font-weight: 600;
+          line-height:51px;
+        }
+      }
+
+      tr {
+        border-top: 1px solid #ddd;
+      }
+
+      td {
+        padding: 18px 0;
+        color: #666;
+        font-size: 14px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 18px;
+
+        div {
+          margin-left: 10px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+
+          a {
+            padding: 26px;
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2 @@
+<?php /* Template_ 2.2.8 2020/08/31 15:57:17 /home/barrel-stage/application/www/assets/templet/enterprise/shop/goods_review/goods_review.htm 000000202 */ ?>
+<?php $this->print_("content",$TPL_SCP,1);?>

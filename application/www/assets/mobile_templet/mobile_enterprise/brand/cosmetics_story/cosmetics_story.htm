@@ -1,0 +1,18 @@
+<section class="br__brand-story">
+    <div class="br__brand-story__header">
+        <h2 class="br__brand-story__title">{=trans('브랜드 스토리')}</h2>
+        <nav class="story__menu">
+            <ul>
+                <li class="story__menu__link {? layoutCommon.bodyId == 'brand_brandStory'}story__menu__link--active{/}"><a href="/brand/brandStory">{=trans('배럴 스포츠웨어')}</a></li>
+                <li class="story__menu__link {? layoutCommon.bodyId == 'brand_cosmeticsStory'}story__menu__link--active{/}"><a href="/brand/cosmeticsStory">{=trans('배럴 코스메틱스')}</a></li>
+            </ul>
+        </nav>
+    </div>
+    {? langType == 'korean'}
+    <!--{*<img src="{layoutCommon.templetSrc}/images/brand/cosmetics_brandstory.jpg" alt="코스메틱스 스토리" usemap="#cosmeticsmap">*}-->
+    <img src="//image2.getbarrel.com/landing/brand_story_kr/brandstory_cosmetics_m.jpg" alt="코스메틱스 스토리">
+    {:}
+    <!--{*<img src="{layoutCommon.templetSrc}/images/brand/cosmetics_brandstory_en.jpg" alt="코스메틱스 스토리" usemap="#cosmeticsmap">*}-->
+    <img src="//image2.getbarrel.com/landing/brand_story_en/brandstory_cosmetics_m_en.jpg" alt="코스메틱스 스토리">
+    {/}
+</section>

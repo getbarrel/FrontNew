@@ -1,0 +1,62 @@
+<!-- 컨텐츠 영역 S -->
+<section class="br__ir">
+	<div class="br__ir__top">
+		<div class="br-tab__slide swiper-container">
+			<ul class="swiper-wrapper">
+				<li class="swiper-slide"><a href="/corporateIR/financialInfo/">{=trans('재무상태표')}</a></li>
+				<li class="swiper-slide"><a href="/corporateIR/financialProfit/">{=trans('손익계산서')}</a></li>
+				<li class="swiper-slide {? bType == 'announce'} active {/}"><a href="/corporateIR/disclosureNoti/">{=trans('공고')}</a></li>
+				<li class="swiper-slide {? bType == 'ir'} active {/}"><a href="/corporateIR/IRResources/">{=trans('IR 자료')}</a></li>
+			</ul>
+		</div>
+	</div>
+	<section class="br__ir__content board-detail__wrap">
+		<section class="board-detail__header">
+			<div class="page-title">
+				<div class="title-md">{=trans('{board_name}')}</div>
+			</div>
+		</section>
+		<section class="board-detail__content">
+			<div class="detail-bbs__wrap">
+				<div class="detail-bbs__header">
+					<div class="detail-bbs__header-sub">
+						<span class="detail-bbs__category category">[BARREL]</span>
+						<span class="detail-bbs__date date">{reg_date}</span>
+					</div>
+					<div class="detail-bbs__header-group">
+						<h3 class="detail-bbs__title">{bbs_subject}</h3>
+					</div>
+				</div>
+				<div class="detail-bbs__content">
+					<div class="cont-area">{bbs_contents}</div>
+					{? bbs_file_1 != "" || bbs_file_2 != "" || bbs_file_3 != ""}
+					<dl class="file">
+						<dt>{=trans('첨부파일')}</dt>
+						<dd>
+							{? bbs_file_1 != ""}<a href="{download_path}/{bbs_file_1}">{bbs_file_1}</a>{/}
+							{? bbs_file_2 != ""}, <a href="{download_path}/{bbs_file_2}">{bbs_file_2}</a>{/}
+							{? bbs_file_3 != ""}, <a href="{download_path}/{bbs_file_3}">{bbs_file_3}</a>{/}						
+						</dd>
+					</dl>
+					{/}
+				</div>
+				<div class="detail-bbs__footer">
+					<!--<nav class="detail-bbs__nav">
+						<ul>
+							<li class="detail-bbs__nav-prev">
+								<span> 이전글 </span>
+								이전글이 존재하지 않습니다.
+							</li>
+							<li class="detail-bbs__nav-next">
+								<span> 다음글 </span>
+								다음글이 존재하지 않습니다.
+							</li>
+						</ul>
+					</nav>-->
+					<button type="button" class="btn-default btn-dark-line"><a class="read__btn__list" href="/corporateIR/{? bType == 'announce'}disclosureNoti/{:}IRResources/{/}">{=trans('목록으로')}</a></button>
+				</div>
+			</div>
+		</section>
+	</section>
+</section>
+<!-- 컨텐츠 영역 E -->

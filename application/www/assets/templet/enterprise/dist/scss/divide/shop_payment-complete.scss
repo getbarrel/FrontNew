@@ -1,0 +1,429 @@
+.fb {
+
+  &__payment-complete {
+
+     .complete-msg {
+
+       padding: 70px 0 20px;
+       text-align: center;
+
+      &__title {
+        margin-bottom: 15px;
+        font-size: 38px;
+        color: #222;
+
+      }
+
+       &__subtit {
+         margin-bottom: 25px;
+         font-size: 14px;
+
+         span {
+           color: #222;
+
+           em {
+             display: inline-block;
+             width: 8px;
+             height: 11px;
+             background: url(../../img/bg/sprite_mypage.png) no-repeat -400px 0;
+           }
+         }
+       }
+
+       &__virtual {
+         padding: 30px;
+         background: #e5f7fb;
+         font-size: 14px;
+
+         span {
+           color: $pcolor;
+         }
+       }
+
+    }
+
+    .order-info {
+      margin-top: 50px;
+
+      &__title {
+        font-size: 22px;
+        color: #222;
+      }
+
+      &__table {
+        margin-top: 20px;
+
+        tr {
+
+          &:last-child {
+            td {
+              border-bottom: none;
+            }
+          }
+        }
+
+        th {
+          padding: 20px 10px;
+          border-top: 1px solid #000;
+          border-bottom: 1px solid #ddd;
+          background: #f9f9f9;
+          color: #222;
+        }
+
+        td {
+          position: relative;
+          padding: 20px 0;
+          border-bottom: 1px solid #ddd;
+          text-align: center;
+          font-size: 14px;
+          color: #666;
+          line-height: 18px;
+          vertical-align: middle;
+
+          em {
+            font-family: $font_n;
+          }
+        }
+
+        & + .delivery-area {
+          padding: 15px 20px;
+          background: #f9f9f9;
+          border-bottom: 1px solid #ddd;
+          font-size: 14px;
+          text-align: right;
+
+          span:before {
+            display: inline-block;
+            margin: 0 10px 2px 2px;
+            width: 22px;
+            height: 22px;
+            background: url(../../img/common/sprite_common.png) no-repeat -600px -100px;
+            vertical-align: middle;
+            content: '';
+          }
+
+          em:first-child {
+            margin:0 5px;
+            color: #222;
+            font-family: $font_n;
+          }
+
+          & + .order-table {
+            margin-top: 40px;
+          }
+        }
+
+      }
+
+      .item-info {
+
+        &__thumb {
+          position: relative;
+          float: left;
+          width: 90px;
+          height: 90px;
+          margin-right: 20px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        &__info {
+          margin-top: 3px;
+          font-size: 14px;
+          color: #222;
+          line-height: 18px;
+          text-align: left;
+        }
+
+        &__option {
+          margin-top: 5px;
+          margin-bottom: 10px;
+          font-size: 13px;
+          color: #999;
+        }
+      }
+
+      .due-amount {
+        color: #222;
+
+        em {
+          font: {
+            size: 14px;
+            weight:600;
+            family: $font_n;
+          }
+        }
+      }
+
+
+
+
+
+    }
+
+    .fb__infoinput {
+      &.wrap-gift-area {
+        margin-top:50px;
+        h3 {
+          color: #222;
+          font-size: 22px;
+          line-height:30px;
+        }
+        .order-info__pricegift {
+          margin-top:10px;
+          border-top:1px solid #222;
+        }
+      }
+
+
+    }
+
+
+    .wrap-price {
+      margin-top: 50px;
+
+      &__title {
+        font-size: 22px;
+        color: #222;
+      }
+      
+      &__box {
+        margin-top: 15px;
+        border: 2px solid #000;
+        
+        .price-box {
+          overflow:hidden;
+
+          &__list {
+            float: left;
+            position: relative;
+            width: 20%;
+            padding: 35px 0 40px 60px;
+            border-left :1px solid #e8e8e8;
+            text-align: left;
+
+            & + &__list {
+              border-left: 1px solid #e8e8e8;
+            }
+
+            &:not(:first-child):before {
+              display: inline-block;
+              position: absolute;
+              left: -16px;
+              top: 50%;
+              width: 32px;
+              height: 32px;
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translateY(-50%);
+              transform: translateY(-50%);
+              content: '';
+            }
+
+            &-discount {
+
+              &:before{
+                background: url(../../img/bg/sprite_shop.png) no-repeat -400px -95px;
+              }
+            }
+
+            &-mileage {
+
+              &:before{
+                background: url(../../img/bg/sprite_shop.png) no-repeat -400px -95px;
+              }
+            }
+
+            &-sum {
+              padding-left: 50px;
+              .price-box__amt {
+                em {
+                  color: $pcolor;
+                }
+
+              }
+            }
+
+            &-delivery {
+              padding-right: 50px;
+
+              &:before{
+                background: url(../../img/bg/sprite_shop.png) no-repeat -500px -95px;
+              }
+
+            }
+
+            &-due-amt {
+
+              &__tit {
+                color: $pcolor;
+              }
+
+              &:before{
+                background: url(../../img/bg/sprite_shop.png) no-repeat -600px -95px;
+              }
+
+              .price-box__amt {
+                em {
+                  color: $pcolor;
+                }
+
+              }
+            }
+
+
+          }
+
+          &__tit {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 15px;
+          }
+
+          &__amt {
+            font-size: 20px;
+            color: #222;
+
+            em {
+              font: {
+                size: 30px;
+                weight: 600;
+                family: $font_n;
+              }
+            }
+          }
+
+        }
+
+      }
+
+      
+    }
+
+    .pmt-info {
+      margin-top: 50px;
+
+      &__title {
+        font-size: 22px;
+        color: #222;
+      }
+
+      &__box {
+        margin-top: 20px;
+        border-top: 1px solid #000;
+      }
+
+      &__list {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      &__cate {
+        display: table-cell;
+        width: 160px;
+        padding: 20px 0 20px 20px;
+        background: #f8f8f8;
+        font-size: 14px;
+      }
+
+      &__cont {
+        display: table-cell;
+        padding: 20px 0 20px 30px;
+        font-size: 14px;
+        line-height: 24px;
+
+        span {
+          display: block;
+
+          em {
+            color: $pcolor;
+          }
+        }
+
+      }
+
+    }
+
+    .delivery-info {
+      margin-top: 50px;
+
+      &__title {
+        font-size: 22px;
+        color: #222;
+      }
+
+      &__box {
+        margin-top: 20px;
+        border-top: 1px solid #000;
+      }
+
+      &__list {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      &__cate {
+        display: table-cell;
+        width: 160px;
+        padding: 20px 0 20px 20px;
+        background: #f8f8f8;
+        font-size: 14px;
+      }
+
+      &__cont {
+        display: table-cell;
+        padding: 20px 0 20px 30px;
+        font-size: 14px;
+        line-height: 24px;
+
+        span {
+          display: block;
+
+          em {
+            color: $pcolor;
+          }
+        }
+
+      }
+
+    }
+
+    .btn-area {
+      margin-top: 50px;
+      text-align: center;
+
+      &__go-home {
+        padding: 0 76px;
+        height: 54px;
+        background: #000;
+        border: 0;
+        font-size: 18px;
+        color: #fff;
+        line-height: 52px;
+      }
+
+      &__go-rf {
+        padding: 0 60px;
+        height: 54px;
+        margin-left: 7px;
+        background: $pcolor;
+        border: 0;
+        font-size: 18px;
+        color: #fff;
+        line-height: 52px;
+      }
+
+    }
+
+
+  }
+}

@@ -1,0 +1,227 @@
+a:1:{s:50:"upload_excel_data_f74e0ecfc53d7472f2864d68f4690835";a:1:{s:26:"viopc71ckm29jl8apd195ta162";a:3:{i:0;a:60:{s:12:"migration_id";s:21:"상품시스템코드";s:12:"product_type";s:12:"상품구분";s:8:"category";s:12:"카테고리";s:5:"md_id";s:8:"MD설정";s:11:"disp_global";s:22:"글로벌 노출설정";s:5:"pname";s:9:"상품명";s:13:"english_pname";s:17:"상품명(영문)";s:8:"add_info";s:9:"색상명";s:16:"english_add_info";s:9:"색상명";s:5:"pcode";s:26:"상품코드(품목코드)";s:11:"filter_info";s:12:"필터정보";s:8:"shotinfo";s:18:"상품간략설명";s:16:"english_shotinfo";s:26:"상품간략소개(영문)";s:5:"og_ix";s:15:"원산지코드";s:7:"company";s:15:"제조사코드";s:5:"brand";s:15:"브랜드코드";s:11:"surtax_yorn";s:12:"면세여부";s:5:"state";s:12:"판매상태";s:4:"disp";s:12:"노출여부";s:12:"is_sell_date";s:25:"판매기간 사용여부";s:15:"sell_priod_date";s:18:"판매기간설정";s:13:"coupon_use_yn";s:25:"상품쿠폰 사용여부";s:14:"search_keyword";s:15:"검색키워드";s:22:"english_search_keyword";s:23:"검색키워드(영문)";s:5:"movie";s:13:"동영상 URL";s:7:"coprice";s:9:"공급가";s:15:"english_coprice";s:17:"공급가(영문)";s:9:"listprice";s:9:"판매가";s:17:"english_listprice";s:17:"판매가(영문)";s:9:"sellprice";s:9:"할인가";s:17:"english_sellprice";s:17:"할인가(영문)";s:13:"allow_max_cnt";s:18:"최대판매수량";s:31:"wholesale_allow_byoneperson_cnt";s:17:"ID당구매수량";s:16:"allow_order_type";s:31:"한정판매수량 사용여부";s:25:"allow_order_cnt_byonesell";s:18:"한정판매수량";s:14:"display_option";s:21:"디스플레이옵션";s:14:"mandatory_type";s:25:"상품정보 고시유형";s:14:"mandatory_info";s:18:"상품고시정보";s:21:"mandatory_type_global";s:33:"상품정보 고시유형(영문)";s:21:"mandatory_info_global";s:26:"상품고시정보(영문)";s:13:"pattern_image";s:16:"패턴 이미지";s:11:"m_basicinfo";s:28:"모바일 상품상세정보";s:19:"english_m_basicinfo";s:47:"모바일 상품상세설명(이미지)(영문)";s:9:"basicinfo";s:22:"웹 상품상세정보";s:17:"english_basicinfo";s:41:"웹 상품상세설명(이미지)(영문)";s:7:"mainimg";s:15:"상품이미지";s:11:"option_name";s:9:"옵션명";s:19:"english_option_name";s:38:"옵션명(가격+재고관리)(영문)";s:10:"option_div";s:12:"옵션구분";s:18:"english_option_div";s:20:"옵션구분(영문)";s:23:"stock_options_listprice";s:22:"옵션 소매판매가";s:31:"english_stock_options_listprice";s:51:"옵션 소매판매가(가격+재고관리)(영문)";s:23:"stock_options_sellprice";s:22:"옵션 소매할인가";s:31:"english_stock_options_sellprice";s:51:"옵션 소매할인가(가격+재고관리)(영문)";s:21:"stock_options_soldout";s:12:"품절여부";s:18:"stock_options_code";s:18:"옵션품목코드";s:6:"addimg";s:23:"상품 추가 이미지";s:7:"listimg";s:26:"상품 리스트 이미지";s:7:"preface";s:16:"상품머리말 ";s:15:"english_preface";s:23:"상품머리말(영문)";}i:1;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:10:"br_harim21";s:11:"disp_global";N;s:5:"pname";s:68:"달마시안 우먼 레이싱 핏 패턴 V백 스트랩 스윔슈트";s:13:"english_pname";s:56:"Dalmatian Women Racing Fit Pattern V Back Strap Swimsuit";s:8:"add_info";s:6:"블랙";s:16:"english_add_info";s:5:"BLACK";s:5:"pcode";s:12:"BG3WSSW01BLK";s:11:"filter_info";s:25:"블랙|Small|Medium|Large";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:186:"달마시안, 디즈니, 달마시안 우먼 레이싱 핏 패턴 V백 스트랩 스윔슈트, 수영복, 스윔슈트, 우먼, 레이싱, 패턴, V백, 스트랩, 레이싱 스윔슈트";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:59000;s:15:"english_coprice";N;s:9:"listprice";d:59000;s:17:"english_listprice";N;s:9:"sellprice";d:59000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:1;s:14:"mandatory_info";s:826:"01|겉감1 : 폴리에스터 83%, 폴리우레탄 17% / 겉감2 : 폴리에스터 86%, 폴리우레탄 14% / 안감 : 폴리에스터 69% , 폴리우레탄 31%^
+02|블랙^
+03|Small,Medium,Large^
+04|㈜배럴^
+05|대한민국^
+06|1. 반드시 표백성분이 없는 중성세제로 찬물 혹은 30˚C 이하의 온도에 단독 손세탁 해주세요. 2. 다리미 사용은 날염, 프린팅, 전사 부분 및 옷감에 손상을 주니 사용을 금지하시기 바랍니다. 3. 물기를 완전히 제거하고 그늘에서 단독으로 건조하시기 바랍니다. 4. 세탁기, 건조기, 표백제 절대 사용 금지 5. 자세한 내용 상세페이지^
+07|202007^
+08|「전기용품 및 생활용품 안전관리법」에 따른 안전관리대상 제품임^
+09|배럴 고객센터/1899-8751^
+10|상세설명 참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:24:"dog/dalmatian_black2.jpg";s:11:"m_basicinfo";s:3033:"<center><br />
+<br />
+<!-- 스윔라인설명 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_intro_racing.jpg" />
+<!-- 디자이너팁 --><img src="//image2.getbarrel.com//socal/2020/swim/top_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 형태가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_v_back_strap_swim_suit_2020.jpg" /><br />
+<!-- 원단 --><img src="//image2.getbarrel.com//socal/2020/swim/fabric_duraflow_fit.jpg" />
+<!-- 테크놀로지 --><img src="//image2.getbarrel.com//socal/2020/swim/technology_swim_wear_fit.jpg" />
+<!-- 에디토리얼 1--><img src="//image2.getbarrel.com//socal/2020/swim/editorial1_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 에디토리얼 2--><img src="//image2.getbarrel.com//socal/2020/swim/editorial2_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 라이프스타일 --><img src="//image2.getbarrel.com//socal/2020/swim/lifestyle_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/swim/fitting_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com//socal/2020/swim/package_2020_swimsuit.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/swim/product_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 디테일 --><img src="//image2.getbarrel.com//socal/2020/swim/detail_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/50916.jpg?width=900" />
+<br />
+<br />
+<!-- 스트링 사용 가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_w_swim_man_string.jpg" /><!-- 스트링 사용법 영상 -->
+<center><iframe allowfullscreen="" frameborder="0" height="510" mozallowfullscreen="" src="https://player.vimeo.com/video/257069974?loop=1&amp;quality=1080p" webkitallowfullscreen="" width="900"></iframe><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com//static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com//static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 임시재봉선 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_pre_thread.jpg" /><!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/swim/notice_caution_swim_wear.jpg" /></center>";s:19:"english_m_basicinfo";s:3033:"<center><br />
+<br />
+<!-- 스윔라인설명 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_intro_racing.jpg" />
+<!-- 디자이너팁 --><img src="//image2.getbarrel.com//socal/2020/swim/top_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 형태가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_v_back_strap_swim_suit_2020.jpg" /><br />
+<!-- 원단 --><img src="//image2.getbarrel.com//socal/2020/swim/fabric_duraflow_fit.jpg" />
+<!-- 테크놀로지 --><img src="//image2.getbarrel.com//socal/2020/swim/technology_swim_wear_fit.jpg" />
+<!-- 에디토리얼 1--><img src="//image2.getbarrel.com//socal/2020/swim/editorial1_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 에디토리얼 2--><img src="//image2.getbarrel.com//socal/2020/swim/editorial2_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 라이프스타일 --><img src="//image2.getbarrel.com//socal/2020/swim/lifestyle_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/swim/fitting_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com//socal/2020/swim/package_2020_swimsuit.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/swim/product_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 디테일 --><img src="//image2.getbarrel.com//socal/2020/swim/detail_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/50916.jpg?width=900" />
+<br />
+<br />
+<!-- 스트링 사용 가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_w_swim_man_string.jpg" /><!-- 스트링 사용법 영상 -->
+<center><iframe allowfullscreen="" frameborder="0" height="510" mozallowfullscreen="" src="https://player.vimeo.com/video/257069974?loop=1&amp;quality=1080p" webkitallowfullscreen="" width="900"></iframe><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com//static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com//static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 임시재봉선 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_pre_thread.jpg" /><!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/swim/notice_caution_swim_wear.jpg" /></center>";s:9:"basicinfo";s:3033:"<center><br />
+<br />
+<!-- 스윔라인설명 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_intro_racing.jpg" />
+<!-- 디자이너팁 --><img src="//image2.getbarrel.com//socal/2020/swim/top_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 형태가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_v_back_strap_swim_suit_2020.jpg" /><br />
+<!-- 원단 --><img src="//image2.getbarrel.com//socal/2020/swim/fabric_duraflow_fit.jpg" />
+<!-- 테크놀로지 --><img src="//image2.getbarrel.com//socal/2020/swim/technology_swim_wear_fit.jpg" />
+<!-- 에디토리얼 1--><img src="//image2.getbarrel.com//socal/2020/swim/editorial1_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 에디토리얼 2--><img src="//image2.getbarrel.com//socal/2020/swim/editorial2_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 라이프스타일 --><img src="//image2.getbarrel.com//socal/2020/swim/lifestyle_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/swim/fitting_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com//socal/2020/swim/package_2020_swimsuit.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/swim/product_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 디테일 --><img src="//image2.getbarrel.com//socal/2020/swim/detail_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/50916.jpg?width=900" />
+<br />
+<br />
+<!-- 스트링 사용 가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_w_swim_man_string.jpg" /><!-- 스트링 사용법 영상 -->
+<center><iframe allowfullscreen="" frameborder="0" height="510" mozallowfullscreen="" src="https://player.vimeo.com/video/257069974?loop=1&amp;quality=1080p" webkitallowfullscreen="" width="900"></iframe><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com//static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com//static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 임시재봉선 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_pre_thread.jpg" /><!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/swim/notice_caution_swim_wear.jpg" /></center>";s:17:"english_basicinfo";s:3033:"<center><br />
+<br />
+<!-- 스윔라인설명 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_intro_racing.jpg" />
+<!-- 디자이너팁 --><img src="//image2.getbarrel.com//socal/2020/swim/top_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 형태가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_v_back_strap_swim_suit_2020.jpg" /><br />
+<!-- 원단 --><img src="//image2.getbarrel.com//socal/2020/swim/fabric_duraflow_fit.jpg" />
+<!-- 테크놀로지 --><img src="//image2.getbarrel.com//socal/2020/swim/technology_swim_wear_fit.jpg" />
+<!-- 에디토리얼 1--><img src="//image2.getbarrel.com//socal/2020/swim/editorial1_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 에디토리얼 2--><img src="//image2.getbarrel.com//socal/2020/swim/editorial2_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 라이프스타일 --><img src="//image2.getbarrel.com//socal/2020/swim/lifestyle_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/swim/fitting_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com//socal/2020/swim/package_2020_swimsuit.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/swim/product_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 디테일 --><img src="//image2.getbarrel.com//socal/2020/swim/detail_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_blk.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/50916.jpg?width=900" />
+<br />
+<br />
+<!-- 스트링 사용 가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_w_swim_man_string.jpg" /><!-- 스트링 사용법 영상 -->
+<center><iframe allowfullscreen="" frameborder="0" height="510" mozallowfullscreen="" src="https://player.vimeo.com/video/257069974?loop=1&amp;quality=1080p" webkitallowfullscreen="" width="900"></iframe><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com//static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com//static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 임시재봉선 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_pre_thread.jpg" /><!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/swim/notice_caution_swim_wear.jpg" /></center>";s:7:"mainimg";N;s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:26:"S[80~85]|M[85~90]|L[90~95]";s:18:"english_option_div";s:26:"S[80~85]|M[85~90]|L[90~95]";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:44:"BG3WSSW01BLKSM|BG3WSSW01BLKMM|BG3WSSW01BLKLG";s:6:"addimg";N;s:7:"listimg";N;s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:0;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:7:"dog.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}i:2;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:10:"br_harim21";s:11:"disp_global";N;s:5:"pname";s:68:"달마시안 우먼 레이싱 핏 패턴 V백 스트랩 스윔슈트";s:13:"english_pname";s:56:"Dalmatian Women Racing Fit Pattern V Back Strap Swimsuit";s:8:"add_info";s:9:"화이트";s:16:"english_add_info";s:5:"WHITE";s:5:"pcode";s:12:"BG3WSSW01WHT";s:11:"filter_info";s:28:"화이트|Small|Medium|Large";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:186:"달마시안, 디즈니, 달마시안 우먼 레이싱 핏 패턴 V백 스트랩 스윔슈트, 수영복, 스윔슈트, 우먼, 레이싱, 패턴, V백, 스트랩, 레이싱 스윔슈트";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:59000;s:15:"english_coprice";N;s:9:"listprice";d:59000;s:17:"english_listprice";N;s:9:"sellprice";d:59000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:1;s:14:"mandatory_info";s:829:"01|겉감1 : 폴리에스터 83%, 폴리우레탄 17% / 겉감2 : 폴리에스터 86%, 폴리우레탄 14% / 안감 : 폴리에스터 69% , 폴리우레탄 31%^
+02|화이트^
+03|Small,Medium,Large^
+04|㈜배럴^
+05|대한민국^
+06|1. 반드시 표백성분이 없는 중성세제로 찬물 혹은 30˚C 이하의 온도에 단독 손세탁 해주세요. 2. 다리미 사용은 날염, 프린팅, 전사 부분 및 옷감에 손상을 주니 사용을 금지하시기 바랍니다. 3. 물기를 완전히 제거하고 그늘에서 단독으로 건조하시기 바랍니다. 4. 세탁기, 건조기, 표백제 절대 사용 금지 5. 자세한 내용 상세페이지^
+07|202007^
+08|「전기용품 및 생활용품 안전관리법」에 따른 안전관리대상 제품임^
+09|배럴 고객센터/1899-8751^
+10|상세설명 참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:23:"dog/dalmatian_white.jpg";s:11:"m_basicinfo";s:3033:"<center><br />
+<br />
+<!-- 스윔라인설명 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_intro_racing.jpg" />
+<!-- 디자이너팁 --><img src="//image2.getbarrel.com//socal/2020/swim/top_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 형태가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_v_back_strap_swim_suit_2020.jpg" /><br />
+<!-- 원단 --><img src="//image2.getbarrel.com//socal/2020/swim/fabric_duraflow_fit.jpg" />
+<!-- 테크놀로지 --><img src="//image2.getbarrel.com//socal/2020/swim/technology_swim_wear_fit.jpg" />
+<!-- 에디토리얼 1--><img src="//image2.getbarrel.com//socal/2020/swim/editorial1_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 에디토리얼 2--><img src="//image2.getbarrel.com//socal/2020/swim/editorial2_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 라이프스타일 --><img src="//image2.getbarrel.com//socal/2020/swim/lifestyle_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/swim/fitting_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com//socal/2020/swim/package_2020_swimsuit.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/swim/product_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 디테일 --><img src="//image2.getbarrel.com//socal/2020/swim/detail_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/50916.jpg?width=900" />
+<br />
+<br />
+<!-- 스트링 사용 가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_w_swim_man_string.jpg" /><!-- 스트링 사용법 영상 -->
+<center><iframe allowfullscreen="" frameborder="0" height="510" mozallowfullscreen="" src="https://player.vimeo.com/video/257069974?loop=1&amp;quality=1080p" webkitallowfullscreen="" width="900"></iframe><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com//static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com//static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 임시재봉선 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_pre_thread.jpg" /><!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/swim/notice_caution_swim_wear.jpg" /></center>";s:19:"english_m_basicinfo";s:3033:"<center><br />
+<br />
+<!-- 스윔라인설명 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_intro_racing.jpg" />
+<!-- 디자이너팁 --><img src="//image2.getbarrel.com//socal/2020/swim/top_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 형태가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_v_back_strap_swim_suit_2020.jpg" /><br />
+<!-- 원단 --><img src="//image2.getbarrel.com//socal/2020/swim/fabric_duraflow_fit.jpg" />
+<!-- 테크놀로지 --><img src="//image2.getbarrel.com//socal/2020/swim/technology_swim_wear_fit.jpg" />
+<!-- 에디토리얼 1--><img src="//image2.getbarrel.com//socal/2020/swim/editorial1_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 에디토리얼 2--><img src="//image2.getbarrel.com//socal/2020/swim/editorial2_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 라이프스타일 --><img src="//image2.getbarrel.com//socal/2020/swim/lifestyle_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/swim/fitting_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com//socal/2020/swim/package_2020_swimsuit.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/swim/product_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 디테일 --><img src="//image2.getbarrel.com//socal/2020/swim/detail_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/50916.jpg?width=900" />
+<br />
+<br />
+<!-- 스트링 사용 가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_w_swim_man_string.jpg" /><!-- 스트링 사용법 영상 -->
+<center><iframe allowfullscreen="" frameborder="0" height="510" mozallowfullscreen="" src="https://player.vimeo.com/video/257069974?loop=1&amp;quality=1080p" webkitallowfullscreen="" width="900"></iframe><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com//static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com//static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 임시재봉선 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_pre_thread.jpg" /><!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/swim/notice_caution_swim_wear.jpg" /></center>";s:9:"basicinfo";s:3033:"<center><br />
+<br />
+<!-- 스윔라인설명 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_intro_racing.jpg" />
+<!-- 디자이너팁 --><img src="//image2.getbarrel.com//socal/2020/swim/top_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 형태가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_v_back_strap_swim_suit_2020.jpg" /><br />
+<!-- 원단 --><img src="//image2.getbarrel.com//socal/2020/swim/fabric_duraflow_fit.jpg" />
+<!-- 테크놀로지 --><img src="//image2.getbarrel.com//socal/2020/swim/technology_swim_wear_fit.jpg" />
+<!-- 에디토리얼 1--><img src="//image2.getbarrel.com//socal/2020/swim/editorial1_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 에디토리얼 2--><img src="//image2.getbarrel.com//socal/2020/swim/editorial2_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 라이프스타일 --><img src="//image2.getbarrel.com//socal/2020/swim/lifestyle_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/swim/fitting_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com//socal/2020/swim/package_2020_swimsuit.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/swim/product_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 디테일 --><img src="//image2.getbarrel.com//socal/2020/swim/detail_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/50916.jpg?width=900" />
+<br />
+<br />
+<!-- 스트링 사용 가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_w_swim_man_string.jpg" /><!-- 스트링 사용법 영상 -->
+<center><iframe allowfullscreen="" frameborder="0" height="510" mozallowfullscreen="" src="https://player.vimeo.com/video/257069974?loop=1&amp;quality=1080p" webkitallowfullscreen="" width="900"></iframe><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com//static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com//static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 임시재봉선 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_pre_thread.jpg" /><!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/swim/notice_caution_swim_wear.jpg" /></center>";s:17:"english_basicinfo";s:3033:"<center><br />
+<br />
+<!-- 스윔라인설명 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_intro_racing.jpg" />
+<!-- 디자이너팁 --><img src="//image2.getbarrel.com//socal/2020/swim/top_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 형태가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_v_back_strap_swim_suit_2020.jpg" /><br />
+<!-- 원단 --><img src="//image2.getbarrel.com//socal/2020/swim/fabric_duraflow_fit.jpg" />
+<!-- 테크놀로지 --><img src="//image2.getbarrel.com//socal/2020/swim/technology_swim_wear_fit.jpg" />
+<!-- 에디토리얼 1--><img src="//image2.getbarrel.com//socal/2020/swim/editorial1_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 에디토리얼 2--><img src="//image2.getbarrel.com//socal/2020/swim/editorial2_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 라이프스타일 --><img src="//image2.getbarrel.com//socal/2020/swim/lifestyle_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com//socal/2020/swim/fitting_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com//socal/2020/swim/package_2020_swimsuit.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com//socal/2020/swim/product_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 디테일 --><img src="//image2.getbarrel.com//socal/2020/swim/detail_dalmatian_w_racing_fit_pattern_v_back_strap_swimsuit_wht.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/50916.jpg?width=900" />
+<br />
+<br />
+<!-- 스트링 사용 가이드 --><img src="//image2.getbarrel.com//socal/2020/swim/guide_w_swim_man_string.jpg" /><!-- 스트링 사용법 영상 -->
+<center><iframe allowfullscreen="" frameborder="0" height="510" mozallowfullscreen="" src="https://player.vimeo.com/video/257069974?loop=1&amp;quality=1080p" webkitallowfullscreen="" width="900"></iframe><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com//static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com//static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com//static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com//static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 임시재봉선 --><img src="//image2.getbarrel.com//socal/2020/swim/swim_pre_thread.jpg" /><!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2020/swim/notice_caution_swim_wear.jpg" /></center>";s:7:"mainimg";N;s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:26:"S[80~85]|M[85~90]|L[90~95]";s:18:"english_option_div";s:26:"S[80~85]|M[85~90]|L[90~95]";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:44:"BG3WSSW01WHTSM|BG3WSSW01WHTMM|BG3WSSW01WHTLG";s:6:"addimg";N;s:7:"listimg";N;s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:1;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:7:"dog.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}}}}

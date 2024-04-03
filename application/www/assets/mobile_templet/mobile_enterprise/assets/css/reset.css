@@ -1,0 +1,329 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+@font-face {
+	font-family: "Notosans";
+	font-style: normal;
+	font-weight: 200;
+	src: local("NotoSansLight"), local("NotoSansLight"), url(../font/NotoSansKR-Light.eot);
+	src: url(../font/NotoSansKR-Light.eot?#iefix) format("embedded-opentype"), url(../font/NotoSansKR-Light.woff2) format("woff2"), url(../font/NotoSansKR-Light.woff) format("woff");
+}
+
+@font-face {
+	font-family: "Notosans";
+	font-style: normal;
+	font-style: normal;
+	font-weight: 400;
+	src: local("NotoSansRegular"), local("NotoSansRegular"), url(../font/NotoSansKR-Regular.eot);
+	src: url(../font/NotoSansKR-Regular.eot?#iefix) format("embedded-opentype"), url(../font/NotoSansKR-Regular.woff2) format("woff2"), url(../font/NotoSansKR-Regular.woff) format("woff");
+}
+
+@font-face {
+	font-family: "Notosans";
+	font-style: normal;
+	font-weight: 600;
+	src: local("NotoSansMedium"), local("NotoSansMedium"), url(../font/NotoSansKR-Medium.eot);
+	src: url(../font/NotoSansKR-Medium.eot?#iefix) format("embedded-opentype"), url(../font/NotoSansKR-Medium.woff2) format("woff2"), url(../font/NotoSansKR-Medium.woff) format("woff");
+}
+
+@font-face {
+	font-family: "Notosans";
+	font-style: normal;
+	font-weight: 800;
+	src: local("NotoSansBold"), local("NotoSansBold"), url(../font/NotoSansKR-Bold.eot);
+	src: url(../font/NotoSansKR-Bold.eot?#iefix) format("embedded-opentype"), url(../font/NotoSansKR-Bold.woff2) format("woff2"), url(../font/NotoSansKR-Bold.woff) format("woff");
+}
+
+@font-face {
+	font-family: "Rb";
+	font-style: normal;
+	font-weight: 200;
+	src: url(../font/Roboto-Light.eot) format("eot");
+	src: url(../font/Roboto-Light.woff) format("woff");
+}
+
+@font-face {
+	font-family: "Rb";
+	font-style: normal;
+	font-weight: 400;
+	src: url(../font/Roboto-Regular.eot) format("eot");
+	src: url(../font/Roboto-Regular.woff) format("woff");
+}
+
+@font-face {
+	font-family: "Rb";
+	font-style: normal;
+	font-weight: 600;
+	src: url(../font/Roboto-Medium.eot) format("eot");
+	src: url(../font/Roboto-Medium.woff) format("woff");
+}
+
+@font-face {
+	font-family: "SHS";
+	font-style: normal;
+	font-weight: 200;
+	src: url(../font/SpoqaHanSans-Thin.woff2) format("woff2");
+	src: url(../font/SpoqaHanSans-Thin.woff) format("woff");
+}
+@font-face {
+	font-family: "SHS";
+	font-style: normal;
+	font-weight: 400;
+	src: url(../font/SpoqaHanSans-Regular.woff2) format("woff2");
+	src: url(../font/SpoqaHanSans-Regular.woff) format("woff");
+}
+
+html,
+body,
+input,
+button,
+textarea,
+select,
+option {
+	color: #666;
+	font-family: "Notosans", sans-serif;
+	font-weight: 400;
+	line-height: 1;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	line-height: 1;
+	width: 100%;
+	height: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+nav ul {
+	list-style: none;
+}
+
+img,
+fieldset {
+	border: 0;
+}
+i,
+em,
+address {
+	font-style: normal;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 100%;
+}
+th,
+td {
+	margin: 0;
+	padding: 0;
+}
+input,
+label {
+	border: 0;
+	vertical-align: middle;
+}
+input {
+	outline: none;
+}
+label {
+	cursor: pointer;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+}
+
+ul li,
+ol li {
+	list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+	padding: 0;
+}
+
+figure,
+p {
+	margin: 0;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	min-width: 0;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+legend {
+	border: 0;
+	background-color: transparent;
+	color: transparent;
+	font: 0/0 a;
+	text-shadow: none;
+}
+
+table caption {
+	display: none;
+}
+
+.cascading select {
+	width: 100px;
+	height: 200px;
+}
+
+button {
+	border: 0;
+	background: none;
+	cursor: pointer;
+}
+
+/*#5018 select박스명 긴 경우 때문에 추가하였습니다. */
+select {
+	padding-right: 2.5rem;
+}
+
+select:focus {
+	outline: 2px solid #000 !important;
+}
+
+*:not(input):not(textarea):not(a):not(button):not(select) {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+* {
+	outline: none !important;
+	letter-spacing: 0;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+*:active {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img {
+	font-size: 1rem;
+}

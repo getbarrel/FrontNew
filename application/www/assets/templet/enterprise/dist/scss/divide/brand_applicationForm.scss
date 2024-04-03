@@ -1,0 +1,217 @@
+.br {
+  &__apply {
+    width: 1150px;
+    margin: 142px auto;
+
+    &__title {
+      color: #000;
+      font-size: 40px;
+      text-align: center;
+      line-height: 55px;
+    }
+    &__desc {
+      padding: 38px 0 97px;
+      color: #898989;
+      font-size: 16px;
+      text-align: center;
+    }
+    .apply {
+      &__btn {
+        padding-bottom: 150px;
+        border-bottom: 1px solid #dcdddd;
+
+        button {
+          display:block;
+          position:relative;
+          width:195px;
+          margin:90px auto 0;
+          padding:8px 0;
+          color:#000;
+          font-size:16px;
+
+          &:after {
+            content:"";
+            position:absolute;
+            bottom:0;
+            left:0;
+            right:0;
+            border-bottom:2px solid #b0b0b0;
+          }
+        }
+        a {
+          display: inline-block;
+          padding: 63px 174px;
+          color: #000;
+          font-size: 22px;
+          font-weight: 600;
+          border: 2px solid #00bce7;
+          &:hover {
+            color: #fff;
+            background: #00bce7;
+            &:after {
+              background: url(../../images/arrow_btn_white.png) no-repeat;
+            }
+          }
+          &:after {
+            content: "";
+            display: inline-block;
+            width: 9px;
+            height: 14px;
+            margin-left: 19px;
+            background: url(../../images/arrow_btn.png) no-repeat;
+          }
+        }
+
+        &--personal {
+          margin-right: 50px;
+        }
+      }
+    }
+    .inquiry-info {
+      overflow: hidden;
+      padding-top: 148px;
+
+      &__title {
+        color: #000;
+        font-size: 40px;
+        text-align: center;
+        line-height: 55px;
+      }
+      &__desc {
+        padding: 38px 0 80px;
+        color: #898989;
+        font-size: 16px;
+        text-align: center;
+        line-height: 28px;
+      }
+      .inquiry {
+        &__inputbox {
+          float: left;
+          display: inline-block;
+          width: calc(50% - 25px);
+          &--personal {
+            margin-right: 46px;
+          }
+          h3 {
+            padding: 33px;
+            color: #000;
+            font-size: 18px;
+            font-weight: 600;
+            border-bottom: 1px solid #000;
+            background: #f7f8f8;
+            text-align: center;
+          }
+          &__list {
+            width: 100%;
+            display: table;
+            padding: 40px 0 20px;
+            border-bottom: 1px solid #f2f2f3;
+            &:last-of-type {
+              border-bottom: none;
+            }
+          }
+          &__title {
+            display: table-cell;
+            width: 155px;
+            padding-left: 24px;
+            color: #000;
+            font-size: 16px;
+            text-align: left;
+          }
+          &__input {
+            display: table-cell;
+            input {
+              width: 236px;
+              margin-right: 10px;
+            }
+          }
+          &__desc {
+            margin-top: 20px;
+            color: #898989;
+            font-size: 14px;
+          }
+
+          &__btn {
+            display: block;
+            margin: 41px auto;
+            padding: 13px 54px;
+            color: #fff;
+            background: #383838;
+            box-sizing: border-box;
+          }
+        }
+      }
+
+      .password-warning {
+        display: none;
+        color: red;
+
+        &--show {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.sprintAlert {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.8);
+  z-index:100;
+
+  &__body {
+    position:absolute;
+    top:50%;
+    left:50%;
+    box-sizing:border-box;
+    width:750px;
+    margin-left:-375px;
+    padding:115px 95px 250px;
+    background:#fff;
+  }
+  &__title {
+    color:#000;
+    font-size:40px;
+    line-height:55px;
+    text-align:center;
+    word-break:keep-all;
+    white-space: pre-line;
+  }
+  &__desc {
+    margin-top:30px;
+    color:#898989;
+    font-size:16px;
+    line-height:28px;
+    text-align:center;
+    word-break:keep-all;
+    white-space: pre-line;
+  }
+  &__btn {
+    &--confirm {
+      position:absolute;
+      bottom:90px;
+      left:50%;
+      width:180px;
+      height:60px;
+      margin-left:-90px;
+      background:#000;
+      color:#fff;
+      font-size:20px;
+    }
+    &--close {
+      position:absolute;
+      top:40px;
+      right:40px;
+      width:30px;
+      height:30px;
+      background:url(../images/common/sprint_popup_close.png) no-repeat;
+      background-size:100%;
+      font-size:0;
+
+    }
+  }
+}

@@ -1,0 +1,183 @@
+<!-- 컨텐츠 S -->
+<section class="fb__mypage fb__mypage-board">
+	<div class="fb__bbs__detail">
+		<div class="fb__bbs__detail__title">
+			<div class="title-md">{=trans('상품 Q&A')}</div>
+		</div>
+		<section class="fb__bbs__detail-content">
+			<div class="detail">
+				<div class="detail__header">
+					<div class="detail__header-group">
+						<span class="detail__category category">{div_name}</span>
+						<span class="detail__state state {? isResponse} complete {/}">
+						{? isResponse}
+						<span class="status complete">{=trans('답변완료')}</span>
+						{:}
+						<span class="status">{=trans('답변대기')}</span>
+						{/}
+						</span>
+					</div>
+					<div class="detail__header-group">
+						<h3 class="detail__title">{bbs_subject}</h3>
+						<span class="detail__date date lock">{regdate}</span>
+					</div>
+				</div>
+
+				<!-- 주문 상품 영역 S -->
+				<div class="detail__product">
+					<ul class="product-item__wrap">
+						<li class="product-item__list">
+							<dl class="product-item">
+								<dt class="product-item__thumbnail-box">
+									<div class="product-item__thumb">
+										<a href="/shop/goodsView/{pid}">
+											<img src="{image_src}" alt="" />
+										</a>
+									</div>
+								</dt>
+								<dd class="product-item__infobox">
+									<div class="product-item__info">
+										<div class="product-item__title c-pointer">
+											<a href="/shop/goodsView/{pid}">{pname}</a>
+										</div>
+										<div class="product-item__option">
+											{add_info}
+										</div>
+										<div class="product-item__price-group">
+											{? discount_rate > 0}<div class="product-item__price-percent">{discount_rate}%</div>{/}
+											<div class="product-item__price price">{fbUnit.f}<em>{=g_price(dcprice)}</em>{fbUnit.b}</div>
+											{? discount_rate > 0}<div class="product-item__noprice">{fbUnit.f}<del>{=g_price(listprice)}</del>{fbUnit.b}</div>{/}
+										</div>
+									</div>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<!-- 주문 상품 영역 E -->
+
+				<div class="content-area detail__content">
+					<div class="cont-area">
+						{bbs_contents}
+					</div>
+				</div>
+
+				<!-- 답변 영역 S -->
+				{? isResponse}
+				<div class="detail__answer">
+					{@ comments}
+					<div class="detail__answer__info">
+						<span class="detail__answer__info-name">BARREL 고객센터</span>
+						<span class="detail__answer__info-date">{.regdate}</span>
+					</div>
+					<div class="detail__answer__content answer">
+						{.cmt_contents}
+					</div>
+					{/}
+				</div>
+				{/}
+				<!-- 답변 영역 E -->
+
+				<!-- 답변 완료 되었을 때 S -->
+				<div class="detail__footer">
+					<button type="button" class="btn-default btn-dark-line">목록으로</button>
+				</div>
+				<!-- 답변 완료 되었을 때 E -->
+
+				<!-- 답변 없고 / 게시글 수정할 경우 S -->
+				<!-- 숨김 처리 -->
+				<div class="detail__footer">
+					<div class="btn-group">
+						{? isResponse}
+
+						{:}
+						<button type="button" class="btn-default btn-dark-line devModifyQna" data-bbs_ix="{bbs_ix}" data-pid="{pid}">{=trans('수정하기')}</button>
+						<button type="button" class="btn-default btn-gray-line devDeleteQna" data-bbs_ix="{bbs_ix}">{=trans('삭제하기')}</button>
+						{/}
+					</div>
+				</div>
+				<!-- 답변 없고 / 게시글 수정할 경우 E -->
+			</div>
+		</section>
+	</div>
+</section>
+<!-- 컨텐츠 E -->
+
+<!--
+<div class="fb__myGoodsInquiryDetail">
+    <div class="detail">
+        <div class="wrap-bbs-view">
+            <div class="top-area">
+                <span>{=trans('작성일시')} : <em class="font-rb">{regdate}</em></span>
+                {? isResponse}
+                <span class="status complete">{=trans('답변완료')}</span>
+                {:}
+                <span class="status">{=trans('답변대기')}</span>
+                {/}
+            </div>
+
+            <div class="bbs-title">
+                {bbs_subject}
+            </div>
+            <div class="wrap-question">
+                <a href="/shop/goodsView/{pid}">
+                    <div class="item">
+                        <div class="thumb">
+                            <img src="{image_src}">
+                        </div>
+                        <div class="info">
+                            <p class="title">{pname}</p>
+                            {? add_info}
+                            <p class="color">{=trans('색상')} : {add_info}</p>
+                            {/}
+                        </div>
+                    </div>
+                </a>
+                <p class="question">{bbs_contents}</p>
+            </div>
+
+            {? isResponse && false}
+            <div class="wrap-answer">
+                {@ comments}
+                <div class="top-area">
+                    <span class="float-l">{.cmt_name}</span>
+                    <span class="float-r">{=trans('답변일시')}: <em class="font-rb">{.regdate}</em></span>
+                </div>
+                <p class="answer">
+                    {.cmt_contents}
+                </p>
+                {/}
+            </div>
+            {/}
+            {? isResponse}
+            <div class="detail__answer">
+                {@ comments}
+                <div class="detail__answer-list">
+                    <header class="detail__answer-header">
+                        <h3 class="detail__answer-title">
+                            BARREL
+                        </h3>
+                        <span class="detail__answer-day">
+                            {=trans('답변일시')} : {.regdate}
+                        </span>
+                    </header>
+                    <p  class="detail__answer-info">
+                        {=nl2br(.cmt_contents)}
+                    </p>
+                </div>
+                {/}
+            </div>
+            {/}
+
+            <div class="popup-btn-area">
+                {? isResponse}
+
+                {:}
+                <button class="btn-default btn-dark-line devDeleteQna" data-bbs_ix="{bbs_ix}">{=trans('삭제')}</button>
+                <button class="btn-default btn-dark devModifyQna" data-bbs_ix="{bbs_ix}" data-pid="{pid}">{=trans('수정')}</button>
+                {/}
+            </div>
+        </div>
+    </div>
+</div>
+-->

@@ -1,0 +1,412 @@
+.fb {
+
+  &__mypage {
+
+    &__order-claim {
+
+      .claim {
+
+        &__list {
+
+          th {
+            padding: 16px 10px!important;
+          }
+
+          &__icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: url("../images/common/btn-ordercancel-minus.png") no-repeat 0 0;
+            font-size: 0;
+            cursor: pointer;
+          }
+
+          &__table {
+            border-bottom: 1px solid #ddd;
+          }
+
+          &__reason {
+            margin-top: 0 !important;
+            border-top: 0 !important;
+          }
+
+          &__delivery {
+            display: block;
+            background: #f9f9f9;
+            border: {
+              top: 1px solid #ddd;
+              bottom: 1px solid #ddd;
+            }
+            font-size: 14px;
+            text-align: right;
+            line-height: 50px;
+
+            span {
+
+              &:before {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+                background: url("../images/common/icon-ordercancel-delivery.png") no-repeat 0 0;
+                vertical-align: middle;
+                content: "";
+              }
+            }
+
+            em {
+              color: #000;
+            }
+          }
+
+          &__empty {
+            display: none;
+            padding: 78px 0;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+
+            span {
+              &:before {
+                display: block;
+                width: 60px;
+                height: 60px;
+                margin: 0 auto 20px;
+                background: url("../images/common/icon-empty.png") no-repeat 0 0;
+                content: "";
+              }
+            }
+
+            &--show {
+              display: block;
+            }
+          }
+        }
+
+        &__disable {
+
+          &__title {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #000;
+            line-height: 26px;
+          }
+
+          .claim__list__icon {
+            background-image: url("../images/common/btn-ordercancel-plus.png");
+          }
+
+          thead,
+          .claim__list__reason,
+          .claim__list__delivery {
+            display: none !important;
+          }
+
+
+
+        }
+
+      }
+
+      .cancel-area {
+
+        .reason-box {
+          display: table;
+          table-layout: fixed;
+          margin-top: 50px;
+          border: {
+            top: 1px solid #000;
+            bottom: 1px solid #e8e8e8;
+          }
+          &__inner {
+            display:table-row;
+            &:first-of-type {
+              &__title {
+                border-top: 1px solid #000;
+              }
+            }
+          }
+          &__title {
+            display: table-cell;
+            position: relative;
+            width: 180px;
+            padding-left: 27px;
+            background: #f8f8f8;
+            font-size: 14px;
+            text-align: left;
+            vertical-align: middle;
+
+            &:after {
+              position: absolute;
+              left: 78px;
+              color: $pcolor;
+              content: "*";
+            }
+
+            em {
+              display: inline-block;
+              margin: 3px 4px 0 -10px;
+              vertical-align: top;
+            }
+          }
+          &__cont {
+            display: table-cell;
+            padding: 10px 10px 10px 30px;
+            font-size: 14px;
+            @extend %clear;
+
+            select {
+              float: left;
+              width: 260px;
+            }
+            textarea {
+              float: left;
+              width: 680px;
+              height: 80px;
+              padding: 10px;
+              margin-top: 10px;
+            }
+            .counting {
+              width: 680px;
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+
+      .refund-area {
+
+        &__inner {
+          border: {
+            top: 1px solid #000;
+            bottom: 1px solid #ddd;
+          }
+          overflow: hidden;
+        }
+
+        .pay-info {
+
+          &__box {
+            width: calc(100% / 3);
+            float: left;
+            height: 328px;
+
+            &:not(:first-child) {
+              border-left: 1px dotted #ddd;
+            }
+
+            &-delivery {
+              position: relative;
+
+              &:before {
+                display: inline-block;
+                position: absolute;
+                top: 60px;
+                left: -16px;
+                width: 32px;
+                height: 32px;
+                background: url(../../img/bg/sprite_mypage.png) no-repeat -300px -300px;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                transform: translateY(-50%);
+                content: '';
+              }
+            }
+
+            &-sum {
+              position: relative;
+
+              &:before {
+                display: inline-block;
+                position: absolute;
+                width: 32px;
+                height: 32px;
+                top: 60px;
+                left: -16px;
+                background: url(../../img/bg/sprite_mypage.png) no-repeat -400px -300px;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                transform: translateY(-50%);
+                content: '';
+              }
+            }
+
+          }
+
+          &__top {
+            position: relative;
+            height: 121px;
+            padding-top: 30px;
+            border-bottom: 1px dotted #ddd;
+            text-align: center;
+
+            &__tit {
+              margin-bottom: 10px;
+              color: #222;
+              font-size: 16px;
+              font-weight: 600;
+            }
+
+            &__price {
+              font-size: 16px;
+              color: #222;
+
+              em {
+                font: {
+                  weight: 600;
+                  size: 30px;
+                  family: $font_n;
+                }
+
+              }
+            }
+
+          }
+
+          &__bottom {
+            padding: 20px 40px;
+            color: #222;
+            font-weight: 600;
+            font-size: 14px;
+
+            dl {
+              overflow: hidden;
+              dt {
+                float: left;
+              }
+              dd {
+                float: right;
+                em {
+                  font-family: $font_n;
+                }
+              }
+
+              & + dl {
+                margin-top: 10px;
+              }
+
+              &:not(.disc-list) dd em {
+                font-weight: 600;
+                font-size: 16px;
+              }
+
+              .disc-list {
+                font-size: 13px;
+                color: #666;
+              }
+              .disc-list.first {
+                margin-top: 15px;
+              }
+              .disc-list dt {
+                position: relative;
+                padding-left: 17px;
+              }
+              .disc-list dt:before {
+                display: inline-block;
+                position: absolute;
+                left: 0;
+                width: 15px;
+                height: 15px;
+                background: url(../../img/bg/sprite_mypage.png) no-repeat -700px 0;
+                content: '';
+              }
+
+            }
+
+          }
+
+          &__bottom__text {
+            color: #999;
+            line-height: 20px;
+          }
+
+        }
+
+        .refund-info {
+          overflow: hidden;
+          width: 100%;
+          padding: 30px 15px;
+          border-top: 1px solid #ddd;
+          font-size: 14px;
+
+          &-account {
+            display: none;
+          }
+
+          &__box {
+            float: left;
+            min-width: 280px;
+
+            dt {
+              margin-bottom: 10px;
+              color: #222;
+              font-weight: 600;
+            }
+
+          }
+
+          &__input-area {
+            label {
+              display: inline-block;
+              min-width: 60px;
+              color: #222;
+
+              &:nth-of-type(2) {
+                margin-left: 36px;
+              }
+            }
+
+            &__account {
+              margin-top: 10px;
+
+              input {
+                width: 400px !important;
+              }
+            }
+
+            select {
+              width: 150px;
+            }
+
+            input {
+              width: 150px;
+            }
+          }
+        }
+
+        &__annc {
+          padding: 10px 15px;
+          font-size: 13px;
+          line-height: 20px;
+        }
+
+      }
+
+      &-btn {
+        margin-top: 50px;
+      }
+
+    }
+
+  }
+
+}
+
+
+html[lang=en] {
+  .fb {
+    &__mypage {
+      &__order-claim {
+        .refund-area {
+          .pay-info {
+            &__box {
+              width: calc(100% / 2);
+            }
+          }
+        }
+      }
+    }
+  }
+}

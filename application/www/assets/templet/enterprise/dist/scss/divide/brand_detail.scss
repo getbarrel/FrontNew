@@ -1,0 +1,139 @@
+.sj {
+  &__brand-detail {
+
+    .detail {
+
+      &__slider {
+        margin-bottom: 75px;
+
+        &__item {
+          //height: 350px;
+          overflow: hidden;
+
+          img {
+            position: relative;
+            top: 0;
+            left: 50%;
+            margin-left: -(1920 / 2) + px;
+          }
+        }
+
+        &-btn {
+          display: none;
+          position: relative;
+          left: 0;
+          width: $width;
+          margin: 0 auto;
+          text-align: center;
+
+          span {
+            position: relative;
+            z-index: 2;
+          }
+
+          &--show {
+            display: block;
+          }
+        }
+
+      }
+
+      &__best {
+        margin-bottom: 80px;
+
+        &-header {
+          position: relative;
+          margin-bottom: 20px;
+
+          .bestgoods-list__nav {
+            display: none;
+            top: 0;
+
+            &--show {
+              display: block;
+            }
+          }
+        }
+
+        &-title {
+          color: #222;
+          font-weight: bold;
+          font-size: 30px;
+
+        }
+
+        &-box {
+
+          @extend %clear;
+          width: calc(100% + 32px);
+
+          .today-box__list {
+            width: 263px;
+            margin: 0;
+            margin-right: 30px;
+
+            &:nth-child(1n + 5) {
+              display: none
+
+            }
+          }
+
+
+
+
+
+          .today-box__link {
+            height: 440px;
+          }
+
+          &.slick-slider {
+            width: calc(100% + 30px);
+            margin: 0;
+          }
+
+          .slick-slide {
+            padding-right: 30px;
+          }
+
+          .slick-slide {
+            .today-box__list {
+              margin: 0;
+              .today-box__link {
+                width: 100%;
+              }
+             }
+          }
+        }
+      }
+
+      &__list {
+        .today-box__list {
+          width: 262px;
+          height: 440px;
+
+          .today-box__info {
+
+            .box-list__info__noprice {
+              margin-bottom: 6px;
+              color: #999;
+              font-size: 16px;
+              text-decoration: line-through;
+            }
+          }
+        }
+
+        .list-contents{
+            &__nav {
+              color: #888;
+
+              &--active {
+                color: #222;
+              }
+            }
+        }
+      }
+
+    }
+
+  }
+}

@@ -1,0 +1,940 @@
+.fb {
+
+  &__customer {
+
+    &__top {
+      position: relative;
+      height: 160px;
+      margin-bottom: 50px;
+      /*padding-bottom: 90px;*/
+      border: 1px solid #ccc;
+
+      @extend %clear;
+
+    }
+
+    &__greetings,
+    &__info {
+      float: left;
+      position: relative;
+      width: 50%;
+      height: 100%;
+      text-align: center;
+      white-space: nowrap;
+
+      div {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      &:after {
+        display: inline-block;
+        position: relative;
+        width: 1px;
+        height: 100%;
+        margin-left: -1px;
+        vertical-align: middle;
+        content: "";
+      }
+    }
+
+    &__greetings {
+      position: relative;
+
+      p {
+        position: relative;
+        padding-top: 55px;
+        font-size: 14px;
+        color: #666;
+        line-height: 24px;
+
+        &:after {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 50px;
+          height: 40px;
+          margin-left: - (55px /2);
+          background: url(../../img/bg/sprite_customer.png) no-repeat -3px -1px;
+          content: "";
+        }
+
+        b {
+          display: block;
+          color: #222;
+          font: {
+            weight: 600;
+            size: 24px;
+          }
+          line-height: 24px;
+          margin-bottom: 5px;
+        }
+      }
+
+      &:before {
+        display: block;
+        position: absolute;
+        top: 15%;
+        right: 0;
+        width: 1px;
+        height: 70%;
+        background: #e3e3e3;
+        content: "";
+      }
+    }
+
+    &__info {
+      position: relative;
+      font-size: 13px;
+      line-height: 20px;
+
+      &-title {
+        color: #222;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px;
+        margin-bottom: 5px;
+      }
+
+      b {
+        display: block;
+        color: $pcolor;
+        font-family: $font_n;
+        font-size: 34px;
+        font-weight: 600;
+        line-height: 30px;
+        margin-bottom: 10px;
+      }
+    }
+
+    &__form {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      padding-top: 22px;
+      background: #f8f8f8;
+      text-align: center;
+      box-sizing: border-box;
+
+      span {
+
+        display: inline-block;
+        margin-right: 10px;
+        color: #222;
+        font-size: 18px;
+        line-height: 46px;
+      }
+
+      form {
+        display: inline-block;
+
+        input[type="text"] {
+          width: 440px;
+          height: 46px;
+          border-color: #666;
+          vertical-align: top;
+        }
+
+        input[type="button"] {
+          height: 46px;
+          background: #666;
+          color: #fff;
+          font-size: 16px;
+          line-height: 16px;
+          min-width: 90px;
+          vertical-align: top;
+        }
+      }
+    }
+
+    &__index {
+      @extend %clear;
+    }
+
+    &__menu,
+    &__noti,
+    &__faq {
+
+      .fb__customer__title {
+        font-size: 20px;
+        color: #222;
+      }
+    }
+
+    &__menu {
+      float: left;
+      width: 50%;
+      padding-right: 20px;
+      box-sizing: border-box;
+
+      &-inner {
+        margin-top: 40px;
+        @extend %clear;
+
+        a {
+          display: block;
+          float: left;
+          position: relative;
+          width: 33.3%;
+          height: 80px;
+          padding-top: 64px;
+          color: #222;
+          font-size: 15px;
+          text-align: center;
+          box-sizing: border-box;
+
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 61px;
+            height: 44px;
+            margin-left: - (61px /2);
+            background-image: url(../../img/bg/sprite_customer.png);
+          }
+
+          &:first-child + a {
+            border: {
+              right: 1px solid #e3e3e3;
+              left: 1px solid #e3e3e3;
+            }
+          }
+        }
+      }
+
+      &--order {
+        &:after {
+          background-position: -100px 0;
+        }
+      }
+
+      &--cancle {
+        &:after {
+          background-position: -200px 0;
+        }
+      }
+
+      &--member {
+        &:after {
+          background-position: -300px 0;
+        }
+      }
+    }
+
+    &__noti {
+      float: left;
+      width: 50%;
+
+      &-header {
+        position: relative;
+        border-bottom: 1px solid #000;
+        padding-bottom: 15px;
+      }
+
+      &-more {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 10px;
+        font-size: 13px;
+        color: #999;
+        margin-top: 7px;
+
+        &:after {
+          display: block;
+          position: absolute;
+          top: 1px;
+          right: 0;
+          width: 10px;
+          height: 9px;
+          background: url(../images/customer/sprite_customer.png) no-repeat -400px 0;
+          content: "";
+
+        }
+      }
+    }
+
+    &__faq {
+      float: left;
+      width: 100%;
+      margin-top: 50px;
+
+      &-header {
+        position: relative;
+        border-bottom: 1px solid #000;
+        padding-bottom: 15px;
+      }
+
+      &-more {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 10px;
+        font-size: 13px;
+        color: #999;
+        margin-top: 7px;
+
+        &:after {
+          display: block;
+          position: absolute;
+          top: 1px;
+          right: 0;
+          width: 10px;
+          height: 9px;
+          background: url(../images/customer/sprite_customer.png) no-repeat -400px 0;
+          content: "";
+
+        }
+      }
+    }
+
+  }
+
+  &__left-nav {
+
+    &__title {
+      color: #222;
+      font: {
+        weight: 600;
+        size: 28px;
+      }
+
+    }
+
+    &__subtitle {
+      color: #222;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    &__box {
+      margin-top: 40px;
+    }
+
+    &__link {
+      margin-bottom: 23px;
+
+      a {
+        display: block;
+        color: #222;
+        font-size: 16px;
+
+        &.on {
+          color: $pcolor;
+        }
+
+        &.on > span {
+          color: #000;
+          font-weight: bold;
+          border-bottom: 1px solid #000;
+        }
+        span {
+          display: inline-block;
+          color: #666;
+          font-size: 13px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
+  &__bbs {
+
+    &__header {
+      position: relative;
+      min-height: 50px;
+      margin-bottom: 15px;
+
+      &__filter {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        select {
+          min-width: 90px;
+        }
+
+        input[type="text"] {
+          width: 220px;
+          vertical-align: top;
+          margin: 0 8px;
+        }
+
+        input[type="submit"] {
+          padding: 0 20px;
+        }
+      }
+
+      &__title {
+        color: #222;
+        font-size: 24px;
+      }
+
+      &__count {
+        display: block;
+        margin-top: 10px;
+        color: #666;
+        font-size: 14px;
+
+        #devTotal {
+          color: $pcolor;
+        }
+      }
+    }
+
+    &__table {
+      th, td {
+        padding: 16px 10px;
+      }
+
+      .table__left-text {
+        text-align: left;
+      }
+
+      &-icon {
+
+        &--noti {
+          display: inline-block;
+          padding: 0 10px;
+          color: $pcolor;
+          font-size: 11px;
+          border: 1px solid $pcolor;
+
+        }
+
+      }
+    }
+
+    .list-menu__list {
+      $i: 0;
+      /*@while $i < 5 {
+        &:nth-child(#{$i}) {
+          &:after {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 185.6px * $i !important;
+            width: 1px;
+            height: 100%;
+            background: #dddddd;
+            content: "";
+          }
+        }
+        $i: $i + 1;
+      }*/
+
+      a {
+        height: 46px !important;
+        padding-left: 0 !important;
+        /*line-height: 46px*/
+        text-align: center;
+      }
+    }
+
+    &__faq {
+      margin-top: 40px;
+      border-top: 1px solid #000;
+
+      &-box {
+        font-size: 14px;
+        color: #666;
+        overflow: hidden;
+      }
+
+      &-a {
+        display: none;
+        padding: 20px 50px 35px 190px;
+        background: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+
+        .answer {
+          position: relative;
+          padding-left: 40px;
+          line-height: 22px;
+
+          &:before {
+
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 25px;
+            height: 25px;
+            margin-right: 15px;
+            background: url(../../img/bg/sprite_customer.png) no-repeat -600px 0;
+            content: '';
+          }
+        }
+      }
+
+      &-q {
+        overflow: hidden;
+        position: relative;
+        padding: 15px 0 12px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+
+        span {
+          float: left;
+          line-height: 25px;
+          min-width: 190px;
+          text-align: center;
+          display: inline-block;
+        }
+
+        p {
+          float: left;
+          position: relative;
+          max-width: calc(100% - 190px);
+          padding-left: 40px;
+          line-height: 25px;
+
+          &:before {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 25px;
+            height: 25px;
+            margin-right: 15px;
+            background: url(../images/customer/sprite_customer.png) no-repeat -500px 0;
+            content: '';
+
+          }
+        }
+
+        &:after {
+          display: inline-block;
+          position: absolute;
+          right: 20px;
+          top: 20px;
+          width: 20px;
+          height: 10px;
+          background: url(../images/common/sprite_common.png) 0 -200px no-repeat;
+          content: '';
+        }
+      }
+
+    }
+
+    &__detail {
+      &__title {
+        margin: {
+          bottom: 15px;
+        }
+      ;
+        color: #222;
+        font-size: 24px;
+
+      }
+
+      .detail {
+
+        &__header {
+          padding: 15px 30px;
+          border: {
+            top: 1px solid #000;
+            bottom: 1px solid #ddd;
+          }
+        }
+
+        &__title {
+          margin-bottom: 10px;
+          color: #222;
+          font: {
+            wieght: 600;
+            size: 18px;
+          }
+        }
+
+        &__date {
+          font-size: 13px;
+          color: #888;
+          font-family: $font_n;
+        }
+
+        &__content {
+          padding: 30px;
+          border-bottom: 1px solid #ddd;
+          font-size: 14px;
+
+          &.type2 {
+            padding: 30px 0 0 0;
+
+            .cont-area {
+              padding: 30px;
+            }
+
+            .file {
+              padding: 20px 25px;
+              border: none;
+              border-top: 1px solid #ddd;
+
+              a {
+                display: inline-block;
+                max-width: 825px;
+                padding-left: 30px;
+                color: #666;
+                font-size: 13px;
+                text-decoration: underline;
+                word-break: break-all;
+                vertical-align: top;
+
+                &:before {
+                  content: '';
+                  display: inline-block;
+                  width: 15px;
+                  height: 17px;
+                  background: url("../images/customer/sprite_mypage.png") -800px 0px no-repeat;
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
+
+          img {
+            max-width: 100%;
+          }
+
+          .file {
+            //border:1px solid;
+            margin-top: 45px;
+
+            a {
+              display: inline-block;
+              color: #666;
+              font-size: 13px;
+              text-decoration: underline;
+
+              &:before {
+                content: '';
+                display: inline-block;
+                width: 15px;
+                height: 17px;
+                background: url("../images/customer/sprite_mypage.png") -800px 0px no-repeat;
+                vertical-align: middle;
+              }
+            }
+          }
+
+          dl {
+
+            overflow: hidden;
+            padding: 17px 25px;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+          }
+
+          dt {
+            float: left;
+
+            span:after {
+              display: inline-block;
+              width: 12px;
+              height: 10px;
+              margin-left: 15px;
+              margin-top: 3px;
+              background: url("../images/common/sprite_common.png") -700px -100px no-repeat;
+              vertical-align: top;
+              content: '';
+            }
+
+            &:after {
+              display: inline-block;
+              width: 1px;
+              height: 13px;
+              margin: 0 50px;
+              background: #ddd;
+              content: '';
+            }
+          }
+
+          dd {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+          }
+        }
+
+        &__nav {
+
+          @extend %clear;
+
+          ul {
+            float: left;
+            width: 100%;
+            margin-bottom: 20px;
+          }
+
+          li {
+            float: left;
+            overflow: hidden;
+            width: 100%;
+            padding: 17px 25px;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+          }
+
+          span {
+            display:inline-block;
+            position: relative;
+            width: 140px;
+            padding-rigth:35px;
+
+            &:after {
+              position:absolute;
+              top:0;
+              right:40px;
+              display: inline-block;
+              width: 12px;
+              height: 10px;
+              margin-left: 15px;
+              margin-top: 2px;
+              background: url(../images/common/sprite_common.png) -700px -100px no-repeat;
+              vertical-align: top;
+              content: '';
+            }
+
+            &:before {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 120px;
+              width: 1px;
+              height: 13px;
+              margin-top: -( 13px / 2);
+              background: #ddd;
+              content: "";
+            }
+          }
+          &-prev {
+            span {
+              &:after {
+                right:41px;
+                transform:rotate(180deg);
+              }
+            }
+
+          }
+        }
+
+        button {
+          float: right;
+          min-width: 120px;
+        }
+      }
+
+    }
+
+    &__write {
+
+      .weite {
+        margin-bottom: 15px;
+
+        &__header {
+
+          &__title {
+            color: #222;
+            font-size: 24px;
+          }
+
+          &__summary {
+            display: block;
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+
+            button {
+              color: $pcolor;
+              text-decoration: underline;
+            }
+
+            i {
+              display: inline-block;
+              width: 8px;
+              height: 11px;
+              margin: 0 5px;
+              background: url(../images/customer/sprite_mypage.png) no-repeat -400px 0;
+            }
+          }
+        }
+
+      }
+
+      .btn-default {
+        padding: 0 15px;
+        min-width: 70px;
+      }
+    }
+
+    .search-point {
+      color: #01acd8;
+      font-weight: 600;
+    }
+
+  }
+
+  [data-target = "order_search"] {
+
+    .popup-order-check {
+      width: 640px;
+      height: 480px;
+
+      .desc {
+        margin-bottom: 5px;
+        font-size: 14px;
+        line-height: 26px;
+
+      }
+      th {
+        border-top: 1px solid #ddd;
+        padding: 14px 0;
+        font-size: 13px;
+      }
+
+      td {
+        padding: 10px;
+        font-size: 13px;
+      }
+
+      .thumb {
+        display: table-cell;
+        width: 80px;
+        height: 80px;
+
+      }
+
+      .price em {
+        font: {
+          family: $font_n;
+          size: 14px;
+          widght: 600;
+        }
+      }
+
+      .order-num {
+        margin-top: 5px;
+        color: #333;
+        font-family: $font_n;
+        font-size: 14px;
+      }
+
+      .date {
+        color: #666;
+        font-family: $font_n;
+        font-size: 14px;
+
+      }
+
+      .cursorP {
+        cursor: pointer;
+      }
+
+      .title {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+        padding-left: 20px;
+        color: #222;
+      }
+    }
+  }
+
+  .cus-notice {
+    margin-top: 10px;
+  }
+  .cus-notice li {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 30px;
+  }
+  .cus-notice li:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 3px;
+    height: 3px;
+    background: #ccc;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 0 5px 3px 0;
+  }
+  .cus-notice li .title {
+    display: inline-block;
+    float: left;
+    width: 360px;
+    padding-left: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .cus-notice li .date {
+    float: right;
+    color: #999;
+    font-family: $font_n;
+  }
+
+  .sec-faq-best dl {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0 12px;
+    font-size: 14px;
+    color: #666;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .sec-faq-best dl dt {
+    min-width: 190px;
+    text-align: center;
+  }
+  .sec-faq-best dl dt,
+  .sec-faq-best dl dd {
+    float: left;
+    line-height: 25px;
+  }
+  .sec-faq-best dl dd:before {
+    content: '';
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url("../images/customer/sprite_customer.png") no-repeat -500px 0;
+    margin-right: 15px;
+    float: left;
+  }
+  .sec-faq-best dl dd {
+    max-width: calc(100% - 190px);
+  }
+
+  &__btn-point {
+    color: #fff;
+    background: $pcolor;
+  }
+
+}
+
+
+html[lang=en] {
+  .fb {
+    &__customer__menu-inner {
+
+      a {
+        width: 220px;
+      }
+      a:nth-child(2) {
+        border-left:none;
+      }
+
+    }
+  }
+}

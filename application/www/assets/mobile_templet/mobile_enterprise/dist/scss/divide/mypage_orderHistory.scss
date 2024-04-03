@@ -1,0 +1,586 @@
+.br {
+  &__sort {
+    &__select {
+      @extend %clear;
+
+      .br__select-box {
+        display: inline-block;
+        float: left;
+        width: calc(50% - .5rem);  //10px
+        border: 1px solid #b5b5b6;
+
+        &:first-of-type {
+          margin-right: rem(20px);
+        }
+
+        .select-box__title span {
+          font-size: rem(26px);
+        }
+        .select-box__title:after {
+          right: rem(20px) !important;
+        }
+      }
+
+      select {
+        display: inline-block;
+        float: left;
+        width: calc(50% - .5rem);  //10px
+        border: 1px solid #b5b5b6;
+        color: #000;
+
+        &:first-of-type {
+          margin-right: rem(20px);
+        }
+      }
+    }
+
+    &__timeselect {
+      display: none;
+
+      &--show {
+        display: block;
+      }
+    }
+
+    &__date {
+      margin-top: rem(30px);
+      @extend %clear;
+
+      input[type="date"]{
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: rem(260px);
+        height: rem(70px);
+        background: #fff;
+        border: 1px solid #b5b5b6;
+        line-height: rem(70px);
+        font-size:rem(26px);
+        text-align: center;
+        -webkit-border-radius: 0;
+        -webkit-appearance: none;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-calendar-picker-indicator {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: rem(260px);
+          height: rem(70px);
+          opacity:0;
+          -webkit-appearance: none;
+        }
+
+        &:not(.has-value) {
+          font-size: 0;
+
+          &:before {
+            display: block;
+            width: 100%;
+            color: #b5b5b6;
+            font-size: rem(26px);
+            text-align: center;
+            line-height: rem(70px);
+            content: attr(placeholder);
+          }
+        }
+
+      }
+
+      &--hyphen {
+        display: inline-block;
+        float: left;
+        width: rem(20px);
+        height: 1px;
+        margin: rem(35px 10px);
+        background: #b5b5b6;
+        font-size: 0;
+      }
+
+    }
+
+    &__search {
+      display: block;
+      width: 100%;
+      margin-top: rem(30px);
+      color: #000;
+      border: 1px solid #000;
+      font: {
+        weight: bold;
+        size: rem(26px);
+      }
+      text-align: center;
+      line-height: rem(80px);
+
+    }
+
+  }
+
+  &__odhistory {
+    padding: rem(0 40px);
+    color: #000;
+
+    &__tab {
+      border: {
+        top: 1px solid #b5b5b6;
+        bottom: 1px solid #b5b5b6;
+      }
+      padding:rem(20px 0);
+      margin: rem(0 -40px 50px);
+
+      &-menu {
+        display: inline-block;
+        width: 49%;
+        border-right: 1px solid #b5b5b6;
+        color: #000;
+        font: {
+          weight: 500;
+          size: rem(22px);
+        }
+        line-height: rem(32px);
+        text-align: center;
+
+        &:last-of-type {
+          border-right: 0;
+        }
+
+        &--active {
+          a {
+            padding: rem(20px);
+            border-bottom: 2px solid $cPoint;
+          }
+        }
+      }
+      ul {
+        display: table;
+        width: 100%;
+      }
+    }
+
+    &__desc {
+      padding: rem(40px 20px);
+      margin-top: rem(30px);
+      background: #efefef;
+      border: 1px solid #b5b5b6;
+      font-size: rem(22px);
+
+      em {
+        font-weight: bold;
+        color: $cPoint;
+      }
+    }
+
+    &__content {
+      margin-top: rem(50px);
+    }
+
+    &__each {
+        margin-top: rem(80px);
+
+      &:first-of-type {
+        margin-top: rem(50px);
+      }
+    }
+
+    &__empty-content {
+      padding: rem(80px 0);
+      color: #b5b5b6;
+      font-size: rem(26px);
+      text-align: center;
+    }
+  }
+
+ /*주문 상품 기본 폼*/
+  .odeach {
+    color: #000;
+
+    &__top {
+      position: relative;
+      padding: rem(35px 20px);
+      background: #efefef;
+      border-top: 2px solid #000;
+      font-size: rem(22px);
+
+      &__text {
+        padding-top: rem(10px);
+        &:first-of-type {
+          padding-top: 0;
+        }
+
+        span {
+          color: #000;
+          font-size: rem(22px);
+
+          &:before {
+            display: inline-block;
+            margin: rem(0 20px 0 15px);
+            width: 1px;
+            height: rem(20px);
+            background: #000;
+            vertical-align: middle;
+            content: "";
+          }
+        }
+      }
+
+      &__detailbtn {
+        position: absolute;
+        right: rem(20px);
+        bottom: rem(35px);
+        font: {
+          weight: bold;
+          size: rem(22px);
+        }
+
+        span {
+          vertical-align: middle;
+        }
+
+        &:after {
+          display: inline-block;
+          width: rem(12px);
+          height: rem(20px);
+          margin-left: rem(15px);
+          background: url("../images/layout/icon_mypage_arrow.png") no-repeat 0 0;
+          background-size: rem(12px 20px);
+          vertical-align: middle;
+          content: "";
+        }
+      }
+    }
+
+    &__exchange {
+
+      //교환신청상품
+      &-detail {
+        padding-top: rem(30p)x !important;
+
+        &__top {
+          display: block;
+          position: relative;
+          padding-bottom: rem(30px);
+        }
+
+        &__title {
+          font: {
+            weight: bold;
+            size: rem(26px);
+          }
+        }
+
+        &__fold {
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          width: rem(30px);
+          height: 100%;
+          font-size: 0;
+
+          &:after {
+            display: block;
+            margin: rem(px auto 0);
+            width: rem(24px);
+            height: rem(13px);
+            background: url("../images/layout/icon_footer_arrow.png") no-repeat 0 0;
+            background-size: rem(65px);
+            content: "";
+          }
+        }
+
+        &--hide {
+
+          .odeach__item__inner {
+            display: none;
+          }
+          .odeach__exchange-detail__fold:after {
+            background-position-x: rem(-41px);
+          }
+
+        }
+      }
+    }
+
+    &__list {
+      padding-bottom: rem(20px);
+    }
+
+    &__item {
+      position: relative;
+      padding: rem(50px 0 0);
+
+      & ~ .odeach__item {
+        margin-top: rem(50px);
+        border-top: 1px solid #b5b5b6;
+      }
+
+      &__inner {
+        position: relative;
+        color: #000;
+        @extend %clear;
+      }
+
+      &__thumb {
+        display: inline-block;
+        float: left;
+        overflow: hidden;
+        width: rem(155px);
+        height: rem(220px);
+
+        a {
+          display: block;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      &__info {
+        display: inline-block;
+        float: left;
+        width: calc(100% - 8.75rem);  //175px
+        padding-left: rem(20px);
+      }
+
+      &__title {
+        margin-bottom: rem(20px);
+        font-size: rem(22px);
+        line-height: rem(32px);
+        @include line(2);
+
+        a {
+          color: inherit;
+        }
+      }
+
+      &__option {
+        padding-bottom: rem(30px);
+        font-size: rem(20px);
+        line-height: rem(30px);
+        word-break: break-all;
+
+        em {
+          font-weight: bold;
+        }
+
+        &--add {
+          line-height:rem(30px);
+          @include line(2);
+        }
+
+      }
+
+      &__bottom {
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: rem(175px);
+        width: calc(100% - 8.75rem);  //175px
+        @extend %clear;
+      }
+
+      &__status {
+        float: left;
+        color: $cPoint;
+        font: {
+          weight: bold;
+          size: rem(22px);
+        }
+      }
+
+      &__price {
+        float: right;
+        font: {
+          weight: bold;
+          size: rem(20px);
+        }
+
+        em {
+          font-size: rem(24px);
+        }
+      }
+
+    }
+
+    &__btn {
+      display: flex;
+      flex-wrap: wrap;
+
+      %ohdefault {
+        flex: auto;
+        justify-content: space-between;
+        height: rem(80px);
+        margin-right: rem(20px);
+        font: {
+          weight: bold;
+          size: rem(26px);
+        }
+        text-align: center;
+        line-height: rem(78px);
+        &:last-child,
+        &:nth-child(3){
+          margin-right: 0;
+        }
+      }
+
+      button:nth-of-type(1n + 4) {
+        flex: 0 0 100%;
+      }
+
+      %ohbk {
+        background: #000;
+        border: 1px solid #000;
+        color: #fff;
+      }
+
+      %ohwt {
+        background: #fff;
+        border: 1px solid #000;
+        color: #000;
+      }
+
+      &--each {
+        margin-top: 0;
+
+        button, a {
+          margin-top: rem(50px);
+        }
+
+      }
+
+      &--all {
+        margin-top: rem(30px);
+        button {
+          margin-top: 0;
+        }
+      }
+
+      &--space {
+        margin-bottom: rem(-30px);
+      }
+
+      &--bk {
+        @extend %ohdefault;
+        @extend %ohbk;
+      }
+
+      &--wt {
+        @extend %ohdefault;
+        @extend %ohwt;
+      }
+    }
+
+    &__gift-buyprice {
+      padding: rem(30px 40px 0);
+      margin: rem(30px -40px 0);
+      border-top: 1px solid #ddd;
+
+      &__title {
+        color: #000;
+        font-size: rem(22px);
+        font-weight: bold;
+      }
+      .odeach__gift {
+        margin-top: rem(20px);
+      }
+    }
+
+    &__gift {
+      margin-top: rem(30px);
+      background: #f5f5f5;
+      padding: rem(20px);
+
+      &__title {
+        color: #000;
+        font: {
+          weight: bold;
+          size: rem(22px);
+        }
+        span {
+          font-weight: 400;
+        }
+      }
+
+      &__thumb {
+        overflow: hidden;
+        width: rem(100px);
+        height: rem(140px);
+
+        img {
+          width: 100%;
+          max-height: 100%;
+        }
+      }
+
+      &__inner {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: rem(20px);
+        background: #fff;
+        padding: rem(20px);
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-left: rem(34px);
+        color: #000;
+        font-size: rem(22px);
+        line-height: rem(32px);
+      }
+
+      &__name {
+        @include line(2);
+      }
+
+
+    }
+  }
+}
+
+
+html[lang=en] {
+  .br {
+    &__odhistory {
+      &__desc {
+        line-height:1.6;
+      }
+
+      &__tab {
+        padding: 0;
+        ul {
+          display:table;
+          width:100%;
+        }
+      }
+
+      &__tab-menu {
+        display: table-cell;
+        vertical-align: middle;
+
+        a {
+          display: block;
+          padding: rem(25px 10px);
+
+          word-break: break-all;
+        }
+
+
+      }
+    }
+    .odeach {
+      &__top {
+        &__detailbtn {
+          right:0;
+          top:rem(26px);
+          width:rem(120px);
+          line-height:rem(32px);
+        }
+      }
+    }
+  }
+}

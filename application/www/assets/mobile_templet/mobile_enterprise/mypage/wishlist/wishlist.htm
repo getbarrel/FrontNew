@@ -1,0 +1,133 @@
+<!-- 컨텐츠 S -->
+<section class="br__wishlist">
+	<div class="page-title my-title">
+		<div class="title-sm">{=trans('위시리스트')}</div>
+	</div>
+	<div class="br-tab__wrap">
+		<div class="br-tab__nav">
+			<ul>
+				<li class="active">
+					<a href="#;">상품 (<em id="devTotal">0</em>)</a>
+				</li>
+				<li>
+					<a href="#;">컨텐츠 <em>({ContentWishList.total})</em></a>
+				</li>
+			</ul>
+		</div>
+		<form id="devMyWishForm">
+		<input type="hidden" name="page" id="devPage" value="1"/>
+		<input type="hidden" name="max" id="devMax" value="20"/>
+		<div class="br-tab__contents-wrap">
+			<div class="br-tab__contents active">
+				<!-- 상품 리스트 S -->
+				<div class="br__goods-list__wrap br__goods-list__wrap--normal">
+					<div class="goods-list">
+						<ul class="goods-list__list" id="devMyWishContent">
+							<li class="empty-content devForbizTpl" id="devMyWishEmpty">{=trans('관심 상품이 없습니다.')}</li>
+							
+							<li id="devMyWishLoading" class="br-loading devForbizTpl">
+								<div class="empty-content order-list">
+									<div class="wrap-loading">
+										<div class="loading"></div>
+									</div>
+								</div>
+							</li>
+							<!-- 로딩우 E -->
+
+
+							<li class="goods-list__box"  id="devMyWishList">
+								<a href="/shop/goodsView/{[id]}" class="goods-list__link">
+									<div class="goods-list__thumb">
+										<div class="goods-list__thumb-slide swiper-container">
+											<div class="swiper-wrapper">
+												<div class="swiper-slide">
+													<img src="{[image_src]}" alt="{[pname]}">
+												</div>
+											</div>
+										</div>
+										
+										<!-- 숨김처리 -->
+										<button type="button" class="btn-wishlist" style="display: none">
+											<!-- 선택시 button class = active 추가-->
+											<i class="ico ico-wishlist"></i>위시리스트
+										</button>
+										<!-- 버튼으로 할 경우 E -->
+
+										<!-- 체크 박스로 할 경우 S --> 
+										<label class="goods-list__wish">
+											<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{[id]}" onclick="productWish('{[id]}')"  devWishBtn='{[id]}' checked/>
+										</label>
+										<!-- 체크 박스로 할 경우 E -->
+									</div>
+									<div class="goods-list__info">
+										<!-- <div class="goods-list__pre br__goods__pre">{[#each icons_path]}{[{\this}]}{[/each]}</div> -->
+										<div class="goods-list__title">{[pname]}</div>
+										<div class="goods-list__color">{[add_info]}</div>
+										<div class="goods-list__price">
+											{[#if isPercent]}
+											<div class="goods-list__price__percent"><span>{[discount_rate]}</span>%</div>
+											{[/if]}
+											<div class="goods-list__price__discount">{fbUnit.f}<span>{[dcprice]}</span>{fbUnit.b}</div>
+											{[#if isDiscount]}
+											<div class="goods-list__price__cost">{fbUnit.f}<del>{[listprice]}</del>{fbUnit.b}</div>
+											{[/if]}
+											<!-- 품절일 경우 S -->
+											{[#if state_soldout]}
+											<div class="goods-list__price__state">{=trans('품절')}</div>
+											{[/if]}
+										</div>
+									</div>
+								</a>
+								<!-- <span devWishBtn='{[id]}' class="wish__each__wish on">wish아이콘</span> -->
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- 상품 리스트 E -->
+			</div>
+
+			<div class="br-tab__contents">
+				<!-- 상품 리스트 S -->
+				<div class="br__goods-list__wrap br__goods-list__wrap--normal">
+					<div class="goods-list">
+						<ul class="goods-list__list">
+							{@ ContentWishList.list}
+							<li class="goods-list__box" style="height:335px;">
+							<div class="br-main__card-title--sm">{? .display_gubun == 'E' }[이벤트]{:}[기획전]{/}</div>
+								<a href="{? .display_gubun == 'P' }/content/focusNow2/{ : .display_gubun == 'M' }/content/focusNow4/{ : .display_gubun == 'S' }/content/styleDetail/{ : .display_gubun == 'E' }/event/eventDetail/{ / }{ .con_ix }">
+									<div class="goods-list__thumb">
+										<div class="goods-list__thumb-slide swiper-container">
+											<div class="swiper-wrapper">
+												<div class="swiper-slide">
+													<img src="{.contentImgSrc}" alt="{.title}" style="height:228px;">
+												</div>
+											</div>
+										</div>
+										
+										<button type="button" class="btn-wishlist" style="display: none">
+											<i class="ico ico-wishlist"></i>위시리스트
+										</button>
+										<!-- 체크 박스로 할 경우 S --> 
+										<label class="goods-list__wish">
+											<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{.con_ix}" onclick="contentWish('{.con_ix}', 'C', this)"  devWishBtn='{.con_ix}' checked/>
+										</label>
+
+										<!-- 체크 박스로 할 경우 E -->
+									</div>
+									<div class="goods-list__info">
+										<div class="goods-list__title">{.title}&nbsp;</div>
+										<div class="goods-list__color">{.explanation}&nbsp;</div>
+									</div>
+								</a>
+								<!-- <span devWishBtn='{.con_ix}' class="wish__each__wish on" style="margin-left:160px; margin-top:-8px; position:relative; z-index:9999">wish아이콘</span> -->
+							</li>
+							{/}
+						</ul>
+					</div>
+				</div>
+				<!-- 상품 리스트 E -->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- 컨텐츠 E -->

@@ -1,0 +1,53 @@
+<!-- 컨텐츠 S -->
+<section class="fb__bbs__detail">
+	<div class="fb__bbs__detail__title">
+		<input type='hidden' name='isAjaxList' id='isAjaxList' value ='N' />
+		<div class="title-md">{=trans('{board_name}')}</div>
+	</div>
+	<section class="fb__bbs__detail-content">
+		<div class="detail">
+			<div class="detail__header">
+				<div class="detail__header-group">
+					<div class="detail__header-sub">
+						<span class="detail__category category">[BARREL]</span>
+						<span class="detail__date date">{reg_date}</span>
+					</div>
+				</div>
+				<div class="detail__header-group">
+					<h3 class="detail__title">{bbs_subject}</h3>
+				</div>
+			</div>
+			{? bType == 'announce'}
+			<div class="content-area detail__content">
+				<div class="cont-area">{=nl2br(bbs_contents)}</div>
+
+				{? bbs_file_1 != ""}<dl class="file"<dt>첨부파일</dt><dd><a href="{download_path}/{bbs_file_1}" target="_blank">{bbs_file_1}</a></dd></dl>{/}
+				{? bbs_file_2 != ""}<dl class="file"<dt>첨부파일</dt><dd><a href="{download_path}/{bbs_file_2}" target="_blank">{bbs_file_2}</a></dd></dl>{/}
+				{? bbs_file_3 != ""}<dl class="file"<dt>첨부파일</dt><dd><a href="{download_path}/{bbs_file_3}" target="_blank">{bbs_file_3}</a></dd></dl>{/}
+			</div>
+            {:}
+			<div class="content-area detail__content">
+				{? bbs_file_1 != ""}<dl class="file"<dt>첨부파일</dt><dd><a href="{download_path}/{bbs_file_1}" target="_blank">{bbs_file_1}</a></dd></dl>{/}
+				{? bbs_file_2 != ""}<dl class="file"<dt>첨부파일</dt><dd><a href="{download_path}/{bbs_file_2}" target="_blank">{bbs_file_2}</a></dd></dl>{/}
+				{? bbs_file_3 != ""}<dl class="file"<dt>첨부파일</dt><dd><a href="{download_path}/{bbs_file_3}" target="_blank">{bbs_file_3}</a></dd></dl>{/}
+			</div>
+			{/}
+			<div class="detail__footer">
+				<!--<nav class="detail__nav">
+					<ul>
+						<li class="detail__nav-prev">
+							<span> 이전글 </span>
+							이전글이 존재하지 않습니다.
+						</li>
+						<li class="detail__nav-next">
+							<span> 다음글 </span>
+							다음글이 존재하지 않습니다.
+						</li>
+					</ul>
+				</nav>-->
+				<button type="button" class="btn-default btn-dark-line" onclick="location.href = '/corporateIR/IRResources'">{=trans('목록으로')}</button>
+			</div>
+		</div>
+	</section>
+</section>
+<!-- 컨텐츠 E -->

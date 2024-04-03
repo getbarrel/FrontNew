@@ -1,0 +1,287 @@
+.br {
+  &__teacher-member {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__bbsModule, .fb__bbs__detail {
+
+    width: 90%;
+    max-width: 1260px;
+    margin: 0 auto;
+
+    .btn-dark-line {
+      font-size: 14px;
+      display: inline-block;
+      color: #fff;
+      background: #00b4e6;
+      min-width: 150px;
+      text-align: center;
+      line-height: 50px;
+      height: 50px;
+      border: 1px solid #00b4e6;
+      font-weight: 500;
+    }
+
+    .write {
+      padding-top: 40px;
+    }
+
+    .title {
+      min-height: 30px;
+      margin: 45px 0 20px;
+      border-bottom: 1px solid #e8e8e8;
+
+
+      h2 {
+        display: inline-block;
+        color: #000;
+        font-size: 20px;
+        *display: inline;
+        *zoom: 1;
+        //padding: 0 0 15px 20px;
+        font-weight: 400 ;
+      }
+
+     p {
+        display: inline-block;
+        margin: 0 0 0 6px;
+        padding: 0 0 0 10px;
+        color: #939393;
+        vertical-align: bottom;
+        background: url(../../images/btns/ico_bar.gif) no-repeat 0 0;
+        *display: inline;
+        *zoom: 1;
+      }
+
+    }
+
+    .path {
+      position: relative;
+      height: 30px;
+      line-height: 30px;
+      *zoom: 1;
+      margin-top: 10px;
+    }
+
+    .path span {
+      overflow: hidden;
+      position: absolute;
+      width: 0;
+      height: 0;
+      white-space: nowrap;
+      text-indent: 100%;
+    }
+
+    .path ol {
+      float: right;
+      font-size: 0;
+      line-height: 0;
+    }
+
+    .path li {
+      float: left;
+      padding: 0 0 0 12px;
+      font-size: 14px;
+      margin: 0 0 0 8px;
+      color: #757575;
+      background: url(../../images/btns/ico_path.gif) no-repeat 0 5px;
+      line-height: 20px;
+
+      &:first-child {
+        background: none;
+      }
+    }
+
+    .path li a {
+      color: #808285;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .path li strong, .path li strong a {
+      color: #808285;
+      font-weight: normal;
+    }
+
+    td {
+      img {
+        margin-left: 5px;
+      }
+
+      .txtEm {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.fb {
+
+  &__teacher {
+    .apply {
+      &__table {
+        margin-top: 20px;
+      }
+      &__type {
+        label {
+          margin-right: 20px;
+          &:last-of-type {
+            margin-right: 0;
+          }
+
+          input {
+            vertical-align: middle;
+          }
+
+          span {
+            vertical-align: middle;
+          }
+        }
+      }
+
+      &__secret {
+        &__ask {
+          display: inline-block;
+          width: 50%;
+        }
+
+        label {
+          margin-right: 20px;
+        }
+
+        &__desc {
+          padding-left: 10px;
+          text-indent: -10px;
+          line-height: 24px;
+        }
+      }
+    }
+
+    &__btn {
+      position: relative;
+    }
+
+    &__list {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &#brand_teacherMember {
+    .fb__bbs__detail, .fb__bbs__write {
+      width: 70%;
+      max-width: 1260px;
+      margin: 0 auto;
+    }
+  }
+
+  .cs__noti__wrap {
+
+    .qna-detail__answer {
+      position: relative;
+      padding: 28px 54px;
+      background: #f8f8f8;
+      border-bottom: 1px solid #dddddd;
+
+      header {
+        @extend %clear;
+        margin-bottom: 20px;
+        
+        h4 {
+          float: left;
+          position: relative;
+          color: #999999;
+          font-size: 14px;
+
+          &:after {
+            display: block;
+            position: absolute;
+            top: -6px;
+            left: -28px;
+            width: 23px;
+            height: 23px;
+            color: #fff;
+            font-size: 14px;
+            background: $pcolor;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 25px;
+            content: "A";
+          }
+        }
+
+        span {
+          float: right;
+          color: #999999;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .qna-detail__answer__desc {
+      color: #666;
+      font-size: 14px;
+    }
+  }
+
+  .fb__bbs__write {
+    padding-top: 50px;
+
+    .join-table {
+      border: 1px solid #ccc;
+
+      tr {
+
+        &:first-child {
+
+          th {
+            border-top: 0;
+          }
+
+          td {
+            border-top: 0;
+          }
+        }
+      }
+
+      th {
+        border-right: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        &:first-child {
+          bottom: 1px solid red;
+        }
+      }
+
+      td {
+        border-top: 1px solid #ccc;
+
+        &.cont {
+          //position: relative;
+
+          .textarea {
+            padding: 10px;
+          }
+
+          //.default-txt {
+          //  position: absolute;
+          //  top: 30px;
+          //  left: 50px;
+          //  border:1px solid red;
+          //
+          //  span {
+          //    display:block;
+          //  }
+          //}
+        }
+      }
+    }
+  }
+
+  .detail__status {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,82 @@
+<div class="wrap-pop-coupon">
+	<h1>{=trans('쿠폰정보')}</h1>
+	<div class="coupon-info">
+		<p class="tit">
+			{? cupon_use_div == 'G'}
+				{=trans('[웹전용]')}
+			{: cupon_use_div == 'M'}
+				{=trans('[모바일전용]')}
+			{:}
+
+			{/}
+			{publish_name}
+		</p>
+		<p class="sub">
+			<span class="sub-title">{=trans('쿠폰혜택')}</span>
+			{? cupon_sale_type == '1'}
+
+			{: cupon_sale_type == '2'}
+				{fbUnit.f}
+			{/}
+
+            {? cupon_sale_type == '3'}
+                전액
+            {:}
+    			{=g_price(cupon_sale_value)} 
+            {/}
+
+
+            {? cupon_sale_type == '1'}
+				%
+			{: cupon_sale_type == '2'}
+				{fbUnit.b}
+			{/}
+			{=trans('할인')}
+			({publish_condition_price_text})
+		</p>
+		<p class="sub">
+			<span class="sub-title">{=trans('사용기간')}</span>
+			{? use_date_limit > '3000-12-31 00:00:00' || use_date_type == '9'}
+			{=trans('무기한')}
+			{: use_date_type == '2'}
+			<span class="font-mb">{=substr(regist_start,0,10)} ~ {=substr(regist_end,0,10)}</span>
+			{: use_date_type == '1'}
+			<span class="font-mb">{=substr(regdate,0,10)} ~ {=substr(publish_limit_date,0,10)}</span>
+			{:}
+			<span class="font-mb">{=substr(use_sdate,0,10)} ~ {=substr(use_edate,0,10)}</span>
+			{/}
+			</p>
+	</div>
+	{? use_product_type == '6'  }
+	<h1>{=trans('제외대상')}</h1>
+	{:  use_product_type == '1' && is_except == '1'}
+	<h1>{=trans('제외대상')}</h1>
+	{:}
+	<h1>{=trans('적용대상')}</h1>
+	{/}
+	<ul>
+
+		{? (use_product_type == '3' || use_product_type == '6')}
+			{@ plist}
+			<li><a href="/shop/goodsView/{.id}" target="_blank">{.pname}</a></li>
+			{/}
+		{: use_product_type == '2'}
+			{@ clist}
+			<li><a href="/shop/goodsList/{.cid}" target="_blank">{.cPathName}</a></li>
+			{/}
+		{: use_product_type == '1'}
+			{? is_except == '1'}
+				{@ plist}
+				<li><a href="/shop/goodsView/{.id}" target="_blank">{.pname}</a></li>
+				{/}
+			{:}
+			<li>{=trans('전체 상품에 사용 가능합니다.')}</li>
+			{/}
+		{:}
+		<li>{=trans('상품 정보가 없습니다.')}</li>
+		{/}
+
+
+	</ul>
+	<div class="desc">·&nbsp;{=trans('일부 상품의 경우 쿠폰 할인 적용대상에서 제외될 수 있습니다.')}</div>
+</div>

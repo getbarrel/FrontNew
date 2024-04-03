@@ -1,0 +1,122 @@
+
+.br {
+  &__mypage {
+    &__info {
+
+      margin: rem(30px 0 0 0);
+      color: #000;
+      font-size: rem(30px);
+      dt {
+        display: inline-block;
+      }
+      dd {
+        display: inline-block;
+        margin: rem(0 0 0 20px);
+        font-weight: 600;
+      }
+    }
+
+    &__btn-s {
+      display: block;
+      width: rem(200px);
+      height: rem(80px);
+      background: #000;
+      color: #fff;
+      font-size: rem(24px);
+    }
+    &__btn-s.phone {
+      margin: rem(20px 0 0 0);
+
+    }
+    &__agree {
+      margin: 0;
+    }
+    .br {
+      &__join {
+        &__list {
+          margin: rem(35px 0 0 0);
+        }
+      }
+    }
+    .sms-agree {
+      &__wrap {
+        height: rem(79px);
+
+        .br {
+          &__join {
+            &__add {
+              margin: 0!important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__password__pop {
+    .pw_tit {
+      margin: rem(0 0 30px 0);
+      color: #000;
+    }
+    .password__change {
+      margin: rem(30px 0 0 0);
+      input[type=password] {
+        height: rem(80px);
+      }
+    }
+    .password__txt {
+      font-size: rem(22px);
+      color: #898989;
+      margin: rem(20px 0 0 0);
+      line-height: 1.4;
+    }
+  }
+
+  .profile__secession {
+    margin: rem(50px 0 0 0);
+    text-align: right;
+    &-link {
+      font-size: rem(22px);
+      color: #595757;
+    }
+  }
+}
+
+html[lang=en] {
+  .br {
+    &__mypage {
+      &__btn-s {
+        width: auto;
+        padding: rem(0 20px);
+      }
+    }
+    &__join {
+      &__list {
+        .join {
+          &__phone {
+            margin: 0;
+            &-second {
+              float: right;
+              //margin-left: 1rem;
+              width: rem(350px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .br {
+    &__password__pop .password__change input[type=password] {
+      font-size: rem(24px);
+    }
+
+    .information__btn {
+
+      button {
+        line-height: rem(80px);
+        font-size: rem(26px);
+      }
+    }
+  }
+}

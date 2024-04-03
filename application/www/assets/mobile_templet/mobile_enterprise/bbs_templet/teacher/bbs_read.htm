@@ -1,0 +1,63 @@
+<!--공지사항 상세-->
+<section class="br__cs-noti br__cs">
+    <input type='hidden' name='isAjaxList' id='isAjaxList' value ='N' />
+    <input type='hidden' name='bType' id='devBType' value ='{bType}' />
+    <input type='hidden' name='bbsIx' id='devBbsIx' value ='{bbs_ix}' />
+    <h2 class="br__cs__title">
+        {=trans('티처멤버 모집')}
+    </h2>
+    <div class="read ">
+        <input type="hidden" id="isList" value="N" />
+        <div class="read__header">
+            <p class="read__status">[{? empty(comment_loop)}답변대기{:}답변완료{/}] [{div_name}]</p>
+            <span class="read__date">{reg_date}</span>
+            <p class="read__title">
+                {bbs_subject}
+                <span class="read__barrel">
+                    {? _SESSION['user']['code'] == mem_ix}
+                    {writer}
+                    {:}
+                    {short_bbs_name}
+                    {/}
+                </span>
+            </p>
+
+        </div>
+        <div class="read__content">
+            {bbs_contents}
+            {? bbs_file_1 != "" || bbs_file_2 != "" || bbs_file_3 != "" || bbs_etc1 != ""}
+            <div class="read__file ">
+                {? bbs_file_1 != ""}<a href="{download_path}/{bbs_file_1}">{bbs_file_1}</a>{/}
+                {? bbs_file_2 != ""}<br> <a href="{download_path}/{bbs_file_2}">{bbs_file_2}</a>{/}
+                {? bbs_file_3 != ""}<br> <a href="{download_path}/{bbs_file_3}">{bbs_file_3}</a>{/}
+                {? bbs_etc1 != ""}<br> <a href="{bbs_etc1}">{bbs_etc1}</a>{/}
+            </div>
+            {/}
+
+        </div>
+        {? comment_loop}
+        <ul class="cs__noti__wrap">
+            {@ comment_loop}
+            <div class="qna-detail__answer">
+                <div class="qna-detail__answer__info">
+                    <header>
+                        <h4 class="qna-detail__answer__name">BARREL</h4>
+                        <span>답변일시 : {.regdate}</span>
+                    </header>
+                    <p class="qna-detail__answer__desc">
+                        {.cmt_contents}
+                    </p>
+                </div>
+            </div>
+            {/}
+        </ul>
+        {/}
+    </div>
+    {? empty(comment_loop)}
+    <div class="read__btn--wrap" style="text-align: center;">
+        <a class="read__btn__list" href="javascript:void(0);" id="devDeleteInquiry">{=trans('삭제')}</a>
+        <a class="read__btn__list" style="color: #fff; background: #000;" href="/brand/teacherMember/write/{bbs_ix}">{=trans('수정')}</a>
+        <a class="read__btn__list" href="/brand/teacherMember">{=trans('목록')}</a>
+    </div>
+    {/}
+</section>

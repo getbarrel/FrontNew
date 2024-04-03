@@ -1,0 +1,100 @@
+.br {
+  &__cosmetics{
+    padding: rem(0 40px);
+
+    .cosmetics {
+
+      &__wrap {
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+      }
+
+      &__category {
+
+        border-bottom: 1px solid #b5b5b6;
+
+        &:first-of-type {
+
+          .cosmetics__category__content {
+            display: block;
+          }
+        }
+
+        &:last-of-type {
+          border-bottom: 0;
+        }
+
+        &__title {
+          position: relative;
+          height: rem(82px);
+          padding: rem(26px 20px);
+          font-size: rem(26px);
+          font-weight: 700;
+          color: #000;
+          background: #fff;
+          line-height: rem(26px);
+
+          &:after{
+            content:'';
+            display: inline-block;
+            position: absolute;
+            right: rem(20px);
+            width: rem(23px);
+            height: rem(23px);
+            background: $sprite22 rem(-65px 0);
+            background-size: rem($sprite22Size);
+          }
+
+          &.active{
+            background: #efefef;
+          }
+
+          &.active:after{
+            background-position: rem(-107px 0);
+          }
+        }
+
+        &__content {
+          display: none;
+          padding: rem(50px 20px);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+
+          li {
+            margin-top: rem(15px);
+            padding-left: rem(8px);
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+            text-indent: rem(-8px);
+
+            &:before {
+              content: "· ";
+            }
+            &:first-child {
+              margin-top:0;
+            }
+          }
+
+          &--dash {
+            display: block;
+            padding-left: rem(35px);
+            &:before {
+              display: inline-block;
+              content: "- ";
+            }
+          }
+
+          &--nodot {
+            &:before {
+              content: " " !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

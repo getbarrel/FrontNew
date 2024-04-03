@@ -1,0 +1,61 @@
+.br {
+  &__order-claim-detail {
+
+    &__btn {
+      color: #fff;
+      background: #000;
+    }
+
+    .wrap-refund-list {
+      color: #000;
+
+      .desc {
+        margin: rem(20px 0 0 0);
+      }
+    }
+
+    .odeach__item {
+      padding-bottom: rem(50px);
+    }
+
+    .odeach__list {
+      padding-bottom: rem(40px);
+    }
+
+    .order-payment__title {
+      padding: rem(25px 0);
+      margin-bottom: 0 !important;
+    }
+    .order-payment__list {
+      margin-bottom: rem(20px);
+      color: #000;
+      font-size: rem(22px);
+      line-height: rem(32px);
+
+      &__total {
+        padding-top: rem(30px);
+        font-weight: 600;
+        font-size: rem(26px);
+        color: #e60000;
+
+        em {
+          font-size: rem(40px);
+        }
+      }
+    }
+    .delivery-area {
+      .info-payment {
+        &__title {
+          float: left;
+          color: #000;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(40px);
+        }
+        &__desc {
+          float: left;
+        }
+      }
+    }
+  }
+}

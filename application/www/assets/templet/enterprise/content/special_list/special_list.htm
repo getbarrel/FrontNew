@@ -1,0 +1,112 @@
+<!-- 컨텐츠 영역 S -->
+<section class="fb-inside__bbs">
+	<section class="gallery-bbs">
+    <form id="devSpecialForm" name="devSpecialForm">
+		<input type="hidden" name="page" value="1" id="devPage"/>
+		<input type="hidden" name="max" value="9" id="devMax"/>
+		<div class="gallery-bbs__header">
+			<h2 class="fb__main__title">
+				{ @ displayContentClassDepthList }
+					{?paramCid == "001001"}
+						{? .index_ == 0}
+						전체
+						{/}
+					{/}
+					{?paramCid == .cid}
+						{ .cname }
+					{/}
+				{ / }
+			</h2>
+		</div>
+		<ul class="gallery-bbs__box">
+			{ ? displayContentList }
+				{ @ displayContentList }
+					<li class="gallery-bbs__list">
+						<!-- 이벤트 종료시 class = event-end-->
+						<div class="gallery-bbs__category" style="color:{.c_preface};{? .b_preface == 'Y' }font-weight: bold;{ / } {? .i_preface == 'Y' }font-style:oblique;{ / } {? .u_preface == 'Y' }text-decoration-line: underline;{ / }">{.preface}</div>
+						<div class="gallery-bbs__img-box">
+							<a href="{? .display_gubun == 'P' }/content/focusNow2/{ : }/content/focusNow4/{ / }{ .con_ix }">
+								<figure class="gallery-bbs__img">
+									<img src="{.contentImgSrc}" alt="" />
+								</figure>
+							</a>
+						</div>
+						<div class="gallery-bbs__info">
+							<!--<button type="button" class="btn-wishlist active"><i class="ico ico-wishlist"></i>좋아요</button>-->
+							<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}product-box__heart--active{/}" onclick="contentWish('{.con_ix}', 'C', this)"><i class="ico {? .alreadyWishContent == 'Y'}ico-wishlist2{ : }ico-wishlist{ / }"></i>좋아요</button>
+							<!--a href="javascript:void(0);" class="product-box__heart {? .alreadyWishContent == 'Y'}product-box__heart--active{/}" style="width:21px;" onclick="contentWish('{.con_ix}', 'C', this)">좋아요</a-->
+							<a href="{? .display_gubun == 'P' }/content/focusNow2/{ : }/content/focusNow4/{ / }{ .con_ix }">
+								<div class="gallery-bbs__title" style="text-align:{? .s_title == 'L'}left{: .s_title == 'C'}center{: .s_title == 'R'}right{/};color:{.c_title};{? .b_title == 'Y' }font-weight: bold;{ / } {? .i_title == 'Y' }font-style:oblique;{ / } {? .u_title == 'Y' }text-decoration-line: underline;{ / }">
+									{.title}
+								</div>
+							</a>
+							<div class="gallery-bbs__title-sub" style="margin-top:19px;color:{.c_explanation};{? .b_explanation == 'Y' }font-weight: bold;{ / } {? .i_explanation == 'Y' }font-style:oblique;{ / } {? .u_explanation == 'Y' }text-decoration-line: underline;{ / }">
+								{.explanation}
+							</div>
+							{ ? .display_date_use == "Y" }
+							<div class="gallery-bbs__date">{.display_start} ~ {.display_end}</div>
+							{ / }
+						</div>
+					</li>
+				{ / }
+			{ : }
+				<!-- 등록된 게시글이 없을 경우 S -->
+				<li class="gallery-bbs__list no-data">
+					<p class="empty-content">등록된 기획전이 없습니다.</p>
+				</li>
+				<!-- 등록된 게시글이 없을 경우 E -->
+			{ / }
+		</ul>
+
+		<!-- 페이지네이션 S -->
+		<div id="devPageWrap">
+			{ ? displayContentPaging }
+				<div class="wrap-pagination">
+					<button type="button" class="prev btn-pagination-prev prev devPageBtnCls" onClick="location.href='/content/specialList/{paramCid}/{prevPage}'" {? curPage == prevPage }disabled{/}><i class="ico ico-arrow-left" ></i>이전</button>
+
+					{ ? lastPage > 10 }
+					{? firstPage != lastPage }<a href="/content/specialList/{paramCid}/{firstPage}" class="devPageBtnCls on">{firstPage}</a>{/}
+
+					<div class="fb__bubble" {? firstPage == lastPage }style="display:none"{/}>
+						<a href="/content/specialList/{firstPage}">...</a>
+						<div class="fb__go-page">
+							<div class="fb__go-form">
+								<div class="fb__form-item">
+									<label for="" class="fb__form-label--hidden">페이지넘버</label>
+									<input type="text" class="fb__form-input" />
+								</div>
+								<div class="fb__go-last">{lastPage}</div>
+								<button type="button" class="btn-sx">GO</button>
+							</div>
+						</div>
+					</div>
+					{ / }
+
+					{pageNumTpl}
+
+					{ ? lastPage > 10 }
+					<div class="fb__bubble" {? firstPage == lastPage }style="display:none"{/}>
+						<a href="/content/specialList/{paramCid}/{lastPage}">...</a>
+						<div class="fb__go-page">
+							<div class="fb__go-form">
+								<div class="fb__form-item">
+									<label for="" class="fb__form-label--hidden">페이지넘버</label>
+									<input type="text" class="fb__form-input" value="{lastPage}" />
+								</div>
+								<div class="fb__go-last">{lastPage}</div>
+								<button type="button" class="btn-sx">GO</button>
+							</div>
+						</div>
+					</div>
+
+					{? firstPage != lastPage }<a href="/content/specialList/{paramCid}/{lastPage}" class="devPageBtnCls">{lastPage}</a>{ / }
+					{ / }
+					<button type="button" class="next btn-pagination-next" onClick="location.href='/content/specialList/{paramCid}/{nextPage}'" {? curPage == nextPage }disabled{/}><i class="ico ico-arrow-right"></i>다음</button>
+				</div>
+			{ / }
+		</div>
+		</form>
+		<!-- 페이지네이션 E -->
+	</section>
+</section>
+<!-- 컨텐츠 영역 E -->

@@ -1,0 +1,84 @@
+<script src="{layoutCommon.templetSrc}/js/common/minicart.js?version={c.CLIENT_VERSION}" data-url="/controller/product/loadOptionDatas/{pid}" id="devMinicartScript"></script>
+<section class="popup-content__wrap">
+	<div class="fb__change-option devProductContents">
+		<div class="fb__change-option__cont">
+			<ul class="fb__change-option__list">
+				<li class="fb__change-option__item" id="devSildeMinicartArea">
+					<div class="popup-product">
+						<div class="popup-product__left">
+							<figure class="popup-product__thumb">
+								<img src="{thumb_src}" alt="" />
+							</figure>
+						</div>
+						<div class="popup-product__info goods-info" data-pid="{pid}" data-cart_ix="{cartIx}" data-pcount="{pcount}">
+							<div class="goods-info__title">{pname}</div>
+							{ ? cartOptionp.options_text == '' }
+							<input type="hidden" name="cartType" class="cartType" value="set" />
+								{ @ cartOptionp.setData }
+								<dl class="goods-info__option">
+									<dt>{ .name } : </dt>
+									<dd>
+										<span>{ .option }</span>
+										<span>{ .pcount }</span>
+									</dd>
+								</dl>
+								{ / }
+							{ : }
+								<dl class="goods-info__option">
+									<dt>{cartOptionp.add_info} / </dt>
+									<dd>
+										<span>{=str_replace("사이즈:","",cartOptionp.options_text)}</span>
+										<span>{cartOptionp.pcount}</span>
+									</dd>
+								</dl>
+							{ / }
+							<dl class="goods-info__option"id="devSildeLonelyOptionName"></dl>
+							<dl class="goods-info__price-group">
+								{? discount_rate > 0}<dt class="goods-info__price-percent">{discount_rate}%</dt>{/}
+								<dd>
+									{? discount_rate > 0}<div class="goods-info__price-regular">{fbUnit.f}<del>{=g_price(listprice)}</del>{fbUnit.b}</div>{/}
+									<div class="goods-info__price">{fbUnit.f}{=g_price(dcprice)}{fbUnit.b}</div>
+									<input type="hidden" id="dcprice" value="{dcprice}">
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="popup-product__select goods-info__select" id="devSildeMinicartOptions" data-oprionCode="{dOpt}"></div>
+
+					<dl class="popup-product__quantity product-quantity">
+						<dt class="product-quantity__title">수량</dt>
+						<dd>
+							<div class="product-quantity__control control devAddOptionContents">
+								<ul class="option-up-down">
+									<li>
+										<button type="button" class="btn-down down devCountDownButton"><i class="ico ico-minus"></i>DOWN</button>
+									</li>
+									<li><input type="text" value="{cartOptionp.pcount}" class="devCount option-text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/></li>
+									<li>
+										<button type="button" class="btn-up up devCountUpButton"><i class="ico ico-plus"></i>UP</button>
+									</li>
+									<input type="hidden" value="{cartIx}" class="cart_ix">
+								</ul>
+								<!-- 주문 횟수 텍스트 S -->
+								<div class="txt-error mat10" style="display: none">주문 가능한 수량은 최대 5개입니다.</div>
+								<!-- 주문 횟수 텍스트 E -->
+							</div>
+						</dd>
+					</dl>
+					<div class="popup-product__quantity-price product-quantity__price">
+						<dt>총 상품 금액</dt>
+						<dd class="product-item__price-group">
+							<div class="product-item__price price">{fbUnit.f}<em id="total_dcprice">{=g_price(cartOptionp.total_dcprice)}</em>{fbUnit.b}</div>
+							<!-- 품절일 경우 S -->
+							<div class="product-item__soldText" style="display: none">일시품절</div>
+							<!-- 품절일 경우 E -->
+						</dd>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="fb__change-option__btn">
+			<button type="button" class="btn-lg btn-dark-line fb__change-option__btn--submit devCountUpdateButton">변경하기</button>
+		</div>
+	</div>
+</section>

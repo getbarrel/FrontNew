@@ -1,0 +1,76 @@
+<section class="fb__left-basicList">
+	<div class="basicNav">
+		<div class="basicNav__header">
+			<h2 class="basicNav__title">{=trans("기업 IR")}</h2>
+		</div>
+		<div class="basicNav__wrap">
+			<div class="basicNav__item">
+				<div class="title-sm"><a href="/corporateIR/financialInfo/">{=trans("재무 정보")}</a></div>
+				<ul class="basicNav__list">
+					<li class="basicNav__list-item {? substr_count(_SERVER['PHP_SELF'],'/corporateIR/financialInfo') > 0} active {/}"><a href="/corporateIR/financialInfo/">{=trans("재무상태표")}</a></li>
+					<li class="basicNav__list-item {? substr_count(_SERVER['PHP_SELF'],'/corporateIR/financialProfit') > 0} active {/}"><a href="/corporateIR/financialProfit/">{=trans("손익계산서")}</a></li>
+				</ul>
+			</div>
+			<div class="basicNav__item">
+				<ul class="basicNav__list">
+					<li class="basicNav__list-item {? substr_count(_SERVER['PHP_SELF'],'/corporateIR/disclosureNoti') > 0} active {/}"><a href="/corporateIR/disclosureNoti/announce">{=trans("공고")}</a></li>
+					<li class="basicNav__list-item {? substr_count(_SERVER['PHP_SELF'],'/corporateIR/IRResources') > 0} active {/}"><a href="/corporateIR/IRResources">{=trans("IR 자료")}</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!--
+<section class="fb__left-nav">
+    <h2 class="fb__left-nav__title">
+        <a href="/corporateIR/financialInfo/" title="기업 IR" >{=trans("기업 IR")}</a>
+    </h2>
+    <ul class="fb__left-nav__box">
+        <li class="fb__left-nav__link">
+            <h3 class="fb__left-nav__subtitle">
+                <a href="/corporateIR/financialInfo/" title="{=trans("재무정보")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/notice') > 0}on{/}">
+                    {=trans("재무정보")}
+                </a>
+            </h3>
+            <a href="/corporateIR/financialInfo/" title="{=trans("재무상태표")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/notice') > 0}on{/}">
+                {=trans("재무상태표")}
+            </a>
+            <a href="/corporateIR/financialProfit/" title="{=trans("손익계산서")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/notice') > 0}on{/}">
+                {=trans("손익계산서")}
+            </a>
+        </li>
+        {? langType=='korean'}
+        <li class="fb__left-nav__link">
+            <h3 class="fb__left-nav__subtitle">
+                <a href="/corporateIR/disclosureNoti/announce" title="{=trans("공고")}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/notice') > 0}on{/}">
+                    {=trans("공고")}
+                </a>
+            </h3>
+            <!-- a href="/corporateIR/disclosureNoti/disclosure" title="{=trans("공시")}" class="{? substr_count(_SERVER['PHP_SELF'],'/corporateIR/disclosureNoti/disclosure') > 0}on{/}">
+                {=trans("공시")}
+            </a -- 
+            <a href="/corporateIR/disclosureNoti/announce" title="{=trans("공고")}" class="{? substr_count(_SERVER['PHP_SELF'],'/corporateIR/disclosureNoti/announce') > 0}on{/}">
+                {=trans("공고")}
+            </a>
+        </li>
+        {/}
+        <li class="fb__left-nav__link">
+            <h3 class="fb__left-nav__subtitle">
+                <a href="/corporateIR/IRResources">
+                    {=trans("IR자료")}
+                </a>
+            </h3>
+        </li>
+        <!--li class="fb__left-nav__link">
+            <h3 class="fb__left-nav__subtitle">
+                <a href="/corporateIR/pressReleases">
+                    {=trans("보도자료")}
+                </a>
+            </h3>
+        </li-- 
+
+    </ul>
+</section>
+-->

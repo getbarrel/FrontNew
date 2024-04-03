@@ -1,0 +1,323 @@
+<!-- 컨텐츠 S -->
+<section class="br__order-claim br__order-claim-detail">
+	<div class="page-title my-title">
+		<div class="title-sm">{=trans('{claimTypeName} 신청 내역')}</div>
+	</div>
+	<!--취소교환반품 신청내역조회일 때 S -->
+	<div class="order-number-box">
+		<div class="order-number-box__cont">
+			<dl class="order-number-box__item">
+				<dt class="order-title">{=trans('주문번호')}</dt>
+				<dd class="order-number">{order.oid}</dd>
+			</dl>
+			<dl class="order-number-box__item">
+				<dt class="order-title">{=trans('주문일자')}</dt>
+				<dd class="order-day">{= str_replace('-','.',order.order_date)}</dd>
+			</dl>
+		</div>
+	</div>
+	<!--취소교환반품 신청내역조회일 때 E -->
+	<section class="br__order-content">
+		<!-- 주문 내역 - 리스트 S -->
+		<div class="br__odhistory__list">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('{claimTypeName} 신청 상품')}</div>
+			</div>
+			{@ order.orderDetail}
+			<ul class="product-list">
+				{@ .value_}
+				<li class="product-list__item">
+					<!-- 상품 S -->
+					<dl class="product-list__group">
+						<dt class="product-list__group-left">
+							<figure class="product-list__thumb">
+								<a href="/shop/goodsView/{..pid}">
+									<img src="{..pimg}">
+								</a>
+							</figure>
+						</dt>
+						<dd class="product-list__group-right">
+							<div class="product-list__info">
+								<div class="product-list__info__title">{=trans('{..pname}')}</div>
+
+								<!-- 세트 상품 S -->
+								<!-- 세트 옵션일 경우 div.product-list__info__option 에 class = set 추가 -->
+								<div class="product-list__info__optio">
+									<div class="product-list__info__option-item">
+										<span class="color">{..option_text}</span>
+										{? ..add_info}<span class="size">{..add_info}</span>{/}
+										<span class="count">{=trans('{..pcnt}개')}</span>
+									</div>
+								</div>
+								<!-- 세트 상품 E -->
+
+								<div class="product-list__info__price">
+									<span class="product-list__info__price--cost">{fbUnit.f}<em>{=g_price(..pt_dcprice)}</em>{fbUnit.b}</span>
+									<span class="product-list__info__status">{..status_text}{? ..refund_status}/{..refund_status_text}{/}</span>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					<!-- 상품 E -->
+
+					<!-- 주문 취소 영역 S -->
+					<div class="reason-box">
+						<div class="reason-top">
+							<div class="title-sm">{claimTypeName}{=trans(' 수량')}</div>
+							<div class="cancel-quantity">{=trans(' <em>{..pcnt}</em>개')}</div>
+						</div>
+						<dl class="reason-box__inner">
+							<div class="reason-box__title">
+								<div class="title-sm">{claimTypeName}{=trans(' 사유')}</div>
+								<div class="reason-box__text">{reason_data[..od_ix]['reason_text']}</div>
+							</div>
+							<div class="reason-box__cont">
+								<div class="reason-box__desc">{reason_data[..od_ix]['status_message']}</div>
+							</div>
+						</dl>
+					</div>
+					<!-- 주문 취소 영역 E -->
+				</li>
+				{/}
+			</ul>
+			{/}
+		</div>
+		<!-- 주문 내역 - 리스트 E -->
+
+		<!--구매별 사은품 S -->
+		<!--{? freeGift}-->
+		<!--{@ freeGift}-->
+		<!--{? .gift_products}-->
+		<div class="gift-wrap">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('구매금액별 사은품')}</div>
+			</div>
+			<ul class="product-list">
+				<li class="product-list__item">
+					<!-- 상품 S -->
+					<!--{@ .gift_products}-->
+					<dl class="product-list__group">
+						<dt class="product-list__group-left">
+							<figure class="product-list__thumb">
+								<a href="#;">
+									 <img src="{..image_src}" alt="">
+								</a>
+							</figure>
+						</dt>
+						<dd class="product-list__group-right">
+							<div class="product-list__info">
+								<div class="product-list__info__title">{=trans(.freegift_condition_text)}</div>
+
+								<!-- 일반 상품 S -->
+								<div class="product-list__info__option">
+									<div class="product-list__info__option-item">
+										<span class="color">{..pname}</span>
+										<span class="count">{..pcnt}{=trans('개')}</span>
+									</div>
+								</div>
+								<!-- 일반 상품 E -->
+								<!-- <div class="product-list__info__add">
+									<div class="order-status">조건 미충족 자동취소</div>
+								</div> -->
+							</div>
+						</dd>
+					</dl>
+					{/}
+				</li>
+			</ul>
+		</div>
+		<!--{/}-->
+		<!--{/}-->
+		<!--{/}-->
+		<!--구매별 사은품 E -->
+
+		{? deny}
+		<div class="pay-comp__wrap payment">
+			<div class="br__mypage-title">
+				<div class="title-sm">{claimTypeName}{=trans('거부/불가내역')}</div>
+			</div>
+			<div class="pay-comp__payment">
+				{@ deny}
+				<div class="pay-comp__payment__list">
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('상품정보')}</dt>
+					<dd>{=trans('{.pname}<br/>옵션 : {.option_text}')}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{claimTypeName}{? .deny_type=='Y'}{=trans('거부')}{:}{=trans('불가')}{/} {=trans('사유')}</dt>
+						<dd>{.deny_message}</dd>
+					</dl>
+				</div>
+				{/}
+			</div>
+		</div>
+		{/}
+
+		{? returnMethod}
+		<div class="pay-comp__wrap payment">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('{claimTypeName}방법')}</div>
+			</div>
+			<div class="pay-comp__payment">
+				<div class="pay-comp__payment__list">
+					<dl class="pay-comp__payment__box">
+						<dt>{claimTypeName} {=trans('발송 방법')}</dt>
+						<dd>{? returnMethod.returnData.send_type == 1}{=trans('직접 발송{:}지정택배 방문요청{/}')}</dd>
+					</dl>
+
+					{? returnMethod.returnData.send_type == 1}<!--{*직접발송일때*}-->
+                    {? returnMethod.returnData.invoice_no != ''}<!--{*발송정보 입력시*}-->
+					<dl class="pay-comp__payment__box">
+						<dt>{claimTypeName} {=trans('발송 정보')}</dt>
+						<dd>{? returnMethod.returnData.delivery_pay_type == 1}{=trans('선불{:}착불{/}')}</dd>
+					</dl>
+					{/}
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('상품 발송 시 배송비')}</dt>
+						<dd>{returnMethod.returnData.quickText}({=trans('송장번호')}:{returnMethod.returnData.invoice_no})</dd>
+					</dl>
+					{:}<!--{*지정택배일때*}-->
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('성명')}</dt>
+						<dd>{returnMethod.returnData.rname}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('주소')}</dt>
+						<dd>[{returnMethod.returnData.zip}] <br>{returnMethod.returnData.addr1}<br> {returnMethod.returnData.addr2}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('휴대폰번호')}</dt>
+						<dd><em>{returnMethod.returnData.rmobile}</em></dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('전화번호')}</dt>
+						<dd><em>{returnMethod.returnData.rtel}</em></dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('배송요청사항')}</dt>
+						<dd><div>{=nl2br(returnMethod.returnData.msg)}</div></dd>
+					</dl>
+					{/}
+				</div>
+			</div>
+			{? claimType == 'E'}
+			<div class="br__mypage-title">
+				<div class="title-sm">{claimTypeName}상품 받으실 주소 (구매자 주소지)</div>
+			</div>
+			<div class="pay-comp__payment">
+				<div class="pay-comp__payment__list">
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('성명')}</dt>
+						<dd>{returnMethod.reDeliveryData.rname}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('성명')}</dt>
+						<dd>{returnMethod.reDeliveryData.rname}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('주소')}</dt>
+						<dd>[{returnMethod.reDeliveryData.zip}]<br>{returnMethod.reDeliveryData.addr1}<br>{returnMethod.reDeliveryData.addr2}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('휴대폰번호')}</dt>
+						<dd><em>{returnMethod.reDeliveryData.rmobile}</em></dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('전화번호')}</dt>
+						<dd><em>{returnMethod.reDeliveryData.rtel}</em></dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('배송요청사항')}</dt>
+						<dd><div>{=nl2br(returnMethod.reDeliveryData.msg)}</div></dd>
+					</dl>
+				</div>
+			</div>
+            {/}
+		</div>
+		{/}
+
+		{? expectedRefund}
+		{? claimType == 'E'}
+		<div class="pay-comp__wrap payment">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('변동내역')}</div>
+			</div>
+			<div class="pay-comp__payment">
+				<div class="pay-comp__payment__list">
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('{claimTypeName} 신청 총 결제금액')}</dt>
+						<dd>{=trans('<em>{=number_format(expectedRefund.orderPrice)}</em>원')}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('{claimTypeName} 시 추가 배송비')}</dt>
+						<dd>{=trans('<em>{=number_format(expectedRefund.claimDeliveryPrice)}</em>원')}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('추가 결제 예정 금액')}</dt>
+						<dd>{=trans('<em>{=number_format(expectedRefund.addPaymentPrice)}</em>원')}</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		{:}
+		<div class="pay-comp__wrap payment">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('환불내역')}</div>
+			</div>
+			<div class="pay-comp__payment">
+				<div class="pay-comp__payment__list">
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('{claimTypeName}신청 총 결제금액')}</dt>
+						<dd>{=trans('<em>{=g_price(expectedRefund.orderPrice)}</em>원')}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('{claimTypeName}할 상품금액')}</dt>
+						<dd>{=trans('<em>{=g_price(expectedRefund.productPrice)}</em>원')}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('환불 예정 배송비')}</dt>
+						<dd>{=trans('<em>{=g_price(expectedRefund.deliveryPrice)}</em>원')}</dd>
+					</dl>
+                    {? expectedRefund.paymentInfo.dcp_dc > 0}
+                    <dl class="pay-comp__payment__box">
+                        <dt>{=trans('배송비쿠폰할인(차감)')}</dt>
+                        <dd>{=trans('<em>{=g_price(expectedRefund.paymentInfo.dcp_dc)}</em>원')}</dd>
+                    </dl>
+                    {/}
+                    <dl class="pay-comp__payment__box">
+                        <dt>{=trans('{claimTypeName}시 추가 배송비(차감)')}</dt>
+                        <dd>{=trans('<em>{=g_price(expectedRefund.claimDeliveryPrice)}</em>원')}</dd>
+                    </dl>
+                    <dl class="pay-comp__payment__box">
+                        <dt>{=trans('환불 예정 금액')}</dt>
+                        <dd>{=trans('<em>{=g_price(expectedRefund.expectedRefundPrice)}</em>원')}</dd>
+                    </dl>
+                    <dl class="pay-comp__payment__box">
+                        <dt>{=trans('결제수단(상품 구매 시)')}</dt>
+                        <dd>{@ expectedRefund.paymentInfo.paymentInfo}{.method_text} {/}</dd>
+                    </dl>
+                    {? expectedRefund.returnBankBool}
+                    <dl class="pay-comp__payment__box">
+                        <dt>{=trans('환불수단')}</dt>
+                        <dd>{expectedRefund.refundBankName} / {expectedRefund.refundBankOwner} / {expectedRefund.refundBankNumber}</dd>
+                    </dl>
+                    {/}
+				</div>
+			</div>
+		</div>
+		{/}
+		{/}
+		<div class="use-notice">
+			<h3 class="use-notice__title">{=trans('유의사항')}</h3>
+			<ul class="use-notice__list">
+				<li class="use-notice__desc">{=trans('신용카드, 간편결제, 실시간 계좌이체는 자동 환불 처리됩니다.')}</li>
+				<li class="use-notice__desc">{=trans('결제 시 사용하신 적립금은 내부정책에 따라 취소신청 완료 후 환불 처리됩니다.')}</li>
+			</ul>
+		</div>
+	</section>
+	<div class="br__order-footer">
+		<button type="button" class="btn-lg btn-dark-line"><a href="/mypage/">{=trans('마이페이지')}</a></button>
+		<button type="button" class="btn-lg btn-gray-line"><a href="/">{=trans('홈으로')}</a></button>
+	</div>
+</section>
+<!-- 컨텐츠 E -->

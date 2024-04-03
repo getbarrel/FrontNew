@@ -1,0 +1,13 @@
+<svg id="icon_bi_circle_24px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_13" data-name="사각형 13" width="24" height="24" transform="translate(0 0)"/>
+    </clipPath>
+  </defs>
+  <g id="icon_bi_circle_24px-2" data-name="icon_bi_circle_24px" clip-path="url(#clip-path)">
+    <path id="패스_19" data-name="패스 19" d="M28.709,26.538c2.726-1.192,5.452,1.058,8.178-.134,0-.543-.009-1.09-.009-1.632-2.726,1.192-5.443-1.055-8.169.138Z" transform="translate(-20.682 -17.685)"/>
+    <path id="패스_20" data-name="패스 20" d="M28.709,41.641c2.726-1.192,5.452,1.058,8.178-.134,0-.543-.009-1.09-.009-1.632-2.726,1.192-5.443-1.055-8.169.138Z" transform="translate(-20.682 -28.565)"/>
+    <path id="패스_21" data-name="패스 21" d="M28.709,56.744c2.726-1.192,5.452,1.058,8.178-.134,0-.543-.009-1.09-.009-1.632-2.726,1.192-5.443-1.055-8.169.138Z" transform="translate(-20.682 -39.445)"/>
+    <path id="패스_22" data-name="패스 22" d="M12,24A12,12,0,1,1,24,12,12.013,12.013,0,0,1,12,24M12,1.722A10.278,10.278,0,1,0,22.278,12,10.29,10.29,0,0,0,12,1.722" transform="translate(0 0)"/>
+  </g>
+</svg>

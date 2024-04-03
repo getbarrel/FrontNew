@@ -1,0 +1,53 @@
+<section class="br__coupon-down">
+    <!--<div class="coupon">-->
+        <p class="br__coupon-down__desc">{=trans('해당 상품에서 사용 가능한 쿠폰 리스트입니다.')}</p>
+
+        <ul class="br__coupon-down__list devCouponContents">
+            {@ list}
+            <li class="br__coupon-down__box">
+                <div class="coupon-info"> <!--area-coupon-->
+                    <div class="coupon-info__img coupon-img">
+                        <div class="coupon-info__price per">
+                            <span>{=number_format(.cupon_sale_value)}</span>{? .cupon_sale_type == '1'}%{/}
+                        </div>
+                    </div>
+                    <div class="coupon-info__detail">
+                        <p class="coupon-info__name">{? .cupon_use_div == 'G'}[웹전용]{: .cupon_use_div == 'M'}[모바일전용]{/} {.publish_name}</p>
+                        <p class="coupon-info__desc">
+                            쿠폰혜택 : {=number_format(.cupon_sale_value)} {? .cupon_sale_type == '1'}%{:}원{/} 할인<br />
+                            ({? .publish_min == 'N'}제한조건없음{:}{=number_format(.publish_condition_price)} 원 이상 구매시{/})<br>
+                            사용기간 :
+                            <span class="font-rb">
+                                {? .use_date_type == '9'}무기한
+                                {: .use_date_type == '1'}
+                                {.regdate}~{.publish_limit_date}
+                                {: .use_date_type == '2'}발급 후 {.regist_date_differ}
+                                {? .regist_date_type == '3'}
+                                일
+                                {: .regist_date_type == '2'}
+                                개월
+                                {: .regist_date_type == '1'}
+                                년
+                                {/} 이내 사용 가능
+                                {: .use_date_type == '3'}{.use_sdate}~{.use_edate}
+                                {/}
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="coupon-btn">
+                    {? .isPublished}
+                    <button disabled>{=trans('다운로드 완료')}</button>
+                    {:}
+                    <button devPublishIx="{.publish_ix}">{=trans('쿠폰 다운로드')}</button>
+                    {/}
+                </div>
+            </li>
+            {/}
+        </ul>
+        <p class="br__coupon-down__desc--light">
+            {=trans('다운로드 된 쿠폰은 마이페이지 나의 쿠폰 및 주문/결제 시
+            쿠폰 적용 단계에서 확인 하실 수 있습니다.')}
+        </p>
+    <!--</div>-->
+</section>

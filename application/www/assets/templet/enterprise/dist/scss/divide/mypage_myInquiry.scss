@@ -1,0 +1,33 @@
+.br {
+  &__inquiry-detail {
+    .my-inquiry__btns {
+        padding-top: 40px;
+        text-align: center;
+
+      > button, a {
+        display: inline-block;
+        min-width: 120px;
+        height:40px;
+        padding: 0 30px;
+        font-size: 14px;
+        border: 1px solid #000;
+        text-align: center;
+        line-height: 38px;
+      }
+      
+      &__del {
+        margin-right: 7px;
+        color: #000;
+        background: #fff;
+      }
+
+      &__mod {
+        color: #fff;
+        background: #000;
+      }
+    }
+    .empty-content {
+      padding: 0;
+    }
+  }
+}

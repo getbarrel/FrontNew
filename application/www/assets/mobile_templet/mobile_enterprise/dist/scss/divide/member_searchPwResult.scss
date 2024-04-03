@@ -1,0 +1,44 @@
+.fb {
+  &__search-result {
+    padding: rem(100px 40px);
+    .search-pw {
+      text-align: center;
+
+      &__title {
+        padding-bottom: rem(30px);
+        color: #000;
+        font-size: rem(30px);
+        line-height: rem(44px);
+      }
+      &__subtitle {
+        padding: rem(0 96px 90px);
+        color: #000;
+        font-size: rem(22px);
+        line-height: rem(32px);
+      }
+
+      &__link {
+        a {
+          float: left;
+          margin-right: rem(20px);
+          width:calc(50% - 0.5rem);
+          padding: rem(27px 30px);
+          color: #fff;
+          font-size: rem(26px);
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+
+        &--home {
+          background: #000;
+        }
+
+        &--login {
+          background: #00bce7;
+        }
+      }
+    }
+  }
+}

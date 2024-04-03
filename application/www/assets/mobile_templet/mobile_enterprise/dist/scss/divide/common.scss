@@ -1,0 +1,778 @@
+.br {
+  
+  /* 모바일 팝업 */
+  .main_popupL {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,.8);
+    z-index:1000;
+
+    &.devForbizTpl {
+      display: none;
+    }
+    &-inner {
+      position:fixed;
+      top: rem(50px);
+      //top:50%;
+      left:50%;
+      transform: translateX(-50%);
+      //transform:translate(-50%,-50%);
+      width:calc(100% - 2.5rem);
+      max-height:calc(100% - 2.5rem);
+      font-size: 0;
+      padding-bottom: rem(80px);
+      overflow: scroll;
+
+      img {
+        max-width:100%;
+      }
+    }
+    &__content {
+      width:100%;
+      height:100%;
+      padding-bottom: rem(80px);
+      background:#fff;
+      overflow-y:auto;
+      img {
+        display:block;
+        max-width:100%;
+      }
+    }
+    .noti__popup {
+      display:flex;
+      position:absolute;
+      left:0;
+      right:0;
+      bottom: rem(-80px);
+      background:#111;
+      color:#fff;
+      font-size: rem(26px);
+      text-align:center;
+      @extend %clear;
+
+      input[type=checkbox] {
+        position:absolute;
+        width:0;
+        height:0;
+        opacity:0;
+      }
+      label {
+        position:relative;
+        flex-basis:100%;
+        padding: rem(27px 0);
+        color:#fff;
+
+        &:after{
+          content:"";
+          position:absolute;
+          top: rem(20px);
+          right:0;
+          bottom: rem(20px);
+          border-right:1px solid #3a3a3a;
+        }
+      }
+      &__closebtn {
+        flex-basis:100%;
+        padding: rem(27px 0);
+      }
+    }
+  }
+
+  // 초기 태그 히든
+  &__hidden {
+     display: none;
+     &--anchor {
+       display: block;
+       width: 0;
+       height: 0;
+       margin: 0;
+       padding: 0;
+       font-size: 0;
+       line-height: 0;
+       visibility: hidden;
+     }
+   }
+//더보기 버튼
+&__more {
+  /*위 아래 padding값은 각 페이지에서 조정*/
+  display: block;
+  padding-top: rem(40px);
+  text-align: center;
+
+  button {
+    display: inline-block;
+    height: auto;
+    padding: rem(20px 40px);
+    margin: 0 auto;
+    border: 1px solid #000;
+    color: #000;
+    font-size: rem(24px);
+    line-height: 1.15;
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: rem(22px);
+      height: rem(12px);
+      margin-left: rem(18px);
+      background: $sprite22 no-repeat rem(-65px -7px);
+      background-size: rem($sprite22Size);
+      vertical-align: middle;
+    }
+
+    span{
+      color: #000;
+    }
+  }
+
+  &:empty {
+    display: none;
+  }
+
+  }
+  //좋아요 일반형
+  &__add-wish {
+    display:inline-block;
+    position:relative;
+    width: rem(96px);
+    height: rem(90px);
+    @extend %hiddenText;
+    input[type=checkbox]{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width: rem(36px);
+      height: rem(32px);
+      margin: rem(-16px 0 0 -18px);
+      background:$sprite30 no-repeat rem(-855px -2px);
+      background-size: rem($sprite30Size);
+    }
+    &.on {
+      input[type=checkbox] {
+        background-position-y: rem(-41px);
+      }
+    }
+  }
+  // 공통으로 쓸 예정
+  &__select-box {
+    .select-box {
+      position: relative;
+      z-index: 1;
+      &__title {
+        display: block;
+        position: relative;
+        width: 100%;
+        padding: rem(0 70px 0 20px);
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: rem(20px);
+        width: rem(16px);
+        height: rem(9px);
+        margin-top: rem(-6px);
+        background: url("../images/common/icon-store-select.png") no-repeat 0 0;
+        background-size: rem(16px 9px);
+
+      }
+      span {
+        display: block;
+        color: #000;
+        font-size: rem(22px);
+        line-height: rem(67px);
+        text-align: left;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+      }
+    }
+    &__layer {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: rem(-1px);
+      right: rem(-1px);
+      padding: rem(15px 20px);
+      background: #fff;
+      border: 1px solid #b5b5b6;
+
+      &__label {
+        display: block;
+        position: relative;
+        padding: rem(15px 0);
+        @include line();
+
+        span {
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          @include line();
+        }
+        input[type=radio] {
+          width: 0;
+          height: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+        }
+        input[type=radio]:checked + span {
+          font-weight: 600;
+        }
+        input[type=radio]:disabled + span {
+          color: #b5b5b6;
+        }
+        &--label {
+          padding: 0;
+          &:after {
+            content: "";
+            display: block;
+            width: 100%;
+            margin: rem(15px 0 5px);
+            border-bottom: 2px dashed #000;
+          }
+        }
+        // 상세페이지 셀렉트 스타일
+        &--stock {
+          padding-right: rem(180px);
+          span {
+            display: inline-block;
+            position: relative;
+            max-width: 100%;
+            padding-right: rem(56px);
+          }
+          .stock {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0;
+            color: #e60000;
+            font-size: rem(22px);
+          }
+          .alarm {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: rem(163px);
+            margin-top: rem(-22px);
+            padding: 0;
+            border: 1px solid #000;
+            background: #fff;
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 600;
+            line-height: rem(44px);
+            text-align: center;
+          }
+        }
+
+      }
+
+    }
+  }
+  &--toggle {
+    .select-box {
+      z-index: 2;
+      &__title {
+        &:after {
+          background-position-x: rem(-107px);
+        }
+      }
+      &__layer {
+        display: block;
+      }
+    }
+  }
+}
+// tab 디자인
+&__tabs {
+  &__list {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  &__box {
+    width: 100%;
+
+    // 탭 좌우측 보더 none
+    &:first-child {
+      .br__tabs__btn {
+        border-left: none;
+      }
+    }
+    &:last-child {
+      .br__tabs__btn {
+        border-right: none;
+      }
+    }
+  }
+  &__btn {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: rem(80px);
+    padding: 0;
+    border-bottom: 1px solid #b5b5b6;
+    background: #efefef;
+    color: #b5b5b6;
+    font-size: rem(30px);
+    line-height: rem(79px);
+    letter-spacing: rem(-1.5px);
+    text-align: center;
+
+    &--active {
+      border: {
+        left: 1px solid #b5b5b6;
+        right: 1px solid #b5b5b6;
+        bottom: none;
+      }
+      background: #fff;
+      color: #000;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-top: 2px solid $cPoint;
+      }
+    }
+  }
+  &__content {
+    padding-top: rem(50px);
+  }
+}
+// alert layer
+&__layer-alert {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, .7);
+
+  &--show {
+    display: block;
+  }
+  .layer-alert {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    width: calc(100% - 3rem);
+    max-height: calc(100% - 3rem);
+    margin: auto;
+    padding: rem(90px 0 192px);
+    background: #fff;
+
+    &__title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: rem(90px);
+      padding: rem(25px 90px 25px 30px);
+      background: #fff;
+      color: #000;
+      font-size: rem(30px);
+      line-height: rem(40px);
+      font-weight: 600;
+      @include line();
+    }
+    &__body {
+      padding: rem(15px);
+      max-height: calc(100% - 14rem);
+      overflow: {
+        x: hidden;
+        y: auto;
+      }
+      &__script {
+        color: #000;
+        font-size: rem(26px);
+        line-height: rem(40px);
+        text-align: center;
+        white-space: pre-line;
+      }
+    }
+    &__btn-box {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding-bottom: rem(80px);
+      background: #fff;
+      text-align: center;
+    }
+    &__btn {
+      display: none;
+      width: rem(250px);
+      margin: rem(0 10px);
+      border: 1px solid #b5b5b6;
+      background: #fff;
+      color: #000;
+      font-size: rem(26px);
+      font-weight: 600;
+      line-height: rem(78px);
+      text-align: center;
+
+      &--show {
+        display: inline-block;
+      }
+    }
+    &__close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: rem(90px);
+      height: rem(90px);
+      border: none;
+      background: none;
+      @extend %hiddenText;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: rem(-15px 0 0 -15px);
+        width: rem(31px);
+        height: rem(31px);
+        background: url(../images/layout/icon_drawer_close.png) no-repeat center center;
+        background-size: rem(31px 31px);
+      }
+    }
+  }
+}
+// login layer
+&__layer-login {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, .7);
+
+  &--show {
+    display: block;
+  }
+  .layer-login {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    width: calc(100% - 3rem);
+    max-height: calc(100% - 3rem);
+    margin: auto;
+    padding: rem(105px 0 85px);
+    background: #fff;
+
+    &__body {
+      text-align: center;
+      &__desc {
+        color: #000;
+        font-size: rem(26px);
+        line-height: rem(36px);
+      }
+      &__btn {
+        display: block;
+        width: rem(250px);
+        height: rem(80px);
+        margin: rem(45px auto 35px);
+        background: #000;
+        color: #fff;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(80px);
+      }
+      &__join {
+        color: #000;
+        font-size: rem(20px);
+        line-height: rem(30px);
+        a {
+          position: relative;
+          &:after {
+            content:"";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: rem(-3px);
+            border-bottom: 1px solid #000;
+          }
+        }
+      }
+    }
+    &__close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: rem(90px);
+      height: rem(90px);
+      border: none;
+      background: none;
+      @extend %hiddenText;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: rem(-15px 0 0 -15px);
+          width: rem(31px);
+          height: rem(31px);
+          background: url(../images/layout/icon_drawer_close.png) no-repeat center center;
+          background-size: rem(31px 31px);
+        }
+      }
+    }
+  }
+
+  /*주문상세 하단 총 할인금액 예시로 확인*/
+  .tooltip {
+
+    &__wrap {
+      position: relative;
+    }
+
+    &__icon {
+      display: inline-block;
+      width: rem(24px);
+      height: rem(24px);
+      background: url("../../img/icon/m_sprite_shop.png") no-repeat rem(-500px) 0;
+      background-size: rem(1000px 1000px);
+      font-size: 0;
+      vertical-align: middle;
+    }
+
+    &__layer {
+      display: none;
+      position: absolute;
+      top: rem(120px);
+      left: 0;
+      z-index: 11;
+      width: 100%;
+      padding: rem(50px 40px);
+      background: #fff;
+      color: #000;
+      box-shadow: 0 rem(4px 16px) rgba(89, 87, 87, 0.2);
+
+      &--show {
+        display: block;
+      }
+
+      &__title {
+        display: block;
+        padding-bottom: rem(50px);
+        border-bottom: 1px solid #b5b5b6;
+        font-weight: 600;
+        font-size: rem(30px);
+        text-align: center;
+      }
+
+      &__close {
+        position: absolute;
+        top: rem(50px);
+        right: rem(40px);
+        width: rem(30px);
+        height: rem(30px);
+        background: url("../../img/icon/m_sprite_icon.png") no-repeat rem(-700px -600px);
+        background-size: rem(1000px 1000px);
+        font-size: 0;
+      }
+      dl {
+        margin-top: rem(30px);
+        @extend %clear;
+      }
+
+      dt{
+        display: inline-block;
+        float: left;
+        font-size: rem(22px);
+        line-height: rem(32px);
+      }
+
+      dd {
+        display: inline-block;
+        float: right;
+        font-size: rem(26px);
+
+        em {
+          font-family: $font_n;
+          font-weight: 600;
+        }
+      }
+      &__total {
+        padding-top: rem(50px);
+        margin-top: rem(50px) !important;
+        border-top: 1px solid #b5b5b6;
+        font-size: rem(22px);
+
+        dt {
+          font-weight: bold;
+        }
+
+        dd {
+          color: $cPoint;
+          font-size: rem(26px);
+
+          em {
+            font-weight: bold;
+            font-size: rem(32px);
+          }
+        }
+      }
+    }
+  }
+
+  .empty-content {
+    &__btn {
+      display:block;
+      width: rem(200px);
+      height: rem(80px);
+      margin: rem(35px auto 0);
+      background:#000;
+      color:#fff;
+      font-size: rem(26px);
+      font-weight:600;
+      line-height: rem(80px);
+      text-align:center;
+    }
+  }
+
+  //ie에서 input 기본 체크박스 스타일 가려지도록 스타일 추가
+  input::-ms-check {
+    display: none;
+  }
+
+}
+
+
+.randomCoupon {
+  display:none;
+  position:fixed;
+  left:20px;
+  bottom:250px;
+  font-size:0;
+  width:80px;
+  height:80px;
+  // background:#f00;
+  //border-radius:100%;
+  z-index:1;
+ 
+  &.show {
+    display:block;
+  }
+  img {
+    width:100%;
+    height:100%;
+  }
+  input {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity:0;
+    z-index:1;
+  }
+}
+.crema-type {
+  .randomCoupon {
+    display:none;
+    position:fixed;
+    left:rem(20px);
+    bottom:rem(250px);
+    font-size:0;
+    width:rem(80px);
+    height:rem(80px);
+    // background:#f00;
+    //border-radius:100%;
+    z-index:1;
+   
+    &.show {
+      display:block;
+    }
+    img {
+      width:100%;
+      height:100%;
+    }
+    input {
+      display:block;
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      opacity:0;
+      z-index:1;
+    }
+  }
+}
+
+.gdweb {
+  &__wrap {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:10000;
+    &--show {
+      display:block;
+    }
+  }
+  &__dimmed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0, 0, 0, 0.8);
+  }
+  &__popup {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:calc(100% - #{rem(50px)});
+    max-height:calc(100% - #{rem(50px)});
+    padding-bottom:rem(80px);
+    &__img {
+      width:100%;
+      img {
+        display:block;
+        width:100%;
+        object-fit: cover;
+      }
+    }
+    &__close {
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      width:100%;
+      height:rem(80px);
+      background:#111;
+      color:#fff;
+      font-size:rem(26px);
+      text-align:center;
+    }
+  }
+
+}

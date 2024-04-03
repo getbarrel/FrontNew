@@ -1,0 +1,327 @@
+<!-- crema load -->
+<script>
+    var crema_userId = null;
+    var crema_userNm = null;
+
+    {? layoutCommon.isLogin}
+    crema_userId = "{layoutCommon.userInfo.id}";
+    crema_userNm = "{layoutCommon.userInfo.name}";
+    {/}
+
+    window.cremaAsyncInit = function() { // init.js가 다운로드 & 실행된 후에 실행하는 함수
+        //console.log("[CREMA] cremaAsyncInit() - EXECUTED!");
+        crema.init(crema_userId, crema_userNm);
+        //console.log("[CREMA] crema.init() - EXECUTED!");
+    };
+
+    (function(i,s,o,g,r,a,m){if(s.getElementById(g)){return};a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.id=g;a.async=1;a.src=r;m.parentNode.insertBefore(a,m)})
+    (window,document,'script','crema-jssdk','//{c.CREMA_WIDGET_HOST}/getbarrel.com/mobile/init.js');
+</script>
+<!-- 컨텐츠 S -->
+<section class="br__order-detail">
+	<div class="page-title my-title">
+		<div class="title-sm">{=trans('주문 상세 내역')}</div>
+	</div>
+	<!--취소교환반품 신청내역조회일 때 S -->
+	<div class="order-number-box" id="devOrderDetailContent">
+		<div class="order-number-box__cont">
+			<dl class="order-number-box__item">
+				<dt class="order-title">{=trans('주문번호')}</dt>
+				<dd class="order-number">{order.oid}</dd>
+			</dl>
+			<dl class="order-number-box__item">
+				<dt class="order-title">{=trans('주문일자')}</dt>
+				<dd class="order-day">{order.order_date}</dd>
+			</dl>
+		</div>
+		<div class="order-number-box__btn">
+			{? order.status == 'IR' || order.status == 'IC'}
+			<button type="button" class="btn-lg btn-dark-line devOrderCancelAllBtn orderDetail_infi all_cancel" data-oid="{order.oid}">{=trans('전체 취소')}</button>
+			{/}
+		</div>
+	</div>
+	<!--취소교환반품 신청내역조회일 때 E -->
+
+	<section class="br__order-content">
+		<!-- 주문 내역 - 리스트 S -->
+		{@ order.orderDetail}
+		<div class="br__odhistory__list">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('주문 상품')}</div>
+			</div>
+			<ul class="product-list">
+				<!-- 최근 주문 내역이 없을 시 S -->
+				<!-- 숨김처리 -->
+				<li class="product-list__item no-data" style="display: none">
+					<p class="empty-content">기간내 주문내역이 없습니다.</p>
+				</li>
+				<!-- 최근 주문 내역이 없을 시 E -->
+				<li class="product-list__item">
+					<!-- 상품 S -->
+					{@ .value_}
+					<dl class="product-list__group">
+						<dt class="product-list__group-left">
+							<figure class="product-list__thumb">
+								<a href="/shop/goodsView/{..pid}">
+									<img src="{..pimg}">
+								</a>
+							</figure>
+						</dt>
+						<dd class="product-list__group-right">
+							<div class="product-list__info">
+								<div class="product-list__info__title">{=trans('{..pname}')}</div>
+
+								<div class="product-list__info__option">
+									<div class="product-list__info__option-item">
+										{? ..add_info}<span class="color">{..add_info}</span>{/}
+										<span class="size">{..option_text}</span>
+										<span class="count">{..pcnt}{=trans('개')}</span>
+									</div>
+								</div>
+								<!-- 세트 상품 E -->
+
+								<div class="product-list__info__price">
+									<span class="product-list__info__price--cost">{fbUnit.f}<em>{=g_price(..pt_dcprice)}</em>{fbUnit.b}</span>
+									<span class="product-list__info__status">{..status_text}{? ..refund_status}/{..refund_status_text}{/}</span>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					<div class="product-list__footer">
+						<!--{? ..isDeliveryIng}{* 배송중 *}-->
+						<div class="btn-group">
+							<button class="btn-lg btn-gray-line devDeliveryTrace" data-quick="{..quick}" data-tracking_expiration="{..tracking_expiration}" data-invoice_no="{..invoice_no}">{=trans('배송조회')}</button>
+							<button class="btn-lg btn-dark-line devOrderComplateBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('배송완료')}</button>
+						</div>
+						<!--{/}-->
+
+						<!--{? ..isDeliveryComplate}{* 배송완료 *}-->
+						<div class="btn-group">
+							<button class="btn-lg btn-dark-line devOrderReturnBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('반품신청')}</button>
+							<button class="btn-lg btn-gray-line devDeliveryTrace" data-quick="{..quick}" data-tracking_expiration="{..tracking_expiration}" data-invoice_no="{..invoice_no}">{=trans('배송조회')}</button>
+						</div>
+						<button class="btn-lg btn-dark-line odeach__btn--all devBuyFinalizedBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('구매확정')}</button>
+						<!--{/}-->
+
+						<!--{? ..isByFinalized}{* 구매확정 *}-->
+							<div class="btn-group">
+							{? ..quick && ..invoice_no}
+							<button class="btn-lg btn-gray-line devInvoice" onclick="javascirt:void(0);" data-quick="{..quick}" data-tracking_expiration="{..tracking_expiration}" data-invoice_no="{..invoice_no}">{=trans('배송조회')}</button>
+							{/}
+							<!--{? is_login() }-->
+								{? langType == 'korean'}
+									<button class="btn-lg btn-dark-line devOrderReturnBtn"><a class="crema-new-review-link odeach__btn--bk" data-product-code="{..co_no}" widget-id="100" >{=trans('리뷰쓰기')}</a></button>
+								{:}
+									<!--{* 글로벌 리뷰 (삭제) *}-->
+									{? false}
+									<button class="btn-lg btn-dark-line devByFinalized" data-pid="{..pid}" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('리뷰쓰기')}</button>
+									{/}
+								{/}
+							<!--{/}-->
+							</div>
+						<!--{/}-->
+					</div>
+					<!-- 상품 E -->
+
+					<!-- 상품 사은품 S -->
+					{? ..product_gift}
+					<div><h4 class="odeach__gift__title">{=trans('구매 사은품')} <!--<span>{=trans('사은품타이틀')}</span>--></h4></div>
+					<dl class="product-list__group">
+						{@ product_gift}
+						<dt class="product-list__group-left">
+							<figure class="product-list__thumb">
+								<img src="{product_gift.image_src}" alt="">
+							</figure>
+						</dt>
+						<dd class="product-list__group-right">
+							<div class="product-list__info">
+								<div class="product-list__info__title">{product_gift.pname}</div>
+
+								<div class="product-list__info__option">
+									<div class="product-list__info__option-item">
+										<span class="count">1{=trans('개')}</span>
+									</div>
+								</div>
+							</div>
+						</dd>
+						{/}
+					</dl> 
+					{/}
+					{/}
+					<!-- 상품 사은품 E -->
+				</li>
+			</ul>
+		</div>
+		{/}
+		<!-- 주문 내역 - 리스트 E -->
+
+		<!--구매별 사은품 S -->
+		<!--{? freeGift}-->
+		<!--{@ freeGift}-->
+		<!--{? .gift_products}-->
+		<div class="gift-wrap">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('구매금액별 사은품')}</div>
+			</div>
+			<ul class="product-list">
+				<li class="product-list__item">
+					<!-- 상품 S -->
+					<!--{@ .gift_products}-->
+					<dl class="product-list__group" id="devPgItem">
+						<dt class="product-list__group-left">
+							<figure class="product-list__thumb">
+								<img src="{..image_src}" alt="">
+							</figure>
+						</dt>
+						<dd class="product-list__group-right">
+							<div class="product-list__info">
+								<div class="product-list__info__title">{..pname}</div>
+
+								<!-- 일반 상품 S -->
+								<div class="product-list__info__option">
+									<div class="product-list__info__option-item">
+										<span class="count">1{=trans('개')}</span>
+									</div>
+								</div>
+								<!-- 일반 상품 E -->
+							</div>
+						</dd>
+					</dl>
+                   <!--{/}-->
+				</li>
+			</ul>
+		</div>
+		<!--{/}-->
+		<!--{/}-->
+		<!--{/}-->
+		<!--구매별 사은품 E -->
+
+		<!--배송 정보 S -->
+		<div class="pay-comp__wrap address">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('배송 정보')}</div>
+			</div>
+			<div class="pay-comp__address">
+				<div class="name">{deliveryInfo.rname} <span>{=trans('(기본)')}</div>
+				<div class="address">
+					{? deliveryInfo.country_full}country : <p>{deliveryInfo.country_full} </p> {/}
+					<p>[{deliveryInfo.zip}] {deliveryInfo.addr1} </p><p>{deliveryInfo.addr2} </p>
+					{? deliveryInfo.city}city : <p>{deliveryInfo.city} </p>{/}
+					{? deliveryInfo.state}state: <p>{deliveryInfo.state}{/}
+				</div>
+				<div class="title">
+					<p>{=trans('주문자명')} : {order.bname}</p>
+				</div>
+				<div class="title">{=trans('배송 요청사항')}</div>
+				<div class="message">
+					{? false && order.status == (c.ORDER_STATUS_INCOM_READY || order.status == c.ORDER_STATUS_INCOM_COMPLETE)}
+					<button class="order-detail__wrap__btn" id="devDeliveryRequestChangeBtn" data-oid="{order.oid}">{=trans('변경하기')}</button>
+					{/}
+					{@ deliveryInfo.msg}
+						{? .msg != ''}
+						<span>{.msg}</span>
+						{:}
+						<span>-</span>
+						{/}
+					{/}
+				</div>
+			</div>
+		</div>
+		<!--배송 정보 E -->
+
+		<!--결제 정보 S -->
+		<div class="pay-comp__wrap payment">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('결제 정보')}</div>
+			</div>
+			<div class="pay-comp__payment">
+				<dl class="pay-comp__payment__total">
+					<dt>총 결제 예정 금액</dt>
+					<dd>{fbUnit.f}<em>{=g_price(paymentInfo.payment[0].payment_price)}</em>{fbUnit.b}</dd>
+				</dl>
+
+				<!-- 가상 계좌 결제 시 노출 S -->
+				<!--{@ paymentInfo.payment}-->
+				{? .method == c.ORDER_METHOD_BANK || .method == c.ORDER_METHOD_VBANK || .method == c.ORDER_METHOD_ICHE || .method == c.ORDER_METHOD_ASCROW}
+				<div class="pay-comp__payment__virtual">
+					<div class="title-sm">입금 정보</div>
+					<div class="pay-comp__payment__virtual-text">
+						{.bank} / 계좌번호 : <em>{.bank_account_num}</em><br />
+						{.vb_info}{? .bank_input_name != ''}{=trans('예금주 : {.bank_input_name}')}{/}  <!-- 예금주 : 주식회사 배럴 -->
+					</div>
+					<div class="layout-flex txt-red">
+						<span>{=trans('입금 기한')}</span>
+						<span>{=date('Y년 m월 d일', strtotime(.bank_input_date))}까지</span>
+					</div>
+				</div>
+				{/}
+				<!--{/}-->
+
+				<div class="pay-comp__payment__list">
+					<!--{@ paymentInfo.payment}-->
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('결제수단')}</dt>
+						<dd>{.method_text}</dd>
+					</dl>
+					<!--{/}-->
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('총 상품금액')}</dt>
+						<dd>{fbUnit.f}<em>{=g_price(paymentInfo.total_listprice)}</em>{fbUnit.b}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('상품 할인')}</dt>
+						<dd>- {fbUnit.f}<em>{=g_price(paymentInfo.dr_dc)}</em>{fbUnit.b}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('등급 할인')}</dt>
+						<dd>- {fbUnit.f}<em>{=g_price(paymentInfo.mg_dc)}</em>{fbUnit.b}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('쿠폰 할인')}</dt>
+						<dd>- {fbUnit.f}<em>{=g_price(paymentInfo.cp_dc)}</em>{fbUnit.b}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('적립금 사용')}</dt>
+						<dd>- {fbUnit.f}<em>{=g_price(paymentInfo.use_reserve)}</em>{fbUnit.b}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('총 배송비')}</dt>
+						<dd>{fbUnit.f}<em>{=g_price(order.delivery_price)}</em>{fbUnit.b}</dd>
+					</dl>
+				</div>
+				<dl class="pay-comp__payment__benefits">
+					<dt>{=trans('적립 혜택')}</dt>
+					<dd>{fbUnit.f}<em>{=g_price(paymentInfo.total_reserve)}</em>{fbUnit.b}</dd>
+				</dl>
+			</div>
+		</div>
+		<!--결제 정보 E -->
+	</section>
+
+	<!--{? is_login()}-->
+	{? langType == 'korean' && order.status != 'IR'}
+	<div class="br__order-footer">
+		<button class="btn-lg btn-dark-line order-detail__btn order-detail__btn--type1  order-detail__btn--full receipt-btn" data-oid="{order.oid}" >{=trans('영수증 보기')}</button>
+	</div>
+	{/}
+	
+	{? claimData.cancelData && claimData.returnData}
+	<div class="br__order-footer">
+		<button class="btn-lg btn-dark-line order-detail__btn order-detail__btn--type1 cancelBtn" >{=trans('주문취소 환불내역')}</button>
+		<button class="btn-lg btn-dark-line order-detail__btn order-detail__btn--type1 bringBackBtn" >{=trans('반품신청 환불내역')}</button>
+	</div>
+	{:}
+		{? claimData.cancelData}
+		<div class="br__order-footer">
+			<button class="btn-lg btn-dark-line order-detail__btn order-detail__btn--type1 order-detail__btn--full cancelBtn" >{=trans('주문취소 환불내역')}</button>
+		</div>
+		{/}
+		{? claimData.returnData}
+		<div class="br__order-footer">
+			<button class="btn-lg btn-dark-line order-detail__btn order-detail__btn--type1 order-detail__btn--full bringBackBtn" >{=trans('반품신청 환불내역')}</button>
+		</div>
+		{/}
+	{/}
+	<!--{/}-->
+</section>
+<!-- 컨텐츠 E -->

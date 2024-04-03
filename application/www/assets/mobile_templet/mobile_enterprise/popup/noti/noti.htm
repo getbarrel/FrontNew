@@ -1,0 +1,28 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="/assets/templet/enterprise/assets/js/swiper/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="/assets/templet/enterprise/assets/js/common.js"></script>
+<div class="main_popupL-inner">
+	<div class="main_popupL-slide swiper-container popup-slide">
+		<div class="swiper-wrapper">
+			{@ slideBannerPopUp}
+			<div class="swiper-slide">
+				<a href="{.bannerLink}"><img src="{.imgSrc}" alt="{.banner_name}" /></a>
+			</div>
+			{/}
+		</div>
+	</div>
+	<div class="main_popupL-slide--control">
+		<div class="swiper-control-group">
+			<div class="swiper-scrollbar popup-swiper-scrollbar"></div>
+			<div class="swiper-pagination popup-swiper-pagination"></div>
+		</div>
+	</div>
+</div>
+<div class="main_popupL-btn">
+	<!--오늘 하루보기 사용 체크박스 --> 
+	<input type='checkbox' id="closeToday" class='devPopupToday' devPopupIx='{popupIx}' onClick="$(this).prop('checked', true);common.noti.popup.close('{popupType}', '{popupIx}');"/>
+	<span for="closeToday">오늘 하루 열지않기</span>
+	
+	<!-- <span class="main_popupL-closebtn" onclick="">닫기</span> -->
+	<span class="main_popupL-closebtn" onClick="$(this).prop('checked', true);common.noti.popup.close('{popupType}', '{popupIx}');">{=trans('[닫기]')}</span>
+</div>

@@ -1,0 +1,52 @@
+.fb {
+  &__join-member {
+    padding: 121px 0 100px!important;
+
+    &__title {
+      text-align: center;
+    }
+    .wrap-line-box {
+      padding: 60px 0 63px!important;
+      border-top: none!important;
+
+      .join-end__tit {
+        margin-bottom: 27px;
+        color: #000;
+        font-size: 30px;
+        span {
+          color: #000!important;
+          font-weight: 600;
+        }
+      }
+      .join-end__desc {
+        color: #666;
+        line-height: 24px;
+      }
+    }
+
+    .wrap-btn {
+      padding-top: 60px;
+      text-align: center;
+
+      a {
+        padding: 0 86px;
+        &:first-of-type {
+          color: #fff;
+          background: #000;
+        }
+
+        &:nth-child(2) {
+          margin-left: 5px;
+          color: #fff;
+          background: #00bce7;
+        }
+      }
+    }
+
+    .benefit__joinEnd {
+      margin-top: 40px;
+      padding: 50px 70px;
+    }
+  }
+
+}

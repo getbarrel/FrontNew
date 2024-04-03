@@ -1,0 +1,14 @@
+INFO	[2019-08-05 17:15:37:236] <19540> START INIPHP refund (NV5050-20181201)(OS:Windows NT6.3,PHP:7.0.30)
+DEBUG	[2019-08-05 17:15:37:236] <19540> inipayhome:F:\netbeansworkspace\php-vfix-alpha2-front\application\custom\payment/inicis
+DEBUG	[2019-08-05 17:15:37:236] <19540> debug:false
+DEBUG	[2019-08-05 17:15:37:236] <19540> mid:INIpayTest
+DEBUG	[2019-08-05 17:15:37:236] <19540> type:refund
+DEBUG	[2019-08-05 17:15:37:236] <19540> tid:StdpayVBNKINIpayTest20190805171538855541
+DEBUG	[2019-08-05 17:15:37:236] <19540> racctnum:
+DEBUG	[2019-08-05 17:15:37:236] <19540> rbankcode:
+DEBUG	[2019-08-05 17:15:37:236] <19540> racctname:
+DEBUG	[2019-08-05 17:15:37:236] <19540> admin:1111
+DEBUG	[2019-08-05 17:15:37:236] <19540> cancelmsg:
+ERROR	[2019-08-05 17:15:37:252] <19540> 필수항목(환불계좌번호)이 누락되었습니다.
+INFO	[2019-08-05 17:15:37:252] <19540> END refund [TX9245|필수항목(환불계좌번호)이 누락되었습니다.] Laptime:[0.017sec]
+INFO	[2019-08-05 17:15:37:252] <19540> ===============================================================

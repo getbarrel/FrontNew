@@ -1,0 +1,277 @@
+.fb {
+  &__mypage{
+
+    .mileage {
+      &__detail {
+        &__content {
+          padding-top: 30px;
+        }
+
+      }
+
+      &__usable-point-text {
+        line-height: 38px;
+      }
+
+      &__inner {
+        padding:10px 0;
+        overflow: hidden;
+        border-top: 1px solid #222;
+        border-bottom: 1px solid #ddd;
+
+
+        .float-l {
+          padding: 40px 30px;
+          width: 515px;
+
+          dl {
+            overflow: hidden;
+
+            dt {
+              position: relative;
+              float: left;
+              font-size: 20px;
+              color: #000;
+              padding-left: 60px;
+              min-height: 50px;
+              padding-top: 5px;
+              line-height: 20px;
+
+              &:before {
+                content: '';
+                display: inline-block;
+                width: 47px;
+                height: 47px;
+                background: url(../../img/bg/sprite_mypage.png) no-repeat -500px 0;
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+
+              span {
+                font-size: 14px;
+                color: #999;
+
+                strong {
+                  font-size: 15px;
+                  font-family: $font_n;
+                }
+              }
+            }
+
+            dd {
+              float: right;
+              min-width: 100px;
+              padding-top: 10px;
+              font-family: $font_n;
+              font-size: 22px;
+              color: $pcolor;
+              text-align: right;
+
+              strong {
+                font-size: 30px;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+
+        .float-r {
+          height: 130px;
+          border-left: 1px dotted #ddd;
+
+          dl {
+            overflow: hidden;
+            width: 400px;
+            margin-left: 13px;
+            padding: 0 20px 0 15px;
+            border-bottom: 1px dotted #ddd;
+            height: calc(100% / 3);
+            line-height: 42px;
+
+            dt {
+              position: relative;
+              float: left;
+              color: #666;
+              font-size: 15px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              max-width: 260px;
+
+              .light {
+                position: relative;
+                padding: 0 12px 0 5px;
+                color: #999;
+                font-size: 12px;
+
+                &:after {
+                  display: inline-block;
+                  position: absolute;
+                  top: 50%;
+                  right: 0;
+                  width: 5px;
+                  height: 9px;
+                  margin-top: -4.5px;
+                  background: url(../images/common/icon-mileage-arrow.png) no-repeat 0 0;
+                  content: "";
+                }
+              }
+            }
+
+            dd {
+              float: right;
+              min-width: 100px;
+              text-align: right;
+              font-family: $font_n;
+              font-size: 14px;
+              color: #222;
+
+              strong {
+                font-size: 15px;
+                font-weight: 600;
+              }
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+
+      .fb__mypage__tab {
+        &-menu {
+          position: relative;
+          border: none;
+          border-bottom: 1px solid #ddd;
+          
+          &:first-of-type {
+            &:before {
+              display: none;
+            }
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            margin-top: 10px;
+            width: 1px;
+            height: 30px;
+            background: #ddd;
+          }
+
+          &--active {
+            z-index: 2;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-bottom: none;
+            color: #000;
+            font-weight: 600;
+            background: #fff;
+
+            &:after {
+              position: absolute;
+              top: 0;
+              left: -1px;
+              right: -1px;
+              height: 1px;
+              background: $pcolor;
+              content: "";
+            }
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &__tab {
+      width: 100%;
+      display: inline-block;
+
+      &-menu {
+        float: left;
+        position: relative;
+        width: calc(100% / 3);
+        height: 50px;
+        margin: 0;
+        background: #f8f8f8;
+        border: 1px solid #ddd;
+        text-align: center;
+        box-sizing: border-box;
+
+        a {
+          width: 100%;
+          display: inline-block;
+          font-size: 14px;
+          line-height: 50px;
+          color: #666;
+        }
+
+        & + & {
+          margin-left: -1px;
+        }
+
+        &--active {
+          border-bottom-color: transparent;
+          background: #fff;
+          z-index: 1;
+
+          a{
+            color: #000;
+
+          }
+        }
+      }
+    }
+
+  }
+
+  &__mileage {
+    .table-default {
+      th {
+        color: #000;
+        font-weight: 600;
+      }
+
+      strong {
+        font-weight: 600;
+      }
+      
+      td.detail {
+        padding-left: 70px;
+        color: #222;
+        text-align: left;
+      }
+
+      .fb__n {
+        &.add {
+          color: $pcolor;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &__total {
+      padding-top:30px;
+      color: #222;
+      font-size: 14px;
+      //text-indent: 40px;
+
+      span {
+        color: $pcolor;
+      }
+    }
+    .mileage__detail__content {
+      padding-top: 15px;
+    }
+  }
+}
+
+html[lang=en] {
+  .fb__mypage .mileage__inner .float-l dl dt:before {
+    background-position: -551px 0;
+  }
+}

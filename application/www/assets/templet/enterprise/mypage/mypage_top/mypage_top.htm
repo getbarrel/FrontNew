@@ -1,0 +1,72 @@
+<!--{? !nonMemberOid}{* 회원 로그인 *}-->
+<div class="fb__mypage-top">
+	<section class="fb__mypage-top__grade">
+		<div class="fb__mypage-top__group">
+			<div class="fb__mypage-top__item">
+				<div class="fb__mypage-top__pic">
+					<a href="/mypage/passReconfirm">
+						<figure class="fb__mypage-top__pic">
+							{? _SERVER['DOCUMENT_ROOT'] + '/data/barrel_data/images/member_group/'+ currentGroup.organization_img}
+							<img src="{c.IMAGE_SERVER_DOMAIN}/data/barrel_data/images/member_group/{currentGroup.organization_img}" alt="{currentGroup.gp_name}">
+							{/}
+						</figure>
+					</a>
+				</div>
+				<div class="fb__mypage-top__grade-text">
+					<div class="title-md">안녕하세요! <strong>{=mypage.userName}</strong>님</div>
+					<div class="join-date">
+						<span>가입일</span>
+						<span class="day">{=date("Y.m.d", strtotime(mypage.regDate))}</span>
+					</div>
+				</div>
+			</div>
+			<div class="fb__mypage-top__item col">
+				<span>회원등급</span>
+				<div class="title-md level-name">{=mypage.gpName}</div>
+				<p class="level-text"><span>{=trans('{fbUnit.f}<em class="fb__mypage-top__grade--font">{=g_price(needPrice)}</em>{fbUnit.b}')}</span>을 추가 결제하시면 <span>{nextGroup.gp_name}</span> 혜택을 받을 수 있어요!</p>
+			</div>
+		</div>
+		<div class="fb__mypage-top__btn">
+			<a href="/mypage/memberLevel" class="btn-link">등급별 혜택 보기</a>
+		</div>
+	</section>
+	<section class="fb__mypage-top__section">
+		<ul class="fb__mypage-top__list">
+			<li class="fb__mypage-top__detail">
+				<a href="/mypage/mileage">
+					<dl class="fb__mypage-top__detail-item">
+						<dt>{=trans('적립금')}</dt>
+						<dd>
+							<span class="unit">{fbUnit.f}</span>
+							<span class="fb__mypage-top__num">{=number_format(mypage.myMileAmount)}</span>
+							<span class="unit">{fbUnit.b}</span>
+						</dd>
+					</dl>
+				</a>
+			</li>
+			<li class="fb__mypage-top__detail">
+				<a href="/mypage/coupon">
+					<dl class="fb__mypage-top__detail-item">
+						<dt>{=trans('쿠폰')}</dt>
+						<dd>
+							<span class="fb__mypage-top__num">{=number_format(mypage.couponCnt)}</span>
+							<span class="unit">{=trans('장')}</span>
+						</dd>
+					</dl>
+				</a>
+			</li>
+			<li class="fb__mypage-top__detail">
+				<a href="#;">
+					<dl class="fb__mypage-top__detail-item">
+						<dt>작성 가능한 리뷰</dt>
+						<dd>
+							<span class="fb__mypage-top__num">0</span>
+							<span class="unit">건</span>
+						</dd>
+					</dl>
+				</a>
+			</li>
+		</ul>
+	</section>
+</div>
+<!--{/}-->

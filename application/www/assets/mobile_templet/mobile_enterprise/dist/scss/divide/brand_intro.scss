@@ -1,0 +1,50 @@
+.br {
+  &__brand {
+
+    &__nav {
+      width: rem(219px);
+      margin: rem(0px auto 50px);
+      &-list {
+        position: relative;
+        padding-bottom: rem(10px);
+        margin-right: rem(20px);
+        color: #939598;
+        font-size: rem(26px);
+        &:nth-child(3) {
+          margin-right: 0;
+        }
+        &--active {
+          color: #000;
+          font-weight: bold;
+          border-bottom: 3px solid #000;
+        }
+      }
+    }
+    &__title {
+      padding: rem(100px 0 50px);
+      color: #000;
+      font: {
+        weight: bold;
+        size: rem(42px);
+      }
+      text-align: center;
+    }
+  }
+}
+
+#brand_issue {
+  overflow: hidden;
+}
+
+#brand_technology {
+  overflow: hidden;
+}
+
+#brand_sponsorship {
+  overflow: hidden;
+}
+
+
+#brand_visual {
+  overflow: hidden;
+}

@@ -1,0 +1,260 @@
+#event_eventDetail {
+
+  .br__layout {
+    padding-bottom: 0;
+  }
+
+  .event_comment {
+
+
+    &.sprint {
+      margin: 0;
+      padding: 0;
+      background-color: #000102;
+      overflow: hidden;
+      background: url(../images/common/bg_left_line.jpg);
+      background-size: contain;
+
+      .inner {
+        margin: 0 7.8125vw;
+        border: 2px solid white;
+
+        .title {
+          margin-bottom: 4.68vw;
+          width: 100%;
+        }
+
+        &__inner {
+
+        }
+
+        #devInputComment {
+          display: block;
+          margin: 4.68vw auto;
+          width: auto;
+          padding: 2.34vw;
+          width: 90.74%;
+          height: 26.56vw;
+          -webkit-box-sizing: border-box;
+          -o-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          -ms-box-sizing: border-box;
+          box-sizing: border-box;
+          background-color: transparent;
+          border-color: white;
+          background: transparent;
+          color: white;
+        }
+
+        .btn-point {
+          margin-left: 0;
+          margin-bottom: 15.625vw;
+          border: none;
+          outline: none;
+          margin: 0 auto;
+          width: 90.74%;
+          overflow: hidden;
+          position: relative;
+          display: inline-block;
+          letter-spacing: 0;
+          text-align: center;
+          cursor: pointer;
+          font-family: Verdana,"맑은 고딕",Malgun Gothic,"돋움",Dotum;
+          font-weight: 500;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          color: white;
+          font-size: 20px;
+          height: 58px;
+          background: #ff045b;
+        }
+
+        .wrap__btn {
+          position: relative;
+          max-width: 100%;
+          letter-spacing: -1px;
+          margin: 10px auto;
+          padding-bottom: 15.625vw;
+          text-align: center;
+          font-size: 0;
+          line-height: 0;
+          letter-spacing: -4px;
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          vertical-align: top;
+
+          &:after {
+            display: block;
+            content: ' ';
+            position: absolute;
+            bottom: 5%;
+            left: 4.98%;
+            width: 90.04%;
+            height: 1px;
+            background-color: white;
+          }
+        }
+
+        .area_comment_list {
+          margin: 0 auto 3.9vw;
+          width: 90.74%;
+
+          .reply_num {
+            padding-bottom: 10px;
+            color: #666666;
+            font-size: 24px;
+
+            span {
+              color: #01acd8;
+            }
+          }
+        }
+
+        .sprint__list > div {
+          position: relative;
+          margin-bottom: 3.9vw;
+          padding-bottom: 3.43vw;
+          border: 1px solid #666;
+          background: url(//image.getbarrel.com/barrel_data/images/sp/m/comment_logo.png) top right no-repeat;
+          background-size: 25.9vw;
+
+          .info {
+            position: relative;
+            padding: 4.68vw 5vw;
+            color: #757575;
+            overflow: hidden;
+
+            p {
+              color: #fff;
+            }
+
+            .viewbox__list__edit-btn {
+              position: relative;
+              //top: 100px;
+              right: 0;
+              width: 80px;
+              height: 35px;
+              margin-top: 10px;
+              color: #50afb1;
+              font-size: 20px;
+              text-align: center;
+              line-height: 35px;
+              border: 1px solid #50afb1;
+              margin-left: 15px;
+
+              &--off {
+                color: #ffffff;
+                background: #cccccc;
+              }
+            }
+
+            .viewbox__list__del-btn {
+              position: relative;
+              //top: 150px;
+              right: 0;
+              width: 80px;
+              height: 35px;
+              margin-top: 10px;
+              color: #aa3059;
+              font-size: 20px;
+              text-align: center;
+              line-height: 35px;
+              border: 1px solid #aa3059;
+              margin-left: 15px;
+
+              //&--off {
+              //  color: #ffffff;
+              //  background: #cccccc;
+              //}
+            }
+          }
+
+          .text {
+            position: relative;
+            overflow: hidden;
+            min-height: 18px;
+            padding-top: 3.125vw;
+            padding-left: 4.68vw;
+            padding-right: 4.68vw;
+            word-wrap: break-word;
+            color:#fff;
+            line-height: 1.83;
+            font-weight: normal;
+
+            &:after {
+              position: absolute;
+              display: block;
+              content: ' ';
+              top: 0;
+              left: 4.68vw;
+              right: 4.68vw;
+              height: 1px;
+              font-size: 2.8125vw;
+              background-color: #666;
+            }
+          }
+
+          .viewbox__list__edit-area {
+            display: none;
+            position: relative;
+            margin-top: 21px;
+            padding: 20px 30px;
+            border-top: 1px solid #666;
+            //border: 1px solid #dddddd;
+
+            &__textarea {
+              width: 100%;
+              height: 152px;
+              margin: 10px 0 34px 0;
+              padding: 15px;
+              font-size: 24px;
+              border: none;
+            }
+
+            &__btns {
+              position: absolute;
+              bottom:0;
+              left: 0;
+              width: 100%;
+              height: 40px;
+              padding-left: calc(100% - 198px);
+
+              &--cancel {
+                float: left;
+                width: 85px;
+                height: 35px;
+                color: #666666;
+                font-size: 20px;
+                border-left: 1px solid #dddddd;
+                background-color: #ffffff;
+                text-align: center;
+                line-height: 35px;
+              }
+
+              &--submit {
+                float: left;
+                width: 85px;
+                height: 35px;
+                color: #ffffff;
+                font-size: 20px;
+                background-color: #666666;
+                text-align: center;
+                line-height: 35px;
+              }
+            }
+
+            &--show {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    .left-line {
+      background: url(../images/common/bg_left_line.jpg);
+      background-size: contain;
+    }
+  }
+}

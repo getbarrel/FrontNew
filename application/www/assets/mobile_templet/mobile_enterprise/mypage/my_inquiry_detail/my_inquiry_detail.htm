@@ -1,0 +1,109 @@
+<!-- 컨텐츠 S -->
+<section class="br__mypage br__myInquiry">
+	<section class="br__myInquiry-wrap">
+		<section class="board-detail__wrap">
+			<section class="board-detail__header">
+				<div class="page-title">
+					<div class="title-sm">{=trans('1:1 문의')}</div>
+				</div>
+			</section>
+			<form id="devMyInquiryDetailForm">
+				<input type="hidden" name="bType" id="bType" value="qna"/>
+				<input type="hidden" name="bbsIx" id="bbsIx" value="{bbsIx}"/>
+			</form>
+			<section class="board-detail__content">
+				<div class="detail-bbs__wrap">
+					<div class="detail-bbs__header">
+						<!-- 비밀 글일 경우 div class="detail-bbs__header"에 class = lock 추가 -->
+						<div class="detail-bbs__header-sub">
+							<span class="detail-bbs__category category">[{div_name}]</span>
+							{? status == '5'}
+							<span class="detail-bbs__state state complete">{=trans('답변완료')}</span>
+							{:}
+							<span class="detail-bbs__state state">{=trans('답변대기')}</span>
+							{/}
+						</div>
+						<div class="detail-bbs__header-group">
+							<h3 class="detail-bbs__title">{bbs_subject}</h3>
+							<span class="detail-bbs__date date">{regdate}</span>
+						</div>
+					</div>
+
+					<!-- 주문 상품 영역 S -->
+					<div class="detail-bbs__product">
+						<ul class="product-list">
+							<li class="product-list__item">
+								<!-- 주문번호 존재시 -->
+								{? bbs_etc4 != ''}
+								{@ oInfo }
+								{? .index_ == 0}
+								<dl class="product-list__group">
+									<dt class="product-list__group-left">
+										<figure class="product-list__thumb">
+											<a href="/mypage/orderDetail?oid={.oid}">
+												<img src="{.pimg}" alt="" />
+											</a>
+										</figure>
+									</dt>
+									<dd class="product-list__group-right">
+										<div class="product-list__info">
+											<div class="product-list__info__model-number">{.oid}</div>
+											<div class="product-list__info__title">{.pname} {? oInfoCnt > 1}<span>외 {oInfoCnt}개 상품</span>{:}{/}</div>
+
+											<div class="product-list__info__price">
+												<span class="product-list__info__price--title">총 결제금액</span>
+												<span class="product-list__info__price--cost">{fbUnit.f}<em>{=number_format(.dcprice)}</em>{fbUnit.b}</span>
+											</div>
+										</div>
+									</dd>
+								</dl>
+								{/}
+								{/}
+								{:}
+								{/}
+							</li>
+						</ul>
+					</div>
+					<!-- 주문 상품 영역 E -->
+
+					<div class="detail-bbs__content">
+						<div class="cont-area">
+							<p>{=nl2br(bbs_contents)}</p>
+						</div>
+					</div>
+
+					<!-- 답변 영역 S -->
+					{@ cInfo}
+					<div class="detail-bbs__answer">
+						<div class="detail-bbs__answer__info">
+							<span class="detail-bbs__answer__info-name">BARREL 고객센터</span>
+							<span class="detail-bbs__answer__info-date">{.resdate}</span>
+						</div>
+						<div class="detail-bbs__answer__content answer">
+							<p>{=nl2br(.cmt_contents)}</p>
+						</div>
+					</div>
+					{/}
+					<!-- 답변 영역 E -->
+
+					<!-- 답변 완료 되었을 때 S -->
+					<div class="detail-bbs__footer">
+						<button type="button" class="btn-lg btn-dark-line" onClick="javascript:history.back();">목록으로</button>
+					</div>
+					<!-- 답변 완료 되었을 때 E -->
+
+
+					{? status == 1}
+					<div class="detail-bbs__footer">
+						<div class="btn-group col">
+							<button type="button" class="btn-lg btn-dark-line"><a href="/customer/qna/{bbsIx}">{=trans('수정하기')}</a></button>
+							<button type="button" class="btn-lg btn-dark-line" id="devDeleteInquiry">{=trans('삭제하기')}</button>
+						</div>
+					</div>
+					{/}
+				</div>
+			</section>
+		</section>
+	</section>
+</section>
+<!-- 컨텐츠 E -->

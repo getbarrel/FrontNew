@@ -1,0 +1,2 @@
+127.0.0.1 - [30/Aug/2018:10:13:08 +0900] /index.php/controller/mypage/addressBookAdd: recipient = &lt;script&gt;test&lt;/script: XSS 공격 패턴 탐지
+127.0.0.1 - [30/Aug/2018:10:13:41 +0900] /index.php/controller/mypage/addressBookAdd: recipient = &lt;script&gt;test&lt;/script: XSS 공격 패턴 탐지

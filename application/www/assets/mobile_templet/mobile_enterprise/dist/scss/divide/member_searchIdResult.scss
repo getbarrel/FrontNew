@@ -1,0 +1,50 @@
+.br {
+  &__find-user {
+    .find-result {
+      &__desc-top {
+        margin-bottom: rem(30px);
+        padding: rem(20px 0);
+        color:#595757;
+        font-size: rem(22px);
+        line-height: rem(32px);
+        text-align:center;
+      }
+      &__value {
+        border:1px solid #b5b5b6;
+        padding: rem(32px 0);
+        &__script {
+          color:#000;
+          font-size: rem(22px);
+          line-height: rem(40px);
+          text-align:center;
+
+          &--point {
+            color:$cPoint;
+            font-size: rem(30px);
+            font-weight: 600;
+          }
+        }
+      }
+      &__desc-bottom {
+        margin: rem(45px 0);
+        color:#595757;
+        font-size: rem(20px);
+        line-height: rem(30px);
+        text-align:center;
+      }
+      &__btn {
+        &__login {
+          display: block;
+          width: 100%;
+          border: none;
+          background: $cPoint;
+          color: #fff;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(80px);
+          text-align: center;
+        }
+      }
+    }
+  }
+}

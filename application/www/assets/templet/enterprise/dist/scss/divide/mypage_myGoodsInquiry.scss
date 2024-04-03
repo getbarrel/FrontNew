@@ -1,0 +1,75 @@
+.fb {
+  &__mypage {
+
+    .inquiry-table {
+      .info {
+        .title {
+          @include line(4);
+          max-height:74px;
+        }
+      }
+    }
+  }
+
+  &__bbs {
+
+    
+    &__title,
+    &__subTitle {
+      text-align: left !important;
+    }
+
+    &__title {
+      padding-left: 90px !important;
+    }
+
+    &__subTitle {
+
+      .ellipsis-txt {
+        float: left;
+        display: inline-block;
+        color: #000;
+        font-size: 14px;
+
+        &:after {
+          content:"";
+          display: inline-block;
+          width: 11px;
+          height: 14px;
+          padding-left: 10px;
+          background: url(../images/customer/icon-bbs-secret.gif) no-repeat right 0;
+        }
+      }
+      a {
+        display: block;
+      }
+    }
+
+    &__answer {
+      position: relative;
+      padding-left: 15px;
+      color: #666666;
+
+
+      &:after {
+        position: absolute;
+        top: -4px;
+        left: 0;
+        font-size: 13px;
+        content: "";
+      }
+    }
+
+    .point-color {
+      color: $pcolor;
+    }
+  }
+
+  .br {
+    &__bbs {
+      &__date {
+        display: block;
+      }
+    }
+  }
+}

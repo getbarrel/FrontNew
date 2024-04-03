@@ -1,0 +1,106 @@
+.fb {
+  &__mypage-addressAdd {
+
+    .popup-content {
+      padding-top: 0;
+    }
+
+    &__table {
+
+      .table {
+
+        th {
+          padding: 26px 10px 24px 25px;
+          border-bottom: 1px solid #e8e8e8;
+          color: #222;
+          font-size: 14px;
+          text-align: left;
+          vertical-align: top;
+        }
+
+        td {
+          padding: 15px 0;
+          border-bottom: 1px solid #e8e8e8;
+          vertical-align: middle;
+
+          input:read-only.dim {
+            background: #f8f8f8;
+          }
+        }
+
+        label {
+          display: inline-block;
+          position: relative;
+          width: 160px;
+          margin: 10px 10px 10px 0;
+          line-height: 20px;
+        }
+
+        &__input {
+
+          &--long {
+            width: 330px;
+          }
+
+          &--short {
+            width: 100px;
+          }
+        }
+
+        &__btn {
+
+          &--find {
+            display: inline-block;
+            height: 40px;
+            padding: 0 30px;
+            background: #000;
+            border: 0;
+            color: #fff;
+            font-size: 14px;
+            line-height: 38px;
+            box-sizing: border-box;
+            cursor: pointer;
+            vertical-align: middle;
+          }
+        }
+
+      }
+
+
+      &--must {
+        display: inline-block;
+        margin: 4px 8px 0 -15px;
+        color: $pcolor;
+        font-size: 16px;
+        vertical-align: top;
+      }
+    }
+
+    .btn-point {
+      color: #fff;
+      background: $pcolor;
+    }
+
+    &__info {
+
+      p {
+        display: block;
+        position: relative;
+        margin-top: 8px;
+        padding-left: 8px;
+        color: #666666;
+        font-size: 13px;
+        line-height: 1.53;
+
+        &:before {
+          display: inline-block;
+          position: absolute;
+          top: -5px;
+          left: 0;
+          margin-right: 5px;
+          content: ".";
+        }
+      }
+    }
+  }
+}

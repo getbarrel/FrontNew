@@ -1,0 +1,60 @@
+.fb {
+  &__page-nav {
+    padding: 15px 0;
+    &__inner {
+      @extend %clear;
+    }
+
+    &__home,
+    &__select {
+      float: left;
+      position: relative;
+      z-index: 1;
+      margin-left: 12px;
+      padding-left: 10px;
+
+      select {
+        position: relative;
+        z-index: 1;
+      }
+
+      &:after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 3px;
+        width: 6px;
+        height: 9px;
+        margin-top: -5px;
+        color: #a0a0a0;
+        background: url(../images/shop/icon-goodslist-link.png) no-repeat;
+        content: "";
+      }
+
+      &:first-child {
+        margin-left: 0;
+        padding-left: 0;
+
+        &:after {
+          display: none;
+        }
+      }
+
+      &.fb__page-nav__home {
+        color: #666666;
+        font-size: 14px;
+        line-height: 30px;
+      }
+
+      &.fb__page-nav__select select {
+        height: 30px;
+        padding-right: 15px;
+        color: #666666;
+        font-size: 14px;
+        border: 0;
+        background-image:url(../images/common/icon-select-arrow.png);
+        background-position: right 15px;
+      }
+    }
+  }
+}

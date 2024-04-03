@@ -1,0 +1,328 @@
+.br {
+  &__pay-comp {
+    .wrap-sect {
+      border-top: 1px solid #dcdddd;
+      background: #efefef;
+    }
+    .pay-comp {
+      &__top {
+        padding: rem(45px 40px 60px);
+        &__title {
+          color: #000;
+          font-size: rem(28px);
+          line-height: rem(38px);
+          text-align: center;
+        }
+        &__desc {
+          margin-top: rem(10px);
+          color: #666666;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          text-align: center;
+          span {
+            color: #000;
+            font-weight: 600;
+          }
+        }
+        &__virtual {
+          margin-top: rem(35px);
+          padding: rem(25px);
+          border-top: 2px solid #000;
+          background: #efefef;
+
+          p {
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+            text-align: center;
+
+            span {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+      &__wrap {
+        padding: rem(0 40px 50px);
+        &__title {
+          padding: rem(25px 0);
+          border-bottom: 1px solid #b5b5b6;
+          color: #000;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(36px);
+        }
+      }
+
+      //주문상품 확인
+      &__detail {
+        &__box {
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: rem(30px);
+        }
+        &__thumb {
+          width: rem(155px);
+          height: rem(220px);
+          border: 1px solid #dedede;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &__info {
+          width: calc(100% - 155px);
+          padding-left: rem(20px);
+        }
+        &__title {
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          @include line(2);
+        }
+        &__option {
+          margin-top: rem(20px);
+          span {
+            display: block;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+          }
+        }
+        &__pay {
+          margin-top: rem(30px);
+          dl {
+            margin-top: rem(10px);
+            @extend %clear;
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+          dt {
+            float: left;
+            color: #000;
+            font-size: rem(22px);
+            font-weight: 600;
+            line-height: rem(32px);
+          }
+          dd {
+            float: right;
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 600;
+            line-height: rem(32px);
+          }
+          .sub {
+            dt {
+              position: relative;
+              padding-left: rem(20px);
+              color: #666;
+              font-size: rem(22px);
+              line-height: rem(32px);
+              &:before {
+                content: "";
+                position: absolute;
+                top: rem(6px);
+                left: rem(3px);
+                width: rem(2px);
+                height: rem(12px);
+                background: #ccc;
+              }
+              &:after {
+                content: "";
+                position: absolute;
+                top: rem(18px);
+                left: rem(3px);
+                width: rem(12px);
+                height: rem(2px);
+                background: #ccc;
+              }
+            }
+            dd {
+              color: #666;
+              font-size: rem(22px);
+              line-height: rem(32px);
+            }
+          }
+        }
+        &__freebie {
+          width: 100%;
+          margin-top: rem(30px);
+          padding: rem(15px 20px);
+          background: #f5f5f5;
+          .detail__freebie {
+            &__title {
+              color: #000;
+              font-size: rem(22px);
+              line-height: rem(32px);
+              span {
+                font-weight: 600;
+              }
+            }
+            &__box {
+              display: table;
+              table-layout: fixed;
+              width: 100%;
+              margin-top: rem(15px);
+              padding: rem(19px);
+              background: #fff;
+              border: 1px solid #dcdddd;
+            }
+            &__thumb {
+              display: table-cell;
+              width: rem(100px);
+              vertical-align: top;
+              figure {
+                display: block;
+                width: rem(100px);
+                height: rem(140px);
+                border: 1px solid #dcdddd;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+            }
+            &__info {
+              display: table-cell;
+              padding-left: rem(35px);
+              vertical-align: middle;
+            }
+            &__text {
+              color: #000;
+              font-size: rem(22px);
+              line-height: rem(32px);
+            }
+          }
+
+        }
+        &__delivery {
+          padding: rem(25px 20px);
+          background: #efefef;
+          dl {
+            @extend %clear;
+          }
+          dt {
+            float: left;
+            color: #222;
+            font-size: rem(22px);
+            line-height: rem(32px);
+          }
+          dd {
+            float: right;
+            color: #222;
+            font-size: rem(22px);
+            line-height: rem(32px);
+          }
+          .delivery-fee {
+            padding-top: rem(5px);
+            color: #999;
+            font-size: rem(20px);
+            text-align: right;
+          }
+        }
+      }
+
+      //결제금액
+      &__payment {
+        &__list {
+          margin-top: rem(30px);
+          padding: rem(25px 20px);
+          background: #efefef;
+        }
+        &__box {
+          @extend %clear;
+          dt {
+            float: left;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+          }
+          dd {
+            float: right;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+          }
+        }
+        &__total {
+          margin-top: rem(30px);
+          border-top: 1px solid #b5b5b6;
+          padding-top: rem(25px);
+          @extend %clear;
+          dt {
+            float: left;
+            color: #000;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(36px);
+          }
+          dd {
+            float: right;
+            color: #e60000;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(36px);
+          }
+        }
+      }
+
+      //결제정보
+      &__payinfo {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: rem(20px);
+        &__title {
+          width: rem(160px);
+          padding: rem(7px 0);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+        &__desc {
+          width: calc(100% - 8rem);  //160px
+          padding: rem(7px 0);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          word-break: break-all;
+          white-space: unset;
+
+          span {
+            color: $cPoint;
+          }
+        }
+      }
+
+      //완료버튼
+      &__btn {
+        &__wrap {
+          padding: rem(50px 40px);
+          border-top: 1px solid #dcdddd;
+          background: #efefef;
+          @extend %clear;
+        }
+        &__link {
+          float: left;
+          width: calc(50% - .5rem);  //10px
+          height: rem(80px);
+          font-size: rem(26px);
+          line-height: rem(80px);
+          text-align: center;
+          &--home {
+            border: 1px solid #b5b5b5;
+            background: #fff;
+            color: #000;
+          }
+          &--order {
+            margin-left: rem(20px);
+            background: $cPoint;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

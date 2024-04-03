@@ -1,0 +1,33 @@
+<div class="wrap-window-popup company-popup">
+    <h2 class="br__cs__title">
+        {? type == 'sprint'}
+        <span>{=trans('대회 이용약관')}</span>
+        {:}
+        <span>{=trans('이용약관')}</span>
+        {/}
+    </h2>
+
+    <div class="popup-content br__cs__layout">
+        <!--<p class="prev-agreement_title">{=trans('약관내용')}</p>-->
+        <div class="prev-agreement devContents">
+            {? type == 'sprint'}
+            <div style="padding:0 0 10px;line-height:1.4;">
+                {#sprintAgreement}
+            </div>
+            {:}
+            {@ policy}
+            <div class='devPolicyContentsClass prev-agreement-content' id='devPolicyContentsId{policy.pi_ix}'>
+                {=trans('{ .pi_contents}')}
+            </div>
+            {/}
+            <br>
+            <select id="devPolicyHistory" style="line-height: initial;">
+                <option value="">{=trans('약관 변경 이력 보기')}</option>
+                {@ policyHistory}
+                <option value="{policyHistory.pi_ix}">{policyHistory.regdate} {=trans('시행')}</option>
+                {/}
+            </select>
+            {/}
+        </div>
+    </div>
+</div>

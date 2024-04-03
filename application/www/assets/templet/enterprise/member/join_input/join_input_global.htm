@@ -1,0 +1,289 @@
+<div class="fb__join-member fb__join-input">
+    <h2 class="fb__join-member__title">{=trans('회원가입')}</h2>
+    <p class="fb__join-member__subtitle">{=trans('Barrel의 회원이 되시면 할인쿠폰과 포인트 적립 등의 특별한 혜택을 누리실 수 있습니다.')}</p>
+    <!--   <ul class="fb__join-member__top-area top-area">
+           <li class="top-area__step top-area__step01">
+               <div class="top-area__step__inner">
+                   <p class="top-area__step__tit">{=trans('본인인증')}</p>
+               </div>
+           </li>
+           <li class="top-area__step top-area__step02">
+               <div class="top-area__step__inner">
+                   <span class="top-area__step__subtit">STEP 02</span>
+                   <p class="top-area__step__tit">{=trans('약관동의')}</p>
+               </div>
+           </li>
+           <li class="top-area__step top-area__step03 top-area__step&#45;&#45;active">
+               <div class="top-area__step__inner">
+                   <span class="top-area__step__subtit">STEP 03</span>
+                   <p class="top-area__step__tit">{=trans('정보입력')}</p>
+               </div>
+           </li>
+           <li class="top-area__step top-area__step04">
+               <div class="top-area__step__inner">
+                   <span class="top-area__step__subtit">STEP 04</span>
+                   <p class="top-area__step__tit">{=trans('가입완료')}</p>
+               </div>
+           </li>
+       </ul>-->
+    <input type="hidden" name="snsType" id="devSnsType" value="{snsType}" />
+    <form id="devBasicForm">
+        <input type="hidden" name="memType" id="devMemType" value="{joinType}">
+        <div class="wrap-joininput-layout">
+            <section class="fb__join-input__form">
+                <section class="input-form">
+                    <div class="input-form__title-box">
+                        <p class="input-form__title-box__text">{=trans('회원정보입력')}</p>
+                        <span class="input-form__title-box__guide"><em class="star">*</em>{=trans('표시된 항목은 필수 입력사항 입니다.')}</span>
+                    </div>
+                    <ul class="input-form__content-box">
+                        {? empty(snsType) }
+                        <li class="inputs">
+                            <span class="inputs__title"><label for="devUserId">{=trans('아이디')}</label><em class="inputs__title--star">*</em></span>
+                            <div class="inputs__content">
+                                <input type="text" title="ID" name="userId" id="devUserId" devmaxlength="10">
+                                <button class="inputs__content__btn" type="button" id="devUserIdDoubleCheckButton" style="min-width:190px;">{=trans('중복확인')}</button>
+                                <p class="inputs__content__warning" devTailMsg="devUserId"></p>
+                                <div class="link__box"  id="devDupMember" style="display:none;">
+                                    <a href="/member/login" class="link__box--login">{=trans('로그인')}</a>
+                                    <a href="/member/searchPw" class="link__box--search">{=trans('비밀번호 찾기')}</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="inputs">
+                            <span class="inputs__title"><label for="devUserPassword">{=trans('비밀번호')}</label><em class="inputs__title--star">*</em></span>
+                            <div class="inputs__content">
+                                <input type="password" class="pub-input-text" id="devUserPassword" name="pw" title="Password">
+                                <p class="inputs__content__guide" devTailMsg="devUserPassword">{=trans('영문 대소문자, 숫자, 특수문자 중 2개 이상을 조합하여 최소 8자~최대 16자로 입력')}</p>
+                            </div>
+                        </li>
+                        <li class="inputs">
+                            <span class="inputs__title"><label for="devCompareUserPassword">{=trans('비밀번호 확인')}</label><em class="inputs__title--star">*</em></span>
+                            <div class="inputs__content">
+                                <input type="password" class="pub-input-text" id="devCompareUserPassword" name="comparePw" title="Confirm Password">
+                                <p class="inputs__content__warning" devTailMsg="devCompareUserPassword">{=trans('비밀번호가 일치하지 않습니다.')}</p>
+                            </div>
+                        </li>
+                        {/}
+                        <!-- @TODO 위치변경 확인 -->
+                        <li class="inputs">
+                            <span class="inputs__title"><label for="devEmailId">{=trans('이메일 주소')}<em class="inputs__title--star">*</em></label></span>
+                            <div class="inputs__content">
+                            <span class="pub-email">
+                            <input type="text" name="emailId" id="devEmailId" style="width:157px;" title="E-mail address">
+                            <span class="hyphen_2">@</span>
+                            <input type="text" name="emailHost" id="devEmailHost" style="width:157px;" title="E-mail address">
+                            <!--<select id="devEmailHostSelect" class="input__select">
+                                <option value="">{=trans('이메일 선택')}</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                                <option value="hanmail.net">hanmail.net</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="nate.com">nate.com</option>
+                                <option value="" selected="selected">{=trans('직접입력')}</option>
+                            </select>-->
+
+                            <button class="btn-default btn-dark" id="devEmailDoubleCheckButton" type="button"  style="min-width:190px;">{=trans('이메일 중복 확인')}</button>
+
+                            <p class="txt-error" devTailMsg="devEmailId devEmailHost"></p>
+
+                            </div>
+                        </li>
+                        <li class="inputs">
+                            <span class="inputs__title">{=trans('이름')}<em class="inputs__title--star">*</em></span>
+                            <div class="inputs__content">
+                                <input type="text" name="userName" id="devUserName" class="input__user-name" title="Name">
+                                <p class="inputs__content__text" name="devUserName" id="devFormatUserName">{userName}</p>
+                            </div>
+                        </li>
+                        <li class="inputs">
+                            <span class="inputs__title">Country<em class="inputs__title--star">*</em></span>
+                            <div class="inputs__content">
+                                <select class="devNationArea"  name="country" style="min-width:340px;">
+                                    <option value="">Select</option>
+                                    {@ nation}
+                                    <option value="{.nation_code}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}</option>
+                                    {/}
+                                </select>
+                            </div>
+                        </li>
+                        <li class="inputs">
+                            <span class="inputs__title">{=trans('휴대폰')}<em class="inputs__title--star">*</em></span>
+                            <div class="inputs__content">
+                                <div class="selectWrap">
+                                    <select class="devNationArea" name="national_phone" >
+                                        {@ nation}
+                                        <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}(+{.national_phone})</option>
+                                        {/}
+                                    </select>
+                                    <input type="number" style="margin-left:10px;width:228px;" name="pcs" id="devPcs" value="" title="Phone Number">
+
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- @TODO 글로벌 주소 영역 -->
+
+                        <li class="inputs">
+                            <span class="inputs__title">Zip/Postal Code<em class="inputs__title--star">*</em></span>
+                            <div class="inputs__content">
+                                <div class="form-info-wrap">
+                                    <input type="text" class="" name="zip" id="devZip" class="inputs__content--zip"  style="width:160px" title="Zip/Postal Code">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="inputs">
+                            <span class="inputs__title">Address line 1<em class="inputs__title--star">*</em></span>
+                            <div class="inputs__content">
+                                <div class="form-info-wrap">
+                                    <input type="text" style="width:500px;" id="devAddress1" name="addr1" title="Address line 1" >
+                                </div>
+                            </div>
+                        </li>
+                        <li class="inputs">
+                            <span class="inputs__title">Address line 2</span>
+                            <div class="inputs__content">
+                                <div class="form-info-wrap">
+                                    <input type="text" style="width:500px;" id="devAddress2" name="addr2" title="Address line 2" >
+                                </div>
+                            </div>
+                        </li>
+                        <li class="inputs">
+                            <span class="inputs__title">City<em class="inputs__title--star">*</em></span>
+                            <div class="inputs__content">
+                                <div class="form-info-wrap">
+                                    <input type="text" style="width:340px"  name="city" id="devCity" title="City" >
+                                </div>
+                            </div>
+                        </li>
+                        <li class="inputs">
+                            <span class="inputs__title">State/Province<em class="inputs__title--star">*</em></span>
+                            <div class="inputs__content">
+                                <div class="form-info-wrap">
+
+                                    <select style="width:340px;" id="devStateSelect" title="State/Province">
+                                        <option value="">Select</option>
+                                        {@ regional_information}
+                                        <option value="{.reg_name}">{.reg_name}</option>
+                                        {/}
+                                    </select>
+
+                                    <input type="text" style="width:340px;display:none;" id="devStateText"  name="state" title="State/Province" >
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <!--<section class="fb__join-input__form">-->
+                <!--<section class="input-form">-->
+                    <!--<div class="input-form__title-box">-->
+                        <!--<p class="input-form__title-box__text">{=trans('추가 정보 입력 <span>(선택)</span>')}</p>-->
+                    <!--</div>-->
+                    <!--<ul class="input-form__content-box">-->
+                        <!--<li class="inputs">-->
+                            <!--<span class="inputs__title"><label for="devUserId">{=trans('성별')}</label></span>-->
+                            <!--<div class="inputs__content">-->
+                                <!--<label class="inputs__label"><input type="radio" title="성별" name="gender" id="M" checked>남자</label>-->
+                                <!--<label class="inputs__label"><input type="radio" title="성별" name="gender" id="W">여자</label>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li class="inputs">-->
+                            <!--<span class="inputs__title"><label>{=trans('생일')}</label></span>-->
+                            <!--<div class="inputs__content">-->
+                                <!--<label class="inputs__label"><input type="radio" title="양력" name="birthdayDiv" value="1" checked>양력</label>-->
+                                <!--<label class="inputs__label"><input type="radio" title="음력" name="birthdayDiv" value="0">음력</label>-->
+                                <!--<div class="inputs&#45;&#45;birthday">-->
+                                    <!--<select name="birthYear" >-->
+                                        <!--<option value="">생년</option>-->
+                                        <!--{@ birthYear}-->
+                                        <!--<option value="{.value_}">{.value_}</option>-->
+                                        <!--{/}-->
+                                    <!--</select>-->
+                                    <!--<span class="selecttext">{=trans('년')}</span>-->
+                                    <!--<select name="birthMonth" >-->
+                                        <!--<option value="">생월</option>-->
+                                        <!--{@ birthMonth}-->
+                                        <!--<option value="{.value_}" >{.value_}</option>-->
+                                        <!--{/}-->
+                                    <!--</select>-->
+                                    <!--<span class="selecttext">{=trans('월')}</span>-->
+                                    <!--<select name="birthDay" >-->
+                                        <!--<option value="">생일</option>-->
+                                        <!--{@ birthDay}-->
+                                        <!--<option value="{.value_}" >{.value_}</option>-->
+                                        <!--{/}-->
+                                    <!--</select>-->
+                                    <!--<span class="selecttext">{=trans('일')}</span>-->
+                                <!--</div>-->
+                                <!--<p class="inputs__content__guide inputs__content__guide&#45;&#45;color">{=trans('회원등급별 생일할인 쿠폰이 증정됩니다. 생년월일 최초 1회 입력 이후 변경이 불가능합니다.')}</p>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li class="inputs">-->
+                            <!--<span class="inputs__title"><label>{=trans('지역')}</label></span>-->
+                            <!--<div class="inputs__content">-->
+                                <!--<select name="area"  style="width: 300px">-->
+                                    <!--<option value="">{=trans('선택')}</option>-->
+                                    <!--<option value="10">{=trans('서울특별시')}</option>-->
+                                    <!--<option value="20">{=trans('경기도')}</option>-->
+                                    <!--<option value="21">{=trans('인천광역시')}</option>-->
+                                    <!--<option value="30">{=trans('강원도')}</option>-->
+                                    <!--<option value="41">{=trans('충청남도')}</option>-->
+                                    <!--<option value="42">{=trans('대전광역시')}</option>-->
+                                    <!--<option value="43">{=trans('세종특별자치시')}</option>-->
+                                    <!--<option value="45">{=trans('충청북도')}</option>-->
+                                    <!--<option value="51">{=trans('전라남도')}</option>-->
+                                    <!--<option value="52">{=trans('광주광역시')}</option>-->
+                                    <!--<option value="55">{=trans('전라북도')}</option>-->
+                                    <!--<option value="61">{=trans('경상남도')}</option>-->
+                                    <!--<option value="62">{=trans('부산광역시')}</option>-->
+                                    <!--<option value="63">{=trans('울산광역시')}</option>-->
+                                    <!--<option value="65">{=trans('경상북도')}</option>-->
+                                    <!--<option value="66">{=trans('대구광역시')}</option>-->
+                                    <!--<option value="70">{=trans('제주특별자치도')}</option>-->
+                                    <!--<option value="90">{=trans('기타')}</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</section>-->
+            <!--</section>-->
+            <section class="fb__join-input__form">
+
+                <section class="input-form">
+                    <div class="input-form__title-box">
+                        <label class="input-form__title-box__text"><input type="checkbox" class="checkbox-margin" id="all_terms_check">{=trans('전체 동의')}</label>
+                    </div>
+                    <ul class="input-form__content-box">
+                        <li class="inputs inputs__agree agree-content">
+                            <label><input type="checkbox" id="devPolicyUse" name="policyUse" data-title="이용약관" id="devPolicyUse" title="{=trans('이용약관')}">{=trans(' 이용 약관 (필수)')}</label>
+                            {? langType == 'korean'}
+                            <a href="#" class="inputs__content inputs__content--use dd">{=trans('전체보기')}</a>
+                            {:}
+                            <a href="#" class="inputs__content inputs__content--use">View all</a>
+                            {/}
+                        </li>
+                        <li class="inputs inputs__agree agree-content">
+                            <label><input type="checkbox" id="devPolicyCollection" name="policyCollection"  title="{=trans('개인정보 수집 및 이용')}">{=trans(' 개인정보 수집 및 이용 (필수)')}</label>
+                            {? langType == 'korean'}
+                            <a href="#" class="inputs__content inputs__content--private">{=trans('전체보기')}</a>
+                            {:}
+                            <a href="#" class="inputs__content inputs__content--private">View all</a>
+                            {/}
+                        </li>
+                        <li class="inputs inputs__agree agree-content">
+                            <label><input type="checkbox" name="email" value="1" >{=trans(' 이메일 수신 동의 (선택)')}</label>
+                            <!--<label><input type="checkbox" name="sms" value="1" >{=trans(' SMS 수신 동의 (선택)')}</label>-->
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+        <div class="wrap-btn-area member fb__join-member__btn-area">
+            <button type="button" class="btn-lg btn-dark" id="devCancelButton">{=trans('취소')}</button>
+            <button class="btn-lg btn-point" id="devBasicSubmitButton">{=trans('가입하기')}</button>
+        </div>
+    </form>
+</div>

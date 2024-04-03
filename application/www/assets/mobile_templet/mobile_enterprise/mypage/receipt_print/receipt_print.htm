@@ -1,0 +1,137 @@
+<!-- 컨텐츠 S -->
+<section class="br__order-detail receipt-print">
+	<div class="page-title my-title">
+		<div class="title-sm">{=trans('결제영수증')}</div>
+	</div>
+	<section class="br__order-content">
+		<!--결제 정보 S -->
+		<div class="pay-comp__wrap payment">
+			<div class="pay-comp__payment">
+				<div class="pay-comp__payment__list">
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('주문번호')}</dt>
+						<dd>{order.oid}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('주문일자')}</dt>
+						<dd>{order.order_date}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('주문자')}</dt>
+						<dd>{order.bname}</dd>
+					</dl>
+				</div>
+				<div class="product-list__footer">
+					{@paymentInfo.payment}
+						{? (.method == c.ORDER_METHOD_VBANK || .method == c.ORDER_METHOD_ICHE || .method == c.ORDER_METHOD_ASCROW) && .receipt_yn == 'Y'}
+							{? .tid}
+								<button class="btn-lg btn-dark-line order-detail__btn devCachInfo" data-tid="{.tid}" data-oid="{order.oid}" data-total="{=intval(.payment_price)}">{=trans('현금영수증 조회')}</button>
+							{/}
+						{: .method == c.ORDER_METHOD_CARD }
+							{? .tid}
+							<button class="btn-lg btn-dark-line order-detail__btn devCardInfo" data-tid="{.tid}" data-oid="{order.oid}" data-total="{=intval(.payment_price)}">{=trans('신용카드 전표')}</button>
+							{/}
+						{/}
+					{/}
+				</div>
+			</div>
+		</div>
+		<!--결제 정보 E -->
+
+		<!-- 주문 내역 - 리스트 S -->
+		{@ order.orderDetail}
+		<div class="br__odhistory__list">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('주문 상품')}</div>
+			</div>
+			<ul class="product-list">
+				<li class="product-list__item">
+					<!-- 상품 S -->
+					{@ .value_}
+					<dl class="product-list__group">
+						<dt class="product-list__group-left">
+							<figure class="product-list__thumb">
+								<a href="/shop/goodsView/{..pid}">
+									<img src="{..pimg}" data-protocol="{c.IMAGE_SERVER_DOMAIN}" >
+								</a>
+							</figure>
+						</dt>
+						<dd class="product-list__group-right">
+							<div class="product-list__info">
+								<div class="product-list__info__title"><a href="/shop/goodsView/{..pid}">{=trans('{..pname}')}</a></div>
+
+								<div class="product-list__info__option">
+									<div class="product-list__info__option-item">
+
+                                    {? ..set_group > 0}{* 세트 상품 *}
+                                    {@ setData}
+									<span class="size">{setData.option_text} (구성수량:{setData.pcnt}개)</span>
+                                    {/}
+                                    {:}
+                                    {* 일반 상품 *}
+                                    <span class="size">{..option_text}</span>
+                                    {/}
+									{? ..add_info}<span class="color">{..add_info}</span>{/}
+									</div>
+								</div>
+								<!-- 세트 상품 E -->
+
+								<div class="product-list__info__price">
+									<span class="product-list__info__status">{..status_text}{? ..refund_status}/{..refund_status_text}{/}</span>
+									<span class="product-list__info__price--cost">{fbUnit.f}<em>{=g_price(..pt_dcprice)}</em>{fbUnit.b}</span>
+								</div>
+							</div>
+						</dd>
+					</dl>
+                    {/}
+				</li>
+			</ul>
+		</div>
+		{/}
+		<!-- 주문 내역 - 리스트 E -->
+
+		<!--결제 정보 S -->
+		<div class="pay-comp__wrap payment">
+			<div class="br__mypage-title">
+				<div class="title-sm">{=trans('결제 정보')}</div>
+			</div>
+			<div class="pay-comp__payment">
+				<div class="pay-comp__payment__list">
+					<!--{@ paymentInfo.payment}-->
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('결제수단')}</dt>
+						<dd>{@paymentInfo.payment}{.method_text} {/}</dd>
+					</dl>
+					<!--{/}-->
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('총 상품금액')}</dt>
+						<dd>{fbUnit.f}{=number_format(paymentInfo.total_listprice)}{fbUnit.b}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('총 할인금액')}</dt>
+						<dd>{? paymentInfo.total_dc > 0}-{/}{fbUnit.f}{=number_format(paymentInfo.total_dc)}{fbUnit.b}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('적립금 사용')}</dt>
+						<dd>{? paymentInfo.use_reserve > 0}-{/}{fbUnit.f}{=number_format(paymentInfo.use_reserve)}{fbUnit.b}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('총 배송비')}</dt>
+						<dd>{fbUnit.f}{=number_format(order.delivery_price)}{fbUnit.b}</dd>
+					</dl>
+					<dl class="pay-comp__payment__box">
+						<dt>{=trans('총 결제 금액')}</dt>
+						<dd>{fbUnit.f}{=number_format(paymentInfo.pt_dcprice+order.delivery_price)}{fbUnit.f}</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<!--결제 정보 E -->
+	</section>
+
+	<!-- <div class="br__order-footer">
+		<button class="btn-lg btn-dark-line order-detail__btn order-detail__btn--type1 receipt-print__btn__capture" >{=trans('이미지 저장')}</button>
+		<p>{=trans('본 영수증은 소득공제 및 매입 계산서로 사용할 수 없으며 결제된 내역을 <br>증명하는 용도입니다.')}</p>
+	</div> -->
+</section>
+<!-- 컨텐츠 E -->

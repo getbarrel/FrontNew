@@ -1,0 +1,175 @@
+.br {
+  &__stock-alarm {
+    padding:rem(0 40px);
+    .stock-alarm {
+      &__count {
+        border:1px solid #000;
+        border-width:1px 0;
+        padding:rem(23px 0);
+        color:#000;
+        font-size:rem(26px);
+        line-height:rem(32px);
+        span {
+          color:$cPoint;
+          font-size:600;
+        }
+      }
+      &__box {
+        position:relative;
+        padding:rem(60px 0 50px);
+        border-bottom:1px solid #b5b5b5;
+        &__btn {
+          position:absolute;
+          top:rem(20px);
+          right:rem(-10px);
+          width:rem(40px);
+          height:rem(40px);
+          @extend %hiddenText;
+          &:before {
+            content:"";
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:rem(20px);
+            height:rem(20px);
+            margin:rem(-10px 0 0 -10px);
+            background:$sprite18 no-repeat rem(-254px 0);
+            background-size:rem($sprite18Size);
+          }
+        }
+        &--empty {
+
+        }
+      }
+      &__goods {
+        position:relative;
+        @extend %clear;
+      }
+      &__thumb {
+        display:block;
+        float:left;
+        width:rem(155px);
+        height:rem(220px);
+        border:1px solid #dcdddd;
+        img {
+          width:100%;
+          height:100%;
+          object-fit:cover;
+        }
+      }
+      &__info {
+        position:relative;
+        float:left;
+        width:calc(100% - 7.75rem); //155px
+        height:rem(220px);
+        margin-top:rem(-5px);
+        padding-left:rem(20px);
+      }
+      &__title {
+        color:#000;
+        font-size:rem(26px);
+        line-height:rem(36px);
+        @include line(2);
+      }
+      &__option {
+        margin-top:rem(20px);
+        color:#000;
+        font-size:rem(26px);
+		line-height:rem(36px);
+		@include line(1);
+      }
+      &__price {
+        position:absolute;
+        bottom:0;
+        left:rem(20px);
+        &__strike {
+          display: inline-block;
+          position:relative;
+          color: #b5b5b6;
+          font-size: rem(20px);
+          line-height: rem(30px);
+          text-decoration: none;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: rem(-3px);
+            right: rem(-3px);
+            border-top: 1px solid #e60000;
+          }
+        }
+        &__cost {
+          display: inline-block;
+          margin-left:rem(5px);
+          color: #000;
+          font-size: rem(20px);
+          font-weight: 600;
+          line-height: rem(30px);
+          span {
+            font-size: rem(24px);
+          }
+        }
+        &__discount {
+          display: inline-block;
+          margin-left: rem(5px);
+          color: #e8373d;
+          font-size: rem(20px);
+          line-height: rem(30px);
+        }
+      }
+      .br__add-wish {
+        position:absolute;
+        right:rem(-30px);
+        bottom:rem(-25px);
+      }
+      &__date {
+        margin-top:rem(10px);
+        @extend %clear;
+        &:first-child {
+          margin-top:0;
+        }
+        dt {
+          float:left;
+          width:rem(100px);
+          color:#666;
+          font-size:rem(22px);
+          line-height:rem(32px);
+        }
+        dd {
+          float:left;
+          padding-left:rem(10px);
+          color:#000;
+          font-size:rem(22px);
+          line-height:rem(32px);
+        }
+        &__wrap {
+          margin-top:rem(35px);
+          padding:rem(25px 20px);
+          background:#efefef;
+        }
+      }
+
+      .br__faq {
+        &__question {
+          cursor: pointer;
+        }
+        &__answer {
+          padding:{
+            left:0;
+            right:0;
+          }
+        }
+      }
+      &__guide {
+        &__desc {
+          margin-top:rem(16px);
+          padding-left:rem(9px);
+          color:#000;
+          font-size:rem(22px);
+          line-height:rem(36px);
+          text-indent:rem(-9px);
+        }
+      }
+    }
+  }
+}

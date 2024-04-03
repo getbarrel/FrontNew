@@ -1,0 +1,89 @@
+.br {
+  &__mileage-decimation {
+    padding: rem(0 40px);
+    .mileage-deci {
+      &__total {
+        border: 1px solid #b5b5b6;
+        background: #efefef;
+        padding: rem(25px 20px);
+        @extend %clear;
+        &__title {
+          float: left;
+          color: #000;
+          font-size: rem(30px);
+          line-height: rem(40px);
+        }
+        &__money {
+          float: right;
+          color: $cPoint;
+          font-size: rem(30px);
+          font-weight: 600;
+          line-height: rem(40px);
+        }
+      }
+      &__wrap {
+        margin-top:rem(50px);
+      }
+      &__desc {
+        padding:rem(25px 0);
+        border:{
+          top:1px solid #000;
+          bottom:1px solid #000;
+        }
+        color:#000;
+        font-size:rem(26px);
+        line-height:rem(36px);
+        strong {
+          color:$cPoint;
+          font-weight:600;
+        }
+      }
+      &__box {
+        padding:rem(45px 0);
+        border-bottom:1px solid #898989;
+        &:last-child {
+          border-bottom:2px solid #000;
+        }
+        &--empty {
+          padding:rem(75px 0);
+          border-bottom:none;
+          color:#b5b5b6;
+          font-size:rem(26px);
+          line-height:rem(36px);
+          text-align:center;
+          &:last-child {
+            border-bottom:none;
+          }
+        }
+        &__date {
+          display:block;
+          color:#b5b5b6;
+          font-size:rem(22px);
+          line-height:rem(32px);
+        }
+        &__info {
+          @extend %clear;
+        }
+        &__title {
+          float:left;
+          color:#000;
+          font-size:rem(26px);
+          line-height:rem(36px);
+        }
+        &__title {
+          float:left;
+          color:#000;
+          font-size:rem(26px);
+          line-height:rem(40px);
+        }
+        &__money {
+          float:right;
+          color:$cPoint;
+          font-size:rem(30px);
+          font-weight:600;
+          line-height:rem(40px);
+        }
+      }
+    }
+  }
+}

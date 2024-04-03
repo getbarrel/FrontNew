@@ -1,0 +1,721 @@
+<!--{? !empty(mainDisplayGroupData)}-->
+
+<script>var mainDisplayGroupData = {mainDisplayGroupData};</script>
+<!--{/}-->
+
+<!-- Criteo 홈페이지 태그 23.06.29-->
+<script type="text/javascript">
+    window.criteo_q = window.criteo_q || [];
+    var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+    window.criteo_q.push(
+        { event: "setAccount", account: 104564},
+        { event: "setEmail", email: "", hash_method: "" },
+        { event: "setZipcode", zipcode: "" },
+
+        { event: "setSiteType", type: deviceType},
+        { event: "viewHome"});
+</script>
+<!-- END Criteo 홈페이지 태그 -->
+
+<!-- 컨텐츠 영역 S -->
+<section class="fb__main">
+	<h2 class="fb__title--hidden">main</h2>
+
+	<!-- 메인 비주얼 S -->
+	{? mainBannerInfo }
+	<section class="fb__main__slider fb__main__visual fb__main__slider__gap">
+		<h3 class="fb__title--hidden">main slider</h3>
+		<div class="mainSlider mainVisual">
+			<div class="mainSlider__slider swiper-container">
+				<div class="swiper-wrapper">
+					{@ mainBannerInfo}
+					<div class="swiper-slide mainSlider__item">
+						<a href="{.bannerLink}">
+							 <div class="mainSlider__item-group">
+								<div class="mainSlider__item-title--sm" style="text-align:{? .s_title == 'L'}left{: .s_title == 'C'}center{: .s_title == 'R'}right{/};color:{.c_title};{? .b_title == 'Y' }font-weight: bold;{ / } {? .i_title == 'Y' }font-style:oblique;{ / } {? .u_title == 'Y' }text-decoration-line: underline;{ / }">{.shot_title}</div>
+								<div class="mainSlider__item-title" style="text-align:{? .s_name == 'L'}left{: .s_name == 'C'}center{: .s_name == 'R'}right{/};color:{.c_name};{? .b_name == 'Y' }font-weight: bold;{ / } {? .i_name == 'Y' }font-style:oblique;{ / } {? .u_name == 'Y' }text-decoration-line: underline;{ / }">
+									{=nl2br(.banner_name)}
+								</div>
+								<p style="text-align:{? .s_desc == 'L'}left{: .s_desc == 'C'}center{: .s_desc == 'R'}right{/};color:{.c_desc};{? .b_desc == 'Y' }font-weight: bold;{ / } {? .i_desc == 'Y' }font-style:oblique;{ / } {? .u_desc == 'Y' }text-decoration-line: underline;{ / }">
+									{=nl2br(.banner_desc)}
+								</p>
+							</div>
+							<figure>
+								<img src="{.imgSrc}" alt="{.banner_name}" />
+							</figure>
+						</a>
+					</div>
+					{/}
+				</div>
+				<div class="mainSlider__control">
+					<div class="swiper-control-group">
+						<div class="swiper-scrollbar"></div>
+						<div class="swiper-pagination"></div>
+						<button type="button" class="swiper-button swiper-button-prev"></button>
+						<button type="button" class="swiper-button swiper-button-next"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	{/}
+	<!-- 메인 비주얼 E -->
+
+	<!-- Hot Contents 영역 S -->
+	<section class="fb-main__section fb-main__HotContents">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_special == 'L'}left{: mainContentInfo.s_special == 'C'}center{: mainContentInfo.s_special == 'R'}right{/};color:{mainContentInfo.c_special};{? mainContentInfo.b_special == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_special == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_special == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.special_title}</h3>
+				<span style="color:{mainContentInfo.c_special_e};{? mainContentInfo.b_special_e == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_special_e == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_special_e == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.special_e}</span>
+			</div>
+			<div class="fb-main__slide">
+				<div class="fb-main__card-slider swiper-container goods-slider1">
+					<div class="swiper-wrapper">
+						{ @ mainContentSpecialInfo }
+						<div class="swiper-slide">
+							<div class="fb-main__card-item">
+								<div class="fb-main__card-title--sm" style="color:{.c_preface};{? .b_preface == 'Y' }font-weight: bold;{ / } {? .i_preface == 'Y' }font-style:oblique;{ / } {? .u_preface == 'Y' }text-decoration-line: underline;{ / }">{.preface}</div>
+								<dl class="fb-main__card-cont">
+									<dt class="fb-main__card-img">
+										<a href="{? .display_gubun == 'P' }/content/focusNow2/{ : }/content/focusNow4/{ / }{ .con_ix }">
+											<img src="{.contentImgSrc}" alt="" />
+										</a>
+									</dt>
+									<dd class="fb-main__card-textBOX">
+										<a href="{? .display_gubun == 'P' }/content/focusNow2/{ : }/content/focusNow4/{ / }{ .con_ix }">
+											<div class="fb-main__card-title" style="text-align:{? .s_title == 'L'}left{: .s_title == 'C'}center{: .s_title == 'R'}right{/};color:{.c_title};{? .b_title == 'Y' }font-weight: bold;{ / } {? .i_title == 'Y' }font-style:oblique;{ / } {? .u_title == 'Y' }text-decoration-line: underline;{ / }">
+												{.title}
+											</div>
+											<p style="color:{.c_explanation};{? .b_explanation == 'Y' }font-weight: bold;{ / } {? .i_explanation == 'Y' }font-style:oblique;{ / } {? .u_explanation == 'Y' }text-decoration-line: underline;{ / }">
+												{.explanation}
+											</p>
+											{? .display_date_use == "Y"}
+											<p>{.startDate} - {.endDate}</p>
+											{/}
+										</a>
+										<!-- <button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}product-box__heart--active{/}" onclick="contentWish('{.con_ix}', 'C', this)"><i class="ico ico-wishlist"></i>좋아요</button> -->
+										<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}product-box__heart--active{/}" onclick="contentWish('{.con_ix}', 'C', this)"><i class="ico {? .alreadyWishContent == 'Y'}ico-wishlist2{ : }ico-wishlist{ / }"></i>좋아요</button>
+
+										<!--<a href="javascript:void(0);" class="product-box__heart {? .alreadyWishContent == 'Y'}product-box__heart&#45;&#45;active{/}" onclick="contentWish('{.con_ix}', 'C', this)">좋아요</a>-->
+									</dd>
+								</dl>
+							</div>
+						</div>
+						{ / }
+					</div>
+					<div class="fb-main__card-control">
+						<div class="swiper-control-group">
+							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hot Contents 영역 E -->
+
+	<!-- Best Items 영역 S -->
+	{ ? mainBastCateUse == "Y" }
+	<section class="fb-main__section fb-main__BestItems">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best == 'L'}left{: mainContentInfo.s_best == 'C'}center{: mainContentInfo.s_best == 'R'}right{/};color:{mainContentInfo.c_best};{? mainContentInfo.b_best == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title}</h3>
+				<span style="color:{mainContentInfo.c_best_e};{? mainContentInfo.b_best_e == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e}</span>
+				<a href="/shop/subGoodsList/{mainBastCateCode}">상품 전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						{ @ mainBastCateList }
+							<!--li {? .index_ == 0 }class="active"{ / }><a href="/shop/subGoodsList/{.cid}">{ .cname }</a></li-->
+							<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ mainBastCateProductListAll }
+					<div class="fb-tab__contents{? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="fb-main__card-slider swiper-container goods-slider2">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="swiper-slide">
+									<div class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+													<p class="per"><em>{ ..discount_rate }</em>%</p>
+												</div>
+												<span class="fb__goods__price">{ ..dcprice }</span>
+												<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+												<!-- 품절일 경우 노출 S -->
+												<span class="fb__goods__price__state" style="display: none">품절</span>
+												<!-- 품절일 경우 노출 S -->
+											</div>
+											<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+										</a>
+										<!--<a href="javascript:void(0);" class="product-box__heart">hart</a>-->
+										<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+									</div>
+								</div>
+								{ / }
+								<div class="swiper-slide">
+									<a href="/shop/goodsList/{=mainBastCateList[.index_].cid}" class="best_more">
+										<img src="/assets/templet/enterprise/assets/img/best_more_bg.jpg">
+										<div>
+											<img src="/assets/templet/enterprise/assets/img/best_more.svg" class="best_more_btn">
+											<p>{=mainBastCateList[.index_].cname} 전체보기</p>
+										</div>
+									</a>
+								</div>
+
+							</div>
+							<div class="fb-main__card-control">
+								<div class="swiper-control-group">
+									<div class="swiper-scrollbar"></div>
+									<div class="swiper-pagination"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{ / }
+				</div>
+			</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 영역 E -->
+
+	<!-- 동영상 banner 영역 S -->
+	{? mainMovieBannerInfo}
+	<section class="fb-main__section fb-main__banner">
+		{@ mainMovieBannerInfo}
+		<div class="fb-main__inner">
+			<!--<img src="../assets/img/main_middle_banner.png" alt="" />-->
+			<iframe width="100%" src="{.banner_html}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		{/}
+	</section>
+	{/}
+	<!-- 동영상 banner 영역 E -->
+
+	{ @ mainContentMainGroupRelationList }
+		{ ? .group_con_gubun == "B"}
+			<!-- banner 영역 S -->
+			{ ? .displayCnt == 0 }
+				<section class="fb-main__section fb-main__FocusNow">
+					<div class="fb-main__inner">
+						<div class="fb-main__title" style="margin-bottom:0px;">
+							<h3 style="text-align:{? .s_main_group_title == 'L'}left{: .s_main_group_title == 'C'}center{: .s_main_group_title == 'R'}right{/};color:{.c_main_group_title};{? .b_main_group_title == 'Y' }font-weight: bold;{ / } {? .i_main_group_title == 'Y' }font-style:oblique;{ / } {? .u_main_group_title == 'Y' }text-decoration-line: underline;{ / }">{ .main_group_title }</h3>
+							<span style="color:{.c_main_group_explanation};{? .b_main_group_explanation == 'Y' }font-weight: bold;{ / } {? .i_main_group_explanation == 'Y' }font-style:oblique;{ / } {? .u_main_group_explanation == 'Y' }text-decoration-line: underline;{ / }">{ .main_group_explanation }</span>
+						</div>
+					</div>
+				</section>
+			{ / }
+			{ ? .slider_group_con_gubun == "N"}
+				<!--<section class="fb-main__section fb-main__banner">
+					<div class="fb-main__inner">
+						<a href="{ .banner_link }">
+							<img src="{ .contentImgSrc }" alt="" />
+						</a>
+					</div>
+				</section>-->
+				<section class="fb-main__section fb-main__slider">
+					<div class="fb__main__slider">
+						<div class="mainSlider">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide mainSlider__item">
+										<a href="{ .banner_link }">
+											<div class="mainSlider__item-group">
+												<div class="mainSlider__item-title--sm" style="text-align:{? .s_title == 'L'}left{: .s_title == 'C'}center{: .s_title == 'R'}right{/};color:{.c_title};{? .b_title == 'Y' }font-weight: bold;{ / } {? .i_title == 'Y' }font-style:oblique;{ / } {? .u_title == 'Y' }text-decoration-line: underline;{ / }">{.shot_title}</div>
+												<div class="mainSlider__item-title--md" style="text-align:{? .s_name == 'L'}left{: .s_name == 'C'}center{: .s_name == 'R'}right{/};color:{.c_name};{? .b_name == 'Y' }font-weight: bold;{ / } {? .i_name == 'Y' }font-style:oblique;{ / } {? .u_name == 'Y' }text-decoration-line: underline;{ / }">
+													{.banner_name}
+												</div>
+												<p style="text-align:{? .s_desc == 'L'}left{: .s_desc == 'C'}center{: .s_desc == 'R'}right{/};color:{.c_desc};{? .b_desc == 'Y' }font-weight: bold;{ / } {? .i_desc == 'Y' }font-style:oblique;{ / } {? .u_desc == 'Y' }text-decoration-line: underline;{ / }">
+													{.banner_desc}
+												</p>
+											</div>
+											<figure>
+												<img src="{ .contentImgSrc }" alt="" />
+											</figure>
+										</a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+			{ : }
+				<section class="fb-main__section fb-main__slider">
+					<div class="fb__main__slider">
+						<div class="mainSlider">
+							<div class="mainSlider__sub_slider swiper-container">
+								<div class="swiper-wrapper">
+									{ @ .slider_banner }
+									<div class="swiper-slide mainSlider__item">
+										<a href="{ ..banner_link }">
+											<div class="mainSlider__item-group">
+												<div class="mainSlider__item-title--sm" style="text-align:{? ..s_title == 'L'}left{: ..s_title == 'C'}center{: ..s_title == 'R'}right{/};color:{..c_title};{? ..b_title == 'Y' }font-weight: bold;{ / } {? ..i_title == 'Y' }font-style:oblique;{ / } {? ..u_title == 'Y' }text-decoration-line: underline;{ / }">{..shot_title}</div>
+												<div class="mainSlider__item-title--md" style="text-align:{? ..s_name == 'L'}left{: ..s_name == 'C'}center{: ..s_name == 'R'}right{/};color:{..c_name};{? ..b_name == 'Y' }font-weight: bold;{ / } {? ..i_name == 'Y' }font-style:oblique;{ / } {? ..u_name == 'Y' }text-decoration-line: underline;{ / }">
+													{..banner_name}
+												</div>
+												<p style="text-align:{? ..s_desc == 'L'}left{: ..s_desc == 'C'}center{: ..s_desc == 'R'}right{/};color:{..c_desc};{? ..b_desc == 'Y' }font-weight: bold;{ / } {? ..i_desc == 'Y' }font-style:oblique;{ / } {? ..u_desc == 'Y' }text-decoration-line: underline;{ / }">
+													{=nl2br(..banner_desc)}
+												</p>
+											</div>
+											<figure>
+												<img src="{ ..contentImgSrc }" alt="" />
+											</figure>
+										</a>
+									</div>
+									{ / }
+								</div>
+								<div class="mainSlider__control">
+									<div class="swiper-control-group">
+										<div class="swiper-scrollbar"></div>
+										<div class="swiper-pagination"></div>
+										<button type="button" class="swiper-button swiper-button-prev"></button>
+										<button type="button" class="swiper-button swiper-button-next"></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			{ / }
+		{ / }
+		{ ? .group_con_gubun == "S"}
+			{ ? .displayCnt == 0 }
+				<section class="fb-main__section fb-main__FocusNow">
+					<div class="fb-main__inner">
+						<div class="fb-main__title">
+							<h3 style="text-align:{? .s_main_group_title == 'L'}left{: .s_main_group_title == 'C'}center{: .s_main_group_title == 'R'}right{/};color:{.c_main_group_title};{? .b_main_group_title == 'Y' }font-weight: bold;{ / } {? .i_main_group_title == 'Y' }font-style:oblique;{ / } {? .u_main_group_title == 'Y' }text-decoration-line: underline;{ / }">{ .main_group_title }</h3>
+							<span style="color:{.c_main_group_explanation};{? .b_main_group_explanation == 'Y' }font-weight: bold;{ / } {? .i_main_group_explanation == 'Y' }font-style:oblique;{ / } {? .u_main_group_explanation == 'Y' }text-decoration-line: underline;{ / }">{ .main_group_explanation }</span>
+						</div>
+						<div class="fb-FocusNow__group">
+							<dl class="fb-FocusNow__item">
+								<dt class="fb-FocusNow__img">
+									<a href="/content/focusNow1/{ .con_ix }">
+										<img src="{ .contentImgSrc }" width="484" height="691" alt="" />
+									</a>
+								</dt>
+								<dd class="fb-FocusNow__cont">
+									<!--<div class="fb-main__title" style="text-align:{? .s_group_title == 'L'}left{: .s_group_title == 'C'}center{: .s_group_title == 'R'}right{/};{? .b_group_title == 'Y' }font-weight: bold;{ / } {? .i_group_title == 'Y' }font-style:oblique;{ / } {? .u_group_title == 'Y' }text-decoration-line: underline;{ / }">
+										<h3 style="color:{.c_group_title};">
+											{ .group_title }
+										</h3>
+										<a href="/content/focusNow1/{ .con_ix }">더 많은 상품 보러가기</a>
+									</div>-->
+									<div class="fb-main__title" style="text-align:{? .s_title == 'L'}left{: .s_title == 'C'}center{: .s_title == 'R'}right{/};{? .b_title == 'Y' }font-weight: bold;{ / } {? .i_title == 'Y' }font-style:oblique;{ / } {? .u_title == 'Y' }text-decoration-line: underline;{ / }">
+										<h3 style="color:{.c_title};">
+											{ .title }
+										</h3>
+										<a href="/content/focusNow1/{ .con_ix }">더 많은 상품 보러가기</a>
+									</div>
+									<div class="fb-main__goods">
+										<div class="fb-main__goods-slider swiper-container">
+											<div class="fb-main__goods-title">
+												<h4>추천상품</h4>
+											</div>
+											<div class="swiper-wrapper">
+											{ @ .bastProductList }
+												<div class="swiper-slide">
+													<div class="fb__goods__list">
+														<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+															<figure class="fb__goods__img">
+																<div>
+																	<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+																</div>
+															</figure>
+															<div class="fb__goods__info">
+																<ul class="fb__goods__infoBox">
+																	<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+																	<li class="fb__goods__name">{ ..pname }</li>
+																	<li class="fb__goods__option">{ ..add_info }</li>
+																	<li class="fb__goods__brand"></li>
+																</ul>
+															</div>
+															<div class="fb__goods__important">
+																<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+																	<p class="per"><em>{ ..discount_rate }</em>%</p>
+																</div>
+																<span class="fb__goods__price">{ ..dcprice }</span>
+																<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+																<!-- 품절일 경우 노출 S -->
+																<span class="fb__goods__price__state" style="display: none">품절</span>
+																<!-- 품절일 경우 노출 S -->
+															</div>
+															<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+														</a>
+														<!--<a href="javascript:void(0);" class="product-box__heart product-box__heart&#45;&#45;active">hart</a>-->
+														<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+													</div>
+												</div>
+											{ / }
+											</div>
+											<button type="button" class="swiper-button swiper-button-prev"><i class="ico ico-arrow-left"></i>이전</button>
+											<button type="button" class="swiper-button swiper-button-next"><i class="ico ico-arrow-right"></i>다음</button>
+										</div>
+									</div>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</section>
+			{ : }
+				<section class="fb-main__section fb-main__FocusNow">
+					<div class="fb-main__inner">
+						<div class="fb-FocusNow__group">
+							<dl class="fb-FocusNow__item">
+								<dt class="fb-FocusNow__img">
+									<a href="/content/focusNow1/{ .con_ix }">
+										<img src="{ .contentImgSrc }" width="484" height="691" alt="" />
+									</a>
+								</dt>
+								<dd class="fb-FocusNow__cont">
+									<!--<div class="fb-main__title" style="text-align:{? .s_group_title == 'L'}left{: .s_group_title == 'C'}center{: .s_group_title == 'R'}right{/};{? .b_group_title == 'Y' }font-weight: bold;{ / } {? .i_group_title == 'Y' }font-style:oblique;{ / } {? .u_group_title == 'Y' }text-decoration-line: underline;{ / }">
+										<h3 style="color:{.c_group_title};">
+											{ .group_title }
+										</h3>
+										<a href="/content/focusNow1/{ .con_ix }">더 많은 상품 보러가기</a>
+									</div>-->
+									<div class="fb-main__title" style="text-align:{? .s_title == 'L'}left{: .s_title == 'C'}center{: .s_title == 'R'}right{/};{? .b_title == 'Y' }font-weight: bold;{ / } {? .i_title == 'Y' }font-style:oblique;{ / } {? .u_title == 'Y' }text-decoration-line: underline;{ / }">
+										<h3 style="color:{.c_title};">
+											{ .title }
+										</h3>
+										<a href="/content/focusNow1/{ .con_ix }">더 많은 상품 보러가기</a>
+									</div>
+									<div class="fb-main__goods">
+										<div class="fb-main__goods-slider swiper-container">
+											<div class="fb-main__goods-title">
+												<h4>추천상품</h4>
+											</div>
+											<div class="swiper-wrapper">
+												{ @ .bastProductList }
+												<div class="swiper-slide">
+													<div class="fb__goods__list">
+														<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+															<figure class="fb__goods__img">
+																<div>
+																	<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+																</div>
+															</figure>
+															<div class="fb__goods__info">
+																<ul class="fb__goods__infoBox">
+																	<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+																	<li class="fb__goods__name">{ ..pname }</li>
+																	<li class="fb__goods__option">{ ..add_info }</li>
+																	<li class="fb__goods__brand"></li>
+																</ul>
+															</div>
+															<div class="fb__goods__important">
+																<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+																	<p class="per"><em>{ ..discount_rate }</em>%</p>
+																</div>
+																<span class="fb__goods__price">{ ..dcprice }</span>
+																<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+																<!-- 품절일 경우 노출 S -->
+																<span class="fb__goods__price__state" style="display: none">품절</span>
+																<!-- 품절일 경우 노출 S -->
+															</div>
+															<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+														</a>
+														<!--<a href="javascript:void(0);" class="product-box__heart product-box__heart&#45;&#45;active">hart</a>-->
+														<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+													</div>
+												</div>
+												{ / }
+											</div>
+											<button type="button" class="swiper-button swiper-button-prev"><i class="ico ico-arrow-left"></i>이전</button>
+											<button type="button" class="swiper-button swiper-button-next"><i class="ico ico-arrow-right"></i>다음</button>
+										</div>
+									</div>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</section>
+			{ / }
+		{ / }
+	{ / }
+
+	<!-- Style Guide 영역 S -->
+	<section class="fb-main__section fb-main__StyleGuide">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_style == 'L'}left{: mainContentInfo.s_style == 'C'}center{: mainContentInfo.s_style == 'R'}right{/};color:{mainContentInfo.c_style};{? mainContentInfo.b_style == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_style == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_style == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.style_title}</h3>
+				<span style="color:{mainContentInfo.c_style_e};{? mainContentInfo.b_style_e == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_style_e == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_style_e == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.style_e}</span>
+				<a href="/content/styleList">전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						<!--<li class="active"><a href="javascript:void(0);">ALL</a></li>-->
+						{ @ displayContentClassStyleList }<!-- color:{.c_preface}; -->
+							<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);" class="brandNav__sub-link" style="{? .b_preface == 'Y' }font-weight: bold;{ / } {? .i_preface == 'Y' }font-style:oblique;{ / } {? .u_preface == 'Y' }text-decoration-line: underline;{ / }">{? .index_ == 0 }전체{ : }{ .cname }{ / }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ displayContentClassStyleList }
+					<div class="fb-tab__contents {? .index_ == 0 } active{ / }">
+						<div class="fb-main__card-slider swiper-container goods-slider3">
+							<div class="swiper-wrapper">
+								{ @ .styleGuide }
+								<div class="swiper-slide">
+									<div class="fb-main__card-item">
+										<div class="fb-main__card-title--sm" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{..preface}</div>
+										<dl class="fb-main__card-cont">
+											<dt class="fb-main__card-img">
+												<a href="/content/styleDetail/{..con_ix}/{..cid}">
+													<img src="{..contentImgSrc}" alt="" />
+												</a>
+											</dt>
+											<dd class="fb-main__card-textBOX">
+												<a href="/content/styleDetail/{..con_ix}/{..cid}">
+													<div class="fb-main__card-title" style="text-align:{? ..s_title == 'L'}left{: ..s_title == 'C'}center{: ..s_title == 'R'}right{/};color:{..c_title};{? ..b_title == 'Y' }font-weight: bold;{ / } {? ..i_title == 'Y' }font-style:oblique;{ / } {? ..u_title == 'Y' }text-decoration-line: underline;{ / }">
+														{..title}
+													</div>
+													<p style="color:{..c_explanation};{? ..b_explanation == 'Y' }font-weight: bold;{ / } {? ..i_explanation == 'Y' }font-style:oblique;{ / } {? ..u_explanation == 'Y' }text-decoration-line: underline;{ / }">{..explanation}</p>
+												</a>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								{ / }
+							</div>
+							<div class="fb-main__card-control">
+								<div class="swiper-control-group">
+									<div class="swiper-scrollbar"></div>
+									<div class="swiper-pagination"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{ / }
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Style Guide 영역 E -->
+
+	<!-- Barrel Journal / Barrel Campaign 영역 S -->
+	<section class="fb-main__section fb-main__barrel-group">
+		<div class="fb-main__inner">
+			<div class="fb-barrel__group">
+				{? mainContentInfo.journal_use == 'Y' }
+				<div class="fb-barrel__item">
+					<div class="fb-main__title">
+						<h3 style="text-align:{? mainContentInfo.s_journal == 'L'}left{: mainContentInfo.s_journal == 'C'}center{: mainContentInfo.s_journal == 'R'}right{/};color:{mainContentInfo.c_journal};{? mainContentInfo.b_journal == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_journal == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_journal == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.journal_title}</h3>
+						<span style="color:{mainContentInfo.c_journal_e};{? mainContentInfo.b_journal_e == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_journal_e == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_journal_e == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.journal_e}</span>
+						<a href="/content/specialList/001001003000000">전체보기</a>
+					</div>
+					<!--<div class="" style="background: url(/data/barrel_data/images/frame/0000000002/frameImg_0000000002.gif) no-repeat center 0;">
+						<div class="" style="background: url(/data/barrel_data/images/frame/0000000002/frameImg_0000000002.gif) no-repeat center 0;"></div>-->
+						<div class="fb-main__barrel-slider--group">
+							<div class="fb-main__barrel-slider--bg"></div>
+						<div class="fb-main__barrel-slider swiper-container">
+							<div class="swiper-wrapper">
+								{ @ mainJournalInfo }
+								<div class="swiper-slide">
+									<a href="{ .banner_link }">
+										<div class="fb-barrel__img">
+											<img src="{ .imgSrc }" alt="" />
+										</div>
+										<div class="fb-barrel__title">
+											{ .banner_name }
+										</div>
+									</a>
+								</div>
+								{ / }
+								<!--<div class="swiper-slide">
+									<a href="#;">
+										<div class="fb-barrel__img">
+											<img src="../assets/img/main_barrel_journal_img.png" alt="" />
+										</div>
+										<div class="fb-barrel__title">
+											최고가 필요한 순간을<br />
+											서포트하는 배럴 스윔 패브릭
+										</div>
+									</a>
+								</div>-->
+							</div>
+						</div>
+						<button type="button" class="swiper-button swiper-button-prev">이전</button>
+						<button type="button" class="swiper-button swiper-button-next">다음</button>
+					</div>
+				</div>
+				{ / }
+				<div class="fb-barrel__item">
+					<div class="fb-main__title">
+						<h3 style="text-align:{? mainContentInfo.s_content == 'L'}left{: mainContentInfo.s_content == 'C'}center{: mainContentInfo.s_content == 'R'}right{/};color:{mainContentInfo.c_content};{? mainContentInfo.b_content == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_content == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_content == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.content_title}</h3>
+						<span style="color:{mainContentInfo.c_content_e};{? mainContentInfo.b_content_e == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_content_e == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_content_e == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.content_e}</span>
+						<a href="/content/specialList/001001002000000">전체보기</a>
+					</div>
+					<div class="fb-main__card-slider swiper-container goods-slider3">
+						<div class="swiper-wrapper">
+							{ @ mainContentContentInfo }
+							<div class="swiper-slide">
+								<div class="fb-main__card-item">
+									<div class="fb-main__card-title--sm" style="color:{.c_preface};{? .b_preface == 'Y' }font-weight: bold;{ / } {? .i_preface == 'Y' }font-style:oblique;{ / } {? .u_preface == 'Y' }text-decoration-line: underline;{ / }">{.preface}</div>
+									<dl class="fb-main__card-cont">
+										<dt class="fb-main__card-img">
+											<a href="{? .display_gubun == 'P' }/content/focusNow2/{ : }/content/focusNow4/{ / }{ .con_ix }">
+												<img src="{.contentRecomImgSrc}" alt="" />
+											</a>
+										</dt>
+										<dd class="fb-main__card-textBOX">
+											<a href="{? .display_gubun == 'P' }/content/focusNow2/{ : }/content/focusNow4/{ / }{ .con_ix }">
+												<div class="fb-main__card-title" style="text-align:{? .s_title == 'L'}left{: .s_title == 'C'}center{: .s_title == 'R'}right{/};color:{.c_title};{? .b_title == 'Y' }font-weight: bold;{ / } {? .i_title == 'Y' }font-style:oblique;{ / } {? .u_title == 'Y' }text-decoration-line: underline;{ / }">
+													{.title}
+												</div>
+												<p style="color:{.c_explanation};{? .b_explanation == 'Y' }font-weight: bold;{ / } {? .i_explanation == 'Y' }font-style:oblique;{ / } {? .u_explanation == 'Y' }text-decoration-line: underline;{ / }">
+													{.explanation}
+												</p>
+											</a>
+											<!--<button type="button" class="btn-wishlist"><i class="ico ico-wishlist"></i>좋아요</button>-->
+											<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}product-box__heart--active{/}" onclick="contentWish('{.con_ix}', 'C', this)"><i class="ico {? .alreadyWishContent == 'Y'}ico-wishlist2{ : }ico-wishlist{ / }"></i>좋아요</button>
+											<!--a href="javascript:void(0);" class="product-box__heart {? .alreadyWishContent == 'Y'}product-box__heart--active{/}" onclick="contentWish('{.con_ix}', 'C', this)">좋아요</a-->
+										</dd>
+									</dl>
+								</div>
+							</div>
+							{ / }
+							<!--<div class="swiper-slide">
+								<div class="fb-main__card-item">
+									<div class="fb-main__card-title&#45;&#45;sm">Competition</div>
+									<dl class="fb-main__card-cont">
+										<dt class="fb-main__card-img">
+											<a href="#;">
+												<img src="../assets/img/main_barrel_campaign_img01.png" alt="" />
+											</a>
+										</dt>
+										<dd class="fb-main__card-textBOX">
+											<a href="#;">
+												<div class="fb-main__card-title">
+													우먼 리플렉션 아쿠아<br />
+													브릿지백 스트랩 스윔슈트
+												</div>
+												<p>
+													온/오프라인 배럴 전 제품 15만원 이상 구매 시 <br />
+													스페셜 기프트 증정!
+												</p>
+											</a>
+											<button type="button" class="btn-wishlist"><i class="ico ico-wishlist"></i>좋아요</button>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="fb-main__card-item">
+									<div class="fb-main__card-title&#45;&#45;sm">Competition</div>
+									<dl class="fb-main__card-cont">
+										<dt class="fb-main__card-img">
+											<a href="#;">
+												<img src="../assets/img/main_barrel_campaign_img01.png" alt="" />
+											</a>
+										</dt>
+										<dd class="fb-main__card-textBOX">
+											<a href="#;">
+												<div class="fb-main__card-title">
+													우먼 리플렉션 아쿠아<br />
+													브릿지백 스트랩 스윔슈트
+												</div>
+												<p>
+													온/오프라인 배럴 전 제품 15만원 이상 구매 시 <br />
+													스페셜 기프트 증정!
+												</p>
+											</a>
+											<button type="button" class="btn-wishlist"><i class="ico ico-wishlist"></i>좋아요</button>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="fb-main__card-item">
+									<div class="fb-main__card-title&#45;&#45;sm">Competition</div>
+									<dl class="fb-main__card-cont">
+										<dt class="fb-main__card-img">
+											<a href="#;">
+												<img src="../assets/img/main_barrel_campaign_img01.png" alt="" />
+											</a>
+										</dt>
+										<dd class="fb-main__card-textBOX">
+											<a href="#;">
+												<div class="fb-main__card-title">
+													우먼 리플렉션 아쿠아<br />
+													브릿지백 스트랩 스윔슈트
+												</div>
+												<p>
+													온/오프라인 배럴 전 제품 15만원 이상 구매 시 <br />
+													스페셜 기프트 증정!
+												</p>
+											</a>
+											<button type="button" class="btn-wishlist"><i class="ico ico-wishlist"></i>좋아요</button>
+										</dd>
+									</dl>
+								</div>
+							</div>-->
+						</div>
+						<div class="fb-main__card-control">
+							<div class="swiper-control-group">
+								<div class="swiper-scrollbar"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Barrel Journal / Barrel Campaign 영역 E -->
+</section>
+<!-- 컨텐츠 영역 E -->
+
+<!-- 팝업 S -- 
+<div class="main_popupL" id="main_popup" style="display:none;z-index:9999;">
+	<div class="main_popupL-inner">
+		<div class="main_popupL-slide swiper-container popup-slide">
+			<div class="swiper-wrapper">
+				{@ slideBannerPopUp}
+				<div class="swiper-slide">
+					<a href="{.bannerLink}"><img src="{.imgSrc}" alt="{.banner_name}" /></a>
+				</div>
+				{/}
+			</div>
+		</div>
+		<div class="main_popupL-slide--control">
+			<div class="swiper-control-group">
+				<div class="swiper-scrollbar"></div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+	</div>
+	<div class="noti__popup main_popupL-btn">
+		<div class="noti__popup-checkbox main_popupL-checkbox">
+			<!--오늘 하루보기 사용 체크박스 --
+            <input type='checkbox' id="closeToday" class='devPopupToday' devPopupIx='{popupIx}' onClick="$(this).prop('checked', true);common.noti.popup.close('{popupType}', '{popupIx}');" />
+            <label for="closeToday">{=trans('오늘 하루 열지않기')}</label>
+			<!--오늘 하루보기 사용 체크박스 -- 
+			<input type="checkbox" id="closeToday" class='devPopupToday' onclick="" />
+			<label for="closeToday">오늘 하루 열지않기</label>
+		</div>
+		<span class="noti__popup__closebtn main_popupL-closebtn" onclick="">닫기</span>
+	</div>
+</div>
+<!-- 팝업 E -->

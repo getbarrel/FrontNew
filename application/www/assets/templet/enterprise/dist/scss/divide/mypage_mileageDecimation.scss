@@ -1,0 +1,36 @@
+.fb {
+  &__mileage-zero {
+    .fb__mypage__title {
+      margin-top: 50px;
+    }
+
+    .mileage__inner {
+      .float-l {
+        width: 100%;
+      }
+    }
+
+    &__subtext {
+      display: inline-block!important;
+      margin-left: 10px;
+      color: #999;
+      font-size: 14px;
+      line-height: 50px;
+    }
+
+    &__btn {
+      text-align: center;
+      &--black {
+        display: inline-block;
+        margin: 50px auto;
+        padding: 18px 76px;
+        color: #fff;
+        background: #000;
+      }
+    }
+
+    .mileage__detail {
+      position: relative;
+    }
+  }
+}

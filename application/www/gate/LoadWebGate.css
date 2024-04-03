@@ -1,0 +1,148 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-family: 'Malgun Gothic', sans-serif;
+}
+
+body {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color:black;
+    color:white;
+    /*background-image: url(img/background.jpg);*/
+}
+
+div.wrapper {
+    position: fixed;
+    width: 720px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    div.wrapper div.waiting-info {
+        box-sizing: border-box;
+        background-color: white;
+        color: black;
+        width: 100%;
+        height: 100%;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        text-align: center;
+        border: 1px solid #ececec;
+        border-radius: 0.5rem;
+    }
+
+        div.wrapper div.waiting-info p.title {
+            margin: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        div.wrapper div.waiting-info p.subtitle {
+            margin: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        div.wrapper div.waiting-info div.progress-bar {
+            display: inline-block;
+            width: 80%;
+            height: 34px;
+            background-color: rgb(240,240,240);
+        }
+
+            div.wrapper div.waiting-info div.progress-bar div.gage {
+                background-color: rgb(1,57,238);
+                width: 0;
+                height: 100%;
+                /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d0e4f7+0,73b1e7+24,0a77d5+50,539fe1+79,87bcea+100;Blue+Pipe+%231 */
+                background: rgb(208,228,247); /* Old browsers */
+                background: -moz-linear-gradient(top, rgba(208,228,247,1) 0%, rgba(115,177,231,1) 24%, rgba(10,119,213,1) 50%, rgba(83,159,225,1) 79%, rgba(135,188,234,1) 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(208,228,247,1) 0%,rgba(115,177,231,1) 24%,rgba(10,119,213,1) 50%,rgba(83,159,225,1) 79%,rgba(135,188,234,1) 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, rgba(208,228,247,1) 0%,rgba(115,177,231,1) 24%,rgba(10,119,213,1) 50%,rgba(83,159,225,1) 79%,rgba(135,188,234,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* IE6-9 */
+            }
+
+        div.wrapper div.waiting-info div.loading {
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        div.wrapper div.waiting-info div.notice {
+            font-size: 1rem;
+            color: darkred;
+        }
+
+
+
+
+
+
+/*Mobile*/
+@media only screen and (max-width: 762px) {
+    div.wrapper {
+        position: fixed;
+        width: 90%;
+        max-width: 720px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+        div.wrapper div.waiting-info {
+            background-color: white;
+            color: black;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            text-align: center;
+            border: 1px solid #ececec;
+            border-radius: 0.5rem;
+        }
+
+            div.wrapper div.waiting-info p.title {
+                margin: 0.5rem;
+                font-size: 1.0rem;
+            }
+
+            div.wrapper div.waiting-info p.subtitle {
+                margin: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            div.wrapper div.waiting-info div.progress-bar {
+                display: inline-block;
+                width: 100%;
+                height: 1.5rem;
+                background-color: rgb(240,240,240);
+            }
+
+                div.wrapper div.waiting-info div.progress-bar div.gage {
+                    background-color: rgb(1,57,238);
+                    width: 0;
+                    height: 100%;
+                    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d0e4f7+0,73b1e7+24,0a77d5+50,539fe1+79,87bcea+100;Blue+Pipe+%231 */
+                    background: rgb(208,228,247); /* Old browsers */
+                    background: -moz-linear-gradient(top, rgba(208,228,247,1) 0%, rgba(115,177,231,1) 24%, rgba(10,119,213,1) 50%, rgba(83,159,225,1) 79%, rgba(135,188,234,1) 100%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, rgba(208,228,247,1) 0%,rgba(115,177,231,1) 24%,rgba(10,119,213,1) 50%,rgba(83,159,225,1) 79%,rgba(135,188,234,1) 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, rgba(208,228,247,1) 0%,rgba(115,177,231,1) 24%,rgba(10,119,213,1) 50%,rgba(83,159,225,1) 79%,rgba(135,188,234,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* IE6-9 */
+                }
+
+            div.wrapper div.waiting-info div.loading {
+                font-size: 1.2rem;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            div.wrapper div.waiting-info div.notice {
+                font-size: 0.9rem;
+                color: darkred;
+            }
+}

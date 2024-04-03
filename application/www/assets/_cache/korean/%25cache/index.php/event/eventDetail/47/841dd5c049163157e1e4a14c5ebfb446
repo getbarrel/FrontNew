@@ -1,0 +1,214 @@
+15076-contents/mobile_enterprise//event/event_detail/event_detail.htm*<div class="wrap_event_detail">
+    <form id="devEventDetailForm">
+        <input type="hidden" name="event_ix" value="47"/>
+        <input type="hidden" name="orderBy" value="ec_ix"/>
+        <input type="hidden" name="orderByType" value="desc"/>
+        <input type="hidden" name="page" value="1" id="devPage"/>
+        <input type="hidden" name="max" value="20" id="devMax"/>
+    </form>
+    <section class="event__wrap">
+<style type="text/css">@font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;src:local('Rajdhani SemiBold'),local(Rajdhani-SemiBold),url(http://m.getbarrel.com/landing/2018/hifive/font/rajdhani-v7-latin-600.woff2) format("woff2"),url(http://m.getbarrel.com/landing/2018/hifive/font/rajdhani-v7-latin-600.woff) format("woff")}
+                                                  
+                                                  .event__wrap {
+                                                  background: #fff;
+                                      font-size: 0;
+                                      line-height: 0;
+                                              }
+                                      
+                                      .event__wrap .font {
+                                      font-size: 12px;
+                                      line-height: 1.53;
+                                      }        
+                                                          
+                                                                  .event__wrap #container,
+                                                                  .event__wrap #contents{margin-left:0;width:100%!important;display:none}
+                                                                  .event__wrap section{display:block;position:relative;overflow:hidden}
+                                                                  .event__wrap .bg{width:100%}
+                                                      
+                                                      
+                                                      .event__wrap #video {
+                                                          height: 100%;
+                                                          min-height: 464.63px;
+                                                          margin: 0 auto
+                                                      }
+                                                      .event__wrap .inner-width {
+                                                          width: 100%;
+                                                      }            
+                                                          
+                                                          
+                                                          
+                                                                  @media only screen and (max-width: 720px) and (orientation: portrait) {
+                                                                      .lookbook-dim .turn-image {
+                                                                          display: block;
+                                                                          position: absolute;
+                                                                          bottom: 7%;
+                                                                          width: 100%;
+                                                                          height: 71px;
+                                                                          background: url(//image.getbarrel.com/barrel_data/images/landing/lookbook_src/turn.png) 50% 50% no-repeat;
+                                                                          background-size: auto 100%
+                                                                      }
+                                                                  }
+                                                          
+                                                                  @media (min-width: 700px) and (orientation: landscape) {
+                                                                      .lookbook-dim .turn-image {
+                                                                          display: none
+                                                                      }
+                                                                  }
+                                                      
+                                                       .lookbook-dim {
+                                                          display: none;
+                                                          position: fixed;
+                                                          left: 0;
+                                                          top: 0;
+                                                          right: 0;
+                                                          bottom: 0;
+                                                          background: #000;
+                                                          opacity: .9;
+                                                          filter: alpha(opacity=50);
+                                                          z-index: 1005
+                                                        }
+                                                      
+                                                        .lookbook-dim.on {
+                                                          display: block
+                                                        }
+                                                      
+                                                        #lookbook-popup {
+                                                          display: none;
+                                                          position: fixed;
+                                                          top: 50%;
+                                                          left: 50%;
+                                                          transform: translate(-50%, -50%);
+                                                          width: 74%;
+                                                          height: auto;
+                                                          padding: 0;
+                                                          color: #fff;
+                                                          z-index: 1010
+                                                        }
+                                                      
+                                                        #lookbook-popup p.title {
+                                                          font-size: 11px;
+                                                          margin: 0 auto;
+                                                          width: 100%;
+                                                          font-weight: 400;
+                                                          text-align: left;
+                                                          padding-bottom: 5px;
+                                                          color: #fff
+                                                        }
+                                                      
+                                                        #lookbook-popup .swiper-container {
+                                                          margin: 0 auto;
+                                                          width: 100%;
+                                                          height: 46vw;
+                                                        }
+                                                      
+                                                        #lookbook-popup .swiper-container img {
+                                                          width: 100% !important;
+                                                          height: 100% !important;
+                                                          object-fit: contain !important;
+                                                        }
+                                                      
+                                                        #lookbook-popup .swiper-button {
+                                                          width: 13vw;
+                                                          height: 34px;
+                                                          top: 50%;
+                                                          position: fixed;
+                                                          background-size: contain !important
+                                                        }
+                                                      
+                                                        #lookbook-popup .swiper-button-prev {
+                                                          background: url(//image.getbarrel.com/barrel_data/images/landing/lookbook_src/m_arrow_l.png) no-repeat center;
+                                                          left: -13vw
+                                                        }
+                                                      
+                                                        #lookbook-popup .swiper-button-next {
+                                                          background: url(//image.getbarrel.com/barrel_data/images/landing/lookbook_src/m_arrow_r.png) no-repeat center;
+                                                          right: -13vw
+                                                        }
+                                                      
+                                                        #lookbook-popup .swiper-pagination {
+                                                          margin: 5px auto 0;
+                                                          width: 99%;
+                                                          bottom: 10px !important;
+                                                          right: 15px !important;
+                                                          left: auto !important;
+                                                          text-align: right !important;
+                                                          color: #fff
+                                                        }
+                                                      
+                                                        #lookbook-popup .swiper-pagination span {
+                                                          color: #fff
+                                                        }
+                                                      
+                                                        #lookbook-popup .close-button {
+                                                          position: absolute;
+                                                          padding: 10px;
+                                                          top: 0;
+                                                          right: -10vw;
+                                                          width: 15px;
+                                                          cursor: pointer;
+                                                            opacity:0;
+                                                        }
+</style>
+<!-- 공통 -->
+<section class="event__wrap"><!-- img 01 --><img class="bg" src="http://image2.getbarrel.com/landing/sprint/2020/m/1st/2020_sprint_championship_cancel_m.jpg" /> <script src="https://player.vimeo.com/api/player.js">
+                              window.load = function() {
+                              $('map').imageMapResize();
+                              }
+                              window.resize= function() {
+                              $('map').imageMapResize();
+                              }
+                              </script></section>
+</section>
+
+
+    <!--<div class="br__goods-list__wrap br__goods-list__wrap&#45;&#45;normal">-->
+        <!--<div class="goods-list">-->
+            <!--<div id="devFilterEmpty" class="empty-content" style="display:none"><p>선택하신 조건에 대한 검색 결과가 없습니다. <span>다른 옵션을 선택하여 검색해 보세요.</span></p></div>-->
+            <!--<ul class="goods-list__list">-->
+                <!--<li class="goods-list__box">-->
+                    <!--<a href="/shop/goodsView/{[id]}" class="goods-list__link">-->
+                        <!--<figure class="goods-list__thumb">-->
+                            <!--<img src="{[image_src]}" alt="상품제목">-->
+                        <!--</figure>-->
+                        <!--<div class="goods-list__info">-->
+                            <!--{[#if icons]}-->
+                            <!--<div class="goods-list__badge">-->
+                                <!--{[#each icons_path]}-->
+                                <!--<span>{[{this}]}</span>-->
+                                <!--{[/each]}-->
+                            <!--</div>-->
+                            <!--{[else]}-->
+                            <!--<div class="goods-list__badge">-->
+                                <!--<span></span>-->
+                            <!--</div>-->
+                            <!--{[/if]}-->
+                            <!--<p class="br__goods__pre">{[preface]}</p>-->
+                            <!--<p class="goods-list__title">{[pname]}</p>-->
+                            <!--<span class="goods-list__color">{[add_info]}</span>-->
+                            <!--<div class="goods-list__price">-->
+                                <!--{[#if isDiscount]}-->
+                                <!--<span class="goods-list__price__cost">{[listprice]}원</span>-->
+                                <!--{[/if]}-->
+                                <!--<span class="goods-list__price__discount">{[dcprice]}원</span>-->
+                                <!--{[#if isPercent]}-->
+                                <!--<span class="goods-list__price__percent">[{[discount_rate]}%]</span>-->
+                                <!--{[/if]}-->
+                                <!--{[#if is_soldout]}-->
+                                <!--<span class="goods-list__price__state">[품절]</span>-->
+                                <!--{[/if]}-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                    <!--<label class="goods-list__wish{[#if alreadyWish]} on{[/if]}" devwishbtn="{[id]}">-->
+                        <!--{[#if alreadyWish]}-->
+                        <!--<input type="checkbox" class="goods-list__wish__btn" checked>-->
+                        <!--{[else]}-->
+                        <!--<input type="checkbox" class="goods-list__wish__btn">-->
+                        <!--{[/if]}-->
+                    <!--</label>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    
+</div>

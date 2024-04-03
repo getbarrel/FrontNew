@@ -1,0 +1,281 @@
+@import "node_modules/normalize.css/normalize";
+@import "../node_modules/jstree/dist/themes/default/style.css";
+//@import "../node_modules/slick-carousel/slick/slick.scss";
+@import "../node_modules/jquery-ui/themes/base/all.css";
+@import "../node_modules/swiper/dist/css/swiper.min.css";
+@import "../node_modules/sass-rem/rem";
+$rem-baseline: 20px;
+html {
+  @include rem-baseline;
+}
+@media screen and (min-device-width:320px) {
+  html {font-size:62.5%;}
+}
+@media screen and (min-device-width:360px) {
+  html {font-size:70.3125%;}
+}
+@media screen and (min-device-width:375px) {
+  html {font-size:73.2421%;}
+}
+@media screen and (min-device-width:412px) {
+  html {font-size:80.4688%;}
+}
+@media screen and (min-device-width:414px) {
+  html {font-size:80.8594%;}
+}
+@media screen and (min-device-width:640px) {
+  html {font-size:125%;}
+}
+
+@import "./divide/css_common.scss";
+@import "./divide/css_mypage.scss";
+@import "./divide/css_shop.scss";
+@import "./divide/css_member.scss";
+/*
+display
+clear
+float
+overflow
+position
+top
+right
+botton
+left
+z-index
+width
+height
+margin
+padding
+color
+font-size
+font-weight
+border
+background:#color (url) no-repeat x y;
+background-size:;
+text-overflow
+text-align
+line-height
+text-indent
+transform
+transition
+box-sizing
+white-space
+
+::after {
+  display: block;
+  clear: both;
+  content: "";
+};
+
+
+ */
+$cPoint : #00bce7;  //color point
+$font_n : 'Roboto', sans-serif;
+$font_s : 'SHS', 'Notosans', sans-serif;
+
+$sprite18 : url(../images/common/icon_sprite_size18.png);
+$sprite18Size : 356px 20px;
+$sprite22 : url(../images/common/icon_sprite_size22.png);
+$sprite22Size : 410px 23px;
+$sprite30 : url(../images/common/icon_sprite_size30.png);
+$sprite30Size : 1221px 80px;
+$spriteSlide : url(../images/common/icon_slide_sprite.png);
+$spriteSlideSize : 173px 35px;
+
+%clear {
+  &:after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+%hiddenText {
+  font:0/0 'Notosans';
+}
+
+@mixin line($lineCount:1) {
+  /* 사용법 : @include line(라인수) */
+  @if $lineCount == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: initial;
+    -webkit-line-clamp: initial;
+  } @else {
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all; /*특수문자 기입 시 nowrap 되는 현상 때문에 추가*/
+    -webkit-line-clamp: $lineCount;
+  }
+}
+
+%touchScroll {
+  -webkit-overflow-scrolling:touch;
+  //&::-webkit-scrollbar,&::-webkit-scrollbar-track,&::-webkit-scrollbar-thumb {
+  //  display:none;
+  //  background-color:transparent;
+  //  border-color:transparent;
+  //}
+}
+%useSelect {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@import "./divide/common";
+@import "./divide/layout";
+
+@import "./divide/main";
+@import "./divide/brand_intro";
+@import "./divide/brand_teacherMember";
+@import "./divide/event_eventDetail";
+@import "./divide/shop_goodsList";
+@import "./divide/shop_goodsView";
+@import "./divide/shop_infoInput";
+@import "./divide/shop_paymentComplete";
+@import "./divide/shop_cart";
+
+@import "./divide/customer_index";
+@import "./divide/customer_notice";
+@import "./divide/customer_faq";
+@import "./divide/customer_guide";
+@import "./divide/customer_storeInformation";
+@import "./divide/customer_storeInformationDetail";
+@import "./divide/customer_cliamGuide";
+
+@import "./divide/member_login";
+@import "./divide/member_searchId";
+@import "./divide/member_searchIdResult";
+@import "./divide/member_searchPwResult";
+@import "./divide/member_password";
+@import "./divide/member_joinInput";
+@import "./divide/member_joinSelect";
+@import "./divide/member_sleepAccountRelease";
+
+@import "./divide/mypage_index";
+@import "./divide/mypage_wishlist";
+@import "./divide/mypage_profile";
+@import "./divide/mypage_passReconfirm";
+@import "./divide/mypage_secede";
+@import "./divide/mypage_addressbook";
+@import "./divide/mypage_addressbookManage";
+@import "./divide/mypage_refundAccount";
+@import "./divide/mypage_mileage";
+@import "./divide/mypage_mileageDecimation";
+@import "./divide/mypage_myInquiry";
+@import "./divide/mypage_stockAlarm";
+@import "./divide/mypage_orderHistory";
+@import "./divide/mypage_recentView";
+@import "./divide/mypage_memberLevel";
+@import "./divide/mypage_orderDetail";
+@import "./divide/mypage_deliverymsgChange";
+@import "./divide/mypage_orderClaim";
+@import "./divide/mypage_coupon";
+@import "./divide/mypage_receiptPrint";
+@import "./divide/mypage_preferences";
+@import "./divide/mypage_returnHistory";
+@import "./divide/mypage_orderClaimDetail";
+@import "./divide/mypage_myGoodsInquiry";
+@import "divide/corporateIR_IRResources";
+@import "./divide/customer_productPrecautions";
+@import "./divide/customer_bestReview";
+@import "./divide/customer_cosmeticsCaution";
+@import "./divide/brand_brandStory";
+@import "./divide/brand_applicationForm";
+@import "./divide/brand_applicationFormGroup";
+@import "./divide/shop_search";
+
+@import "divide/contact_us";
+@import "divide/shop_goodsBest";
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+figure, p {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+legend {
+  border: 0;
+  background-color: transparent;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+}
+
+table caption {
+  display: none;
+}
+
+.cascading select {
+  width: 100px;
+  height: 200px;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/*#5018 select박스명 긴 경우 때문에 추가하였습니다. */
+select {
+  padding-right: rem(50px);
+  &:focus {
+    outline:2px solid #000 !important;
+  }
+}
+
+*:not(input):not(textarea):not(a):not(button):not(select) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+* {
+  outline:none !important;
+  letter-spacing: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+img {
+  font-size:rem(20px);
+}

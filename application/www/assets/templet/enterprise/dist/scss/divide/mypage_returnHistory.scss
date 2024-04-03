@@ -1,0 +1,157 @@
+.fb {
+  &__return-history {
+
+    .cosmetics {
+      &__title {
+        padding-top: 52px;
+        font-size: 20px !important;
+      }
+
+      &__category {
+        color: #000;
+      }
+    }
+
+    .pay-info {
+
+      &__box {
+        width: calc(100% / 3);
+        float: left;
+        height: 328px;
+
+        &:not(:first-child) {
+          border-left: 1px dotted #ddd;
+        }
+
+        &-delivery {
+          position: relative;
+
+          &:before {
+            display: inline-block;
+            position: absolute;
+            top: 60px;
+            left: -16px;
+            width: 32px;
+            height: 32px;
+            background: url(../../img/bg/sprite_mypage.png) no-repeat -300px -300px;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            content: '';
+          }
+        }
+
+        &-sum {
+          position: relative;
+
+          &:before {
+            display: inline-block;
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            top: 60px;
+            left: -16px;
+            background: url(../../img/bg/sprite_mypage.png) no-repeat -400px -300px;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            content: '';
+          }
+        }
+
+      }
+
+      &__top {
+        position: relative;
+        height: 121px;
+        padding-top: 30px;
+        border-bottom: 1px dotted #ddd;
+        text-align: center;
+
+        &__tit {
+          margin-bottom: 10px;
+          color: #222;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        &__price {
+          font-size: 16px;
+          color: #222;
+
+          em {
+            font: {
+              weight: 600;
+              size: 30px;
+              family: $font_n;
+            }
+
+          }
+        }
+
+      }
+
+      &__bottom {
+        padding: 20px 40px;
+        color: #222;
+        font-weight: 600;
+        font-size: 14px;
+
+        dl {
+          overflow: hidden;
+          dt {
+            float: left;
+          }
+          dd {
+            float: right;
+            em {
+              font-family: $font_n;
+            }
+          }
+
+          & + dl {
+            margin-top: 10px;
+          }
+
+          &:not(.disc-list) dd em {
+            font-weight: 600;
+            font-size: 16px;
+          }
+
+          .disc-list {
+            font-size: 13px;
+            color: #666;
+          }
+          .disc-list.first {
+            margin-top: 15px;
+          }
+          .disc-list dt {
+            position: relative;
+            padding-left: 17px;
+          }
+          .disc-list dt:before {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            background: url(../../img/bg/sprite_mypage.png) no-repeat -700px 0;
+            content: '';
+          }
+
+        }
+
+      }
+
+      &__bottom__text {
+        color: #999;
+        line-height: 20px;
+      }
+
+    }
+  }
+}

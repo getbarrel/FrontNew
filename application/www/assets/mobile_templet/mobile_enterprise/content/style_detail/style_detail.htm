@@ -1,0 +1,104 @@
+			<!-- 컨텐츠 영역 S -->
+			<section class="br__StyleCuration-detail">
+				<div class="detail-layout">
+					<div class="detail-layout__lnb">
+						<div class="detail-slide swiper-container">
+							<div class="swiper-wrapper">
+								{ @ displayContentList.imgSrc }
+								<div class="swiper-slide"><img src="{ .imgSrcUrl }" alt="" /></div>
+								{ / }
+							</div>
+							<div class="detail-slide__control">
+								<div class="swiper-control-group">
+									<div class="swiper-scrollbar"></div>
+									<div class="swiper-pagination"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="detail-layout__content">
+						{ @ displayContentGroupList }
+						<div class="detail-layout__header">
+							{ ? .index_ == 0 }
+							<span style="color:{displayContentList.c_preface};{? displayContentList.b_preface == 'Y' }font-weight: bold;{ / } {? displayContentList.i_preface == 'Y' }font-style:oblique;{ / } {? displayContentList.u_preface == 'Y' }text-decoration-line: underline;{ / }">{ displayContentList.preface }</span>
+							{ / }
+							<div class="title-md" style="text-align:{? .s_group_title == 'L'}left{: .s_group_title == 'C'}center{: s_group_title == 'R'}right{/};color:{ .c_group_title };{? .b_group_title == 'Y' }font-weight: bold;{ / } {? .i_group_title == 'Y' }font-style:oblique;{ / } {? .u_group_title == 'Y' }text-decoration-line: underline;{ / }">
+								{ .group_title }
+							</div>
+						</div>
+						<section class="detail-goods__wrap">
+							<!-- 상품 리스트 S -->
+							<div class="br__goods-list__wrap br__goods-list__wrap--normal">
+								<div class="goods-list">
+									<ul class="goods-list__list" id="devListContents">
+										{ @ displayContentGroupList.productList }
+											{ ? displayContentGroupList.productList }
+												<li class="goods-list__box">
+													<a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+														<div class="goods-list__thumb">
+															<div class="goods-list__thumb-slide swiper-container">
+																<div class="swiper-wrapper">
+																	<div class="swiper-slide">
+																		<img src="{ ..image_src }" alt="" />
+																	</div>
+																	<div class="swiper-slide">
+																		<img src="{ ..image_src2 }" alt="" />
+																	</div>
+																</div>
+																<div class="swiper-control-group">
+																	<div class="swiper-scrollbar"></div>
+																</div>
+															</div>
+															<!-- 버튼으로 할 경우 S -->
+															<!-- 숨김처리 -->
+															<button type="button" class="btn-wishlist {? ..alreadyWish == 'Y'}active{/}" onclick="contentWish('{..id}', 'C', this)" style="z-index: 999999;">
+																<!-- 선택시 button class = active 추가-->
+																<i class="ico ico-wishlist"></i>위시리스트
+															</button>
+															<!-- 버튼으로 할 경우 E -->
+
+															<!-- 체크 박스로 할 경우 S -->
+															<label class="goods-list__wish">
+																<input type="checkbox" class="goods-list__wish__btn" style="display: none" />
+															</label>
+															<!-- 체크 박스로 할 경우 E -->
+														</div>
+														<div class="goods-list__info">
+															<div class="goods-list__pre br__goods__pre" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</div>
+															<div class="goods-list__title">{ ..pname }</div>
+															<div class="goods-list__color">{ ..add_info }</div>
+															<div class="goods-list__price">
+																<div class="goods-list__price__percent" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+																<div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+																<div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+																<!-- 품절일 경우 S -->
+																<!-- 숨김 처리 -->
+																<div class="goods-list__price__state" style="display: none">품절</div>
+																<!-- 품절일 경우 E -->
+															</div>
+														</div>
+													</a>
+												</li>
+											{ : }
+												<!-- 상품이 없을 경우 S -->
+												<!-- 숨김처리 -->
+												<li class="goods-list__box no-data" style="display: none">
+													<p class="empty-content">검색어와 일치하는 상품이 없습니다.</p>
+												</li>
+												<!-- 상품이 없을 경우 E -->
+											{ / }
+										{ / }
+										<!-- 로딩 S -->
+										<!-- 숨김처리 -->
+										<li id="devListLoading" class="br-loading" style="display: none">loading...</li>
+										<!-- 로딩우 E -->
+									</ul>
+								</div>
+							</div>
+							<!-- 상품 리스트 E -->
+						</section>
+						{ / }
+					</div>
+				</div>
+			</section>
+			<!-- 컨텐츠 영역 E -->

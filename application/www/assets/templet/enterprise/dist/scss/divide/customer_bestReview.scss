@@ -1,0 +1,158 @@
+.fb {
+  &__best-review {
+    color: #000;
+
+    &__title {
+      font-size: 24px;
+    }
+
+    .best-review {
+      margin-top: 50px;
+
+      &__title {
+        font-size: 20px;
+      }
+
+      &__top {
+        margin-top: 50px;
+      }
+
+      &__crema {
+        margin-top: 50px;
+      }
+
+      &__notice {
+        padding: 30px 40px;
+        margin-top: 30px;
+        background: #f8f8f8;
+
+        &__title {
+          padding-bottom: 10px;
+          font: {
+            weight: 600;
+            size: 18px;
+            line-height: 22px;
+          }
+        }
+
+        &__desc {
+          color: #666;
+          font-size: 14px;
+          line-height: 30px;
+
+          &:before {
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background: #000;
+            vertical-align: middle;
+            content: "";
+          }
+        }
+      }
+
+      &__desc {
+        padding: 10px 0 20px;
+        color :#666;
+        font-size:  14px;
+
+        &--light {
+          padding-top: 20px;
+          color: #999;
+          font-size: 13px;
+        }
+      }
+
+      &__rank {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-bottom:20px;
+        padding: 20px 0;
+        border: {
+          top: 1px solid #000;
+          bottom: 1px solid #ddd;
+        }
+
+        &__box {
+          width: 100%;
+          padding: 20px 0;
+          border-right: 1px dotted #ddd;
+          text-align: center;
+
+          &:last-of-type {
+            border-right: 0;
+          }
+
+          dt {
+            padding-bottom: 10px;
+            font-size: 16px;
+            em {
+              font: {
+                weight: 600;
+                size: 20px;
+              }
+            }
+          }
+
+          dd {
+            font-size: 14px;
+            em {
+              font: {
+                weight: 600;
+                size: 24px;
+              }
+            }
+          }
+        }
+      }
+
+      &__type {
+        height: 170px;
+        margin-top: 30px;
+        background: #f8f8f8;
+        @extend %clear;
+
+
+        $reviewlist : 일반후기, 포토후기;
+        &__box {
+          display: inline-block;
+          float: left;
+          position: relative;
+          width: 50%;
+          height: 170px;
+          padding: 0 0 0 190px;
+
+          @for $i from 1 through length($reviewlist) {
+            &:nth-of-type(#{$i}):before {
+              position: absolute;
+              top: calc(50% - 55px);
+              left: 50px;
+              width: 110px;
+              height: 110px;
+              border-radius: 100%;
+              background: #fff url("../images/customer/icon-best-review.png") no-repeat -#{($i - 1) * 200}px 0;
+              content: "";
+            }
+          }
+
+          dt {
+            padding-top: 50px;
+           font: {
+             weight: 600;
+             size: 16px;
+           }
+          }
+
+          dd {
+            padding-top: 10px;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+
+    }
+  }
+}

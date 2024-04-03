@@ -1,0 +1,1 @@
+127.0.0.1 - [08/Aug/2018:16:16:53 +0900] /collect.php: URL = en-develop-php7.devs/member/joinselect/123/&lt;script&gt;: XSS 공격 패턴 탐지

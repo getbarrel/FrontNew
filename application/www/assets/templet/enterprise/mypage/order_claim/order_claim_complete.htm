@@ -1,0 +1,213 @@
+<section class="fb__order-claim fb__mypage-claim--complete fb__return-complete br__return-complete">
+    <div class="fb__mypage-title">
+        <div class="title-md">{=trans('{claimTypeName} 완료되었습니다.')}</div>
+    </div>
+    <!--취소교환반품 신청내역조회일 때 S -->
+    <div class="order-number-box">
+        <div class="order-number-box__cont">
+            <dl class="order-number-box__item">
+                <dt class="order-title">{=trans('주문번호')}</dt>
+                <dd class="order-number">{order.oid}</dd>
+            </dl>
+            <dl class="order-number-box__item">
+                <dt class="order-title">{=trans('주문일자')}</dt>
+                <dd class="order-day">{order.order_date}</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="fb__mypage-claim--desc">취소 처리 현황은 <a href="/mypage/returnHistory">마이페이지 > 반품/취소 내역</a>에서 확인하실 수 있습니다.</div>
+    <!--취소교환반품 신청내역조회일 때 E -->
+
+    <section class="fb__mypage__section cancel-area">
+        {@ order.orderDetail}
+        <div class="fb__mypage-title">
+            <div class="title-sm">{=trans('{claimTypeName} 신청 상품')}</div>
+        </div>
+        <div class="fb__mypage-claim claim__list claim__able">
+            <ul class="product-item__wrap">
+                {@ .value_}
+                <li class="product-item__list">
+                    <!-- 상품 S -->
+                    <dl class="product-item">
+                        <dt class="product-item__thumbnail-box">
+                            <div class="product-item__thumb">
+                                <a href="/shop/goodsView/{..pid}">
+                                    <img src="{..pimg}" alt="{..brand_name} {..pname}">
+                                </a>
+                            </div>
+                        </dt>
+                        <dd class="product-item__infobox">
+                            <div class="product-item__info">
+                                <div class="product-item__title c-pointer">
+                                    <a href="#;">{..brand_name} {..pname}</a>
+                                </div>
+                                <div class="product-item__option">
+                                    <a href="/shop/goodsView/{..pid}">
+                                        {? ..add_info}<span class="set-name">{..add_info}</span>{/}
+                                        <span>{..option_text}</span>
+                                        <span>{..pcnt}{=trans('개')}</span>
+                                    </a>
+                                </div>
+
+                                <div class="product-item__price-group">
+                                    <div class="product-item__price price">{fbUnit.f}<em>{=g_price(..pt_dcprice)}</em>{fbUnit.b}</div>
+                                </div>
+                            </div>
+                            <div class="product-item__btn-area">
+                                <div class="order-status">{=trans(..status_text)}</div>
+                            </div>
+                        </dd>
+                    </dl>
+                    <!-- 상품 E -->
+
+                    <!-- 사은품 영역 S -->
+                    <!--<div class="product-gift-wrap">
+                        <div class="product-gift__title">
+                            <strong>구매 사은품</strong>
+                        </div>
+                        <ul class="product-gift__list">
+                            <li class="product-gift__box inner-gift devGiftList">
+                                <figure class="product-gift__thumb">
+                                    <img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+                                </figure>
+                                <div class="product-gift__info">
+                                    <div class="product-gift__info__pname"><span>[사은품]</span> 키즈 데이지 튜브</div>
+                                    <div class="product-gift__info__count">
+                                        <span>페일네온옐로우</span>
+                                        <span>OS</span>
+                                        <span>1개</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>-->
+                    <!-- 사은품 영역 E -->
+
+                    <!-- 반품 사유 영역 S -->
+                    <div class="claim__list__reason reason-box">
+                        <div class="reason-top">
+                            <div class="title-sm">{=trans('{claimTypeName} 수량')}</div>
+                            <div class="cancel-quantity"><em>{applyData.claim_cnt[..od_ix]}</em>개</div>
+                        </div>
+                        <dl class="reason-box__inner">
+                            <div class="reason-box__title">
+                                <div class="title-sm">{=trans('{claimTypeName} 사유')}</div>
+                                <div class="reason-box__text">{applyData.claimReasonText}</div>
+                            </div>
+                            <div class="reason-box__cont">
+                                <div class="reason-box__desc">{applyData.claim_msg[..od_ix]}</div>
+                            </div>
+                        </dl>
+                    </div>
+                    <!-- 반품 사유 영역 E -->
+                </li>
+                {/}
+            </ul>
+        </div>
+        {/}
+    </section>
+
+    <section class="fb__mypage__section return-info">
+        <div class="fb__mypage-title">
+            <div class="title-sm">{=trans('{claimTypeName} 발송 방법')}</div>
+            <span class="method">{? applyData.send_type == 1}{=trans('직접 발송{:}지정 택배 발송{/}')}</span>
+        </div>
+        {? applyData.send_type == 1}
+        <div class="pmt-info__box">
+            <dl class="pmt-info__list pmt-info__total">
+                <dt class="pmt-info__cate">{=trans('{claimTypeName} 발송 정보')}</dt>
+                <dd class="pmt-info__cont"></dd>
+            </dl>
+            {? applyData.quick_info != 'N'}
+            <div class="pmt-info__list">
+                <dt class="pmt-info__cate">{applyData.quickText}</dt>
+                <dd class="pmt-info__cont">송장번호:{applyData.invoice_no}</dd>
+            </div>
+            {/}
+            <div class="pmt-info__list">
+                <dt class="pmt-info__cate">상품 발송 시 배송비</dt>
+                <dd class="pmt-info__cont">{? applyData.delivery_pay_type == 1}선불{:}착불{/}</dd>
+            </div>
+        </div>
+        {:}
+        <div class="pmt-info__box">
+            <dl class="pmt-info__list pmt-info__total">
+                <dt class="pmt-info__cate">{=trans('{claimTypeName} 수거 주소')}</dt>
+                <dd class="pmt-info__cont"></dd>
+            </dl>
+            <div class="pmt-info__list">
+                <dt class="pmt-info__cate">{=trans('성명')}</dt>
+                <dd class="pmt-info__cont">{applyData.cname}</dd>
+            </div>
+            <div class="pmt-info__list">
+                <dt class="pmt-info__cate">{=trans('주소')}</dt>
+                <dd class="pmt-info__cont">{applyData.czip} {applyData.caddr1} {applyData.caddr2}</dd>
+            </div>
+            <div class="pmt-info__list">
+                <dt class="pmt-info__cate">{=trans('휴대폰 번호')}</dt>
+                <dd class="pmt-info__cont"><em>{applyData.cmobile1}-{applyData.cmobile2}-{applyData.cmobile3}</em></dd>
+            </div>
+            <div class="pmt-info__list">
+                <dt class="pmt-info__cate">{=trans('배송요청사항')}</dt>
+                <dd class="pmt-info__cont">{=nl2br(applyData.cmsg)}</dd>
+            </div>
+        </div>
+        {/}
+    </section>
+
+    <section class="fb__mypage__section pmt-info">
+        <div class="fb__mypage-title">
+            <div class="title-sm">{=trans('환불 내역')}</div>
+        </div>
+        <div class="pmt-info__box">
+            <dl class="pmt-info__list pmt-info__total">
+                <dt class="pmt-info__cate">{=trans('환불 예정 금액')}</dt>
+                <dd class="pmt-info__cont"><span>{=g_price(view_price)}</span>원</dd>
+            </dl>
+
+            <!--<dl class="pmt-info__list">
+                <dt class="pmt-info__cate">결제방법</dt>
+                <dd class="pmt-info__cont">
+                    가상계좌 / 기업은행 48002668997451<br />
+                    예금주 : 주식회사 배럴
+                </dd>
+            </dl>-->
+
+            <dl class="pmt-info__list">
+                <dt class="pmt-info__cate">{=trans('반품신청 총 결제금액')}</dt>
+                <dd class="pmt-info__cont"><span>{=g_price(view_total_price)}</span>원</dd>
+            </dl>
+
+            <dl class="pmt-info__list">
+                <dt class="pmt-info__cate">{=trans('반품할 상품금액')}</dt>
+                <dd class="pmt-info__cont"><span>{=g_price(product.product_dc_price)}</span>원</dd>
+            </dl>
+
+            <dl class="pmt-info__list">
+                <dt class="pmt-info__cate">{=trans('환불 예정 배송비')}</dt>
+                <dd class="pmt-info__cont"><span>{=g_price(delivery.change_delivery_price)}</span>원</dd>
+            </dl>
+
+            <dl class="pmt-info__list">
+                <dt class="pmt-info__cate">{=trans('반품 시 추가 배송비')}</dt>
+                <dd class="pmt-info__cont">-<span>{=g_price(view_claim_delivery_price)}</span>원</dd>
+            </dl>
+        </div>
+        <div class="fb__mypage__section-footer">
+            <div class="use-notice">
+                <h3 class="use-notice__title">유의사항</h3>
+                <ul class="use-notice__list">
+                    <li class="use-notice__desc">단순변심 등 구매자의 사유로 반품할 경우 왕복배송비가 발생합니다.</li>
+                    <li class="use-notice__desc">상품 하자 등의 판매자 귀책 사유인 경우 추가 배송비가 발생하지 않습니다.</li>
+                    <li class="use-notice__desc">반품 신청 없이 반품 시에는 처리가 안될 수 있습니다.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="fb__mypage__section-btn">
+            <div class="btn-group">
+                <button type="button" class="btn-lg btn-dark-line" onclick="location.href='mypage/orderHistory' ">주문 내역 조회</button>
+                <button type="button" class="btn-lg btn-dark" onclick="location.href='/mypage/returnHistory' ">반품/취소 내역</button>
+            </div>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,750 @@
+<!--{? !nonMemberOid}-->
+<script>var orderDetailMode = 'member';</script>
+<!--{:}-->
+<script>var orderDetailMode = 'guest';</script>
+<!--{/}-->
+<!-- 컨텐츠 S -->
+<section class="fb__od-detail wrap-mypage wrap-order-detail fb__mypage-detail" id="devOrderDetailContent">
+	<div class="fb__mypage-title">
+		<div class="title-md">{=trans('주문 상세 내역')}</div>
+	</div>
+	<!--취소교환반품 신청내역조회일 때 S -->
+	<div class="order-number-box">
+		<div class="order-number-box__cont">
+			<dl class="order-number-box__item">
+				<dt class="order-title">{=trans('주문번호')}</dt>
+				<dd class="order-number">{order.oid}</dd>
+			</dl>
+			<dl class="order-number-box__item">
+				<dt class="order-title">{=trans('주문일자')}</dt>
+				<dd class="order-day">{order.order_date}</dd>
+			</dl>
+		</div>
+		<div class="order-number-box__btn">
+            {? order.status == 'IR' || order.status == 'IC'}
+			<button type="button" class="btn-default btn-dark-line devOrderCancelAllBtn"  data-oid="{order.oid}">{=trans('전체 취소')}</button>
+            {/}
+
+            {? langType == 'korean' && order.status != 'IR' && order.status != 'IB' && order.status != 'CA' && order.status != 'CC'}
+			<br><button class="fb__mypage__btn--black receipt-btn" data-oid="{order.oid}">{=trans('결제영수증 출력')}</button>
+            {/}
+		</div>
+	</div>
+	<!--취소교환반품 신청내역조회일 때 E -->
+
+	<section class="fb__mypage__section">
+		<div class="fb__mypage-title">
+			<div class="title-sm">주문 내역</div>
+		</div>
+		{@ order.orderDetail}
+		<div class="fb__mypage-order">
+			<ul class="product-item__wrap">
+				<li class="product-item__list">
+					<!-- 상품 S -->
+					{@ .value_}
+					{? ..set_group > 0}
+					{* 세트/코디상품 *}
+					{@ ..setData}
+					{? ...index_ == 0}
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="/shop/goodsView/{..pid}">
+									<img src="{..pimg}" alt="" />
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="/shop/goodsView/{..pid}">{..pname}</a>
+								</div>
+								<div class="product-item__option">
+									<a href="/shop/goodsView/{..pid}">
+										<span class="set-name">{...option_text}</span>
+										<span>{...add_info}</span>
+										<span>{..pcnt}{=trans('개')}</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price">{fbUnit.f}<em>{=g_price(..pt_listprice)}</em>{fbUnit.b}</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="order-status">
+                                    <p>{..status_text}</p>
+                                    {? ..refund_status}<p>{..refund_status_text}</p>{/}								
+								</div>
+								<!-- <div class="btn-group">
+									<button type="button" class="btn-default btn-dark-line">주문 취소</button>
+								</div> -->
+							</div>
+						</dd>
+					</dl>
+					{:}
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="/shop/goodsView/{..pid}">
+									<img src="{..pimg}" alt="" />
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="/shop/goodsView/{..pid}">{..pname}</a>
+								</div>
+								<div class="product-item__option">
+									<a href="/shop/goodsView/{..pid}">
+										<span class="set-name">{...option_text}</span>
+										<span>{...add_info}</span>
+										<span>{...pcnt}개</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price"></div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="order-status"></div>
+								<div class="btn-group"></div>
+							</div>
+						</dd>
+					</dl>
+					{/}
+					{/}
+					{:}
+					{* 일반상품 *}
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="/shop/goodsView/{..pid}">
+									<img src="{..pimg}" alt="" />
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="/shop/goodsView/{..pid}">{..pname}</a>
+								</div>
+								<div class="product-item__option">
+									<a href="/shop/goodsView/{..pid}">
+										<span class="set-name">{..option_text}</span>
+										{? ..add_info}
+										<span>{..add_info}</span>
+										{/}
+										<span>{..pcnt}개</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price">{fbUnit.f}<em>{=g_price(..pt_listprice)}</em>{fbUnit.b}</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="order-status">
+									<p>{..status_text}</p>
+									{? ..refund_status}<p>{..refund_status_text}</p>{/}
+								</div>
+								<!-- <div class="btn-group">
+									<button type="button" class="btn-default btn-dark-line">주문 취소</button>
+								</div> -->
+							</div>
+						</dd>
+					</dl>
+					{/}
+					<!-- 상품 E -->
+
+					{*상품 사은품*}
+					{? ..product_gift}
+					<!-- 사은품 영역 S -->
+					<div class="product-gift-wrap">
+						<div class="product-gift__title">
+							<strong>{=trans('구매 사은품')}</strong>
+						</div>
+						<ul class="product-gift__list">
+							{@ product_gift}
+							<li class="product-gift__box inner-gift devGiftList" id="devPgItem">
+								<figure class="product-gift__thumb">
+									<img src="{product_gift.image_src}" alt="" />
+								</figure>
+								<div class="product-gift__info">
+									<div class="product-gift__info__pname">{product_gift.pname}</div>
+									<div class="product-gift__info__count">
+										<span>1{=trans('개')}</span>
+									</div>
+								</div>
+							</li>
+							{/}
+						</ul>
+					</div>
+					<!-- 사은품 영역 E -->
+					{/}
+					{/}
+				</li>
+				<!--
+				<li class="product-item__list">
+					-- 상품 S --
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="">
+									<img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="#;">우먼 피쉬백 스트랩 스윔 브라탑</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">유니섹스 트랙 셋업 자켓</span>
+										<span>블랙+M</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">유니섹스 트랙 셋업 자켓</span>
+										<span>블랙+M</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price"><em>1,265,550</em>원</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="order-status">결제완료</div>
+								<div class="btn-group">
+									<button type="button" class="btn-default btn-dark-line">주문 취소</button>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					-- 상품 E --
+				</li>
+				<li class="product-item__list">
+					-- 상품 S --
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="">
+									<img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="#;">우먼 피쉬백 스트랩 스윔 브라탑</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span>미드나잇</span>
+										<span>95</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price"><em>1,265,550</em>원</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="order-status">결제완료</div>
+								<div class="btn-group">
+									<button type="button" class="btn-default btn-dark-line">주문 취소</button>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					-- 상품 E --
+				</li>
+				<li class="product-item__list">
+					-- 상품 S --
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="">
+									<img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="#;">우먼 피쉬백 스트랩 스윔 브라탑</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span>미드나잇</span>
+										<span>95</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price"><em>1,265,550</em>원</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="order-status">배송준비중</div>
+							</div>
+						</dd>
+					</dl>
+					-- 상품 E --
+				</li>
+				<li class="product-item__list">
+					-- 상품 S --
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="">
+									<img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="#;">우먼 피쉬백 스트랩 스윔 브라탑</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">유니섹스 트랙 셋업 자켓</span>
+										<span>블랙+M</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">유니섹스 트랙 셋업 자켓</span>
+										<span>블랙+M</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price"><em>1,265,550</em>원</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="order-status">배송중</div>
+								<div class="btn-group">
+									<button type="button" class="btn-default btn-gray-line">배송조회</button>
+									<button type="button" class="btn-default btn-dark-line">배송완료</button>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					-- 상품 E --
+				</li>
+				<li class="product-item__list">
+					-- 상품 S --
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="">
+									<img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="#;">우먼 피쉬백 스트랩 스윔 브라탑</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">유니섹스 트랙 셋업 자켓</span>
+										<span>블랙+M</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">유니섹스 트랙 셋업 자켓</span>
+										<span>블랙+M</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price"><em>1,265,550</em>원</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="order-status">배송완료</div>
+								<div class="btn-group">
+									<button type="button" class="btn-default btn-gray-line">배송조회</button>
+									<button type="button" class="btn-default btn-gray-line">반품신청</button>
+									<button type="button" class="btn-default btn-dark-line">구매확정</button>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					-- 상품 E --
+				</li>
+				<li class="product-item__list">
+					-- 상품 S --
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="">
+									<img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="#;">우먼 피쉬백 스트랩 스윔 브라탑</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">유니섹스 트랙 셋업 자켓</span>
+										<span>블랙+M</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">유니섹스 트랙 셋업 자켓</span>
+										<span>블랙+M</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price"><em>1,265,550</em>원</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="order-status">구매확정</div>
+								<div class="btn-group">
+									<button type="button" class="btn-default btn-gray-line">배송조회</button>
+									<button type="button" class="btn-default btn-dark-line">리뷰쓰기</button>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					-- 상품 E --
+				</li>
+				<li class="product-item__list">
+					-- 상품 S --
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="">
+									<img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="#;">우먼 피쉬백 스트랩 스윔 브라탑</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">유니섹스 트랙 셋업 자켓</span>
+										<span>블랙+M</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">유니섹스 트랙 셋업 자켓</span>
+										<span>블랙+M</span>
+										<span>1개</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price"><em>1,265,550</em>원</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="order-status">구매확정</div>
+								<div class="btn-group">
+									<button type="button" class="btn-default btn-gray-line">내가 쓴 리뷰 보기</button>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					-- 상품 E --
+				</li>
+				-->
+			</ul>
+		</div>
+        {/}
+	</section>
+    <!--{? freeGift}-->
+    <!--{@ freeGift}-->
+    <!--{? .gift_products}-->
+	<section class="fb__mypage__section gift-wrap">
+		<div class="fb__mypage-title">
+			<div class="title-sm">{=trans(.freegift_condition_text)}</div>
+		</div>
+		<div class="gift-list">
+			<ul class="product-item__wrap">
+				<li class="product-item__list">
+					<!-- 상품 영역 S -->
+					<!--{@ .gift_products}-->
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<img src="{..image_src}" alt="" />
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title">{..pname}</div>
+								<div class="product-item__option">
+									<span>{..pcnt}{=trans('개')}</span>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					<!--{/}-->
+					<!-- 상품 영역 E -->
+				</li>
+			</ul>
+		</div>
+	</section>
+    <!--{/}-->
+    <!--{/}-->
+    <!--{/}-->
+
+	<section class="fb__mypage__section delivery-info">
+		<div class="fb__mypage-title">
+			<div class="title-sm">
+				{=trans('배송 정보')}
+				{? order.deliveryChange > 0}
+				<button class="fb__mypage__btn--lightgray float-r address-link" id="devDeliveryChangeBtn" data-oid="{order.oid}" style="display:none;">{=trans('배송지변경')}</button>
+				{/}
+			</div>
+		</div>
+		<div class="delivery-info__box">
+			<div class="delivery-info__recipient"><span id="devRnameTxt">{deliveryInfo.rname}</span></div>
+			<div class="delivery-info__address">
+				{? langType == 'korean'}
+				<p>
+					<span class="zip-code" id="devZipTxt">{deliveryInfo.zip}</span>
+					<span class="addr1" id="devAddr1Txt">{deliveryInfo.addr1}</span>
+					<span class="addr2" id="devAddr2Txt">{deliveryInfo.addr2}</span>
+				</p>
+				<p class="phone-number"><span id="devRmobileTxt">{deliveryInfo.rmobile}</span></p>
+				{? deliveryInfo.rtel != '--'}
+				<p class="phone-number"><span id="devRtelTxt">{deliveryInfo.rtel}</span></p>
+				{/}
+				{:}
+				<p>
+					<span class="zip-code" id="">{deliveryInfo.country_full}</span>
+					<span class="zip-code" id="devZipTxt">{deliveryInfo.zip}</span>
+					<span class="addr1" id="devAddr1Txt">{deliveryInfo.addr1}</span>
+					<span class="addr2" id="devAddr2Txt">{deliveryInfo.addr2}</span>
+					<span class="addr2" id="">{deliveryInfo.city}</span>
+					<span class="addr2" id="">{deliveryInfo.state}</span>
+				</p>
+				{/}
+			</div>
+			<dl class="delivery-info__list">
+				<dt class="delivery-info__cate">{=trans('배송 요청사항')}</dt>
+				<dd class="delivery-info__cont">
+                    {@ deliveryInfo.msg}
+                    <div {? .index_ > 0 && deliveryInfo.pcnt > 5}class="section devDeliveryMsgBox" style="display:none"{:}class="section"{/}>
+                        {? deliveryInfo.pcnt > 1}<p class="product">{? .brand_name}[{.brand_name}]{/}{.pname}</p>{/}
+                        <p id="devDeliveryMsgText{.msg_ix}">{.msg}</p>
+						{? order.status == c.ORDER_STATUS_INCOM_READY || order.status == c.ORDER_STATUS_INCOM_COMPLETE}
+                        {? langType == 'korean'}
+                        <!-- <div class="mat10">
+                            <input type="text" class="devDeliveryMsgInputBox" id="devDeliveryMsg{.msg_ix}" maxlength="60" data-msgix="{.msg_ix}" />
+                            {? false}
+                            <button class="btn-default btn-dark-line devDeliveryMsgModifyBtn" data-oid="{order.oid}" data-msgix="{.msg_ix}" data-msgtype="{.msg_type}">{=trans('요청사항 변경')}</button>
+                            {/}
+                        </div>
+                        <div class="mat10">
+                            <div class="counting">
+                                <em class="txt-error">{=trans('요청사항을 입력하세요.')}</em>
+                                <span><em id="devMsgLength{.msg_ix}">0</em>/30 자</span>
+                            </div>
+                        </div> -->
+                        {:}
+                        <!-- <div class="mat10">
+                            <input type="text" class="devDeliveryMsgInputBox" id="devDeliveryMsg{.msg_ix}" maxlength="60" data-msgix="{.msg_ix}" />
+                            {? false}
+                            <button class="btn-default btn-dark-line devDeliveryMsgModifyBtn" data-oid="{order.oid}" data-msgix="{.msg_ix}" data-msgtype="{.msg_type}">{=trans('요청사항 변경')}</button>
+                            {/}
+                        </div>
+                        <div class="mat10">
+                            <div class="counting">
+                                <em class="txt-error">{=trans('요청사항을 입력하세요.')}</em>
+                                <span><em id="devMsgLength{.msg_ix}">0</em>/60 byte</span>
+                            </div>
+                        </div> -->
+                        {/}
+
+                        {/}
+                    </div>
+                    {? deliveryInfo.msg_type == 'P' && deliveryInfo.pcnt > 5 && .index_ == 0}
+                    <div class="section more-btn toggle" id="devDeliveryMsgMoreBtn">
+                        <span>{=trans('더보기')}</span>
+                    </div>
+                    {/}
+                    {/}
+				</dd>
+			</dl>
+		</div>
+	</section>
+
+
+	<section class="fb__mypage__section pmt-info">
+		<div class="fb__mypage-title">
+			<div class="title-sm">{=trans('결제 정보')}</div>
+		</div>
+		<div class="pmt-info__box">
+			<dl class="pmt-info__list pmt-info__total">
+				<dt class="pmt-info__cate">
+					{? order.status == 'IR'}
+					{=trans('총 결제 예정 금액')}
+					{:}
+					{=trans('총 결제 금액')}
+					{/}				
+				</dt>
+				<dd class="pmt-info__cont">{fbUnit.f}<span>{=g_price(paymentInfo.payment[0].payment_price)}</span>{fbUnit.b}</dd>
+			</dl>
+			<!-- 가상계좌 결제시 노출 / 숨김처리 되어 있음 S -->
+			<div class="pmt-info__virtual">
+				<div class="pmt-info__virtual-box">
+                    <!--{@ paymentInfo.payment}-->
+                    {? .method : c.ORDER_METHOD_BANK : c.ORDER_METHOD_VBANK : c.ORDER_METHOD_ICHE : c.ORDER_METHOD_ASCROW}
+					<dl class="pmt-info__virtual-account">
+						<dt>{.method_text}</dt>
+						<dd>{.bank} / {=trans('계좌번호')} : {.bank_account_num} / {=trans('예금주')} : {.bank_input_name}</dd>
+					</dl>
+					<dl class="pmt-info__deadline txt-red">
+						<dt>{=trans('입금 기한')}</dt>
+						<dd>{=date('Y-m-d', strtotime(.bank_input_date))}</dd>
+					</dl>
+					{:}
+					<dl class="pmt-info__virtual-account">
+						<dt>{.method_text}</dt>
+						<dd>{.memo}</dd>
+					</dl>
+                    {/}
+                    <!--{/}-->
+					<dl class="pmt-info__virtual-account">
+						<dt>{=trans('적립금 적립')}</dt>
+						<dd>{fbUnit.f} {=g_price(paymentInfo.total_reserve)} {fbUnit.b}{=trans('적립(상품 구매 시)')}</dd>
+					</dl>
+				</div>
+				<!-- 안내/경고 메시지 영역(숨김처리함) S -->
+				<p class="txt-guide" style="display: none"><!-- 혹여 안내 메시지 사용시 여기다 넣어주세요. --></p>
+				<!-- 안내/경고 메시지 영역(숨김처리함) E -->
+			</div>
+			<!-- 가상계좌 결제시 노출 / 숨김처리 되어 있음 E -->
+			<!--{@ paymentInfo.payment}-->
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('결제방법')}</dt>
+				<dd class="pmt-info__cont">{.method_text}</dd>
+				<!-- <dd class="pmt-info__cont">{.method_text} / {.memo}</dd> -->
+			</dl>
+			<!--{/}-->	
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('총 상품금액')}</dt>
+				<dd class="pmt-info__cont">{fbUnit.f}<span>{=g_price(paymentInfo.total_listprice)}</span>{fbUnit.b}</dd>
+			</dl>
+
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('총 할인금액')}</dt>
+				<dd class="pmt-info__cont">- {fbUnit.f}<span>{=g_price(paymentInfo.total_dc)}</span>{fbUnit.b}</dd>
+			</dl>
+
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('자동할인')}</dt>
+				<dd class="pmt-info__cont">- {fbUnit.f}<span>{=g_price(paymentInfo.dr_dc)}</span>{fbUnit.b}</dd>
+			</dl>
+
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('등급 할인')}</dt>
+				<dd class="pmt-info__cont">- {fbUnit.f}<span>{=g_price(paymentInfo.mg_dc)}</span>{fbUnit.b}</dd>
+			</dl>
+
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('쿠폰 할인')}</dt>
+				<dd class="pmt-info__cont">- {fbUnit.f}<span>{=g_price(paymentInfo.cp_dc)}</span>{fbUnit.b}</dd>
+			</dl>
+
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('적립금 사용')}</dt>
+				<dd class="pmt-info__cont">- {fbUnit.f}<span>{=g_price(paymentInfo.use_reserve)}</span>{fbUnit.b}</dd>
+			</dl>
+
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('총 배송비')}</dt>
+				<dd class="pmt-info__cont delivery">{fbUnit.f}<span>{=g_price(order.delivery_price)}</span>{fbUnit.b}</dd>
+			</dl>
+		</div>
+		<div class="fb__mypage__section-btn">
+            {? langType == 'korean' && order.status != 'IR'}
+			<!--{@ paymentInfo.payment}-->
+				{? .method == c.ORDER_METHOD_CARD }
+					{? .tid}
+					<button type="button" class="btn-s btn-dark-line float-r devCardInfo" data-tid="{.tid}" data-oid="{order.oid}" data-total="{=intval(.payment_price)}">{=trans('신용카드 전표')}</button>
+					{/}
+				{:}
+					<button type="button" class="btn-default btn-dark-line receipt-btn" data-oid="{order.oid}">{=trans('영수증 보기')}</button>
+				{/}
+            {/}
+			<!--{/}-->
+		</div>
+	</section>
+
+	<!--취소완료 S -->
+     {? claimData.cancelData }
+	<section class="fb__mypage__section delivery-info">
+		<div class="fb__mypage-title">
+			<div class="title-sm">{=trans('반품신청 환불내역')}</div>
+		</div>
+		<div class="pmt-info__box">
+			<div class="delivery-info__recipient"><span id="devRnameTxt">{deliveryInfo.rname}</span></div>
+			{@ claimData.cancelData }
+
+			<dl class="pmt-info__list">
+				{@ .productList}
+				<dt class="pmt-info__cate">{? ..brand_name}[{..brand_name}]{/}  {..pname}</dt>
+				{/}
+				<dd class="pmt-info__cont">{fbUnit.f}<em>{=g_price(.totReturnPrice)}</em>{fbUnit.b}</dd>
+				<dd class="pmt-info__cont">{.refundDate}</dd>
+				
+			</dl>
+			{/}
+		</div>
+	</section>
+    {/}
+	<!--취소완료 E -->
+
+	<!--반품완료 S -->
+    {? claimMergedData.returnData } 
+	<section class="fb__mypage__section delivery-info">
+		<div class="fb__mypage-title">
+			<div class="title-sm">{=trans('반품신청 환불내역')}</div>
+		</div>
+		<div class="pmt-info__box">
+			<div class="delivery-info__recipient"><span id="devRnameTxt">{deliveryInfo.rname}</span></div>
+			{@ claimMergedData.returnData }
+			<dl class="pmt-info__list">
+				{@ .productList}
+				<dt class="pmt-info__cate">{? ..brand_name}[{..brand_name}]{/}  {..pname}</dt>
+				{/}
+				<dd class="pmt-info__cont">{fbUnit.f}<em>{=g_price(.totReturnPrice)}</em>{fbUnit.b}</dd>
+				<dd class="pmt-info__cont">{.refundDate}</dd>
+				
+			</dl>
+			{/}
+		</div>
+	</section>
+    {/}
+	<!--반품완료-- E -->
+
+</section>
+<!-- 컨텐츠 E -->

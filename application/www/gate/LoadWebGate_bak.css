@@ -1,0 +1,68 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    color: black;
+    background-color: white;
+    font-size: 1rem;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-family: 'Malgun Gothic', sans-serif;
+}
+
+body {
+    background-image: url(//cdn.devy.kr/1004/img/background-pc.jpg?v=200306a);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.wrapper {
+    position: fixed;
+    width: 1920px;
+    height: 1080px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(//cdn.devy.kr/1004/img/overwrap-pc.png?v=200306a);
+    margin-top: 50px;
+}
+
+    div.wrapper div.waiting-info {
+        position: absolute;
+        left: 490px;
+        top: 310px;
+        width: 940px;
+        height: 370px;
+        font-size: 1.2rem;
+        letter-spacing: -1px;
+    }
+
+        div.wrapper div.waiting-info div.waiting-count {
+            position: absolute;
+            left: 250px;
+            top: 160px;
+        }
+
+        div.wrapper div.waiting-info div.waiting-time {
+            position: absolute;
+            left: 545px;
+            top: 160px;
+        }
+
+        div.wrapper div.waiting-info div.progress-bar {
+            position: absolute;
+            left: 246px;
+            top: 227px;
+            width: 450px;
+            height: 34px;
+            background-color: rgb(240,240,240);
+        }
+
+            div.wrapper div.waiting-info div.progress-bar div.gage {
+                background-color: rgb(1,57,238);
+                width: 0;
+                height: 100%;
+            }
+

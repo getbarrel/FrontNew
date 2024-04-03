@@ -1,0 +1,226 @@
+INFO	[2019-08-05 17:19:53:288] <19540> START INIPHP cancel (NV5050-20181201)(OS:Windows NT6.3,PHP:7.0.30)
+DEBUG	[2019-08-05 17:19:53:288] <19540> inipayhome:F:\netbeansworkspace\php-vfix-alpha2-front\application\custom\payment/inicis
+DEBUG	[2019-08-05 17:19:53:288] <19540> debug:false
+DEBUG	[2019-08-05 17:19:53:288] <19540> mid:INIpayTest
+DEBUG	[2019-08-05 17:19:53:288] <19540> type:cancel
+DEBUG	[2019-08-05 17:19:53:288] <19540> admin:1111
+DEBUG	[2019-08-05 17:19:53:288] <19540> tid:StdpayVBNKINIpayTest20190805171955096470
+DEBUG	[2019-08-05 17:19:53:288] <19540> cancelmsg:
+INFO	[2019-08-05 17:19:53:289] <19540> Check Field OK
+INFO	[2019-08-05 17:19:53:289] <19540> INPUT TID > StdpayVBNKINIpayTest20190805171955096470
+INFO	[2019-08-05 17:19:53:289] <19540> PI PUB KEY LOAD OK []
+INFO	[2019-08-05 17:19:53:291] <19540> PG PUB KEY LOAD OK [30]
+INFO	[2019-08-05 17:19:53:293] <19540> MERCHANT PRIV KEY LOAD OK
+INFO	[2019-08-05 17:19:53:293] <19540> MERCHANT PUB KEY LOAD OK [0]
+DEBUG	[2019-08-05 17:19:53:296] <19540> MAKE ENCRYPT OK[<?xml version="1.0" encoding="UTF-8"?>
+<CancelInfo>
+	  <CancelTID>StdpayVBNKINIpayTest20190805171955096470</CancelTID>
+	  <CancelMsg/>
+	  <CancelReason/>
+	  <RefundAcctNum/>
+	  <RefundBankCode/>
+	  <RefundAcctName/></CancelInfo>]
+INFO	[2019-08-05 17:19:53:296] <19540> MAKE BODY OK
+INFO	[2019-08-05 17:19:53:298] <19540> SIGN OK
+INFO	[2019-08-05 17:19:53:298] <19540> MAKE HEAD OK
+DEBUG	[2019-08-05 17:19:53:298] <19540> MSG_TO_PG:[0093300175D SHA1                   0                                      300420INIpayTest                    StdpayVBNKINIpayTest20190805171955096470<?xml version="1.0" encoding="UTF-8"?>
+<INIpay>
+	  <CancelInfo>
+	    <SessionKey>Q8d2hHiESPwmhLG+h5sHN7tbvBUEThIMYFLm/azOcVTt4wPNzgejbG1hKLDcjElV
+VhAsw1PEWUoQG/HiREauRtl67AScSAl/LG152vM4DeDAZhz5vpDI1jCObWq/3mAS
+xyUqRIcmz0rVUDIFIUOL6l+Xx5JYYg3NTWe8wVNQkRN9zqk9oEGjlw==
+</SessionKey>
+	    <Encrypted>chrAUxMjQWMH0V7FXKkDPilm1vBYuH82lsGYSk3aspkReOSkaT9IF9gNEyiFXVyf
+q0NLgcoqc7ji+XsRaFH1a+mhz7h/O/nZ2PJ0Z4f6BoNVNJAM5Cj2zi3WVQPct1ws
+DpWhI/6b2eGJu7ZDP2SrZHqheOehZL+G/lq1LcNlfjbfGC6dvRtAfO+Qy5ufGnxC
+FMGWR89Fj/6NZ9vNnruBU1zmiLTDTGfwoZtqNRJsVAX0atjfvvtoqRQMmVaG+ttI
+37ko22sC7nQ2pz/9UUb13dSsg2HKRxLK1e5rXuRas8Fw3yNmn+wNIQ==
+</Encrypted></CancelInfo>
+	  <ReservedInfo>
+	    <MReserved1/>
+	    <MReserved2/>
+	    <MReserved3/></ReservedInfo>
+	  <ManageInfo>
+	    <Language/>
+	    <URL/>
+	    <TXVersion>NV5050B20181201canceWindows NTPHPchkfake   6.3PHP:7.0.30                 </TXVersion>
+	    <TXUserID/>
+	    <TXRegNum/></ManageInfo></INIpay>YZq2rl4nY4Q35aEgOrLtq4fc6RSVkFmwvqsinibrwOTfYR6eHpEo2nRNVZsn8cbP
+VJAMHrkeATUM6ITpKniOnEDCpv2lPQsHZaSFuFXFaFZRV70HXZ6O9EdobV36xvTH
+Ew7a1Be8mc1eYyAe9OTKcQDHAIM/Niu3yA6IhWoLots=
+]
+INFO	[2019-08-05 17:19:53:306] <19540> DNS LOOKUP OK(formpg.inicis.com, 39.115.212.10:34049) laptime:0.008
+INFO	[2019-08-05 17:19:53:308] <19540> SOCKET CONNECT OK
+INFO	[2019-08-05 17:19:53:308] <19540> SEND OK
+INFO	[2019-08-05 17:19:53:534] <19540> RECV OK
+INFO	[2019-08-05 17:19:53:534] <19540> MSG_FROM_PG:[0159300175D SHA1                   0                                      300430INIpayTest                    StdpayVBNKINIpayTest20190805171955096470<?xml version="1.0" encoding="UTF-8"?>
+<INIpay>
+  <CancelInfo>
+    <ResultCode>170000</ResultCode>
+    <ResultMsg urlencode="1">%C1%A4%BB%F3%C3%B3%B8%AE%B5%C7%BE%FA%BD%C0%B4%CF%B4%D9.</ResultMsg>
+    <SessionKey>Gnf6k9aZXPChcEqi90X+8xqMXd+AHI/ZvA956creAbNu7jiq4d773pgv4jy/fnng
+P+yjmwYQSgXyH4UWpPoJQd+MYV7ons6LeoJhs3rKPXVlVRlF/T/Fnk0XjE1blWxt
+s9Xv+2umKUvQSmUDAnQLDJQOndVs/spdL+LyuilYUjTXvsBV1XOZDw==
+</SessionKey>
+    <Encrypted>E1XnMVb9XnOIt+Gk49G7X5nnRvBiHoUZOAmIzQpIbUNwSfmL9D/kfkJykOyFSDez
+9rYFSIMosXZe2pWo0UXph5iaRC+qDvoHP0F84z8B/8LDYF7rFyEy+yH6xLoa23By
+nqCwHQVFGwSiqZYbhNZGk00pnvF26n8qdcSP1US8eVKuveqmMnq2+7tf2M5Nbfiv
+QpZNsJ45xMDltCG4J2wA/phIcqEEpSuhG8PJMP/d6cxBxzgTt9rpseRkqcQkougB
+FALzzQqeB7Q8IDjkjJsxWJjzo+efDbgj+FsrpIRp9MRaLdSxtJJmPfzYTpcHNGZc
+nHR/fy6vniIgxfm1JPS9Bps0qChUOFDSQyUBXkVIB8YjZyF09LKZbWNwCua7xKFI
+KuSkPSBii5N6zgGzj46N/OF/YoOKLOX2/o4+3aba3+YR7H2PbzjiaXN0eONS3rma
+cGafrF+XNitcUgu/j+1mVi3BrF5/5DQ9i3Y6ULwM3Jb7WdibQhomwX+3xTP+ic75
+WgmuHH12FoIlpDxk0paLzOd4g4c6dcytePNTySkrGGnE4gLqh7LlvKvQHhQweDYZ
+xevUZY4PtOj2XhlvOANivVsAD/lmn89KVbZeeL2zfOOsqTlFoyPwucLf3VAWpXHC
+vq7/UkasBzd35GXroyytPSFw0gvF4Gw1TY11wgyPcbuBVgQIRsVyQVoVyVfT85XW
+2bZ/2c7/K+0SMg6quc5L0+3m775W1U0KbttXxUB+9OeN2m49xCw8D7YHQKxCyG3N
+EU1Gkmwvhq5Hk5W1OeydVA==
+</Encrypted>
+  </CancelInfo>
+  <ManageInfo/>
+  <ReservedInfo>
+    <MReserved1 urlencode="1"></MReserved1>
+    <MReserved2 urlencode="1"></MReserved2>
+    <MReserved3 urlencode="1"></MReserved3>
+    <PGReserved1 urlencode="1"></PGReserved1>
+    <PGReserved2 urlencode="1"></PGReserved2>
+    <PGReserved3 urlencode="1"></PGReserved3>
+  </ReservedInfo>
+</INIpay>
+kHZyNmrXY3Fx6Z+skvxsrOsLjyYFteDqzlewb6N0LPjl1YWVQc77QeHUcBfAS/i4
+gEVMd1lm+ixyrVflRzXv+UWz4l+kbZwVcEGQ/YVLoxv8RMe8DBpgnTbbr4E29ddN
+b7N3Ha62bXGWyNmB6bloF6RPlmyp0MnAKLD3j8r4UVQ=
+]
+INFO	[2019-08-05 17:19:53:534] <19540> VERIFY OK
+INFO	[2019-08-05 17:19:53:535] <19540> PARSE HEAD OK
+INFO	[2019-08-05 17:19:53:539] <19540> PARSE BODY OK
+INFO	[2019-08-05 17:19:53:540] <19540> DECRYPT OK
+DEBUG	[2019-08-05 17:19:53:540] <19540> DECRYPT MSG:[<?xml version="1.0" encoding="UTF-8"?>
+<CancelInfo>
+  <CancelDate>20190805</CancelDate>
+  <CancelTime>171955</CancelTime>
+  <ResultCode>170000</ResultCode>
+  <ResultMsg urlencode="1">%C1%A4%BB%F3%C3%B3%B8%AE%B5%C7%BE%FA%BD%C0%B4%CF%B4%D9.</ResultMsg>
+  <CSHR_CancelNum></CSHR_CancelNum>
+  <CSHR_CancelDate>20190805</CSHR_CancelDate>
+  <CSHR_CancelTime>171955</CSHR_CancelTime>
+  <CSHR_ResultCode>220000</CSHR_ResultCode>
+  <CSHR_ResultMsg urlencode="1">%C1%A4%BB%F3%C3%B3%B8%AE%B5%C7%BE%FA%BD%C0%B4%CF%B4%D9.</CSHR_ResultMsg>
+  <VACT_FlgRemit urlencode="1"></VACT_FlgRemit>
+</CancelInfo>]
+INFO	[2019-08-05 17:19:53:542] <19540> DECRYPT PARSE OK
+INFO	[2019-08-05 17:19:53:542] <19540> END cancel 정상처리되었습니다. Laptime:[0.254sec]
+INFO	[2019-08-05 17:19:53:542] <19540> ===============================================================
+INFO	[2019-08-05 17:20:17:537] <19540> START INIPHP cancel (NV5050-20181201)(OS:Windows NT6.3,PHP:7.0.30)
+DEBUG	[2019-08-05 17:20:17:537] <19540> inipayhome:F:\netbeansworkspace\php-vfix-alpha2-front\application\custom\payment/inicis
+DEBUG	[2019-08-05 17:20:17:537] <19540> debug:false
+DEBUG	[2019-08-05 17:20:17:537] <19540> mid:INIpayTest
+DEBUG	[2019-08-05 17:20:17:537] <19540> type:cancel
+DEBUG	[2019-08-05 17:20:17:537] <19540> admin:1111
+DEBUG	[2019-08-05 17:20:17:537] <19540> tid:StdpayVBNKINIpayTest20190805172019272019
+DEBUG	[2019-08-05 17:20:17:537] <19540> cancelmsg:
+INFO	[2019-08-05 17:20:17:538] <19540> Check Field OK
+INFO	[2019-08-05 17:20:17:538] <19540> INPUT TID > StdpayVBNKINIpayTest20190805172019272019
+INFO	[2019-08-05 17:20:17:538] <19540> PI PUB KEY LOAD OK []
+INFO	[2019-08-05 17:20:17:538] <19540> PG PUB KEY LOAD OK [30]
+INFO	[2019-08-05 17:20:17:538] <19540> MERCHANT PRIV KEY LOAD OK
+INFO	[2019-08-05 17:20:17:539] <19540> MERCHANT PUB KEY LOAD OK [0]
+DEBUG	[2019-08-05 17:20:17:540] <19540> MAKE ENCRYPT OK[<?xml version="1.0" encoding="UTF-8"?>
+<CancelInfo>
+	  <CancelTID>StdpayVBNKINIpayTest20190805172019272019</CancelTID>
+	  <CancelMsg/>
+	  <CancelReason/>
+	  <RefundAcctNum/>
+	  <RefundBankCode/>
+	  <RefundAcctName/></CancelInfo>]
+INFO	[2019-08-05 17:20:17:540] <19540> MAKE BODY OK
+INFO	[2019-08-05 17:20:17:541] <19540> SIGN OK
+INFO	[2019-08-05 17:20:17:541] <19540> MAKE HEAD OK
+DEBUG	[2019-08-05 17:20:17:541] <19540> MSG_TO_PG:[0093300175D SHA1                   0                                      300420INIpayTest                    StdpayVBNKINIpayTest20190805172019272019<?xml version="1.0" encoding="UTF-8"?>
+<INIpay>
+	  <CancelInfo>
+	    <SessionKey>YC8T4uQrGVnjzNufgwuT27V290MU42sYPt8a7xOSTHXroxFbVLE+9dFC5XvqXDrY
+lsFwlszPhgzlAd+uSCq2lvEDwL9zZ9QPn3f4yu2OHEwSdgo/RysX0fL4zPdd61Nm
+Sk62t+8VX7adA/vCYHQwEI3SfGingYZge1Os5hR/N0RHgpaXzNpzMg==
+</SessionKey>
+	    <Encrypted>hSqIiF+9x4TBKDje2Y0DrLYhGfFqPPlyGk0Hfx3IcT3ajQwOiCPNmrqY3HPjaLxU
+gmUK1DDxgB3YnGaXBdlgOIaZCgUA5HDavhgaFgaJBnMCq4HVIRgevMe+4cnT3B4X
+C6JryOOyEHusJfDh3NkK/SfK3FIl8eR3ohwLOh365seMZa+XBkxMPc/Y7kAgzLRZ
+eLlAd8f1xwUk1+Ru8BgCi3A+idpH8VPYHmc8sJF6McDYYs2ZwTdq+FPx81RPq/Z0
+EoxibnjdQ0esCfwvQQsykusyygTKknB2Yzvaw70L++lIUdEScxK+YQ==
+</Encrypted></CancelInfo>
+	  <ReservedInfo>
+	    <MReserved1/>
+	    <MReserved2/>
+	    <MReserved3/></ReservedInfo>
+	  <ManageInfo>
+	    <Language/>
+	    <URL/>
+	    <TXVersion>NV5050B20181201canceWindows NTPHPchkfake   6.3PHP:7.0.30                 </TXVersion>
+	    <TXUserID/>
+	    <TXRegNum/></ManageInfo></INIpay>ynX4P2RupidagHQIQxIJhDel6ImeOn3l6rjJy7PD+VPzc7tUAd/ZsHJYactraijf
+7jYYqqzke7cLWFNBf0r/kU4GVBdSjOBlAOClrmBAhv6uNzqScFZVIA2betbzbYVt
+NV4+FLMy4r0NG30E7tPUnI8jZaAURcbPkrTLEmlg6p4=
+]
+INFO	[2019-08-05 17:20:17:541] <19540> DNS LOOKUP OK(formpg.inicis.com, 39.115.212.10:34049) laptime:0
+INFO	[2019-08-05 17:20:17:543] <19540> SOCKET CONNECT OK
+INFO	[2019-08-05 17:20:17:544] <19540> SEND OK
+INFO	[2019-08-05 17:20:17:788] <19540> RECV OK
+INFO	[2019-08-05 17:20:17:788] <19540> MSG_FROM_PG:[0159300175D SHA1                   0                                      300430INIpayTest                    StdpayVBNKINIpayTest20190805172019272019<?xml version="1.0" encoding="UTF-8"?>
+<INIpay>
+  <CancelInfo>
+    <ResultCode>170000</ResultCode>
+    <ResultMsg urlencode="1">%C1%A4%BB%F3%C3%B3%B8%AE%B5%C7%BE%FA%BD%C0%B4%CF%B4%D9.</ResultMsg>
+    <SessionKey>qmCnmCMJKQMxZrHYv4xC2cmPQ0ffjUxBtgvA/xCk30FeIBri6cv5CFXCfSyUjRfC
+u65P0oK4KALm5cLUEs8iJTNzN5rEpGyIhR6XEgiwUu8UyiI6Iaxg1IWZfB9cr3sg
+fuZ09w9JWcH8/+rvi3dR6ejmiiE81ifVmqxn4ZYkKJKhzXs1Tb6J6w==
+</SessionKey>
+    <Encrypted>SP1MBpGx+UwG0qdlXbGIH1FmU4fqS/SFu5LTw03RNn8SEU6dRlk2Jb7ei5nbXkxG
++9l73wYqbrSz8YgMJFugmbvC8A252SVzBGxEtewGThTEq/KT0cP+8r0/PQK3oumj
+jAMtqVGJSzSsed5qjZBEpYSarofEAR4WxrN7mdC8BDEcLvx+GU7Xc3/Ta8nEN7cu
+WXIl/olKRY94WsIgmsfS4osCwrPXHXT2anPg4nQtEOdAA5rE0Op9zlZMpNs+R3q+
+xNQt1QEx/qRH7O1uaC99iksCdgAweb/0iDlrUkMmoMkaBuC+6bB/4oyT04hdEBoX
+s8bo7UsG+iH1A4tsUioiaKHzQT3sezo5KttCzzQCc2jRdrJRnXueRC7mLEQ0Dn2U
+0h6Dcx+QvTR9Of2vs4fjUUjgjlxUdcTKRGqg3oIhjPZnf24WKCUCRrZFrRm64FGT
+tbnnzyPHv0Asaf+hle0xxIGd3XgZYHxKMbv/rK4jtFwJsGn7ye+dc4H7MvWacGPP
+w8aq3Z63tt9dpHh72d6aqX6OeOp+fVHhR23DmMwgFZIG1n1pUAKMClL8v/k+b2Iw
+rPfhmXy65HuCDir8CMkEheAfFSQ9ve0s65jJL2BfK9RIWJrtxyOMluFuPDZrYJ0M
+KBQmFq0EW0KJ1Q9rffCmCphpV/gqapOqqq7ZyHtTnhzxsLCQOQmdLhQ7IsZ7oGsC
+m97tgzG51c/FawN1oZwTYw3u8KJVsD9AwOJLSYeiY5hruk+Q9Y+Y0kh11tJaz/RT
+1LHiNRr9iIGwFVayq6K2pg==
+</Encrypted>
+  </CancelInfo>
+  <ManageInfo/>
+  <ReservedInfo>
+    <MReserved1 urlencode="1"></MReserved1>
+    <MReserved2 urlencode="1"></MReserved2>
+    <MReserved3 urlencode="1"></MReserved3>
+    <PGReserved1 urlencode="1"></PGReserved1>
+    <PGReserved2 urlencode="1"></PGReserved2>
+    <PGReserved3 urlencode="1"></PGReserved3>
+  </ReservedInfo>
+</INIpay>
+dsFlsRWNB88s20ZXpCWHS0yHBOeEL6bvK1aKGW2enaer/SQtP9DwdyQqqth1iTEJ
+eHMLVKzRVII+XLmYt27bOLYTdcSxZdSci4JEdauFSecKhkXFOdJ/AlBbfar3RHRx
+QsPlFHqRpDChaDbj12uYn3Vjo/Pz0A0ZRzSXXJisIfU=
+]
+INFO	[2019-08-05 17:20:17:788] <19540> VERIFY OK
+INFO	[2019-08-05 17:20:17:788] <19540> PARSE HEAD OK
+INFO	[2019-08-05 17:20:17:796] <19540> PARSE BODY OK
+INFO	[2019-08-05 17:20:17:800] <19540> DECRYPT OK
+DEBUG	[2019-08-05 17:20:17:801] <19540> DECRYPT MSG:[<?xml version="1.0" encoding="UTF-8"?>
+<CancelInfo>
+  <CancelDate>20190805</CancelDate>
+  <CancelTime>172020</CancelTime>
+  <ResultCode>170000</ResultCode>
+  <ResultMsg urlencode="1">%C1%A4%BB%F3%C3%B3%B8%AE%B5%C7%BE%FA%BD%C0%B4%CF%B4%D9.</ResultMsg>
+  <CSHR_CancelNum></CSHR_CancelNum>
+  <CSHR_CancelDate>20190805</CSHR_CancelDate>
+  <CSHR_CancelTime>172020</CSHR_CancelTime>
+  <CSHR_ResultCode>220000</CSHR_ResultCode>
+  <CSHR_ResultMsg urlencode="1">%C1%A4%BB%F3%C3%B3%B8%AE%B5%C7%BE%FA%BD%C0%B4%CF%B4%D9.</CSHR_ResultMsg>
+  <VACT_FlgRemit urlencode="1"></VACT_FlgRemit>
+</CancelInfo>]
+INFO	[2019-08-05 17:20:17:804] <19540> DECRYPT PARSE OK
+INFO	[2019-08-05 17:20:17:805] <19540> END cancel 정상처리되었습니다. Laptime:[0.268sec]
+INFO	[2019-08-05 17:20:17:805] <19540> ===============================================================

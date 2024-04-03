@@ -1,0 +1,36 @@
+<div class="fb__headerTop">
+	<div class="header">
+		{? topBeltBanner}
+		<div class="header__top-banner header__top-banner--hidden">
+			<div class="banner-slide">
+				<div class="swiper-wrapper">
+				{@ topBeltBanner}
+					<figure class="swiper-slide">
+						<a href="{.bannerLink}">
+
+							<img src="{.imgSrc}" alt="{.banner_name}">
+
+						</a>
+					</figure>
+				{/}
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<p class="header__top-banner__txt">
+				<label><input type="checkbox" name="today__close"><span>{=trans('오늘 하루 보지 않기')}</span></label>
+			</p>
+			<span class="header__top-banner__close">
+				<a href="#">
+					닫기
+				</a>
+			</span>
+		</div>
+		{/}
+	</div>
+</div>
+{? headerTop.randomCoupon}
+<div id="devRandomCouponArea" class="randomCoupon"  data-percent="{headerTop.randomCouponInfo.percentage}">
+	<img src="{headerTop.randomCouponInfo.gift_file_path}" alt="쿠폰이미지">
+	<input type="button" value="쿠폰발행" id="devRandomCouponIssue" data-gcix="{headerTop.randomCouponInfo.gc_ix}" />
+</div>
+{/}

@@ -1,0 +1,51 @@
+<div class="wrap-window-popup review-popup">
+    <p class="popup-title">
+        <span>{=trans('상품 후기 내역')}</span>
+        <span class="close" onclick="window.close();"></span>
+    </p>
+    <div class="popup-content">
+        <div class="item">
+            <div class="thumb">
+                <img src="{thumb}">
+            </div>
+            <div class="info">
+                <p class="title">{pname}</p>
+                <p class="option">{option_name}</p>
+            </div>
+            {? buy_date}
+            <p class="date">{=trans('구매일')}:{buy_date}</p>
+            {/}
+        </div>
+        <div class="score">
+            <span>{=trans('상품평가')}</span>
+            <img src="/assets/templet/enterprise/img/common/star_s_{valuation_goods}.png">
+            <em>{valuation_goods}.0</em>
+            <span>{=trans('배송평가')}</span>
+            <img src="/assets/templet/enterprise/img/common/star_s_{valuation_delivery}.png">
+            <em>{valuation_delivery}.0</em>
+        </div>
+        <div class="review-content">
+            <p class="tit">{bbs_subject}</p>
+            <p class="content">{bbs_contents}</p>
+            <div class="img-area">
+                {@ anotherImgs}
+                <img src="{anotherImgs.value_}"><br/>
+                {/}
+            </div>
+        </div>
+        <div class="review-comment-area">
+            {@ cList }
+            <section>
+                <p><em>{=trans('댓글')}</em> {bbs_name} <span>{=trans('등록일')}:{reg_date}</span></p>
+                <div class="comment-content">
+                    {.cmt_contents}
+                </div>
+            </section>
+            {/}
+        </div>
+        <div class="popup-btn-area">
+            <button class="btn-default btn-dark-line" onclick="window.close();">{=trans('닫기')}</button>
+            <!--  <button class="btn-default btn-point">저장</button> -->
+        </div>
+    </div>
+</div>

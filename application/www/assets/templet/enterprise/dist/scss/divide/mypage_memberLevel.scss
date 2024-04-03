@@ -1,0 +1,65 @@
+.br {
+  &__member-benefit {
+
+    .fb {
+      &__mypage-top {
+        height: auto;
+        padding: 0 0 33px 0;
+        border-bottom: 1px solid #ccc;
+
+        &__grade {
+          display: block;
+          float: initial;
+          height: auto;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .member-benefit {
+      &__grade {
+        margin: 10px 0 13px;
+      }
+      &__text {
+        color: #666;
+        font-size: 13px;
+      }
+    }
+
+    .benefit-row {
+
+      figure {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &__percent {
+        text-align: center;
+      }
+
+      &__title {
+        padding-top: 10px 15px;
+        color: #222;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      &__condition {
+        color: #222;
+      }
+    }
+
+    td {
+      height: 140px;
+      padding: 10px;
+      text-align: left;
+      line-height: 1.63;
+    }
+  }
+}

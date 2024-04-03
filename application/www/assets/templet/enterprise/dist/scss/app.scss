@@ -1,0 +1,307 @@
+@import "node_modules/normalize.css/normalize";
+@import "../node_modules/jstree/dist/themes/default/style.css";
+@import "../node_modules/slick-carousel/slick/slick.scss";
+@import "../node_modules/jquery-ui/themes/base/all.css";
+@import "../node_modules/swiper/dist/css/swiper.min.css";
+/*
+display
+clear
+float
+overflow
+position
+top
+right
+botton
+left
+z-index
+width
+height
+margin
+padding
+background:#color (url) no-repeat x y;
+background-size:;
+border
+color
+font-size
+font-weight
+text-overflow
+text-align
+line-height
+text-indent
+transform
+transition
+box-sizing
+white-space
+
+::after {
+  display: block;
+  clear: both;
+  content: "";
+};
+
+
+ */
+
+%layout {
+  padding: 0 60px;
+}
+
+$width : 1200px;
+$pcolor : #01acd8;
+$bcolor : #00bce7; //더 밝은 포인트 컬러
+$rcolor : #e60000; //빨간색
+$font_n : 'Roboto', sans-serif;
+$font_s : 'SHS', 'Notosans', sans-serif;
+
+%clear {
+
+  &:after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+%vertical {
+
+  text-align: center;
+  white-space: nowrap;
+
+  figure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+
+    &:after {
+      display: inline-block;
+      position:relative;
+      width: 1px;
+      height: 100%;
+      margin-left: -1px;
+      vertical-align: middle;
+      content: "";
+    }
+  }
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &:after {
+    display: inline-block;
+    position:relative;
+    width: 1px;
+    height: 100%;
+    margin-left: -1px;
+    vertical-align: middle;
+    content: "";
+  }
+}
+
+@mixin line($lineCount:1) {
+  /* 사용법 : @include line(라인수) */
+  @if ($lineCount == 1) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break:break-all;
+    -webkit-line-clamp: $lineCount;
+  }
+}
+/* 구분선 ex) userid | 2018-04-30 */
+%division {
+  position: relative;
+  margin-right: 20px;
+
+  &:after {
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: -20px;
+    width: 20px;
+    text-align: center;
+    //line-height: 16px; 마이페이지 홍보상품url복사 확인
+    font-size: 12px;
+    color: #ddd;
+    content: '|';
+  }
+};
+
+$desktop-width: 1200px;
+@mixin desktop {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+$headerMenu-min: 1550px;
+@mixin headerMenu {
+  @media (max-width: #{$headerMenu-min}) {
+    @content;
+  }
+}
+
+@import "./divide/font";
+@import "./divide/layout";
+@import "./divide/main";
+@import "./divide/common";
+@import "./divide/customer";
+@import "divide/member_login";
+@import "./divide/member_password";
+@import "./divide/contents";
+@import "./divide/shop_goodsList";
+@import "./divide/shop_search";
+@import "./divide/shop_goodsView";
+@import "./divide/shop_bestPickView"; /*goodsview안의 베스트픽팝업*/
+@import "./divide/shop_reviewImgList"; /*goodsview안의 포토전체보기팝업*/
+@import "./divide/shop_goodsReview_write";
+@import "./divide/shop_imageLayer";
+@import "./divide/shop_goodsReview_read";
+@import "./divide/member_joinSelect";
+@import "./divide/member_authentication";
+@import "./divide/member_joinAgreement";
+@import "./divide/member_joinInput";
+@import "./divide/member_joinEnd";
+@import "./divide/member_joinFail";
+@import "./divide/member_searchId";
+@import "./divide/member_joinSns";
+@import "./divide/mypage_memberLevel";
+@import "./divide/member_sleepAccountRelease";
+@import "./divide/event_eventList";
+@import "./divide/b2bMall";
+@import "./divide/event_detail";
+@import "./divide/exhibition_exhibitionList";
+@import "./divide/exhibition_detail";
+@import "./divide/brand_list";
+@import "./divide/brand_detail";
+@import "./divide/best_best";
+@import "./divide/mypage_top";
+@import "./divide/mypage_common";
+@import "./divide/mypage_inquiry_detail";
+@import "./divide/mypage_mileage";
+@import "./divide/mypage_mileageDecimation";
+@import "./divide/mypage_profile";
+@import "./divide/mypage_addressbookManage";
+@import "./divide/mypage_stockAlarm";
+@import "./divide/shop_common";
+@import "./divide/shop_cart";
+@import "./divide/shop_infoinput";
+@import "./divide/shop_payment-complete";
+@import "./divide/shop_goodsQnaWrite";
+@import "./divide/mypage_myGoodsInquiry";
+@import "./divide/mypage_coupon";
+@import "./divide/mypage_orderDetail";
+@import "./divide/mypage_orderCancel";
+@import "./divide/mypage_orderClaim";
+@import "./divide/mypage_wishlist";
+@import "./divide/member_common";
+@import "./divide/member_searchIdResult";
+@import "./divide/member_searchPw";
+@import "./divide/mypage_passReconfirm";
+@import "./divide/mypage_addressbook";
+@import "./divide/mypage_secede";
+@import "./divide/mypage_refundAccount";
+@import "./divide/mypage_recentView";
+@import "./divide/mypage_couponDetail";
+@import "./divide/mypage_returnHistory";
+@import "./divide/mypage_myInquiry";
+@import "./divide/productRepairGuide";
+@import "./divide/cosmeticsCaution";
+@import "./divide/customer_productPrecautions";
+@import "./divide/customer_benefitsGuide";
+@import "./divide/corporateIR_left";
+@import "divide/corporateIR_financialInfo";
+@import "./divide/disclosure_noti";
+@import "divide/corporateIR_IRResources";
+@import "./divide/shop_subGoodsList";
+@import "./divide/customer_shippingGuide";
+@import "./divide/customer_cosmeticsCaution";
+@import "./divide/customer_faq";
+@import "./divide/customer_contactUs";
+@import "./divide/customer_memberBenefit";
+@import "./divide/customer_bestReview";
+@import "./divide/customer_storeInformation";
+@import "./divide/customer_cliamGuide";
+@import "./divide/brand_brandStory";
+@import "./divide/brand_teacherMember";
+@import "./divide/brand_issue";
+@import "./divide/brand_applicationForm";
+@import "./divide/fat";
+@import "./divide/shop_goodsBest";
+@import "./divide/application_form_Indivisual";
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+figure, p {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+legend {
+  border: 0;
+  background-color: transparent;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+}
+
+table caption {
+  display: none;
+}
+
+.cascading select {
+  width: 100px;
+  height: 200px;
+}
+select {
+  font-size: 14px;
+}
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+input::-ms-clear {
+  display: none;
+}

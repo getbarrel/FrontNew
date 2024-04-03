@@ -1,0 +1,416 @@
+.br {
+
+  &__wash {
+    &__title {
+      color: #000;
+      font-size: rem(50px);
+      text-align: center;
+      padding: rem(100px 0);
+    }
+  }
+  .wash {
+
+    margin: 0 40px;
+
+    &__category {
+      @extend %clear;
+
+      &-link {
+        float: left;
+        width: calc(50% - 0.5rem);
+
+        &--active {
+            color: #fff !important;
+            border: 1px solid #000 important;
+            background: #000;
+        }
+
+        &:nth-child(1n + 3) {
+          margin-top: rem(20px);
+        }
+
+        &:nth-child(2n + 2) {
+          float: right !important;
+        }
+      }
+
+      a {
+        display: block;
+        color: #000;
+        font-size: rem(26px);
+        border: 1px solid #b5b5b6;
+        text-align: center;
+        line-height: rem(80px);
+      }
+    }
+
+  }
+}
+  .wash__contents {
+    margin-top: rem(40px);
+
+    &__category {
+      display: none;
+
+      &--show {
+        display: block;
+      }
+    }
+
+    .contents {
+      &__title {
+        width: 0;
+        height: 0;
+        line-height: 0;
+        overflow: hidden;
+      }
+
+      &__tab {
+        @extend %clear;
+        &-link {
+          display: block;
+          float: left;
+          width: 50%;
+          height: rem(83px) ;
+          line-height: rem(83px);
+          color: #b5b5b6;
+          font-size: rem(30px);
+          background: #efefef;
+          text-align: center;
+          border-bottom: 1px solid #b5b5b6;
+          &:first-of-type {
+            border-right: 1px solid #b5b5b6;
+          }
+
+          &--active {
+            color: #000;
+            background: #fff;
+            border-top: 2px solid #00bce7;
+            border-bottom: none;
+          }
+        }
+      }
+
+      &__box {
+          &-detail {
+            display: none;
+            &--show {
+              display: block;
+            }
+          }
+
+        }
+        &__list {
+          position: relative;
+          border-bottom: 1px solid #c3c3c3;
+          padding: rem(49px 0 49px 145px);
+          @extend %clear;
+
+          span {
+            position: absolute;
+            top: 50%;
+            left: rem(20px);
+            margin: rem(-52px 0 0 0);
+          }
+
+
+          [class^=contents__list__icon--] {
+            float: left;
+            width: rem(100px);
+            height: rem(104px);
+            text-indent: rem(-9999px);
+            background-image: url("../images/common/icon-cs-precaution.png");
+            background-size: rem(600px 104px);
+            background-repeat: no-repeat;
+          }
+
+          &__icon {
+
+            &--basic {
+              background-image:url("../images/common/icon-cs-neo.png");
+              background-size: rem(800px 104px);
+              background-position: 0 0;
+            }
+
+            &--dry {
+              background-position: rem(-100px 0);
+            }
+
+            &--oil {
+              background-position: rem(-200px 0);
+            }
+
+            &--soil {
+              background-position: rem(-300px 0);
+            }
+
+            &--trunk {
+              background-position: rem(-400px 0);
+            }
+
+            &--box {
+              background-position: rem(-500px 0);
+            }
+          }
+
+          &__neo {
+            float: left;
+            width: rem(100px);
+            height: rem(104px);
+            text-indent: rem(-9999px);
+            background-image: url("../images/common/icon-cs-neo.png");
+            background-repeat: no-repeat;
+            background-size: rem(800px 104px);
+
+            &--nail {
+              background-position: rem(-100px 0);
+            }
+
+            &--dry {
+              background-position: rem(-200px 0);
+            }
+
+            &--washer {
+              background-position: rem(-300px 0);
+            }
+
+            &--temp{
+              background-position: rem(-400px 0);
+            }
+
+            &--cloth {
+              background-position: rem(-500px 0);
+            }
+
+            &--towel {
+              background-position:  rem(-600px 0);
+            }
+
+            &--box {
+              background-position: rem(-700px 0);
+            }
+          }
+
+          &__fit {
+            float: left;
+            width: rem(117px);
+            height: rem(104px);
+            text-indent: rem(-9999px);
+            background-image: url("../images/common/icon-cs-fit.png");
+            background-size: rem(1053px 104px);
+            background-repeat: no-repeat;
+
+            &--basic {
+              background-position: 0 0;
+            }
+
+            &--washer {
+              background-position: rem(-117px 0);
+            }
+
+            &--neutral {
+              background-position: rem(-234px 0);
+            }
+
+            &--net {
+              background-position: rem(-351px 0);
+            }
+
+            &--sun {
+              background-position: rem(-468px 0);
+            }
+
+            &--water {
+              background-position: rem(-585px 0);
+            }
+
+            &--box {
+              background-position: rem(-694px 0);
+            }
+
+            &--iron {
+              background-position: rem(-819px 0);
+            }
+
+            &--cleaning {
+              background-position: rem(-936px 0);
+            }
+          }
+
+          &__shoes {
+            float: left;
+            width: rem(117px);
+            height: rem(112px);
+            text-indent: rem(-9999px);
+            background-image: url("../images/common/icon-cs-shoes.png");
+            background-size: rem(819px 112px);
+            background-repeat: no-repeat;
+
+            &--washer {
+              background-position: 0 0;
+            }
+
+            &--slide {
+              background-position: rem(-117px 0);
+            }
+
+            &--water {
+              background-position: rem(-234px 0);
+            }
+
+            &--work {
+              background-position: rem(-351px 0);
+            }
+
+            &--washer {
+              background-position: 0 0;
+            }
+
+            &--fire {
+              background-position: rem(-585px 0);
+            }
+
+            &--sharp {
+              background-position: rem(-702px 0);
+            }
+          }
+
+          &__suit {
+            float: left;
+            width: rem(117px);
+            height: rem(104px);
+            text-indent: rem(-9999px);
+            background: url("../images/common/icon-cs-swimsuit.png");
+            background-size: rem(1053px 104px);
+            background-repeat: no-repeat;
+
+            &--washer {
+              background-position: 0 0;
+            }
+
+            &--dry {
+              background-position: rem(-113px 0);
+            }
+
+            &--sun {
+              background-position: rem(-229px 0);
+            }
+
+            &--caution {
+              background-position: rem(-472px 0);
+            }
+
+            &--keeping {
+              background-position: rem(-581px 0);
+            }
+
+            &--iron {
+              background-position: rem(-692px 0);
+            }
+
+          }
+
+          &__goggles {
+            float: left;
+            width: rem(117px);
+            height: rem(104px);
+            text-indent: rem(-9999px);
+            background: url("../images/common/icon-cs-swimmingGoggles.png");
+            background-size: rem(1053px 104px);
+            background-repeat: no-repeat;
+
+            &--washer {
+              background-position: rem(4px 0);
+            }
+
+            &--sharp {
+              background-position: rem(-113px 0);
+            }
+
+            &--frost {
+              background-position: rem(-229px 0);
+            }
+
+            &--sun {
+              background-position: rem(-350px 0);
+            }
+
+            &--rub {
+              background-position: rem(-471px 0);
+            }
+
+            &--oil {
+              background-position: rem(-578px 0);
+            }
+
+            &--keeping {
+              background-position: rem(-815px 0);
+            }
+
+            &--temp {
+              background-position: rem(-948px 0);
+            }
+          }
+
+          &__icon {
+            float: left;
+            width: rem(100px);
+            height: rem(104px);
+            text-indent: rem(-9999px);
+            background: url("../images/common/icon-cs-wash.png") no-repeat 0 0;
+            background-size: rem(300px 104px);
+            //margin-top: 70px;
+            &--basic {
+              background-position: 0 0;
+            }
+
+            &--water {
+              background-position: rem(-100px 0);
+            }
+
+            &--sand {
+              background-position: rem(-200px 0);
+            }
+          }
+        }
+        &__title {
+          width: rem(135px);
+          background: #ddd;
+          float: left;
+        }
+
+        &__subtitle {
+          float: left;
+          display: inline-block;
+          width: rem(426px);
+          line-height: rem(38px);
+          color: #000;
+          font-size: rem(22px);
+          font-weight: bold;
+          text-align: left;
+        }
+
+        &__summary {
+          width: 100%;
+          float: left;
+          padding: rem(26px 18px 0 0);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          box-sizing: border-box;
+
+          li {
+            margin-top: rem(30px);
+            //word-break:keep-all;
+
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+
+
+
+
+}

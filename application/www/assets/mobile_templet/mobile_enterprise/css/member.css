@@ -1,0 +1,164 @@
+/* 모바일 레이아웃 */
+
+
+/* 로그인 */
+.wrap-login{padding-top:60px; padding-bottom:80px;}
+
+.login-find-info{text-align:center; margin-top:30px; font-size:24px; color:#666; padding-bottom:30px; border-bottom:1px solid #ccc; margin-bottom:40px;}
+.login-find-info a:not(:last-child):after{content:''; display:inline-block; width:1px; height:18px; background:#ccc; margin:0 15px 0 20px;}
+.login-find-info a.join{color:#ff6600;}
+
+.wrap-login .desc{font-size:24px; text-align: center;}
+
+
+/* 비회원 주문조회 */
+.wrap-nonmem-login{padding-top:30px; padding-bottom:80px;}
+.wrap-nonmem-login .sub-desc{font-size:20px; color:#999; margin:35px 0;}
+.wrap-nonmem-login .join-area{border-top:1px solid #ccc; text-align:center; padding-top:40px;}
+.wrap-nonmem-login .join-area .title{font-size:24px; color:#222; margin-bottom:20px;}
+
+
+
+
+/* 회원가입 타입 */
+h1.join-title{font-size:38px;color:#222;text-align:center;line-height: 46px; font-weight:400;}
+h1.join-title + .desc{margin-top:40px; text-align:center; font-size:23px; color:#666; line-height:32px; margin-bottom:60px;}
+h1.join-title span,
+h1.join-title + .desc span{color:#ff6600;}
+
+.wrap-join-select{padding-top:60px; padding-bottom:80px;}
+.wrap-join-select ul li{width:100%; height:140px; border:1px solid #ccc; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+.wrap-join-select ul li > div{position:relative; padding-left:127px;padding-top: 40px;}
+.wrap-join-select ul li > div:before{content:''; display:inline-block; width:62px; height:62px; position:absolute; left:0; background:url("../img/icon/m_sprite_icon.png"); margin-left:40px;}
+.wrap-join-select ul li > div.basic:before{background-position:-100px 0;}
+.wrap-join-select ul li > div.company:before{background-position:-200px 0;}
+.wrap-join-select ul li > div p{font-size:28px; font-weight:600; color:#222; margin-bottom:5px;}
+.wrap-join-select ul li > div span{font-size:22px; color:#999;}
+.wrap-join-select ul li + li{margin-top:20px;}
+
+
+/* ////// 회원가입 1tep */
+
+/*.wrap-join-step{padding:0 25px; border-bottom:1px solid #e8e8e8;height:87px; overflow:hidden;}*/
+/*.wrap-join-step p{color:#ff6600; font-size:30px; float:left;line-height:87px}*/
+/*.wrap-join-step .join-step{float:right; margin-top:25px;}*/
+/*.wrap-join-step .join-step li{position:relative;float:left;margin:0 17px;font-size:20px;line-height: 34px;width:36px; height:36px; border-radius: 50%; background:#ddd;color:#fff;text-align: center;vertical-align:middle;font-family:'rb'; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}*/
+/*.wrap-join-step .join-step li + li:before{content:''; display:inline-block; position:absolute; left:-34px; top:8px; width:34px; height:17px; background:url("../img/icon/m_sprite_icon.png") no-repeat -500px 0;}*/
+/*.wrap-join-step .join-step li.on{border:2px solid #ff6600; background:#fff; color:#ff6600;}*/
+
+
+
+/*본인인증*/
+.wrap-join-auth-basic{padding-top:40px; padding-bottom:60px;}
+.join-title-desc{font-size:28px; text-align: center;color:#222;line-height:36px;}
+.sub-desc{font-size:20px; color:#999;}
+.sub-desc span{color:#ff6600;}
+
+.wrap-box:after{content:''; display:block; clear:both;}
+.wrap-box .inner-box{width:calc((100% - 20px) / 2 ); border:1px solid #ccc; float:left; padding:60px 0; text-align:center; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+.wrap-box .inner-box:only-child{float:none; margin:0 auto;}
+.wrap-box .inner-box + .inner-box{margin-left:20px;}
+.wrap-box .inner-box p{font-size:28px; font-weight:600; color:#222; margin-bottom:20px;}
+.wrap-box .inner-box p:before{content:''; display:block; background:url("../img/icon/m_sprite_icon.png") no-repeat; width:92px; height:88px; margin:0 auto; margin-bottom:30px;}
+.wrap-box .inner-box p.auth01:before{background-position:-300px 0;}
+.wrap-box .inner-box p.auth02:before{background-position:-400px 0;}
+.wrap-box .inner-box span{font-size:20px; color:#666;}
+
+/*사업자인증*/
+.wrap-join-auth-com{padding-top:55px; padding-bottom:80px;}
+
+/* ////// 회원가입 1tep */
+
+
+
+/* ////// 회원가입 2 step */
+.wrap-agree-sec{padding:25px; border-bottom:1px solid #e8e8e8;}
+.join-agree-desc{font-size:22px; color:#666; line-height:36px;}
+
+
+.wrap-btn-area.agree{padding:15px 25px 80px 25px;}
+/* ////// 회원가입 2 step */
+
+
+/* ////// 회원가입 3 step */
+
+/*일반 정보입력*/
+.wrap-join-input{padding-bottom:40px; padding-top:30px;}
+
+
+
+/* ////// 회원가입 3 step */
+
+
+
+
+
+/* 회원가입 4 step 완료 */
+.wrap-join-end{padding-top:60px; padding-bottom:80px;}
+.wrap-join-end h1:before{content:''; display:block; width:72px; height:72px; background:url("../img/icon/m_sprite_icon.png") no-repeat -800px 0; margin:0 auto 20px;}
+
+/* /////////회원가입 4 step 완료 */
+
+
+
+/* 아이디 비밀번호 찾기 */
+.member-search{position:relative; margin-top:-1px; z-index: 1;}
+.member-search .layout-padding{padding-top:40px; padding-bottom:80px;}
+
+.search-tab{width:100%; height:76px; overflow:hidden; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+.search-tab a{display:inline-block; width:50%; height:100%; float:left; border:1px solid #ccc; color:#999; font-size:26px; text-align:center; line-height:74px;}
+.search-tab a.active{border-color:#666; background:#666; color:#fff; font-weight:600;}
+
+.member-search .sub-desc{letter-spacing: -1.3px;}
+
+
+
+/* 아이디 비밀번호 찾기 결과 */
+.result-box{width:100%; padding:45px 0; height:auto;background: #f8f8f8; border:1px solid #e8e8e8;text-align:center;color:#222; margin:40px 0;}
+.result-box .tit{font-size:28px;}
+.result-box .tit span{color:#f60;}
+.result-box .date{font-size:24px; margin-top:15px;}
+.result-box .date span{font-family:'Rb';}
+
+
+
+
+/*비밀번호 변경*/
+.join-title.password:before{content:''; display:block; width:91px; height:91px; background:url("../img/icon/m_sprite_icon.png") no-repeat -900px 0; margin:38px auto 35px;}
+.wrap-password{padding-bottom:80px;}
+
+
+/*휴면계정전환*/
+.wrap-sleep-guide{padding-top:90px; padding-bottom:90px;}
+.sleep-subtit{text-align:center; font-size:30px; color:#222; margin:50px 0 30px;}
+
+/* 셀러회원 전환 가입절차  step1*/
+.pub-m-cpn-tit2{font-size:24px;padding:30px 0 30px 25px;color:#222; font-weight:500 }
+.pub-m-cpn-tit3{font-size:24px;border-bottom:1px solid #eee;padding:30px 0 30px 25px;color:#222; font-weight:500 }
+.pub-m-cpn-transform-step{font-size:22px; color:#222;text-align: center;margin-bottom:40px;display: flex;}
+.pub-m-cpn-transform-step li{float:left;width:25%;}
+.pub-m-cpn-transform-step li:nth-child(1):before{display:none;}
+.pub-m-cpn-transform-step li:before{position:absolute;margin:50px 0 0 -25px;content: '';display:inline-block; width:14px; height:24px; background: url("../img/bg/vfx_m_customer_bg.png")no-repeat 0 -53px;}
+.pub-m-cpn-transform-step-bg-01{width:120px;height:120px;display: inline-block;background: url("../img/bg/vfx_m_customer_bg.png")no-repeat 0 -105px;}
+.pub-m-cpn-transform-step-bg-02{width:120px;height:120px;display: inline-block;background: url("../img/bg/vfx_m_customer_bg.png")no-repeat -124px -105px;}
+.pub-m-cpn-transform-step-bg-03{width:120px;height:120px;display: inline-block;background: url("../img/bg/vfx_m_customer_bg.png")no-repeat -248px -105px;}
+.pub-m-cpn-transform-step-bg-04{width:120px;height:120px;display: inline-block;background: url("../img/bg/vfx_m_customer_bg.png")no-repeat -372px -105px;}
+.pub-m-cpn-transform-step-tit{font-size:20px; color:#f60;margin-top:10px;}
+.pub-m-cpn-transform-step-tit em{font-weight:500}
+.pub-m-cpn-transform-step-txt{margin-top:12px;}
+
+.pub-m-chk-wrap{width:50%;float:left;height:60px}
+
+/* 셀러회원 전환 가입절차 step2 */
+.pub-m-transform-table{width: 100%;border: 1px solid #ddd;border-collapse: collapse;text-align: center;text-align: left;vertical-align: middle;border-left:none;border-right:none;}
+.pub-m-transform-th{width:160px; background: #f7f7f9;border-bottom:1px solid #ddd;padding:28px 20px;vertical-align: middle;font-size:22px; color:#222;font-weight:500}
+.pub-m-transform-td{padding:28px 20px;vertical-align: middle;border-bottom:1px solid #ddd;}
+
+/* 배송지관리 */
+.pub-m-shipping-mng{font-size:22px; color:#666; font-weight:400}
+.pub-m-shipping-nm{font-size:28px;color:#222;padding:30px 25px 20px}
+.pub-m-shipping-default{margin:-7px 0 0 5px;display:inline-block;width:120px; height:34px; box-sizing: border-box; border:1px solid #f60; border-radius:34px; color:#f60; font-size:20px;text-align: center;vertical-align: middle;line-height: 30px}
+.pub-m-shipping-addr{padding:0px 25px;line-height:1.2}
+.pub-m-shipping-contact{padding:20px 25px 30px;}
+.pub-m-shipping-btn-wrap{height:87px;border-top:1px solid #f0f0f0;position: relative;}
+.pub-m-shipping-btn-set{position: absolute; right:25px; top:20px}

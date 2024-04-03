@@ -1,0 +1,27 @@
+<!-- 고객센터 상단 S -->
+<div class="fb__customer__top fb__customer-faq__top">
+	<div class="fb__customer__info">
+		<div class="fb__customer__inner">
+			<div class="fb__customer__info-number">
+			{? langType=='english'}
+				en_help@getbarrel.com
+			{:}
+				{companyInfo.cs_phone}
+			{/}				
+			<!-- 1899 - 8751<span>(유료)</span> -->
+			</div>
+			{? langType=='korean'}
+				{=nl2br(companyInfo.opening_time)}
+			{/}
+			<!-- <div class="fb__customer__info-sub txt-dark">운영시간 : 월 ~ 금 10:00 ~ 17:00</div>
+			<p class="txt-gray">[점심시간 13:00 ~ 14:00]</p> -->
+		</div>
+	</div>
+	<div class="fb__customer__info">
+		<div class="fb__customer__inner">
+			<div class="fb__customer__info-greeting">{=trans('안녕하세요! {mypage.userName} 고객님!')}</div>
+			<p class="txt-gray"> {=trans('빠르고 친정한 답변이 되도록 노력하겠습니다.')}</p>
+		</div>
+	</div>
+</div>
+<!-- 고객센터 상단 E -->

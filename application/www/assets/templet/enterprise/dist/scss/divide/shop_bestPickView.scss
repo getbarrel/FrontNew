@@ -1,0 +1,243 @@
+.sj {
+  &__bestpick-view {
+    width: 780px;
+
+    &--show-all {
+      position: absolute;
+      top: 37px;
+      right: 85px;
+      width: 100px;
+      height: 30px;
+      padding: 0 16px 0 32px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      color: #666;
+      font-size: 14px;
+      line-height: 30px;
+      cursor: pointer;
+
+      &:before {
+        display: block;
+        position: absolute;
+        top: calc( 50% - 6px );
+        left: 17px;
+        width: 12px;
+        height: 12px;
+        background: url("../images/common/icon-goods-view-all.png") no-repeat 0 0;
+        content: '';
+      }
+    }
+
+    .sj__goods-view__detail {
+      width: 100%;
+    }
+
+    .bp-popup {
+        @extend %clear;
+
+        &__detail {
+          height: 183px;
+          padding: 40px 30px;
+          background-color: #f8f8f8;
+          border-bottom: 1px solid #e8e8e8;
+        }
+
+        &__star {
+
+          &--big {
+            float: left;
+
+            .set-star {
+              float: left;
+              width: 180px;
+              height: 32px;
+              background: url(../../img/common/score_b.png) 0 0 repeat-x;
+            }
+
+            .score {
+              height: 32px;
+              background: url(../../img/common/score_b.png) 0 -32px repeat-x;
+            }
+          }
+        }
+
+        &__info {
+          float: right;
+          margin-bottom: 30px;
+          line-height: 26px;
+          color: #999;
+
+          &-user {
+            font-size: 13px;
+            @extend %division;
+          }
+
+          &-date {
+            font-size: 14px;
+          }
+        }
+
+        &__option {
+          display: inline-block;
+          width: 100%;
+          margin-bottom: 18px;
+          color: #999;
+          font-size: 13px;
+          @include line();
+        }
+
+        &__eval {
+          position: relative;
+          width: 100%;
+          display: inline-block;
+
+          &-wrap {
+            position: relative;
+            display: inline-block;
+            padding-left: 58px;
+            margin-right: 30px;
+          }
+
+          &-title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #999;
+            font-size: 13px;
+          }
+
+
+        }
+
+        &__content {
+          padding: 40px 30px;
+          border-right: 0;
+          word-break: break-all;
+
+          &__title {
+            color: #222;
+            font-size: 14px;
+            line-height: 22px;
+          }
+
+          &__text {
+            color: #666;
+            font-size: 14px;
+            line-height: 22px;
+          }
+
+          &__thumb {
+            max-width: 100%;
+            margin-top: 30px;
+
+            .thumb {
+              display: inline-block;
+              max-width: 100%;
+
+              img {
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 100%;
+              }
+            }
+          }
+
+          &__video {
+            display: inline-block;
+            width: 100%;
+            height: 56.25%;
+            margin-top: 30px;
+
+            video, iframe {
+              display: inline-block;
+              max-width: 100%;
+            }
+          }
+        }
+
+        &__comment-btn {
+          padding: 14px 30px;
+          margin-top: 28px;
+          background-color: #e8e8e8;
+          color: #666;
+          font-size: 14px;
+          text-align: center;
+          cursor: pointer;
+
+          em {
+            font-weight: bold;
+          }
+        }
+
+    }
+  }
+
+  .help-btns {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    button {
+      position: relative;
+      font-size: 12px;
+      padding:0 0 0 22px;
+      line-height: 16px;
+    }
+
+    /*도움돼요 누르기 전*/
+    &--default {
+      color: #666;
+
+      &:before { //아이콘 공간
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 15px;
+        height: 16px;
+        background: url("../images/common/icon-goods-view-dont.png") no-repeat 0 0;
+        content: '';
+      }
+
+      &:first-child {
+        @extend %division;
+
+        &:before {
+          transform: rotateX(180deg);
+        }
+      }
+    }
+
+    /*도움돼요 눌렀을 때*/
+    &--like {
+      color: #fc6161;
+
+      &:before {
+        background: url("../images/common/icon-goods-view-like.png") no-repeat 0 0;
+        transform: rotateX(0deg) !important;
+      }
+
+      &:after {
+        display: block;
+        position: absolute;
+        top: -2px;
+        right: 0;
+        color: #ddd;
+        font-size: 12px;
+        line-height: 16px;
+        content: '|';
+      }
+    }
+
+    &--dont {
+      color: #fc6161;
+
+      &:before {
+        background: url("../images/common/icon-goods-view-like.png") no-repeat 0 0;
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+}

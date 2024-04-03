@@ -1,0 +1,13 @@
+<section class="fb__infoinput__nonmember-agreement nonmember-agreement">
+    <h2 class="nonmember-agreement__title">{=trans('비회원 약관동의')}</h2>
+    <div class="nonmember-agreement__cont">
+        <p class="nonmember-agreement__cont-tit">{=trans('비회원 구매 이용 약관')} <span>({=trans('필수')})</span></p>
+        <div class="nonmember-agreement__cont-input">
+            {=use['contents']}
+        </div>
+        <div class="nonmember-agreement__agree">
+            <input type="checkbox" id="wrap-terms-30" class="devTerms" name="term30" value="30" title="비회원 구매 이용 약관" devvalidation="{&quot;required&quot;:true,&quot;requiredMessageTag&quot;:&quot;infoinput.paymentRequest.validation.fail.terms&quot;}">
+            <label for="wrap-terms-30">{=trans('동의')}</label>
+        </div>
+    </div>
+</section>

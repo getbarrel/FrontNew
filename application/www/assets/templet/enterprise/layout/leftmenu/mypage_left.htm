@@ -1,0 +1,45 @@
+<section class="fb__left-basicList">
+	<div class="basicNav">
+		<div class="basicNav__wrap">
+			<div class="basicNav__item">
+				{? !nonMemberOid}
+				<div class="title-sm">{=trans('쇼핑 정보')}</div>
+				{:}
+				<div class="title-sm">{=trans('비회원주문조회')}</div>
+				{/}
+				<ul class="basicNav__list">
+					<li class="basicNav__list-item"><!-- 현재 페이지 메뉴일 경우 li class = active 추가 --><a href="/mypage/orderHistory" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/orderHistory") > 0 || substr_count(_SERVER["PHP_SELF"],"/mypage/orderDetail") > 0 || substr_count(_SERVER["PHP_SELF"],"/mypage/orderCancel") > 0 || substr_count(_SERVER["PHP_SELF"],"/mypage/order_status_popup") > 0}on{/}'>{=trans('주문 내역')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/returnHistory" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/returnHistory") > 0}on{/}'>{=trans('반품 / 취소 내역')}</a></li>
+				</ul>
+			</div>
+			{? !nonMemberOid}
+			<div class="basicNav__item">
+				<div class="title-sm">{=trans('문의 및 활동 정보')}</div>
+				<ul class="basicNav__list">
+					<li class="basicNav__list-item"><a href="/mypage/wishlist" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/wishlist") > 0}on{/}'>{=trans('위시리스트')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/myInquiry" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/myInquiry") > 0}on{/}'>{=trans('1:1 문의')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/myGoodsInquiry" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/myGoodsInquiry") > 0}on{/}'>{=trans('상품 Q&A')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/stockAlarm" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/stockAlarm") > 0}on{/}'>{=trans('재입고 알림 신청 내역')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/recentView" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/recentView") > 0}on{/}'>{=trans('최근 본 상품')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/myReviewList" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/myReviewList") > 0}on{/}'>{=trans('내가 쓴 리뷰')}</a></li>
+					<!-- <li class="basicNav__list-item"><a href="#;">{=trans('댓글 참여 내역')}</a></li> -->
+				</ul>
+			</div>
+			<div class="basicNav__item noline">
+				<div class="title-sm">{=trans('나의 정보')}</div>
+				<ul class="basicNav__list">
+					<li class="basicNav__list-item"><a href="/mypage/mileage" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/mileage") > 0}on{/}'>{=trans('적립금')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/coupon" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/coupon") > 0}on{/}'>{=trans('쿠폰')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/addressBook" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/addressBook") > 0}on{/}'>{=trans('배송지 관리')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/memberLevel">{=trans('회원등급')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/profile" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/profile") > 0}on{/}'>{=trans('회원정보 수정')}</a></li>
+					<li class="basicNav__list-item"><a href="/mypage/secede" class='{? substr_count(_SERVER["PHP_SELF"],"/mypage/secede") > 0}on{/}'>{=trans('회원탈퇴')}</a></li>
+				</ul>
+				<div class="basicNav__list-footer">
+					<a href="#;" class="btn-link">{=trans('로그아웃')}</a>
+				</div>
+			</div>
+			{/}
+		</div>
+	</div>
+</section>

@@ -1,0 +1,195 @@
+<!-- Channel Plugin Scripts -->
+<script>
+	(function() {
+		var w = window;
+		if (w.ChannelIO) {
+			return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+		}
+		var ch = function() {
+			ch.c(arguments);
+		};
+		ch.q = [];
+		ch.c = function(args) {
+			ch.q.push(args);
+		};
+		w.ChannelIO = ch;
+		function l() {
+			if (w.ChannelIOInitialized) {
+				return;
+			}
+			w.ChannelIOInitialized = true;
+			var s = document.createElement('script');
+			s.type = 'text/javascript';
+			s.async = true;
+			s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+			s.charset = 'UTF-8';
+			var x = document.getElementsByTagName('script')[0];
+			x.parentNode.insertBefore(s, x);
+		}
+		if (document.readyState === 'complete') {
+			l();
+		} else if (window.attachEvent) {
+			window.attachEvent('onload', l);
+		} else {
+			window.addEventListener('DOMContentLoaded', l, false);
+			window.addEventListener('load', l, false);
+		}
+	})();
+
+	ChannelIO('boot', {
+		"pluginKey": "bc5029b1-f2f3-43c8-9970-9050be183588", //please fill with your plugin key
+		"memberId": "{=layoutCommon.userInfo.MBCODE}", //fill with user id
+		"profile": {
+			"name": "{=layoutCommon.userInfo.name}", //fill with user name
+			"mobileNumber": "{=layoutCommon.userInfo.pcs}", //fill with user phone number
+			"CUSTOM_VALUE_1": "", //any other custom meta data
+			"CUSTOM_VALUE_2": ""
+		}
+	});
+
+	//Enliple Tracker Start_모비온
+	(function(a,g,e,n,t){a.enp=a.enp||function(){(a.enp.q=a.enp.q||[]).push(arguments)};n=g.createElement(e);n.async=!0;n.defer=!0;n.src="https://cdn.megadata.co.kr/dist/prod/enp_tracker_self_hosted.min.js";t=g.getElementsByTagName(e)[0];t.parentNode.insertBefore(n,t)})(window,document,"script");
+	enp('create', 'common', 'barrel', { device: 'W' });  // W:웹, M: 모바일, B: 반응형
+	enp('send', 'common', 'barrel');
+	//Enliple Tracker End_모비온
+</script>
+<!-- End Channel Plugin -->
+<!--floating menu-->
+<div class="fb__footer__desc">
+	<div class="fb__footer__inner">
+		<div class="fb__footer-group">
+			<div class="fb__footer__logo">
+				<a href="/" class=""><img src="/assets/templet/enterprise/assets/img/shop_logo.svg" alt="BARREL" /></a>
+				<p>© BARREL ALL RIGHTS RESERVED.</p>
+			</div>
+			<div class="fb__footer-item">
+				<nav class="etc__info">
+					<ul>
+						<li>
+							<a href="/customer/notice" class="siteMap__link">{=trans('고객센터')}</a>
+						</li>
+						<li>
+							<a href="/customer/storeInformation" class="siteMap__link">{=trans('매장안내')}</a>
+						</li>
+					</ul>
+				</nav>
+				<address class="fb__footer__descInfo">
+					<p><strong>{companyInfo.com_name}</strong></p>
+					<p>{companyInfo.com_addr1} {companyInfo.com_addr2}</p>
+					<p>대표이사 : {companyInfo.com_ceo}</p>
+					<p>개인정보책임관리자 : {companyInfo.officer_name}</p>
+					<p>사업자번호 : {companyInfo.com_number} / <a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=1058739951" target="_blank">사업자정보확인</a></p>
+					<p>통신판매업 신고번호 : {companyInfo.online_business_number}</p>
+					<p>FAX : {companyInfo.com_fax} / Email : <a href="mailto:{companyInfo.com_email}" class="email">{companyInfo.com_email}</a></p>
+				</address>
+			</div>
+			<div class="fb__footer-item">
+				<h4 class="tit">{=trans('고객센터 운영안내')}</h4>
+				<div class="fb__footer__descInfo">
+					<h3>
+						{? langType=='english'}
+						en_help@getbarrel.com
+						{:}
+							{? str_replace("-","",companyInfo.cs_phone)}
+								{ companyInfo.cs_phone }
+							{:}
+								{ companyInfo.com_phone }
+							{/}
+						{/}		
+					</h3>
+					{? langType == 'korean'}
+						{? companyInfo.opening_time}
+						<span class='pub-sect pub-time'>
+							<span>{=nl2br(companyInfo.opening_time)}</span>
+						</span>
+						{/}
+					<!--{? false}-->
+					<!--{* 2020-03-25 숨김처리 *}-->
+					<span class="pub-sect pub-time" >
+						{? companyInfo.officer_email}
+						<a href='mailto:{companyInfo.officer_email}' class="pub-email">{companyInfo.officer_email}</a>
+						{:}
+						<a href='mailto:{companyInfo.email}' class="pub-email">{companyInfo.email}</a>
+						{/}
+					</span>
+					<!--{/}-->
+					{/}
+					<!-- <p>평일 10:00~17:00 | 토,일,공휴일<br />휴무 점심시간 : 12:00-13:00</p> -->
+				</div>
+			</div>
+		</div>
+		<div class="fb__footer-etc">
+			<nav class="etc__info">
+				<ul>
+					<li>
+						{? langType=='english'}
+						<a href="javascript:void(0)" onClick="common.util.popup('/company/privacy/person_global',600,700,'',true);" style="color:#01acd8; font-weight:700;">
+							{=trans('개인정보처리방침')}
+						</a>
+						{:}
+						<!--<a href="javascript:void(0)" onClick="common.util.popup('/company/privacy/person',600,700,'',true);" style="color:#01acd8; font-weight:700;">
+							{=trans('개인정보처리방침')}
+						</a>-->
+						<a href="/company/privacyFull/person" style="color:#01acd8; font-weight:700;">
+							{=trans('개인정보처리방침')}
+						</a>
+						{/}
+					</li>
+					<li>
+						{? langType=='english'}
+						<a href="javascript:void(0)" onClick="common.util.popup('/company/agreement/agreement_global' ,600, 700,'',true);">
+							{=trans('이용약관')}
+						</a>
+						{:}
+						<!--<a href="javascript:void(0)" onClick="common.util.popup('/company/agreement' ,600, 700,'',true);">-->
+						<a href="/company/privacyFull/use">
+							{=trans('이용약관')}
+						</a>
+						{/}
+					</li>
+					<li>
+						<a href="/corporateIR/IRResources">
+							{=trans('기업IR')}
+						</a>
+					</li>
+					<!--
+					<li>
+						<a href="//www.getbarrel.com" class="{? langType=='korean'}country__btn--active{:}country__btn{/}">KR</a>
+					<li>
+						<a href="//en.getbarrel.com" class="{? langType=='english'}country__btn--active{:}country__btn{/}">EN</a>
+					</li>
+					-->
+				</ul>
+			</nav>
+			<!-- ISMS 인증마크 영역 S -->
+			<div class="fb__footer__gdweb">
+				<a href="#;"><img src="/assets/templet/enterprise/assets/img/logo_isms_pc.png" alt="ISMS" /></a>
+			</div>
+			<!-- ISMS 인증마크 영역 E -->
+			<ul class="fb__footer-sns">
+				<li>
+					<a href="https://www.instagram.com/getbarrel.official/">
+						<i class="ico ico-instagram">인스타그램</i>
+					</a>
+				</li>
+                {? langType == 'korean'}
+				<li>
+					<a href="https://pf.kakao.com/_VxfxjDd">
+						<i class="ico ico-KakaoTalk">카카오톡</i>
+					</a>
+				</li>
+                {/}
+				<!--<li>
+					<a href="https://www.facebook.com/pages/Barrel/1416024818648425">
+						<i class="ico ico-facebook">페이스북</i>
+					</a>
+				</li>-->
+				<li>
+					<a href="https://www.youtube.com/c/getbarrel">
+						<i class="ico ico-youtube">유튜브</i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

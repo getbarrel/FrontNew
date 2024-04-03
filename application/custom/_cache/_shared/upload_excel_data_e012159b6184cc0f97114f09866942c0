@@ -1,0 +1,126 @@
+a:1:{s:50:"upload_excel_data_e012159b6184cc0f97114f09866942c0";a:1:{s:26:"dosslljd27p4033p6np422jcu0";a:2:{i:0;a:60:{s:12:"migration_id";s:21:"상품시스템코드";s:12:"product_type";s:12:"상품구분";s:8:"category";s:12:"카테고리";s:5:"md_id";s:8:"MD설정";s:11:"disp_global";s:22:"글로벌 노출설정";s:5:"pname";s:9:"상품명";s:13:"english_pname";s:17:"상품명(영문)";s:8:"add_info";s:9:"색상명";s:16:"english_add_info";s:9:"색상명";s:5:"pcode";s:26:"상품코드(품목코드)";s:11:"filter_info";s:12:"필터정보";s:8:"shotinfo";s:18:"상품간략설명";s:16:"english_shotinfo";s:26:"상품간략소개(영문)";s:5:"og_ix";s:15:"원산지코드";s:7:"company";s:15:"제조사코드";s:5:"brand";s:15:"브랜드코드";s:11:"surtax_yorn";s:12:"면세여부";s:5:"state";s:12:"판매상태";s:4:"disp";s:12:"노출여부";s:12:"is_sell_date";s:25:"판매기간 사용여부";s:15:"sell_priod_date";s:18:"판매기간설정";s:13:"coupon_use_yn";s:25:"상품쿠폰 사용여부";s:14:"search_keyword";s:15:"검색키워드";s:22:"english_search_keyword";s:23:"검색키워드(영문)";s:5:"movie";s:13:"동영상 URL";s:7:"coprice";s:9:"공급가";s:15:"english_coprice";s:17:"공급가(영문)";s:9:"listprice";s:9:"판매가";s:17:"english_listprice";s:17:"판매가(영문)";s:9:"sellprice";s:9:"할인가";s:17:"english_sellprice";s:17:"할인가(영문)";s:13:"allow_max_cnt";s:18:"최대판매수량";s:31:"wholesale_allow_byoneperson_cnt";s:17:"ID당구매수량";s:16:"allow_order_type";s:31:"한정판매수량 사용여부";s:25:"allow_order_cnt_byonesell";s:18:"한정판매수량";s:14:"display_option";s:21:"디스플레이옵션";s:14:"mandatory_type";s:25:"상품정보 고시유형";s:14:"mandatory_info";s:18:"상품고시정보";s:21:"mandatory_type_global";s:33:"상품정보 고시유형(영문)";s:21:"mandatory_info_global";s:26:"상품고시정보(영문)";s:13:"pattern_image";s:16:"패턴 이미지";s:11:"m_basicinfo";s:28:"모바일 상품상세정보";s:19:"english_m_basicinfo";s:47:"모바일 상품상세설명(이미지)(영문)";s:9:"basicinfo";s:22:"웹 상품상세정보";s:17:"english_basicinfo";s:41:"웹 상품상세설명(이미지)(영문)";s:7:"mainimg";s:15:"상품이미지";s:11:"option_name";s:9:"옵션명";s:19:"english_option_name";s:38:"옵션명(가격+재고관리)(영문)";s:10:"option_div";s:12:"옵션구분";s:18:"english_option_div";s:20:"옵션구분(영문)";s:23:"stock_options_listprice";s:22:"옵션 소매판매가";s:31:"english_stock_options_listprice";s:51:"옵션 소매판매가(가격+재고관리)(영문)";s:23:"stock_options_sellprice";s:22:"옵션 소매할인가";s:31:"english_stock_options_sellprice";s:51:"옵션 소매할인가(가격+재고관리)(영문)";s:21:"stock_options_soldout";s:12:"품절여부";s:18:"stock_options_code";s:18:"옵션품목코드";s:6:"addimg";s:23:"상품 추가 이미지";s:7:"listimg";s:26:"상품 리스트 이미지";s:7:"preface";s:16:"상품머리말 ";s:15:"english_preface";s:23:"상품머리말(영문)";}i:1;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:8:"br_jhlee";s:11:"disp_global";N;s:5:"pname";s:66:"배럴X나우 우먼 레이싱 핏 세미 하이 V백 스윔슈트";s:13:"english_pname";s:55:"Barrel X nau Women Racing Fit Semi High V Back Swimsuit";s:8:"add_info";s:9:"네이비";s:16:"english_add_info";s:4:"NAVY";s:5:"pcode";s:12:"BH2WWSW82NAV";s:11:"filter_info";s:28:"네이비|Small|Medium|Large";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:162:"배럴,콜라보,배럴X나우,나우,NAU,우먼 레이싱 핏 세미하이 V백, 세미하이 스윔슈트,스윔슈트, 수영복, 여성 스윔슈트,수영복";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:59000;s:15:"english_coprice";s:0:"";s:9:"listprice";d:59000;s:17:"english_listprice";s:0:"";s:9:"sellprice";d:59000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:1;s:14:"mandatory_info";s:772:"01|겉감: 폴리에스터 83%, 폴리우레탄 17% / 안감: 폴리에스터 75%, 폴리우레탄 25%^
+02|네이비^
+03|Small,Medium,Large^
+04|㈜배럴^
+05|대한민국^
+06|1. 반드시 표백성분이 없는 중성세제로 찬물 혹은 30˚C 이하의 온도에 단독 손세탁 해주세요. 2. 다리미 사용은 날염, 프린팅, 전사 부분 및 옷감에 손상을 주니 사용을 금지하시기 바랍니다. 3. 물기를 완전히 제거하고 그늘에서 단독으로 건조하시기 바랍니다. 4. 세탁기, 건조기, 표백제 절대 사용 금지 5. 자세한 내용 상세페이지^
+07|202106^
+08|「전기용품 및 생활용품 안전관리법」에 따른 안전관리대상 제품임^
+09|배럴 고객센터/1899-8751^
+10|상세설명 참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:10:"n/navy.jpg";s:11:"m_basicinfo";s:2951:"<center><br />
+<br />
+<!-- 디자이너탑 --><img src="//image2.getbarrel.com/socal/2021/water/top_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 형태가이드 --><img src="//image2.getbarrel.com/socal/2021/water/2021_guide_square_v_back_strap_swimsuit.jpg" /><br />
+<br />
+<!-- 스윔원단설명영상 -->
+<center><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="510" src="https://www.youtube.com/embed/zSAm8yNE-v0" width="900"></iframe></center>
+<br />
+<br />
+<br />
+<br />
+<!-- 원단 --><img src="//image2.getbarrel.com/socal/2021/water/fabric_duraflow_fit.jpg" />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/water/td_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/water/editorial1_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼코디팁1 --><img src="//image2.getbarrel.com/socal/2021/water/etip1_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/water/editorial2_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼코디팁2 --><img src="//image2.getbarrel.com/socal/2021/water/etip2_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/water/fitting_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 피팅컷코디팁 --><img src="//image2.getbarrel.com/socal/2021/water/ftip_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/water/product_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/water/package_swim.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com/socal/2021/water/caution_title.jpg" /> <!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/water/caution_swim.jpg" /></center>";s:19:"english_m_basicinfo";s:2951:"<center><br />
+<br />
+<!-- 디자이너탑 --><img src="//image2.getbarrel.com/socal/2021/water/top_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 형태가이드 --><img src="//image2.getbarrel.com/socal/2021/water/2021_guide_square_v_back_strap_swimsuit.jpg" /><br />
+<br />
+<!-- 스윔원단설명영상 -->
+<center><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="510" src="https://www.youtube.com/embed/zSAm8yNE-v0" width="900"></iframe></center>
+<br />
+<br />
+<br />
+<br />
+<!-- 원단 --><img src="//image2.getbarrel.com/socal/2021/water/fabric_duraflow_fit.jpg" />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/water/td_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/water/editorial1_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼코디팁1 --><img src="//image2.getbarrel.com/socal/2021/water/etip1_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/water/editorial2_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼코디팁2 --><img src="//image2.getbarrel.com/socal/2021/water/etip2_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/water/fitting_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 피팅컷코디팁 --><img src="//image2.getbarrel.com/socal/2021/water/ftip_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/water/product_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/water/package_swim.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com/socal/2021/water/caution_title.jpg" /> <!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/water/caution_swim.jpg" /></center>";s:9:"basicinfo";s:2951:"<center><br />
+<br />
+<!-- 디자이너탑 --><img src="//image2.getbarrel.com/socal/2021/water/top_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 형태가이드 --><img src="//image2.getbarrel.com/socal/2021/water/2021_guide_square_v_back_strap_swimsuit.jpg" /><br />
+<br />
+<!-- 스윔원단설명영상 -->
+<center><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="510" src="https://www.youtube.com/embed/zSAm8yNE-v0" width="900"></iframe></center>
+<br />
+<br />
+<br />
+<br />
+<!-- 원단 --><img src="//image2.getbarrel.com/socal/2021/water/fabric_duraflow_fit.jpg" />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/water/td_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/water/editorial1_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼코디팁1 --><img src="//image2.getbarrel.com/socal/2021/water/etip1_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/water/editorial2_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼코디팁2 --><img src="//image2.getbarrel.com/socal/2021/water/etip2_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/water/fitting_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 피팅컷코디팁 --><img src="//image2.getbarrel.com/socal/2021/water/ftip_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/water/product_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/water/package_swim.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com/socal/2021/water/caution_title.jpg" /> <!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/water/caution_swim.jpg" /></center>";s:17:"english_basicinfo";s:2951:"<center><br />
+<br />
+<!-- 디자이너탑 --><img src="//image2.getbarrel.com/socal/2021/water/top_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 형태가이드 --><img src="//image2.getbarrel.com/socal/2021/water/2021_guide_square_v_back_strap_swimsuit.jpg" /><br />
+<br />
+<!-- 스윔원단설명영상 -->
+<center><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="510" src="https://www.youtube.com/embed/zSAm8yNE-v0" width="900"></iframe></center>
+<br />
+<br />
+<br />
+<br />
+<!-- 원단 --><img src="//image2.getbarrel.com/socal/2021/water/fabric_duraflow_fit.jpg" />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/water/td_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/water/editorial1_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼코디팁1 --><img src="//image2.getbarrel.com/socal/2021/water/etip1_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/water/editorial2_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 에디토리얼코디팁2 --><img src="//image2.getbarrel.com/socal/2021/water/etip2_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/water/fitting_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 피팅컷코디팁 --><img src="//image2.getbarrel.com/socal/2021/water/ftip_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" /> 
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/water/product_nau_w_racing_fit_semi_high_v_back_swimsuit_nav.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/water/package_swim.jpg" />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br />
+<br />
+<!-- 우먼스윔버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_2.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_img_3.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com/socal/2021/water/caution_title.jpg" /> <!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/water/caution_swim.jpg" /></center>";s:7:"mainimg";s:54:"n/nau_w_racing_fit_semi_high_v_back_swimsuit_nav01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:26:"S[80~85]|M[85~90]|L[90~95]";s:18:"english_option_div";s:26:"S[80~85]|M[85~90]|L[90~95]";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:44:"BH2WWSW82NAVSM|BH2WWSW82NAVMM|BH2WWSW82NAVLG";s:6:"addimg";s:164:"n/nau_w_racing_fit_semi_high_v_back_swimsuit_nav02.jpg|n/nau_w_racing_fit_semi_high_v_back_swimsuit_nav03.jpg|n/nau_w_racing_fit_semi_high_v_back_swimsuit_nav04.jpg";s:7:"listimg";s:53:"n/nau_w_racing_fit_semi_high_v_back_swimsuit_nav0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:0;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:5:"n.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}}}}

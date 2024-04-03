@@ -1,0 +1,481 @@
+.fb {
+  &__join-input {
+    padding: 60px 0;
+    /*
+    스탭영역 : sj__authentication
+     (authentication_basic.htm 참조)
+    */
+
+    .input__select {
+      select {
+        font-size: 14px;
+      }
+    }
+
+    select {
+      font-size: 15px;
+    }
+
+    %joinStar {
+      display: inline-block;
+      color: $pcolor;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    .fb__join-member__subtitle {
+      text-align: center;
+    }
+
+    &__form {
+
+      .input-form {
+        margin-top: 60px;
+
+        .checkbox-margin {
+          margin-right: 10px;
+        }
+
+        &__title-box {
+          @extend %clear;
+          margin-bottom: 15px;
+
+          &__text {
+            float: left;
+            color: #222;
+            font-size: 22px;
+            font-weight: 600;
+
+            &-sub {
+              display: block;
+              margin-top: 10px;
+              font-size: 14px;
+              color: #666;
+              line-height: 26px;
+            }
+            span {
+              color: #666;
+              font-size: 14px;
+            }
+          }
+
+          &__tip {
+            color: #666;
+            font-size: 14px;
+          }
+
+          &__guide {
+            float: right;
+            color: #666;
+            font-size: 14px;
+
+            .star {
+              margin-right: 5px;
+              padding-top: 4px;
+              @extend %joinStar;
+              vertical-align: middle;
+            }
+          }
+        }
+
+        &__content-box {
+          border-top: 1px solid #000;
+
+          .inputs {
+            table-layuout: fixed;
+            width: 100%;
+            border-bottom: 1px solid #e8e8e8;
+
+            &__agree {
+              width: 100%;
+              padding: 0 19px 0 20px;
+              border-bottom: 1px solid #e8e8e8;
+              @extend %clear;
+
+              a {
+                float: right;
+                position: relative;
+                color: #999;
+                font-size: 15px;
+                font-weight: 600;
+                border: none;
+
+                &:after {
+                  content: "";
+                  display: block;
+                  position: absolute;
+                  bottom: 3px;
+                  width: 100%;
+                  height: 1px;
+                  background: #999;
+                }
+              }
+              label {
+                display: inline-block;
+                margin-right: 40px;
+                padding: 25px 0;
+                color: #000;
+                font-size: 15px;
+              }
+
+              input {
+                margin-right: 10px;
+              }
+            }
+
+            &--birthday {
+              margin-top:10px;
+
+              select {
+                width: 100px;
+                height: 40px;
+              }
+              .selecttext {
+                margin:0 16px 0 8px;
+                color: #222;
+                font-size: 14px;
+                line-height: 40px;
+              }
+            }
+
+            &--must {
+              display: inline-block;
+              font-size: 16px;
+              color: $pcolor;
+              margin: 4px 8px 0 -15px;
+              vertical-align: top;
+            }
+
+            &__title {
+              display: table-cell;
+              width: 210px;
+              padding: 25px 10px 28px 30px;
+              color: #000;
+              font-size: 15px;
+              text-align: left;
+              vertical-align: top;
+
+              &--star {
+                color: #00bce7;
+                margin-left: 3px;
+                font-weight: bold;
+                vertical-align: -2px;
+              }
+
+            }
+
+            &__content {
+              @extend %clear;
+              display: table-cell;
+              padding: 15px 0 0;
+              line-height: 39px;
+
+              &--birth {
+                padding-top: 4px;
+              }
+
+              &--sex {
+                padding-top: 13px;
+              }
+              .info__address {
+                padding-bottom: 16px;
+              }
+              .txt-error, .txt-success {
+                //margin: 10px 0 0;
+              }
+
+              > input {
+                width: 340px;
+              }
+
+              .link__box {
+                display: block;
+                margin-bottom: 20px;
+
+                & > a {
+                  display: inline-block;
+                  width: 165px;
+                  padding: 1px 0;
+                  color: #fff;
+                  font-size: 14px;
+                  text-align: center;
+                }
+
+                &--login {
+                  margin-right: 10px;
+                  background: #00bce7;
+                }
+
+                &--search {
+                  background: #000;
+                }
+              }
+
+              .selectWrap {
+                select, input {
+                  width: 100px;
+                }
+
+                select + select {
+                  margin-left: 10px;
+                }
+              }
+
+              &__btn {
+                display: inline-block;
+                position: relative;
+                margin-left: 9px;
+                padding: 0 45px;
+                border: 1px solid #000;
+                background: #000;
+                color: #fff;
+                font-size: 14px;
+                line-height: 38px;
+
+                &:disabled,
+                &--disabled {
+                  border-color: #aaa;
+                  background: #aaa;
+                }
+                &.white {
+                  background: #fff;
+                  color: #666;
+                }
+
+                &.phone {
+                  margin-left: 0;
+
+                  &:before {
+                    content: "";
+                    display: inline-block;
+                    width: 12px;
+                    height: 20px;
+                    margin-right: 10px;
+                    background: url(../images/common/icon_member_join_phone.png) no-repeat center center;
+                    vertical-align: middle;
+                  }
+                }
+
+                input[type=file] {
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  width: 100%;
+                  height: 100%;
+                  opacity: 0;
+                }
+              }
+
+              &__warning {
+                 color: #e60000;
+                 font-size: 13px;
+                 clear: both;
+               }
+
+              &__guide {
+                color: #666;
+                font-size: 13px;
+                clear: both;
+
+                &--color {
+                  color: #00bce7;
+                }
+              }
+
+              &__text {
+                color: #222;
+                font-size: 15px;
+                line-height: 40px;
+              }
+
+              .email {
+                display: inline-block;
+
+                input[type=text] {
+                  width: 160px;
+                }
+
+                select {
+                  width: 160px;
+                  margin-left: 5px;
+                }
+
+                .input-between {
+                  display: inline-block;
+                  margin: 0 2px;
+                  color: #222;
+                }
+              }
+              .inputs__label {
+                margin-right: 48px;
+
+                input {
+                  margin-right: 7px;
+
+                  &:checked + span {
+                    color: #000;
+                  }
+                }
+              }
+
+              .input__select {
+                margin: 0 9px;
+                font-size: 14px;
+              }
+
+              &__thumb {
+                display: inline-block;
+                position: relative;
+                overflow: hidden;
+                width: 50px;
+                height: 50px;
+                margin-top: -5px;
+                border-radius: 100%;
+                vertical-align: top;
+                background-size: 100% 100%;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+
+              &__radio-box {
+                @extend %clear;
+
+                .radio {
+                  float: left;
+                  position: relative;
+                  width: 107px;
+                  padding: 9px 5px 9px 28px;
+
+                  & input[type=radio] {
+                    position: absolute;
+                    top: 9px;
+                    left: 0;
+                  }
+
+                  label {
+                    display: block;
+                    margin-left: 0;
+                    line-height: 22px;
+                  }
+                }
+              }
+
+              &__check-box {
+                @extend %clear;
+
+                .checkbox {
+                  float: left;
+                  position: relative;
+                  width: 190px;
+                  padding: 5px 5px 5px 28px;
+
+                  & input[type=radio], input[type=checkbox] {
+                    position: absolute;
+                    top: 5px;
+                    left: 0;
+                  }
+
+                  label {
+                    display: block;
+                    margin-left: 0;
+                    color: #000!important;
+                    line-height: 22px;
+                  }
+                }
+              }
+
+              .certify-pcs-text {
+                display: inline-block;
+                margin-top: 12px;
+              }
+
+              .certify-pcs-text + .certify-complete {
+                margin-right: 20px;
+                font-size: 15px;
+                color: $pcolor;
+
+                &:before {
+                  content: '';
+                  display: inline-block;
+                  width: 16px;
+                  height: 14px;
+                  background: url(../../img/bg/sprite_member.png) no-repeat -500px 0;
+                  vertical-align: middle;
+                  margin: 0 5px 3px;
+                }
+
+              }
+
+              .certify-pcs-text + .certify-complete.certify-pcs-text:empty + .certify-complete {
+                display: none;
+              }
+
+              .form-info-wrap {
+                width: 500px;
+              }
+
+              .inputs__content {
+                &--zip {
+                  width: 160px!important;
+                }
+
+                &--zip-search {
+                  margin-left: 9px;
+                  padding: 12px 32px;
+                  font-size: 14px;
+                  vertical-align: bottom;
+                }
+
+              }
+            }
+          }
+        }
+
+        &__guide {
+          margin-top: 10px;
+          padding-left: 15px;
+          li {
+            position: relative;
+            padding-left: 12px;
+            color: #666;
+            font-size: 14px;
+            line-height: 20px;
+            &:before {
+              content: "·";
+              position: absolute;
+              top: 0;
+              left: 0;
+              color: #ccc;
+            }
+          }
+        }
+      }
+    }
+
+    [class^='btn']:disabled {
+      border-color: #999;
+      background-color: #f5f5f5;
+      color: #999;
+    }
+    .btn-dark {
+      margin-left: 9px;
+      background: #000;
+    }
+    .btn-lg {
+      width: 198px;
+    }
+
+    input + .txt-success {
+      margin: 0!important;
+    }
+  }
+}

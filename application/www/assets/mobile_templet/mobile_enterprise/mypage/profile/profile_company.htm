@@ -1,0 +1,309 @@
+<h1 class="wrap-title">
+    회원정보 수정
+    <button class="back"></button>
+</h1>
+
+<div class="wrap-sect"></div>
+
+<div class="wrap-mypage profile-detail">
+    <form id="devCompanyProfileForm">
+        <div class="wrap-input-form">
+            <!-- **로그인 정보 입력** -->
+            <div class="input-cpn-tit">로그인 정보 입력</div>
+            <section>
+                <!-- 아이디 -->
+                <dl>
+                    <dt>아이디</dt>
+                    <dd>
+                        <input type="text" value="{id}" disabled>
+                    </dd>
+                </dl>
+
+                <!-- 비밀번호 -->
+                <dl>
+                    <dt>비밀번호 <em>*</em></dt>
+                    <dd>
+                        <div class="wrap-btn-area">
+                            <button type="button" class="btn-default btn-dark" id="devChangePassword">비밀번호 변경</button>
+                        </div>
+                    </dd>
+                </dl>
+
+            </section>
+
+            <div class="wrap-sect"></div>
+
+            <!-- **사업자 정보 입력** -->
+            <div class="input-cpn-tit">사업자 정보 입력</div>
+            <section>
+                <!-- 상호명 -->
+                <dl>
+                    <dt>상호명</dt>
+                    <dd>
+                        <input type="text" value="{com_name}" disabled>
+                    </dd>
+                </dl>
+
+                <!-- 사업자등록번호 -->
+                <dl>
+                    <dt>사업자등록번호</dt>
+                    <dd>
+                        <input type="text" value="{com_number}" disabled>
+                    </dd>
+                </dl>
+
+                <!-- 전화번호 -->
+                <dl>
+                    <dt>전화번호 <em>*</em></dt>
+                    <dd>
+                        <div class="wrap-multi-input">
+                            <select class="pub-form-set-3rd" name="com_tel1" id="devComTel1" style="width:170px;">
+                                <option value="02" {? com_phone[0]=="02"}selcted{/}>02</option>
+                                <option value="031" {? com_phone[0]=="031"}selcted{/}>031</option>
+                                <option value="032" {? com_phone[0]=="032"}selcted{/}>032</option>
+                                <option value="041" {? com_phone[0]=="041"}selcted{/}>041</option>
+                                <option value="042" {? com_phone[0]=="042"}selcted{/}>042</option>
+                                <option value="043" {? com_phone[0]=="043"}selcted{/}>043</option>
+                                <option value="051" {? com_phone[0]=="051"}selcted{/}>051</option>
+                                <option value="052" {? com_phone[0]=="052"}selcted{/}>052</option>
+                                <option value="053" {? com_phone[0]=="053"}selcted{/}>053</option>
+                                <option value="054" {? com_phone[0]=="054"}selcted{/}>054</option>
+                                <option value="055" {? com_phone[0]=="055"}selcted{/}>055</option>
+                                <option value="061" {? com_phone[0]=="061"}selcted{/}>061</option>
+                                <option value="062" {? com_phone[0]=="062"}selcted{/}>062</option>
+                                <option value="063" {? com_phone[0]=="063"}selcted{/}>063</option>
+                                <option value="064" {? com_phone[0]=="064"}selcted{/}>064</option>
+                                <option value="070" {? com_phone[0]=="070"}selcted{/}>070</option>
+                                <option value="080" {? com_phone[0]=="080"}selcted{/}>080</option>
+                                <option value="090" {? com_phone[0]=="090"}selcted{/}>090</option>
+                            </select>
+
+                            <span class="hyphen">-</span>
+
+                            <input type="text" name="com_tel2" value="{com_phone[1]}" id="devComTel2" title="사업자 전화번호" style="width:180px;">
+
+                            <span class="hyphen">-</span>
+
+                            <input type="text" name="com_tel3" value="{com_phone[2]}" id="devComTel3" title="사업자 전화번호" style="width:180px;">
+                        </div>
+                    </dd>
+                </dl>
+
+                <!-- 주소 -->
+                <dl>
+                    <dt>주소 <em>*</em></dt>
+                    <dd>
+                        <div class="wrap-multi-input">
+                            <input type="text" name="com_zip" value="{com_zip}" id="devComZip" style="width:170px;" title="사업자 주소" readonly>
+                            <button type="button" class="btn-default btn-dark mal10" id="devComZipPopupButton">주소찾기</button>
+                        </div>
+
+                        <input type="text" class="mat10" name="com_addr1" value="{com_addr1}" id="devComAddress1" readonly>
+                        <input type="text" class="mat10" name="com_addr2" value="{com_addr2}" id="devComAddress2" title="사업자 주소" placeholder="상세주소를 입력해 주세요.">
+                    </dd>
+                </dl>
+            </section>
+
+            <div class="wrap-sect"></div>
+
+            <!-- **대표자 정보 입력** -->
+            <div class="input-cpn-tit">대표자 정보 입력</div>
+            <section>
+                <!-- 대표자명 -->
+                <dl>
+                    <dt>대표자명</dt>
+                    <dd>
+                        <input type="text" value="{com_ceo}" title="대표자명" disabled>
+                    </dd>
+                </dl>
+
+                <!-- 이메일 -->
+                <dl>
+                    <dt>이메일 <em>*</em></dt>
+                    <dd>
+                        <div class="wrap-multi-input">
+                            <input type="text" name="comEmailId" value="{com_email[0]}" id="devComEmailId" title="이메일" style="width:280px;">
+                            <span class="hyphen_2">@</span>
+                            <input type="text" name="comEmailHost" value="{com_email[1]}" id="devComEmailHost" title="이메일" style="display:none;width:270px;">
+
+                            <select id="devComEmailHostSelect" style="width:270px;">
+                                <option value="naver.com" {? com_email[1] == "naver.com"}selected{/}>naver.com</option>
+                                <option value="gmail.com" {? com_email[1] == "gmail.com"}selected{/}>gmail.com</option>
+                                <option value="hotmail.com" {? com_email[1] == "hotmail.com"}selected{/}>hotmail.com</option>
+                                <option value="hanmail.net" {? com_email[1] == "hanmail.net"}selected{/}>hanmail.net</option>
+                                <option value="daum.net" {? com_email[1] == "daum.net"}selected{/}>daum.net</option>
+                                <option value="nate.com" {? com_email[1] == "nate.com"}selected{/}>nate.com</option>
+                            </select>
+                        </div>
+
+                        <p class="txt-error mat10" devTailMsg="devComEmailId devComEmailHost"></p>
+
+                        <div class="mat20">
+                            <input type="checkbox" id="devDirectInputComEmailCheckBox">
+                            <label for="devDirectInputComEmailCheckBox">메일 도메인을 직접 입력하겠습니다.</label>
+                        </div>
+                        <button type="button" class="btn-default btn-dark btn-full mat30" id="devComEmailDoubleCheckButton">이메일 중복 확인</button>
+                    </dd>
+                </dl>
+
+                <!-- 휴대폰 번호 -->
+                <dl>
+                    <dt>대표 휴대폰 번호 <em>*</em></dt>
+                    <dd>
+                        <div class="wrap-multi-input">
+                            <select name="com_pcs1" id="devComPcs1" style="width:170px;">
+                                <option value="010" {? com_mobile[0]=="010"}selcted{/}>010</option>
+                                <option value="011" {? com_mobile[0]=="011"}selcted{/}>011</option>
+                                <option value="016" {? com_mobile[0]=="016"}selcted{/}>016</option>
+                                <option value="017" {? com_mobile[0]=="017"}selcted{/}>017</option>
+                                <option value="018" {? com_mobile[0]=="018"}selcted{/}>018</option>
+                                <option value="019" {? com_mobile[0]=="019"}selcted{/}>019</option>
+                            </select>
+                            <span class="hyphen">-</span>
+
+                            <input type="text" name="com_pcs2" id="devComPcs2" value="{com_mobile[1]}" title="대표 휴대폰 번호" style="width:180px;">
+
+                            <span class="hyphen">-</span>
+
+                            <input type="text" name="com_pcs3" id="devComPcs3" value="{com_mobile[2]}" title="대표 휴대폰 번호" style="width:180px;">
+                        </div>
+                    </dd>
+                </dl>
+            </section>
+
+
+            <div class="wrap-sect"></div>
+
+            <!-- **담당자 정보 입력** -->
+            <div class="input-cpn-tit">담당자 정보 입력</div>
+            <section>
+                <!-- 담당자명 -->
+                <dl>
+                    <dt>담당자명</dt>
+                    <dd>
+                        <input type="text" name="name" value="{name}" id="devName" title="담당자명">
+                    </dd>
+                </dl>
+
+                <!-- 이메일 -->
+                <dl>
+                    <dt>담당자 이메일 <em>*</em></dt>
+                    <dd>
+                        <div class="wrap-multi-input">
+                            <input type="text" name="emailId" value="{mail[0]}" id="devEmailId" title="이메일" style="width:280px;">
+                            <span class="hyphen_2">@</span>
+                            <input type="text" name="emailHost" value="{mail[1]}" id="devEmailHost" title="이메일" style="display:none; width:270px;">
+
+                            <select id="devEmailHostSelect"  style="width:270px;">
+                                <option value="naver.com" {? mail[1] == "naver.com"}selected{/}>naver.com</option>
+                                <option value="gmail.com" {? mail[1] == "gmail.com"}selected{/}>gmail.com</option>
+                                <option value="hotmail.com" {? mail[1] == "hotmail.com"}selected{/}>hotmail.com</option>
+                                <option value="hanmail.net" {? mail[1] == "hanmail.net"}selected{/}>hanmail.net</option>
+                                <option value="daum.net" {? mail[1] == "daum.net"}selected{/}>daum.net</option>
+                                <option value="nate.com" {? mail[1] == "nate.com"}selected{/}>nate.com</option>
+                            </select>
+
+                        </div>
+
+                        <p class="txt-error mat10" devTailMsg="devEmailId devEmailHost"></p>
+
+                        <div class="mat20">
+                            <input type="checkbox" id="devDirectInputEmailCheckBox">
+                            <label for="devDirectInputEmailCheckBox">메일 도메인을 직접 입력하겠습니다.</label>
+                        </div>
+                        <button type="button" class="btn-default btn-dark btn-full mat30" id="devEmailDoubleCheckButton">이메일 중복 확인</button>
+                    </dd>
+                </dl>
+
+                <!-- 담당자 휴대폰 번호 -->
+                <dl>
+                    <dt>담당자 휴대폰 번호 <em>*</em></dt>
+                    <dd>
+                        <div class="wrap-multi-input">
+                            <select name="pcs1" id="devPcs1" style="width:170px;" readonly>
+                                <option value="010" {? pcs[0] == '010'}selected{/}>010</option>
+                                <option value="011" {? pcs[0] == '011'}selected{/}>011</option>
+                                <option value="016" {? pcs[0] == '016'}selected{/}>016</option>
+                                <option value="017" {? pcs[0] == '017'}selected{/}>017</option>
+                                <option value="018" {? pcs[0] == '018'}selected{/}>018</option>
+                                <option value="019" {? pcs[0] == '019'}selected{/}>019</option>
+                            </select>
+                            <span class="hyphen">-</span>
+
+                            <input type="text" name="pcs2" value="{pcs[1]}" id="devPcs2" title="담당자 휴대폰번호" style="width:180px;" readonly>
+
+                            <span class="hyphen">-</span>
+
+                            <input type="text" name="pcs3" value="{pcs[2]}" id="devPcs3" title="담당자 휴대폰번호" style="width:180px;" readonly>
+                        </div>
+                        <button type="button" class="btn-default btn-dark btn-full mat30" id="devCertifyButton">휴대폰번호 변경</button>
+
+                    </dd>
+                </dl>
+            </section>
+
+            <div class="wrap-sect"></div>
+
+            <!-- **증빙자료 서류첨부** -->
+            <div class="input-cpn-tit">증빙자료 서류첨부</div>
+            <section>
+                <dl>
+                    <dt>사업자등록증</dt>
+                    <dd class="wrap-license-upload">
+                        <div id="devBusinessFileWrap">
+                            <button type="button" class="file-upload-btn" id="devBusinessFileButton"></button>
+                            <input type="file" class="file-upload" name="businessFile" id="devBusinessFile" title="사업자등록증" accept="image/*">
+                        </div>
+
+                        <div class="upload-img-area" id="devBusinessFileImageWrap" style="display:none;">
+                            <img id="devBusinessFileImage">
+                            <span class="upload-cancel-btn" id="devBusinessFileDeleteButton"></span>
+                        </div>
+
+                        <p class="desc">· 파일 형식은 이미지 파일(jpg, jpeg, gif, png)로 제출 가능합니다.</p>
+                        <p class="desc">· 파일 용량은 최대 30MB까지 가능합니다.</p>
+                        <p class="desc">· 서류는 별도 이메일 주소로 추가 제출 가능합니다.<br> &nbsp&nbsp담당자 이메일 : forbiz@forbiz.co.kr</p>
+
+                    </dd>
+                </dl>
+            </section>
+
+            <div class="wrap-sect"></div>
+
+            <!--선택 동의 항목-->
+
+            <p class="subtitle">선택 동의 항목</p>
+
+            <div class="term-list">
+                <input type="checkbox"  id="devAgreeTerm" name="policy[]" value="{policyData['marketing']['ix']}" {? sms == '1' || info == '1'}checked{/} />
+                       <label for="agree-term5">마케팅 활용 동의(선택)</label>
+                <span class="accord-btn"></span>
+            </div>
+            <div class="terms-content">
+                {policyData['marketing']['contents']}
+            </div>
+
+            <div class="marketing-wrap">
+                <p class="tit">마케팅 활용 동의 수신 여부</p>
+
+                <input type="checkbox" id="devAgreeSms" name="sms" value="1" title="SMS" {? sms == '1'}checked{/} />
+                       <label for="agree-term6">SMS 수신</label>
+
+                <input type="checkbox" id="devAgreeEmail" name="email" value="1" title="E-Mail" {? info == '1'}checked{/} class="mal40" />
+                       <label for="agree-term7">이메일 수신</label>
+
+                <p class="sub-txt mat20">· 쇼핑몰에서 제공되는 다양한 정보를 받아보실 수 있습니다.<br>
+
+                <p class="sub-txt">· 결제/교환/환불 등의 주문거래 관련 정보는 수신동의 여부와 상관 없이 발송됩니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="layout-padding mab80">
+            <div class="wrap-btn-area mat30">
+                <button type="button" class="btn-lg btn-dark-line" id="devProfileModifyCancel" >취소</button>
+                <button class="btn-lg btn-point" >저장</button>
+            </div>
+        </div>
+    </form>
+</div>

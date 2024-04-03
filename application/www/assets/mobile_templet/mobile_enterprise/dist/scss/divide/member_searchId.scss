@@ -1,0 +1,461 @@
+.br {
+  &__find-user {
+    padding: rem(0 40px);
+
+    &__title {
+      padding: rem(100px) 0;
+      color: #000;
+      font-size: rem(50px);
+      line-height: rem(64px);
+      text-align: center;
+    }
+
+    &__label {
+      label {
+        display: inline-block;
+        margin-right: rem(30px);
+
+        span {
+          font-size: rem(24px);
+          vertical-align: middle;
+        }
+      }
+      input[type=checkbox],
+      input[type=radio] {
+        margin-right: rem(10px);
+        vertical-align: middle;
+      }
+    }
+    &__form {
+      display: none;
+      margin-top: rem(30px);
+
+      &--show {
+        display: block;
+      }
+    }
+    .find-user {
+      &__input {
+        margin-top: rem(20px);
+        input[type=text],
+        input[type=password] {
+          height: rem(80px);
+          padding: rem(0 20px);
+          border-color: #b5b5b6;
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(78px);
+        }
+        select {
+          height: rem(80px);
+          color: #000;
+        }
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+        &__email {
+          display: flex;
+          &--name {
+            width: rem(230px);
+          }
+          &--adress {
+            width: 100%;
+          }
+          &--at {
+            display: block;
+            padding: rem(0 12px);
+            color: #000;
+            font-size: rem(26px);
+            line-height: rem(80px);
+          }
+        }
+        &__phone {
+          display: flex;
+          select {
+            width: rem(165px);
+            height: rem(80px);
+          }
+          input[type=text] {
+            width: rem(165px);
+          }
+          &--hyphen {
+            display: block;
+            width: rem(20px);
+            height: rem(2px);
+            margin: 0 rem(6px);
+            background: #b5b5b6;
+            align-self: center;
+            @extend %hiddenText;
+          }
+        }
+        &__certify {
+          &--btn {
+            display: block;
+            width: 100%;
+            background: #000;
+            color: #fff;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(80px);
+            text-align: center;
+          }
+          &--box {
+            position:relative;
+            margin-top: rem(20px);
+            padding:0 rem(200px 0 0);
+            &--btn {
+              position:absolute;
+              top:0;
+              right:0;
+              width: rem(180px);
+              height: rem(80px);
+              line-height: rem(80px);
+              border:1px solid #000;
+              color:#000;
+              font-size: rem(22px);
+              font-weight:600;
+            }
+
+          }
+        }
+        &__error {
+          margin-top: rem(15px);
+          color: #e60000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+
+          &:empty {
+            display: none;
+          }
+        }
+      }
+      &__notice {
+        color: #898989;
+        font-size: rem(22px);
+        line-height: rem(32px);
+        margin-top: rem(15px);
+      }
+      &__btn {
+        margin-top: rem(50px);
+        &__submit {
+          display: block;
+          width: 100%;
+          border: none;
+          background: $cPoint;
+          color: #fff;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(80px);
+          text-align: center;
+        }
+        &__home {
+          display: block;
+          width: 100%;
+          border: none;
+          background: #000;
+          color: #fff;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(80px);
+          text-align: center;
+        }
+      }
+    }
+    .br__find__success {
+      .success__box {
+        padding: rem(50px 0);
+        margin:0 0 rem(50px 0);
+        text-align: center;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        &-title {
+          margin: 0 0 rem(30px 0);
+          color: #000;
+          font-size: rem(26px);
+        }
+        &-sub {
+          font-size: rem(22px);
+          line-height: 1.5;
+          em {
+            color: $cPoint;
+            font-weight: 600;
+          }
+        }
+      }
+      .find-user__btn {
+        margin: rem(20px 0 0 0);
+      }
+    }
+    .br__find__fail {
+      text-align:center;
+      .fail__title {
+        font-size: rem(22px);
+      }
+      .fail__title-sub {
+        font-size: rem(20px);
+        line-height:1.4;
+      }
+      .fail__box {
+        margin: rem(50px 0);
+        padding: rem(50px 0);
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        &-title {
+          color:#000;
+          line-height:1.5;
+          em {
+            color:$cPoint;
+            font-weight: 600;
+          }
+        }
+
+      }
+
+
+
+    }
+  }
+}
+
+.crema-type {
+  .br__find-user {
+    padding: rem(0 40px);
+
+    &__title {
+      padding: rem(100px 0);
+      color: #000;
+      font-size: rem(50px);
+      line-height: rem(64px);
+      text-align: center;
+    }
+
+    &__label {
+      label {
+        display: inline-block;
+        margin-right: rem(30px);
+
+        span {
+          vertical-align: middle;
+        }
+      }
+      input[type=checkbox],
+      input[type=radio] {
+        margin-right: rem(10px);
+        vertical-align: middle;
+      }
+    }
+    &__form {
+      display: none;
+      margin-top: rem(30px);
+
+      &--show {
+        display: block;
+      }
+    }
+    .find-user {
+      &__input {
+        margin-top: rem(20px);
+        input[type=text],
+        input[type=password] {
+          height: rem(80px);
+          padding: rem(0 20px);
+          border-color: #b5b5b6;
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(78px);
+        }
+        select {
+          height: rem(80px);
+          color: #000;
+        }
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+        &__email {
+          display: flex;
+          &--name {
+            width: rem(230px);
+          }
+          &--adress {
+            width: 100%;
+          }
+          &--at {
+            display: block;
+            padding: rem(0 12px);
+            color: #000;
+            font-size: rem(26px);
+            line-height: rem(80px);
+          }
+        }
+        &__phone {
+          display: flex;
+          select {
+            width: rem(165px);
+            height: rem(80px);
+          }
+          input[type=text] {
+            width: rem(165px);
+          }
+          &--hyphen {
+            display: block;
+            width: rem(20px);
+            height: rem(2px);
+            margin: rem(0 6px);
+            background: #b5b5b6;
+            align-self: center;
+            @extend %hiddenText;
+          }
+        }
+        &__certify {
+          &--btn {
+            display: block;
+            width: 100%;
+            background: #000;
+            color: #fff;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(80px);
+            text-align: center;
+          }
+          &--box {
+            position:relative;
+            margin-top: rem(20px);
+            padding:rem(0 200px 0 0);
+            &--btn {
+              position:absolute;
+              top:0;
+              right:0;
+              width:rem(180px);
+              height:rem(80px);
+              line-height:rem(80px);
+              border:1px solid #000;
+              color:#000;
+              font-size: rem(22px);
+              font-weight:600;
+            }
+
+          }
+        }
+        &__error {
+          margin-top: rem(15px);
+          color: #e60000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+
+          &:empty {
+            display: none;
+          }
+        }
+      }
+      &__notice {
+        color: #898989;
+        font-size: rem(22px);
+        line-height: rem(32px);
+        margin-top: rem(15px);
+      }
+      &__btn {
+        margin-top: rem(50px);
+        &__submit {
+          display: block;
+          width: 100%;
+          border: none;
+          background: $cPoint;
+          color: #fff;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(80px);
+          text-align: center;
+        }
+        &__home {
+          display: block;
+          width: 100%;
+          border: none;
+          background: #000;
+          color: #fff;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(80px);
+          text-align: center;
+        }
+      }
+    }
+    .br__find__success {
+      .success__box {
+        padding: rem(50px 0);
+        margin:rem(0 0 50px 0);
+        text-align: center;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        &-title {
+          margin: rem(0 0 30px 0);
+          color: #000;
+          font-size: rem(26px);
+        }
+        &-sub {
+          font-size: rem(22px);
+          line-height: 1.5;
+          em {
+            color: $cPoint;
+            font-weight: 600;
+          }
+        }
+      }
+      .find-user__btn {
+        margin: rem(20px 0 0 0);
+      }
+    }
+    .br__find__fail {
+      text-align:center;
+      .fail__title {
+        font-size: rem(22px);
+      }
+      .fail__title-sub {
+        font-size: rem(20px);
+        line-height:1.4;
+      }
+      .fail__box {
+        margin: rem(50px 0);
+        padding: rem(50px 0);
+        border-top:1px solid #ccc;
+        border-bottom:1px solid #ccc;
+        &-title {
+          color:#000;
+          line-height:1.5;
+          em {
+            color:$cPoint;
+            font-weight:600;
+          }
+        }
+
+      }
+
+
+
+    }
+  }
+
+}
+
+html[lang=en] {
+  .br {
+    &__find-user {
+      .find-user {
+        &__input {
+          &__certify {
+            &--box {
+              padding-right:0;
+
+              &--btn {
+                position:static;
+                width:100%;
+                margin-top: rem(20px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

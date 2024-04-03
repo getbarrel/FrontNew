@@ -1,0 +1,286 @@
+a:1:{s:50:"upload_excel_data_2449fc4a6aec74831f7f1fa379545d3b";a:1:{s:26:"7bqo875r48nmj7d513g40uakd2";a:4:{i:0;a:60:{s:12:"migration_id";s:21:"상품시스템코드";s:12:"product_type";s:12:"상품구분";s:8:"category";s:12:"카테고리";s:5:"md_id";s:8:"MD설정";s:11:"disp_global";s:22:"글로벌 노출설정";s:5:"pname";s:9:"상품명";s:13:"english_pname";s:17:"상품명(영문)";s:8:"add_info";s:9:"색상명";s:16:"english_add_info";s:9:"색상명";s:5:"pcode";s:26:"상품코드(품목코드)";s:11:"filter_info";s:12:"필터정보";s:8:"shotinfo";s:18:"상품간략설명";s:16:"english_shotinfo";s:26:"상품간략소개(영문)";s:5:"og_ix";s:15:"원산지코드";s:7:"company";s:15:"제조사코드";s:5:"brand";s:15:"브랜드코드";s:11:"surtax_yorn";s:12:"면세여부";s:5:"state";s:12:"판매상태";s:4:"disp";s:12:"노출여부";s:12:"is_sell_date";s:25:"판매기간 사용여부";s:15:"sell_priod_date";s:18:"판매기간설정";s:13:"coupon_use_yn";s:25:"상품쿠폰 사용여부";s:14:"search_keyword";s:15:"검색키워드";s:22:"english_search_keyword";s:23:"검색키워드(영문)";s:5:"movie";s:13:"동영상 URL";s:7:"coprice";s:9:"공급가";s:15:"english_coprice";s:17:"공급가(영문)";s:9:"listprice";s:9:"판매가";s:17:"english_listprice";s:17:"판매가(영문)";s:9:"sellprice";s:9:"할인가";s:17:"english_sellprice";s:17:"할인가(영문)";s:13:"allow_max_cnt";s:18:"최대판매수량";s:31:"wholesale_allow_byoneperson_cnt";s:17:"ID당구매수량";s:16:"allow_order_type";s:31:"한정판매수량 사용여부";s:25:"allow_order_cnt_byonesell";s:18:"한정판매수량";s:14:"display_option";s:21:"디스플레이옵션";s:14:"mandatory_type";s:25:"상품정보 고시유형";s:14:"mandatory_info";s:18:"상품고시정보";s:21:"mandatory_type_global";s:33:"상품정보 고시유형(영문)";s:21:"mandatory_info_global";s:26:"상품고시정보(영문)";s:13:"pattern_image";s:16:"패턴 이미지";s:11:"m_basicinfo";s:28:"모바일 상품상세정보";s:19:"english_m_basicinfo";s:47:"모바일 상품상세설명(이미지)(영문)";s:9:"basicinfo";s:22:"웹 상품상세정보";s:17:"english_basicinfo";s:41:"웹 상품상세설명(이미지)(영문)";s:7:"mainimg";s:15:"상품이미지";s:11:"option_name";s:9:"옵션명";s:19:"english_option_name";s:38:"옵션명(가격+재고관리)(영문)";s:10:"option_div";s:12:"옵션구분";s:18:"english_option_div";s:20:"옵션구분(영문)";s:23:"stock_options_listprice";s:22:"옵션 소매판매가";s:31:"english_stock_options_listprice";s:51:"옵션 소매판매가(가격+재고관리)(영문)";s:23:"stock_options_sellprice";s:22:"옵션 소매할인가";s:31:"english_stock_options_sellprice";s:51:"옵션 소매할인가(가격+재고관리)(영문)";s:21:"stock_options_soldout";s:12:"품절여부";s:18:"stock_options_code";s:18:"옵션품목코드";s:6:"addimg";s:23:"상품 추가 이미지";s:7:"listimg";s:26:"상품 리스트 이미지";s:7:"preface";s:16:"상품머리말 ";s:15:"english_preface";s:23:"상품머리말(영문)";}i:1;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:12:"br_yejinhong";s:11:"disp_global";N;s:5:"pname";s:34:"키즈 배럴 미러 스윔 고글";s:13:"english_pname";s:31:"Kids Barrel Mirror Swim Goggles";s:8:"add_info";s:30:"블루 미러/네온 옐로우";s:16:"english_add_info";s:23:"BLUE MIRROR/NEON YELLOW";s:5:"pcode";s:12:"BH9KSGG11BMN";s:11:"filter_info";s:18:"옐로우|One Size";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:117:"키즈 고글,키즈 배럴 미러 스윔 고글,수경,키즈 수경,물안경,키즈 물안경,배럴,미러 수경";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:28000;s:15:"english_coprice";N;s:9:"listprice";d:28000;s:17:"english_listprice";N;s:9:"sellprice";d:28000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:25;s:14:"mandatory_info";s:1130:"01|키즈 배럴 미러 스윔 고글^
+02|One Size(렌즈가로 3.3*렌즈세로 2.6*가스켓 높이 4*가스켓 너비 5cm)/65g^
+03|블루미러블루^
+04|렌즈 : 폴리카보네이트 100%, 가스켓 : 실리콘 100%, 스트랩 : 실리콘 100%, 노즈브릿지 : 우레탄 100%^
+05|수경^
+06|202101^
+07|㈜배럴^
+08|대한민국^
+09|1. 수경 세척 시 중성 세제를 1~2방울 렌즈 표면에 떨어뜨린 후 물에 헹구어 반드시 서늘하고 건조한 곳에 보관해주세요. 2. 알코올이나 시너 등의 유기 용액은 제품의 변형을 일으킬 수 있으니 삼가해주세요. 3. 제품 사용 중 태양을 직접 보지 않도록 주의해주시기 바랍니다. 4. 렌즈 안쪽 면은 김서림 방지를 위해 특수 코팅처리 되었습니다. 타월이나 손톱으로 문지르지 마시기 바랍니다. 5. 열기가 있는 곳에 두거나 젖은 수모와 수경을 장시간 함께 보관 시 제품 변형이 발생할 수 있으니 주의해주시기 바랍니다.^
+10|관련법 및 소비자분쟁해결기준에 따름^
+11|배럴 고객센터/1899-8751^
+12|상세설명참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:27:"mg/bluemirrorneonyellow.jpg";s:11:"m_basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:19:"english_m_basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:9:"basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:17:"english_basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_bmn.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:7:"mainimg";s:37:"mg/k_br_mirror_swim_goggles_bmn01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:8:"One Size";s:18:"english_option_div";s:8:"One Size";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:14:"BH9KSGG11BMNON";s:6:"addimg";s:37:"mg/k_br_mirror_swim_goggles_bmn02.jpg";s:7:"listimg";s:36:"mg/k_br_mirror_swim_goggles_bmn0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:0;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:6:"mg.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}i:2;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:12:"br_yejinhong";s:11:"disp_global";N;s:5:"pname";s:34:"키즈 배럴 미러 스윔 고글";s:13:"english_pname";s:31:"Kids Barrel Mirror Swim Goggles";s:8:"add_info";s:20:"블루 미러/블루";s:16:"english_add_info";s:16:"BLUE MIRROR/BLUE";s:5:"pcode";s:12:"BH9KSGG11BMR";s:11:"filter_info";s:15:"블루|One Size";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";N;s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:117:"키즈 고글,키즈 배럴 미러 스윔 고글,수경,키즈 수경,물안경,키즈 물안경,배럴,미러 수경";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:28000;s:15:"english_coprice";N;s:9:"listprice";d:28000;s:17:"english_listprice";N;s:9:"sellprice";d:28000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:25;s:14:"mandatory_info";s:1142:"01|키즈 스윔 고글 클리어/스카이 (BH9KSGG01D15ON)^
+02|One Size(렌즈세로 2.6,렌즈가로 3.3,가스켓 높이 4,가스켓 너비 5cm)^
+03|클리어스카이^
+04|렌즈: 폴리카보네이트 100%, 가스켓: 실리콘 100%, 밴드: 실리콘 100%, 노즈브릿지: 우레탄 100%^
+05|수경^
+06|202101^
+07|㈜배럴^
+08|대한민국^
+09|1. 수경 세척 시 중성 세제를 1~2방울 렌즈 표면에 떨어뜨린 후 물에 헹구어 반드시 서늘하고 건조한 곳에 보관해주세요. 2. 알코올이나 시너 등의 유기 용액은 제품의 변형을 일으킬 수 있으니 삼가해주세요. 3. 제품 사용 중 태양을 직접 보지 않도록 주의해주시기 바랍니다. 4. 렌즈 안쪽 면은 김서림 방지를 위해 특수 코팅처리 되었습니다. 타월이나 손톱으로 문지르지 마시기 바랍니다. 5. 열기가 있는 곳에 두거나 젖은 수모와 수경을 장시간 함께 보관 시 제품 변형이 발생할 수 있으니 주의해주시기 바랍니다.^
+10|관련법 및 소비자분쟁해결기준에 따름^
+11|배럴 고객센터/1899-8751^
+12|상세설명참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:21:"mg/bluemirrorblue.jpg";s:11:"m_basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:19:"english_m_basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:9:"basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:17:"english_basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_bmr.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:7:"mainimg";s:37:"mg/k_br_mirror_swim_goggles_bmr01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:8:"One Size";s:18:"english_option_div";s:8:"One Size";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:14:"BH9KSGG11BMRON";s:6:"addimg";s:37:"mg/k_br_mirror_swim_goggles_bmr02.jpg";s:7:"listimg";s:36:"mg/k_br_mirror_swim_goggles_bmr0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:1;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:6:"mg.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}i:3;a:66:{s:12:"migration_id";N;s:12:"product_type";d:0;s:8:"category";s:16:" 000000000000000";s:5:"md_id";s:12:"br_yejinhong";s:11:"disp_global";N;s:5:"pname";s:34:"키즈 배럴 미러 스윔 고글";s:13:"english_pname";s:31:"Kids Barrel Mirror Swim Goggles";s:8:"add_info";s:20:"핑크 미러/핑크";s:16:"english_add_info";s:16:"PINK MIRROR/PINK";s:5:"pcode";s:12:"BH9KSGG11PKM";s:11:"filter_info";s:15:"핑크|One Size";s:8:"shotinfo";N;s:16:"english_shotinfo";N;s:5:"og_ix";N;s:7:"company";N;s:5:"brand";N;s:11:"surtax_yorn";s:1:"N";s:5:"state";d:1;s:4:"disp";d:0;s:12:"is_sell_date";d:0;s:15:"sell_priod_date";s:0:"";s:13:"coupon_use_yn";s:1:"Y";s:14:"search_keyword";s:117:"키즈 고글,키즈 배럴 미러 스윔 고글,수경,키즈 수경,물안경,키즈 물안경,배럴,미러 수경";s:22:"english_search_keyword";N;s:5:"movie";N;s:7:"coprice";d:28000;s:15:"english_coprice";N;s:9:"listprice";d:28000;s:17:"english_listprice";N;s:9:"sellprice";d:28000;s:17:"english_sellprice";N;s:13:"allow_max_cnt";N;s:31:"wholesale_allow_byoneperson_cnt";N;s:16:"allow_order_type";N;s:25:"allow_order_cnt_byonesell";N;s:14:"display_option";N;s:14:"mandatory_type";d:25;s:14:"mandatory_info";s:1156:"01|키즈 스윔 고글 아쿠아/네온 옐로우 (BWHKETA001D16FR)^
+02|One Size(렌즈세로 2.6,렌즈가로 3.3,가스켓 높이 4,가스켓 너비 5cm)^
+03|아쿠아네온옐로우^
+04|렌즈: 폴리카보네이트 100%, 가스켓: 실리콘 100%, 밴드: 실리콘 100%, 노즈브릿지: 우레탄 100%^
+05|수경^
+06|202101^
+07|㈜배럴^
+08|대한민국^
+09|1. 수경 세척 시 중성 세제를 1~2방울 렌즈 표면에 떨어뜨린 후 물에 헹구어 반드시 서늘하고 건조한 곳에 보관해주세요. 2. 알코올이나 시너 등의 유기 용액은 제품의 변형을 일으킬 수 있으니 삼가해주세요. 3. 제품 사용 중 태양을 직접 보지 않도록 주의해주시기 바랍니다. 4. 렌즈 안쪽 면은 김서림 방지를 위해 특수 코팅처리 되었습니다. 타월이나 손톱으로 문지르지 마시기 바랍니다. 5. 열기가 있는 곳에 두거나 젖은 수모와 수경을 장시간 함께 보관 시 제품 변형이 발생할 수 있으니 주의해주시기 바랍니다.^
+10|관련법 및 소비자분쟁해결기준에 따름^
+11|배럴 고객센터/1899-8751^
+12|상세설명참조";s:21:"mandatory_type_global";N;s:21:"mandatory_info_global";N;s:13:"pattern_image";s:21:"mg/pinkmirrorpink.jpg";s:11:"m_basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:19:"english_m_basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:9:"basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:17:"english_basicinfo";s:1955:"<center>
+<br />
+<br />
+<!-- 테크디테일 --><img src="//image2.getbarrel.com/socal/2021/swim/td_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 에디토리얼1 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial1_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 에디토리얼2 --><img src="//image2.getbarrel.com/socal/2021/swim/editorial2_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 피팅컷 --><img src="//image2.getbarrel.com/socal/2021/swim/fitting_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 제품컷 --><img src="//image2.getbarrel.com/socal/2021/swim/product_k_br_mirror_swim_goggles_pkm.jpg" />
+<!-- 패키지 --><img src="//image2.getbarrel.com/socal/2021/swim/package_k_br_mirror_swim_goggles.jpg" />
+<!-- 수경사용법 --><img src="//image2.getbarrel.com/socal/2021/swim/how_to_use_swim_goggles.jpg" /><br />
+<br />
+<br />
+<br />
+<!--수경  버튼배너 -->
+<div style="text-align: center;"><img src="//image2.getbarrel.com/static/images/plus_guide.jpg" /> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_1.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_1.jpg" /> </a> <a href="//image2.getbarrel.com/static/images/w_swim_goggle_img_2.jpg" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_2.jpg" /> </a> <a href="https://www.getbarrel.com/shop/goodsView/0000005655" style="display: inline-block;" target="_blank"> <img alt="swim_men" src="//image2.getbarrel.com/static/images/w_swim_goggle_bt_3.jpg" /> </a></div>
+<br />
+<br />
+<!-- 사이즈 --><img src="https://fit7.cre.ma/getbarrel.com/fit/products/.jpg?width=900" /><br />
+<br />
+<br /><br />
+<!-- 경고주의사항타이틀 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_title.jpg" />
+<!-- 경고주의사항 --><img src="//image2.getbarrel.com//socal/2021/swim/caution_swim_goggles.jpg" />";s:7:"mainimg";s:37:"mg/k_br_mirror_swim_goggles_pkm01.jpg";s:11:"option_name";s:9:"사이즈";s:19:"english_option_name";s:4:"Size";s:10:"option_div";s:8:"One Size";s:18:"english_option_div";s:8:"One Size";s:23:"stock_options_listprice";N;s:31:"english_stock_options_listprice";N;s:23:"stock_options_sellprice";N;s:31:"english_stock_options_sellprice";N;s:21:"stock_options_soldout";d:0;s:18:"stock_options_code";s:14:"BH9KSGG11PKMON";s:6:"addimg";s:37:"mg/k_br_mirror_swim_goggles_pkm02.jpg";s:7:"listimg";s:36:"mg/k_br_mirror_swim_goggles_pkm0.jpg";s:7:"preface";N;s:15:"english_preface";N;s:4:"p_no";i:2;s:10:"company_id";s:32:"bb9d15b603ea947966f617bab0524851";s:7:"mall_ix";N;s:14:"goods_img_file";s:6:"mg.zip";s:6:"status";s:1:"C";s:14:"status_message";s:12:"등록완료";}}}}

@@ -1,0 +1,435 @@
+.br {
+
+  &__title {
+    font-size: 0;
+    line-height: 0;
+  }
+
+  &__level {
+    margin: rem(0 40px);
+
+    &__title {
+      padding: rem(90px 0);
+      color: #000;
+      font-size: rem(50px);
+      line-height: rem(70px);
+      text-align: center;
+    }
+
+    .member-benefits {
+      &__new {
+        padding:rem(25px 0 35px);
+        border:1px solid #b4b4b4;
+        background: #eeeeef;
+        @extend %clear;
+
+        &__title {
+          color: #000;
+          font-size: rem(30px);
+          font-weight: 600;
+          line-height: rem(40px);
+          text-align:center;
+        }
+        &__list {
+          float: left;
+          position:Relative;
+          width:33.33%;
+          margin-top:rem(35px);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          text-align:center;
+          &:before {
+            content: "";
+            position:absolute;
+            top:rem(10px);
+            left:0;
+            bottom:rem(10px);
+            border-left:1px solid #b5b5b5;
+          }
+          &:first-of-type {
+            clear: both;
+            &:before {
+              display:none;
+            }
+          }
+        }
+      }
+      &__box {
+        padding:rem(45px 0);
+        border-top:1px solid #ccc;
+        &:first-child {
+          border-top:0;
+        }
+
+        &__title {
+          color: #000;
+          font-size: rem(30px);
+          font-weight: 600;
+          line-height: rem(40px);
+        }
+        &__desc {
+          margin-top:rem(20px);
+          color:#000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          word-break:keep-all;
+        }
+      }
+    }
+
+    .level {
+
+      &__title {
+        margin: rem(100px 0 25px);
+        color: #000;
+        font-size: rem(26px);
+        text-align: center;
+
+        span {
+          display: block;
+          margin-top: rem(18px);
+          font-size: rem(50px);
+        }
+
+        b {
+          font-size: rem(50px);
+        }
+      }
+
+      &__info {
+        position: relative;
+        margin-top: rem(45px);
+        padding-bottom: rem(48px);
+        color: #000;
+        font-size: rem(26px);
+
+        &:after {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: rem(18px);
+          height: 1px;
+          margin-left: rem(-9px);
+          background: #6b6b6b;
+          content: "";
+        }
+
+        strong {
+          display: block;
+          margin-bottom: rem(20px);
+          font-size: rem(38px);
+        }
+      }
+
+      &__summary {
+        color: $cPoint;
+        font-size: rem(26px);
+        text-align: center;
+      }
+
+      &__img {
+        margin: rem(80px 0 45px);
+        text-align: center;
+      }
+
+      &__condition {
+        margin-bottom: rem(45px);
+        color: #000;
+        font-size: rem(26px);
+        text-align: center;
+      }
+
+      &__coupon {
+        margin-bottom: rem(38px);
+        text-align: center;
+
+        li {
+          display: inline-block;
+          margin-top: rem(10px);
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          button {
+            width: rem(326px);
+            height: rem(128px);
+            background: url(../images/common/bg-mypagelevel-coupon.png) no-repeat 0 0;
+            background-size:rem(326px 128px);
+            color: #000000;
+            font-weight: bold;
+            font-size: rem(26px);
+
+            &.level__coupon--blue {
+              background: url(../images/common/bg-mypagelevel-coupon--blue.png) no-repeat 0 0;
+              background-size:rem(326px 128px);
+            }
+          }
+
+          em {
+            display: block;
+            margin-top: rem(10px);
+            font-size: rem(22px);
+            font-weight: normal;
+          }
+        }
+      }
+
+      &__couponInfo {
+
+        @extend %clear;
+        
+        border: {
+          top: 2px solid #000;
+          bottom: 2px solid #000
+        }
+        margin-bottom: rem(95px);
+      }
+      
+      &__save,
+      &__sale {
+        float: left;
+        width: 50%;
+        border-bottom: 1px solid #dcdddd;
+        color: #000;
+        font-size: rem(22px);
+        text-align: center;
+        line-height: rem(81px);
+
+        span {
+          margin-right: rem(18px);
+        }
+      }
+
+      &__save {
+        border-right: 1px solid #dcdddd;
+        box-sizing: border-box;
+      }
+
+      &__return {
+        float: left;
+        width: 100%;
+        padding: rem(45px 0);
+        text-align: center;
+
+        ul {
+          display: inline-block;
+        }
+
+        li {
+          position: relative;
+          margin-top: rem(10px);
+          padding-left: rem(15px);
+          color: #000;
+          font-size: rem(22px);
+          text-align: left;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          &:after {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 2px;
+            height: 2px;
+            margin-top: -1px;
+            background: #000;
+            content: "";
+          }
+        }
+      }
+    }
+
+    .benefits {
+
+
+      &__title {
+        padding-left: rem(22px);
+        border: {
+          top: 2px solid #000;
+          bottom: 1px solid #000;
+        };
+        background: #eeeeef;
+        color: #000000;
+        font-size: rem(26px);
+        line-height: rem(80px);
+      }
+
+      &__list {
+        border-bottom: 1px solid #000000;
+      }
+
+      &__img {
+        display: block;
+        position: relative;
+        border-bottom: 1px solid #c3c3c3;
+        padding: rem(50px 0);
+
+        img {
+          width: rem(200px);
+          height: rem(200px);
+          margin-left: rem(80px);
+        }
+      }
+
+      &__name {
+        position: absolute;
+        top: 0;
+        left: 55%;
+        bottom: 0;
+
+        &:after {
+          display: inline-block;
+          width: 1px;
+          height: 100%;
+          vertical-align: middle;
+          content: "";
+        }
+
+        strong {
+          display: block;
+          margin-bottom: rem(25px);
+          color: #000000;
+          font-size: rem(26px);
+        }
+
+        li {
+          position: relative;
+          margin-top: rem(20px);
+          padding-left: rem(10px);
+          color: #000000;
+          font-size: rem(22px);
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          &:after {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 2px;
+            height: 2px;
+            margin-top: -1px;
+            background: #000;
+            content: "";
+          }
+        }
+      }
+
+      &__nameInner {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      &__info {
+        padding: rem(45px 0 45px 22px);
+
+        li {
+          position: relative;
+          margin-top: rem(15px);
+          padding-left: rem(10px);
+          color: #222;
+          font-size: rem(24px);
+
+          &:after {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 2px;
+            height: 2px;
+            margin-top: -1px;
+            background: #000;
+            content: "";
+          }
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+
+      &__notice {
+        margin-top: rem(100px);
+        padding: rem(35px 30px);
+        background: #eeeeef;
+
+        &__title {
+          color: #000;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(36px);
+        }
+
+        &__list {
+          margin-top: rem(35px);
+        }
+
+        &__desc {
+          margin-top: rem(20px);
+          padding-left: rem(8px);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          text-indent: rem(-8px);
+          word-break: keep-all;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+
+      &__join {
+        margin-top:rem(80px);
+
+        a, button {
+          display:block;
+          width:100%;
+          height:rem(80px);
+          background:#000;
+          color:#fff;
+          font-size:rem(26px);
+          line-height:rem(80px);
+          text-align:center;
+        }
+      }
+    }
+  }
+}
+
+
+html[lang=en] {
+
+  .br {
+    &__level {
+      .level__info strong {
+        margin-bottom:0;
+      }
+
+      .benefits {
+        &__nameInner {
+          max-width: rem(240px);
+        }
+
+        &__info {
+          li {
+            line-height: rem(30px);
+
+            &:after {
+              top: rem(14px);
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

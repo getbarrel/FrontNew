@@ -1,0 +1,71 @@
+.br {
+  &__brand-story {
+
+    &__header {
+      padding: rem(101px 0 60px);
+
+      .story__menu {
+        ul {
+          //width: rem(450px);
+          margin: rem(50px auto 0);
+          text-align:center;
+        }
+        &__link {
+          display: inline-block;
+          margin-right: rem(50px);
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          a {
+            display: inline-block;
+            color: #939598;
+            font-size: rem(28px);
+          }
+          &--active {
+            a {
+              position: relative;
+              color: #000;
+              font-weight: bold;
+
+              &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: rem(-7px);
+                width: 100%;
+                height: rem(2px);
+                background: #000;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__content {
+      position: relative;
+
+      a {
+        position: absolute;
+        top: 96.04%;
+        left: 29.8%;
+        width: 42.1%;
+        height: .3%;
+        opacity:0;
+      }
+    }
+
+    &__title {
+      color: #000;
+      font-size: rem(46px);
+      font-weight: bold;
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,402 @@
+<td class="fb__mypage profile-detail"> <!--wrap-mypage-->
+    <form id="devMemberProfileForm" class="fb__mypage__profile">
+        <td class="profile">
+            <section>
+                <h2 class="fb__mypage__title">{=trans('개인회원정보 수정')}</h2>
+                <table class="profile__table join-table">
+                    <colgroup>
+                        <col width="210px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th scope="col">{=trans('이름')}</th>
+                        <td>
+                            <p class="table-txt" id="devFormatUserName">{name}</p>
+                        </td>
+                    </tr>
+                    {? isSnsJoin != true}
+                    <tr>
+                        <th scope="col">{=trans('아이디')}</th>
+                        <td>
+                            <p class="table-txt">{id}</p>
+                        </td>
+                    </tr>
+                    {/}
+                    {? isSnsJoin != true}
+                    <tr>
+                        <th scope="col"><em>*</em>{=trans('비밀번호')}</th>
+                        <td>
+                            <button type="button" class="btn-default btn-dark change-pw-btn" id="devChangePassword">{=trans('비밀번호 변경')}</button>
+                        </td>
+                    </tr>
+                    {/}
+                    <tr>
+                        <th scope="col"><label for="devEmailId"><em>*</em>{=trans('이메일')}</label></th>
+                        <td>
+                        <span class="pub-email">
+                            <input type="text" name="emailId" value="{mail[0]}" id="devEmailId" style="width:160px;" title="이메일">
+                            <span class="hyphen_2">@</span>
+                            <input type="text" name="emailHost" value="{mail[1]}" id="devEmailHost" style="width:160px;" title="이메일">
+                        </span>
+                            <!--<select id="devEmailHostSelect" style="width:160px; margin-left:5px;">-->
+                                <!--<option value="">{=trans('직접입력')}</option>-->
+                                <!--<option value="naver.com" {? mail[1] == "naver.com"}selected{/}>naver.com</option>-->
+                                <!--<option value="gmail.com" {? mail[1] == "gmail.com"}selected{/}>gmail.com</option>-->
+                                <!--<option value="hotmail.com" {? mail[1] == "hotmail.com"}selected{/}>hotmail.com</option>-->
+                                <!--<option value="hanmail.net" {? mail[1] == "hanmail.net"}selected{/}>hanmail.net</option>-->
+                                <!--<option value="daum.net" {? mail[1] == "daum.net"}selected{/}>daum.net</option>-->
+                                <!--<option value="nate.com" {? mail[1] == "nate.com"}selected{/}>nate.com</option>-->
+                                <!--<option value="direct" >{=trans('직접입력')}</option>-->
+                            <!--</select>-->
+                            <button type="button" class="btn-default btn-dark" id="devEmailDoubleCheckButton">{=trans('이메일 중복 확인')}</button>
+                            <p class="txt-error" devTailMsg="devEmailId devEmailHost"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col"><em>*</em>Country</th>
+                        <td>
+                            <select class="devNationArea" id="devCountry" name="country" style="min-width:340px;" title="Country">
+                                <option value="">Select</option>
+                                {@ nation}
+                                <option value="{.nation_code}" data-nation_code="{.nation_code}" {? .nation_code == country} selected {/}>{.nation_name}</option>
+                                {/}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col"><em>*</em>{=trans('휴대폰 번호')}</th>
+                        <td>
+                            <div class="selectWrap">
+                                <select class="devNationArea" name="national_phone"  title="Country">
+                                    {@ nation}
+                                    <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == country} selected {/}>{.nation_name}(+{.national_phone})</option>
+                                    {/}
+                                </select>
+                                <input type="number" name="pcs" id="devPcs" value="{pcs}" title="{=trans('휴대폰 번호')}" >
+
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- @TODO 글로벌 주소 영역 -->
+                    <tr>
+                        <th scope="col"><em>*</em>Zip/Postal Code</th>
+                        <td>
+                            <div class="form-info-wrap">
+                                <input type="text" class="" name="zip" id="devZip" value="{zip}" class="inputs__content--zip"  style="width:160px" title="Zip/Postal Code">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col"><em>*</em>Address line 1</th>
+                        <td>
+                            <div class="form-info-wrap">
+                                <input type="text" class="mat10" style="width:500px;" id="devAddress1" name="addr1" value="{addr1}" title="Address line 1" >
+                            </div>
+                        </td>
+                    </li>
+                    </tr>
+                    <tr>
+                        <th scope="col">Address line 2</th>
+                        <td>
+                            <div class="form-info-wrap">
+                                <input type="text" class="mat10" style="width:500px;" id="devAddress2" name="addr2" value="{addr2}" title="Address line 2" >
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col"><em>*</em>City</th>
+                        <td>
+                            <div class="form-info-wrap">
+                                <input type="text" class="mat10" style="width:340px" id="devCity"  name="city" value="{city}" title="City" >
+                            </div>
+                        </td>
+                    </li>
+                    </tr>
+                    <tr>
+                        <th scope="col"><em>*</em>State/Province</th>
+                        <td>
+                            <div class="form-info-wrap">
+                                <!--{? country == 'US'}-->
+                                <select style="width:340px;" id="devStateSelect">
+                                    <option value="">Select</option>
+                                    {@ regional_information}
+                                    <option value="{.reg_name}" {? .reg_name == state} selected {/}>{.reg_name}</option>
+                                    {/}
+                                </select>
+                                <input type="text" class="mat10" style="width:340px; display:none;" id="devStateText" name="state" value="{state}" title="State/Province" >
+                                <!--{:}-->
+                                <select style="width:340px;display: none;" id="devStateSelect">
+                                    <option value="">Select</option>
+                                    {@ regional_information}
+                                    <option value="{.reg_name}" {? .reg_name == state} selected {/}>{.reg_name}</option>
+                                    {/}
+                                </select>
+                                <input type="text" class="mat10" style="width:340px" id="devStateText" name="state" value="{state}" title="State/Province" >
+                                <!--{/}-->
+                            </div>
+                        </td>
+                    </tr>
+                    <!--<tr>-->
+                        <!--<th scope="col">{=trans('주소')}</th>-->
+                        <!--<td>-->
+                            <!--<div class="form-info-wrap" style="width:500px">-->
+                                <!--<input type="text" class="dim" name="zip" value="{zip}" id="devZip" style="width:140px;" readonly>-->
+                                <!--<button type="button" class="btn-default btn-dark" id="devZipPopupButton">{=trans('주소찾기')}</button>-->
+                                <!--<input type="text" class="dim mat10" name="addr1" value="{addr1}" id="devAddress1" style="width:500px;" readonly>-->
+                                <!--<input type="text" class="mat10" style="width:500px;" name="addr2" value="{addr2}"id="devAddress2" title="{=trans('상세주소')}">-->
+                            <!--</div>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--
+                    <tr>
+                        <th scope="col">{=trans('생년월일')}</th>
+                        <td>
+                            <p class="table-txt" id="devFromatBirthday">{birthday}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col">{=trans('성별')}</th>
+                        <td>
+                            <p class="table-txt" id="devFormatSexDiv">{? sex_div == 'M'}남성{:}여성{/}</p>
+                        </td>
+                    </tr>
+                    -->
+
+                    <!--
+                    <tr>
+                        <th scope="col">{=trans('전화번호')}</th>
+                        <td>
+                            <div class="selectWrap">
+                                <select name="tel1">
+                                    <option value="02" {? tel[0]=="02"}selected{/}>02</option>
+                                    <option value="031" {? tel[0]=="031"}selected{/}>031</option>
+                                    <option value="032" {? tel[0]=="032"}selected{/}>032</option>
+                                    <option value="041" {? tel[0]=="041"}selected{/}>041</option>
+                                    <option value="042" {? tel[0]=="042"}selected{/}>042</option>
+                                    <option value="043" {? tel[0]=="043"}selected{/}>043</option>
+                                    <option value="051" {? tel[0]=="051"}selected{/}>051</option>
+                                    <option value="052" {? tel[0]=="052"}selected{/}>052</option>
+                                    <option value="053" {? tel[0]=="053"}selected{/}>053</option>
+                                    <option value="054" {? tel[0]=="054"}selected{/}>054</option>
+                                    <option value="055" {? tel[0]=="055"}selected{/}>055</option>
+                                    <option value="061" {? tel[0]=="061"}selected{/}>061</option>
+                                    <option value="062" {? tel[0]=="062"}selected{/}>062</option>
+                                    <option value="063" {? tel[0]=="063"}selected{/}>063</option>
+                                    <option value="064" {? tel[0]=="064"}selected{/}>064</option>
+                                    <option value="070" {? tel[0]=="070"}selected{/}>070</option>
+                                    <option value="080" {? tel[0]=="080"}selected{/}>080</option>
+                                    <option value="090" {? tel[0]=="090"}selected{/}>090</option>
+                                </select>
+                                <span class="hyphen">-</span>
+                                <input type="text" name="tel2" id="devTel2" value="{tel[1]}" title="전화번호 가운데자리입력">
+                                <span class="hyphen">-</span>
+                                <input type="text" name="tel3" id="devTel3" value="{tel[2]}" title="전화번호 끝자리 입력">
+                            </div>
+                        </td>
+                    </tr>
+                    -->
+
+                    </tbody>
+                </table>
+            </section>
+            <section class="fb__mypage__section fb__mypage__addsection">
+                <h2 class="fb__mypage__title">{=trans('추가정보')}</h2>
+                <table class="profile__table join-table">
+                    <colgroup>
+                        <col width="210px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <!--<tr>-->
+                        <!--<th scope="col" class="ver-m">{=trans('성별')}</th>-->
+                        <!--<td>-->
+                            <!--<div class="wrap-terms fb__mypage__agreement">-->
+                                <!--<ul class="fb__mypage__addsection__gap">-->
+                                    <!--<li>-->
+                                        <!--<label class="select-box__layer__label">-->
+                                            <!--<input type="radio" class="devSortTab" name="gender" value="M" {? sex_div == 'M'} checked{/}>-->
+                                            <!--<span>{=trans('남자')}</span>-->
+                                        <!--</label>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<label class="select-box__layer__label">-->
+                                            <!--<input type="radio" class="devSortTab" name="gender" value="W" {? sex_div != 'M'} checked{/}>-->
+                                            <!--<span>{=trans('여자')}</span>-->
+                                        <!--</label>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+
+                            <!--</div>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<th scope="col" class="ver-m">{=trans('생일')}</th>-->
+                        <!--<td>-->
+                            <!--<div class="wrap-terms fb__mypage__agreement">-->
+                                <!--<ul class="fb__mypage__addsection__gap">-->
+                                    <!--<li>-->
+                                        <!--<label class="select-box__layer__label">-->
+                                            <!--<input type="radio" class="devSortTab" name="birthdayDiv" value="1" {? birthday_div == '1'}checked{/} {? birthday_div}disabled{/} >-->
+                                            <!--<span>{=trans('양력')}</span>-->
+                                        <!--</label>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<label class="select-box__layer__label">-->
+                                            <!--<input type="radio" class="devSortTab" name="birthdayDiv" value="0" {? birthday_div == '0'}checked{/} {? birthday_div}disabled{/} >-->
+                                            <!--<span>{=trans('음력')}</span>-->
+                                        <!--</label>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                                <!--<div class="inputs&#45;&#45;birthday">-->
+                                    <!--<select name="birthYear" {? birthdayArr}disabled{/}>-->
+                                    <!--<option value="">생년</option>-->
+                                    <!--{@ birthYear}-->
+                                    <!--<option value="{.value_}" {? birthdayArr[0] == .value_} selected{/}>{.value_}</option>-->
+                                    <!--{/}-->
+                                    <!--</select>-->
+                                    <!--<span class="selecttext">{=trans('년')}</span>-->
+                                    <!--<select name="birthMonth" {? birthdayArr}disabled{/}>-->
+                                    <!--<option value="">생월</option>-->
+                                    <!--{@ birthMonth}-->
+                                    <!--<option value="{.value_}" {? birthdayArr[1] == .value_} selected{/}>{.value_}</option>-->
+                                    <!--{/}-->
+                                    <!--</select>-->
+                                    <!--<span class="selecttext">{=trans('월')}</span>-->
+
+                                    <!--<select name="birthDay" {? birthdayArr}disabled{/}>-->
+                                    <!--<option value="">생일</option>-->
+                                    <!--{@ birthDay}-->
+                                    <!--<option value="{.value_}" {? birthdayArr[2] == .value_} selected{/}>{.value_}</option>-->
+                                    <!--{/}-->
+                                    <!--<span class="selecttext">{=trans('일')}</span>-->
+                                <!--</div>-->
+                                <!--<p>-->
+                                    <!--{=trans('회원등급별 생일할인 쿠폰이 증정됩니다. 생년월일 최초 1회 입력 이후 변경이 불가능합니다.')}-->
+                                <!--</p>-->
+                                <!--{? !birthdayArr}-->
+                                <!--<p>{=trans('생년월일 최초 1회 입력 이후 변경이 불가능합니다.')}</p>-->
+                                <!--{/}-->
+                            <!--</div>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<th scope="col" class="ver-m">{=trans('지역')}</th>-->
+                        <!--<td>-->
+                            <!--<div class="wrap-terms fb__mypage__agreement">-->
+                                <!--<div class="area">-->
+                                    <!--<select name="area">-->
+                                        <!--<option value="">{=trans('선택')}</option>-->
+                                        <!--<option value="10" {? area == '10'} selected {/} >{=trans('서울특별시')}</option>-->
+                                        <!--<option value="20" {? area == '20'} selected {/} >{=trans('경기도')}</option>-->
+                                        <!--<option value="21" {? area == '21'} selected {/} >{=trans('인천광역시')}</option>-->
+                                        <!--<option value="30" {? area == '30'} selected {/} >{=trans('강원도')}</option>-->
+                                        <!--<option value="41" {? area == '41'} selected {/} >{=trans('충청남도')}</option>-->
+                                        <!--<option value="42" {? area == '42'} selected {/} >{=trans('대전광역시')}</option>-->
+                                        <!--<option value="43" {? area == '43'} selected {/} >{=trans('세종특별자치시')}</option>-->
+                                        <!--<option value="45" {? area == '45'} selected {/} >{=trans('충청북도')}</option>-->
+                                        <!--<option value="51" {? area == '51'} selected {/} >{=trans('전라남도')}</option>-->
+                                        <!--<option value="52" {? area == '52'} selected {/} >{=trans('광주광역시')}</option>-->
+                                        <!--<option value="55" {? area == '55'} selected {/} >{=trans('전라북도')}</option>-->
+                                        <!--<option value="61" {? area == '61'} selected {/} >{=trans('경상남도')}</option>-->
+                                        <!--<option value="62" {? area == '62'} selected {/} >{=trans('부산광역시')}</option>-->
+                                        <!--<option value="63" {? area == '63'} selected {/} >{=trans('울산광역시')}</option>-->
+                                        <!--<option value="65" {? area == '65'} selected {/} >{=trans('경상북도')}</option>-->
+                                        <!--<option value="66" {? area == '66'} selected {/} >{=trans('대구광역시')}</option>-->
+                                        <!--<option value="70" {? area == '70'} selected {/} >{=trans('제주특별자치도')}</option>-->
+                                        <!--<option value="90" {? area == '90'} selected {/} >{=trans('기타')}</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<th scope="col" class="ver-m"><em>*</em>{=trans('SMS 수신동의')}{sms}</th>-->
+                        <!--<td>-->
+                            <!--<div class="wrap-terms fb__mypage__agreement">-->
+                                <!--<ul class="fb__mypage__addsection__gap">-->
+                                    <!--<li>-->
+                                        <!--<label class="select-box__layer__label">-->
+                                            <!--<input type="radio" class="devSortTab" name="sms" value="1" {? sms == '1'}checked{/}>-->
+                                            <!--<span>{=trans('동의함')}</span>-->
+                                        <!--</label>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<label class="select-box__layer__label">-->
+                                            <!--<input type="radio" class="devSortTab" name="sms" value="0" {? sms == '0'}checked{/}>-->
+                                            <!--<span>{=trans('동의안함')}</span>-->
+                                        <!--</label>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <tr>
+                        <th scope="col" class="ver-m"><em>*</em>{=trans('메일 수신동의')}</th>
+                        <td>
+                            <div class="wrap-terms fb__mypage__agreement">
+                                <ul class="fb__mypage__addsection__gap">
+                                    <li>
+                                        <label class="select-box__layer__label">
+                                            <input type="radio" class="devSortTab" name="info" value="1" {? info == '1'}checked{/}>
+                                            <span>{=trans('동의함')}</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="select-box__layer__label">
+                                            <input type="radio" class="devSortTab" name="info" value="0" {? info == '0'}checked{/}>
+                                            <span>{=trans('동의안함')}</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+            <!--<section class="fb__mypage__section" style="display: none;">-->
+            <!--<h2 class="fb__mypage__title">{=trans('선택 동의 항목')}</h2>-->
+            <!--<table class="profile__table join-table">-->
+            <!--<colgroup>-->
+            <!--<col width="210px">-->
+            <!--<col width="*">-->
+            <!--</colgroup>-->
+            <!--<tbody>-->
+            <!--<tr>-->
+            <!--<th scope="col" class="ver-m">{=trans('마케팅 활용 동의')}</th>-->
+            <!--<td>-->
+            <!--<div class="wrap-terms fb__mypage__agreement">-->
+            <!--<div class="input-terms">-->
+            <!--{policyData['marketing']['contents']}-->
+            <!--</div>-->
+            <!--<div class="wrap-terms-check">-->
+            <!--<input type="checkbox" id="devAgreeTerm" name="policy[]" value="{policyData['marketing']['ix']}" {? sms == '1' || info == '1'}checked{/} />-->
+            <!--<label for="agree-term5" class="mar10">{=trans('동의')}</label>-->
+            <!--<span class="fb__mypage__agreement__round-bracket&#45;&#45;left">(</span>-->
+            <!--<input type="checkbox" id="devAgreeSms" name="sms" value="1" title="SMS" {? sms == '1'}checked{/} />-->
+            <!--<label for="agree-term6" class="mar10">{=trans('SMS 수신')}</label>-->
+
+            <!--<input type="checkbox" id="devAgreeEmail" name="email" value="1" title="E-Mail" {? info == '1'}checked{/} />-->
+            <!--<label for="agree-term7" class="mar10">{=trans('이메일 수신')}</label>-->
+            <!--<span class="fb__mypage__agreement__round-bracket">)</span>-->
+            <!--</div>-->
+
+            <!--<p class="desc">-->
+            <!--· {=trans('쇼핑몰에서 제공되는 다양한 이벤트/할인정보/공지사항 등의 내용을 받아 보실 수 있습니다.')}<br>-->
+            <!--· {=trans('결제/교환/환불 등의 주문거래 관련 정보는 수신동의 여부와 상관없이 발송됩니다.')}-->
+            <!--</p>-->
+            <!--</div>-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+            <!--</table>-->
+            <!--</section>-->
+
+            <div class="profile__btn">
+                <button type="button" class="profile__btn--cancel" id="devProfileModifyCancel" >{=trans('취소')}</button>
+                <button class="profile__btn--save" >{=trans('저장')}</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+<form name="devDeliveryMsgForm" id="devDeliveryMsgForm">
+    <input type="hidden" name="oid" id="oid" value="{oid}" />
+    <section class="br__obrder-detail">
+        <h2 class="br__order-detail__title">{=trans('배송요청사항 변경')}</h2>
+
+        <div class="br__order-msg">
+            {@ msgInfo}
+            <div class="order-msg">
+                <p class="order-msg__title">배송요청사항</p>
+                <div class="info-addr__recent__select devDeliveryMessageContents">
+                    <div class="info-buyer__form info-buyer__form--request">
+                        <select class="devDeliveryMessageSelectBox">
+                            <option>{=trans('부재 시 경비실에 맡겨주세요.')}</option>
+                            <option>{=trans('부재 시 휴대폰으로 연락주세요.')}</option>
+                            <option>{=trans('집 앞에 놓아주세요.')}</option>
+                            <option>{=trans('배송 전에 연락주세요.')}</option>
+                            <option value="direct" selected>직접입력</option>
+                        </select>
+                        <div class="order-msg__request js__counting devDeliveryMessageDirectContents">
+                            <textarea class="js__counting__textarea order-msg__request__textarea" maxlength="30" name="deliveryMsg[{.msg_ix}]" id="deliveryMsg_{.msg_ix}" data-ix="{.msg_ix}" data-msgtype="{.msg_type}" placeholder="{=trans('30자 이내로 입력해 주세요.')}">{.msg}</textarea>
+                            <div class="order-msg__request__counting">
+                                <span><em class="js__counting__num devDeliveryMessageByte">0</em>/30 자</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/}
+
+            <div class="order-msg__btn__wrap">
+                <a class="order-msg__btn order-msg__btn--cancel" id="devMsgCancelBtn">{=trans('취소')}</a>
+                <a class="order-msg__btn order-msg__btn--submit" id="devMsgSubmitBtn">{=trans('변경')}</a>
+            </div>
+        </div>
+    </section>
+
+
+</form>

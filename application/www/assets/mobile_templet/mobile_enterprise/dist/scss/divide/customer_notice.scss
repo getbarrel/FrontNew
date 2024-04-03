@@ -1,0 +1,184 @@
+.br {
+  &__cs-noti {
+
+      .br__cs__back {
+        position: absolute;
+        top: 0;
+        left: rem(100px);
+        height: 100%;
+      }
+
+    /*공지사항 상세(읽기)*/
+      .read {
+        border-bottom: 2px solid #000;
+
+        &__header {
+
+          padding: rem(30px 25px);
+          background: #efefef;
+          border-top: 2px solid #000;
+        }
+
+        &__noti-badge {
+          display:inline-block;
+          width: rem(70px);
+          height: rem(30px);
+          border: 1px solid $cPoint;
+          border-radius: rem(20px);
+          color: $cPoint;
+          font-size: rem(20px);
+          text-align: center;
+          line-height: rem(28px);
+        }
+
+        &__status {
+          margin-bottom: rem(10px);
+        }
+
+        &__date {
+          //padding-left: 20px;
+          margin-right: rem(10px);
+          color: #b5b5b6;
+          font-size: rem(20px);
+        }
+
+        &__title {
+          overflow: hidden;
+          position: relative;
+          padding-right: rem(90px);
+          //margin-top: 20px;
+          color: $cPoint;
+          font: {
+            weight: bold;
+            size: rem(26px);
+          }
+          //word-break: break-all;
+          //white-space: nowrap;
+          //text-overflow: ellipsis;
+        }
+
+        &__barrel {
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: #000;
+          font-size: rem(20px);
+          line-height: rem(24px);
+        }
+
+        &__btn {
+
+          &--wrap {
+            display: block;
+            text-align: right;
+          }
+
+          &__list {
+            display: inline-block;
+            padding: rem(26px 36px);
+            margin-top: rem(50px);
+            border: 1px solid #000;
+            color: #000;
+            font: {
+              weight: bold;
+              size: rem(26px);
+            }
+
+          }
+
+        }
+
+        &__content {
+          padding: rem(40px 25px 100px);
+          font-size: rem(24px);
+          line-height: rem(34px);
+          white-space: pre-line;
+          word-break: break-all;
+
+          img {
+            width:100% !important;
+            height: auto !important;
+          }
+        }
+
+        &__file{
+          display:block;
+          padding: rem(20px 0);
+          border-top: 1px solid #b5b5b6;
+          font-size: rem(24px);
+          line-height: rem(50px);
+          text-decoration: underline;
+
+          &__title {
+            display: inline-block;
+            width: 18%;
+            font-size: rem(22px);
+            color: #000;
+            font-weight: bold;
+            vertical-align: top;
+          }
+
+          &__cont {
+            display: inline-block;
+            width: 80%;
+            font-size: rem(20px);
+            line-height: 1.5;
+            vertical-align: middle;
+
+            a {
+              display: block;
+              position: relative;
+              text-indent: rem(20px);
+              word-break: break-all;
+
+              &:before {
+                display:inline-block;
+                position: absolute;
+                left: 0;
+                width: rem(24px);
+                height: rem(30px);
+                margin-bottom: rem(3px);
+                background:url("../../img/icon/m_sprite_icon.png") no-repeat rem(-900px -200px);
+                background-size: rem(1000px 1000px);
+                vertical-align: middle;
+                content:'';
+              }
+            }
+          }
+        }
+
+        .cs__noti__wrap {
+          border: {
+            top: 1px solid #b5b5b6;
+            bottom: 0;
+          }
+
+          & + & {
+            border: {
+              top: 1px solid #b5b5b6;
+              bottom: 0;
+            }
+          }
+        }
+      }
+  }
+}
+
+html[lang=en] {
+  .br__cs-noti .read__file__title {
+    width:25%;
+  }
+  .br__cs-noti .read__file__cont {
+    width:73%;
+  }
+  .br__cs .cs__noti__prev,
+  .br__cs .cs__noti__next{
+    width:20%;
+  }
+  .br__cs .cs__noti__list--middle {
+    width:60%;
+  }
+  .br__cs .cs__noti__barrel {
+    width:20%;
+  }
+}

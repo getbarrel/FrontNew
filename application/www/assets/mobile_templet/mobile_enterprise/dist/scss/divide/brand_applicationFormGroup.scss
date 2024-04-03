@@ -1,0 +1,463 @@
+.br {
+  &__group {
+    padding: rem(153px 0 0 0) !important;
+
+    &__btn {
+      margin-top: rem(50px);
+      padding: rem(0 40px);
+      .group {
+        &__btn {
+          display: block;
+          width: 100%;
+          height: rem(80px);
+          margin-bottom: rem(20px);
+          color: #fff;
+          font-size:rem(26px);
+          &--apply {
+            background: #00bce7;
+          }
+          &--reset {
+            background: #000;
+          }
+        }
+      }
+    }
+    .group {
+      &__header {
+        padding-bottom: rem(103px);
+        &__title {
+          color: #000;
+          font-size: rem(44px);
+          text-align: center;
+          line-height: rem(66px);
+        }
+        &__type {
+          margin-bottom: rem(30px);
+          color: #00bce7;
+          font-size: rem(44px);
+          font-weight: bold;
+          text-align: center;
+          line-height: rem(66px);
+        }
+        &__desc {
+          color: #898989;
+          font-size: rem(22px);
+          text-align: center;
+          line-height: rem(32px);
+        }
+      }
+    }
+    .br {
+      &__join {
+        &__list {
+          margin-top: rem(70px) !important;
+
+          input[type=text],
+          input[type=password],
+          input[type=tel]{
+            height: rem(80px);
+          }
+          &--type {
+            overflow: hidden;
+            dt {
+              float: left;
+            }
+            dd {
+              float: left;
+              margin-left: rem(33px);
+              font-size: rem(22px);
+              line-height: rem(32px);
+            }
+          }
+          &--txt {
+            margin-top: rem(18px);
+            font-size: rem(22px);
+            color: #898989;
+            line-height: rem(32px);
+          }
+          .input-txt {
+            margin-top: rem(21px);
+            color: #898989;
+            font-size: rem(22px);
+            line-height: rem(32px);
+          }
+          .find-file {
+            overflow: hidden;
+            &__name {
+              float: left;
+              display: inline-block;
+              width: rem(339px);
+              height: rem(80px) !important;
+            }
+            &__btn {
+              float: right;
+              width: rem(198px);
+              height: rem(80px);
+              color: #fff;
+              font-size: rem(26px);
+              background: #000;
+            }
+          }
+          .apply-list {
+            overflow: hidden;
+            margin-top: rem(40px);
+            &__checkbox {
+              display: flex;
+              float: left;
+              width: 50%;
+              margin-bottom: rem(33px);
+
+              &:nth-of-type(even) {
+                float:right;
+                width:45%;
+              }
+
+              span {
+                margin-left: rem(20px);
+                color: #000;
+                font-size: rem(22px);
+                font-weight: 600;
+                line-height: rem(32px);
+              }
+            }
+          }
+          .size-info {
+            &__desc {
+              padding-top: rem(25px);
+              color: #00bce7;
+              font-size: rem(22px);
+            }
+          }
+          dt {
+            line-height: rem(36px);
+          }
+          .subdesc {
+            float: right;
+            color: #898989;
+            font-size: rem(22px);
+          }
+        }
+        &__add {
+          padding-top: rem(80px);
+        }
+      }
+    }
+    .desc {
+      padding-top: rem(23px);
+      &__list {
+        position: relative;
+        margin-bottom: rem(27px);
+        padding-left: rem(9px);
+        color: #898989;
+        font-size: rem(22px);
+        line-height: rem(32px);
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &:before {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          top: rem(14px);
+          left: 0;
+          width: rem(3px);
+          height: rem(3px);
+          border: 100%;
+          background: #898989;
+        }
+      }
+    }
+    .deposit {
+      &__info {
+        &__number {
+          display: table;
+          dt {
+            display: table-cell;
+            width: rem(136px);
+          }
+          dd {
+            color: #000;
+            font-size: rem(30px);
+            line-height: rem(44px);
+            &.total-deposit {
+              font-size: rem(44px);
+              font-weight: bold;
+              color: #00bce7;
+              span {
+                font-weight: 400;
+              }
+            }
+          }
+        }
+        &__name {
+
+        }
+        &__checkbox {
+          margin-top: rem(23px);
+          span {
+            color: #000;
+            font-size: rem(22px);
+          }
+        }
+        &__password {
+          dt {
+            font-weight: bold;
+            .subdesc {
+              font-weight: 400;
+            }
+          }
+          .desc {
+            font-size: rem(22px);
+            line-height: rem(32px);
+          }
+
+          .desc__list {
+            margin-top: rem(20px);
+          }
+        }
+      }
+    }
+    .star {
+      color: #00bce7;
+      vertical-align: middle;
+    }
+    .desc-color {
+      color: #00bce7 !important;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: rem(14px);
+        left: 0;
+        width: rem(3px);
+        height: rem(3px);
+        border: 100%;
+        background: #00bce7;
+      }
+    }
+    select {
+      background: #fff url(../../img/icon/m_select_arrow.png) no-repeat right center;
+      background-size: rem(35px 14px);
+    }
+
+    select:disabled {
+      opacity: .6;
+    }
+
+    input[type='number'],
+    input[type='tel'] {
+      padding: rem(0 25px);
+      line-height: rem(30px);
+    }
+
+    .file-box {
+      position: relative;
+
+      .file__label {
+        float: right;
+        position: relative;
+        width: rem(198px);
+        height: rem(80px);
+        background-color: #000;
+        border: 1px solid #666;
+        color: #fff;
+        text-align: center;
+        line-height: rem(80px);
+        font-size: rem(26px);
+      }
+
+      input[type='file'] {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: rem(80px);
+        opacity: 0;
+      }
+    }
+
+    .btn-add {
+      display: inherit;
+      width: calc(100% - 4rem);
+      border-bottom: 1px solid #000;
+      margin: 0 auto;
+
+      &__inner {
+        display: inline-block;
+        width: 100%;
+        height: rem(100px);
+        line-height: rem(100px);
+        position: relative;
+        padding: rem(0 40px);
+        margin: rem(80px 0);
+        background: #00bce7;
+        color: #fff;
+        font-size:rem(30px);
+        text-align: center;
+        //text-indent: rem(-50px);
+
+        //&:before {
+        //  content: "";
+        //  display: block;
+        //  position: absolute;
+        //  top: rem(49px);
+        //  right: rem(186px);
+        //  width: rem(16px);
+        //  height: rem(2px);
+        //  background: #fff;
+        //  transform: rotate(90deg);
+        //}
+        //
+        //&:after {
+        //  content: "";
+        //  display: block;
+        //  position: absolute;
+        //  top: rem(42px);
+        //  right: rem(194px);
+        //  width: rem(2px);
+        //  height: rem(16px);
+        //  background: #fff;
+        //  transform: rotate(90deg);
+        //}
+      }
+    }
+
+  }
+  &__group-info {
+    &--detail {
+      margin-top: rem(151px);
+      margin-bottom: rem(80px);
+      & > div:first-child {
+        padding-bottom: rem(80px);
+      }
+    }
+    &--team {
+      .br {
+        &__group-info {
+          padding-bottom: rem(80px);
+        }
+      }
+    }
+    &__title {
+      padding: rem(38px 40px);
+      color: #000;
+      font-size: rem(30px);
+      border-bottom: 1px solid #000;
+      background: #f7f8f8;
+    }
+    &__content {
+      padding: rem(0 40px);
+    }
+    &__desc {
+      padding-top: rem(25px);
+      color: #898989;
+      font-size: rem(22px);
+      line-height: rem(32px);
+    }
+    &.group-list-wrap {
+      display: none;
+      counter-reset: sheetNumber;
+
+      &--show {
+        display: block;
+      }
+    }
+    .group-list {
+      padding-bottom: rem(100px) !important;
+      background: #f7f8f8;
+
+      &--delete {
+        display: block;
+        width: 100%;
+        height:5rem;
+        line-height:5rem;
+        background: #ff0000;
+        color: #fff;
+        font-size:rem(30px);
+        text-align: center;
+      }
+
+      &:before {
+        content: counter(sheetNumber);
+        counter-increment: sheetNumber;
+        display: block;
+        width: 100%;
+        height: rem(100px);
+        line-height: rem(100px);
+        background: #000;
+        color:#fff;
+        font-size:rem(30px);
+        text-align: center;
+      }
+
+      &__inner {
+        padding: rem(0 40px);
+      }
+
+      &:nth-child(even) {
+        background: #fff;
+      }
+
+      &__title {
+        margin: rem(0 -40px);
+        padding: rem(38px 40px);
+        color: #fff;
+        font-size: rem(30px);
+        background: #000;
+        text-align: center;
+      }
+    }
+  }
+  &__player-info {
+    input {
+      width: rem(199px);
+    }
+    .number {
+      float: none;
+      margin-left: rem(24px);
+      color: #000;
+      font-size: rem(30px);
+      line-height: rem(44px);
+    }
+    .desc {
+      &__list {
+        margin-bottom: rem(5px);
+        color: #898989;
+        line-height: rem(32px);
+        &:last-child {
+          color: #00bce7;
+        }
+      }
+    }
+  }
+
+  &__belong {
+    .desc__list {
+      margin-bottom: rem(5px);
+    }
+
+    &__desc {
+      margin-top: rem(20px);
+      font-size: rem(22px);
+      color: #000;
+    }
+    &__noti {
+      display: none;
+      margin-top: rem(20px);
+      font-size: rem(22px);
+      color: #ff5454;
+      letter-spacing: -0.04rem;
+
+      &--show {
+        display: block;
+      }
+    }
+  }
+
+  .br__join__terms {
+    padding: rem(0 40px);
+  }
+}

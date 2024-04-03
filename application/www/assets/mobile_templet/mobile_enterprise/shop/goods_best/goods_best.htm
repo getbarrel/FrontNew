@@ -1,0 +1,132 @@
+<section class="br__main br__goods-best">
+{? bestBannerInfo}
+<section class="br__main__top-slide">
+    <h3 class="br__hidden">{=trans('상단 슬라이드')}</h3>
+    <div class="br__slide br__slide--type1">
+        <div class="swiper-container">
+            <ul class="swiper-wrapper">
+                {@ bestBannerInfo}
+                <li class="swiper-slide">
+                    <div class="slide-content">
+                        <a class="slide-content__link" href="{.bannerLink}">
+                            <figure class="slide-content__thumb">
+                                <!--<img src="{.imgSrc}" alt="{.banner_name}">-->
+                                <img src="https://image.getbarrel.com/data/barrel_data/images/banner/991/2019_down_main_bn_m.jpg" alt="{.banner_name}">
+                            </figure>
+                        </a>
+                    </div>
+                </li>
+                {/}
+            </ul>
+
+            <div class="slide-controller">
+                <div class="slide-controller__page">
+                    <div class="slide-controller__page__wrap">
+                        <span class="slide-controller__page__current">1</span>
+                        <span class="slide-controller__page__slash">/</span>
+                        <span class="slide-controller__page__total">1</span>
+                    </div>
+                    <button type="button" class="slide-controller__page__all-view">전체보기 버튼</button>
+                </div>
+                <div class="slide-controller__player">
+                    <button class="slide-controller__player__btn">자동재생/일시정지 버튼</button>
+                </div>
+            </div>
+        </div>
+        <div class="slide-layer">
+            <div class="slide-layer__inner">
+                <h4 class="slide-layer__title">{=trans('전체보기')}</h4>
+                <ul class="slide-layer__content">
+                    <!--<li class="slide-layer__list"></li>-->
+                </ul>
+                <button class="slide-layer__close">{=trans('전체보기 닫기')}</button>
+            </div>
+            <div class="slide-layer__bg"></div>
+        </div>
+    </div>
+</section>
+{/}
+{? promotionArea}
+    {@ promotionArea}
+        <div class="tnb-wrap">
+            <!--<button type="button" class="br__title-box__back">뒤로가기</button>-->
+            <!--<h2 class="br__title-box__title"><button type="button">{? .pg_title} {.pg_title} {:} noTitle {/}</button></h2>-->
+            <nav id="goods-best-category__wrapper" class="fb__goods-list__menu fb__goods-best__tnb">
+				<!--{@ .products}-->
+				{? ..goods}
+				<a href="#best-contents_{..group_code}" class="fb__goods-best__tnb-list {..index}">
+					{..group_name}
+				</a>
+				{/}
+				<!--{/}-->
+			</nav>
+        </div>
+        <section class="br__goods-list best-contents">
+            {@ .products}
+                {? ..goods}
+                <div class="br__slide br__slide--type1 br__slide__best-goods" id="best-contents_{..group_code}">
+					<h4 class="best-cate__title">{..group_name}</h4>
+                    <div class="br__goods-list__wrap br__goods-list__wrap--normal">
+                        <!-- <p class="best-contents__title">{..group_name}</p> -->
+                        <div class="goods-list best-contents__box">
+                            <ul class="goods-list__list" id="devListContents">
+                                {@ ..goods}
+                                <li class="goods-list__box" id="devListDetail">
+                                    <a href="/shop/goodsView/{...id}" class="goods-list__link">
+                                        <figure class="goods-list__thumb">
+                                            {? ...timeSaleIconView}
+                                            <img src="{...timeSaleIcon}" class="goods-list__time-deal" >
+                                            {/}
+                                            <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{...image_src}" alt="{...pname}">
+                                        </figure>
+                                        <div class="goods-list__info">
+
+                                            <div class="goods-list__badge">
+                                                {? ...icons_path}
+                                                {@ ...icons_path}
+                                                <span>{....value_}</span>
+                                                {/}
+                                                {/}
+                                            </div>
+
+                                            <p class="br__goods__pre" style="color:#1A661D;">{...preface}</p>
+                                            <p class="goods-list__title">{...pname}</p>
+                                            <span class="goods-list__color">{...add_info}</span>
+                                            <div class="goods-list__price">
+                                                <span class="goods-list__price__discount">{fbUnit.f}<span>{=g_price(...dcprice)}</span>{fbUnit.b}</span>
+                                                {? ...isDiscount}
+                                                <span class="goods-list__price__cost">{fbUnit.f}<span>{? ...isDiscount}{=g_price(...listprice)}{/}</span>{fbUnit.b}</span>
+                                                {/}
+                                                {? ...is_soldout}
+                                                    <span class="goods-list__price__state">{=trans('품절')}</span>
+                                                {:}
+                                                    {? ...discount_rate}
+                                                        <span class="goods-list__price__percent"><span>{...discount_rate}</span>%</span>
+                                                    {/}
+                                                {/}
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <label class="goods-list__wish{? ...alreadyWish} on{/}" devwishbtn="{...id}">
+                                        {? ...alreadyWish}
+                                        <input type="checkbox" class="goods-list__wish__btn" checked>
+                                        {:}
+                                        <input type="checkbox" class="goods-list__wish__btn">
+                                        {/}
+                                    </label>
+                                </li>
+                                {/}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {/}
+            {/}
+        </section>
+    {/}
+{:}
+    <div class="empty-content">
+        <p>{=trans('전시된 상품이 존재하지 않습니다.')}</p>
+    </div>
+{/}
+</section>

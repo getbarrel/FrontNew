@@ -1,0 +1,3 @@
+<?php /* Template_ 2.2.8 2020/08/31 15:56:56 /home/barrel-stage/application/www/assets/mobile_templet/mobile_enterprise/brand/issue/issue.htm 000000419 */ ?>
+<!--<iframe src="//about.getbarrel.com/press" frameborder="0" style="width: 100%; height: 2200px;"></iframe>-->
+<iframe src="//about.getbarrel.com/press" frameborder="0" style="width: 100%; height: 2182px;" id="brand_info__content" class="cms__iframe"></iframe>

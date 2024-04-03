@@ -1,0 +1,24 @@
+.br {
+  &__join__end {
+    padding: rem(0 40px);
+    .join-end__title {
+      margin: rem(0 0 90px 0);
+      color:#000;
+      text-align:center;
+      font-size: rem(26px);
+      line-height:1.6;
+      em {
+        color:$cPoint;
+        font-weight:600;
+      }
+    }
+    .br__join__btn {
+      margin: rem(20px) 0 0 0;
+      .join__btn.black {
+        background:#000;
+      }
+
+    }
+  }
+
+}

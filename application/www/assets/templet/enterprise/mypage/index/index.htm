@@ -1,0 +1,167 @@
+<map name="">
+	<area shape="" href="" coords="" alt="">
+</map><!-- crema load -->
+<script>
+	var crema_userId = null;
+    var crema_userNm = null;
+
+     {? layoutCommon.isLogin}    
+        crema_userId = "{layoutCommon.userInfo.id}";
+        crema_userNm = "{layoutCommon.userInfo.name}"; 
+     {/}
+            
+    window.cremaAsyncInit = function() { // init.js가 다운로드 & 실행된 후에 실행하는 함수
+      //console.log("[CREMA] cremaAsyncInit() - EXECUTED!");
+      crema.init(crema_userId, crema_userNm);
+      //console.log("[CREMA] crema.init() - EXECUTED!");
+    };
+    
+    (function(i,s,o,g,r,a,m){if(s.getElementById(g)){return};a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.id=g;a.async=1;a.src=r;m.parentNode.insertBefore(a,m)})
+    (window,document,'script','crema-jssdk','//{c.CREMA_WIDGET_HOST}/getbarrel.com/init.js');
+    
+</script>
+<div class="layout-content">
+	<!-- 컨텐츠 S -->
+	<section class="fb__mypage wrap-mypage">
+		<!-- fb__mypage-top S -->
+		<!--{# mypage_top}-->
+		<!-- fb__mypage-top E -->
+		<section class="fb__mypage__status">
+			<div class="fb__mypage-title">
+				<div class="title-sx">{=trans('주문 현황')}</div>
+				<a href="#;" class="btn-link">최근 1개월</a>
+			</div>
+			<div class="fb__mypage__overview">
+				<ul class="fb__mypage__overview-list">
+					{? langType == 'korean'}
+					<li class="devOrderStatusCnt {? g_price(incom_ready_cnt) > 0} active{/}" data-status="{c.ORDER_STATUS_INCOM_READY}" onclick="">
+						<!--진행중일 때 li 에 class = active 추가-->
+						<em class="my-order__seq__count {? g_price(incom_ready_cnt) > 0} my-order__seq__count--point{/}">{=number_format(incom_ready_cnt)}</em>
+						<p>{=trans('입금대기')}</p>
+					</li>
+					{/}
+					<li class="devOrderStatusCnt {? g_price(incom_end_cnt) > 0} active{/}" data-status="{c.ORDER_STATUS_INCOM_COMPLETE}" onclick="">
+						<em class="my-order__seq__count {? g_price(incom_end_cnt) > 0} my-order__seq__count--point{/}">{=number_format(incom_end_cnt)}</em>
+						<p>{=trans('결제완료')}</p>
+					</li>
+					<li class="devOrderStatusCnt {? g_price(delivery_ready_cnt) > 0} active{/}"  data-status="{c.ORDER_STATUS_DELIVERY_READY}"onclick="">
+						<em class="my-order__seq__count {? g_price(delivery_ready_cnt) > 0} my-order__seq__count--point{/}">{=number_format(delivery_ready_cnt)}</em>
+						<p>{=trans('배송준비중')}</p>
+					</li>
+					<li class="devOrderStatusCnt {? g_price(delivery_ing_cnt) > 0} active{/}" data-status="{c.ORDER_STATUS_DELIVERY_ING}" onclick="">
+						<em class="my-order__seq__count {? g_price(delivery_ing_cnt) > 0} my-order__seq__count--point{/}">{=number_format(delivery_ing_cnt)}</em>
+						<p>{=trans('배송중')}</p>
+					</li>
+					<li class="devOrderStatusCnt {? g_price(delivery_end_cnt) > 0} active{/}" data-status="{c.ORDER_STATUS_DELIVERY_COMPLETE}" onclick="">
+						<em class="my-order__seq__count {? g_price(delivery_end_cnt) > 0} my-order__seq__count--point{/}">{=number_format(delivery_end_cnt)}</em>
+						<p>{=trans('배송완료')}</p>
+					</li>
+				</ul>
+				<div class="fb__mypage__overview-claim">
+					<dl class="devReturnStatusCnt" data-status="{c.ORDER_STATUS_CANCEL_APPLY}" onclick="">
+						<dt class="my-order__seq__kind">{=trans('취소')}</dt>
+						<dd class="my-order__seq__count {? g_price(cancel_apply_cnt) > 0} my-order__seq__count--point{/}">{=number_format(cancel_apply_cnt)}</dd>
+					</dl>
+					<dl class="devReturnStatusCnt" data-status="{c.ORDER_STATUS_RETURN_APPLY}" onclick="">
+						<dt>{=trans('반품신청')}</dt>
+						<dd class="my-order__seq__count {? g_price(return_apply_cnt) > 0} my-order__seq__count--point{/}">{=number_format(return_apply_cnt)}</dd>
+					</dl>
+				</div>
+			</div>
+
+			<!-- 최근 주문 내역 - 리스트 S -->
+			<div class="wrap-recently-order fb__mypage-order">
+				<ul class="product-item__wrap">
+					{? order_summerydata&& !empty(order_summerydata)}
+					{@ order_summerydata}
+					<li class="product-item__list">
+						<a href="/mypage/orderDetail?oid={.oid}" class="product-item__link">
+							<dl class="product-item">
+								<dt class="product-item__thumbnail-box">
+									<div class="product-item__thumb">
+										<img src="{.orderDetailSummery.pimg}" alt="{.orderDetailSummery.pname}">
+									</div>
+								</dt>
+								<dd class="product-item__infobox">
+									<div class="product-item__info">
+										<div class="order-day">{=.order_date}</div>
+										<div class="product-item__title c-pointer">
+											<div class="title-sm">
+												{.orderDetailSummery.pname} {? .ordCnt > 0} 외 {=.ordCnt}건 {/}
+											</div>
+										</div>
+										<div class="order-number">{=.oid}</div>
+									</div>
+									<div class="product-item__btn-area">
+										<div class="order-status">
+										<!--@TODO 2. 배송완료일때는 "fb__mypage__odtable--bold "이 클래스를 추가해 주세요.-->
+										{=trans('상세보기')}	
+										</div>
+										<div class="order-price">{fbUnit.f}<strong>{=g_price(.total_price)}</strong> {fbUnit.b}</div>
+									</div>
+								</dd>
+							</dl>
+						</a>
+						<!-- 주문 내역 - 상품 레이아웃 커스텀 E -->
+					</li>
+					{/}
+					{:}
+					<li class="product-item__list no-data" >
+						<p class="empty-content">{=trans('최근 1개월 내 주문 내역이 없습니다.')}</p>
+					</li>
+					{/}
+				</ul>
+			</div>
+			<!-- 최근 주문 내역 - 리스트 E -->
+		</section>
+		<section class="fb__mypage__wishlist">
+			<div class="fb__mypage-title">
+				<div class="title-sx">{=trans('나의 위시리스트 상품')}</div>
+				<a href="/mypage/wishlist" class="btn-link">더 보기</a>
+			</div>
+			<ul class="fb__goods col-5">
+				{@ wishList}
+				{? .index_ < 5}
+				<li class="fb__goods__list">
+					<a href="/shop/goodsView/{.id}" class="fb__goods__link">
+						<figure class="fb__goods__img">
+							<div>
+								<img src="{.image_src}" alt="{.pname}">
+							</div>
+						</figure>
+						<div class="fb__goods__info">
+							<ul class="fb__goods__infoBox">
+								<!-- <li class="fb__goods__etc">친환경 소재</li> -->
+								<li class="fb__goods__name">{.pname}</li>
+								<li class="fb__goods__option">{.add_info}</li>
+								<li class="fb__goods__brand">{.brand_name}</li>
+							</ul>
+						</div>
+						<div class="fb__goods__important">
+							{? .state_soldout }
+							<span class="fb__goods__price__state" style="display: none">{=trans('품절')}</span>
+							{:}	
+							{? .isPercent }
+							<div class="fb__goods__sale"><p class="per"><em>{.discount_rate}</em>%</p></div>
+							{/}
+							{/}
+							<span class="fb__goods__price">{fbUnit.f}<strong>{=g_price(.dcprice)}</strong>{fbUnit.b}</span>
+							{? .isDiscount }
+							<span class="fb__goods__noprice">{fbUnit.f}<strong>{=g_price(.listprice)}</strong>{fbUnit.b}</span>
+							{/}
+						</div>
+						<p class="fb__goods__condition">{=trans('30,000원 이상 구매 시 무료배송')}</p>
+					</a>
+					<a href="#" class="product-box__heart {? .alreadyWish}product-box__heart--active{/} " data-devWishBtn='{.id}'>hart</a>
+				</li>
+				{/}
+				{:}
+				<!--등록된 상품이 없을 시 S -->
+				<li class="empty-content" style="display: none">등록된 상품이 없습니다.</li>
+				<!--등록된 상품이 없을 시 E -->
+                {/}
+			</ul>
+		</section>
+	</section>
+	<!-- 컨텐츠 E -->
+</div>

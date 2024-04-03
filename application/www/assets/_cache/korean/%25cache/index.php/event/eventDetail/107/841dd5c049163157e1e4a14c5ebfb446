@@ -1,0 +1,210 @@
+13895-contents/mobile_enterprise//event/event_detail/event_detail.htm*<div class="wrap_event_detail">
+    <form id="devEventDetailForm">
+        <input type="hidden" name="event_ix" value="107"/>
+        <input type="hidden" name="orderBy" value="ec_ix"/>
+        <input type="hidden" name="orderByType" value="desc"/>
+        <input type="hidden" name="page" value="1" id="devPage"/>
+        <input type="hidden" name="max" value="20" id="devMax"/>
+    </form>
+    <style type="text/css">.imgWrap {
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .imgWrap .imgBg {
+        position: relative;
+    }
+
+    .imgWrap .imgBg img {
+        display: block;
+        /* 추가텍스트 */
+        width: 100%;
+    }
+
+    .imgWrap .sliderWrapper {
+        position: absolute;
+        top: 55%;
+        /* 슬라이드 시작점 */
+        left: 0;
+        right: 0;
+    }
+
+    .imgWrap .swiper-slide {
+        position: relative;
+        padding: 0 3.64%;
+        /* 이미지 좌우 빈영역 생성 */
+    }
+
+    .imgWrap .swiper-slide img {
+        width: 100%;
+    }
+
+    .imgWrap .swiper-button-prev,
+    .imgWrap .swiper-button-next {
+        top: 50%;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin-top: -5.4%;
+        /* 버튼 상하 중앙조절 */
+        width: 3.5%;
+        /* 버튼 가로크기 (가로사이즈 대비 비율) */
+        height: auto;
+        background: none;
+    }
+
+    .imgWrap .swiper-button-prev img,
+    .imgWrap .swiper-button-next img {
+        width: 100%;
+    }
+
+    .slideLink {
+        position: absolute;
+        /*outline:1px solid #f00;*/
+    }
+</style>
+<div class="event__wrap">
+<div class="imgWrap"><!-- 일반 이미지 영역 --><!--img01-->
+<div class="imgBg"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/2020swimweek_img01_m_2.jpg" /></div>
+<!-- 슬라이드 이미지 영역 -->
+
+<div class="imgBg"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/2020swimweek_img02_m_2.jpg" />
+<div class="sliderWrapper">
+<div class="swiper-container" id="eventSlider">
+<div class="swiper-wrapper"><!-- 이미지 개수만큼 swiper-slide 복사 및 추가 -->
+<div class="swiper-slide"><!-- usemap과 name은 같이 쓰며 이미지마다 다르게 지정 필요 --><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/slide_img01_m.png" usemap="#slideimg01" />
+<div><map name="slideimg01"><!-- 버튼 개수만큼 area 추가 (target="_blank" : 새탭열기)--><area coords="2,982,603,1064" href="https://www.getbarrel.com/shop/goodsList/003001001000000#page1&amp;filterCid=003001001000000&amp;orderBy=viewOrder" shape="rect" target="_blank" title="구매하기" /> <!-- 슬라이드 이미지 크기 기준으로 버튼 위치 (가로시작점, 세로시작점, 가로끝점, 세로끝점) --></map></div>
+</div>
+
+<div class="swiper-slide"><!-- usemap과 name은 같이 쓰며 이미지마다 다르게 지정 필요 --><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/slide_img02_m.png" usemap="#slideimg02" />
+<div><map name="slideimg02"><!-- 버튼 개수만큼 area 추가 (target="_blank" : 새탭열기)--><area coords="2,982,603,1064" href="https://www.getbarrel.com/shop/goodsList/006001000000000#page1&amp;filterCid=006001000000000&amp;orderBy=viewOrder" shape="rect" target="_blank" title="구매하기" /> <!-- 슬라이드 이미지 크기 기준으로 버튼 위치 (가로시작점, 세로시작점, 가로끝점, 세로끝점) --></map></div>
+</div>
+
+<div class="swiper-slide"><!-- usemap과 name은 같이 쓰며 이미지마다 다르게 지정 필요 --><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/slide_img03_m.png" usemap="#slideimg03" />
+<div><map name="slideimg03"><!-- 버튼 개수만큼 area 추가 (target="_blank" : 새탭열기)--><area coords="2,982,603,1064" href="https://www.getbarrel.com/shop/goodsList/010009000000000#page1&amp;filterCid=010009000000000&amp;orderBy=viewOrder" shape="rect" target="_blank" title="구매하기" /> <!-- 슬라이드 이미지 크기 기준으로 버튼 위치 (가로시작점, 세로시작점, 가로끝점, 세로끝점) --></map></div>
+</div>
+
+<div class="swiper-slide"><!-- usemap과 name은 같이 쓰며 이미지마다 다르게 지정 필요 --><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/slide_img04_m.png" usemap="#slideimg04" />
+<div><map name="slideimg04"><!-- 버튼 개수만큼 area 추가 (target="_blank" : 새탭열기)--><area coords="2,982,603,1064" href="https://www.getbarrel.com/shop/goodsView/0000050554" shape="rect" target="_blank" title="구매하기" /> <!-- 슬라이드 이미지 크기 기준으로 버튼 위치 (가로시작점, 세로시작점, 가로끝점, 세로끝점) --></map></div>
+</div>
+
+<div class="swiper-slide"><!-- usemap과 name은 같이 쓰며 이미지마다 다르게 지정 필요 --><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/slide_img05_m.png" usemap="#slideimg05" />
+<div><map name="slideimg05"><!-- 버튼 개수만큼 area 추가 (target="_blank" : 새탭열기)--><area coords="331,488,531,550" href="https://www.getbarrel.com/shop/goodsView/0000009328" shape="rect" target="_blank" title="구매하기" /><area coords="331,908,531,970" href="https://www.getbarrel.com/shop/goodsView/0000009118" shape="rect" target="_blank" title="구매하기" /> <!-- 슬라이드 이미지 크기 기준으로 버튼 위치 (가로시작점, 세로시작점, 가로끝점, 세로끝점) --></map></div>
+</div>
+
+<div class="swiper-slide"><!-- usemap과 name은 같이 쓰며 이미지마다 다르게 지정 필요 --><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/slide_img06_m_3.png" usemap="#slideimg06" />
+<div><map name="slideimg06"><!-- 버튼 개수만큼 area 추가 (target="_blank" : 새탭열기)--><area coords="2,982,603,1064" href="https://www.getbarrel.com/shop/goodsList/005001007000000" shape="rect" target="_blank" title="구매하기" /> <!-- 슬라이드 이미지 크기 기준으로 버튼 위치 (가로시작점, 세로시작점, 가로끝점, 세로끝점) --></map></div>
+</div>
+</div>
+</div>
+<!-- 좌우 버튼 위치 (left, right) -->
+
+<div class="swiper-button-prev" style="left:7.5%"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/arrow_left_m.png" /></div>
+
+<div class="swiper-button-next" style="right:7.5%"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/arrow_right_m.png" /></div>
+</div>
+</div>
+<!-- 일반 이미지 영역 --><!--img03-->
+
+<div class="imgBg"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/2020swimweek_img03_m_3.jpg" usemap="#3" /><map id="3" name="3"><area alt="" coords="150,1653,489,1754" href="https://www.getbarrel.com/shop/goodsList/004001000000000" shape="rect" target="_blank" title="" /><area alt="" coords="147,2372,490,2468" href="https://www.getbarrel.com/shop/goodsList/004002000000000" shape="rect" target="_blank" title="" /><area alt="" coords="148,3087,489,3184" href="https://www.getbarrel.com/shop/goodsList/004004000000000" shape="rect" target="_blank" title="" /><area alt="" coords="148,3802,490,3901" href="https://www.getbarrel.com/shop/goodsList/003003000000000" shape="rect" target="_blank" title="" /> <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map></div>
+<!--img04-->
+
+<div class="imgBg"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/2020swimweek_img04_m_2.jpg" usemap="#4" /><map id="4" name="4"><area alt="" coords="31,1351,400,1450" href="https://www.getbarrel.com/shop/goodsView/0000050635" shape="rect" target="_blank" title="" /> <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map></div>
+<!--img05--><!--https://www.getbarrel.com/shop/goodsList/004007000000000-->
+
+<div class="imgBg"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/2020swimweek_img05_m_3.jpg" usemap="#5" /><map id="5" name="5"><area alt="" coords="22,919,440,1011" href="" shape="rect" target="_blank" title="" /> <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map></div>
+<!--img06-->
+
+<div class="imgBg"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/2020swimweek_img06_m_3.jpg" usemap="#6" /><map id="6" name="6"><area alt="" coords="151,1729,487,1828" href="https://www.getbarrel.com/shop/goodsList/007002004000000" shape="rect" target="_blank" title="" /><area alt="" coords="151,2427,484,2522" href="https://www.getbarrel.com/shop/goodsList/007003004000000" shape="rect" target="_blank" title="" /><area alt="" coords="151,3123,487,3218" href="https://www.getbarrel.com/shop/goodsList/007004003000000" shape="rect" target="_blank" title="" /><area alt="" coords="151,3819,488,3917" href="https://www.getbarrel.com/shop/goodsList/007005002000000" shape="rect" target="_blank" title="" /> <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map></div>
+<!--img07-->
+
+<div class="imgBg"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/2020swimweek_img07_m_2.jpg" /></div>
+<!--img08-->
+
+<div class="imgBg"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/2020swimweek_img08_m_2.jpg" /></div>
+<!--img09-->
+
+<div class="imgBg"><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_swimweek/mobile/2020swimweek_img09_m_3.jpg" /></div>
+</div>
+<!--<script src="//image.getbarrel.com/barrel_data/js/swiper.min.js"></script>--><script src="//image.getbarrel.com/barrel_data/js/imageMapResizer.min.js"></script><script>
+        $(function () {
+            var container = document.querySelector('#eventSlider');
+            var slider = new Swiper(container, {
+                speed: 500,
+                autoplay: {
+                    delay: 4000,
+                },
+                //simulateTouch: false,
+                loop: true,
+                slidesPerView: 1,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+            $('map').imageMapResize();
+        });
+
+
+    </script></div>
+
+
+    <!--<div class="br__goods-list__wrap br__goods-list__wrap&#45;&#45;normal">-->
+        <!--<div class="goods-list">-->
+            <!--<div id="devFilterEmpty" class="empty-content" style="display:none"><p>선택하신 조건에 대한 검색 결과가 없습니다. <span>다른 옵션을 선택하여 검색해 보세요.</span></p></div>-->
+            <!--<ul class="goods-list__list">-->
+                <!--<li class="goods-list__box">-->
+                    <!--<a href="/shop/goodsView/{[id]}" class="goods-list__link">-->
+                        <!--<figure class="goods-list__thumb">-->
+                            <!--<img src="{[image_src]}" alt="상품제목">-->
+                        <!--</figure>-->
+                        <!--<div class="goods-list__info">-->
+                            <!--{[#if icons]}-->
+                            <!--<div class="goods-list__badge">-->
+                                <!--{[#each icons_path]}-->
+                                <!--<span>{[{this}]}</span>-->
+                                <!--{[/each]}-->
+                            <!--</div>-->
+                            <!--{[else]}-->
+                            <!--<div class="goods-list__badge">-->
+                                <!--<span></span>-->
+                            <!--</div>-->
+                            <!--{[/if]}-->
+                            <!--<p class="br__goods__pre">{[preface]}</p>-->
+                            <!--<p class="goods-list__title">{[pname]}</p>-->
+                            <!--<span class="goods-list__color">{[add_info]}</span>-->
+                            <!--<div class="goods-list__price">-->
+                                <!--{[#if isDiscount]}-->
+                                <!--<span class="goods-list__price__cost">{[listprice]}원</span>-->
+                                <!--{[/if]}-->
+                                <!--<span class="goods-list__price__discount">{[dcprice]}원</span>-->
+                                <!--{[#if isPercent]}-->
+                                <!--<span class="goods-list__price__percent">[{[discount_rate]}%]</span>-->
+                                <!--{[/if]}-->
+                                <!--{[#if is_soldout]}-->
+                                <!--<span class="goods-list__price__state">[품절]</span>-->
+                                <!--{[/if]}-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                    <!--<label class="goods-list__wish{[#if alreadyWish]} on{[/if]}" devwishbtn="{[id]}">-->
+                        <!--{[#if alreadyWish]}-->
+                        <!--<input type="checkbox" class="goods-list__wish__btn" checked>-->
+                        <!--{[else]}-->
+                        <!--<input type="checkbox" class="goods-list__wish__btn">-->
+                        <!--{[/if]}-->
+                    <!--</label>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="main-cate ">
+        <div class="main-cate__goods-list br__goods-list__wrap br__goods-list__wrap--normal">
+            <div class="goods-list">
+                <ul class="goods-list__list devProductTab" id="productTab00000113">
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</div>

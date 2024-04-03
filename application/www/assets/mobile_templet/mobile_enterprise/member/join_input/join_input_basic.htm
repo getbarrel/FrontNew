@@ -1,0 +1,228 @@
+<!-- 컨텐츠 S -->
+<section class="br__join">
+	<div class="br__join-form__wrap">
+		<form id="devBasicForm">
+			<div class="page-title">
+				<div class="title-sm">{=trans('필수 가입 정보')}</div>
+			</div>
+			<div class="br__join-form br__join-basic">
+				{? isSnsJoin != true}
+				<div class="br__join__item br__join__item-id">
+					<div class="br__form-item">
+						<label for="devUserId" class="br__form-label hidden">{=trans('아이디')}</label>
+						<input class="join__input" type="text" class="br__form-input" id="devUserId" name="userId" title="아이디" placeholder="{=trans('아이디')}" value="" />
+						<button class="bnt-md btn-dark-line join__id__check" id="devUserIdDoubleCheckButton">{=trans('중복확인')}</button>
+					</div>
+					<!-- 안내(오류) 메시지 S -->
+					<p class="txt-error" devTailMsg="devUserId"></p>
+					<!-- 안내(오류) 메시지 E -->
+
+					<div class="information__btn" id="devDupMember" style="display: none">
+						<div class="btn-group">
+							<a href="/member/login" class="btn-lg btn-dark-line information__btn__login">{=trans('로그인')}</a>
+							<a href="/member/searchPw" class="btn-lg btn-dark-line information__btn__join">{=trans('비밀번호찾기')}</a>
+						</div>
+						<p class="information__txt">{=trans('해당 아이디로 로그인을 하시거나 비밀번호 찾기를 해주세요.')}</p>
+					</div>
+				</div>
+				{/}
+				{? isSnsJoin != true}
+				<div class="br__join__item br__join__item-password">
+					<div class="br__form-item">
+						<label for="devUserPassword" class="br__form-label hidden">{=trans('비밀번호')}</label>
+						<input class="join__input br__form-input" type="password" id="devUserPassword" name="pw" title="{=trans('비밀번호')}" value="" placeholder="{=trans('비밀번호')}" />
+						<button type="button" class="btn-pw--visibility"><i class="ico ico-eye-hide"></i>{=trans('비밀번호 확인 버튼')}</button>
+					</div>
+					<div class="br__form-item">
+						<label for="devCompareUserPassword" class="br__form-label hidden">{=trans('비밀번호 확인')}</label>
+						<input class="join__input br__form-input" type="password" id="devCompareUserPassword" name="comparePw" title="{=trans('비밀번호 확인')}" value="" placeholder="{=trans('비밀번호 확인')}" />
+						<button type="button" class="btn-pw--visibility"><i class="ico ico-eye-hide"></i>{=trans('비밀번호 확인 버튼')}</button>
+					</div>
+					<p class="join__info-txt" devTailMsg="devCompareUserPassword"></p>
+				</div>
+				{/}
+				<div class="br__join__item">
+					<div class="br__form-item">
+						<label for="devUserName" class="br__form-label hidden">{=trans('이름')}</label>
+						<input class="join__input br__form-input js__joininput__name" type="text" name="userName" id="devUserName" value="{userName}" title="{=trans('이름')}" placeholder="{=trans('이름')}" />
+					</div>
+				</div>
+				<div class="br__join__item br__join__item-emil">
+					<div class="br__form-item join__eamil">
+						<label for="devEmailId" class="br__form-label hidden">{=trans('이메일')}</label>
+						<input class="join__input email-id br__form-input" type="text" name="emailId" id="devEmailId" placeholder="{=trans('이메일 아이디')}" value="{emailId}" title="{=trans('이메일 아이디')}" />
+						<input class="join__input email-info br__form-input" type="text" name="emailHost" id="devEmailHost" placeholder="{=trans('메일 도메인 주소')}" value="{emailHost}" title="{=trans('메일 도메인 주소')}" />
+					</div>
+					<select id="devEmailHostSelect" class="br__form-select">
+						<option value="">{=trans('선택')}</option>
+						<option value="naver.com">naver.com</option>
+						<option value="gmail.com">gmail.com</option>
+						<option value="hotmail.com">hotmail.com</option>
+						<option value="hanmail.net">hanmail.net</option>
+						<option value="daum.net">daum.net</option>
+						<option value="nate.com">nate.com</option>
+						<option value="direct" >직접입력</option>
+					</select>
+					<div class="join__email__check">
+						<button type="button" class="btn-lg join__email__check-btn" id="devEmailDoubleCheckButton">{=trans('이메일 중복확인')}</button>
+						<p class="txt-error" devTailMsg=""></p>
+					</div>
+					<p class="txt-error mat10" devTailMsg="devEmailId devEmailHost"></p>
+				</div>
+				<div class="br__join__item br__join__item-phone">
+					<div class="br__form-item join__phone">
+						<label for="devPcs1" class="br__form-label hidden">{=trans('휴대폰')}</label>
+						<select class="join__phone-first br__form-select" name="pcs1" id="devPcs1">
+							<option value="010" {? pcs1=="010"}selected{/}>010</option>
+							<option value="011" {? pcs1=="011"}selected{/}>011</option>
+							<option value="016" {? pcs1=="016"}selected{/}>016</option>
+							<option value="017" {? pcs1=="017"}selected{/}>017</option>
+							<option value="018" {? pcs1=="018"}selected{/}>018</option>
+							<option value="019" {? pcs1=="019"}selected{/}>019</option>
+						</select>
+						<input class="join__input join__phone-second br__form-input" type="text" name="pcs2" placeholder="0000" value="{pcs2}" id="devPcs2" title="{=trans('휴대폰')}" maxlength="4" />
+						<input class="join__input join__phone-third br__form-input" type="text" name="pcs3" placeholder="0000" value="{pcs3}" id="devPcs3" title="{=trans('휴대폰')}" maxlength="4" />
+					</div>
+				</div>
+			</div>
+			<div class="page-title">
+				<div class="title-sm">{=trans('추가 선택 정보')}</div>
+			</div>
+			<div class="br__join-form br__join-add">
+				<div class="br__join__item br__join__item-addr">
+					<div class="join__addr">
+						<label for="devPcs1" class="br__form-label">{=trans('주소')}</label>
+						<div class="br__form-group">
+							<input class="join__input br__form-input" type="text" name="zip" id="devZip" value="{zip}" title="{=trans('우편번호')}" placeholder="{=trans('우편번호')}" />
+							<button class="btn-md btn-dark-line join__id__check" id="devZipPopupButton">{=trans('검색')}</button>
+						</div>
+						<input class="join__address" type="text" name="addr1" value="{addr1}" id="devAddress1" placeholder="" />
+						<input class="join__address" type="text" name="addr2" value="{addr2}" id="devAddress2" title="{=trans('상세 주소')}" placeholder="{=trans('상세주소')}" />
+					</div>
+				</div>
+				<div class="br__join__item br__join__add">
+					<p class="join-symbol">{=trans('성별')}</p>
+					<div class="br__find-user__label">
+						<label><input type="radio" name="gender" value="M" data-type="" {? gender=="M"}checked{/}><span>{=trans('남자')}</span></label>
+						<label><input type="radio" name="gender" value="W" data-type="" {? gender=="W"}checked{/}><span>{=trans('여자')}</span></label>
+					</div>
+				</div>
+				<div class="br__join__item br__join__birthday">
+					<div class="br__join__add">
+						<p class="join-symbol">{=trans('생일')}</p>
+						<div class="br__find-user__label">
+							<label><input type="radio" name="join-day" name="birthdayDiv" value="1" data-type="" {? birthdayDiv=="1"}checked{/}><span>{=trans('양력')}</span></label>
+							<label><input type="radio" name="join-day" name="birthdayDiv" value="0" data-type="" {? birthdayDiv=="0"}checked{/}><span>{=trans('음력')}</span></label>
+						</div>
+					</div>
+					<div class="join__day-box add-info">
+						<div class="br__form-group">
+							<select class="join__input join__day-first br__form-select" name="birthYear" id="devbirthYear">
+								<option value="">년도</option>
+								{@ birthYear}
+								<option value="{.value_}" {? birthYearText==.value_}selected{/}>{.value_}</option>
+								{/}
+							</select>
+
+							<select class="join__input join__day-second br__form-select" name="birthMonth" id="devbirthMonth">
+								<option value="">월</option>
+								{@ birthMonth}
+								<option value="{.value_}" {? birthMonthText==.value_}selected{/}>{.value_}</option>
+								{/}
+							</select>
+
+							<select class="join__input join__day-third br__form-select" name="birthDay" id="devbirthDay">
+								<option value="">일</option>
+								{@ birthDay}
+								<option value="{.value_}" {? birthDayText==.value_}selected{/}>{.value_}</option>
+								{/}
+							</select>
+						</div>
+						<p class="join__day-info">{=trans('생일을 등록하시면 회원등급별 생일 쿠폰이 지급됩니다.')}</p>
+					</div>
+				</div>
+			</div>
+			<div class="page-title">
+				<div class="title-md">{=trans('회원 가입을 위한 약관 동의')}</div>
+			</div>
+
+			<!-- 이용약관 S -->
+			<div class="br__join__terms">
+				<div class="join__terms-all">
+					<label for="all_terms_check">
+						<input type="checkbox" id="all_terms_check" class="join__terms__agree" name="" data-type="" />
+						<span>{=trans('전체 동의')}</span>
+					</label>
+					<p class="txt-guide">{=trans('전체 동의는 필수 및 선택 정보에 대한 동의가 포함되어 있으며, 개별적으로 동의를 선택할 수 있습니다. 선택 항목에 대한 동의를 체크하지 않아도 서비스를 정상적으로 이용하실 수 있습니다.')}</p>
+				</div>
+				<ul>
+					<li class="br__find-user__label agree-content">
+						<label>
+							<input type="checkbox" data-name="terms00" name="underAge" data-title="미성년확인" id="devUnderAge" title="미성년확인" value="Y" />
+							<span>{=trans('만 14세 이상입니다. (필수)')}</span>
+						</label>
+					</li>
+                    <li class="br__find-user__label agree-content">
+						<label>
+							<input type="checkbox" data-name="terms01" name="policyUse" data-title="{=trans('이용약관 동의 (필수)')}" id="devPolicyUse" title="{=trans('이용약관 동의 (필수)')}" />
+							<span>{=trans('이용약관 동의 (필수)')}</span>
+						</label>
+						<button class="join__all-view term-content" type="button">{=trans('내용보기')}</button>
+					</li>
+					<li class="br__find-user__label agree-content">
+						<label>
+							<input type="checkbox" data-name="terms02" name="collection" data-title="{=trans('개인정보 수집 및 이용 동의 (필수)')}" id="devPolicyUse" title="{=trans('개인정보 수집 및 이용 동의 (필수)')}" />
+							<span>{=trans('개인정보 수집 및 이용 동의 (필수)')}</span>
+						</label>
+						<button class="join__all-view term-content" type="button">{=trans('내용보기')}</button>
+					</li>
+					<li class="br__find-user__label agree-content">
+						<label>
+							<input type="checkbox" data-name="terms03" name="collection_select" data-title="{=trans('개인정보 수집 및 이용 동의 (선택)')}" id="devPolicyUse" title="{=trans('개인정보 수집 및 이용 동의 (선택)')}" />
+							<span>{=trans('개인정보 수집 및 이용 동의 (선택)')}</span>
+						</label>
+						<button class="join__all-view term-content" type="button">{=trans('내용보기')}</button>
+					</li>
+					<li class="br__find-user__label agree-content">
+						<label>
+							<input type="checkbox" name="email" value="1" data-type="" />
+							<span>{=trans('이메일 수신 동의 (선택)')}</span>
+						</label>
+					</li>
+					<li class="br__find-user__label agree-content">
+						<label>
+							<input type="checkbox" name="sms" value="1" data-type="" />
+							<span>{=trans('SMS 수신 동의 (선택)')}</span>
+						</label>
+					</li>
+				</ul>
+			</div>
+			<!-- 이용약관 E -->
+
+			<div class="br__join__btn">
+				<button type="button" class="btn-lg btn-dark-line join__btn" id="devBasicSubmitButton">회원가입</button>
+			</div>
+		</form>
+	</div>
+	<div class="br__join-footer">
+		<a href="#;" class="btn-link">로그인으로 돌아가기</a>
+	</div>
+</section>
+<!-- 컨텐츠 E -->
+<!-- 이용약관 팝업 -->
+<div class="term__popup">
+    <p class="term__popup-title">
+        <span class="term__popup-name">{=trans('이용약관')}</span>
+        <span class="close"></span>
+    </p>
+    <div class="term__popup-content terms01">
+        {policyData['use']['contents']}
+    </div>
+    <div class="term__popup-content terms02">
+        {policyData['collection']['contents']}
+    </div>
+	<div class="term__popup-content terms03">
+		{policyData['collection_select']['contents']}
+	</div>
+</div>
+<!-- EOD : 이용약관 팝업 -->

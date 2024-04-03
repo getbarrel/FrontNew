@@ -1,0 +1,212 @@
+.br {
+  &__best-review {
+
+    &__mainVusual {
+      font-size: 0;
+      line-height: 0;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .goods-review__best__kind {
+      img {
+        width: 100%;
+      }
+    }
+
+    &--kr {
+      figure {
+        overflow: hidden;
+        width: 100%;
+
+        & > img {
+          width: 100%;
+          height: auto!important;
+        }
+      }
+    }
+
+    .best-review {
+      &__notice {
+        margin-top: rem(62px);
+        padding: 0 rem(40px) rem(50px);
+        background: #efefef;
+
+        &__title {
+          padding: rem(48px) 0;
+          color: #000;
+          font-size: rem(30px);
+          font-weight: bold;
+        }
+
+        &__desc {
+          margin-bottom: rem(22px);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+      }
+    }
+    //.best-review {
+    //  min-height: 992px;
+    //  padding: 0 40px;
+    //  background: url(../images/customer_review.png) no-repeat 0 0;
+    //  background-size: cover;
+    //
+    //  &__title {
+    //    width: 300px;
+    //    padding-top: 101px;
+    //    color: #fff;
+    //    font-size: 52px;
+    //    line-height: 60px;
+    //    font-style: italic;
+    //
+    //    span {
+    //      color: $cPoint;
+    //      font-weight: bold;
+    //      font-style: normal;
+    //    }
+    //  }
+    //
+    //  &__desc {
+    //    width: 288px;
+    //    margin: 53px 0 67px;
+    //    color: #fff;
+    //    font-size: 26px;
+    //    line-height: 36px;
+    //
+    //    strong {
+    //      color: $cPoint;
+    //    }
+    //  }
+    //
+    //  &__type {
+    //    @extend %clear;
+    //
+    //    &__box {
+    //      padding: 40px 0;
+    //      border-top: 1px solid rgba(255, 255, 255, .4);
+    //      border-bottom: 1px solid rgba(255, 255, 255, .4);
+    //      @extend %clear;
+    //
+    //      dt {
+    //        float: left;
+    //        width: 156px;
+    //        padding: 0 22px;
+    //        color: $cPoint;
+    //        font-size: 30px;
+    //        font-weight: bold;
+    //      }
+    //
+    //      dd {
+    //        width: 404px;
+    //        float: right;
+    //        color: #fff;
+    //        line-height: 32px;
+    //        font-weight: 200;
+    //
+    //        span {
+    //          font-weight: bold;
+    //        }
+    //      }
+    //    }
+    //  }
+    //
+    //  &__rank {
+    //    margin-bottom: 60px;
+    //    &__box {
+    //      display: inline-block;
+    //      width: 26%;
+    //      margin-right: 55px;
+    //
+    //      dt {
+    //        position: relative;
+    //        padding: 14px 0;
+    //        color: #fff;
+    //        font-size: 36px;
+    //        font-style: italic;
+    //
+    //        &:after {
+    //          display: block;
+    //          position: absolute;
+    //          bottom: 0;
+    //          width: 100%;
+    //          height: 8px;
+    //          background: #000;
+    //          content: "";
+    //        }
+    //
+    //      }
+    //
+    //      dd {
+    //        padding-top: 25px;
+    //        color: $cPoint;
+    //        font-weight: 400;
+    //
+    //        span {
+    //          font-weight: bold;
+    //        }
+    //
+    //      }
+    //
+    //      &:last-child {
+    //        margin-right: 0;
+    //      }
+    //    }
+    //  }
+    //
+    //  &__extra {
+    //    padding: 25px 0;
+    //    color: #efefef;
+    //    font-size: 22px;
+    //  }
+    //
+    //  &__notice {
+    //    margin-top: 62px;
+    //    padding: 0 40px 50px;
+    //    background: #efefef;
+    //
+    //    &__title {
+    //      padding: 48px 0;
+    //      color: #000;
+    //      font-size: 30px;
+    //      font-weight: bold;
+    //    }
+    //
+    //    &__desc {
+    //      margin-bottom: 22px;
+    //      color: #000;
+    //      font-size: 22px;
+    //      line-height: 32px;
+    //    }
+    //  }
+    //
+    //}
+
+    .crema-review {
+      padding-top: rem(60px);
+      &__title {
+        color: #000;
+        font-size: rem(40px);
+        font-weight: bold;
+        text-align: center;
+      }
+
+      &__desc {
+        width: rem(410px);
+        margin: 0 auto 2rem;
+        padding: rem(29px) 0 0;
+        color: #000;
+        font-size: rem(22px);
+        text-align: center;
+        line-height: rem(32px);
+      }
+
+      .crema-reviews {
+        margin-top: rem(58px);
+      }
+    }
+  }
+}

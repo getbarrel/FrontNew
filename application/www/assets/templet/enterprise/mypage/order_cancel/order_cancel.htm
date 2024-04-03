@@ -1,0 +1,379 @@
+<!-- 컨텐츠 S -->
+<section class="fb__mypage-claim fb__mypage__order-claim wrap-mypage wrap-order-claim">
+	<div class="fb__mypage-title">
+		<div class="title-md">{=trans('주문 취소 신청')}</div>
+	</div>
+	<!--취소교환반품 신청내역조회일 때 S -->
+	<div class="order-number-box">
+		<div class="order-number-box__cont">
+			<dl class="order-number-box__item">
+				<dt class="order-title">{=trans('주문번호')}</dt>
+				<dd class="order-number" id="devOid" data-oid="{order.oid}" data-status="{order.status}" data-allselected="{allSelected}" data-claimstatus="{=claimstatus}">{order.oid}</dd>
+			</dl>
+			<dl class="order-number-box__item">
+				<dt class="order-title">{=trans('주문일자')}</dt>
+				<dd class="order-day">{order.order_date}</dd>
+			</dl>
+		</div>
+	</div>
+	<!--취소교환반품 신청내역조회일 때 E -->
+
+	<!--[S] 주문 취소 상품 상단-->
+	<section class="fb__mypage__section cancel-area">
+		{@ order.orderDetail}
+		<div class="fb__mypage-title">
+			<div class="title-sm">{=trans('취소 신청 상품')}</div>
+		</div>
+		<div class="fb__mypage-claim claim__list claim__able">
+			<ul class="product-item__wrap">
+				<!-- 부분취소 할 경우 - 상품없음 S -->
+				<!-- 숨김처리 되어 있음 -->
+				<li class="product-item__list no-data" style="display: none">
+					<p class="empty-content">기간내 주문내역이 없습니다.</p>
+				</li>
+				<!-- 부분취소 할 경우 - 상품없음 E -->
+				{@ .value_}
+				<li class="product-item__list devCancelBoxOn devCancelArea" data-odix="{..od_ix}" data-pcnt="{..pcnt}" style="display:{? (..od_ix == odIx || order.status == 'IR' || allSelected == 'Y') }{:}none{/}">
+					<!-- 상품 S -->
+					<input type="hidden" class="devOdIxCls" id="devOdIx{..od_ix}" value='{..od_ix}'>
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="/shop/goodsView/{..pid}">
+									<img src="{..pimg}">
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="/shop/goodsView/{..pid}">{..pname}</a>
+								</div>
+								<div class="product-item__option">
+									<a href="#;">
+										<span class="set-name">{=str_replace("사이즈:","",..option_text)}</span>
+										{? ..add_info}<span>{..add_info}</span>{/}
+										<span>{..pcnt}{=trans('개')}</span>
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price">{fbUnit.f}<em>{=g_price(..pt_dcprice)}</em>{fbUnit.b}</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<!-- 부분취소 S -->
+								<!-- 숨김처리 -->
+								<div class="btn-group">
+									<button type="button" class="btn-link btn-del">삭제</button>
+								</div>
+								<!-- 부분취소 E -->
+								<div class="order-status">{=trans(..status_text)}</div>
+							</div>
+						</dd>
+					</dl>
+					<!-- 상품 E -->
+
+					<!-- 사은품 영역 S -- 
+					<div class="product-gift-wrap">
+						<div class="product-gift__title">
+							<strong>구매 사은품</strong>
+						</div>
+						<ul class="product-gift__list">
+							<li class="product-gift__box inner-gift devGiftList">
+								<figure class="product-gift__thumb">
+									<img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+								</figure>
+								<div class="product-gift__info">
+									<div class="product-gift__info__pname"><span>[사은품]</span> 키즈 데이지 튜브</div>
+									<div class="product-gift__info__count">
+										<span>페일네온옐로우</span>
+										<span>OS</span>
+										<span>1개</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- 사은품 영역 E -->
+
+					
+					<!-- 입금대기/결제완료 S -->
+					{? order.status == 'IR' || order.status == 'IC'}
+					<div class="claim__list__reason reason-box">
+						<div class="reason-top">
+							<div class="title-sm">취소 수량</div>
+							<div class="cancel-quantity">
+								<em class="devCancelCntCls devPcnt" data-odix="{..od_ix}">{..pcnt}</em>{=trans('개')}
+							</div>
+							<!-- <input type="hidden" name="pcnt[{..od_ix}]" value="{..pcnt}"  data-odix="{..od_ix}" data-ocnt="{..pcnt}" data-dcprice="{..dcprice}"> -->
+						</div>
+						<dl class="reason-box__inner devCancelBoxOn devCancelTr" data-odix="{..od_ix}" style="display:{? (..od_ix == odIx || allSelected == 'Y') }{:}none{/}">
+							<div class="reason-box__title">
+								<div class="title-sm">{=trans('취소 사유')}</div>
+							</div>
+							<div class="reason-box__cont">
+								<div class="fb__form-item devCancelCodeArea" data-odix="{..od_ix}">
+									<label for="" class="hide">취소사유</label>
+									<select name="cc_reason" class="fb__form-select devCcReason" data-odix="{..od_ix}">
+										{@ (cancelReason)}
+										{? langType=='english' && ...key_ == 'ETC'}
+										<option value="{...key_}">Others</option>
+										{:}
+										<option value="{...key_}">{=trans(...title)}</option>
+										{/}
+										{/}
+									</select>
+								</div>
+								<textarea class="fb__form-textarea devCcMsg" placeholder="{=trans('취소 사유를 작성해 주세요. (최대 100자)')}" text="취소사유" name="cc_msg[{..od_ix}]" data-odIx="{..od_ix}" maxlength="100"></textarea>
+							</div>
+						</dl>
+					</div>
+					<!-- 입금대기/결제완료 E -->
+					{:}
+					<!-- 부분취소 S -->
+					<div class="claim__list__reason reason-box">
+						<div class="reason-top">
+							<div class="title-sm">취소 수량</div>
+							<div class="product-quantity__control control">
+								<ul class="option-up-down">
+									<li>
+										<button type="button" class="btn-down down devCountDownButton"><i class="ico ico-minus"></i>DOWN</button>
+									</li>
+									<li><input type="text" value="1" class="devCount option-text" /></li>
+									<li>
+										<button type="button" class="btn-up up devCountUpButton"><i class="ico ico-plus"></i>UP</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<dl class="reason-box__inner devCancelBoxOn devCancelTr" data-odix="{..od_ix}" style="display:{? (..od_ix == odIx || allSelected == 'Y') }{:}none{/}">
+							<div class="reason-box__title">
+								<div class="title-sm">{=trans('취소 사유')}</div>
+							</div>
+							<div class="reason-box__cont">
+								<div class="fb__form-item devCancelCodeArea" data-odix="{..od_ix}">
+									<label for="" class="hide">취소사유</label>
+									<select name="cc_reason" class="fb__form-select devCcReason" data-odix="{..od_ix}">
+										{@ (cancelReason)}
+										{? langType=='english' && ...key_ == 'ETC'}
+										<option value="{...key_}">Others</option>
+										{:}
+										<option value="{...key_}">{=trans(...title)}</option>
+										{/}
+										{/}
+									</select>
+								</div>
+								<textarea class="fb__form-textarea devCcMsg" placeholder="{=trans('취소 사유를 작성해 주세요. (최대 100자)')}" text="취소사유" name="cc_msg[{..od_ix}]" data-odIx="{..od_ix}" maxlength="100"></textarea>
+							</div>
+						</dl>
+					</div>
+					{/}
+					<!-- 부분취소 E -->
+				</li>
+                {/}
+			</ul>
+		</div>
+
+		<div class="claim__list__empty" id="devArea1" style="display:{? odIx == '' && allSelected != 'Y'}block{:}none{/}" >
+			<span>{=trans('선택한 취소 상품이 없습니다.')}</span>
+		</div>
+       {/}
+	</section>
+
+	<!-- 부분취소 할 경우 - 취소 상품 선택 영역 S -->
+	{? order.status != 'IR' && partCancelBool == true}
+	<section class="fb__mypage__section cancel-area">
+		{@ order.orderDetail}
+		<div class="fb__mypage-title">
+			<div class="title-sm">{=trans('취소 신청 상품 추가')}</div>
+		</div>
+		<div class="fb__mypage-claim claim__list claim__able">
+			<ul class="product-item__wrap">
+				<li class="product-item__list">
+					<!-- 상품 S -->
+					{@ .value_}
+					<dl class="product-item devCancelBoxOff" data-odix="{..od_ix}" style="display:{? (..od_ix != odIx && allSelected != 'Y')  }{:}none{/}">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<a href="/shop/goodsView/{..pid}">
+									 <img src="{..pimg}">
+								</a>
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title c-pointer">
+									<a href="/shop/goodsView/{..pid}">{..pname}</a>
+								</div>
+								<div class="product-item__option">
+									<a href="/shop/goodsView/{..pid}">
+										<span class="set-name">{=str_replace("사이즈:","",..option_text)}</span>
+										{? ..add_info}<span>{..add_info}</span>{/}
+										<span>{..pcnt}{=trans('개')}</span>			
+										<input type="hidden" name="pcnt[{..od_ix}]" value="{..pcnt}"  data-odix="{..od_ix}" data-ocnt="{..pcnt}" data-dcprice="{..dcprice}">
+									</a>
+								</div>
+								<div class="product-item__price-group">
+									<div class="product-item__price price">{fbUnit.f}<em>{=g_price(..pt_dcprice)}</em>{fbUnit.b}</div>
+								</div>
+							</div>
+							<div class="product-item__btn-area">
+								<div class="btn-group">
+									<button type="button" class="btn-link devCancelPlus" data-odix="{..od_ix}">추가</button>
+								</div>
+								<div class="order-status">{=trans(..status_text)}</div>
+							</div>
+						</dd>
+					</dl>
+					{/}
+					<!-- 상품 E -->
+				</li>
+			</ul>
+		</div>
+		{/}
+	</section>
+	{/}
+	<!-- 부분취소 할 경우 - 취소 상품 선택 영역 E -->
+
+	<!-- 구매금액별 사은품 영역 S --
+	<section class="fb__mypage__section gift-wrap">
+		<div class="fb__mypage-title">
+			<div class="title-sm">구매금액별 사은품</div>
+		</div>
+		<div class="gift-list">
+			<ul class="product-item__wrap">
+				<li class="product-item__list">
+					<!-- 상품 영역 S -- 
+					<dl class="product-item">
+						<dt class="product-item__thumbnail-box">
+							<div class="product-item__thumb">
+								<img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+							</div>
+						</dt>
+						<dd class="product-item__infobox">
+							<div class="product-item__info">
+								<div class="product-item__title">[사은품] 키즈 데이지 튜브</div>
+								<div class="product-item__option">
+									<span>페일네온옐로우</span>
+									<span>OS</span>
+									<span>1개</span>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					<!-- 상품 영역 E -- 
+				</li>
+			</ul>
+		</div>
+	</section>
+	<!-- 구매금액별 사은품 영역 E -->
+
+	<section class="fb__mypage__section pmt-info">
+		{? order.status == c.ORDER_STATUS_INCOM_COMPLETE}
+		<div class="fb__mypage-title">
+			<div class="title-sm">{=trans('환불 내역')}</div>
+		</div>
+		<div class="pmt-info__box">
+			<dl class="pmt-info__list pmt-info__total">
+				<dt class="pmt-info__cate">{=trans('환불 예정 금액')}</dt>
+				<dd class="pmt-info__cont">{fbUnit.f}<span id="devCancelTotalReturnPrice">0</span>{fbUnit.b}</dd>
+			</dl>
+
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('결제수단(상품 구매 시)')}</dt>
+				<dd class="pmt-info__cont">
+					가상계좌 / 기업은행 48002668997451<br />
+					예금주 : 주식회사 배럴
+				</dd>
+			</dl>
+
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('취소 신청 총 결제금액')}</dt>
+				<dd class="pmt-info__cont">{fbUnit.f}<span id="devCancelTotalPrice">0</span>{fbUnit.b}</dd>
+			</dl>
+
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('취소할 상품금액')}</dt>
+				<dd class="pmt-info__cont">{fbUnit.f}<span id="devCancelProductPrice">0</span>{fbUnit.b}</dd>
+			</dl>
+
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('환불 예정 배송비')}</dt>
+				<dd class="pmt-info__cont">{fbUnit.f}<span id="devCancelDeliveryReturnPrice">0</span>{fbUnit.b}</dd>
+			</dl>
+			{? langType == 'korean'}
+			<dl class="pmt-info__list">
+				<dt class="pmt-info__cate">{=trans('취소 시 추가 배송비')}</dt>
+				<dd class="pmt-info__cont">{fbUnit.f}<span id="devCancelTotalReceivePrice">0</span>{fbUnit.b}</dd>
+			</dl>
+			{/}
+			<!-- <dl class="pmt-info__list">
+				<dt class="pmt-info__cate">취소 시 차감 배송비</dt>
+				<dd class="pmt-info__cont"><span>0</span>원</dd>
+			</dl> -->
+
+		</div><br>
+
+		<div class="fb__mypage-title">
+			<div class="title-sm">{=trans('환불수단')}</div>
+		</div>
+		<div class="pmt-info__box">
+			<dl class="pmt-info__list pmt-info__total">
+				<dt class="pmt-info__cate">{=trans('결제수단(상품 구매 시)')}</dt>
+				<dd class="pmt-info__cate">{@paymentInfo.payment}{.method_text} {/}</dd>
+			</dl>
+			{? langType == 'korean'}
+			{? refundInfo}
+				{? refundInfo.method == '4' || refundInfo.method == '9'}
+					<input type="hidden" id="devRefundBankIx" value="{refundInfo.bank_ix}">
+					<dl class="pmt-info__list">
+						<dt class="pmt-info__cate">{=trans('은행명')}</dt>
+						<dd class="pmt-info__cont">
+							<select name="bankCode" title="은행명" id="devBankCode">
+								<option value="">{=trans('선택')}</option>
+								{@ bankList}
+								<option value="{bankList.key_}" {? bankList.key_ == refundInfo.bank_code}selected{/}>
+									{bankList.value_}
+								</option>
+								{/}
+							</select>						
+						</dd>
+					</dl>
+					<dl class="pmt-info__list">
+						<dt class="pmt-info__cate">{=trans('예금주')}</dt>
+						<dd class="pmt-info__cont"><input type="text" name="bankOwner" value="{refundInfo.bank_owner}" title="{=trans('예금주')}" id="devBankOwner"></dd>
+					</dl>
+					<dl class="pmt-info__list">
+						<dt class="pmt-info__cate">{=trans('계좌번호')}</dt>
+						<input type="text" name="bankNumber" value="{refundInfo.bank_number}" title="{=trans('계좌번호')}" id="devBankNumber">
+					</dl>
+				{:}
+					<dl class="pmt-info__list">
+						<dt class="pmt-info__cate">{=trans('결제 수단으로 환불')}</dt>
+					</dl>
+					
+				{/}
+			{/}
+			{/}
+			{@paymentInfo.payment}{? .method : c.ORDER_METHOD_BANK : c.ORDER_METHOD_VBANK : c.ORDER_METHOD_ASCROW : c.ORDER_METHOD_CASH : c.ORDER_METHOD_ICHE}<script>$(function(){$('#devRefundMethod').show();});</script>{/}{/}
+		</div>
+
+		<div class="fb__mypage__section-footer">
+			<div class="use-notice">
+				<h3 class="use-notice__title">{=trans('유의사항')}</h3>
+				<ul class="use-notice__list">
+					<li class="use-notice__desc">{=trans('신용카드, 간편결제, 실시간 계좌이체는 자동 환불 처리됩니다.')}</li>
+					<li class="use-notice__desc">{=trans('결제 시 사용하신 적립금은 내부정책에 따라 취소신청 완료 후 환불 처리됩니다.')}</li>
+				</ul>
+			</div>
+		</div>
+		{/}
+		<div class="fb__mypage__section-btn">
+			<div class="btn-group">
+				<button type="button" class="btn-lg btn-dark-line" id="devClaimCancel">{=trans('취소')}</button>
+				<button type="button" class="btn-lg btn-dark" id="devClaimApply">{=trans('취소 신청')}</button>
+			</div>
+		</div>
+	</section>
+</section>
+<!-- 컨텐츠 E -->

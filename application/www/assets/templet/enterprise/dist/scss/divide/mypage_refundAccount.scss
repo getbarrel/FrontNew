@@ -1,0 +1,97 @@
+.fb {
+
+  &__refund-account {
+    margin-top: 30px;
+
+    &__annc {
+      color: #666;
+      font-size: 13px;
+      line-height: 22px;
+      margin-bottom: 10px;
+    }
+
+    table {
+
+      th {
+        padding: 16px 10px;
+      }
+
+      td {
+        padding: 14px 0;
+
+        &:last-child {
+          padding-right: 20px;
+        }
+
+      }
+      .bank_code{
+        width: 100%;
+      }
+
+      .bank_owner{
+        width: 190px;
+        text-align: center;
+      }
+
+      .bank_number {
+        width: 100%;
+      }
+
+    }
+    &__complete {
+      td {
+        padding: 20px 0;
+      }
+    }
+    .refund-delete {
+      &__btn {
+        height: 40px;
+        padding: 0 28px;
+        color: #fff;
+        font-size: 13px;
+        background: #000;
+
+        &:first-child {
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+  }
+
+  .refund {
+    &__input {
+      &--banking {
+        padding-left: 20px;
+      }
+
+      &--info {
+        vertical-align: top;
+
+        &__noti {
+          padding-top: 10px;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+}
+
+
+html[lang=en] {
+
+  .fb {
+    &__refund-account {
+
+      .td-btn-area, .txt-r {
+
+        button {
+          min-width: 76px;
+          padding: 0 10px;
+        }
+      }
+
+    }
+  }
+}

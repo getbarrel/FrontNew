@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+{? langType == 'korean'}
+<html lang="ko">
+{: langType == 'english'}
+<html lang="en">
+{/}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{layoutCommon.templetSrc}/images/favicon.ico" type="image/x-icon">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JMZSEV839"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-8JMZSEV839');
+    </script>
+
+    <!-- css -->
+    <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.GroupCssSrc ) }-->
+    <link rel="stylesheet" type="text/css" href="{layout.GroupCssSrc}?version={c.CLIENT_VERSION}">
+    <!--{/}-->
+    
+	<!-- js library -->
+    <script>var forbizCsrf = { name:"{layout.ForbizCsrfName}", hash:"{layout.ForbizCsrfHash}", isLogin:{=json_encode(layoutCommon.isLogin)}};</script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/assets/css/main.css?version={c.CLIENT_VERSION}">
+    <script src="{layoutCommon.templetSrc}/assets/js/vendor.js?version={c.CLIENT_VERSION}"></script>
+    <script src="{layoutCommon.templetSrc}/assets/js/main.js?version={c.CLIENT_VERSION}"></script>
+    <!--<script src="{layoutCommon.templetSrc}/js/common/library.js?version={c.CLIENT_VERSION}"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.2.0/decimal.min.js"></script>
+
+    <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.LanguageJsSrc)}-->
+    <!-- 언어 -->
+    <script src="{layout.LanguageJsSrc}?version={c.CLIENT_VERSION}"></script>
+    <!--{/}-->
+
+    <!--{? layoutCommon.bodyId == 'shop_goodsView'}-->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <!--{/}-->
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/assets/css/common.css" />
+
+	<!-- js -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="{layoutCommon.templetSrc}/assets/js/swiper/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="{layoutCommon.templetSrc}/assets/js/common.js"></script>
+	
+    <script src="{layoutCommon.templetSrc}/js/common/ui_common.js?version={c.CLIENT_VERSION}"></script><!-- 퍼블공통 -->
+    <script src="{layoutCommon.templetSrc}/js/common/dev_common.js?version={c.CLIENT_VERSION}"></script><!-- 개발공통 -->
+    <script src="{layoutCommon.templetSrc}/js/common/layout.js?version={c.CLIENT_VERSION}"></script><!-- 레이아웃 스크립트 -->
+    <script src="{layoutCommon.templetSrc}/js/common/wish.js?version={c.CLIENT_VERSION}"></script><!-- 관심상품 -->
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script>
+        //set environment
+        common.environment = "{c.DB_CONNECTION_DIV}";
+        common.langType = "{c.BASIC_LANGUAGE}";
+        common.bcscale = {? defined('BCSCALE')}{c.BCSCALE}{:}0{/};
+        common.kakaoScriptKey = "{c.KAKAO_SCRIPT_KEY}";
+    </script>
+
+
+    <!--구글 로그인-->
+    <meta name="google-signin-client_id" content="<?=GOOGLE_CLIENT_ID?>">
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            location.href = '/controller/member/google?id='+profile.getId()+'&id_token='+googleUser.getAuthResponse().id_token;
+        }
+
+        function signOut() {
+            try{
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                    console.log('User signed out.');
+                });
+                auth2.disconnect();
+            }catch(e){
+                console.log(e);
+            }
+        }
+
+        function onLoad() {
+            gapi.load('auth2', function() {
+                gapi.auth2.init();
+            });
+        }
+    </script>
+
+    <!-- 몰 관련 태그 -->
+    <title>{layoutCommon.title_desc}</title>
+    <meta name="description" content="{title_desc}">
+    <meta name="keywords" content="{keyword_desc}">
+
+    <script type="text/javascript" src="/mallstory_SalesAnalysisTag.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    {layout.layOutHeaderScript}
+    {layout.kakaoMomentScript}
+    {kakaoMomentSubScript}
+</head>
+<body id="{layoutCommon.bodyId}" class="NEWbarrel">
+<!-- <body class="NEWbarrel"> -->
+<header id="header" class="fb__header">
+    {#headerTop}
+    <nav id="navigation" class="fb__main_nav">
+        {#headerMenu}
+    </nav>
+</header>
+<section id="container" class="layout-main-lnb fb__layout__leftmenu-type">
+	<nav class="layout-lnb">
+        {#leftMenu}
+	</nav>
+	<div class="layout-content">
+        {#contents}
+	</div>
+</section>
+<footer id="footer" class="fb__footer ">
+    {#footerMenu}
+    {#footerDesc}
+</footer>
+
+
+
+<!-- modal -->
+<div class="popup-mask"></div>
+<div class="popup-layout">
+	<div class="popup-title">
+		<span id="devModalTitle">제목/span>
+		<span class="btn-close close">닫기</span>
+	</div>
+
+    <!-- <p class="popup-title">
+        <span id="devModalTitle">제목</span>
+        <span class="close"></span>
+    </p> -->
+
+    <div id='devModalContent' class="popup-content">내용</div>
+
+</div>
+<div class="main_popupL devForbizTpl devNotiPopup" devPopupIx="{[popup_ix]}" id="devNotiPopupTpl" style="top:{[popup_top]}px; left:{[popup_left]}px;">
+    <section class="main_popupL-inner">{[{\popup_text}]}</section>
+</div>
+<!--{? is_file( c.DOCUMENT_ROOT + '' + layout.GroupJsSrc ) }-->
+<!-- 퍼블&개발 공통:폴더별 -->
+<script src="{layout.GroupJsSrc}?version={c.CLIENT_VERSION}"></script>
+<!--{/}-->
+<!--{? is_file( c.DOCUMENT_ROOT + '' + layout.PageJsSrc ) }-->
+<!-- 퍼블&개발 공통:각 페이지 별 -->
+<script src="{layout.PageJsSrc}?version={c.CLIENT_VERSION}"></script>
+<!--{/}-->
+<script>
+    <!--{? c.DB_CONNECTION_DIV == 'development' }-->
+    //load 된 언어 서버요청
+    common.lang.jsLanguageCollection();
+    <!--{/}-->
+
+    common.noti.popup.load({layout.jsonPopupList});
+</script>
+{footerDesc.footerScript}
+</body>
+</html>

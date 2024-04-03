@@ -1,0 +1,106 @@
+<div class="wrap-coupon-apply mypage-coupon__detail">
+	<h2 class="mypage-coupon__detail__title">{=trans('쿠폰 정보')}</h2>
+	<dl class="coupon-info">
+		<dt class="{? cupon_sale_type == '2'}won{/}">
+			{? cupon_sale_type == '1'}
+
+			{: cupon_sale_type == '2'}
+				{fbUnit.f}
+			{/}
+
+            {? cupon_sale_type == '3'}
+                전액
+            {:}
+    			<em>{=g_price(cupon_sale_value)}</em>
+			{/}
+
+			{? cupon_sale_type == '1'}
+				%
+			{: cupon_sale_type == '2'}
+				{fbUnit.b}
+			{/}
+		</dt>
+		<dd>
+			<p class="tit">
+				{? cupon_use_div == 'G'}
+					{=trans('[웹전용]')}
+				{: cupon_use_div == 'M'}
+					{=trans('[모바일전용]')}
+				{:}
+
+				{/}
+				{publish_name}
+			</p>
+			<p class="sub">
+				<span>{=trans('쿠폰혜택 : ')}</span>
+				{? cupon_sale_type == '1'}
+
+				{: cupon_sale_type == '2'}
+					{fbUnit.f}
+				{/}
+
+
+                {? cupon_sale_type == '3'}
+                    전액
+                {:}
+                    {=g_price(cupon_sale_value)}
+                {/}
+
+
+				{? cupon_sale_type == '1'}
+					%
+				{: cupon_sale_type == '2'}
+					{fbUnit.b}
+				{/}
+				{=trans('할인')}
+
+				({publish_condition_price_text})
+
+			</p>
+			<p class="sub">
+				<span>{=trans('사용기간 : ')}</span>
+				{? use_date_limit > '3000-12-31 00:00:00' || use_date_type == '9'}
+					{=trans('무기한')}
+				{: use_date_type == '2'}
+					{=substr(regist_start,0,10)} ~ {=substr(regist_end,0,10)}
+				{: use_date_type == '1'}
+					{=substr(regdate,0,10)} ~ {=substr(publish_limit_date,0,10)}
+				{:}
+					{=substr(use_sdate,0,10)} ~ {=substr(use_edate,0,10)}
+				{/}
+			</p>
+		</dd>
+	</dl>
+	{? use_product_type == '6'}
+	<h2 class="mypage-coupon__detail__title">{=trans('제외 대상')}</h2>
+	{:  use_product_type == '1' && is_except == '1'}
+	<h2 class="mypage-coupon__detail__title">{=trans('제외 대상')}</h2>
+	{:}
+	<h2 class="mypage-coupon__detail__title">{=trans('적용 대상')}</h2>
+	{/}
+	<ul>
+		{? (use_product_type == '3'  || use_product_type == '6')}
+            {@ plist}
+                <li><a href="/shop/goodsView/{.id}" target="_blank">{.pname}</a></li>
+            {/}
+        {:  use_product_type == '2'}
+            {@ clist}
+                <li><a href="/shop/goodsList/{.cid}" target="_blank">{.cPathName}</a></li>
+            {/}
+		{: use_product_type == '1'}
+			{? is_except == '1'}
+			{@ plist}
+			<li><a href="/shop/goodsView/{.id}" target="_blank">{.pname}</a></li>
+			{/}
+			{:}
+		    <li>{=trans('전체 상품에 사용 가능합니다.')}</li>
+			{/}
+		{:}
+		    <li>{=trans('상품 정보가 없습니다.')}</li>
+		{/}
+	</ul>
+	<div class="desc coupon-info__desc">{=trans('일부 상품의 경우 쿠폰 할인 적용대상에서 제외될 수 있습니다.')}</div>
+	<div class="popup-btn-area coupon-info__btn">
+		<button class="btn-default btn-dark-line" id="devCouponDetailColseBtn">{=trans('닫기')}</button>
+	</div>
+</div>

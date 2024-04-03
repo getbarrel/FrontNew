@@ -1,0 +1,191 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font:inherit;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+
+@font-face {
+    font-family:'Notosans';
+    font-style:normal;
+    font-weight:200;
+    src:local('NotoSansLight'), local('NotoSansLight'), url(../../font/NotoSansKR-Light.eot);
+    src:url(../../font/NotoSansKR-Light.eot?#iefix) format('embedded-opentype'),
+    url(../../font/NotoSansKR-Light.woff2) format('woff2'),
+    url(../../font/NotoSansKR-Light.woff) format('woff');
+}
+
+@font-face {
+    font-family:'Notosans';
+    font-style:normal;
+    font-weight:400;
+    src:local('NotoSansRegular'), local('NotoSansRegular'), url(../../font/NotoSansKR-Regular.eot);
+    src:url(../../font/NotoSansKR-Regular.eot?#iefix) format('embedded-opentype'),
+    url(../../font/NotoSansKR-Regular.woff2) format('woff2'),
+    url(../../font/NotoSansKR-Regular.woff) format('woff');
+}
+
+@font-face {
+    font-family:'Notosans';
+    font-style:normal;
+    font-weight:600;
+    src:local('NotoSansMedium'), local('NotoSansMedium'), url(../../font/NotoSansKR-Medium.eot);
+    src:url(../../font/NotoSansKR-Medium.eot?#iefix) format('embedded-opentype'),
+    url(../../font/NotoSansKR-Medium.woff2) format('woff2'),
+    url(../../font/NotoSansKR-Medium.woff) format('woff');
+}
+
+@font-face {
+    font-family:'Rb';
+    font-style:normal;
+    font-weight:200;
+    src:url(../../font/Roboto-Light.eot) format('eot');
+    src:url(../../font/Roboto-Light.woff) format('woff');
+}
+
+@font-face {
+    font-family:'Rb';
+    font-style:normal;
+    font-weight:400;
+    src:url(../../font/Roboto-Regular.eot) format('eot');
+    src:url(../../font/Roboto-Regular.woff) format('woff');
+}
+
+@font-face {
+    font-family:'SHS';
+    font-style:normal;
+    font-weight:200;
+    src:url(../../font/SpoqaHanSans-Thin.woff2) format('woff2');
+    src:url(../../font/SpoqaHanSans-Thin.woff) format('woff');
+}
+@font-face {
+    font-family:'SHS';
+    font-style:normal;
+    font-weight:400;
+    src:url(../../font/SpoqaHanSans-Regular.woff2) format('woff2');
+    src:url(../../font/SpoqaHanSans-Regular.woff) format('woff');
+}
+
+html,body,input,button,textarea,select,option {color:#666; font-family:'Notosans', sans-serif; font-weight:400; line-height:1;font-size:24px; -webkit-text-size-adjust: 100%}
+
+
+
+body {
+    line-height:1;
+    width:100%;
+    height:100%;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+
+img, fieldset{border:0;}
+i,em,address {font-style:normal;}
+ol, ul {list-style:none;}
+blockquote, q {quotes:none;}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {content:''; content:none;}
+table {border-collapse:collapse; table-layout:fixed; width:100%;}
+th, td {margin:0; padding:0; font-size:22px;}
+input, label {border:0; vertical-align:middle;}
+input {outline:none;}
+label {cursor:pointer;}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    text-decoration: none;
+    color:inherit;
+}
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+
+
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #ddd;
+    padding:0;
+    margin:0;
+}
+
+hr.type2 {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #222;
+    padding:0;
+    margin:0;
+}
+
+input, select {
+    vertical-align:middle;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+li{ list-style: none;}
+
+*{letter-spacing: -0.5px; }

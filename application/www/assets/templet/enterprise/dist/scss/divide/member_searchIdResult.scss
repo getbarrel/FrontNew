@@ -1,0 +1,46 @@
+.fb {
+  &__search-result {
+    .search__wrap {
+      .search__content {
+
+        p {
+          line-height: 30px;
+        }
+        .search__other-link {
+          margin-top: 60px;
+          
+          a.button-black {
+            background: #000;
+          }
+        }
+      }
+
+      .id__box-title {
+        display: block;
+        padding: 28px 0;
+        font-size: 26px;
+        color: #000;
+        span {
+          color: $pcolor;
+        }
+      }
+    }
+
+    .search__content__title {
+      padding: 13px 0 29px;
+      color: #000;
+      font: {
+        weight: 400;
+        size: 26px;
+      }
+    }
+
+    .search__content__id {
+      color: #00bce7;
+      font: {
+        weight: 600;
+        size: 26px;
+      }
+    }
+  }
+}

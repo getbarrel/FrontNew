@@ -1,0 +1,180 @@
+<!-- 컨텐츠 S -->
+<section class="br__mypage">
+	<h2 class="br__hidden">{=trans('마이페이지')}</h2>
+	<section class="br__mypage__user">
+		<dl class="my-user">
+			<dt class="my-user__info">
+				<div class="my-user__name">{=trans('안녕하세요!')} <span class="my-user__name--point">{mypage.userName}</span>{? langType == 'korean'} {=trans('님')}{/}</div>
+				<div class="my-user__day">{=trans('<span>가입일</span>')}<span class="day">{=date("Y.m.d", strtotime(mypage.regDate))}</span></div>
+			</dt>
+			<dd class="my-user__grade">
+				<figure class="my-user__thumb">
+					{? _SERVER['DOCUMENT_ROOT'] + '/data/barrel_data/images/member_group/'+ currentGroup.organization_img}
+					<img src="{c.IMAGE_SERVER_DOMAIN}/data/barrel_data/images/member_group/{currentGroup.organization_img}" alt="{currentGroup.gp_name}" />
+					{/}
+				</figure>
+			</dd>
+		</dl>
+		<div class="my-grade">
+			<div class="my-grade__text">
+				<div class="my-grade__text__title">
+					<div class="title-sm">{=trans('회원등급')}</div>
+					<a href="/mypage/memberLevel" class="my-grade__text__link">
+						<span class="my-grade__text__title--point">{mypage.gpName}</span>
+					</a>
+				</div>
+                {? currentGroup.gp_level > 3 }
+                <p class="my-grade__text__after">{=trans('<strong class="my-grade__text__after--point">{fbUnit.f}{=g_price(needPrice)}{fbUnit.b}</strong>원을 추가 결제하시면 <strong>{nextGroup.gp_name}</strong> 혜택을 받을 수 있어요!')}</p>
+                {/}
+			</div>
+		</div>
+		<div class="my-benefit">
+			<ul class="my-benefit__list">
+				<li class="my-benefit__item">
+					<a href="/mypage/mileage" class="my-benefit__link">
+						<span class="title">{=trans('적립금')}</span>
+						<span class="count">{fbUnit.f}<em>{=number_format(mypage.myMileAmount)}</em>{fbUnit.b}</span>
+					</a>
+				</li>
+				<li class="my-benefit__item">
+					<a href="/mypage/coupon" class="my-benefit__link">
+						<span class="title">{=trans('쿠폰')}</span>
+						<span class="count"><em>{=number_format(mypage.couponCnt)}</em>{=trans('장')}</span>
+					</a>
+				</li>
+				<li class="my-benefit__item">
+					<a href="#;" class="my-benefit__link">
+						<span class="title">{=trans('작성 가능한 리뷰')}</span>
+						<span class="count"><em>0</em>건</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="my-user__footer">
+			<a href="/mypage/memberLevel" class="btn-link">{=trans('등급별 혜택 보기')}</a>
+		</div>
+	</section>
+
+	<section class="br__mypage__order">
+		<div class="my-order">
+			<div class="my-order__title">
+				<div class="title-sm">{=trans('주문 현황')}</div>
+				<span class="txt-desc">{=trans('최근 1개월')}</span>
+			</div>
+			<ul class="my-order__seq">
+				 {? langType == 'korean'}
+				<li class="my-order__seq__box">
+					<a class="my-order__seq__link devOrderStatusCnt" href="/mypage/orderHistory?order_status={c.ORDER_STATUS_INCOM_READY}">
+						<span class="my-order__seq__count {? number_format(incom_ready_cnt) > 0} my-order__seq__count--point{/}">{=number_format(incom_ready_cnt)}</span>
+						<span class="my-order__seq__kind">{=trans('입금 대기')}</span>
+					</a>
+				</li>
+                {/}
+				<li class="my-order__seq__box">
+					<a class="my-order__seq__link devOrderStatusCnt" href="/mypage/orderHistory?order_status={c.ORDER_STATUS_INCOM_COMPLETE}">
+						<span class="my-order__seq__count {? number_format(incom_end_cnt) > 0} my-order__seq__count--point{/}">{=number_format(incom_end_cnt)}</span>
+						<span class="my-order__seq__kind">{=trans('결제 완료')}</span>
+					</a>
+				</li>
+				<li class="my-order__seq__box">
+					<a class="my-order__seq__link devOrderStatusCnt" href="/mypage/orderHistory?order_status={c.ORDER_STATUS_DELIVERY_READY}">
+						<span class="my-order__seq__count {? number_format(delivery_ready_cnt) > 0} my-order__seq__count--point{/}">{=number_format(delivery_ready_cnt)}</span>
+						<span class="my-order__seq__kind">{=trans('배송 준비')}</span>
+					</a>
+				</li>
+				<li class="my-order__seq__box">
+					<a class="my-order__seq__link devOrderStatusCnt" href="/mypage/orderHistory?order_status={c.ORDER_STATUS_DELIVERY_ING}">
+						<span class="my-order__seq__count {? number_format(delivery_ing_cnt) > 0} my-order__seq__count--point{/}">{=number_format(delivery_ing_cnt)}</span>
+						<span class="my-order__seq__kind">{=trans('배송 중')}</span>
+					</a>
+				</li>
+                <li class="my-order__seq__box">
+                    <a class="my-order__seq__link devOrderStatusCnt" href="/mypage/orderHistory?order_status={c.ORDER_STATUS_DELIVERY_COMPLETE}">
+                        <span class="my-order__seq__count {? number_format(delivery_end_cnt) > 0} my-order__seq__count--point{/}">{=number_format(delivery_end_cnt)}</span>
+                        <span class="my-order__seq__kind">{=trans('배송 완료')}</span>
+                    </a>
+                </li>
+			</ul>
+			<div class="my-order__foot">
+				<div class="my-order__foot__item">
+					<a href="/mypage/returnHistory" class="my-order__foot__link">
+						<span class="title">{=trans('취소')}</span>
+						<span class="count">{=number_format(cancel_apply_cnt)}</span>
+					</a>
+				</div>
+				<div class="my-order__foot__item">
+					<a href="/mypage/returnHistory" class="my-order__foot__link">
+						<span class="title">{=trans('반품')}</span>
+						<span class="count">{=number_format(return_apply_cnt)}</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="br__mypage__menu">
+		<div class="title-sm">{=trans('쇼핑 정보')}</div>
+		<ul class="my-menu">
+			<li class="my-menu__box">
+				<a href="/mypage/orderHistory?order_status=IR" class="my-menu__link">{=trans('주문 내역<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+			<li class="my-menu__box">
+				<a href="/mypage/returnHistory" class="my-menu__link">{=trans('반품 / 취소 내역<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+		</ul>
+		<div class="title-sm">{=trans('문의 및 활동 정보')}</div>
+		<ul class="my-menu">
+			<li class="my-menu__box">
+				<a href="/mypage/wishlist" class="my-menu__link">{=trans('위시리스트<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+			<li class="my-menu__box">
+				<a href="/mypage/myInquiry" class="my-menu__link">{=trans('1:1 문의<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+			<li class="my-menu__box">
+				<a href="/mypage/myGoodsInquiry" class="my-menu__link">{=trans('상품 Q&A<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+			<li class="my-menu__box">
+				<a href="/mypage/stockAlarm" class="my-menu__link">{=trans('재입고 알림 신청 내역<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+			<li class="my-menu__box">
+				<a href="/mypage/recentView" class="my-menu__link">{=trans('최근 본 상품<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+			{? langType == 'korean'}
+			<li class="my-menu__box">
+				<a href="/mypage/myReviewList" class="my-menu__link">{=trans('내가 쓴 리뷰<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+            {:}
+            <!--{* 글로벌 리뷰 (삭제) *}--> 
+            {/}
+			<!-- <li class="my-menu__box">
+				<a href="#;" class="my-menu__link">{=trans('댓글 참여 내역<i class="ico ico-arrow-right"></i>')}</a>
+			</li> -->
+		</ul>
+		<div class="title-sm">나의 정보</div>
+		<ul class="my-menu">
+			<li class="my-menu__box">
+				<a href="/mypage/mileage" class="my-menu__link">{=trans('적립금<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+			<li class="my-menu__box">
+				<a href="/mypage/coupon" class="my-menu__link">{=trans('쿠폰<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+			<li class="my-menu__box">
+				<a href="/mypage/addressBook" class="my-menu__link">{=trans('배송지 관리<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+			<li class="my-menu__box">
+				<a href="/mypage/memberLevel" class="my-menu__link">{=trans('회원등급<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+			<li class="my-menu__box">
+				<a href="/mypage/passReconfirm" class="my-menu__link">{=trans('회원정보 수정<i class="ico ico-arrow-right"></i>')}</a>
+			</li>
+		</ul>
+	</section>
+
+	<section class="br__mypage__footer">
+		<div class="btn-group col">
+			<button type="button" class="btn-lg btn-dark-line br__mypage-link"><a href="/customer/" class="my-menu__link">{=trans('고객센터')}</a></button>
+			<button type="button" class="btn-lg btn-gray-line br__mypage-logout devLogout">{=trans('로그아웃')}</button>
+		</div>
+	</section>
+</section>
+<!-- 컨텐츠 E -->

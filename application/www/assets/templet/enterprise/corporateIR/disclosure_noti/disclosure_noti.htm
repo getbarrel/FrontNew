@@ -1,0 +1,90 @@
+<!-- 컨텐츠 S -->
+<form id="devIrFrom">
+      <input type="hidden" name="bType" value="{bType}"/>
+      <input type="hidden" name="page" id="devPage" value="1"/>
+      <input type="hidden" name="max" id="devMax" value="10"/>
+</form>
+<section class="br__ir fb-corporateIR">
+	<section class="br__ir__content-wrap fb-corporateIR__content-wrap">
+		<div class="br__ir__header fb-corporateIR__header">
+			<h2 class="title-md">{=trans('board_name')}</h2>
+		</div>
+		<section class="br__ir__content fb-corporateIR__content">
+			<section class="br__ir__noti fb-corporateIR__noti board-bbs__wrap">
+				<ul class="board-bbs__list">
+					<!-- 게시글이 없을 경우 S -->
+					<!-- 숨김 처리 -->
+					<li class="board-bbs__item no-data" style="display: none">
+						<p class="empty-content">등록된 공지사항이 없습니다.</p>
+					</li>
+					<!-- 게시글이 없을 경우 E -->
+					<li class="board-bbs__item">
+						<div class="board-bbs__title-group">
+							<div class="board-bbs__title-sub">
+								<span class="board-bbs__category">[BARREL]</span>
+								<span class="board-bbs__day">2023-01-01</span>
+							</div>
+							<div class="board-bbs__title">
+								<a class="board-bbs__link" href="#;">
+									제13기 정기주주총회 소집공고
+									<i class="ico ico-arrow-right"></i>
+								</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+
+				<!-- 페이지네이션 S -->
+				<div id="devPageWrap"></div>
+				<!-- 페이지네이션 E -->
+			</section>
+		</section>
+	</section>
+</section>
+<!-- 컨텐츠 E -->
+<!--
+<form id="devIrFrom">
+      <input type="hidden" name="bType" value="{bType}"/>
+      <input type="hidden" name="page" id="devPage" value="1"/>
+      <input type="hidden" name="max" id="devMax" value="10"/>
+</form>
+<section class="br__ir">
+      <section class="br__ir__content">
+            <h3 class="br__ir__title">
+                 {=trans('board_name')}<p>{=trans('총')} <span class="number" id="devListTotal">0</span>{? langType == 'korean'}{=trans('개')}{/}</p>
+            </h3>
+            <section class="br__ir__noti">
+            <table>
+                  <caption>{=trans('board_name')}</caption>
+                  <colgroup>
+                        <col width="107px">
+                        <col width="*">
+                        <col width="151px">
+                        <col width="133px">
+                  </colgroup>
+                  <thead>
+                        <th><span>{=trans('번호')}</span></th>
+                        <th><span>{=trans('제목')}</span></th>
+                        <th><span>{=trans('작성자')}</span></th>
+                        <th><span>{=trans('등록일')}</span></th>
+                  </thead>
+                  <tbody id="devMyContent">
+                        <tr id="devMyLoading"></tr>
+                        <tr id="devMyListEmpty"></tr>
+                        <tr id="devMyList">
+                              <td>{[no]}</td>
+                              <td style="text-align: left;" devBbsIx="{[bbs_ix]}">
+                                    <div>
+                                          <a href="#">{[short_subject]}</a>
+                                    </div>
+                              </td>
+                              <td>{[bbs_name]}</td>
+                              <td>{[reg_date]}</td>
+                        </tr>
+                  </tbody>
+            </table>
+            <div id="devPageWrap"></div>
+            </section>
+      </section>
+</section>
+-->

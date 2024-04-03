@@ -1,0 +1,312 @@
+<script>
+    var emnet_tagm_products=[];
+    var criteoList = [];
+</script>
+<!--{@ order.orderDetail}-->
+<!--{@ .value_}-->
+<script>
+    emnet_tagm_products.push({
+        'name': '{=..pname}',
+        'id': '{=..pid}',
+        'price': '{=intval(..pt_dcprice)}',
+        'quantity': '{=..pcnt}'
+    });
+
+
+    criteoList.push({
+        'id': '{=..pid}',
+        'price': '{=intval(..pt_dcprice)}',
+        'quantity': '{=..pcnt}'
+    });
+</script>
+<!--{/}-->
+<!--{/}-->
+
+<!-- 구매 완료 dataLayer -->
+<script>
+    dataLayer.push({
+        'event':'purchase',
+        'ecommerce': {
+            'purchase': {
+                'actionField': {
+                    'id': '{=order.oid}',
+                    'affiliation': '',
+                    'revenue': '{=intval(paymentData.payment_price)}'
+                },
+                'products': emnet_tagm_products
+            }
+        }
+    });
+</script>
+
+<!-- Criteo 세일즈 태그 23.06.29-->
+<script type="text/javascript">
+    window.criteo_q = window.criteo_q || [];
+    var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+    window.criteo_q.push(
+        { event: "setAccount", account: 104564},
+        { event: "setEmail", email: "", hash_method: "" },
+        { event: "setZipcode", zipcode: "" },
+        { event: "setSiteType", type: deviceType},
+        { event: "trackTransaction", id: '{=order.oid}', item: criteoList}
+    );
+</script>
+<!-- END Criteo 세일즈 태그 -->
+    <!-- 컨텐츠 S -->
+    <section class="br__pay-comp">
+        <div class="pay-comp__top">
+            <div class="page-title">
+                <div class="title-md">주문이 완료되었습니다.</div>
+            </div>
+            <div class="pay-comp__top__desc">
+                배럴 공식 홈페이지를 이용해 주셔서 감사합니다.<br />
+                주문하신 내역은 <a href="#;">마이페이지 > 주문 내역</a>에서 확인하실 수 있습니다.
+            </div>
+            <div class="pay-comp__order-number">
+                <dl class="pay-comp__order-number__item">
+                    <dt>주문번호</dt>
+                    <dd>
+                        <div class="order-number">{order.oid}</div>
+                    </dd>
+                </dl>
+                <dl class="pay-comp__order-number__item">
+                    <dt>주문일자</dt>
+                    <dd>{order.bdatetime}</dd>
+                </dl>
+            </div>
+
+            <!-- 가상 계좌 결제 시 노출 S -->
+            <!-- 숨김 처리 -->
+            {? in_array(paymentData.method,array(c.ORDER_METHOD_BANK,c.ORDER_METHOD_VBANK,c.ORDER_METHOD_ASCROW))}
+            <div class="pay-comp__top__virtual">
+                <div class="title-sm">입금 정보</div>
+                <div class="pay-comp__top__virtual-text">
+                    {paymentData.bank} / 계좌번호 : <em>{paymentData.bank_account_num}</em> /<br />
+                    예금주 : {paymentData.bank_input_name}
+                </div>
+                <div class="layout-flex txt-red">
+                    <span>입금 기한</span>
+                    <span>
+                        {paymentData.bank_input_date_yyyy}년 {paymentData.bank_input_date_mm}월 {paymentData.bank_input_date_dd}일까지
+                        {? in_array(paymentData.method,array(c.ORDER_METHOD_ASCROW))}<br>{=trans('에스크로[가상계좌] 주문 시 부분 취소가 불가하여 전체 취소만 가능합니다. 입금 전 구매하실 제품을 다시 한번 확인해 주시기 바랍니다.')}{/}
+                    </span>
+                </div>
+            </div>
+            {/}
+            <!-- 가상 계좌 결제 시 노출 E -->
+        </div>
+        <section class="pay-comp__wrap">
+            <div class="pay-comp__product">
+                <div class="page-title">
+                    <div class="title-sm">주문 상품</div>
+                </div>
+                <div class="product-list">
+                    <!--{@ order.orderDetail}-->
+                    <ul class="product-list__wrap">
+                        <!--{@ .value_}-->
+                        <li class="product-list__item">
+                            <dl class="product-list__group">
+                                <dt class="product-list__group-left">
+                                    <figure class="product-list__thumb">
+                                        <img src="{..pimg}" alt="" />
+                                    </figure>
+                                </dt>
+                                <dd class="product-list__group-right">
+                                    <div class="product-list__info">
+                                        <div class="product-list__info__title">{? ..brand_name}[{..brand_name}] {/}{..pname}</div>
+                                        <!--{? ..set_group > 0}-->
+                                        <!-- 세트 상품 S -->
+                                        <!--{@ setData}-->
+                                        <div class="product-list__info__option-item">
+                                            {? !empty(..add_info)}
+                                            <span>{..add_info}</span>
+                                            {/}
+                                            <span>{=str_replace("사이즈:","",setData.option_text)}</span>
+                                            <span>{setData.pcnt}{=trans('개')}</span>
+                                        </div>
+                                        <!--{/}-->
+                                        <!-- 세트 상품 E -->
+                                        <!--{:}-->
+                                        <!-- 일반상품 상품 S -->
+                                        <div class="product-list__info__option-item">
+                                            {? !empty(..add_info)}
+                                            <span>{..add_info}</span>
+                                            {/}
+                                            <span>{=str_replace("사이즈:","",..option_text)}</span>
+                                            <span>{..pcnt}{=trans('개')}</span>
+                                        </div>
+                                        <!-- 일반상품 상품 E -->
+                                        <!--{/}-->
+                                    </div>
+                                </dd>
+                            </dl>
+
+                            <!-- 사은품 S -->
+                            <!--{? count(..product_gift) > 0}{* 사은품 *}-->
+                            <div class="product-list__freebie">
+                                <div class="product-list__freebie__title"><span>구매 사은품</span></div>
+                                <ul class="product-list__freebie__list">
+                                    <!--{@ product_gift}-->
+                                    <li class="product-list__freebie__box">
+                                        <div class="product-list__freebie__thumb">
+                                            <figure>
+                                                <img src="{product_gift.image_src}" alt="" />
+                                            </figure>
+                                        </div>
+                                        <div class="product-list__freebie__info">
+                                            <div class="product-list__freebie__name">{product_gift.pname}</div>
+                                            <div class="product-list__freebie__option">
+                                                <div class="product-list__freebie__option-item">
+                                                    <!--<span>페일네온옐로우</span>
+                                                    <span>OS</span>-->
+                                                    <span>{product_gift.pcnt}개</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--{/}-->
+                                </ul>
+                            </div>
+                            <!--{/}-->
+                            <!-- 사은품 E -->
+                        </li>
+                        <!--{/}-->
+                    </ul>
+                    <!--{/}-->
+                </div>
+            </div>
+
+            <!-- 구매금액별 사은품 S -->
+            <!--{? freeGiftG}-->
+            <div class="pay-comp__product">
+                <div class="page-title">
+                    <div class="title-sm">구매금액별 사은품</div>
+                </div>
+                <div class="product-list">
+                    <ul class="product-list__wrap">
+                        <!--{@ freeGiftG}-->
+                        <!--{@ gift_products}-->
+                        <li class="product-list__item">
+                            <dl class="product-list__group">
+                                <dt class="product-list__group-left">
+                                    <figure class="product-list__thumb">
+                                        <img src="{..image_src}" alt="" />
+                                    </figure>
+                                </dt>
+                                <dd class="product-list__group-right">
+                                    <div class="product-list__info">
+                                        <div class="product-list__info__title">{..pname}</div>
+                                        <!-- 일반상품 상품 S -->
+                                        <div class="product-list__info__option">
+                                            <div class="product-list__info__option-item">
+                                                <!--<span class="color">페일네온옐로우</span>
+                                                <span class="size">OS</span>-->
+                                                <span class="count">{..pcnt}개</span>
+                                            </div>
+                                        </div>
+                                        <!-- 일반상품 상품 E -->
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                        <!--{/}-->
+                        <!--{/}-->
+                    </ul>
+                </div>
+            </div>
+            <!--{/}-->
+            <!-- 사은품 E -->
+        </section>
+
+        <section class="pay-comp__wrap">
+            <div class="page-title">
+                <div class="title-sm">배송 정보</div>
+            </div>
+            <div class="pay-comp__address">
+                <div class="name">{deliveryInfo.rname}</div>
+                <div class="address">
+                    <p>[{deliveryInfo.zip}] / {deliveryInfo.addr1} {deliveryInfo.addr2}</p>
+                    <p>{deliveryInfo.rmobile}</p>
+                </div>
+                <div class="title">배송 요청사항</div>
+                <div class="message">
+                    <!--{@ deliveryInfo.msg}-->
+                    {? .msg}
+                    {? .index_ != 0 }<br>{/}{.msg}
+                    {/}
+                    <!--{/}-->
+                </div>
+            </div>
+        </section>
+
+        <section class="pay-comp__wrap">
+            <div class="page-title">
+                <div class="title-sm">결제 정보</div>
+            </div>
+            <div class="pay-comp__payment">
+                <dl class="pay-comp__payment__total">
+                    <dt>총 결제 예정 금액</dt>
+                    <dd>{fbUnit.f}<em>{=g_price(paymentData.payment_price)}</em>{fbUnit.b}</dd>
+                </dl>
+
+                <!-- 가상 계좌 결제 시 노출 S -->
+                <!-- 숨김 처리 -->
+                {? in_array(paymentData.method,array(c.ORDER_METHOD_BANK,c.ORDER_METHOD_VBANK,c.ORDER_METHOD_ASCROW))}
+                <div class="pay-comp__payment__virtual">
+                    <div class="title-sm">입금 정보</div>
+                    <div class="pay-comp__payment__virtual-text">
+                        {paymentData.bank} / 계좌번호 : <em>{paymentData.bank_account_num}</em> /<br />
+                        예금주 : {paymentData.bank_input_name}
+                    </div>
+                    <div class="layout-flex txt-red">
+                        <span>입금 기한</span>
+                        <span>{paymentData.bank_input_date}</span>
+                    </div>
+                </div>
+                {/}
+                <!-- 가상 계좌 결제 시 노출 E -->
+
+                <div class="pay-comp__payment__list">
+                    <dl class="pay-comp__payment__box">
+                        <dt>결제방법</dt>
+                        <dd>{paymentData.method_text}</dd>
+                    </dl>
+                    <dl class="pay-comp__payment__box">
+                        <dt>총 상품금액</dt>
+                        <dd>{fbUnit.f}<em>{=g_price(paymentInfo.total_listprice)}</em>{fbUnit.b}</dd>
+                    </dl>
+                    <dl class="pay-comp__payment__box">
+                        <dt>총 할인금액</dt>
+                        <dd>-{fbUnit.f}<em>{=g_price(paymentInfo.total_dc)}</em>{fbUnit.b}</dd>
+                    </dl>
+                    <!--<dl class="pay-comp__payment__box">
+                        <dt>등급 할인</dt>
+                        <dd>-<em>405,550</em>원</dd>
+                    </dl>
+                    <dl class="pay-comp__payment__box">
+                        <dt>쿠폰 할인</dt>
+                        <dd>-<em>405,550</em>원</dd>
+                    </dl>-->
+                    <dl class="pay-comp__payment__box">
+                        <dt>{mileageName} 사용</dt>
+                        <dd>-{fbUnit.f}<em>{=g_price(paymentInfo.use_reserve)}</em>{fbUnit.b}</dd>
+                    </dl>
+                    <dl class="pay-comp__payment__box">
+                        <dt>총 배송비</dt>
+                        <dd>{fbUnit.f}<em>{=g_price(order.delivery_price)}</em>{fbUnit.b}</dd>
+                    </dl>
+                </div>
+                <dl class="pay-comp__payment__benefits">
+                    <dt>적립 혜택</dt>
+                    <dd>{fbUnit.f}<em>{=g_price(paymentInfo.total_reserve)}</em>{fbUnit.b} 적립</dd>
+                </dl>
+            </div>
+        </section>
+
+        <div class="pay-comp__btn__wrap">
+            <a href="/" class="pay-comp__btn__link pay-comp__btn__link--home">홈으로</a>
+        </div>
+    </section>
+    <!-- 컨텐츠 E -->
+{payMentScript}
+{mobionScript}

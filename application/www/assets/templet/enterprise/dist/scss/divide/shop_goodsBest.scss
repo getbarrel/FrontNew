@@ -1,0 +1,131 @@
+.fb {
+
+  &__goods-best {
+
+    .fb__main__slider__wrap {
+      position: relative;
+      top: 0;
+      padding-top: 121px;
+    }
+
+    &__title {
+      width: 100%;
+      margin: 80px 0 60px;
+      text-align: center;
+      font-size: 40px;
+      color: #000;
+    }
+
+    .newSlider__list {
+      figure {
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .slide-content__script {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+
+      &__title {
+        line-height: 40px;
+        font-size: 34px;
+        color: #000;
+        font-weight: 600;
+      }
+
+      &__line {
+        display: inline-block;
+        width:77px;
+        height:1px;
+        margin-top: 40px;
+        background: #000;
+
+      }
+
+      &__subtitle {
+        line-height: 20px;
+        margin-top: 20px;
+        font-size: 20px;
+        color: #222;
+      }
+
+      &__desc {
+        font-size: 18px;
+        line-height: 30px;
+        color: #000;
+        margin-top: 40px;
+
+        //&:before {
+        //  display: block;
+        //  width:77px;
+        //  height:1px;
+        //  margin-top: 40px;
+        //}
+      }
+
+      &__btn {
+        display: inline-block;
+        width: 140px;
+        height: 40px;
+        margin-top: 60px;
+        line-height: 40px;
+        border: 1px solid #666;
+        box-sizing: border-box;
+        font-size: 15px;
+        color: #666;
+        text-align: center;
+      }
+
+    }
+
+    &__tnb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 121px;
+      line-height: 121px;
+      background: #fff;
+      z-index: 7;
+      margin-bottom: 40px;
+
+      &-list {
+        display: inline;
+        margin: 0 20px;
+        padding: 0 4px 7px 4px;
+        font-size: 22px;
+        color: #666666;
+
+        &.fb__goods-best__tnb-list--active {
+          border-bottom: 2px solid #000;
+        }
+
+        &--show {
+          border-bottom: 2px solid #000;
+        }
+      }
+    }
+
+    .best-contents {
+
+      &__title {
+        padding: 20px 0;
+        border-bottom: 1px solid #ddd;
+        font-size: 20px;
+      }
+
+      &__box {
+        padding-top: 30px !important;
+        margin: 0 -18px;
+      }
+
+    }
+
+  }
+
+}

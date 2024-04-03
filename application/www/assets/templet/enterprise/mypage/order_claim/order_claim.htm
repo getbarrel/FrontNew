@@ -1,0 +1,23 @@
+<script>var devClaimType = '{claimType}', devClaimStep = '{claimStep}';</script>
+<div class="wrap-mypage wrap-order-claim fb__order-claim">
+    {? claimStep != 'complete'}
+    {/}
+    {#claimPage}
+</div>
+<!--
+    {? claimStep != 'complete'}
+    <section class="fb__mypage__section">
+        <div class="wrap-btn-area">
+            <button class="btn-lg btn-dark-line" id="devPrevBtn" data-claim="{claimType}">{=trans('이전')}</button>
+            <button class="btn-lg btn-dark" id="devNextBtn" data-claim="{claimType}">{=trans('다음')}</button>
+        </div>
+    </section>
+    {:}
+    <section class="fb__mypage__section">
+        <div class="wrap-btn-area">
+            <button class="btn-lg btn-dark-line" id="devFineshOrderBtn">{=trans('주문내역조회')}</button>
+            <button class="btn-lg btn-dark" id="devFineshBtn">{=trans('반품/취소 내역')}</button>
+        </div>
+    </section>
+    {/}
+-->

@@ -1,0 +1,11 @@
+<svg id="icon_sns_facebook_20px_gray" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_28" data-name="사각형 28" width="10.387" height="20" fill="#a5a5a5"/>
+    </clipPath>
+  </defs>
+  <g id="icon_sns_20px_facebook" transform="translate(5)" clip-path="url(#clip-path)">
+    <path id="패스_39" data-name="패스 39" d="M6.742,20V10.877H9.8l.458-3.556H6.742V5.052c0-1.029.286-1.731,1.762-1.731h1.883V.14A25.3,25.3,0,0,0,7.643,0C4.929,0,3.07,1.657,3.07,4.7V7.321H0v3.556H3.07V20Z" fill="#a5a5a5"/>
+  </g>
+  <rect id="사각형_77" data-name="사각형 77" width="20" height="20" fill="none"/>
+</svg>

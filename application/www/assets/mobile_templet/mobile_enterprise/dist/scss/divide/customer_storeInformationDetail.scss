@@ -1,0 +1,215 @@
+.br__header .header__banner__image img {
+  height: rem(90px) !important;
+}
+.has-banner#customer_storeInformationDetail {
+  .br__store-detail__bg {
+    &:after {
+      top: rem(203px);
+    }
+  }
+}
+.br {
+
+
+
+  &__store-detail {
+    position: relative;
+
+
+    &__bg {
+      display: block;
+      position: fixed;
+      overflow: hidden;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      padding-top: rem(100px);
+      padding-bottom: rem(110px);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+      }
+
+      &:after {
+        position: fixed;
+        top: rem(112px);
+        left: 0;
+        z-index: 1;
+        width:100%;
+        height: rem(900px);
+        background: linear-gradient( to bottom, #121212, rgba(242,242,242,0) );
+        content: "";
+      }
+    }
+
+    .store-each {
+      display: block;
+      width: 100%;
+      padding: rem(0 40px);
+      color: #fff;
+
+      &__top {
+        padding: rem(80px 0 50px);
+        border-bottom: 1px solid #898989;
+      }
+
+      &__name {
+        width: rem(402px);
+        font: {
+          weight: bold;
+          size: rem(46px);
+        }
+        line-height: rem(68px);
+      };
+
+      &__call {
+        position: absolute;
+        top: rem(90px);
+        right: rem(40px);
+        width: rem(41px);
+        height: rem(41px);
+        background: url("../images/common/icon-store-call.png") no-repeat 0 0;
+        background-size: rem(41px 41px);
+        text-indent: rem(-9999px);
+      };
+
+      &__text {
+        display: block;
+        padding-top: rem(50px);
+
+        font-size: rem(26px);
+        text-align: left;
+        line-height: rem(40px);
+
+        span {
+          display: block;
+        }
+      }
+    }
+
+    .store-map {
+      position: fixed;
+      left: 0;
+      bottom: rem(110px);
+      z-index: 4;
+      width: 100%;
+      height: calc(100% - 24.45rem);
+      padding: 0;
+      background: #fff;
+      border: {
+        top-left-radius : rem(25px);
+        top-right-radius : rem(25px);
+      }
+      color: #000;
+      text-align: center;
+      transition: height .3s;
+
+      &--fold {
+        height: rem(118px);
+        padding-bottom: 0;
+      }
+
+      &__top {
+        padding: rem(20px 0 50px);
+        cursor:pointer;
+      }
+
+      &__scroll-area {
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 100%;
+        padding-bottom: rem(160px);
+      }
+
+      &__open {
+        @extend %clear;
+
+      }
+
+      &__foldicon {
+        display: inline-block;
+        width: rem(20px);
+        height: rem(11px);
+        background: url("../images/common/icon-store-arrow.png") no-repeat 0 center;
+        background-size:rem(50px 11px);
+        transform: rotate(180deg);
+        vertical-align: middle;
+        @extend %hiddenText;
+        cursor:pointer;
+
+        &--normal {
+          float: right;
+          height: rem(63px);
+          padding-right: rem(20px);
+          background-position-x: 0;
+          transform: rotate(180deg);
+
+          &--active {
+            transform: rotate(0deg);
+          }
+        }
+
+        &--point {
+          display: block;
+          margin: 0 auto;
+          background-position-x: rem(-30px);
+        }
+
+        &--active {
+          transform: rotate(0deg);
+        }
+      }
+
+      &__title {
+        display: inline-block;
+        padding-top: rem(10px);
+        font: {
+          weight: bold;
+          size: rem(22px);
+        }
+        line-height: rem(32px);
+      }
+
+      &__map {
+        height: rem(400px);
+        margin-bottom: rem(50px);
+        background: #b5b5b6;
+      }
+
+      &__addr {
+        padding-bottom: rem(50px);
+        font-size: rem(22px);
+        line-height: rem(32px);
+      }
+
+      &__by {
+        padding: rem(0 30px);
+
+        &__open {
+          border-bottom: 1px solid #b5b5b6;
+          line-height: rem(63px);
+        }
+
+        &__detail {
+          display: block;
+          padding: rem(50px 30px);
+          background: #efefef;
+          font-size:rem(20px);
+          text-align: left;
+          line-height: 1.63;
+
+          &--hidden {
+            display: none;
+          }
+        }
+      }
+    }
+
+
+  }
+}

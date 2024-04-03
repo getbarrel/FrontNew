@@ -1,0 +1,357 @@
+<section class="fb__infoinput__member">
+    <section class="fb__infoinput__discount-area">
+        <h2 class="fb__infoinput__discount-area__title">{=trans('할인/혜택 적용')}</h2>
+        <ul class="discount-box">
+            <li class="discount-box__list">
+                <span class="discount-box__tit">
+                    {=trans('쿠폰할인')}
+                </span>
+                <div class="discount-box__cont">
+                    <span>{fbUnit.f} </span><input type="text" class="discount-box__amount dim" id="devUseCouponInputText" readonly> <span> {fbUnit.b}</span>
+                    <span class="discount-box__cont__span">
+                        {=trans('보유쿠폰')}
+                        <em class="fb__point-color">{userCouponCnt}</em>{=trans('장')}
+                    </span>
+                    {? userCouponCnt > 0}
+                    <button class="btn-default btn-dark discount-box__btn" id="devUseCouponButton">{=trans('쿠폰적용')}</button>
+                    <button class="btn-default btn-dark-line discount-box__btn discount-box__btn-cancel" id="devCouponButtonCancel">{=trans('적용취소')}</button>
+                    {/}
+                    <!--<p>{=trans('쿠폰은 옵션당 1매만 사용 가능합니다.')}</p>-->
+                </div>
+            </li>
+            <li class="discount-box__list">
+                <span class="discount-box__tit">
+                    {=trans('{mileageName} 사용')}
+                </span>
+                <div class="discount-box__cont">
+                    <span class="text_p">{mileageUnit}</span> <input type="text" id="devUseMileage" value="0"">
+                    <input type="checkbox" id="devAllUseMileageCheckBox" devAllUseMileage="{maxUseMileage}" devMileageTargetPrice="{mileageTargetPrice}" devTotalPrice="{cartSummary.product_listprice}">
+                    <label for="devAllUseMileageCheckBox">{=trans('{mileageName} 전체 사용')}</label>
+                    <span>
+                        ({=trans('사용가능 적립금')} <em class="fb__point-color">{mileageUnit} {=g_price(userMileage)}</em>)
+                    </span>
+                    <!--<p>-->
+                    <!--· {? mileageConditionMinMileage > 0}{mileageName}은 '{=number_format(mileageConditionMinMileage)}' {mileageName} 이상 보유한 경우에만 사용 가능하며 {/}'{mileageConditionUseUnit}'&nbsp;{mileageName} 단위로 사용 가능합니다.-->
+                    <!--</p>-->
+                    <!--<p>-->
+                    <!--· {? mileageConditionMinBuyAmt > 0}상품 구매금액 합계가 ‘{=number_format(mileageConditionMinBuyAmt)}’원 이상인 경우{:}상품 구매금액과 상관없이{/} {? mileageConditionUseLimitType =='noLimit'}사용가능 합니다.{:}최대 ‘{=number_format(mileageConditionUseLimitValue)}’ {?mileageConditionUseLimitType =='price'}{mileageName}{:}%{/}까지 사용 가능합니다.{/}-->
+                    <!--</p>-->
+                    <!--<p>-->
+                    <!--· {mileageName}로 배송비 사용은 {? mileageConditionUseDeliverypriceYn =='Y'}가능{:}불가{/} 합니다.-->
+                    <!--</p>-->
+                </div>
+            </li>
+            <li class="discount-box__list">
+                <span class="discount-box__tit">
+                    {=trans('적립금 적립')}
+                </span>
+                <div class="discount-box__cont">
+                    Expected to save {mileageUnit}
+                    <span class="discount-box__cont--em font-rb" devPrice="mileage">
+                        {=g_price(cartSummary.mileage)}
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    {? freeGift.gift_products}{*구매금액별 사은품*}
+    <div class="order-info__pricegift warp_gift_list devOrderGiftArea">
+        <div class="gift_list">
+            <h3 class="order-info__pricegift__title">{=trans('구매금액별 사은품')}</h3>
+            <ul style="display:none;">
+                <!--{@ freeGift.gift_products}-->
+                <li>
+                    <img src="{freeGift.image_src}" data-devpid="{freeGift.pid}" alt="">
+                    <p>{freeGift.pname}</p>
+                </li>
+                <!--{/}-->
+            </ul>
+        </div>
+        <button class="order-info__pricegift__btn btn-default devGiftBox"><span>{=trans('구매금액별 사은품 선택')}</span></button>
+        <div class="product-gift devOrderGift" style="display:none;">
+            <div class="product-gift__list" id="devOrderGiftList">
+
+            </div>
+        </div>
+    </div>
+    {/}
+
+    <section  class="fb__infoinput__customer-info customer-info">
+        <h2 class="customer-info__title">{=trans('주문자 정보')}</h2>
+
+        <ul class="customer-info__box">
+            <li class="customer-info__list customer-info__list-name">
+                <span class="customer-info__list__title customer-info__list__title-required">
+                    {=trans('이름')}
+                </span>
+                <input type="text" id="devBuyerName" name="devBuyerName" value="{buyerName}" title="{=trans('주문자 이름')}">
+            </li>
+            <li class="customer-info__list customer-info__list-cp">
+                <span class="customer-info__list__title customer-info__list__title-required">
+                    Tel
+                </span>
+                <div class="selectWrap customer-info__list__input-area">
+                    <select id="devBuyerMobile1" name="devBuyerMobile1">
+                        {@ nation}
+                        <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == country} selected {/}>{.nation_name}(+{.national_phone})</option>
+                        {/}
+                    </select>
+                    <input type="text" id="devBuyerMobile2" name="devBuyerMobile2" value="{buyerMobile2}" title="{=trans('휴대폰 번호')}">
+                </div>
+            </li>
+            <li class="customer-info__list customer-info__list-email">
+                <span class="customer-info__list__title customer-info__list__title-required">
+                    {=trans('이메일 주소')}
+                </span>
+                <input type="text" id="devBuyerEmailId" name="devBuyerEmailId" value="{buyerEmailId}" title="{=trans('주문자 이메일')}">
+                <span>@</span>
+                <input type="text" id="devBuyerEmailHost" name="devBuyerEmailHost" value="{buyerEmailHost}" class="js__infoinput__email-target">
+            </li>
+        </ul>
+    </section>
+
+    <section class="fb__infoinput__delivery-info delivery-info wrap-delivery-info">
+        <h2 class="delivery-info__title">{=trans('배송지 정보')}</h2>
+        <div class="tab-control mat20">
+            <ul class="tab-link">
+                <li class="active" style="width:33.3%;"><a href="#tab01" devRecipientTypeSelect="address">{? langType == 'korean'}{=trans('기본 배송지')}{:}{=trans('Default address')}{/}</a></li>
+				<li class="active1" style="width:33.3%;"><a href="#tab03" devRecipientTypeSelect="addressOrder">{=trans('최근 배송지')}</a></li>
+                <li class="" style="width:33.3%;"><a href="#tab02" devRecipientTypeSelect="input">{=trans('새로운 배송지')}</a></li>
+            </ul>
+            <div class="tab-contents delivery-info__tab-contents delivery-info__tab-contents-choice">
+                <div id="tab01" class="tab devRecipientContents tab-choice active">
+                    <p class="delivery-list"><button class="btn-s btn-dark-line" id="devAddressListButton">{=trans('배송지 목록')}</button></p>
+
+                    {* order address list Form *}
+                    <form id="devOrderAddressListForm"></form>
+
+                    <ul class="tab-choice__box" id="devOrderAddressListContent">
+
+                        {* order address list Loading *}
+                        <li id="devOrderAddressListLoading" class="devForbizTpl tab-choice__list">
+                            <div class="list-info">
+                                <p class="list-info__name">
+                                    <strong>등록된 기본 배송지가 없습니다.</strong>
+                                </p>
+                            </div>
+                        </li>
+
+                        {* order address list *}
+                        <li class="tab-choice__list devOrderAddress devForbizTpl" id="devOrderAddressList">
+                            <input type="radio" name="orderAddress" class="devOrderAddressRadio" value="{[index]}"/>
+                            <div class="list-info">
+                                <p class="list-info__name">
+                                    <strong>{[recipient]}</strong> ({[shipping_name]})
+                                </p>
+                                <p class="list-info__address">
+                                    {[address1]} {[address2]}
+                                </p>
+                                <p class="list-info__number">
+                                    <em>{[mobile]}</em>
+                                </p>
+                                {[#if isBasic]}
+                                <p class="list-info__default">{=trans('기본배송지')}</p>
+                                {[/if]}
+                            </div>
+                        </li>
+
+                        {* order address list empty *}
+                        <li id="devOrderAddressListEmpty" class="tab-choice__list devForbizTpl">
+                            <div class="list-info">
+                                <p class="name">
+                                    <strong>{=trans('등록된 배송지가 없습니다.')}</strong>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="delivery-request delivery-info__list-request">
+                        <p class="delivery-info__list__title">{=trans('배송요청사항')}</p>
+                        <div class="delivery-info__list__input-area input-area" style="margin-bottom:0;">
+                            <div class="devDeliveryMessageContents option-box">
+                                <div class="devDeliveryMessageDirectContents write-area">
+                                    <input type="text" class="devDeliveryMessage">
+                                    <div class="counting">
+                                        <span><em class="devDeliveryMessageByte">0</em>/60 byte</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {? productKindCount > 1}
+                            <!--<span class="check">-->
+                            <!--<input type="checkbox" class="devDeliveryMessageIndividualCheckBox" id="messge-checkbox">-->
+                            <!--<label for="messge-checkbox">{=trans('개별입력')}</label>-->
+                            <!--</span>-->
+                            {/}
+                        </div>
+                    </div>
+                </div>
+				<div id="tab03" class="tab devRecipientContents tab-choice active1">
+
+					{* order address list Form *}
+                    <form id="devOrderAddressListOrderForm"></form>
+
+                    <ul class="tab-choice__box" id="devOrderAddressListOrderContent">
+
+                        {* order address list Loading *}
+                        <li id="devOrderAddressListOrderLoading" class="devForbizTpl tab-choice__list">
+                            <div class="list-info">
+                                <p class="list-info__name">
+                                    <strong>등록된 최근 배송지가 없습니다.</strong>
+                                </p>
+                            </div>
+                        </li>
+
+                        {* order address list *}
+                        <li class="tab-choice__list devOrderAddress devForbizTpl" id="devOrderAddressListOrder">
+                            <input type="radio" name="orderAddress" class="devOrderAddressOrderRadio" value="{[index]}"/>
+                            <div class="list-info">
+                                <p class="list-info__name">
+                                    <strong>{[recipient]}</strong>
+                                </p>
+                                <p class="list-info__address">
+                                    {[address1]} {[address2]}
+                                </p>
+                                <p class="list-info__number">
+                                    <em>{[mobile]}</em>
+                                </p>
+                            </div>
+                        </li>
+
+                        {* order address list empty *}
+                        <li id="devOrderAddressListOrderEmpty" class="tab-choice__list devForbizTpl">
+                            <div class="list-info">
+                                <p class="name">
+                                    <strong>{=trans('등록된 배송지가 없습니다.')}</strong>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+					<div class="delivery-request delivery-info__list-request">
+                        <p class="delivery-info__list__title">{=trans('배송요청사항')}</p>
+                        <div class="delivery-info__list__input-area input-area" style="margin-bottom:0;">
+                            <div class="devDeliveryMessageContents option-box">
+                                <div class="devDeliveryMessageDirectContents write-area">
+                                    <input type="text" class="devDeliveryMessage">
+                                    <div class="counting">
+                                        <span><em class="devDeliveryMessageByte">0</em>/60 byte</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {? productKindCount > 1}
+                            <!--<span class="check">-->
+                            <!--<input type="checkbox" class="devDeliveryMessageIndividualCheckBox" id="messge-checkbox">-->
+                            <!--<label for="messge-checkbox">{=trans('개별입력')}</label>-->
+                            <!--</span>-->
+                            {/}
+                        </div>
+                    </div>
+                </div>
+                <div id="tab02" class="tab devRecipientContents tab-new">
+
+                    <ul class="delivery-info__box">
+                        <li class="delivery-info__list delivery-info__list-name">
+                            <span class="delivery-info__list__title delivery-info__list__title-required">
+                                {=trans('받는 분')}
+                            </span>
+                            <input type="text" name="devRecipientName" class="devRecipientName" title="{=trans('받는 분')}">
+                        </li>
+                        <li class="delivery-info__list delivery-info__list-address">
+                            <span class="delivery-info__list__title delivery-info__list__title-required">
+                                Country
+                            </span>
+                            <select class="devNationArea"  name="country" id="devCountry">
+                                <option value="">Select</option>
+                                {@ nation}
+                                <option value="{.nation_code}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}</option>
+                                {/}
+                            </select>
+                        </li>
+                        <li class="delivery-info__list delivery-info__list-address">
+                            <span class="delivery-info__list__title delivery-info__list__title-required">
+                                Zip/Postal Code
+                            </span>
+                            <input type="text" title="Zip/Postal Code" name="devRecipientZip" class="devRecipientZip">
+                        </li>
+                        <li class="delivery-info__list delivery-info__list-address">
+                            <span class="delivery-info__list__title delivery-info__list__title-required">
+                                Address line 1
+                            </span>
+                            <input type="text" title="Address line 1" name="devRecipientAddr1" class="devRecipientAddr1">
+                        </li>
+                        <li class="delivery-info__list delivery-info__list-address">
+                            <span class="delivery-info__list__title">
+                                Address line 2
+                            </span>
+                            <input type="text" title="Address line 2" name="devRecipientAddr2" class="devRecipientAddr2">
+                        </li>
+                        <li class="delivery-info__list delivery-info__list-address">
+                            <span class="delivery-info__list__title delivery-info__list__title-required">
+                                City
+                            </span>
+                            <input type="text" title="City" name="city" id="devCity" value="">
+                        </li>
+                        <li class="delivery-info__list delivery-info__list-address">
+                            <span class="delivery-info__list__title delivery-info__list__title-required">
+                                State/Province
+                            </span>
+                            <select id="devStateSelect" name="devStateSelect">
+                                <option value="">Select</option>
+                                {@ regional_information}
+                                <option value="{.reg_name}">{.reg_name}</option>
+                                {/}
+                            </select>
+
+                            <input type="text" style="display:none;" id="devStateText"  name="state" title="State/Province" >
+                            <!--<input type="text" title="State/Province">-->
+                            <!--<select>-->
+                                <!--<option value="">Country</option>-->
+                                <!--<option value="">USA</option>-->
+                            <!--</select>-->
+                        </li>
+
+                        <li class="delivery-info__list">
+                            <span class="delivery-info__list__title delivery-info__list__title-required">
+                                Tel
+                            </span>
+                            <div class="selectWrap delivery-info__list__input-area">
+                                <select name="devRecipientMobile1" class="devRecipientMobile1 devNationArea">
+                                    {@ nation}
+                                    <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}(+{.national_phone})</option>
+                                    {/}
+                                </select>
+                                <input type="text" name="devRecipientMobile2" class="devRecipientMobile2" title="{=trans('받는 분 휴대폰 번호')}">
+                            </div>
+                        </li>
+                        <li class="delivery-info__list delivery-info__list-request">
+                            <span class="delivery-info__list__title">
+                                {=trans('배송요청사항')}
+                            </span>
+                            <div class="delivery-request member delivery-info__list__input-area input-area">
+                                <div class="devDeliveryMessageContents option-box">
+                                    <!--<p class="product-name">{contractionProductName}</p>-->
+                                    <div class="mat10 devDeliveryMessageDirectContents write-area">
+                                        <input type="text"  class="devDeliveryMessage">
+                                        <div class="counting">
+                                            <span><em class="devDeliveryMessageByte">0</em>/60 byte</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="tab-new__check-area">
+                        <span class="tab-new__check">
+                            <input type="checkbox" id="devAddAddressBookCheckBox" checked>
+                            <label for="devAddAddressBookCheckBox">{=trans('배송지 목록에 추가')}</label>
+                        </span>
+                        <span class="tab-new__check">
+                            <input type="checkbox" id="devBasicAddressBookCheckBox" checked>
+                            <label for="devBasicAddressBookCheckBox">{=trans('기본 배송지로 선택')}</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

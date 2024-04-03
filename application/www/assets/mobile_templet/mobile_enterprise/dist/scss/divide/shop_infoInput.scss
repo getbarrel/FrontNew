@@ -1,0 +1,1256 @@
+
+
+.br {
+  // 설정값
+  $wrapPadding: rem(40px);
+  %splitSection {
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: rem(9px);
+      border-top: 1px solid #dcdddd;
+      background: #f2f2f2;
+      margin-left: -$wrapPadding;
+      padding-right: $wrapPadding * 2;
+    }
+  }
+  %splitSectionReverse {
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: rem(9px);
+      border-top: 1px solid #dcdddd;
+      background: #f2f2f2;
+      margin-left: -$wrapPadding;
+      padding-right: $wrapPadding * 2;
+    }
+  }
+
+  .br__infoinput {
+    padding: 0 $wrapPadding;
+
+    &__banner {
+      margin:rem(40px 0);
+      img {
+        width:100%;
+      }
+    }
+
+    //헤더
+    .infoinput__header {
+      position: relative;
+
+      &__title {
+        padding: rem(39px 0 0);
+        color: #000;
+        font-size: rem(30px);
+        font-weight: bold;
+        text-align: center;
+
+        &:after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: rem(9px);
+          border-top: 1px solid #dcdddd;
+          background: #f2f2f2;
+          margin: rem(39px 0 0px -40px);
+          padding-right: rem(80px);
+        }
+      }
+
+      &__btn {
+        position: absolute;
+        top :0;
+        left: rem(-40px);
+        width: rem(98px);
+        height: calc(100% - 0.45rem);
+        margin-top: 0;
+        font-size: 0;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: rem(18px);
+          height: rem(33px);
+          background: url(../../images/layout/icon_drawer_arrow.png) no-repeat rem(-10px -105px);
+          background-size: rem(80px 140px);
+        }
+      }
+    }
+
+    .hyphen {
+      display: inline-block;
+      width: rem(20px);
+      height: rem(2px);
+      margin: rem(0 6px);
+      background: #b5b5b6;
+      vertical-align: middle;
+      @extend %hiddenText;
+      &_2 {
+        margin: {
+          left: rem(8px);
+          right: rem(7px);
+        }
+        font-size: rem(24px);
+      }
+    }
+
+    // 영역 나누기 공통
+    &__goods,
+    &__freebie,
+    &__buyer,
+    &__address,
+    &__payment,
+    &__benefit {
+      @extend %splitSection;
+    }
+
+    &__non-agree {
+      &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: rem(9px);
+        border-top: 1px solid #dcdddd;
+        background: #f2f2f2;
+        margin-left: -$wrapPadding;
+        padding-right: $wrapPadding * 2;
+      }
+    }
+    // 결제정보 토글
+    .infoinput__toggle {
+      &__title {
+        position: relative;
+        padding: rem(20px 50px 20px 0);
+        color: #000;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(44px);
+        @extend %clear;
+      }
+      &__sub {
+        float: right;
+        max-width: rem(290px);
+        color: #898989;
+        font-size: rem(22px);
+        line-height: rem(44px);
+        @include line();
+
+        &--point {
+          color: #e60000;
+          font-size: rem(26px);
+          font-weight: 600;
+        }
+      }
+      &__btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border: none;
+        background: none;
+        color: transparent;
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: rem(22px);
+          height: rem(12px);
+          margin-top: rem(-6px);
+          background: $sprite22 no-repeat rem(-107px -7px);
+          background-size: rem(410px 23px);
+        }
+      }
+      &__content {
+        border-top: 1px solid #b5b5b6;
+      }
+      &--hide {
+        .infoinput__toggle {
+          &__btn {
+            &:after {
+              background-position-x: rem(-65px);
+            }
+          }
+          &__content {
+            display: none;
+          }
+        }
+      }
+    }
+
+    //상품 정보
+    .info-goods {
+
+      &__list {
+        overflow: {
+          x: hidden;
+          y: auto;
+        }
+        max-height: rem(580px);
+        @extend %touchScroll;
+      }
+      &__box {
+        display: flex;
+        flex-wrap: wrap;
+        padding: rem(30px 0);
+        border-top: 1px solid #b5b5b6;
+
+        &:first-child {
+          border-top: none;
+        }
+
+        &__thumb {
+          display: block;
+          width: rem(155px);
+          height: rem(220px);
+          border: 1px solid #dcdddd;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &__info {
+          position: relative;
+          width: calc(100% - 7.75rem);
+          min-height: rem(220px);
+          padding-left: rem(20px);
+          padding-bottom: rem(40px);
+        }
+        &__title {
+          min-height: rem(64px);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+        &__option {
+          margin-top: rem(20px);
+          color: #000;
+          font-size: rem(20px);
+          line-height: rem(30px);
+          word-break: keep-all;
+          span {
+            display: block;
+          }
+          em {
+            font-weight: 600;
+          }
+        }
+        &__price {
+          position: absolute;
+          bottom: 0;
+          &--strike {
+            display: inline-block;
+            position: relative;
+            margin-right: rem(15px);
+            color: #808285;
+            font-size: rem(20px);
+            line-height: rem(30px);
+            text-decoration: none;
+            &:before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: rem(-3px);
+              right: rem(-3px);
+              border-top: 1px solid #e60000;
+            }
+          }
+          &--cost {
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 600;
+            line-height: rem(30px);
+
+            span {
+              font-size: rem(24px);
+            }
+          }
+          &--discount {
+            display: inline-block;
+            margin-left: rem(5px);
+            color: #e60000;
+            font-size: rem(20px);
+            line-height: rem(30px);
+          }
+        }
+      }
+      &__freebie {
+        width: 100%;
+        margin-top: rem(30px);
+        padding: rem(15px 20px);
+        background: #f5f5f5;
+        &__title {
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          span {
+            font-weight: 600;
+          }
+        }
+        &__box {
+          display: table;
+          table-layout: fixed;
+          width: 100%;
+          margin-top: rem(15px);
+          padding: rem(19px);
+          background: #fff;
+          border: 1px solid #dcdddd;
+        }
+        &__thumb {
+          display: table-cell;
+          width: rem(100px);
+          vertical-align: top;
+          figure {
+            display: block;
+            width: rem(100px);
+            height: rem(140px);
+            border: 1px solid #dcdddd;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+        &__info {
+          display: table-cell;
+          padding-left: rem(35px);
+          vertical-align: middle;
+        }
+        &__text {
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+      }
+      &__freebie-sel {
+        margin: rem(25px 0 45px);
+        &__btn {
+          display: block;
+          width: 100%;
+          height: rem(80px);
+          padding: 0;
+          background: #000;
+          color: #fff;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(80px);
+          text-align: center;
+        }
+        &__notice {
+          margin-top: rem(25px);
+          padding-left: rem(13px);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          text-indent: rem(-13px);
+          word-break: keep-all;
+        }
+      }
+    }
+    //주문자 정보
+    .info-buyer {
+      padding-bottom: rem(45px);
+      &__form {
+        margin-top: rem(25px);
+        &__label {
+          display: block;
+          margin-bottom: rem(15px);
+          color: #232323;
+          font-size: rem(26px);
+          line-height: rem(36px);
+        }
+        &__input,
+        &__select {
+          width: 100%;
+          height: rem(80px);
+          padding-left: 2rem;
+          border: 1px solid #b5b5b6;
+          color: #232323;
+          font-size: rem(26px);
+        }
+        &__notice {
+          margin-top: rem(15px);
+          color: #898989;
+          font-size: rem(20px);
+          line-height: rem(30px);
+        }
+        &__btn {
+          display: block;
+          width: 100%;
+          height: rem(80px);
+          padding: 0;
+          background: #000;
+          color: #fff;
+          font-size: rem(26px);
+          line-height: rem(80px);
+          text-align: center;
+        }
+        &__check {
+          & + label {
+            color: #898989;
+            font-size: rem(22px);
+            line-height: rem(26px);
+          }
+        }
+        &--phone {
+          .info-buyer {
+            &__form {
+              &__select,
+              &__input {
+               width: 33.3333%;
+              }
+            }
+          }
+          
+          .flexWrap {
+            display: flex;
+          }
+
+          .hyphen {
+            position: relative;
+            height: rem(80px);
+            background: #fff;
+
+            &:before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              margin: -0.05rem 0 0 -0.5rem;
+              width: 1rem;
+              height: 1px;
+              background: #ccc;
+            }
+          }
+        }
+        &--email {
+          .info-buyer {
+            &__form {
+              &__input {
+               /// width: rem(255px);
+              }
+              &__select {
+                margin-top: rem(20px);
+              }
+            }
+          }
+        }
+        &--addr {
+          .info-buyer__form {
+            &__input {
+              margin-top: rem(20px);
+            }
+            &__find-addr {
+              .info-buyer__form {
+                @extend %clear;
+                &__input {
+                  float: left;
+                  width: calc(100% - 10.15rem);
+                  margin-top: 0;
+                }
+                &__btn {
+                  float: right;
+                  width: rem(183px);
+                  margin-left: rem(20px);
+                }
+              }
+            }
+          }
+        }
+        &--request {
+          margin-top: rem(30px);
+
+          .info-buyer__form {
+            &__direct {
+              margin-top: rem(20px);
+              .counting {
+                margin-top: rem(5px);
+                text-align: right;
+                color: #898989;
+                font-size: rem(20px);
+              }
+            }
+          }
+        }
+
+        input[type=text] {
+          height:rem(80px);
+        }
+      }
+    }
+    //배송지 정보
+    .br__tabs {
+      margin-top: rem(30px);
+      &__content {
+        display: none;
+        padding-top: rem(30px);
+        &--show {
+          display: block;
+        }
+      }
+    }
+    .info-addr {
+      padding-bottom: rem(45px);
+      // 최근배송지
+      &__recent {
+        &__btn {
+          display: block;
+          width: 100%;
+          height: rem(60px);
+          border: 1px solid #b5b5b6;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          text-align: center;
+          &:after {
+            content: "";
+            display: inline-block;
+            margin-left: rem(10px);
+            width: rem(10px);
+            height: rem(18px);
+            background: $sprite18 no-repeat rem(-108px 0);
+            vertical-align: rem(-1px);
+            background-size: rem(356px 20px);
+          }
+        }
+        &__list {
+        }
+        &__box {
+          position: relative;
+          padding: rem(25px 0 30px);
+          border-top: 1px solid #dedede;
+          &:first-child {
+            border-top: 0;
+          }
+        }
+        &__info {
+          padding-right: rem(75px);
+        }
+        &__label {
+          display: block;
+          position: relative;
+          width: 100%;
+          padding-left: rem(75px);
+        }
+        input[type=radio] {
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          margin-top: rem(-16px);
+
+        }
+        &__name,
+        &__addr,
+        &__phone {
+          display: block;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(40px);
+          word-break: break-all;
+        }
+
+      }
+      // 새로운배송지 (.info-buyer 참조)
+    }
+    //쿠폰/적립금
+    .info-benefit {
+      margin-bottom: rem(45px);
+      &__form {
+        margin-top: rem(25px);
+        @extend %clear;
+
+        &__label {
+          display: block;
+          color: #232323;
+          font-size: rem(26px);
+          line-height: rem(36px);
+          span {
+            font-size: rem(22px);
+          }
+
+        }
+        &__value {
+          float: right;
+          color: #232323;
+          font-size: rem(26px);
+          line-height: rem(36px);
+        }
+        &--coupon {
+          .info-benefit {
+            &__form {
+              &__inner {
+                @extend %clear;
+
+                input[type='text'] {
+                  float: left;
+                  width: calc(100% - 17.75rem);
+                  height: rem(64px);
+                  color: #000;
+                  font-size: rem(26px);
+                  line-height: rem(62px);
+                }
+                span {
+                  float: left;
+                  width: rem(20px);
+                  margin-left: rem(5px);
+                  color: #000;
+                  font-size: rem(20px);
+                  line-height: rem(64px);
+                }
+                button {
+                  float: left;
+                  width: rem(145px);
+                  margin-left: rem(20px);
+                  padding: 0;
+                  border: 1px solid #b5b5b6;
+                  background: #efefef;
+                  color: #000;
+                  font-size: rem(26px);
+                  line-height: rem(62px);
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+        &--mileage {
+          .info-benefit {
+            &__form {
+              &__inner {
+                margin-top: rem(15px);
+                @extend %clear;
+
+                input[type='text'] {
+                  float: left;
+                  width: calc(100% - 9.5rem);
+                  height: rem(64px);
+                  color: #000;
+                  font-size: rem(26px);
+                  line-height: rem(62px);
+                }
+                span {
+                  float: left;
+                  width: rem(20px);
+                  margin-left: rem(5px);
+                  color: #000;
+                  font-size: rem(20px);
+                  line-height: rem(64px);
+                }
+                label {
+                  float: left;
+                  width: rem(145px);
+                  margin-left: rem(20px);
+                  padding: 0;
+                  border: 1px solid #b5b5b6;
+                  background: #efefef;
+                  color: #000;
+                  font-size: rem(26px);
+                  line-height: rem(62px);
+                  text-align: center;
+                }
+                input[type=checkbox] {
+                  width: 0;
+                  height: 0;
+                  opacity: 0;
+                  &:checked + label {
+                    border-color: #000;
+                    background: #000;
+                    color: #fff;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    //결제예정금액
+    .info-payment {
+      padding: rem(20px 0 40px);
+      &__box {
+        padding: rem(10px 0);
+        @extend %clear;
+      }
+      &__title {
+        float: left;
+        color: #000;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(40px);
+      }
+      &__pay {
+        float: right;
+        color: #000;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(36px);
+      }
+      &__detail {
+        margin: rem(10px 0);
+        padding: rem(20px);
+        background: #efefef;
+        &__box {
+          padding: rem(5px 0);
+          @extend %clear;
+        }
+        &__title {
+          float: left;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+        &__pay {
+          float: right;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+      }
+      &__result {
+        margin-top: rem(20px);
+        padding-top: rem(20px);
+        border-top: 1px solid #b5b5b6;
+        @extend %clear;
+
+        &__title {
+          float: left;
+          color: #000;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(36px);
+        }
+
+        &__pay {
+          float: right;
+          color: #e60000;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(36px);
+        }
+      }
+    }
+    //결제수단
+    .info-paytype {
+      padding:rem(0 0 45px);
+      &__list {
+        padding: rem(20px 10px 0);
+        @extend %clear;
+      }
+      &__btn {
+        display: block;
+        float: left;
+        width: rem(250px);
+        height: rem(80px);
+        margin: rem(10px);
+        padding: 0;
+        border: 1px solid #000;
+        background: #fff;
+        color: #000;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(32px);
+        text-align: center;
+
+        &--active {
+          background: #000;
+          color: #fff;
+        }
+
+        span {
+          font-size: rem(22px);
+        }
+      }
+      &__notice {
+        &__list {
+          display: none;
+          margin-top: rem(15px);
+        }
+        &__desc {
+          margin-top: rem(10px);
+          padding-left: rem(12px);
+          color: #898989;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          text-indent: rem(-12px);
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+    //결제하기
+    .info-submit {
+      margin-left: -$wrapPadding;
+      width: calc(100% + 4rem);
+      border-top: 1px solid #dcdddd;
+      padding: rem(50px 40px);
+      background: #efefef;
+      &__check {
+        display: block;
+        position: relative;
+        padding-left: rem(45px);
+
+        input[type=checkbox] {
+          position: absolute;
+          top: rem(16px);
+          left: 0;
+        }
+        &__text {
+          color: #595757;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          word-break: keep-all;
+        }
+      }
+      &__btn {
+        display: block;
+        width: 100%;
+        height: rem(80px);
+        margin-top: rem(25px);
+        background: $cPoint;
+        color: #fff;
+        font-size: rem(30px);
+        font-weight: 600;
+        line-height: rem(80px);
+        text-align: center;
+      }
+    }
+    //비회원 약관동의
+    .agree-area {
+      padding: rem(20px 0);
+      .agree-content__inner {
+        margin-bottom: rem(5px);
+
+        &--active {
+          .agree-content__inner__title {
+            &:after {
+              background-position-x: rem(-107px);
+            }
+          }
+        }
+
+        label {
+          display:inline-block;
+          padding: rem(20px 0);
+          font-size: rem(24px);
+          margin-left: rem(10px);
+          max-width:calc(100% - 5rem);
+        }
+        &__title {
+          position: relative;
+
+          &:after {
+            content:"";
+            position: absolute;
+            top: 50%;
+            right: rem(15px);
+            width: rem(22px);
+            height: rem(12px);
+            margin-top: rem(-6px);
+            background: url(../../images/common/icon_sprite_size22.png) no-repeat rem(-65px -7px);
+            background-size: rem(410px 23px);
+          }
+          //&--active {
+          //  &:after {
+          //    background-position-x: -107px;
+          //  }
+          //}
+        }
+        &__cont {
+          display: none;
+          overflow-y: scroll;
+          max-height:rem(400px);
+          font-size:rem(26px);
+
+          &--show {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .br__tabs__btn {
+      height: rem(80px);
+      line-height: rem(78px);
+      font-size: rem(26px)!important;
+    }
+  }
+
+  //사은품 선택
+  .freebie-select {
+    padding-top: rem(25px);
+    padding-bottom:rem( 60px);
+
+    &__count {
+      color: #000;
+      font-size: rem(26px);
+      line-height: rem(36px);
+      text-align: center;
+
+      &__total {
+        font-weight: 600;
+      }
+    }
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: rem(25px);
+    }
+    &__box {
+      position: relative;
+      width: 26.7%;
+      margin-left:rem( 57px);
+      margin-bottom: rem(50px);
+      padding-bottom: rem(70px);
+
+      &:nth-of-type(3n + 1) {
+        margin-left: 0;
+      }
+
+      &__thumb {
+        position: relative;
+        padding-top: 141.935%;
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 100%;
+          transform: translate(-50%, -50%);
+          object-fit: cover;
+        }
+      }
+      &__title {
+        margin-top: rem(13px);
+        color: #000;
+        font-size: rem(22px);
+        line-height: rem(36px);
+      }
+      .control {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+    &__btns {
+      padding-top: rem(50px);
+      border-top: 1px solid #b5b5b6;
+      @extend %clear;
+      &__cancel {
+        float: left;
+        width: calc(50% - 0.5rem);
+        height: rem(80px);
+        border: 1px solid #b5b5b5;
+        background: #fff;
+        color: #000;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(80px);
+        text-align: center;
+      }
+      &__submit {
+        float: right;
+        width: calc(50% - 0.5rem);
+        height: rem(80px);
+        border: 1px solid #000;
+        background: #000;
+        color: #fff;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(80px);
+        text-align: center;
+      }
+    }
+  }
+
+  //배송지 선택
+  .address-select {
+    overflow-y: scroll;
+    height: calc(100% - 12rem);
+
+    &__box {
+      padding: rem(45px 0 50px);
+      border-top: 1px solid #b5b5b6;
+      &:first-child {
+        border-top: none;
+      }
+    }
+    &__info {
+      padding: rem(0 20px 25px);
+      &__title {
+        margin-bottom: rem(10px);
+        color: #000;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(36px);
+        span {
+          display: inline-block;
+          margin-left: rem(5px);
+          color: $cPoint;
+          font-size: rem(22px);
+          font-weight: 400;
+          line-height: rem(36px);
+        }
+      }
+      &__name,
+      &__addr,
+      &__phone {
+        display: block;
+        color: #232323;
+        font-size: rem(22px);
+        line-height: rem(32px);
+      }
+      &__addr {
+        word-break: keep-all;
+        white-space: pre-wrap;
+      }
+    }
+    &__btn {
+      button, a {
+        display: block;
+        width: 100%;
+        height: rem(80px);
+        background: #000;
+        color: #fff;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(80px);
+        text-align: center;
+      }
+    }
+
+    .br__more {
+      padding-top: 0;
+
+      button {
+        padding: rem(20px 40px);
+        margin: 0 auto;
+        border: 1px solid #000;
+        color: #000;
+        font-size: rem(24px);
+        line-height: 1.15;
+
+        &:after {
+          width: rem(22px);
+          height: rem(12px);
+          margin-left: rem(18px);
+          background: url(../../images/common/icon_sprite_size22.png) no-repeat rem(-65px -7px);
+          background-size: rem(410px 23px);
+        }
+      }
+    }
+  }
+
+  // 주문결제 배송주소록 팝업 새배송지추가 버튼
+  .btn-add-address {
+    //position: absolute;
+    //bottom: 5rem;
+    //width: calc(100% - 3rem);
+    border-top:1px solid #b5b5b6;
+    padding-top: 2.5rem;
+  }
+
+  //쿠폰 선택
+  .coupon-sel {
+    padding:rem( 0 0 80px);
+    .infoinput__toggle {
+      @extend %splitSection;
+    }
+
+    &__wrap-select {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      margin-top: rem(30px);
+    }
+
+    &__select {
+      width: 100%;
+      color: #000;
+
+      select {
+        margin-bottom: rem(20px);
+      }
+    }
+
+    &__cancel {
+      display: none;
+      flex: rem(0 0 80px);
+      height: rem(70px);
+      margin-left: rem(10px);
+      background: #ddd;
+      border: 1px solid #999;
+      color: #000;
+      font-size: rem(22px);
+      text-align: center;
+      line-height: rem(70px);
+
+      &--on {
+        display: block;
+      }
+    }
+
+    &__apply {
+      width: 100%;
+      margin-top:rem(15px);
+      color: #000;
+      font-size: rem(26px);
+      line-height: rem(36px);
+      text-align: right;
+    }
+    &__total {
+      margin-top: rem(50px);
+      padding: rem(25px 20px);
+      background: #efefef;
+      &__indiv {
+        margin-top: rem(10px);
+        @extend %clear;
+        dt {
+          float: left;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+        dd {
+          float: right;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+      }
+      &__price {
+        margin-top: rem(25px);
+        padding-top: rem(25px);
+        border-top: 1px solid #b5b5b6;
+        @extend %clear;
+        dt {
+          float: left;
+          color: #000;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(36px);
+        }
+        dd {
+          float: right;
+          color: #000;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(36px);
+        }
+      }
+    }
+    &__btn {
+      margin-top: rem(30px);
+      @extend %clear;
+      &__cancel {
+        flaot: left;
+        width: calc(50% - 0.5rem);
+        border: 1px solid #000;
+        background: #fff;
+        color: #000;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(80px);
+        text-align: center;
+      }
+      &__submit {
+        float: right;
+        width: calc(50% -  0.5rem);
+        border: 1px solid #000;
+        background: #000;
+        color: #fff;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(80px);
+        text-align: center;
+      }
+    }
+  }
+
+  .txt-error {
+    font-size: rem(22px);
+  }
+
+  .br__join__list .join__eamil span {
+    width: rem(50px);
+    line-height: rem(70px);
+    font-size: rem(24px);
+  }
+
+  .br__join input[type=text] {
+    height: rem(70px);
+  }
+
+  .br select {
+    height: rem(80px);
+  }
+
+  .flexWrap {
+    display: flex;
+  }
+
+  .br__delivery-desc {
+    width: rem(40px);
+    height: rem(40px);
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: rem(24px);
+      height: rem(24px);
+      margin: rem(-12px 0 0 -12px);
+      background: url(../../_/img/icon/m_sprite_icon.png) no-repeat rem(-801px -401px);
+      background-size: rem(1000px 1000px);
+    }
+  }
+
+}
+
+html[lang=en] {
+  .br {
+    &__infoinput {
+      .info-buyer {
+        &__form {
+          &--phone {
+            .info-buyer {
+              &__form {
+                &__input {
+                  width: 388px;
+                  margin-left: 8px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.crema-type {
+    .br {
+      &__infoinput {
+
+        .infoinput__toggle__sub {
+          max-width: 10.5rem;
+        }
+      }
+    }
+  }
+}

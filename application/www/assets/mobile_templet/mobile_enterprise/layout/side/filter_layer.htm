@@ -1,0 +1,700 @@
+<!-- 상품 리스트 / 검색 페이지 에서만 노출 S -->
+<div class="br__filter-nav">
+	<ul class="filter-nav">
+		<li>
+			<button class="btn-filter" onclick="DownLayerJS('search-filter');">상세필터</button>
+		</li>
+		<li class="select-box__wrap">
+			<div class="br__select-box">
+				<div class="select-box">
+					<button class="select-box__title select-box__name"><span>인기상품순</span></button>
+					<div class="select-box__layer">
+						<label class="select-box__layer__label">
+							<input type="radio" class="devSortTab" name="filterRadio" value="regdateDesc" />
+							<span>최신상품순</span>
+						</label>
+						<label class="select-box__layer__label">
+							<input type="radio" class="devSortTab" name="filterRadio" value="orderCnt" checked />
+							<span>인기상품순</span>
+						</label>
+						<label class="select-box__layer__label">
+							<input type="radio" class="devSortTab" name="filterRadio" value="lowPrice" />
+							<span style="font-size: 1.05rem">낮은가격순</span>
+						</label>
+						<label class="select-box__layer__label">
+							<input type="radio" class="devSortTab" name="filterRadio" value="highPrice" />
+							<span style="font-size: 1.05rem">높은가격순</span>
+						</label>
+						<label class="select-box__layer__label">
+							<input type="radio" class="devSortTab" name="filterRadio" value="afterCnt" />
+							<span>상품후기순</span>
+						</label>
+						<label class="select-box__layer__label">
+							<input type="radio" class="devSortTab" name="filterRadio" value="viewOrder" />
+							<span>배럴추천순</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+<!-- 검색 상세 필터 S -->
+<section id="search-filter" class="br__filter-layer">
+	<div class="filter-layer">
+		<div class="filter-layer__title">
+			<div class="title-md">필터</div>
+			<button type="button" class="btn-close" onclick="DownLayerJS('search-filter');">닫기</button>
+		</div>
+		<div class="filter-layer__content">
+			<div class="filter-layer__content__acco filter-layer__content__acco--size">
+				<div class="accordion">
+					<div type="button" class="accordion__opner">
+						<div class="accordion__opner__title">의류</div>
+						<!-- 선택한 옵션 노출 영역 S -->
+						<div class="accordion__opner__value-group">
+							<button type="button" class="btn-del">
+								<span class="accordion__opner__value">2XS</span>
+								<i class="ico ico-del"></i>
+							</button>
+							<button type="button" class="btn-del">
+								<span class="accordion__opner__value">100</span>
+								<i class="ico ico-del"></i>
+							</button>
+						</div>
+						<!-- 선택한 옵션 노출 영역 E -->
+					</div>
+					<div class="accordion__content">
+						<ul class="accordion__content__list">
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="1" />
+									<span>2XS</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="2" />
+									<span>XS</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="3" />
+									<span>S</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="4" />
+									<span>M</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="5" />
+									<span>L</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="6" />
+									<span>XL</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="7" />
+									<span>2XL</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="8" />
+									<span>3XL</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="9" />
+									<span>75</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="10" />
+									<span>80</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="11" />
+									<span>90</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="12" />
+									<span>95</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="13" />
+									<span>100</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="14" />
+									<span>105</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="15" />
+									<span>110</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="16" />
+									<span>120</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="17" />
+									<span>130</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="18" />
+									<span>140</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="19" />
+									<span>150</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="CLOTHING" value="20" />
+									<span>160</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="filter-layer__content__acco filter-layer__content__acco--size">
+				<div class="accordion">
+					<div class="accordion__opner">
+						<div class="accordion__opner__title">액세서리</div>
+						<!-- 선택한 옵션 노출 영역 S -->
+						<div class="accordion__opner__value-group">
+							<!--<button type="button" class="btn-del">
+								<span class="accordion__opner__value">선택된 옵션명</span>
+								<i class="ico ico-del"></i>
+							</button>-->
+						</div>
+						<!-- 선택한 옵션 노출 영역 E -->
+					</div>
+					<div class="accordion__content">
+						<ul class="accordion__content__list">
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="ACC" value="21" />
+									<span>OS</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="ACC" value="22" />
+									<span>S</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="ACC" value="23" />
+									<span>S/M</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="ACC" value="24" />
+									<span>M</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="ACC" value="25" />
+									<span>M/L</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="ACC" value="26" />
+									<span>L/XL</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="ACC" value="27" />
+									<span>XL</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="ACC" value="28" />
+									<span>2XL</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="filter-layer__content__acco filter-layer__content__acco--size">
+				<div class="accordion">
+					<div class="accordion__opner">
+						<div class="accordion__opner__title">슈즈</div>
+						<!-- 선택한 옵션 노출 영역 S -->
+						<div class="accordion__opner__value-group">
+							<!--<button type="button" class="btn-del">
+								<span class="accordion__opner__value">선택된 옵션명</span>
+								<i class="ico ico-del"></i>
+							</button>-->
+						</div>
+						<!-- 선택한 옵션 노출 영역 E -->
+					</div>
+					<div class="accordion__content">
+						<ul class="accordion__content__list">
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="30" />
+									<span>120</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="31" />
+									<span>130</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="32" />
+									<span>140</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="33" />
+									<span>150</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="34" />
+									<span>160</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="35" />
+									<span>170</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="36" />
+									<span>180</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="37" />
+									<span>190</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="38" />
+									<span>200</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="39" />
+									<span>210</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="40" />
+									<span>220</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="41" />
+									<span>230</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="42" />
+									<span>235</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="43" />
+									<span>240</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="44" />
+									<span>245</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="45" />
+									<span>250</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="46" />
+									<span>255</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="47" />
+									<span>260</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="48" />
+									<span>265</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="49" />
+									<span>270</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="50" />
+									<span>275</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="51" />
+									<span>280</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="52" />
+									<span>285</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="SHOES" value="53" />
+									<span>290</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="filter-layer__content__acco filter-layer__content__acco--color">
+				<div class="accordion">
+					<div class="accordion__opner">
+						<div class="accordion__opner__title">컬러</div>
+						<!-- 선택한 옵션 노출 영역 S -->
+						<div class="accordion__opner__value-group">
+							<!--<button type="button" class="btn-del">
+								<span class="accordion__opner__value">선택된 옵션명</span>
+								<i class="ico ico-del"></i>
+							</button>-->
+						</div>
+						<!-- 선택한 옵션 노출 영역 E -->
+					</div>
+					<div class="accordion__content">
+						<ul class="accordion__content__list">
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="60" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/1_mobile.png" alt="" />
+									</figure>
+									<span>블랙</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="61" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/2_mobile.png" alt="" />
+									</figure>
+									<span>네이비</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="62" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/3_mobile.png" alt="" />
+									</figure>
+									<span>블루</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="63" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/4_mobile.png" alt="" />
+									</figure>
+									<span>브라운</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="64" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/5_mobile.png" alt="" />
+									</figure>
+									<span>아이보리</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="65" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/6_mobile.png" alt="" />
+									</figure>
+									<span>옐로우</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="66" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/7_mobile.png" alt="" />
+									</figure>
+									<span>오렌지</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="67" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/8_mobile.png" alt="" />
+									</figure>
+									<span>레드</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="68" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/9_mobile.png" alt="" />
+									</figure>
+									<span>핑크</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="69" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/10_mobile.png" alt="" />
+									</figure>
+									<span>그린</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="70" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/11_mobile.png" alt="" />
+									</figure>
+									<span>퍼플</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="71" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/12_mobile.png" alt="" />
+									</figure>
+									<span>그레이</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="72" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/13_mobile.png" alt="" />
+									</figure>
+									<span>화이트</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="73" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/14_mobile.png" alt="" />
+									</figure>
+									<span>그레이그린</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="74" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/15_mobile.png" alt="" />
+									</figure>
+									<span>혼합</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="checkbox" class="devFilterItem" name="COLOR" value="75" />
+									<figure class="thumb">
+										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/filter/16_mobile.png" alt="" />
+									</figure>
+									<span>투명</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="filter-layer__content__acco filter-layer__content__acco--price">
+				<div class="accordion">
+					<div class="accordion__opner">
+						<div class="accordion__opner__title">가격</div>
+						<!-- 선택한 옵션 노출 영역 S -->
+						<div class="accordion__opner__value-group">
+							<!--<button type="button" class="btn-del">
+								<span class="accordion__opner__value">선택된 옵션명</span>
+								<i class="ico ico-del"></i>
+							</button>-->
+						</div>
+						<!-- 선택한 옵션 노출 영역 E -->
+					</div>
+					<div class="accordion__content">
+						<ul class="accordion__content__list">
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_price" class="devPriceType" value="1" data-sprice="0" data-eprice="9999" />
+									<span class="title">1만원 미만</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_price" class="devPriceType" value="2" data-sprice="10000" data-eprice="29999" />
+									<span class="title">1만원 ~ 3만원 미만</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_price" class="devPriceType" value="3" data-sprice="30000" data-eprice="49999" />
+									<span class="title">3만원 ~ 5만원 미만</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_price" class="devPriceType" value="4" data-sprice="50000" data-eprice="99999" />
+									<span class="title">5만원 ~ 10만원 미만</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_price" class="devPriceType" value="5" data-sprice="100000" data-eprice="149999" />
+									<span class="title">10만원 ~ 15만원 미만</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_price" class="devPriceType" value="6" data-sprice="150000" data-eprice="199999" />
+									<span class="title">15만원 ~ 20만원 미만</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_price" class="devPriceType" value="7" data-sprice="200000" data-eprice="249999" />
+									<span class="title">20만원 ~ 25만원 미만</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_price" class="devPriceType" value="8" data-sprice="250000" data-eprice="9999999999999" />
+									<span class="title">20만원 이상</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="filter-layer__content__acco filter-layer__content__acco--benefits">
+				<div class="accordion">
+					<div class="accordion__opner">
+						<div class="accordion__opner__title">혜택</div>
+						<!-- 선택한 옵션 노출 영역 S -->
+						<div class="accordion__opner__value-group">
+							<!--<button type="button" class="btn-del">
+								<span class="accordion__opner__value">선택된 옵션명</span>
+								<i class="ico ico-del"></i>
+							</button>-->
+						</div>
+						<!-- 선택한 옵션 노출 영역 E -->
+					</div>
+					<div class="accordion__content">
+						<ul class="accordion__content__list">
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_benefits" class="devPriceBenefits" value="1" />
+									<span class="title">세일 상품</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_benefits" class="devPriceBenefits" value="2" />
+									<span class="title">무료배송</span>
+								</label>
+							</li>
+							<li>
+								<label class="accordion__content__label">
+									<input type="radio" name="search_benefits" class="devPriceBenefits" value="3" />
+									<span class="title">사은품 지급</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="filter-layer__btn">
+		<button type="button" class="btn-lg filter-layer__btn__reset">초기화</button>
+		<button type="button" class="btn-lg filter-layer__btn__apply" id="devFilterSubmit"><em>0</em>개 보기</button>
+	</div>
+</section>
+<!-- 검색 상세 필터 E -->
+
+<!-- 상품 리스트 / 검색 페이지 에서만 노출 E -->

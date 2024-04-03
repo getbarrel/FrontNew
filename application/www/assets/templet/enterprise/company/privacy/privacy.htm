@@ -1,0 +1,32 @@
+<div class="wrap-window-popup company-popup">
+    <p class="popup-title">
+        {? type == 'sprint'}
+        <span>{=trans('개인정보 수집 및 이용')}</span>
+        {:}
+        <span>{piTitle}</span>
+        {/}
+    </p>
+
+    <div class="popup-content">
+        <div class="prev-agreement devContents">
+            {? type == 'sprint'}
+            <div style="line-height:1.4;white-space: pre-line;">
+                {#sprintPrivacy}
+            </div>
+            {:}
+            {@ policy}
+            <div class='devPolicyContentsClass' id='devPolicyContentsId{policy.pi_ix}'>
+                {policy.pi_contents}
+            </div>
+            {/}
+            <br>
+            <select id="devPolicyHistory">
+                <option value="">{=trans('약관 변경 이력 보기')}</option>
+                {@ policy}
+                <option value="{policy.pi_ix}">{=trans('{policy.regdate} 시행')}</option>
+                {/}
+            </select>
+            {/}
+        </div>
+    </div>
+</div>

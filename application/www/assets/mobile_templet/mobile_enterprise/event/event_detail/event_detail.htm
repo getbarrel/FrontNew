@@ -1,0 +1,293 @@
+
+<div class="wrap_event_detail">
+    <form id="devEventDetailForm">
+        <input type="hidden" name="event_ix" value="{event_ix}"/>
+        <input type="hidden" name="orderBy" value="ec_ix"/>
+        <input type="hidden" name="orderByType" value="desc"/>
+        <input type="hidden" name="page" value="1" id="devPage"/>
+        <input type="hidden" name="max" value="20" id="devMax"/>
+    </form>
+    {event_text2}
+
+    <!--<div class="br__goods-list__wrap br__goods-list__wrap&#45;&#45;normal">-->
+        <!--<div class="goods-list">-->
+            <!--<div id="devFilterEmpty" class="empty-content" style="display:none"><p>선택하신 조건에 대한 검색 결과가 없습니다. <span>다른 옵션을 선택하여 검색해 보세요.</span></p></div>-->
+            <!--<ul class="goods-list__list">-->
+                <!--<li class="goods-list__box">-->
+                    <!--<a href="/shop/goodsView/{[id]}" class="goods-list__link">-->
+                        <!--<figure class="goods-list__thumb">-->
+                            <!--<img src="{[image_src]}" alt="상품제목">-->
+                        <!--</figure>-->
+                        <!--<div class="goods-list__info">-->
+                            <!--{[#if icons]}-->
+                            <!--<div class="goods-list__badge">-->
+                                <!--{[#each icons_path]}-->
+                                <!--<span>{[{\this}]}</span>-->
+                                <!--{[/each]}-->
+                            <!--</div>-->
+                            <!--{[else]}-->
+                            <!--<div class="goods-list__badge">-->
+                                <!--<span></span>-->
+                            <!--</div>-->
+                            <!--{[/if]}-->
+                            <!--<p class="br__goods__pre">{[preface]}</p>-->
+                            <!--<p class="goods-list__title">{[pname]}</p>-->
+                            <!--<span class="goods-list__color">{[add_info]}</span>-->
+                            <!--<div class="goods-list__price">-->
+                                <!--{[#if isDiscount]}-->
+                                <!--<span class="goods-list__price__cost">{fbUnit.f}{[listprice]}{fbUnit.b}</span>-->
+                                <!--{[/if]}-->
+                                <!--<span class="goods-list__price__discount">{fbUnit.f}{[dcprice]}{fbUnit.b}</span>-->
+                                <!--{[#if isPercent]}-->
+                                <!--<span class="goods-list__price__percent">[{[discount_rate]}%]</span>-->
+                                <!--{[/if]}-->
+                                <!--{[#if is_soldout]}-->
+                                <!--<span class="goods-list__price__state">{=trans('품절')}</span>-->
+                                <!--{[/if]}-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                    <!--<label class="goods-list__wish{[#if alreadyWish]} on{[/if]}" devwishbtn="{[id]}">-->
+                        <!--{[#if alreadyWish]}-->
+                        <!--<input type="checkbox" class="goods-list__wish__btn" checked>-->
+                        <!--{[else]}-->
+                        <!--<input type="checkbox" class="goods-list__wish__btn">-->
+                        <!--{[/if]}-->
+                    <!--</label>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    {? kind == 'P'}
+    <!--{? eventGroupGoodsData}-->
+    <div class="main-cate ">
+        <div class="main-cate__goods-list br__goods-list__wrap br__goods-list__wrap--normal">
+            <div class="goods-list">
+                <!--{@ eventGroupGoodsData}-->
+				{? .group_name == ''}
+					{? .group_image_m == ''}
+						<h2 style="font-size:2.0rem; line-height:3rem; padding: 10px 0; width:100%; margin:0 auto 0; color:#000; font-weight:600; text-align:center; "> {.group_name} </h2>
+					{:}
+						<h2 style="font-size:2.0rem; line-height:3rem; padding: 10px 0; width:100%; margin:0 auto 0; color:#000; font-weight:600; text-align:center; "> <img src="{.group_image_m}" style="width:100%;"> </h2>
+					{/}
+				{:}
+					<h2 style="font-size:2.0rem; line-height:3rem; padding: 10px 0; width:100%; margin:0 auto 0; color:#000; font-weight:600; text-align:center; "> {.group_name} </h2>
+				{/}
+
+                <ul class="goods-list__list devProductTab" id="productTab{.epg_ix}" style="margin-bottom: 60px;">
+                    <!--{@ .goods}-->
+                    <li class="goods-list__box">
+                        <a href="/shop/goodsView/{..id}" class="goods-list__link">
+                            <figure class="goods-list__thumb">
+                                <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{..image_src}" alt="{[pname]}">
+                            </figure>
+                            <div class="goods-list__info">
+
+                                <div class="goods-list__badge">
+                                    {@ ..icons_path}
+                                    <span>{...value_}</span>
+                                    {/}
+                                </div>
+
+                                <p class="br__goods__pre" style="color:{..prefaceColor};">{..prefaceName}</p>
+                                <p class="goods-list__title">{..pname}</p>
+                                <span class="goods-list__color">{..add_info}</span>
+                                <div class="goods-list__price">
+                                    {? ..isDiscount}
+                                    <span class="goods-list__price__cost">{=g_price(..listprice)}원</span>
+                                    {/}
+                                    <span class="goods-list__price__discount">{=g_price(..dcprice)}원</span>
+
+                                    {? ..discount_rate}
+                                    <span class="goods-list__price__percent">
+                                       [{..discount_rate}%]
+                                    </span>
+                                    {/}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <!--{/}-->
+                </ul>
+                <!--{/}-->
+            </div>
+        </div>
+    </div>
+    <!--{/}-->
+    {/}
+    {? false}
+    <h1 class="wrap-title">
+        상세정보
+        <button class="back"></button>
+    </h1>
+
+    <div class="event_txt">
+        <p class="title">{event_title}</p>
+        <p class="desc">{manage_title}</p>
+        {? onOff == 'Y'}
+        <p class="date">{startDate} - {endDate}</p>
+        {:}
+        <p class="date end"><font color="red">이벤트 종료</font></p>
+        {/}
+    </div>
+
+    <div class="event-products event-products-img">
+        {event_text2}
+    </div>
+
+    <div class="event-products">
+
+        <ul class="tab_menu clearfix">
+            <li class="tab_link" data-tab="tab-1">
+                <select name="" id="devGroupSel">
+                    <option value="">전체</option>
+                    <!--{@ eventGroupGoodsData}-->
+                    <option value="{.epg_ix}">{.group_name}</option>
+                    <!--{/}-->
+                </select>
+            </li>
+        </ul>
+
+        <!--{@ eventGroupGoodsData}-->
+        <span class="dec"></span>
+        <ul class="products clearfix devProductTab" id="productTab{.epg_ix}">
+            <a class="event-products-tit" href="javacript:void(0);">{.group_name}</a>
+            <p class="tab_menu_subText devSubText" id="subText{.epg_ix}">{.event_name}</p>
+
+            <!--{@ goods}-->
+            <li>
+                <div class="thumb">
+                    <a href="/shop/goodsView/{goods.id}">
+                        <img src="{goods.image_src}"/>
+                    </a>
+                </div>
+                <p class="tit">{goods.pname}</p>
+                <div class="price-area">
+                    {? goods.isDiscount}
+                    <p class="strike"><em>{goods.listprice}</em>원</p>
+                    {/}
+                    <p class="price discount"><em>{goods.dcprice}</em>원</p>
+                </div>
+            </li>
+            <!--{/}-->
+        </ul>
+        <!--{/}-->
+    </div>
+    {/}
+    {? use_comment == 1}
+    {? rel_title =='SPRINT'}
+    <div class="sprint event_comment">
+        <div class="inner">
+            <img class="title" src="//getbarrel.com/barrel_data/images/sp/m/comment_box_title.jpg" alt="">
+            <div class="inner__content">
+        {? onOff == 'Y'}
+        <form id="devEventCommentForm">
+            <input type="hidden" name="event_ix" value="{event_ix}"/>
+            <div class="area_input">
+                <textarea placeholder="댓글을 입력해주세요." name="comment" id="devInputComment" title="댓글"></textarea>
+                <div class="wrap__btn">
+                    <button class="btn-square btn-point" id="devBtn">댓글 등록하기</button>
+                </div>
+            </div>
+        </form>
+        {/}
+
+        <div class="area_comment_list">
+            <p class="reply_num">댓글 (<span id="devCommentCount">0</span>)</p>
+            <div>
+                <div class="sprint__list" id="devEventDetailContent">
+                    {* loading *}
+                    <div id="devEventDetailLoading" class="devForbizTpl">
+                        <div class="wrap-loading">
+                            <div class="loading"></div>
+                        </div>
+                    </div>
+
+                    {* empty *}
+                    <div id="devEventDetailListEmpty" class="devForbizTpl no-contents">등록된 댓글이 없습니다.</div>
+
+                    {* list *}
+                    <div id="devEventDetailList" class="devForbizTpl">
+                        <div class="info">
+                            <p class="writer font-ss" title="작성자">
+                                {[str_name]}
+                                {[#if idChk]}
+                                    <button class="viewbox__list__edit-btn devModifyComment">수정</button>
+                                    <button class="viewbox__list__del-btn devCommentDeleteBtn" devIx="{[ec_ix]}">삭제</button>
+                                {[/if]}
+                            </p>
+                            <!-- <p class="regdate font-sss" title="작성일">2019-09-04</p> -->
+                        </div>
+                        <div class="text">
+                            <p class="contents">{[{\comment}]}</p>
+                        </div>
+                        <div class="viewbox__list__edit-area devCommentModifyArea" style="display: none;">
+                            <span class="viewbox__list__name">{[nick_name]}</span>
+                            <span class="viewbox__list__date">
+                                        {[comment_regdate]}
+                                        </span>
+                            <form>
+                                <textarea class="viewbox__list__edit-area__textarea devInputComment" name="comment"  cols="30" rows="10">{[comment_text]}</textarea>
+                                <div class="viewbox__list__edit-area__btns" id="devCommentContent">
+                                    <button class="viewbox__list__edit-area__btns--cancel devCommentModifyCancel">취소</button>
+                                    <button class="viewbox__list__edit-area__btns--submit devCommentModifyBtn"  type="button" data-ec_ix="{[ec_ix]}" >등록</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+    <div id="devPageWrap"></div>
+    {:}
+    <div class="event_comment">
+        {? onOff == 'Y'}
+        <form id="devEventCommentForm">
+            <input type="hidden" name="event_ix" value="{event_ix}"/>
+            <div class="area_input">
+                <textarea placeholder="댓글을 입력해주세요." name="comment" id="devInputComment" title="댓글"></textarea>
+                <button class="btn-square btn-point" id="devBtn">댓글 등록하기</button>
+            </div>
+        </form>
+        {/}
+
+        <div class="area_comment_list">
+            <p class="reply_num">댓글 (<span id="devCommentCount">0</span>)</p>
+            <ul>
+                <div class="area_comment_list" id="devEventDetailContent">
+                    {* loading *}
+                    <div id="devEventDetailLoading" class="devForbizTpl">
+                        <div class="wrap-loading">
+                            <div class="loading"></div>
+                        </div>
+                    </div>
+
+                    {* empty *}
+                    <div id="devEventDetailListEmpty" class="devForbizTpl no-contents">등록된 댓글이 없습니다.</div>
+
+                    {* list *}
+                    <div id="devEventDetailList" class="devForbizTpl">
+                        <li>
+                            <p class="info">
+                                <span>{[id]}</span><span class="date">{[comment_regdate]}</span>
+                            </p>
+                            <p class="contents">{[{\comment}]}</p>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div id="devPageWrap"></div>
+    {/}
+
+    {/}
+    {b_img_text2}
+</div>
+
+
+
+

@@ -1,0 +1,22 @@
+.br {
+  &__return {
+
+    &__sub-title {
+      padding-left: rem(40px);
+      margin: rem(0 -40px);
+      border-top: rem(10px) solid #efefef;
+      font-weight: bold;
+      font-size: rem(26px);
+      line-height: rem(86px);
+    }
+
+    .br__claim {
+      margin-top: rem(20px);
+    }
+
+    .claim {
+      margin: 0 !important;
+    }
+
+  }
+}

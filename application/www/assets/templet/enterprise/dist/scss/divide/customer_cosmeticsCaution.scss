@@ -1,0 +1,111 @@
+.fb {
+
+  &__cosmetics {
+
+
+    .cosmetics {
+
+      &__title {
+        padding-bottom: 15px;
+        color: #000;
+        font-size: 24px;
+        border-bottom: 1px solid #222222;
+      }
+
+      &__wrap {
+        border-bottom: 1px solid #dddddd;
+      }
+
+      &__list {
+        border-top: 1px solid #dddddd;
+
+        &:first-child {
+          border-top: 0;
+        }
+      }
+
+      &__link {
+        display: block;
+        padding-left: 30px;
+        background: url(../images/customer/img-arrow-down.png) no-repeat 884px center;
+        color: #666666;
+        font-size: 14px;
+        line-height: 50px;
+
+        &--open {
+          background: url(../images/customer/img-arrow-up.png) no-repeat 884px center;
+
+          & + .cosmetics__info {
+            display: block;
+          }
+        }
+      }
+
+      &__info {
+        display: none;
+        padding: 24px 46px;
+        background: #f8f8f8;
+        border-top: 1px solid #dddddd;
+
+      }
+
+      &__infoList {
+        position: relative;
+        margin-top: 18px;
+        padding-left: 6px;
+        color: #666666;
+        font-size: 14px;
+        line-height: 1.5;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:after {
+          display: block;
+          position: absolute;
+          top: 9px;
+          left: 0;
+          width: 2px;
+          height: 2px;
+          background: #666666;
+          content: "";
+        }
+
+        &--nodot {
+          margin-top: 18px;
+          padding-left: 6px;
+          color: #666666;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+
+
+      &__subInfoList {
+        display: block;
+        position: relative;
+        margin-left: 8px;
+        margin-top: 4px;
+        padding-left: 7px;
+        color: #999999;
+        font-size: 13px;
+
+        &:after {
+          display: block;
+          position: absolute;
+          top: 10px;
+          left: 0;
+          width: 2px;
+          height: 1px;
+          background: #999;
+          content: "";
+        }
+
+        &:first-child {
+          margin-top: 9px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,173 @@
+.fb {
+
+  &__mypage-top {
+    display: block;
+    overflow: hidden;
+    height: 110px;
+    margin-bottom: 60px;
+    color: #000;
+    box-sizing: border-box;
+    @extend %clear;
+
+    &__pic {
+      display: inline-block;
+      float: left;
+      width: 110px;
+      height: 110px;
+      margin-right: 20px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    &__grade {
+      display: inline-block;
+      float: left;
+      position: relative;
+      width: 50%;
+      height: 110px;
+      color: #222;
+      line-height: 26px;
+
+      &--font {
+        font-family: $font_n;
+      }
+      &-text {
+        display: block;
+        margin: 10px 0 21px;
+        font-size: 20px;
+        line-height: 26px;
+      }
+
+      &--em {
+        color: #222;
+        font-weight: bold;
+      }
+
+      &--color {
+        color: #00bce7;
+        font-size: 14px;
+        em {
+          font-size: 16px;
+        }
+      }
+
+      &-benefit {
+        float: left;
+        width: 98px;
+        height: 26px;
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        border-radius: 13px;
+        color: #666;
+        font-size: 12px;
+        text-align: center;
+        line-height: 28px;
+      }
+
+    }
+
+    &__section {
+      display: inline-block;
+      float: left;
+      width: 25%;
+      height: 110px;
+      padding: 5px 0 10px;
+      border-left: 1px dotted #ccc;
+      text-align: center;
+
+      &:last-child {
+        border-right: 1px dotted #ccc;
+      }
+    }
+
+    &__title {
+      color: #222;
+      font-size: 14px;
+
+      &-delivery:before {
+        display: block;
+        width: 47px;
+        height: 38px;
+        margin: 0 auto;
+        padding-bottom: 15px;
+        background: url(../../img/bg/sprite_mypage.png) no-repeat 0 0;
+        content: '';
+      }
+      &-mileage:before {
+        display: block;
+        width: 47px;
+        height: 38px;
+        margin: 0 auto;
+        padding-bottom: 15px;
+        background: url(../../img/bg/sprite_mypage.png) no-repeat -100px 0;
+        content: '';
+      }
+      &-coupon:before {
+        display: block;
+        width: 47px;
+        height: 38px;
+        margin: 0 auto;
+        padding-bottom: 15px;
+        background: url(../../img/bg/sprite_mypage.png) no-repeat -200px 0;
+        content: '';
+      }
+      //$list: delivery, mileage, coupon;
+      //@for $i from 1 through length($list) {
+      //
+      //  &-#{nth($list, $i)}:before {
+      //    display: block;
+      //    width: 47px;
+      //    height: 38px;
+      //    margin: 0 auto;
+      //    padding-bottom: 15px;
+      //    background: url(../../img/bg/sprite_mypage.png) no-repeat -#{($i - 1) * 100}px 0;
+      //    content: '';
+      //  }
+      //}
+    }
+
+    &__detail {
+      margin-top: 15px;
+      cursor: pointer;
+      .unit {
+        vertical-align:middle;
+      }
+    }
+
+    &__num {
+      font-family: $font_n;
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+      vertical-align:middle;
+    }
+
+
+    &__btn {
+      display: inline-block;
+      position: absolute;
+      top: 44px;
+      right: 46px;
+      width: 11px;
+      height: 19px;
+      background: url(../../images/common/icon_bestslider_arrow.png) no-repeat 0 0;
+    }
+  }
+}
+
+html[lang=en] {
+  .fb {
+    &__mypage-top {
+      &__title {
+        &-mileage:before {
+          background: url(../../img/bg/sprite_mypage.png) no-repeat -147px 0;
+          content: '';
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<form id="devExtMileageForm">
+    <input type="hidden" name="page" value="1" id="devPage"/>
+    <input type="hidden" name="max" value="10" />
+    <input type="hidden" name="month" value="{extDate}" />
+</form>
+<section class="br__mileage-decimation">
+    <h2 class="br__cs__title">{=trans('소멸예정 적립금')}</h2>
+    <dl class="mileage-deci__total">
+        <dt class="mileage-deci__total__title">{=trans('소멸 예정 적립금')}</dt>
+        <dd class="mileage-deci__total__money">{fbUnit.f}{ext_mileage_amount}{fbUnit.b}</dd>
+    </dl>
+
+    <p class="mileage-deci__desc">{=trans('이후 <strong>3개월(당월 포함)</strong>동안의 소멸예정 금액입니다.')}</p>
+    <div class="mileage-deci__wrap" id="devMileageContent">
+        <ul class="mileage-deci__list" >
+            <li class="devForbizTpl" id="devMileageLoading"></li>
+            <li class="mileage-deci__box mileage-deci__box--empty devForbizTpl" id="devMileageListEmpty">
+                {=trans('소멸예정 적립금이 없습니다.')}
+            </li>
+            <li class="mileage-deci__box" id="devMileageList">
+                <span class="mileage-deci__box__date">{[extinction_date]}</span>
+                <dl class="mileage-deci__box__info">
+                    <dt class="mileage-deci__box__title">{=trans('소멸예정 적립금')}</dt>
+                    <dd class="mileage-deci__box__money">-{fbUnit.f}{[extinction_mileage]}{fbUnit.b}</dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="br__more" id="devPageWrap"></div>
+</section>

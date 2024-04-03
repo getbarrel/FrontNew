@@ -1,0 +1,43 @@
+.fb {
+  &__mypage {
+    .fb__wishlist--item {
+      height: auto!important;
+      &:nth-child(4n+1) {
+        clear: both;
+      }
+    }
+  }
+  &__wishlist {
+    &__percent {
+      font-size: 16px;
+      em {
+        font-size: 18px;
+      }
+    }
+  }
+  &__badge {
+    &__wrap {
+      height: 20px;
+    }
+  }
+  &__item {
+    &__option {
+      height: 39px;
+      @include line(1);
+    }
+    &__price {
+      em {
+        font-weight: 400;
+      }
+    }
+  }
+  .wrap-item-list {
+    .item {
+      width: 100%!important;
+    }
+    li {
+      width: 202px;
+      margin: 0 40px 40px 0;
+    }
+  }
+}

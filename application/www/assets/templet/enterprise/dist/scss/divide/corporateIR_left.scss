@@ -1,0 +1,37 @@
+.fb__left-nav {
+  &__title {
+    a {
+      display: block;
+      //margin-top: 20px;
+      color: #000;
+      font-size: 28px;
+    }
+  }
+
+  &__link {
+    //margin-bottom: 40px;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    a {
+      display: block;
+      color: #666;
+      font-size: 14px;
+      line-height: 25px;
+
+      .on{
+        color: #000;
+      }
+    }
+  }
+
+  &__subtitle {
+    a {
+      color: #222;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}

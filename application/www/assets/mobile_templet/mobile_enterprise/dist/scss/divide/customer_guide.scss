@@ -1,0 +1,261 @@
+.br {
+  &__guide {
+    padding: rem(0 40px);
+    color: #000;
+  }
+
+  .gform {
+    &__common {
+      margin-top: rem(50px);
+      border: {
+        bottom: 1px solid #000;
+      }
+      font-size: rem(22px);
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &__top {
+        padding-left: rem(20px);
+        background: #eeeeef;
+        border: {
+          top: 2px solid #000;
+          bottom: 1px solid #000;
+        }
+        font: {
+          weight: bold;
+          size: rem(26px);
+        }
+        line-height: rem(80px);
+      };
+
+      &__desc {
+        padding: rem(30px 0 30px 20px);
+        border-top: 1px solid #dcdddd;
+        font-size: rem(22px);
+        line-height: rem(32px);
+
+        &:before {
+          display: inline-block;
+          width: rem(2px);
+          height: rem(2px);
+          margin-right: rem(5px);
+          background: #000;
+          border-radius: 100%;
+          vertical-align: middle;
+          content: '';
+        }
+
+        &:first-child {
+          border-top: 0;
+        }
+
+        &--point {
+          color: $cPoint;
+          font-weight: bold;
+        }
+      }
+
+      &__hyphen {
+        position: relative;
+        padding-left: rem(50px);
+        margin-bottom: rem(20px);
+        font-size: rem(22px);
+        line-height: rem(32px);
+
+        &:before {
+          position: absolute;
+          left: rem(40px);
+          vertical-align: middle;
+          content: '-';
+        }
+      }
+
+      &__title {
+        padding-left: rem(22px);
+        font: {
+          weight: bold;
+          size: rem(34px);
+        }
+      }
+
+      &__step {
+        padding: rem(30px 0 0 20px);
+
+        span {
+          display: block;
+        }
+
+        &-title {
+          font: {
+            weight: bold;
+            size: rem(26px);
+          }
+        }
+
+        .gform__common__desc {
+          border: 0;
+          padding: rem(30px 0 0);
+        }
+      }
+
+      &__info {
+        padding: rem(30px 0 30px 20px);
+        margin: rem(50px 0);
+        background: #efefef;
+        font-size: rem(26px);
+
+        &--bold {
+          font-weight: bold;
+          line-height: rem(32px);
+        }
+
+        &--point {
+          padding-bottom: rem(40px);
+          color: $cPoint;
+          font-size: rem(46px);
+        }
+      }
+
+      &__last {
+        border-bottom: 0;
+      }
+
+    };
+
+    &__table {
+      padding-top: rem(30px);
+      border-bottom: 1px solid #000;
+
+      &__title {
+        padding: rem(20px 0 20px 20px);
+        font: {
+          weight: bold;
+          size: rem(34px);
+        }
+      }
+
+      &__top {
+        border-top: 2px solid #000;
+
+        table {
+          border-collapse: collapse;
+        }
+
+        thead {
+            background: #eeeeef;
+            border-bottom: 1px solid #000;
+        }
+
+        th {
+          border-right: 1px solid #fff;
+          font: {
+            weight: bold;
+            size: rem(26px);
+          }
+          text-align: center;
+          line-height: rem(32px);
+          vertical-align: middle;
+
+          &:last-of-type {
+            padding-left: rem(20px);
+            border-right: 0;
+            text-align: left;
+          }
+
+        }
+
+        td {
+          padding: rem(25px 0 25px 20px);
+          border-bottom: 1px solid #dcdddd;
+          border-left: 1px solid #dedede;
+          line-height: rem(32px);
+          vertical-align: middle;
+
+          &:first-child {
+            border-left: 0;
+          }
+        }
+      }
+
+      &__ic {
+        padding: 0 !important;
+        text-align: center;
+
+        span {
+          display: inline-block;
+          width: rem(20px);
+          height: rem(20px);
+          border-radius: rem(10px);
+          font-size: 0;
+        }
+
+        .ok {
+          border: 1px solid $cPoint;
+        }
+
+        .no {
+          border: 1px solid #dcdddd;
+          background: #dcdddd;
+        }
+      }
+    };
+
+    &__info {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: rem(30px 0 10px);
+      font-size: rem(22px);
+      line-height: rem(32px);
+      @extend %clear;
+
+      &__title {
+        width: 30%;
+        padding: rem(0 0 20px 20px);
+        font-weight: bold;
+      }
+
+      &__detail {
+        width: 70%;
+        padding: rem(0 0 20px 0);
+      }
+    }
+  };
+}
+
+html[lang=en] {
+  .br {
+    .shippingGuide {
+
+      &__desc {
+        line-height: rem(34px);
+        margin-top: rem(40px);
+        padding-bottom: rem(40px);
+        border-bottom: 1px solid #dcdddd;
+        font-size:rem(26px);
+
+        &__title {
+          display: block;
+          margin-bottom: rem(20px);
+        }
+      }
+    }
+    .gform {
+      &__table {
+        &__top {
+          th {
+            word-break:break-all;
+          }
+          td {
+            word-break: break-all;
+            &:last-child {
+              word-break:keep-all;
+            }
+          }
+        }
+      }
+    }
+  }
+}

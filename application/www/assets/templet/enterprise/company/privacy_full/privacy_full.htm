@@ -1,0 +1,31 @@
+<div class="wrap-window-popup company-popup">
+    { ? piTitle == "이용약관" }
+    <p class="popup-title">
+        <span>{piTitle}</span>
+    </p>
+    <div style="padding-bottom:25px;"></div>
+    { : }
+    <p class="popup-title" style="border-bottom:0px solid #fff;">
+        <!--<span>{piTitle}</span>-->
+    </p>
+    { / }
+
+    <div class="popup-content">
+        <div class="prev-agreement devContents" style="padding-bottom:50px;">
+            {@ policy}
+            {? .index_ == 0}
+            <div class='devPolicyContentsClass' id='devPolicyContentsId{policy.pi_ix}'>
+                {policy.pi_contents}
+            </div>
+            {/}
+            {/}
+            <br>
+            <select id="devPolicyHistory">
+                <option value="">{=trans('약관 변경 이력 보기')}</option>
+                {@ policy}
+                <option value="{policy.pi_ix}">{=trans('{policy.regdate} 시행')}</option>
+                {/}
+            </select>
+        </div>
+    </div>
+</div>

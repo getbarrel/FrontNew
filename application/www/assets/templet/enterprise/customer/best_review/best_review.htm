@@ -1,0 +1,260 @@
+ <!-- crema load -->
+<script>
+    var crema_userId = null;
+    var crema_userNm = null;
+
+     {? layoutCommon.isLogin}
+        crema_userId = "{layoutCommon.userInfo.id}";
+        crema_userNm = "{layoutCommon.userInfo.name}";
+     {/}
+
+    window.cremaAsyncInit = function() { // init.js가 다운로드 & 실행된 후에 실행하는 함수
+      //console.log("[CREMA] cremaAsyncInit() - EXECUTED!");
+      crema.init(crema_userId, crema_userNm);
+      //console.log("[CREMA] crema.init() - EXECUTED!");
+    };
+
+    (function(i,s,o,g,r,a,m){if(s.getElementById(g)){return};a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.id=g;a.async=1;a.src=r;m.parentNode.insertBefore(a,m)})
+    (window,document,'script','crema-jssdk','//{c.CREMA_WIDGET_HOST}/getbarrel.com/init.js');
+</script>
+{? langType == 'korean'}
+
+<!-- [E] -->
+<section class="fb__best-review">
+      <div class="best-review">
+            <h2 class="fb__best-review__title">{=trans('제품 후기')}</h2>
+            <section class="best-review__top">
+                  <h3 class="best-review__title">{=trans('BEST REVIEW')}</h3>
+                  <p class="best-review__desc">{=trans('매달 마지막 주 목요일 마다 베스트리뷰를 선정합니다.')}</p>
+                  <div class="best-review__rank">
+                        <dl class="best-review__rank__box">
+                              <dt>{=trans('<em>1</em>등')}</dt>
+                              <dd><em>50,000</em>원</dd>
+                        </dl>
+                        <dl class="best-review__rank__box">
+                              <dt>{=trans('<em>2</em>등')}</dt>
+                              <dd><em>20,000</em>원</dd>
+                        </dl>
+                        <dl class="best-review__rank__box">
+                              <dt>{=trans('<em>3</em>등')}</dt>
+                              <dd><em>10,000</em>원</dd>
+                        </dl>
+                  </div>
+                  <!-- 베스트 위젯 -->
+                  <div class="crema-reviews" data-widget-id="35"></div>
+
+                  <div class="best-review__type">
+                        <dl class="best-review__type__box">
+                              <dt>{=trans('일반후기')}</dt>
+                              <dd>{=trans('글 50자 이상의 생생한 후기를<br> 남겨주시면 3,000원이 적립 됩니다.')}</dd>
+                        </dl>
+                        <dl class="best-review__type__box">
+                              <dt>{=trans('포토후기')}</dt>
+                              <dd>{=trans('글 50자 이상의 생생한 후기와<br>착용컷을 남겨주시면 5,000원이 적립 됩니다.')}</dd>
+                        </dl>
+                  </div>
+                {? reviewBanner2}
+                <div  class="review-guide__type">
+                    <a href="{reviewBanner2.bannerLink}"><img src="{reviewBanner2.imgSrc}" style="width:100%;" alt=""></a>
+                </div>
+                {/}
+                  <p class="best-review__desc--light">{=trans('·후기 적립금은 온라인 구매만 해당됩니다.')}</p>
+            </section>
+
+            <!--후기목록영역-->
+            <div id="crema-widget"></div>
+
+            <div class="best-review__notice">
+                  <h4 class="best-review__notice__title">{=trans('적립불가 조건')}</h4>
+                  <ul class="best-review__notice__list">
+                        <li class="best-review__notice__desc">{=trans('리뷰 작성시 수정이 안되오니 이점 참고 부탁 드립니다.')}</li>
+                        <li class="best-review__notice__desc">{=trans('상품 품절시 리뷰 적용이 안되어 적립금 지급이 안되오니 이점 양해 부탁 드립니다.')}</li>
+                        <li class="best-review__notice__desc">{=trans('두 가지 제품으로 같은 사진을 두번 올리는 경우 및 중복 후기 (복사/붙여넣기)의 경우 적립금은 한번만 지급')}</li>
+                        <li class="best-review__notice__desc">{=trans('글 50자는 ‘공백 제외/ 특수문자 제외 / ㅋ,ㅎ,ㅠ,..등 자음 및 모음 ,한자는 제외 숫자의 경우 한 글자로 처리')}</li>
+                        <li class="best-review__notice__desc">{=trans('오프라인 매장 구매, 공식 홈페이지 구매제품이 아닌 경우')}</li>
+                        <li class="best-review__notice__desc">{=trans('배송완료일로 부터 30일이 지난제품일 경우')}</li>
+                        <li class="best-review__notice__desc">{=trans('비회원으로 구입후 후기 작성 시 적립금 미지급 (회원혜택)')}</li>
+                        <li class="best-review__notice__desc">{=trans('1만원 이하의 상품일 경우 미지급')}</li>
+                        <li class="best-review__notice__desc">{=trans('배럴 SALE 상품 구매 시 구매후기 작성 및 후기작성으로 인한 적립금 지급 불가')}</li>
+                        <li class="best-review__notice__desc">{=trans('이벤트 진행 시 해당 상품 구매에 대한 후기 적립금은 조정될 수 있습니다.')}</li>
+                  </ul>
+            </div>
+
+            <!--포토리뷰영역-->
+            <div class="best-review__crema crema-reviews" data-widget-id='27'></div>
+            <!--모든리뷰목록영역-->
+            <div class="best-review__crema crema-reviews"></div>
+      </div>
+</section>
+
+{:}
+
+<!--상품후기-->
+<form id="devProductReviewForm">
+    <input type="hidden" name="id" value="{pid}"/>
+    <input type="hidden" name="orderBy" value="real_regdate"/>
+    <input type="hidden" name="orderByType" value="desc"/>
+    <input type="hidden" name="bbsDiv" value=""/>
+    <input type="hidden" name="page" value="1" id="devPage"/>
+    <input type="hidden" name="max" value="3" id="devMax"/>
+</form>
+
+<section class="fb__best-review fb__goods-view__detail">
+      {#customerTop}
+      <div class="best-review detail__main">
+            <h2 class="fb__best-review__title">{=trans('제품 후기')}</h2>
+            <section class="best-review__type__wrap eng-hidden">
+                  <div class="best-review__type">
+                        <dl class="best-review__type__box">
+                              <dt>{=trans('일반후기')}</dt>
+                              <dd>{=trans('글 50자 이상의 생생한 후기를<br> 남겨주시면 3,000원이 적립 됩니다.')}</dd>
+                        </dl>
+                        <dl class="best-review__type__box">
+                              <dt>{=trans('포토후기')}</dt>
+                              <dd>{=trans('글 50자 이상의 생생한 후기와<br>착용컷을 남겨주시면 5,000원이 적립 됩니다.')}</dd>
+                        </dl>
+                  </div>
+                  <p class="best-review__desc--light">{=trans('·후기 적립금은 온라인 구매만 해당됩니다.')}</p>
+            </section>
+
+            <!-- @TODO 제품후기 리스트 (상품상세 참조) -->
+            <section class="tab-review" style="margin-top:50px;">
+                  <div class="tab-review__content">
+                        <div class="tab-review__content review-content">
+                              <div class="sort-list top">
+                                    <div class="sort-list__tab review-tab tab-js">
+                                          <a href="#review-tab1" class="devReviewsDiv active" data-bbsdiv="0">
+                                                {=trans('전체후기')}<em class="sj__n">{=number_format(allReviewTotal)}</em>
+                                          </a>
+                                          <a href="#review-tab1" class="devReviewsDiv" data-bbsdiv="2">
+                                                {=trans('일반후기')}<em class="sj__n"> {=number_format(reviewTotal)}</em>
+                                          </a>
+                                          <a href="#review-tab1" class="devReviewsDiv eng-hidden" data-bbsdiv="1">
+                                                {=trans('포토후기')}<em class="sj__n">{=number_format(premiumReviewTotal)}</em>
+                                          </a>
+                                    </div>
+
+                                    <select class="sort-list__select devSort" title="후기 정렬">
+                                          <option value="real_regdate" data-sort="desc">{=trans('최근등록순')}</option>
+                                          <option value="avg" data-sort="asc">{=trans('평점낮은순')}</option>
+                                          <option value="avg" data-sort="desc">{=trans('평점높은순')}</option>
+                                    </select>
+                              </div>
+
+                              <div class="tab-review__list  wrap-tab-cont review-list">
+                                    <div id="review-tab1" class="active">
+                                          <ul id="devReviewContents">
+                                                {* loading *}
+                                                <li class="empty-content" id="devReviewLoading">
+                                                      <div class="wrap-loading">
+                                                            <div class="loading"></div>
+                                                      </div>
+                                                </li>
+
+                                                {* empty *}
+                                                <li class="empty-content" id="devReviewEmpty">{=trans('등록된 상품후기가 없습니다.')}</li>
+
+                                                {* list *}
+                                                <li id="devReviewDetail">
+                                                      <div class="review devReviewDetailContents" data-bbsIx="{[bbs_ix]}" data-video_idx="{[video_idx]}" data-bbs_subject="{[bbs_subject]}">
+                                                            <div class="review__wrap-star col star">
+                                                                  <div class="review__star-inner">
+                                    <span class="set-star">
+                                        <span class="score devStarScore" data-avg_pct="{[avg_pct]}" ></span>
+                                    </span>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="review__wrap-info col info">
+                                                                  {[#if isThumb]}
+                                                                  <figure class="{[#if isVideo]}wrap-video video-play{[else]}wrap-thumb{[/if]}">
+                                                                        <img src="{[thumb]}" alt="{[bbs_subject]}">
+                                                                  </figure>
+                                                                  {[/if]}
+                                                                  <div class="review__wrap-info__text--normal devViewVideoReview" data-video_idx="{[video_idx]}">
+                                                                        <p class="review__wrap-info__option">{[option_name]}</p>
+                                                                        <p class="review__wrap-info__title">{[bbs_subject]}</p>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="review__wrap-user col user">
+                                                                  <span>{[bbs_id]}</span>
+                                                            </div>
+                                                            <div class="review__wrap-date col date">
+                                                                  <span>{[regdate]}</span>
+                                                            </div>
+                                                      </div>
+
+                                                      <div class="review-detail" id="devDetailView_{[video_idx]}">
+                                                            <div class="review-detail__top wrap-score">
+                                                                  <div class="review-detail__wrap-score">
+                                                                        <span class="review-detail__title">{=trans('상품평가')}</span>
+                                                                        <span class="col star">
+                                        <span class="set-star">
+                                            <span class="score devStarScore" data-avg_pct="{[valuation_goods_pct]}" ></span>
+                                        </span>
+                                    </span>
+                                                                        <!--<img {[valuation_goods_pct]}>-->
+                                                                  </div>
+                                                                  <span class="review-detail__wrap-score">
+                                    <span class="review-detail__title">{=trans('배송평가')}</span>
+                                    <span class="col star">
+                                        <span class="set-star">
+                                            <span class="score devStarScore" data-avg_pct="{[valuation_delivery_pct]}" ></span>
+                                        </span>
+                                    </span>
+                                </span>
+                                                                  <!--<img class="score_{[valuation_delivery_pct]}" {[valuation_delivery_pct]}>-->
+                                                            </div>
+                                                            <div class="review-detail__content content">{[{\bbs_contents}]}</div>
+                                                            {[#if isThumb]}
+                                                            <div class="review-detail__img-area review-img-area" id="devReviewImgsContents">
+                                                                  <figure class="review-detail__thumb thumb devViewReviewImg" id="devReviewImgsDetails" data-bbsIx="{[bbsIx]}" data-index="{[index]}">
+                                                                        <img src = "{[img]}" alt="goods thumbnail">
+                                                                  </figure>
+                                                            </div>
+                                                            {[/if]}
+
+                                                            <!--어드민 댓글-->
+                                                            {[#if cmt.cmt_ix]}
+                                                            <div class="review-detail__admin-comment admin_comment">
+                                                                  <p class="review-detail__admin-info">
+                                                                        <span class="review-detail__admin-info__title">{[cmt.cmt_name]}</span>
+                                                                        <span class="review-detail__admin-info__date">{[cmt.cmt_date]}</span>
+                                                                  </p>
+                                                                  <div class="review-detail__admin-text comment">
+                                                                        {[{\cmt.cmt_contents}]}
+                                                                  </div>
+                                                            </div>
+                                                            {[/if]}
+                                                      </div>
+                                                </li>
+
+                                          </ul>
+
+                                          <div class="wrap-pagination" id="devReviewPageWrap"></div>
+                                    </div>
+                              </div>
+
+
+                        </div>
+                  </div>
+            </section>
+
+
+
+            <div class="best-review__notice">
+                  <h4 class="best-review__notice__title">{=trans('적립불가 조건')}</h4>
+                  <ul class="best-review__notice__list">
+                        <li class="best-review__notice__desc">{=trans('두 가지 제품으로 같은 사진을 두번 올리는 경우 및 중복 후기 (복사/붙여넣기)의 경우 적립금은 한번만 지급')}</li>
+                        <li class="best-review__notice__desc eng-hidden">{=trans('글 50자는 ‘공백 제외/ 특수문자제외 / ㅋ,ㅎ,ㅠ,..등 자음 및 모음 ,한자는 제외 숫자의 경우 한 글자로 처리')}</li>
+                        <li class="best-review__notice__desc">{=trans('오프라인 매장 구매, 공식 홈페이지 구매제품이 아닌 경우')}</li>
+                        <li class="best-review__notice__desc">{=trans('배송완료일로 부터 30일이 지난제품일 경우')}</li>
+                        <li class="best-review__notice__desc">{=trans('비회원으로 구입후 후기 작성 시 적립금 미지급 (회원혜택)')}</li>
+                        <li class="best-review__notice__desc">{=trans('1만원 이하의 상품일 경우 미지급')}</li>
+                        <li class="best-review__notice__desc">{=trans('배럴 SALE 상품 구매 시 구매후기 작성 및 후기작성으로 인한 적립금 지급 불가')}</li>
+                  </ul>
+            </div>
+
+      </div>
+</section>
+
+{/}

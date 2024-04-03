@@ -1,0 +1,92 @@
+<!-- 컨텐츠 영역 S -->
+<section class="fb-StyleCuration__bbs">
+	<section class="gallery-bbs">
+		<div class="gallery-bbs__header">
+			<h2 class="fb__main__title--hidden">Style Curation 게시판</h2>
+		</div>
+		<ul class="gallery-bbs__box col-4">
+			{ ? displayContentList }
+				{ @ displayContentList }
+					<li class="gallery-bbs__list">
+						<div class="gallery-bbs__category" style="color:{.c_preface};{? .b_preface == 'Y' }font-weight: bold;{ / } {? .i_preface == 'Y' }font-style:oblique;{ / } {? .u_preface == 'Y' }text-decoration-line: underline;{ / }">{.preface}</div>
+						<div class="gallery-bbs__img-box">
+							<a href="/content/styleDetail/{.con_ix}/{.cid}">
+								<figure class="gallery-bbs__img">
+									<img src="{.contentImgSrc}" alt="" />
+								</figure>
+							</a>
+						</div>
+						<div class="gallery-bbs__info">
+							<!-- <a href="javascript:void(0);" class="product-box__heart {? .alreadyWishContent == 'Y'}product-box__heart--active{/}" style="width:21px;" onclick="contentWish('{.con_ix}', 'C', this)">좋아요</a> -->
+							<a href="/content/styleDetail/{.con_ix}/{.cid}">
+								<div class="gallery-bbs__title" style="text-align:{? .s_title == 'L'}left{: .s_title == 'C'}center{: .s_title == 'R'}right{/};color:{.c_title};{? .b_title == 'Y' }font-weight: bold;{ / } {? .i_title == 'Y' }font-style:oblique;{ / } {? .u_title == 'Y' }text-decoration-line: underline;{ / }">
+									{.title}
+								</div>
+							</a>
+							<div class="gallery-bbs__title-sub" style="color:{.c_explanation};{? .b_explanation == 'Y' }font-weight: bold;{ / } {? .i_explanation == 'Y' }font-style:oblique;{ / } {? .u_explanation == 'Y' }text-decoration-line: underline;{ / }">
+								{.explanation}
+							</div>
+						</div>
+					</li>
+				{ / }
+			{ : }
+			<!-- 등록된 게시글이 없을 경우 S -->
+				<li class="gallery-bbs__list no-data" style="display:">
+					<p class="empty-content">등록된 글이 없습니다.</p>
+				</li>
+			<!-- 등록된 게시글이 없을 경우 E -->
+			{ / }
+		</ul>
+
+		<!-- 페이지네이션 S -->
+		<div id="devPageWrap">
+			{ ? displayContentPaging }
+				<div class="wrap-pagination">
+					<button type="button" class="prev btn-pagination-prev prev devPageBtnCls" onClick="location.href='/content/styleList/{paramCid}/{prevPage}'" {? curPage == prevPage }disabled{/}><i class="ico ico-arrow-left" ></i>이전</button>
+
+					{ ? lastPage > 10 }
+					{? firstPage != lastPage }<a href="/content/styleList/{paramCid}/{firstPage}" class="devPageBtnCls on">{firstPage}</a>{/}
+					<div class="fb__bubble" {? firstPage == lastPage }style="display:none"{/}>
+						<a href="/content/styleList/{firstPage}">...</a>
+						<div class="fb__go-page">
+							<div class="fb__go-form">
+								<div class="fb__form-item">
+									<label for="" class="fb__form-label--hidden">페이지넘버</label>
+									<input type="text" class="fb__form-input" />
+								</div>
+								<div class="fb__go-last">{lastPage}</div>
+								<button type="button" class="btn-sx">GO</button>
+							</div>
+						</div>
+					</div>
+					{ / }
+
+					{pageNumTpl}
+					
+					{ ? lastPage > 10 }
+					<div class="fb__bubble" {? firstPage == lastPage }style="display:none"{/}>
+						<a href="/content/styleList/{paramCid}/{lastPage}">...</a>
+						<div class="fb__go-page">
+							<div class="fb__go-form">
+								<div class="fb__form-item">
+									<label for="" class="fb__form-label--hidden">페이지넘버</label>
+									<input type="text" class="fb__form-input" value="{lastPage}" />
+								</div>
+								<div class="fb__go-last">{lastPage}</div>
+								<button type="button" class="btn-sx">GO</button>
+							</div>
+						</div>
+					</div>
+					
+
+					{? firstPage != lastPage }<a href="/content/styleList/{paramCid}/{lastPage}" class="devPageBtnCls">{lastPage}</a>{ / }
+					{ / }
+					<button type="button" class="next btn-pagination-next" onClick="location.href='/content/styleList/{paramCid}/{nextPage}'" {? curPage == nextPage }disabled{/}><i class="ico ico-arrow-right"></i>다음</button>
+				</div>
+			{ / }
+		</div>
+		</form>
+		<!-- 페이지네이션 E -->
+	</section>
+</section>
+<!-- 컨텐츠 영역 E -->

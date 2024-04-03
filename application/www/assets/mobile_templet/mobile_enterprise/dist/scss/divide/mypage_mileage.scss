@@ -1,0 +1,282 @@
+.br {
+  .br__mileage {
+    padding: rem(40px 40px 0);
+    //상단멘트
+    &__description {
+      padding: rem(50px 0 95px);
+      color: #1b1b1b;
+      font-size: rem(30px);
+      line-height: rem(50px);
+      text-align: center;
+      em {
+        font-weight: 600;
+      }
+      span {
+        display: block;
+        color: $cPoint;
+        font-size: rem(50px);
+        line-height: rem(70px);
+
+      }
+      strong {
+        font-weight: 600;
+      }
+    }
+    //적립간략소개
+    &__info {
+      display: table;
+      table-layout: fixed;
+      width: rem(560px);
+      margin: 0 auto;
+      border: 1px solid #b5b5b6;
+
+      .mileage__state {
+        display: table-cell;
+        width: 33.33%;
+        padding: rem(30px 0);
+        background: #efefef;
+        text-align: center;
+
+        &__title {
+          display: block;
+          color: #1b1b17;
+          font-size: rem(22px);
+          line-height: rem(42px);
+        }
+        &__money {
+          display: block;
+          color: #1b1b17;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(46px);
+        }
+        &__link {
+          color: inherit;
+        }
+      }
+    }
+    //적립금조회
+    &__inquiry {
+      padding:rem(70px 0 0);
+
+      .mileage-folding {
+        &__title {
+          color: #000;
+          font-size: rem(34px);
+          font-weight: 600;
+          line-height: rem(54px);
+        }
+        &__box {
+          position: relative;
+          margin-top: rem(20px);
+          padding: rem(25px 0);
+          border: {
+            top: 1px solid #000;
+            bottom: 1px solid #000;
+          }
+        }
+        &__text {
+          padding-right: rem(70px);
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(36px);
+          span {
+            color: $cPoint;
+          }
+        }
+        &__btn {
+          position: absolute;
+          top: 0;
+          right: rem(-40px);
+          width: rem(110px);
+          height: 100%;
+          padding: 0;
+          background: none;
+          @extend %hiddenText;
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: rem(24px);
+            height: rem(22px);
+            margin: rem(-11px 0 0 -12px);
+            background: $sprite22 no-repeat rem(-278px -1px);
+            background-size:rem($sprite22Size);
+          }
+        }
+      }
+      //form 영역
+      .mileage-inquiry {
+        padding-bottom:rem(50px);
+
+        &__notice {
+          padding: rem(40px 0);
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(46px);
+          strong {
+            color: $cPoint;
+            font-weight: 600;
+          }
+        }
+        &__form {
+          margin-top: rem(30px);
+          font-size: 0;
+          &:first-of-type {
+            margin-top: 0;
+          }
+          &--months {
+            display: flex;
+            justify-content: space-between;
+          }
+          &__btn {
+            display: inline-block;
+            width: rem(120px);
+            height: rem(100px);
+            padding:0;
+            border: 1px solid #b5b5b6;
+            background-color: #fff;
+            color: #000;
+            font-size: rem(26px);
+            line-height: rem(36px);
+            text-align: center;
+            &--active {
+              border-color: #000;
+              background-color: #000;
+              color: #fff;
+            }
+          }
+          &__input {
+            width: rem(260px);
+            height: rem(70px);
+            font-size: rem(26px);
+            border:1px solid #b5b5b6;
+            background:#fff;
+            text-align: center;
+          }
+          .hyphen {
+            display: inline-block;
+            width: rem(20px);
+            height: 2px;
+            margin: rem(0 10px 0 10px);
+            background: #b5b5b6;
+            vertical-align: middle;
+            @extend %hiddenText;
+            &_2 {
+              margin: {
+                left: rem(8px);
+                right: rem(7px);
+              }
+            }
+          }
+          &--state {
+            padding: rem(10px 0);
+            @extend %clear;
+          }
+          &__text {
+            float: left;
+            color: #000;
+            font-size: rem(26px);
+            line-height: rem(38px);
+          }
+          &__radio {
+            float: right;
+            label {
+              display: inline-block;
+              float: left;
+              margin-right: rem(35px);
+              span {
+                display: inline-block;
+                margin-left: rem(5px);
+                color: #000;
+                font-size: rem(26px);
+                line-height: rem(38px);
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+        &__btn {
+          display: block;
+          width: 100%;
+          height: rem(80px);
+          margin-top:rem(70px);
+          border: 1px solid #000;
+          background: #fff;
+          color: #000;
+          font-size: rem(30px);
+          font-weight: 600;
+          text-align: center;
+        }
+      }
+      //적립금 내역
+      .mileage-history {
+        &__list {
+          border-top:2px solid #000;
+        }
+        &__box {
+          padding:rem(45px 0 50px);
+          border-bottom:1px solid #898989;
+          &:last-child {
+            border-bottom:2px solid #000;
+          }
+          &__date {
+            float:left;
+            margin-bottom:rem(20px);
+            color:#b5b5b6;
+            font-size:rem(22px);
+            line-height:rem(32px);
+          }
+          &__order-number {
+            float:right;
+            color:#b5b5b6;
+            font-size:rem(22px);
+            line-height:rem(32px);
+          }
+          &__title {
+            clear:both;
+            padding-right:rem(100px);
+            color:#000;
+            font-size:rem(26px);
+            line-height:rem(36px);
+            @include line();
+          }
+          &__mileage {
+            display: inline-block;
+            margin-top:rem(40px);
+            color:$cPoint;
+            font-size:rem(30px);
+            line-height:rem(40px);
+          }
+          &--loading,
+          &--empty {
+            padding:rem(75px 0);
+            color:#b5b5b6;
+            font-size:rem(26px);
+            line-height:rem(36px);
+            text-align:center;
+            &:last-child {
+              border-bottom:none;
+            }
+          }
+        }
+      }
+
+    }
+
+    &-decimation {
+      .mileage-deci {
+        &__desc {
+          margin-top: rem(50px);
+        }
+
+        &__wrap {
+          margin-top: 0;
+        }
+      }
+    }
+
+  }
+}

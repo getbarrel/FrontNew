@@ -1,0 +1,310 @@
+{? langType == 'korean'}
+<div class="fb__mypage-addressAdd wrap-window-popup address-add-popup">
+    <p class="popup-title">
+        <span>
+            {? ix}
+            {=trans('배송지 수정')}
+            {:}
+            {=trans('새 배송지 추가')}
+            {/}
+        </span>
+        <span class="close" onclick="window.close();"></span>
+    </p>
+
+    <div class="popup-content">
+        <form id="devAddressBookAddForm">
+            {? ix}
+            <input type="hidden" name="ix" value="{ix}" />
+            <input type="hidden" name="mode" value="update" id="devMode" />
+            {:}
+            <input type="hidden" name="mode" value="insert" id="devMode" />
+            {/}
+
+            <table class="fb__mypage-addressAdd__table">
+                <colgroup>
+                    <col width="140px">
+                    <col width="*">
+                </colgroup>
+                <tbody class="table">
+                <tr class="eng-hidden">
+                    <th scope="col">
+                        <em class="fb__mypage-addressAdd__table--must">*</em>
+                        {=trans('주소 별칭')}
+                    </th>
+                    <td>
+                        <input class="table__input--long" type="text" name="shipping_name" value="{shipping_name}" id="devShippingName" title="배송지 별칭">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        <em class="fb__mypage-addressAdd__table--must">*</em>
+                        {=trans('받는 분')}
+                    </th>
+                    <td class="wrap-checkbox">
+                        <input  class="table__input--long"  type="text"  name="recipient" value="{recipient}" id="devRecipient" title="받는 분">
+                        <label>
+                            <input type="checkbox" name="default_yn" value="Y" id="devDefaultYn" data-force_default_yn="{force_default_yn}" {? default_yn == 'Y'}checked{/} title="기본배송지로설정">
+                            <span>{=trans('기본 배송지로 설정')}</span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        <em class="fb__mypage-addressAdd__table--must">*</em>
+                        {=trans('주소')}
+                    </th>
+                    <td>
+                        <div class="form-info-wrap">
+                            <input type="text" class="table__input--short dim" name="zip"  value="{zipcode}" id="devZip" readonly="" title="우편번호">
+                            <button type="button" class="table__btn--find" id="devZipPopupButton">{=trans('주소찾기')}</button>
+                            <input type="text" class="table__input--long dim mat10" name="addr1" id="devAddress1"  value="{address1}" readonly="" title="주소">
+                            <input type="text" class="table__input--long mat10" name="addr2" id="devAddress2" value="{address2}" title="상세주소" placeholder="상세주소를 입력해 주세요.">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col"><em class="fb__mypage-addressAdd__table--must">*</em>{=trans('휴대폰 번호')}</th>
+                    <td>
+                        <div class="selectWrap">
+                            <select class="table__input--short" name="pcs1" id="devPcs1" title="휴대폰번호">
+                                <option value="">{=trans('선택')}</option>
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                            </select>
+                            {? pcs1}
+                            <script>
+                                $(function () {
+                                    $('#devPcs1').val('{pcs1}');
+                                });
+                            </script>
+                            {/}
+                            <span class="hyphen">-</span>
+                            <input class="table__input--short" type="number" name="pcs2" id="devPcs2" value="{pcs2}" title="휴대폰번호">
+                            <span class="hyphen">-</span>
+                            <input class="table__input--short" type="number" name="pcs3" id="devPcs3" value="{pcs3}" title="휴대폰번호">
+                        </div>
+                    </td>
+                </tr>
+                <!--<tr>-->
+                    <!--<th scope="col">{=trans('전화 번호')}</th>-->
+                    <!--<td>-->
+                        <!--<div class="selectWrap">-->
+                            <!--<select class="table__input&#45;&#45;short" name="tel1" id="devTel1">-->
+                                <!--<option value="">{=trans('선택')}</option>-->
+                                <!--<option value="02">02</option>-->
+                                <!--<option value="031">031</option>-->
+                                <!--<option value="032">032</option>-->
+                                <!--<option value="041">041</option>-->
+                                <!--<option value="042">042</option>-->
+                                <!--<option value="043">043</option>-->
+                                <!--<option value="051">051</option>-->
+                                <!--<option value="052">052</option>-->
+                                <!--<option value="053">053</option>-->
+                                <!--<option value="054">054</option>-->
+                                <!--<option value="055">055</option>-->
+                                <!--<option value="061">061</option>-->
+                                <!--<option value="062">062</option>-->
+                                <!--<option value="063">063</option>-->
+                                <!--<option value="064">064</option>-->
+                                <!--<option value="070">070</option>-->
+                                <!--<option value="080">080</option>-->
+                                <!--<option value="090">090</option>-->
+                            <!--</select>-->
+                            <!--{? tel1}-->
+                            <!--<script>-->
+                                <!--$(function () {-->
+                                    <!--$('#devTel1').val('{tel1}');-->
+                                <!--});-->
+                            <!--</script>-->
+                            <!--{/}-->
+                            <!--<span class="hyphen">-</span>-->
+                            <!--<input class="table__input&#45;&#45;short" type="text" name="tel2" value="{tel2}" id="devTel2" title="전화번호 가운데자리입력">-->
+                            <!--<span class="hyphen">-</span>-->
+                            <!--<input class="table__input&#45;&#45;short" type="text" name="tel3" value="{tel3}" id="devTel3" title="전화번호 끝자리 입력">-->
+                        <!--</div>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                </tbody>
+            </table>
+        </form>
+        <div class="fb__mypage-addressAdd__info">
+            <p>{=trans('상품 구매 시 사용하실 주소 정보를 관리하실 수 있습니다.')}</p>
+            <p>{=trans('배송주소록은 최대 10개까지 등록할 수 있으며, 별도로 등록하지 않을 경우 최근 배송 주소록 기준으로 자동 업데이트 됩니다.')}</p>
+        </div>
+        <div class="popup-btn-area">
+            <button class="btn-default btn-dark-line" id="devAddressBookAddCancelBtn">{=trans('취소')}</button>
+            <button class="btn-default btn-dark" id="devAddressBookAddBtn">{=trans('저장')}</button>
+        </div>
+    </div>
+
+</div>
+{:}
+<div class="fb__mypage-addressAdd wrap-window-popup address-add-popup">
+    <p class="popup-title">
+        <span>
+            {=trans('{? ix}배송지 수정{:}배송지 추가{/}')}
+        </span>
+        <span class="close" onclick="window.close();"></span>
+    </p>
+
+    <div class="popup-content">
+        <form id="devAddressBookAddForm">
+            {? ix}
+            <input type="hidden" name="ix" value="{ix}" />
+            <input type="hidden" name="mode" value="update" id="devMode" />
+            {:}
+            <input type="hidden" name="mode" value="insert" id="devMode" />
+            {/}
+
+            <table class="fb__mypage-addressAdd__table">
+                <colgroup>
+                    <col width="140px">
+                    <col width="*">
+                </colgroup>
+                <tbody class="table">
+                <tr class="eng-hidden">
+                    <th scope="col">
+                        <em class="fb__mypage-addressAdd__table--must">*</em>
+                        {=trans('주소 별칭')}
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        <em class="fb__mypage-addressAdd__table--must">*</em>
+                        {=trans('받는 분')}
+                    </th>
+                    <td class="wrap-checkbox">
+                        <input  class="table__input--long"  type="text"  name="recipient" value="{recipient}" id="devRecipient" title="{=trans('받는 분')}">
+                        <label>
+                            <input type="checkbox" name="default_yn" value="Y" id="devDefaultYn" {? default_yn == 'Y'}checked{/} title="기본배송지로설정">
+                            <span>{=trans('기본 배송지로 설정')}</span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        <em class="fb__mypage-addressAdd__table--must">*</em>
+                        Country
+                    </th>
+                    <td>
+                        <select name="country" class="table__input--long devNationArea" id="devCountry" title="Country">
+                            <option value="">Select</option>
+                            {@ nation}
+                                {? mode == 'insert'}
+                                    <option value="{.nation_code}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}</option>
+                                {:}
+                                    <option value="{.nation_code}" data-nation_code="{.nation_code}" {? .nation_code == country} selected {/}>{.nation_name}</option>
+                                {/}
+                            {/}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        <em class="fb__mypage-addressAdd__table--must">*</em>
+                        Zip/Postal Code
+                    </th>
+                    <td>
+                        <input type="text" class="table__input--short" name="zip"  value="{zipcode}" id="devZip" title="Zip/Postal Code">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        <em class="fb__mypage-addressAdd__table--must">*</em>
+                        Address line 1
+                    </th>
+                    <td>
+                        <input type="text" class="table__input--long" name="addr1" id="devAddress1"  value="{address1}" title="Address line 1">
+
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        Address line 2
+                    </th>
+                    <td>
+                        <input type="text" class="table__input--long" name="addr2" id="devAddress2" value="{address2}" title="Address line 2">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        <em class="fb__mypage-addressAdd__table--must">*</em>
+                        City
+                    </th>
+                    <td>
+                        <input type="text" class="table__input--middle" name="city" id="devCity" value="{city}" title="City">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        <em class="fb__mypage-addressAdd__table--must">*</em>
+                        State/Province
+                    </th>
+                    <td>
+                        {? mode == 'insert'}
+                            <select id="devStateSelect" class="table__input--long" title="State/Province">
+                                <option value="">Select</option>
+                                {@ regional_information}
+                                <option value="{.reg_name}">{.reg_name}</option>
+                                {/}
+                            </select>
+                            <input type="text" style="display:none;" id="devStateText"  name="state"  class="table__input--long" title="State/Province">
+                        {:}
+                            <!--{? country == 'US'}-->
+                            <select style="width:340px;" id="devStateSelect" title="State/Province">
+                                <option value="">Select</option>
+                                {@ regional_information}
+                                <option value="{.reg_name}" {? .reg_name == state} selected {/}>{.reg_name}</option>
+                                {/}
+                            </select>
+                            <input type="text" class="mat10" style="width:340px; display:none;" id="devStateText" name="state" value="{state}" title="State/Province" >
+                            <!--{:}-->
+                            <select style="width:340px;display: none;">
+                                <option value="">Select</option>
+                                {@ regional_information}
+                                <option value="{.reg_name}" {? .reg_name == state} selected {/}>{.reg_name}</option>
+                                {/}
+                            </select>
+                            <input type="text" class="mat10" style="width:340px" id="devStateText" name="state" value="{state}" title="State/Province" >
+                            <!--{/}-->
+                        {/}
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="col"><em class="fb__mypage-addressAdd__table--must">*</em>{=trans('휴대폰 번호')}</th>
+                    <td>
+                        <div class="selectWrap">
+                            <select class="table__input--short devNationArea" name="national_phone"  title="{=trans('휴대폰 번호')}">
+                                {@ nation}
+                                    {? mode == 'insert'}
+                                        <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}(+{.national_phone})</option>
+                                    {:}
+                                        <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == country} selected {/}>{.nation_name}(+{.national_phone})</option>
+                                    {/}
+                                {/}
+                            </select>
+                            <input class="table__input--short" type="number" name="pcs" id="devPcs" value="{pcs}" title="{=trans('휴대폰 번호')}" style="width:226px;">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+        <div class="fb__mypage-addressAdd__info">
+            <p>{=trans('상품 구매 시 사용하실 주소 정보를 관리하실 수 있습니다.')}</p>
+            <p>{=trans('배송주소록은 최대 10개까지 등록할 수 있으며, 별도로 등록하지 않을 경우 최근 배송 주소록 기준으로 자동 업데이트 됩니다.')}</p>
+        </div>
+        <div class="popup-btn-area">
+            <button class="btn-default btn-dark-line" id="devAddressBookAddCancelBtn">{=trans('취소')}</button>
+            <button class="btn-default btn-dark" id="devAddressBookAddBtn">{=trans('저장')}</button>
+        </div>
+    </div>
+
+</div>
+{/}

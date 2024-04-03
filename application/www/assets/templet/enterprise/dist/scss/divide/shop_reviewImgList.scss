@@ -1,0 +1,31 @@
+.sj {
+  &__review-img-list {
+    width: 700px;
+    padding-top: 40px;
+    @extend %clear;
+
+    a {
+      display: inline-block;
+      float: left;
+      margin: 0 25px 25px 0;
+
+      &:nth-child(5n) {
+        margin-right: 0;
+      }
+
+    }
+
+    figure {
+      display: inline-block;
+      width: 120px;
+      height: 120px;
+
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+  }
+}

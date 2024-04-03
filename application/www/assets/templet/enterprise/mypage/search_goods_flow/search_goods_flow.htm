@@ -1,0 +1,26 @@
+<html>
+<body>
+{? error}
+<script>alert('{error}');</script>
+{: code_etc3 == 'POST'}
+<form name='goods_flow' id='goods_flow' method='POST' action='{code_etc1}' target='pop_goods_flow'>
+    <input type='hidden' name='{code_etc4}' value='{invoice_no}' />
+    <!--{* 동부택배인 경우*}-->
+    {? code_ix == 41 }
+    <input type='hidden' name='search_type' value='1' />
+    <input type='hidden' name='mode' value='SEARCH' />";
+    {/}
+</form>
+<script language='javascript'>
+    frm = document.goods_flow;
+    frm.submit();
+</script>
+{:}
+{? code_ix == 5}
+<script language='javascript'>location.href='{code_etc1}{invoice_no}&gubun=slipno';</script>
+{:}
+<script language='javascript'>location.href='{code_etc1}{invoice_no}';</script>
+{/}
+{/}
+</body>
+</html>

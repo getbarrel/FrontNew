@@ -1,0 +1,357 @@
+.fb {
+
+  &__wash {
+
+    &__title {
+      padding-bottom: 15px;
+      color: #000;
+      font-size: 24px;
+    }
+
+    .wash {
+
+      &__contents {
+        &__category {
+          display: none;
+
+          &--show {
+            display: block;
+          }
+        }
+      }
+
+      &__category {
+
+        margin-bottom: 40px;
+
+        ul {
+
+          @extend %clear;
+        }
+
+        li {
+          float: left;
+          width: 16.7%;
+          margin-left: -1px;
+          border: 1px solid #dddddd;
+          box-sizing: border-box;
+        }
+
+        &-link {
+          display: block;
+          position: relative;
+          text-align: center;
+          line-height: 44px;
+
+          &--active {
+
+            &:after {
+              display: block;
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              border: 1px solid #000;
+              content: "";
+            }
+          }
+        }
+      }
+
+
+      .contents {
+
+        &__tab {
+          position: relative;
+          @extend %clear;
+          
+          a {
+            display: block;
+            float: left;
+            width: 50%;
+            text-align: center;
+            line-height: 50px;
+            box-sizing: border-box;
+          }
+
+          &:before {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            background: #cccccc;
+            content: "";
+          }
+
+          /*&-link {
+            background: #efefef;
+            border-bottom: 1px solid #cccccc;
+            color: #999999;
+            font-size: 15px;
+
+            &--active {
+              background: #fff;
+              border-top: 1px solid #00bce7;
+              border-bottom: 0;
+              color: #000;
+            }
+          }*/
+        }
+
+        &__title {
+          display: none;
+        }
+
+        &__box {
+          &__subtitle {
+            padding: 22px 0;
+            background: #f5f5f5;
+            text-indent: 32px;
+            font: {
+              color: #666;
+              size: 16px;
+            }
+
+            &--2 {
+              margin-top: 30px;
+              line-height: 30px;
+            }
+          }
+        }
+
+        &__list {
+          @extend %clear;
+          position: relative;
+          padding: 23px 0 23px 125px;
+          border-bottom: 1px solid #dddddd;
+          color: #666666;
+          font-size: 14px;
+
+          &__icon {
+            position: absolute;
+            top: 50%;
+            left: 34px;
+            width: 58px;
+            height: 56px;
+            transform: translateY(-50%);
+            background: url(../../img/bg/sprite_customer.png) no-repeat 0 -596px;
+            text-indent: -9999px;
+
+            &--basic {
+              width: 61px;
+              background-position: -355px -826px;
+            }
+
+            &--water {
+              background-position: -536px -828px;
+            }
+
+            &--sand {
+              background-position: -271px -828px;
+            }
+
+            &--slide {
+              background-position: -358px -713px;
+            }
+
+            &--dryer {
+              background-position: -621px -826px;
+            }
+
+            &--oil {
+              background-position: -90px -596px;
+            }
+
+            &--soil {
+              background-position: -446px -714px;
+            }
+
+            &--trunk {
+              background-position: -533px -714px;
+            }
+
+            &--box {
+              background-position: -621px -714px;
+            }
+
+            &--nail {
+              background-position: -96px -828px;
+            }
+
+            &--washer {
+              background-position: -183px -825px;
+            }
+
+            &--temp {
+              background-position: -354px -596px;
+            }
+
+            &--cloth {
+              background-position: -92px -714px;
+            }
+
+            &--towel {
+              background-position: -181px -714px;
+            }
+
+            &--neutral {
+              background-position: -450px -826px;
+            }
+
+            &--net {
+              background-position: -9px -826px;
+            }
+
+            &--sun {
+              background-position: -4px -712px;
+            }
+
+            &--dry {
+              background-position: -531px -597px;
+            }
+
+            &--iron {
+              background-position: -620px -597px;
+            }
+
+            &--cleaning {
+              background-position: -620px -597px;
+            }
+
+            &--work {
+              background-position: 0 -596px;
+            }
+
+            &--sharp {
+              background-position: -446px -597px;
+            }
+
+            &--keeping {
+              background-position: -9px -931px;
+            }
+
+            &--detergent {
+              background-position: -95px -931px;
+            }
+
+            &--frost {
+              background-position: -186px -931px;
+            }
+
+            &--rub {
+              background-position: -270px -931px;
+            }
+
+            &--seper {
+              background-position: -350px -931px;
+            }
+
+            &--running {
+              background-position: -178px -595px;
+            }
+          }
+        }
+        
+        &__subtitle {
+          float: left;
+          width: 240px;
+          color: #222;
+          font-size: 18px;
+          line-height: 110px;
+
+          &--2 {
+            margin-top: 30px;
+            line-height: 30px;
+          }
+        }
+        
+        &__summary {
+          position: relative;
+          float: left;
+          width: 530px;
+          height: 110px;
+          white-space: nowrap;
+
+
+          ul {
+            display: inline-block;
+            vertical-align: middle;
+
+            li {
+              position: relative;
+              margin-bottom: 8px;
+              white-space: pre-line;
+              line-height: 1.53;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+              &:before {
+                content:"";
+                display: inline-block;
+                position: absolute;
+                width: 2px;
+                height: 2px;
+                background: #666;
+                top: 9px;
+                left: -7px;
+              }
+            }
+          }
+
+          &:after {
+            display: inline-block;
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 100%;
+            vertical-align: middle;
+            content: "";
+          }
+        }
+
+      }
+    }
+  }
+}
+
+
+html[lang=en] {
+  .fb {
+
+    &__wash {
+
+      .wash {
+        .contents {
+
+          &__list {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+          }
+
+          &__subtitle {
+            display: table-cell;
+            float: none;
+            padding-right: 30px;
+            vertical-align: middle;
+            line-height: 1.6;
+          }
+
+          &__summary {
+            display: table-cell;
+            float: none;
+            vertical-align: middle;
+            height: auto;
+          }
+        }
+      }
+    }
+
+  }
+
+}

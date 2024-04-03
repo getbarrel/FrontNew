@@ -1,0 +1,10 @@
+<svg id="icon_search_20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_5" data-name="사각형 5" width="20" height="20" transform="translate(0 0)"/>
+    </clipPath>
+  </defs>
+  <g id="icon_검색_20px" clip-path="url(#clip-path)">
+    <path id="패스_15" data-name="패스 15" d="M20,18.9l-6.2-6.2a7.781,7.781,0,1,0-1.1,1.1L18.9,20ZM7.78,14A6.224,6.224,0,1,1,14,7.78,6.231,6.231,0,0,1,7.78,14" transform="translate(0 0)"/>
+  </g>
+</svg>

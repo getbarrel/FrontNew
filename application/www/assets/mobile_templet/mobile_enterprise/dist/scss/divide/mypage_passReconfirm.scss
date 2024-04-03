@@ -1,0 +1,40 @@
+.br {
+  &__mypage {
+    select {
+      height:rem(80px);
+      color:#000;
+    }
+    &__pass {
+      input[type=text],input[type=password] {
+        height:rem(80px);
+      }
+      .pass-title {
+        margin:rem(100px 0);
+        color:#000;
+        text-align:center;
+        font-size:rem(50px);
+      }
+      .pass-subtitle {
+        margin-bottom: rem(40px);
+        text-align: center;
+        font-size: rem(22px);
+        line-height: rem(32px);
+      }
+      .pass-box {
+        padding:rem(50px 0);
+        border-top:rem(2px) solid #000;
+        border-bottom:rem(2px) solid #000;
+      }
+      .information__btn {
+        margin-top:rem(100px);
+
+        input {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+  .br__mypage .pass-title {
+    margin:rem(50px 0 100px);
+  }
+}

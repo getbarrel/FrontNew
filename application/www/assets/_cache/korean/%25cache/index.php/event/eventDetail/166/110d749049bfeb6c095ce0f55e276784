@@ -1,0 +1,267 @@
+13218-contents/enterprise//event/event_detail/event_detail.htm*<form id="devEventDetailForm">
+    <input type="hidden" name="event_ix" value="166"/>
+    <input type="hidden" name="kind" value="E"/>
+    <input type="hidden" name="orderBy" value="ec_ix"/>
+    <input type="hidden" name="orderByType" value="desc"/>
+    <input type="hidden" name="page" value="1" id="devPage"/>
+    <input type="hidden" name="max" value="20" id="devMax"/>
+    <input type="hidden" value="2" id="use_comment"/>
+</form>
+
+<section class="sj__event-detail">
+    <style type="text/css">.event__wrap {position: relative;}
+    .event__wrap {
+                                        background: #fff;
+                                        position: relative;
+                                        font-size: 0;
+                                        line-height: 0;
+                                    }
+            
+                                    .event__wrap .font {
+                                    font-size: 12px;
+                                    line-height: 1.53;
+                                    }
+    .event__wrap img {width: 100%;}
+    
+     #video-wrap_01 {
+        position: absolute;
+        top: 6.8%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 66.58%;
+        min-width: 800px;
+        height: 40.714vw;
+        min-height: 450px;
+        overflow: hidden;
+      }
+    
+      #video-wrap_01 > iframe {
+        width: 100%;
+        height: 91%;
+        margin-left: -0.5%;
+        margin-top: -0.5%;
+      }
+
+        
+                .event__wrap #sec2-swiper {
+                    width: 100%;
+                    height: 44.06vw;
+                    min-height: 555px;
+                    background-color: #f2f2f2
+                }
+        
+                .event__wrap #sec2-swiper .swiper-slide>img {
+                    width: 64.947%;
+                    float: right
+                }
+        
+                .event__wrap #sec2-swiper>div[class*=swiper-button-],
+                .event__wrap #sec2-swiper>div[class^=swiper-button-] {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 5.625%;
+                    height: 5.625vw!important;
+                    min-height: 70.8px;
+                    margin: 0;
+                    object-fit: contain;
+                    z-index: 10;
+                    background-size: cover
+                }
+        
+                .event__wrap #sec2-swiper .swiper-button-prev {
+                    left: 5.208%;
+                    background: url(http://getbarrel.com/landing/2018/barrelgirl2/desktop/sec_2_slide_arrow_l.png) center no-repeat
+                }
+        
+                .event__wrap #sec2-swiper .swiper-button-next {
+                    right: 5.208%;
+                    background: url(http://getbarrel.com/landing/2018/barrelgirl2/desktop/sec_2_slide_arrow_r.png) center no-repeat
+                }
+        
+                .event__wrap #sec2-swiper .title-img {
+                    position: absolute;
+                    top: 42.63%;
+                    left: 15.625%;
+                    width: 31.66%;
+                    z-index: 10
+                }
+        
+                .event__wrap #sec2-swiper>.swiper-pagination {
+                    left: 15.625%;
+                    bottom: 4.67%!important;
+                    text-align: left
+                }
+        
+                .event__wrap #lookbook-swiper,
+                .event__wrap #lookbook-title {
+                    left: 50%;
+                    transform: translateX(-50%)
+                }
+        
+                .event__wrap #sec2-swiper .swiper-pagination-bullet {
+                    width: .4vw;
+                    height: .4vw;
+                    min-width: 8px;
+                    min-height: 8px;
+                    margin-right: 1.1%!important;
+                    margin-left: 0!important;
+                    background-color: #c5c5c5!important;
+                    border: 3px solid #c5c5c5;
+                    opacity: 1!important
+                }
+        
+                .event__wrap #sec2-swiper .swiper-pagination-bullet-active {
+                    background-color: transparent!important;
+                    border: 3px solid #07327a
+                }
+        
+                .event__wrap #lookbook-container {
+                    position: relative;
+                    overflow: hidden
+                }
+        
+                .event__wrap #lookbook-title {
+                    position: absolute;
+                    top: 6.289%;
+                    width: 27.5%
+                }
+        
+                .event__wrap #lookbook-swiper {
+                    position: absolute;
+                    top: 29.49%;
+                    width: 62.76%;
+                    height: 42.7vw;
+                    min-height: 538px
+                }
+        
+                .event__wrap #lookbook-swiper .swiper-slide>img {
+                    width: 100%
+                }
+        
+                .event__wrap #lookbook-container>div[class*=swiper-button-],
+                .event__wrap #lookbook-container>div[class^=swiper-button-] {
+                    position: absolute;
+                    top: 54.624%;
+                    width: 1.98vw;
+                    min-width: 25px;
+                    min-height: 47px;
+                    height: auto;
+                    margin: 0;
+                    object-fit: contain;
+                    z-index: 10;
+                    background-size: cover;
+                    transform: scale(1.05)
+                }
+        
+                .event__wrap #lookbook-container .swiper-pagination {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    height: 4.5%;
+                    text-align: right;
+                    font-family: Gotham;
+                    font-size: 15px;
+                    color: #000;
+                    font-weight: 400;
+                    line-height: 100%
+                }
+        
+                .event__wrap #lookbook-container .swiper-pagination>span {
+                    font-weight: 500;
+                    color: #000
+                }
+        
+                .event__wrap #lookbook-container .swiper-button-prev {
+                    left: 11.45%;
+                    background: url(//image.getbarrel.com/barrel_data/images/landing/lookbook_src/arrow_left2.png) center no-repeat
+                }
+        
+                .event__wrap #lookbook-container .swiper-button-next {
+                    right: 11.45%;
+                    background: url(//image.getbarrel.com/barrel_data/images/landing/lookbook_src/arrow_right2.png) center no-repeat
+                }
+        
+                .event__wrap #lookbook-container .swiper-txt {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 7.7vw;
+                    min-width: 97px;
+                    z-index: 10;
+                    object-fit: contain
+                }
+        
+                
+        
+                .event__wrap #container,
+                .event__wrap #contents {
+                    width: 100%!important;
+                    display: none
+                }
+        
+                .event__wrap .bg {
+                    width: 100%;
+                    z-index: -1
+                }
+        
+                .event__wrap section {
+                    width: 100%;
+                    position: relative;
+                    background-color: #141416
+                }
+        
+                .event__wrap .inner-width {
+                    width: 100%
+                }
+
+        
+                .event__wrap .swiper-pagination {
+                    text-align: right !important
+                }
+        
+                .event__wrap #lookbook-swiper::after {
+                    position: absolute;
+                    display: block;
+                    content: ' ';
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 0;
+                    padding-top: 63.3%;
+                    border: 1px solid #e0e0e0;
+                    z-index: 9;
+                }
+</style>
+<div class="event__wrap">
+<div><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_sec1.jpg" /></div>
+
+<div>&nbsp;</div>
+
+<div id="video-wrap_01"><iframe allowfullscreen="" frameborder="0" height="720" src="https://www.youtube.com/embed/Q5tF8_wNi5I" width="1280"></iframe></div>
+
+<div><img src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_sec2.jpg" usemap="#map1" /><map id="map1" name="map1"><area alt="" coords="878,702,1120,761" href="/shop/subGoodsList/005015000000000#page1&amp;filterCid=005015000000000&amp;orderBy=viewOrder" shape="rect" target="0" title="" /><area alt="" coords="878,2141,1120,2201" href="/shop/goodsView/0000010603" shape="rect" target="0" title="" /></map></div>
+
+<div><img class="bg" src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_sec3.jpg" usemap="#map2" /><map id="map2" name="map2"><area alt="" coords="165,1663,405,1726" href="/shop/subGoodsList/001001005000000#page1&amp;filterCid=001001005000000&amp;orderBy=viewOrder" shape="rect" target="0" title="" /> <area alt="" coords="615,1663,855,1723" href="/shop/subGoodsList/001002003000000#page1&amp;filterCid=001002003000000&amp;orderBy=viewOrder" shape="rect" target="0" title="" /> <area alt="" coords="1064,1663,1304,1723" href="/shop/subGoodsList/001003003000000#page1&amp;filterCid=001003003000000&amp;orderBy=viewOrder" shape="rect" target="0" title="" /><area alt="" coords="1515,1663,1755,1723" href="/shop/subGoodsList/001004003000000#page1&amp;filterCid=001004003000000&amp;orderBy=viewOrder" shape="rect" target="0" title="" /><area alt="" coords="160,2578,400,2638" href="/shop/subGoodsList/005016001000000#page1&amp;filterCid=005016001000000&amp;orderBy=viewOrder" shape="rect" target="0" title="" /></map></div>
+
+<div><img class="bg" src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_sec3.1.jpg" usemap="#map3" /><map id="map3" name="map3"><area alt="" coords="1160,220,1400,279" href="/shop/subGoodsList/001001006000000#page1&amp;filterCid=001001006000000&amp;orderBy=viewOrder" shape="rect" target="0" title="" /> <area alt="" coords="1160,460,1400,519" href="/shop/subGoodsList/001002004000000#page1&amp;filterCid=001002004000000&amp;orderBy=viewOrder" shape="rect" target="0" title="" /> <area alt="" coords="1160,699,1400,759" href="/shop/subGoodsList/001004004000000#page1&amp;filterCid=001004004000000&amp;orderBy=viewOrder" shape="rect" target="0" title="" /><area alt="" coords="240,1431,480,1491" href="/shop/goodsList/007000000000000#page1&amp;filterCid=007000000000000&amp;orderBy=viewOrder" shape="rect" target="0" title="" /></map></div>
+
+<div><img class="bg" src="//vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020_leggingsday/leday_sec4.jpg" usemap="#map4" /><map id="map4" name="map4"><area alt="" coords="1409,1319,1629,1388" href="/customer/storeInformation" shape="rect" target="0" title="" /><area alt="" coords="160,2135,1760,2735" href="/event/eventDetail/165" shape="rect" target="0" title="" /><area alt="" coords="160,2835,1760,3435" href="/event/eventDetail/167" shape="rect" target="0" title="" /></map></div>
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script><script src="//image.getbarrel.com/barrel_data/js/imageMapResizer.min.js"></script><script src="//image.getbarrel.com/barrel_data/js/swiper.min.js"></script><script>
+                $("#contents, #container").width("100%").show();
+                for(var o="", n=0;n<44;n++) o+='<div class="swiper-slide"><img src="http://vgfuddygerym3822368.cdn.ntruss.com/landing/2020/2020ss_swim/lookbook/2020ss_swim_lookbook'+(n+1)+'.jpg"></div>';
+                $("#lookbook-swiper > .swiper-wrapper").html(o)
+                        , new Swiper("#sec2-swiper", {
+                    loop: !0, nextButton: "#sec2-swiper .swiper-button-next", pagination: "#sec2-swiper .swiper-pagination", effect: "fade"
+                }),
+                new Swiper("#lookbook-swiper", {
+                    loop:!0, prevButton:"#lookbook-container .swiper-button-prev", nextButton:"#lookbook-container .swiper-button-next", pagination:"#lookbook-container .swiper-pagination", paginationType:"custom", paginationCustomRender:function(o, n, e) {
+                        return"<span>"+n+"</span> of <span>"+e+"</span>"
+                    }
+                });
+            </script><script src="//image.getbarrel.com/barrel_data/js/imageMapResizer.min.js"></script><script src="https://player.vimeo.com/api/player.js"></script><script>
+    window.load = function() { $('map').imageMapResize(); } window.resize= function() { $('map').imageMapResize(); }
+    </script>
+    
+</section>

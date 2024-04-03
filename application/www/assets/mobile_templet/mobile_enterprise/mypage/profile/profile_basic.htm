@@ -1,0 +1,276 @@
+<!-- 컨텐츠 S -->
+<section class="br__mypage br__join">
+	<div class="br__mypage__pass">
+		<div class="page-title my-title">
+			<div class="title-sm">{=trans('회원정보 수정')}</div>
+		</div>
+
+		<div class="br__join-form__wrap">
+			<form>
+				<div class="br__join-form br__join-basic">
+					<div class="br__join__item">
+						<div class="br__form-item">
+							<label for="devUserName" class="br__form-label">{=trans('이름')}</label>
+							<input class="join__input br__form-input js__joininput__name" type="text" name="userName" id="devUserName" value="{name}" title="{=trans('이름')}" placeholder="{=trans('이름')}" disabled />
+						</div>
+					</div>
+					<div class="br__join__item br__join__item-id">
+						<div class="br__form-item">
+							<label for="devUserId" class="br__form-label">{=trans('아이디')}</label>
+							<input class="join__input" type="text" class="br__form-input" id="devUserId" name="userId" title="{=trans('아이디')}" placeholder="{=trans('아이디')}" value="{id}" disabled />
+						</div>
+					</div>
+					<div class="br__join__item br__join__item-password">
+						<span class="br__form-label">{=trans('비밀번호')}</span>
+						<button type="button" class="btn-lg btn-dark-line" id="devChangePassword">{=trans('비밀번호 변경')}</button>
+					</div>
+					<div class="br__join__item br__join__item-emil">
+						{? isSnsJoin != true}
+						<div class="br__form-item join__eamil">
+							<label for="devEmailId" class="br__form-label">{=trans('이메일')}</label>
+							<input class="join__input email-id br__form-input" type="text" name="emailId" id="devEmailId" placeholder="{=trans('이메일 아이디')}" value="{mail[0]}" title="{=trans('이메일 아이디')}" {? isSnsJoin} disabled {/} />
+							<input class="join__input email-info br__form-input" type="text" name="emailHost" id="devEmailHost" placeholder="{=trans('메일 도메인 주소')}" value="{mail[1]}" title="{=trans('메일 도메인 주소')}" {? isSnsJoin} disabled {/} />
+						</div>
+						<select id="devEmailHostSelect" class="br__form-select">
+							<option value="">{=trans('이메일 선택')}</option>
+							<option value="naver.com">naver.com</option>
+							<option value="gmail.com">gmail.com</option>
+							<option value="hotmail.com">hotmail.com</option>
+							<option value="hanmail.net">hanmail.net</option>
+							<option value="daum.net">daum.net</option>
+							<option value="nate.com">nate.com</option>
+							<option value="direct">{=trans('직접입력')}</option>
+						</select>
+						<div class="join__email__check">
+							<button type="button" class="btn-lg join__email__check-btn" id="devEmailDoubleCheckButton">{=trans('이메일 중복확인')}</button>
+							<!-- 안내(오류) 메시지 S -->
+							<!-- 숨김 처리 -->
+							<p class="txt-error" devTailMsg=""></p>
+							<!-- 안내(오류) 메시지 E -->
+						</div>
+						{:}
+						<div class="join__eamil">
+							<span style="width:80px;">{mail[0]}</span>
+							<input class="join__input email-id" type="hidden" name="emailId" id="devEmailId" title="{=trans('이메일 아이디')}" value="{mail[0]}"/>
+							<span>@</span>
+							<span style="width:60px;">{mail[1]}</span>
+							<input class="join__input email-info" type="hidden" name="emailHost" id="devEmailHost" title="{=trans('메일 도메인 주소')}" value="{mail[1]}"/>
+						</div>
+						{/}
+						<p class="txt-error mat10" devTailMsg="devEmailId devEmailHost"></p>
+					</div>
+					<div class="br__join__item br__join__item-phone">
+						<div class="br__form-item join__phone">
+							<label for="devPcs1" class="br__form-label">{=trans('휴대폰 번호')}</label>
+							<select class="join__phone-first br__form-select" name="pcs1" id="devPcs1">
+								<option value="010" {? pcs[0]=="010"}selected{/}>010</option>
+								<option value="011" {? pcs[0]=="011"}selected{/}>011</option>
+								<option value="016" {? pcs[0]=="016"}selected{/}>016</option>
+								<option value="017" {? pcs[0]=="017"}selected{/}>017</option>
+								<option value="018" {? pcs[0]=="018"}selected{/}>018</option>
+								<option value="019" {? pcs[0]=="019"}selected{/}>019</option>
+							</select>
+							<input class="join__input join__phone-second br__form-input" type="text" name="pcs2" value="{pcs[1]}" id="devPcs2" title="{=trans('휴대폰')}" maxlength="4" />
+							<input class="join__input join__phone-third br__form-input" type="text" name="pcs3" value="{pcs[2]}" id="devPcs3" title="{=trans('휴대폰')}" maxlength="4" />
+						</div>
+					</div>
+					<div class="br__join__item br__join__item-addr">
+						<div class="join__addr">
+							<label for="devPcs1" class="br__form-label">{=trans('주소')}</label>
+							<div class="br__form-group">
+								<input class="join__input br__form-input" type="text" name="zip" id="devZip" value="{zip}" title="{=trans('우편번호')}" placeholder="{=trans('우편번호')}" readonly/>
+								<button class="btn-md btn-dark-line join__id__check" id="devZipPopupButton">{=trans('검색')}</button>
+
+							</div>
+							<input class="join__address" type="text" name="addr1" value="{addr1}" id="devAddress1" title="{=trans('주소')}"  readonly />
+							<input class="join__address" type="text" name="addr2" value="{addr2}" id="devAddress2" title="{=trans('상세주소')}"  placeholder="{=trans('상세주소')}" />
+						</div>
+					</div>
+				</div>
+				<div class="br__join-form br__join-add">
+					<div class="page-title">
+						<div class="title-sm">{=trans('추가 선택 정보')}</div>
+					</div>
+					<div class="br__join__item br__join__add">
+						<p class="join-symbol">{=trans('성별')}</p>
+						<div class="br__find-user__label">
+							<label><input type="radio" name="gender" value="M" {? sex_div == 'M' }checked{/}/><span>{=trans('남자')}</span></label>
+							<label><input type="radio" name="gender" value="W" {? sex_div == 'W' }checked{/}/><span>{=trans('여자')}</span></label>
+						</div>
+					</div>
+					<div class="br__join__item br__join__birthday">
+						<div class="br__join__add">
+							<p class="join-symbol">{=trans('생일')}</p>
+							<div class="br__find-user__label">
+								<label><input type="radio" data-type="" name="birthdayDiv" value="1" checked /><span>{=trans('양력')}</span></label>
+								<label><input type="radio" data-type="" name="birthdayDiv" value="0" /><span>{=trans('음력')}</span></label>
+							</div>
+						</div>
+						<div class="join__day-box add-info">
+							<!--{? empty(birthdayArr)}-->
+							<div class="br__form-group">
+								<select class="join__input join__day-first br__form-select" name="birthYear">
+									<option value="">{=trans('년도')}</option>
+									{@ birthYear}
+									<option value="{.value_}" {? birthdayArr[0] == .value_} selected{/}>{.value_}</option>
+									{/}
+								</select>
+
+								<select class="join__input join__day-second br__form-select" name="birthMonth">
+									<option value="">{=trans('월')}</option>
+									{@ birthMonth}
+									<option value="{.value_}" {? birthdayArr[1] == .value_} selected{/}>{.value_}</option>
+									{/}
+								</select>
+								<select class="join__input join__day-third br__form-select" name="birthDay">
+									<option value="">{=trans('일')}</option>
+									{@ birthDay}
+									<option value="{.value_}" {? birthdayArr[2] == .value_} selected{/}>{.value_}</option>
+									{/}
+								</select>
+							</div>
+							<!--{:}-->
+							<div class="br__join__add">
+								<input type="text" value="{birthdayArr[0]}" class="join__input join__day-first" disabled />
+								<span class="join__day-txt">{=trans('년')}</span>
+								<input type="text" value="{birthdayArr[1]}" class="join__input join__day-second" disabled />
+								<span class="join__day-txt">{=trans('월')}</span>
+								<input type="text" value="{birthdayArr[2]}" class="join__input join__day-third" disabled />
+								<span class="join__day-txt">{=trans('일')}</span>
+							</div>
+							<!--{/}-->
+						</div>
+					</div>
+					<div class="br__join__item br__join-map">
+						<div class="br__form-item">
+							<label class="br__form-label">{=trans('지역')}</label>
+							<select name="area">
+								<option value="">{=trans('지역 선택')}</option>
+								<option value="10" {? area == '10'} selected {/} >{=trans('서울특별시')}</option>
+								<option value="20" {? area == '20'} selected {/} >{=trans('경기도')}</option>
+								<option value="21" {? area == '21'} selected {/} >{=trans('인천광역시')}</option>
+								<option value="30" {? area == '30'} selected {/} >{=trans('강원도')}</option>
+								<option value="41" {? area == '41'} selected {/} >{=trans('충청남도')}</option>
+								<option value="42" {? area == '42'} selected {/} >{=trans('대전광역시')}</option>
+								<option value="43" {? area == '43'} selected {/} >{=trans('세종특별자치시')}</option>
+								<option value="45" {? area == '45'} selected {/} >{=trans('충청북도')}</option>
+								<option value="51" {? area == '51'} selected {/} >{=trans('전라남도')}</option>
+								<option value="52" {? area == '52'} selected {/} >{=trans('광주광역시')}</option>
+								<option value="55" {? area == '55'} selected {/} >{=trans('전라북도')}</option>
+								<option value="61" {? area == '61'} selected {/} >{=trans('경상남도')}</option>
+								<option value="62" {? area == '62'} selected {/} >{=trans('부산광역시')}</option>
+								<option value="63" {? area == '63'} selected {/} >{=trans('울산광역시')}</option>
+								<option value="65" {? area == '65'} selected {/} >{=trans('경상북도')}</option>
+								<option value="66" {? area == '66'} selected {/} >{=trans('대구광역시')}</option>
+								<option value="70" {? area == '70'} selected {/} >{=trans('제주특별자치도')}</option>
+								<option value="90" {? area == '90'} selected {/} >{=trans('기타')}</option>
+							</select>
+						</div>
+					</div>
+
+					<!-- SMS 수신동의 S -->
+					<dl class="br__join__list sms-agree__wrap">
+						<dt class="br__form-label">{=trans('SMS 수신동의')}</dt>
+						<dd>
+							<div class="br__join__add br__mypage__agree">
+								<input type="hidden" name="oldSms" value="{sms}">
+								<input type="hidden" name="smsdate" value="{smsdate}">
+								<div class="br__find-user__label br__join__add">
+									<label for="devAgreeSms"> <input type="radio" name="sms" value="1" id="devAgreeSms" {? sms == '1'}checked{/} /><span>{=trans('동의')}</span> </label>
+									<label for="devAgreeSms-NO"> <input type="radio" name="sms" value="0" data-type="" {? sms == '0'}checked{/} /><span>{=trans('비동의')}</span> </label>
+								</div>
+							</div>
+							{? viewSmsdate != ''}
+							<div class="br__join__add-data">
+								{? sms == '1'}
+									<span class="day">{viewSmsdate}</span>
+									<span class="agree">동의함</span>
+								{:}
+									<span class="day">{viewSmsdate}</span>
+									<span class="agree">철회함</span>
+								{/}
+							</div>
+							{/}
+						</dd>
+					</dl>
+
+					<!-- 메일 수신동의 S -->
+					<dl class="br__join__list sms-agree__wrap">
+						<dt class="br__form-label">{=trans('메일 수신 동의')}</dt>
+						<dd>
+							<div class="br__join__add br__mypage__agree">
+								<input type="hidden" name="oldInfo" value="{info}">
+								<input type="hidden" name="agree_infodate" value="{agree_infodate}">
+								<div class="br__find-user__label br__join__add">
+									<label for="devAgreeEmail"> <input type="radio" name="info" value="1" id="devAgreeEmail" data-type="" {? info == '1'}checked{/}/><span>{=trans('동의')}</span> </label>
+									<label for="devAgreeEmail-NO"> <input type="radio" name="info" value="0" data-type="" {? info == '0'}checked{/}/><span>{=trans('비동의')}</span> </label>
+								</div>
+							</div>
+							{? viewInfodate != ''}
+							<div class="br__join__add-data">
+								{? info == '1'}
+									<span class="day">{viewInfodate}</span>
+									<span class="agree">동의함</span>
+								{:}
+									<span class="day">{viewInfodate}</span>
+									<span class="agree">철회함</span>
+								{/}
+							</div>
+							{/}
+						</dd>
+					</dl>
+				</div>
+
+				<div class="br__join__btn">
+					<button type="button" class="btn-lg btn-dark join__btn btn-point">{=trans('회원정보 저장')}</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+<!-- 컨텐츠 E -->
+
+<!-- modal S -->
+<div class="popup-mask"></div>
+<div class="popup-layout popup-layout__password" id="layer-pw">
+	<div class="popup-layout__wrap">
+		<div class="popup-title">
+			<div class="title-lg">비밀번호 변경</div>
+			<a href="#;" class="btn-close">닫기</a>
+		</div>
+		<div class="popup-content__wrap">
+			<div class="popup-content">
+				<div class="br__join">
+					<form>
+						<div class="br__join-form">
+							<div class="br__join__item br__join__item-password">
+								<div class="br__form-item">
+									<label for="devUserPassword" class="br__form-label hidden">비밀번호</label>
+									<input class="join__input br__form-input" type="password" id="devUserPassword" name="pw" title="비밀번호" value="" placeholder="비밀번호" />
+									<button type="button" class="btn-pw--visibility"><i class="ico ico-eye-hide"></i>비밀번호 확인 버튼</button>
+								</div>
+								<div class="br__form-item">
+									<label for="devCompareUserPassword" class="br__form-label hidden">비밀번호 확인</label>
+									<input class="join__input br__form-input" type="password" id="devCompareUserPassword" name="comparePw" title="비밀번호 확인" value="" placeholder="비밀번호 확인" />
+									<button type="button" class="btn-pw--visibility"><i class="ico ico-eye-hide"></i>비밀번호 확인 버튼</button>
+								</div>
+								<p class="join__info-txt">영문 + 숫자 + 특수문자 2가지 이상 조합 및 8~16자리 입력 필수.</p>
+								<!-- 입력한 비밀번호가 동일하지 않을 경우 / 안내(오류) 메시지 S -->
+								<!-- 숨김 처리 -->
+								<p class="txt-error" style="display: none">입력하신 비밀번호가 서로 일치하지 않습니다.</p>
+								<!-- 입력한 비밀번호가 동일하지 않을 경우 / 안내(오류) 메시지 E -->
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="popup-layout__footer">
+			<div class="btn-group col">
+				<button type="button" class="btn-lg btn-dark-line">비밀번호 변경하기</button>
+				<button type="button" class="btn-lg btn-gray-line">취소</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- modal E -->

@@ -1,0 +1,201 @@
+.br {
+  &__apply {
+    margin: rem(150px 0 0);
+
+    &__title {
+      color: #000;
+      font-size: rem(44px);
+      text-align: center;
+      line-height: rem(66px);
+    }
+    &__desc {
+      padding: rem(38px 0 81px);
+      color: #898989;
+      font-size: rem(22px);
+      text-align: center;
+    }
+    .apply {
+      &__btn {
+        margin: rem(0 40px);
+        padding-bottom: rem(121px);
+        border-bottom: 1px solid #dcdddd;
+        font-size: 0;
+        a {
+          display: inline-block;
+          width: calc(50% - .75rem);  // 15px;
+          height: rem(270px);
+          padding-top: rem(82px);
+          color: #fff;
+          background: #00bce7;
+          font-size: rem(22px);
+          font-weight: 600;
+          border: 2px solid #00bce7;
+
+          .txt {
+            font-size: rem(44px);
+            text-align: center;
+            span {
+              display: block;
+              font-size: rem(21px);
+              line-height: rem(140px);
+              &:after {
+                content: "";
+                display: inline-block;
+                width: rem(9px);
+                height: rem(14px);
+                margin-left: rem(13px);
+                background: url(../../images/arrow_btn.png) no-repeat;
+                background-size: rem(9px);
+              }
+            }
+          }
+        }
+
+        &--personal {
+          margin-right: rem(30px);
+        }
+      }
+    }
+    .inquiry-info {
+      overflow: hidden;
+      padding-top: rem(122px);
+
+      &__title {
+        color: #000;
+        font-size: rem(44px);
+        text-align: center;
+        line-height: rem(55px);
+      }
+      &__desc {
+        padding: rem(38px 0 80px);
+        color: #898989;
+        font-size: rem(22px);
+        text-align: center;
+        line-height: rem(32px);
+      }
+      .inquiry {
+        &__inputbox {
+          width: 100%;
+          &--personal {
+            margin-bottom: rem(100px);
+          }
+          h3 {
+            padding: rem(33px);
+            color: #000;
+            font-size: rem(30px);
+            font-weight: 400;
+            border-bottom: 1px solid #000;
+            background: #f7f8f8;
+          }
+          &__list {
+            width: 100%;
+            display: table;
+            padding: rem(60px 40px 0);
+          }
+          &__title {
+            padding-bottom: rem(21px);
+            color: #000;
+            font-size: rem(30px);
+            text-align: left;
+            span {
+              float: right;
+              color: #898989;
+              font-size: rem(22px);
+            }
+          }
+          &__input {
+            input {
+              width: 100%;
+              height:rem(80px);
+            }
+          }
+          &__desc {
+            margin-top: rem(25px);
+            color: #898989;
+            font-size: rem(22px);
+          }
+          &__btn {
+            display: block;
+            margin: rem(65px auto);
+            padding: rem(29px 233px);
+            color: #fff;
+            font-size: rem(26px);
+            background: #000;
+          }
+        }
+      }
+
+      .password-warning {
+        display: none;
+        color: red;
+
+        &--show {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.sprintAlert {
+  position:fixed;
+  top:0;
+  left:0;
+  box-sizing:border-box;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.8);
+  z-index:100;
+
+  &__body {
+    position:absolute;
+    top:50%;
+    left:0;
+    box-sizing:border-box;
+    width:calc(100% - 4rem);
+    margin:rem(0 40px);
+    padding:rem(110px 40px 280px);
+    background:#fff;
+  }
+  &__title {
+    color:#000;
+    font-size:rem(44px);
+    line-height:rem(66px);
+    text-align:center;
+    word-break:keep-all;
+    white-space: pre-line;
+  }
+  &__desc {
+    margin-top:rem(30px);
+    color:#898989;
+    font-size:rem(20px);
+    line-height:rem(32px);
+    text-align:center;
+    word-break:keep-all;
+    white-space: pre-line;
+  }
+  &__btn {
+    &--confirm {
+      position:absolute;
+      bottom:rem(100px);
+      right:rem(40px);
+      left:rem(40px);
+      width:calc(100% - 4rem);
+      height:rem(80px);
+      background:#000;
+      color:#fff;
+      font-size:rem(26px);
+    }
+    &--close {
+      position:absolute;
+      top:rem(40px);
+      right:rem(40px);
+      width:rem(30px);
+      height:rem(30px);
+      background:url(../images/common/sprint_popup_close.png) no-repeat;
+      background-size:100%;
+      font-size:0;
+
+    }
+  }
+}

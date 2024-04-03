@@ -1,0 +1,193 @@
+<section class="fb__infoinput__nonmember">
+
+    {? freeGift.gift_products}{*구매금액별 사은품*}
+    <div class="order-info__pricegift warp_gift_list devOrderGiftArea">
+        <div class="gift_list">
+            <h3 class="order-info__pricegift__title">{=trans('구매금액별 사은품')}</h3>
+            <ul style="display:none;">
+                <!--{@ freeGift.gift_products}-->
+                <li>
+                    <img src="{freeGift.image_src}" data-devpid="{freeGift.pid}" alt="">
+                    <p>{freeGift.pname}</p>
+                </li>
+                <!--{/}-->
+            </ul>
+        </div>
+        <button class="order-info__pricegift__btn btn-default devGiftBox"><span>{=trans('구매금액별 사은품 선택')}</span></button>
+        <div class="product-gift devOrderGift" style="display:none;">
+            <div class="product-gift__list" id="devOrderGiftList">
+
+            </div>
+        </div>
+    </div>
+    {/}
+
+    <section class="fb__infoinput__customer-info customer-info">
+        <h2 class="customer-info__title">{=trans('주문자 정보')}</h2>
+
+        <ul class="customer-info__box">
+            <li class="customer-info__list customer-info__list-name">
+                <span class="customer-info__list__title customer-info__list__title-required">
+                    {=trans('이름')}
+                </span>
+                <input type="text" id="devBuyerName" name="devBuyerName" title="{=trans('주문자 이름')}">
+            </li>
+            <li class="customer-info__list customer-info__list-cp">
+                <span class="customer-info__list__title customer-info__list__title-required">
+                    Tel
+                </span>
+                <div class="selectWrap customer-info__list__input-area">
+                    <select id="devBuyerMobile1" name="devBuyerMobile1">
+                        {@ nation}
+                        <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}(+{.national_phone})</option>
+                        {/}
+                    </select>
+                    -
+                    <input type="text" id="devBuyerMobile2" name="devBuyerMobile2" value="" title="{=trans('휴대폰 번호')}">
+
+                </div>
+            </li>
+            <li class="customer-info__list customer-info__list-email">
+                <span class="customer-info__list__title customer-info__list__title-required">
+                    {=trans('이메일 주소')}
+                </span>
+                <input type="text" id="devBuyerEmailId" name="devBuyerEmailId" title="{=trans('주문자 이메일')}">
+                <span>@</span>
+                <input type="text" id="devBuyerEmailHost" name="devBuyerEmailHost" value="" class="js__infoinput__email-target">
+            </li>
+            <li class="customer-info__list customer-info__list-pw">
+                <span class="customer-info__list__title customer-info__list__title-required">
+                    {=trans('주문 비밀번호')}
+                </span>
+                <input type="password" id="devOrderPassword" name="devOrderPassword" title="{=trans('주문 비밀번호')}">
+                <span class="customer-info__list__guide">{=trans('영문 대소문자, 숫자, 특수문자 중 3개 이상을 조합하여 6~20자리로 입력해 주세요.')}</span>
+            </li>
+            <li class="customer-info__list customer-info__list-pw">
+                <span class="customer-info__list__title customer-info__list__title-required">
+                    {=trans('주문 비밀번호 확인')}
+                </span>
+                <input type="password" id="devOrderPasswordCompare" name="devOrderPasswordCompare" title="{=trans('주문 비밀번호 확인')}">
+                <span class="customer-info__list__guide">{=trans('비밀번호 확인을 위해 다시 한번 입력해 주세요.')}</span>
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="fb__infoinput__delivery-info delivery-info devRecipientContents">
+        <h2 class="delivery-info__title">{=trans('배송지 정보')}</h2>
+
+        <div class="check-area delivery-info__check-area">
+            <input type="checkbox" class="devSameBuyerInfo" id="sam-buyer-checkbox">
+            <label for="sam-buyer-checkbox">{=trans('주문자 정보와 동일')}</label>
+        </div>
+
+        <ul class="delivery-info__box">
+            <li class="delivery-info__list delivery-info__list-name">
+                <span class="delivery-info__list__title delivery-info__list__title-required">
+                    {=trans('받는 분')}
+                </span>
+                <input type="text" class="devRecipientName" name="devRecipientName" title="{=trans('받는 분')}">
+            </li>
+            <li class="delivery-info__list delivery-info__list-address">
+                <span class="delivery-info__list__title delivery-info__list__title-required">
+                    Country
+                </span>
+                <select class="devNationArea"  name="country" id="devCountry">
+                    <option value="">Select</option>
+                    {@ nation}
+                    <option value="{.nation_code}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}</option>
+                    {/}
+                </select>
+            </li>
+            <li class="delivery-info__list delivery-info__list-address">
+                <span class="delivery-info__list__title delivery-info__list__title-required">
+                    Zip/Postal Code
+                </span>
+                <input type="text" title="Zip/Postal Code" name="devRecipientZip" class="devRecipientZip">
+            </li>
+            <li class="delivery-info__list delivery-info__list-address">
+                <span class="delivery-info__list__title delivery-info__list__title-required">
+                    Address line 1
+                </span>
+                <input type="text" title="Address line 1" name="devRecipientAddr1" class="devRecipientAddr1">
+            </li>
+            <li class="delivery-info__list delivery-info__list-address">
+                <span class="delivery-info__list__title">
+                    Address line 2
+                </span>
+                <input type="text" title="Address line 2" name="devRecipientAddr2" class="devRecipientAddr2">
+            </li>
+            <li class="delivery-info__list delivery-info__list-address">
+                <span class="delivery-info__list__title delivery-info__list__title-required">
+                    City
+                </span>
+                <input type="text" title="City" name="city" id="devCity" value="">
+            </li>
+            <li class="delivery-info__list delivery-info__list-address">
+                <span class="delivery-info__list__title delivery-info__list__title-required">
+                    State/Province
+                </span>
+                <select id="devStateSelect" name="devStateSelect">
+                    <option value="">Select</option>
+                    {@ regional_information}
+                    <option value="{.reg_name}">{.reg_name}</option>
+                    {/}
+                </select>
+
+                <input type="text" style="display:none;" id="devStateText"  name="state" title="State/Province" >
+                <!--<input type="text" title="State/Province">-->
+                <!--<select>-->
+                <!--<option value="">Country</option>-->
+                <!--<option value="">USA</option>-->
+                <!--</select>-->
+            </li>
+            <li class="delivery-info__list">
+                <span class="delivery-info__list__title delivery-info__list__title-required">
+                    Tel
+                </span>
+                <div class="selectWrap delivery-info__list__input-area">
+                    <select class="devRecipientMobile1 devNationArea" name="devRecipientMobile1">
+                        {@ nation}
+                        <option value="{.national_phone}" data-nation_code="{.nation_code}" {? .nation_code == 'US'} selected {/}>{.nation_name}(+{.national_phone})</option>
+                        {/}
+                    </select>
+                    <input type="text" name="devRecipientMobile2" class="devRecipientMobile2" title="{=trans('받는 분 휴대폰 번호')}">
+                </div>
+            </li>
+            <li class="delivery-info__list delivery-info__list-request">
+                <span class="delivery-info__list__title">
+                    {=trans('배송요청사항')}
+                </span>
+                <div class="delivery-request nonmember delivery-info__list__input-area input-area">
+                    <div class="devDeliveryMessageContents option-box">
+                        <div class="mat10 devDeliveryMessageDirectContents write-area">
+                            <input type="text" class="devDeliveryMessage" name="devDeliveryMessage">
+                            <div class="counting">
+                                <span><em class="devDeliveryMessageByte">0</em>/60 byte</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="fb__infoinput__nonmember-agreement nonmember-agreement">
+        <h2 class="nonmember-agreement__title">{=trans('비회원 약관동의')}</h2>
+        <div class="nonmember-agreement__cont">
+            <p class="nonmember-agreement__cont-tit">{=trans('비회원 구매 이용 약관')} <span>({=trans('(필수)')})</span></p>
+            <div class="nonmember-agreement__cont-input">
+                {? langType == 'korean'}
+                {=use['contents']}
+                {:}
+                {use}
+                {/}
+            </div>
+            <div class="nonmember-agreement__agree">
+                <input type="checkbox" id="wrap-terms-30" class="devTerms" name="term30" value="30" title="비회원 구매 이용 약관" devvalidation="{&quot;required&quot;:true,&quot;requiredMessageTag&quot;:&quot;infoinput.paymentRequest.validation.fail.terms&quot;}">
+                <label for="wrap-terms-30">{=trans('동의')}</label>
+            </div>
+        </div>
+    </section>
+
+</section>

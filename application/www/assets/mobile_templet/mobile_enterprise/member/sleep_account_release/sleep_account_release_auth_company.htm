@@ -1,0 +1,51 @@
+<h1 class="wrap-title">
+    {=trans('휴면 계정 전환 안내')}
+    <button class="back"></button>
+</h1>
+<div class="wrap-step">
+    <p>{=trans('사업자인증')}</p>
+    <ul class="step">
+        <li class="on">1</li>
+        <li class="">2</li>
+        <li class="">3</li>
+        <li class="">4</li>
+    </ul>
+</div>
+<div class="wrap-sect"></div>
+
+
+<div class="layout-padding wrap-join-auth-com">
+    <p class="join-title-desc">{=trans('휴면 계정 해제를 위해<br> 사업자인증을 진행해 주시기 바랍니다.')}</p>
+
+    <form id="devCompanyForm">
+        <div class="wrap-input-form mat30">
+            <dl>
+                <dt>{=trans('상호명')} <em>*</em></dt>
+                <dd>
+                    <input type="text" id="devComName" name="comName"title="상호명">
+                    <p class="txt-error" devTailMsg="devComName"></p>
+                </dd>
+            </dl>
+            <dl>
+                <dt>{=trans('사업자등록 번호')} <em>*</em></dt>
+                <dd class="input-comnum wrap-multi-input">
+                    <input type="text" name="comNumber1" id="devComNumber1"
+                           title="사업자등록번호">
+                    <span class="hyphen">-</span>
+                    <input type="text" name="comNumber2" id="devComNumber2"
+                           title="사업자등록번호">
+                    <span class="hyphen">-</span>
+                    <input type="text" name="comNumber3" id="devComNumber3"
+                           title="사업자등록번호">
+                    <span class="txt-error" devTailMsg="devComNumber1 devComNumber2 devComNumber3"></span>
+                </dd>
+            </dl>
+        </div>
+    </form>
+
+    <div class="wrap-btn-area mat40">
+        <button class="btn-lg btn-dark-line" id="devCancelButton">{=trans('취소')}</button>
+        <button class="btn-lg btn-point" id="devCompanySubmitButton">{=trans('사업자 확인')}</button>
+    </div>
+</div>
+

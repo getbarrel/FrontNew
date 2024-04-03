@@ -1,0 +1,17 @@
+<div class="popup-img-view">
+
+    <div class="review-detail-img">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {@ imgs}
+                <div class="swiper-slide {? .index_ == selectIndex}curpage{/}"><img src="{.value_}" width="600px"></div>
+                {/}
+            </div>
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+    </div>
+</div>

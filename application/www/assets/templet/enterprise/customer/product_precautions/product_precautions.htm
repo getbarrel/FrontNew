@@ -1,0 +1,92 @@
+<!-- 컨텐츠 S -->
+<section class="fb__customer fb__wash">
+	<div class="fb__customer__header">
+		<div class="title-md">제품 주의사항</div>
+	</div>
+	<div class="wash" id="laundryInfo">
+		<div class="wash__category">
+			<div class="wash__category-item">
+				<div class="wash__category-title">카테고리 선택</div>
+				<div class="wash__category-select">
+					<label for="" class="hide">카테고리 선택</label>
+					<select name="laundryOneDepth" id="laundryOneDepth" onchange="laundryChange(this.value)">
+						{ @ laundryOneDepth }
+							{? langType=='english'}
+								<option value="{.cid}">{.title_en}</option>
+							{:}
+								<option value="{.cid}">{.title}</option>
+							{/}
+						{ / }
+					</select>
+				</div>
+			</div>
+			<div class="wash__category-item">
+				<div class="wash__category-title">상세 아이템 선택</div>
+				<div class="wash__category-select">
+					<label for="" class="hide">상세 아이템 선택</label>
+
+					<select name="laundryTwoDepth" id="laundryTwoDepth" onchange="laundryChange2(this.value)">
+						{ @ laundry }
+							{? langType=='english'}
+								<option value="{.cid}">{.title_en}</option>
+							{:}
+								<option value="{.cid}">{.title}</option>
+							{/}
+						{ / }
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="wash__contents">
+			<!-- 카테고리 결과 값 S -->
+			{ @ laundry }
+			<section class="wash__contents__category wash__contents{ ? laundryTwoFirst == .cid }__category--show wash__contents{ / }-{.cid}">
+				{ @ .three }
+				<div class="contents__box">
+					{ ? laundryTwoFirst == ..cid }
+					<div class="contents__box-title  contents__box-detail--show">
+					{ : }
+					<div class="contents__box-title">
+					{ / }
+						<div class="title-sm">
+						{? langType=='english'}
+							{=trans('{..title_en}')}
+						{:}
+							{=trans('{..title}')}
+						{/}						
+						</div>
+					</div>
+					<div class="contents__list">
+						{ @ ..four }
+						<dl class="contents__item">
+							<dt class="contents__item-img">
+								<img src="/assets/templet/enterprise/assets/img/img_product_precautions{=trans('{...cnt}')}.png" alt="{=trans('{...title}')}" />
+							</dt>
+							<dd class="contents__item-cont">
+								<div class="contents__subtitle">
+								{? langType=='english'}
+									{=trans('{...title_en}')}
+								{:}
+									{=trans('{...title}')}
+								{/}								
+								</div>
+								<div class="contents__summary">
+									{? langType=='english'}
+										{=trans('{...contents_en}')}
+									{:}
+										{=trans('{...contents}')}
+									{/}
+								</div>
+							</dd>
+						</dl>
+						{ / }
+					</div>
+				</div>
+				{ / }
+			</section>
+			{ / }
+			<!-- 카테고리 결과 값 E -->
+		</div>
+	</div>
+</section>
+<!-- 컨텐츠 E -->

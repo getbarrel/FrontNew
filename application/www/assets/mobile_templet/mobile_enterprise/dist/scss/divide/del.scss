@@ -1,0 +1,6449 @@
+
+
+.crema-type {
+  #header {
+    width: 100%;
+    //.header__banner__image { //테스트용
+    //  height: rem(90px)!inherit;
+    //  overflow: hidden;
+    //  border: 1px solid red !important;
+    //}
+  }
+  #container {
+    width: 100%;
+  }
+  #footer {
+    width: 100%;
+  }
+  .control {
+    display: inline-block;
+    height: rem(50px);
+    margin-top: rem(15px);
+    .option-up-down {
+      height: rem(50px);
+      li {
+        width: rem(50px);
+        height: 100%;
+        &:nth-child(odd) {
+          width: rem(50px);
+          height: rem(50px);
+          @extend %hiddenText;
+        }
+        input[type=text] {
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          font-size: rem(22px);
+          line-height: rem(50px);
+        }
+        button {
+          width: 100%;
+          height: 100%;
+          background-size: rem(1000px 1000px);
+          &.down {
+            background-position: rem(-500px -400px);
+          }
+          &.up {
+            background-position: rem(-600px -400px);
+          }
+        }
+      }
+    }
+  }
+
+  .br {
+    .control {
+      display: inline-block;
+      height: rem(50px);
+      margin-top: rem(15px);
+      .option-up-down {
+        height: rem(50px);
+        li {
+          width: rem(50px);
+          height: 100%;
+          &:nth-child(odd) {
+            width: rem(50px);
+            height: rem(50px);
+            @extend %hiddenText;
+          }
+          input[type=text] {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(50px);
+          }
+          button {
+            width: 100%;
+            height: 100%;
+            &.down {
+              background-position: rem(-500px -400px);
+            }
+            &.up {
+              background-position: rem(-600px -400px);
+            }
+          }
+        }
+      }
+    }
+    %sectionLine {
+      position: relative;
+      margin-top: rem(11px);
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        height: rem(10px);
+        border-top: 1px solid #dcdddd;
+        background: #efefef;
+      }
+    }
+
+    .goods-cart {
+      padding: rem(20px 30px);
+      border-top: 1px solid #dcdddd;
+      background: #efefef;
+      &:empty {
+        display: none;
+      }
+      &__wrap {
+        margin-left: rem(-30px);
+        width: calc(100% + 3rem);
+      }
+
+      &__box {
+        position: relative;
+        padding: rem(20px 0);
+      }
+      &__tit {
+        padding-right: rem(40px);
+        color: #000;
+        font-size: rem(22px);
+        font-weight: 600;
+        line-height: rem(32px);
+      }
+      &__sub {
+        color: #000;
+        font-size: rem(20px);
+        line-height: rem(30px);
+        @include line();
+      }
+
+      .price {
+        position: absolute;
+        bottom: rem(25px);
+        right: 0;
+        color: #000;
+        font-size: rem(20px);
+        font-weight: 600;
+        line-height: rem(30px);
+        em {
+          font-size: rem(22px);
+        }
+      }
+      .btn-option-del {
+        position: absolute;
+        top: rem(20px);
+        right: 0;
+        width: rem(32px);
+        height: rem(32px);
+        padding: 0;
+        background: url(../images/common/icon_detail_minicart_cancel.png) no-repeat;
+        background-size: rem(31rem 31rem);
+      }
+    }
+
+    &__goods-view {
+      // 크리마 iframe 강제 크기 조정
+
+      .crema-applied {
+        width: 100% !important;
+        iframe {
+          width: 100% !important;
+        }
+        &.goods-photo,
+        &.crema-product-reviews[data-widget-id="17"] {
+          iframe {
+            width: 100% !important;
+          }
+        }
+      }
+
+      // 썸네일 슬라이드
+      &__thumb {
+        .goods-thumb {
+          position: relative;
+
+          %swiperNavBtn {
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            width: rem(60px);
+            height: rem(60px);
+            margin-top: rem(-30px);
+            padding: 0;
+            background: url(../images/common/btn_detail_thumb_arrow.png) no-repeat rem(0 0);
+            background-size: rem(127px 60px);
+            @extend %hiddenText;
+          }
+
+          .swiper {
+            &-pagination {
+              position: absolute;
+              top: auto;
+              left: auto;
+              right: rem(30px);
+              bottom: rem(40px);
+              width: auto;
+              color: #000;
+              font-size: rem(22px);
+              font-weight: 200;
+              text-shadow: 1px 1px rem(9px) rgba(0, 0, 0, .63);
+            }
+            &-button {
+              &-prev,
+              &-next {
+                display: none;
+                @extend %swiperNavBtn;
+              }
+              &-prev {
+                left: rem(5px);
+                background-position: rem(0 0);
+              }
+              &-next {
+                right: rem(5px);
+                background-position: rem(-67px 0);
+              }
+              &-disabled {
+                opacity: 0;
+              }
+            }
+
+            &-container-initialized {
+              .swiper-button {
+                &-prev,
+                &-next {
+                  display: block;
+                }
+              }
+            }
+          }
+
+          &__box {
+            display: block;
+            width: 100%;
+            height: rem(800px);
+            img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            iframe {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          &__play {
+            position: absolute;
+            right: 0;
+            bottom: rem(60px);
+            width: rem(100px);
+            height: rem(100px);
+            @extend %hiddenText;
+
+            &:before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              margin: rem(-20px 0 0 -20px);
+              border-radius: 100%;
+              background: #f00;
+
+            }
+          }
+        }
+
+      }
+      // 타임세일
+      &__time-sale {
+        .time-sale {
+          height: rem(80px);
+          padding: rem(24px 30px);
+          background: #000;
+          @extend %clear;
+          &__title {
+            float: left;
+            color: #fff;
+            font-size: rem(22px);
+            line-height: rem(32px);
+            &:before {
+              content: "";
+              display: inline-block;
+              margin-right: rem(14px);
+              width: rem(24px);
+              height: rem(32px);
+              background: $sprite30 no-repeat rem(-961px -42px);
+              background-size: rem(1221px 80px);
+              vertical-align: rem(-6px);
+            }
+          }
+          &__countdown {
+            display: none;
+            float: right;
+            color: $cPoint;
+            font-size: rem(22px);
+            line-height: rem(32px);
+            span {
+
+              font-size: rem(26px);
+            }
+            &--show {
+              display: block;
+            }
+          }
+        }
+      }
+      // 상품기본정보
+      .goods-info {
+        padding: rem(0 30px);
+        // 뱃지
+        &__badge {
+          float: left;
+          min-height: rem(35px);
+          margin-bottom: rem(50px);
+          padding: rem(4px 0);
+
+          &__icon {
+            float: left;
+            width: rem(90px);
+            height: rem(35px);
+            margin-left: rem(10px);
+            background: url(../images/common/icon_detail_badge.png) no-repeat 0 0;
+            background-size: rem(390px 35px);
+            @extend %hiddenText;
+
+            &:first-of-type {
+              margin-left: 0;
+            }
+            &--water {
+              background-position: 0 0;
+            }
+            &--sale {
+              background-position: rem(-100px 0);
+            }
+            &--set {
+              background-position: rem(-200px 0);
+            }
+            &--cosmetics {
+              background-position: rem(-300px 0);
+            }
+          }
+        }
+        //공유하기
+        &__btns {
+          position: absolute;
+          top: rem(20px);
+          right: rem(10px);
+          &__share {
+            float: left;
+            padding: rem(20px);
+            @extend %hiddenText;
+            &:before {
+              content: '';
+              display: block;
+              width: rem(26px);
+              height: rem(30px);
+              background: $sprite30 no-repeat rem(-808px -2px);
+              background-size: rem(1221px 80px);
+            }
+          }
+          &__wish {
+            float: left;
+            position: relative;
+            padding: rem(20px);
+            @extend %hiddenText;
+            &:before {
+              content: '';
+              display: block;
+              width: rem(35px);
+              height: rem(30px);
+              background: $sprite30 no-repeat rem(-855px -2px);
+              background-size: rem(1221px 80px);
+            }
+            input[type=checkbox] {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0;
+              height: 0;
+              padding: 0;
+              opacity: 0;
+            }
+            &.on {
+              &:before {
+                background-position-y: rem(-41px);
+              }
+            }
+          }
+
+        }
+        //상품명
+        &__title {
+          clear: both;
+          margin-bottom: rem(28px);
+          color: #000;
+          font-size: rem(30px);
+          line-height: rem(44px);
+          white-space: pre-line;
+          @include line(2);
+        }
+        // 가격정보
+        &__price {
+          position: relative;
+          padding-bottom: rem(40px);
+          &__strike {
+            display: inline-block;
+            position: relative;
+            margin-bottom: rem(10px);
+            color: #b5b5b6;
+            font-size: rem(26px);
+            line-height: rem(34px);
+            text-decoration: none;
+            &:before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: rem(-5px);
+              right: rem(-5px);
+              border-top: 1px solid #b5b5b6;
+            }
+          }
+          &__result {
+            display: block;
+            color: #000;
+            font-size: rem(26px);
+            font-weight: 600;
+            //line-height: rem(46px);
+
+            span {
+              font-size: rem(34px);
+            }
+          }
+          &__discount {
+            position: absolute;
+            right: 0;
+            bottom: rem(31px);
+            color: #e60000;
+            font-size: rem(40px);
+            line-height: rem(70px);
+            font-weight: 200;
+            font-family: $font_s;
+            font-style: italic;
+
+            span {
+              font-size: rem(70px);
+              font-family: $font_n;
+              font-style: normal;
+              font-weight: bold;
+            }
+          }
+        }
+        //혜택내역
+        &__benefit-list {
+          display: inline-block;
+          height: rem(30px);
+          margin-left: rem(20px);
+          padding: rem(0 14px);
+          border-radius: rem(30px);
+          background: #000;
+          color: #fff;
+          font-size: rem(18px);
+          vertical-align: text-top;
+
+          &:after {
+            content: "";
+            display: inline-block;
+            width: rem(8px);
+            height: rem(18px);
+            margin-left: rem(10px);
+            background: url(../images/common/icon_detail_benefit.png) no-repeat center center;
+            background-size: 100% auto;
+            vertical-align: top;
+          }
+        }
+        //쿠폰 다운로드
+        &__coupon {
+          padding: rem(20px 0 40px);
+
+          &__btn {
+            display: block;
+            width: 100%;
+            height: rem(70px);
+            background: $cPoint;
+            color: #fff;
+            font-size: rem(22px);
+            font-weight: 600;
+            line-height: 1;
+            text-align: center;
+
+            &:after {
+              content: "";
+              display: inline-block;
+              width: rem(26px);
+              height: rem(22px);
+              margin-left: rem(12px);
+              background: $sprite30 no-repeat rem(-809px -47px);
+              background-size: rem(1221px 80px);
+              vertical-align: top;
+            }
+          }
+        }
+        // 박스사선 before
+        %boxSlash {
+          content: "";
+          position: absolute;
+          top: rem(5px);
+          left: rem(5px);
+          right: rem(5px);
+          bottom: rem(5px);
+          z-index: 1;
+          border: 1px solid #fff;
+        }
+        // 색상
+        &__color {
+          padding: rem(40px 0);
+          border-top: 1px solid #d3d3d3;
+          &__title {
+            color: #000;
+            font-size: rem(22px);
+            font-weight: bold;
+            line-height: rem(22px);
+            span {
+              display: inline-block;
+              margin-left: rem(12px);
+              color: #000;
+              font-size: rem(20px);
+              font-weight: 400;
+            }
+          }
+          &__list {
+            margin-top: rem(30px);
+            @extend %clear;
+          }
+          &__box {
+            float: left;
+            margin: rem(0 15px 15px 0);
+            &:nth-child(6n+1) {
+              clear: both;
+            }
+            &:nth-last-child(-n+6) {
+              margin-bottom: 0;
+            }
+          }
+          &__link {
+            display: block;
+            width: rem(74px);
+            height: rem(46px);
+            img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            &--disabled {
+              img {
+                opacity: .6;
+              }
+            }
+            &--active {
+              position: relative;
+              outline: rem(4px) solid #000 !important;
+
+              &:before {
+                content: "";
+                position: absolute;
+                top: rem(5px);
+                left: rem(5px);
+                right: rem(5px);
+                bottom: rem(5px);
+                z-index: 1;
+                border: rem(2px) solid #fff;
+              }
+            }
+          }
+
+        }
+        // 사이즈
+        &__size {
+          position: relative;
+          padding: rem(40px 0);
+          border-top: 1px solid #d3d3d3;
+
+          &__title {
+            color: #000;
+            font-size: rem(22px);
+            font-weight: bold;
+            line-height: rem(22px);
+            span {
+              display: inline-block;
+              margin-left: rem(12px);
+              color: #000;
+              font-size: rem(20px);
+              font-weight: 400;
+            }
+          }
+          &__guide {
+            position: absolute;
+            top: rem(35px);
+            right: 0;
+            padding: 0;
+            border-bottom: 1px solid #b5b5b6;
+            color: #b5b5b6;
+            font-size: rem(20px);
+            line-height: rem(30px);
+
+          }
+          &__list {
+            margin-top: rem(30px);
+            @extend %clear;
+          }
+          &__box {
+            float: left;
+            margin: rem(0 15px 15px 0);
+            &:nth-child(6n+1) {
+              clear: both;
+            }
+            &:nth-last-child(-n+6) {
+              margin-bottom: 0;
+            }
+          }
+          &__btn {
+            display: block;
+            position: relative;
+            width: rem(74px);
+            height: rem(46px);
+            padding: 0;
+            border: 1px solid #000;
+            color: #000;
+            font-size: rem(22px);
+            letter-spacing: rem(-1.5px);
+
+            &--active {
+              background: #000;
+              color: #fff;
+              &:before {
+                content: "";
+                position: absolute;
+                top: rem(5px);
+                left: rem(5px);
+                right: rem(5px);
+                bottom: rem(5px);
+                z-index: 1;
+                border: 1px solid #fff;
+              }
+            }
+            &:disabled {
+              border-color: #b5b5b6;
+              color: #b5b5b6;
+              &:before {
+                content: "";
+                position: absolute;
+                top: rem(-12px);
+                left: rem(31px);
+                width: rem(20px);
+                height: rem(85px);
+                border-left: 1px solid #b5b5b6;
+                transform: rotate(58.7deg);
+              }
+            }
+          }
+          &__alarm {
+            display: block;
+            width: rem(163px);
+            height: rem(45px);
+            margin-top: rem(30px);
+            padding: 0;
+            border: 1px solid #000;
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 600;
+            line-height: rem(45px);
+
+          }
+        }
+        // 세트옵션 선택
+        &__set {
+          padding: rem(40px 0);
+          border-top: 1px solid #d3d3d3;
+          &__title {
+            color: #000;
+            //font-size: rem(26px);
+            font-size: 100%;
+            font-weight: bold;
+            line-height: rem(26px);
+            span {
+              display: inline-block;
+              margin-left: rem(12px);
+              color: #000;
+              font-size: rem(20px);
+              font-weight: 400;
+            }
+          }
+          &__list {
+            margin-top: rem(30px);
+          }
+          &__box {
+            margin-top: rem(15px);
+            &:first-child {
+              margin-top: 0;
+            }
+            .br__select-box {
+              border: 1px solid #b5b5b6;
+              .select-box {
+                &__title {
+                  span {
+                    line-height: rem(60px);
+                  }
+                }
+              }
+            }
+          }
+        }
+        //혜택, 정보
+        &__other {
+          padding: rem(40px 0);
+          border-top: 1px solid #d3d3d3;
+
+          &__list {
+            display: flex;
+            margin-top: rem(20px);
+            &:first-child {
+              margin-top: 0;
+            }
+            dt {
+              width: rem(110px);
+              margin-right: rem(32px);
+              color: #000;
+              font-size: rem(22px);
+              font-weight: 600;
+              line-height: rem(30px);
+            }
+            dd {
+              width: 100%;
+              color: #000;
+              font-size: rem(20px);
+              line-height: rem(30px);
+            }
+
+            &--point {
+              em {
+                color: #00bce7;
+              }
+            }
+          }
+        }
+        // 상품 후기 평균
+        &__review {
+          padding: rem(40px 0);
+          border-top: 1px solid #d3d3d3;
+          @extend %clear;
+          &__title {
+            float: left;
+            color: #000;
+            font-size: rem(22px);
+            font-weight: bold;
+            line-height: rem(22px);
+          }
+          &__star {
+            display: inline-block;
+            float: left;
+            position: relative;
+            height: rem(22px);
+            margin-left: rem(20px);
+            padding-right: rem(60px);
+            &--point {
+              display: block;
+              width: rem(160px);
+              height: 100%;
+              background: url(../images/common/bg_detail_star.png) no-repeat top left;
+              background-size: rem(160px);
+              span {
+                display: block;
+                height: 100%;
+                background: url(../images/common/bg_detail_star.png) no-repeat bottom left;
+                background-size: rem(160px);
+              }
+            }
+            &--number {
+              position: absolute;
+              top: 0;
+              right: 0;
+              color: $cPoint;
+              font-size: rem(20px);
+              line-height: rem(22px);
+            }
+          }
+          &__btn {
+            float: right;
+            position: relative;
+            padding: 0;
+            color: #b5b5b6;
+            font-size: rem(20px);
+            font-weight: 600;
+            line-height: rem(22px);
+            &:after {
+              content: "";
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: rem(-3px);
+              border-bottom: 1px solid #b5b5b6;
+            }
+          }
+        }
+      }
+      &__information {
+        position: relative;
+        padding: rem(40px 30px 0);
+        .goods-info {
+          padding: 0;
+        }
+      }
+      // 상품옵션
+      &__option {
+        .goods-option {
+          @extend %sectionLine;
+          padding: rem(0 30px 30px);
+          &__title {
+            position: relative;
+            padding: rem(30px 0);
+            color: #000;
+            font-size: rem(34px);
+            font-weight: 600;
+            line-height: rem(54px);
+
+            &:after {
+              display: none;
+              position: absolute;
+              top: rem(60px);
+              right: 0;
+              width: rem(20px);
+              height: rem(14px);
+              background: url(../../img/icon/m_select_arrow.png) no-repeat;
+              background-size: rem(36px 14px);
+              content: "";
+            }
+
+            &--active {
+              &:after {
+                display: inline-block;
+              }
+            }
+
+          }
+          &__list {
+            display: block;
+
+            /*&--active {
+              display: block;
+            }*/
+          }
+          &__box {
+            display: flex;
+            padding: rem(40px 0);
+            border-bottom: 1px solid #b5b5b6;
+
+          }
+          &__thumb {
+            display: block;
+            width: rem(155px);
+            height: rem(220px);
+            border: 1px solid #dcdddd;
+
+            img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          &__info {
+            position: relative;
+            //width: calc(100% - 155px);
+            width: calc(100% - 7.75rem);
+            padding-left: rem(30px);
+
+            &__title {
+              display: block;
+              color: #000;
+              font-size: rem(22px);
+              font-weight: 600;
+              line-height: rem(32px);
+              @include line(2);
+            }
+            &__color {
+              display: block;
+              color: #000;
+              font-size: rem(20px);
+              line-height: rem(30px);
+              @include line();
+            }
+            &__price {
+              position: absolute;
+              left: rem(30px);
+              right: 0;
+              bottom: rem(80px);
+
+              .strike {
+                display: inline-block;
+                position: relative;
+                margin-right: rem(15px);
+                color: #b5b5b6;
+                font-size: rem(20px);
+                line-height: rem(32px);
+                text-decoration: none;
+                &:before {
+                  content: "";
+                  position: absolute;
+                  top: 50%;
+                  left: rem(-5px);
+                  right: rem(-5px);
+                  border-top: 1px solid #b5b5b6;
+                }
+              }
+              .price {
+                display: inline-block;
+                color: #000;
+                font-size: rem(20px);
+                font-weight: 600;
+                line-height: rem(32px);
+
+                span {
+                  font-size: rem(22px);
+                }
+              }
+              .discount {
+                display: inline-block;
+                margin-left: rem(5px);
+                color: #e60000;
+                font-size: rem(20px);
+                line-height: rem(32px);
+              }
+            }
+
+            .br__select-box {
+              .select-box {
+                position: absolute;
+                left: rem(30px);
+                right: 0;
+                bottom: 0;
+                //border: 1px solid #b5b5b6;
+                &__title {
+                  span {
+                    line-height: rem(58px);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      // 포토리뷰
+      &__photo {
+        @extend %sectionLine;
+        .goods-photo {
+          padding: rem(0 30px 80px);
+          &__title {
+            padding: rem(70px 0 30px);
+            color: #000;
+            font-size: rem(34px);
+            font-weight: 600;
+            line-height: rem(54px);
+          }
+          &__sub {
+            margin-bottom: rem(15px);
+            color: #898989;
+            font-size: rem(20px);
+            line-height: rem(30px);
+          }
+          /*&__wrap {
+            overflow: hidden;
+            height: 200px;
+            margin: 55px -30px 0;
+          }
+          &__list {
+            overflow: {
+              y: hidden;
+              x: auto;
+            }
+            padding: 0 30px 20px;
+            font-size: 0;
+            white-space: nowrap;
+          }
+          &__box {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin-left: 30px;
+            &:first-child {
+              margin-left: 0;
+            }
+            img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          &__link {
+            display: block;
+          }*/
+        }
+      }
+      // 추천상품
+      &__recommend {
+        @extend %sectionLine;
+        .goods-recom {
+          padding: rem(0 30px 50px);
+          &__title {
+            padding: rem(70px 0 0);
+            color: #000;
+            font-size: rem(34px);
+            font-weight: 600;
+            line-height: rem(54px);
+          }
+          &__wrap {
+            overflow: hidden;
+            height: rem(495px);
+            margin: rem(50px -30px 0);
+          }
+          &__list {
+            overflow: {
+              y: hidden;
+              x: auto;
+            }
+            padding: rem(0 30px 20px);
+            font-size: 0;
+            white-space: nowrap;
+          }
+          &__box {
+            display: inline-block;
+            width: rem(200px);
+            margin-left: rem(30px);
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+          &__link {
+            display: block;
+          }
+          &__thumb {
+            width: 100%;
+            height: rem(282px);
+            border: 1px solid #dcdddd;
+
+            img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          &__info {
+            margin-top: rem(25px);
+            &__head {
+              display: block;
+              height: rem(30px);
+              color: #000;
+              font-size: rem(20px);
+              line-height: rem(30px);
+            }
+            &__title {
+              display: block;
+              color: #000;
+              font-size: rem(22px);
+              font-weight: 600;
+              line-height: rem(32px);
+              @include line();
+            }
+            &__color {
+              display: block;
+              height: rem(30px);
+              margin-top: rem(10px);
+              color: #000;
+              font-size: rem(20px);
+              line-height: rem(30px);
+              @include line();
+            }
+            &__price {
+              display: block;
+              position: relative;
+              margin-top: rem(25px);
+              padding: rem(40px 0 30px);
+              border-top: 1px solid #d1d3d4;
+            }
+            &__strike {
+              display: inline-block;
+              position: absolute;
+              top: rem(10px);
+              left: 0;
+              color: #b5b5b6;
+              font-size: rem(20px);
+              line-height: rem(30px);
+              text-decoration: none;
+              &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: rem(-5px);
+                right: rem(-5px);
+                border-top: 1px solid #b5b5b6;
+              }
+            }
+            &__result {
+              display: inline-block;
+              color: #000;
+              font-size: rem(20px);
+              font-weight: 600;
+              line-height: rem(30px);
+              span {
+                font-size: rem(24px);
+              }
+            }
+            &__discount {
+              display: inline-block;
+              margin-left: rem(5px);
+              color: #e8373d;
+              font-size: rem(20px);
+              line-height: rem(30px);
+            }
+            &__sold-out {
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              color: #e60000;
+              font-size: rem(22px);
+              line-height: rem(30px);
+            }
+          }
+        }
+
+      }
+      // 크리마 핏
+      &__crema {
+        @extend %sectionLine;
+        text-align: center;
+
+      }
+      // event 배너
+      &__event {
+        @extend %sectionLine;
+        .goods-event {
+          padding: rem(80px 0);
+        }
+      }
+      // 탭영역
+      &__tabs {
+        @extend %sectionLine;
+        // 탭컨트롤
+        .goods-tabs {
+          height: rem(82px);
+          &__list {
+            display: flex;
+            height: rem(82px);
+            background: #fff;
+            border-bottom: 1px solid #b5b5b6;
+            &--fixed {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              z-index: 20;
+            }
+          }
+          &__box {
+            width: 25%;
+          }
+          &__btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 600;
+            line-height: rem(30px);
+            text-align: center;
+            &--active {
+              &:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -1px;
+                border-bottom: rem(3px) solid $cPoint;
+              }
+            }
+          }
+          &__cont {
+            display: block;
+          }
+        }
+        // 상세정보 탭
+        .goods-detail {
+          &__acco {
+            &__btn {
+              display: block;
+              position: relative;
+              width: 100%;
+              padding: rem(30px 80px 30px 30px);
+              border-bottom: 1px solid #b5b5b6;
+              color: #000;
+              font-size: rem(22px);
+              line-height: rem(32px);
+              text-align: left;
+              &:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: rem(29px);
+                width: rem(22px);
+                height: rem(12px);
+                margin-top: rem(-6px);
+                background: $sprite22 no-repeat rem(-65px -7px);
+                background-size: rem(410px 23px);
+              }
+              &--show {
+                &:after {
+                  background-position-x: rem(-107px);
+                }
+                & + .goods-detail__acco__cont {
+                  display: block;
+                }
+              }
+            }
+            &__cont {
+              display: none;
+              padding: rem(40px 30px);
+              border-bottom: 1px solid #b5b5b6;
+              // 사은품
+              .gift-cont {
+                @extend %clear;
+                &__thumb {
+                  clear: both;
+                  float: left;
+                  width: rem(155px);
+                  height: rem(220px);
+                  margin-bottom: rem(30px);
+                  border: 1px solid #dcdddd;
+                  img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  }
+                }
+                &__info {
+                  float: left;
+                  position: relative;
+                  width: calc(100% - 8.75rem);
+                  height: rem(220px);
+                  margin-left: rem(20px);
+                  &__title {
+                    margin-top: rem(-5px);
+                    color: #000;
+                    font-size: rem(30px);
+                    line-height: rem(44px);
+                    white-space: pre-line;
+                    @include line(3);
+                  }
+                  &__date {
+                    margin-top: rem(18px);
+                    color: #000;
+                    font-size: rem(20px);
+                    line-height: rem(30px);
+                  }
+                  &__price {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    color: #000;
+                    font-size: rem(20px);
+                    font-weight: 600;
+                    line-height: rem(30px);
+                    span {
+                      font-size: rem(24px);
+                    }
+                  }
+                }
+                &__notice {
+                  float: left;
+                  width: 100%;
+                  padding: rem(20px 30px 20px 35px);
+                  background: #efefef;
+                  &__desc {
+                    display: block;
+                    color: #898989;
+                    font-size: rem(20px);
+                    line-height: rem(30px);
+                  }
+                }
+              }
+              // 상품정보 제공 고시
+              .goods-announce {
+                display: flex;
+                margin-top: rem(10px);
+                &:first-child {
+                  margin-top: 0;
+                }
+                &__title {
+                  //width: rem(150px);
+                  flex: 0 0 rem(150px);
+                  color: #000;
+                  font-size: rem(20px);
+                  line-height: rem(30px);
+                }
+                &__info {
+                  width: 100%;
+                  padding-left: rem(20px);
+                  color: #898989;
+                  font-size: rem(20px);
+                  line-height: rem(30px);
+                  word-break: break-all;
+                }
+              }
+            }
+          }
+          &__view {
+            img {
+              max-width: 100%;
+              height: auro !important;
+            }
+          }
+        }
+        // 상품후기 탭
+        .goods-review {
+          padding: rem(0px 30px 80px);
+          &__title {
+            padding-top: rem(75px);
+            color: #000;
+            font-size: rem(34px);
+            font-weight: 600;
+            line-height: rem(44px);
+            span {
+              font-weight: 400;
+            }
+          }
+          &__des {
+            margin-top: rem(20px);
+            color: #898989;
+            font-size: rem(20px);
+            line-height: rem(30px);
+          }
+          &__best {
+            margin-top: rem(55px);
+            padding: rem(30px 0);
+            border-top: 1px solid #000;
+
+            &__title {
+              color: #000;
+              font-size: rem(26px);
+              font-weight: 600;
+              line-height: rem(46px);
+            }
+            &__desc {
+              margin-top: rem(15px);
+              color: #000;
+              font-size: rem(22px);
+              line-height: rem(32px);
+            }
+            &__rank {
+              margin: rem(25px 0);
+              .rank-list {
+                @extend %clear;
+                &__box {
+                  float: left;
+                  width: rem(162px);
+                  height: rem(162px);
+                  margin-left: rem(47px);
+                  padding: rem(40px 0);
+                  border-radius: 100%;
+                  text-align: center;
+                  background: #000;
+                  &:first-child {
+                    margin-left: 0;
+                  }
+                }
+                &__rank {
+                  display: block;
+                  color: #fff;
+                  font-size: rem(22px);
+                  line-height: rem(32px);
+                }
+                &__prize {
+                  display: block;
+                  color: #fff;
+                  font-size: rem(30px);
+                  font-weight: 600;
+                  line-height: rem(40px);
+                }
+              }
+            }
+            &__refer {
+              color: #898989;
+              font-size: rem(22px);
+              line-height: rem(32px);
+            }
+            &__kind {
+              margin: rem(50px 0 0);
+              border-top: 1px solid #dcdddd;
+              .best-kind {
+                display: flex;
+                padding: rem(25px 0);
+                border-bottom: 1px solid #dcdddd;
+                &__title {
+                  width: rem(164px);
+                  padding: rem(0 15px);
+                  color: #000;
+                  font-size: rem(26px);
+                  font-weight: 600;
+                  line-height: rem(36px);
+                }
+                &__desc {
+                  width: 100%;
+                  padding: rem(0 35px 0 40px);
+                  color: #000;
+                  font-size: rem(22px);
+                  line-height: rem(32px);
+                }
+              }
+            }
+          }
+          &__notice {
+            margin-top: rem(30px);
+            padding: rem(35px 20px);
+            background: #efefef;
+            &__title {
+              color: #000;
+              font-size: rem(30px);
+              font-weight: 600;
+              line-height: rem(40px);
+            }
+            &__list {
+              margin-top: rem(20px);
+              padding-right: rem(20px);
+            }
+            &__desc {
+              margin-top: rem(15px);
+              padding-left: rem(6px);
+              color: #000;
+              font-size: rem(22px);
+              line-height: rem(32px);
+              text-indent: rem(-6px);
+              word-break: keep-all;
+              &:first-child {
+                margin-top: none;
+              }
+              span {
+                font-size: rem(20px);
+              }
+            }
+            &__crema {
+              text-align: center;
+            }
+          }
+        }
+        // 상품문의 탭
+        .goods-qna {
+          &__write {
+            position: relative;
+            padding: rem(75px 30px 80px);
+            &__title {
+              color: #000;
+              font-size: rem(34px);
+              font-weight: 600;
+              line-height: rem(44px);
+              span {
+                font-weight: 400;
+              }
+            }
+            &__desc {
+              margin-top: rem(35px);
+              width: rem(268px);
+              color: #898989;
+              font-size: rem(20px);
+              line-height: rem(30px);
+            }
+            &__btn {
+              position: absolute;
+              right: rem(30px);
+              bottom: rem(80px);
+              width: rem(250px);
+              background: #000;
+              color: #fff;
+              font-size: rem(22px);
+              font-weight: 600;
+              line-height: rem(80px);
+              text-align: center;
+            }
+          }
+          &__list {
+            border-top: 1px solid #b5b5b6;
+          }
+          &__box {
+            .qna-info {
+              display: block;
+              width: 100%;
+              padding: rem(40px 70px 40px 30px);
+              border-bottom: 1px solid #b5b5b6;
+              background: #fff;
+              text-align: left;
+              &__my-qna {
+                display: block;
+                margin-bottom: rem(25px);
+                color: $cPoint;
+                font-size: rem(20px);
+                font-weight: 600;
+                line-height: rem(30px);
+              }
+              &__state {
+                display: inline-block;
+                width: rem(110px);
+                height: rem(30px);
+                border: 1px solid #898989;
+                border-radius: rem(30px);
+                background: #fff;
+                color: #898989;
+                font-size: rem(20px);
+                font-weight: 600;
+                line-height: rem(28px);
+                text-align: center;
+                &--point {
+                  border-color: $cPoint;
+                  color: $cPoint;
+                }
+              }
+              &__type,
+              &__name,
+              &__date {
+                display: inline-block;
+                margin-left: rem(10px);
+                color: #898989;
+                font-size: rem(20px);
+                line-height: rem(30px);
+              }
+              &__title {
+                display: inline-block;
+                max-width: 100%;
+                margin-top: rem(15px);
+                color: #000;
+                font-size: rem(22px);
+                font-weight: 600;
+                line-height: rem(32px);
+                @include line(1);
+              }
+            }
+            .qna-detail {
+              display: none;
+              padding: rem(35px 30px);
+              border-bottom: 1px solid #b5b5b6;
+              background: #efefef;
+              &__question {
+                &__desc {
+                  color: #000;
+                  font-size: rem(20px);
+                  line-height: rem(30px);
+                  word-break: break-all;
+                  white-space: pre-line;
+                }
+                &__mod {
+                  margin-top: rem(25px);
+                  @extend %clear;
+                }
+                &__btn {
+                  float: right;
+                  width: rem(80px);
+                  height: rem(40px);
+                  margin-left: rem(15px);
+                  border: 1px solid #000;
+                  color: #000;
+                  font-size: rem(20px);
+                  line-height: rem(38px);
+                  text-align: center;
+                }
+              }
+              &__answer {
+
+                margin-top: rem(30px);
+                border-top: 1px solid #dcdddd;
+                &__info {
+                  padding: rem(30px 10px 0);
+                }
+                &__name {
+                  display: inline-block;
+                  color: $cPoint;
+                  font-size: rem(20px);
+                  font-weight: 600;
+                  line-height: rem(30px);
+                }
+                &__date {
+                  display: inline-block;
+                  margin-left: rem(5px);
+                  color: #898989;
+                  font-size: rem(20px);
+                  line-height: rem(30px);
+                }
+                &__desc {
+                  margin-top: rem(20px);
+                  color: #000;
+                  font-size: rem(20px);
+                  line-height: rem(30px);
+                  white-space: pre-line;
+                }
+              }
+            }
+            .qna-info {
+              &__title {
+                position: relative;
+                padding-right: rem(25px);
+                &:after {
+                  content: "";
+                  position: absolute;
+                  top: rem(4px);
+                  right: 0;
+                  width: rem(17px);
+                  height: rem(22px);
+                  background: $sprite22 no-repeat rem(-323px -1px);
+                  background-size: rem(410px 23px);
+                }
+              }
+            }
+            &--secret {
+              .qna-detail {
+                display: none !important;
+              }
+            }
+            &--show {
+              .qna-detail {
+                display: block;
+              }
+            }
+          }
+          .empty-content {
+            color: #000;
+            font-size: rem(24px);
+
+            &:before {
+              content: "";
+              display: block;
+              width: rem(101px);
+              height: rem(100px);
+              margin: auto auto rem(50px);
+              background: url(../../img/icon/m_sprite_icon.png) no-repeat rem(-600px -100px);
+              background-size: rem(1000px 1000px);
+            }
+          }
+        }
+        // 교환반품 탭
+        .goods-notice {
+          &:after {
+            content: "";
+            display: block;
+            height: rem(10px);
+            border-top: 1px solid #dcdddd;
+            background: #efefef;
+          }
+          &__box {
+            border-top: 1px solid #b5b5b6;
+            &:first-of-type {
+              border-top: 0;
+            }
+          }
+          &__btn {
+            display: block;
+            position: relative;
+            width: 100%;
+            padding: rem(25px 70px 25px 30px);
+            border-top: 1px solid #b5b5b6;
+            background: #fff;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+            text-align: left;
+            &:first-child {
+              border-top: none;
+            }
+            &:after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              right: rem(30px);
+              width: rem(12px);
+              height: rem(24px);
+              margin-top: rem(-12px);
+              background: $sprite22 no-repeat rem(-33px 0);
+              background-size: rem(410px 23px);
+            }
+          }
+        }
+      }
+      //미니카트
+      &__minicart {
+        display: flex;
+        align-content: flex-end;
+        flex-wrap: wrap;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: rem(80px);
+        z-index: 59;
+
+        &--toggle {
+          display: block;
+          width: 100%;
+          height: rem(36px);
+          padding: 0;
+          background: url(../../images/layout/bg_detail_minicart_open.png) no-repeat center top;
+          background-size: 100%;
+          @extend %hiddenText;
+        }
+        &--dimmed {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: rem(80px);
+          background: rgba(0, 0, 0, .6);
+          z-index: -1;
+        }
+        .minicart {
+          display: none;
+          overflow: hidden;
+          background: #fff;
+          width: 100%;
+          max-height: 70%; //이슈 올라와서 80%에서 70%로 줄임
+          //배너영역
+          &__banner {
+            padding: rem(15px);
+            background: #000;
+            &__desc {
+              color: #fff;
+              font-size: rem(18px);
+              line-height: rem(28px);
+              text-align: center;
+              &--point {
+                color: #00bce7;
+              }
+            }
+          }
+          .br__goods-view__information {
+            overflow: {
+              x: hidden;
+              y: auto;
+            }
+            @extend %touchScroll;
+            max-height: calc(100% - 7.4rem);
+            padding: rem(40px 0 0);
+
+            .goods-info {
+              padding: rem(0 30px 40px);
+              > div[class^=goods-info__] {
+                padding: rem(30px 0);
+                border-top: 0;
+                &:first-child {
+                  padding-top: 0;
+                }
+              }
+              &__size {
+                &__guide {
+                  top: rem(25px);
+                }
+              }
+            }
+            .goods-option {
+              &__title {
+                &:after {
+                  display: block;
+                }
+              }
+              &__list {
+                display: none;
+              }
+              &--active {
+                .goods-option {
+                  &__list {
+                    display: block;
+                  }
+                }
+              }
+
+              &--add {
+
+              }
+            }
+
+          }
+          &__total {
+            padding: rem(20px 30px);
+            border-top: 1px solid #dcdddd;
+            text-align: right;
+
+            &__text {
+              display: inline-block;
+              margin-right: rem(20px);
+              color: #000;
+              font-size: rem(20px);
+            }
+            &__price {
+              color: $cPoint;
+              font-size: rem(26px);
+              line-height: rem(45px);
+              span {
+                font-size: rem(35px);
+              }
+            }
+            &__count {
+              display: inline-block;
+              margin-left: rem(10px);
+              color: $cPoint;
+              font-size: rem(26px);
+
+            }
+
+          }
+          .goods-info__set {
+            padding: {
+              left: rem(30px);
+              right: rem(30px);
+            }
+          }
+        }
+        &--show {
+          height: calc(100% - 4rem);
+          .br__goods-view__minicart--toggle {
+            height: rem(46px);
+          }
+          .br__goods-view__minicart--dimmed {
+            display: block;
+          }
+          .minicart {
+            display: block;
+          }
+          .br__goods-view__minicart--toggle {
+            background-image: url(../images/layout/bg_detail_minicart.png);
+            background-size: rem(641px 113px);
+          }
+        }
+      }
+
+      //상품상세 플로팅 버튼
+      &__btn {
+        //height: 80px;
+        %boxCommon {
+          display: block;
+          flex-basis: rem(250px);
+          height: rem(80px);
+          padding: 0;
+          background: $cPoint;
+          color: #fff;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(80px);
+          text-align: center;
+          box-sizing: border-box;
+        }
+        .goods-btn {
+          display: flex;
+          position: fixed;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 50;
+          width: 100%;
+          background: #fff;
+
+          &__store {
+            @extend %boxCommon;
+            flex-basis: rem(140px);
+            border: 1px solid #000;
+            border-width: 1px 1px 1px 0;
+            background: #fff;
+            color: #000;
+          }
+          &__cart {
+            @extend %boxCommon;
+            background: #000;
+          }
+          &__buy {
+            @extend %boxCommon;
+            background: $cPoint;
+          }
+          &__sold-out {
+            @extend %boxCommon;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            flex-basis: calc(100% - 7rem);
+            background: #666;
+          }
+        }
+      }
+
+    }
+    //
+    .layer-share {
+      &__title {
+        color: #000;
+        font-size: rem(26px);
+        line-height: rem(40px);
+        text-align: center;
+      }
+      &__option {
+        margin-top: rem(10px);
+        color: #000;
+        font-size: rem(20px);
+        line-height: rem(30px);
+        text-align: center;
+      }
+      &__list {
+        margin-top: rem(25px);
+        padding: rem(32px 22px);
+        border-top: 1px solid #b5b5b6;
+        font-size: 0;
+        text-align: center;
+      }
+      &__box {
+        display: inline-block;
+        padding: rem(0 12px);
+      }
+      &__btn {
+        display: block;
+        overflow: hidden;
+        width: rem(73px);
+        height: rem(73px);
+        padding: 0;
+        border-radius: 100%;
+        background: url(../images/common/icon_goods_sns.png) no-repeat 0 0;
+        background-size: rem(465px 74px);
+        @extend %hiddenText;
+
+        &--instagram {
+          background-position-x: 0;
+        }
+        &--kakaotalk {
+          background-position-x: rem(-97px);
+        }
+        &--facebook {
+          background-position-x: rem(-194px);
+        }
+        &--twitter {
+          background-position-x: rem(-291px);
+        }
+        &--url {
+          background-position-x: rem(-388px);
+        }
+      }
+    }
+    // 입고신청알림
+    .goods-alarm {
+      padding: 0 rem(6px); // 스크롤 시 겹치는 것 때문에 추가
+      &__layer {
+        position: fixed !important;
+        top: rem(30px) !important;
+        height: calc(100% - 3rem);
+        max-height: none;
+        .popup-content {
+          height: calc(100% - 2.6rem);
+          overflow: {
+            x: hidden;
+            y: auto;
+          }
+          @extend %touchScroll;
+        }
+      }
+      &__title {
+        margin-bottom: rem(35px);
+        color: #000;
+        font-size: rem(42px);
+        line-height: rem(62px);
+        text-align: center;
+      }
+      &__desc {
+        margin-bottom: rem(45px);
+        color: #000;
+        font-size: rem(22px);
+        line-height: rem(32px);
+        text-align: center;
+      }
+      &__goods {
+        display: flex;
+        padding: rem(50px 0 70px);
+        border-top: 1px solid #b5b5b6;
+        &__thumb {
+          display: block;
+          width: rem(155px);
+          height: rem(220px);
+          border: 1px solid #dcdddd;
+
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &__info {
+          position: relative;
+          flex: 1;
+          padding-left: rem(20px);
+        }
+        &__title {
+          margin-top: rem(-5px);
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(40px);
+          @include line(2);
+        }
+        &__option {
+          margin-top: rem(18px);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+        }
+        &__price {
+          position: absolute;
+          left: rem(20px);
+          bottom: 0;
+        }
+        &__strike {
+          display: inline-block;
+          position: relative;
+          margin-right: rem(15px);
+          color: #808285;
+          font-size: rem(20px);
+          line-height: rem(30px);
+          text-decoration: none;
+          &:before {
+            content: "";
+            position: absolute;
+            top: rem(50%);
+            left: rem(-3px);
+            right: rem(-3px);
+            border-top: 1px solid #808285;
+          }
+        }
+        &__result {
+          color: #000;
+          font-size: rem(20px);
+          font-weight: 600;
+          line-height: rem(30px);
+
+          span {
+            font-size: rem(24px);
+          }
+        }
+        &__discount {
+          display: inline-block;
+          margin-left: rem(5px);
+          color: #e60000;
+          font-size: rem(20px);
+          line-height: rem(30px);
+        }
+      }
+      &__options {
+        position: relative;
+        margin-bottom: rem(70px);
+
+        &__title {
+          color: #000;
+          font-size: rem(22px);
+          font-weight: bold;
+          line-height: rem(22px);
+          span {
+            display: inline-block;
+            margin-left: rem(12px);
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 400;
+          }
+        }
+        &__list {
+          margin-top: rem(30px);
+          @extend %clear;
+        }
+        &__box {
+          float: left;
+          position: relative;
+          margin: rem(0 0 15px 14px);
+          &:nth-child(6n+1) {
+            clear: both;
+            margin-left: 0;
+          }
+          &:nth-last-of-type(-n+6) {
+            margin-bottom: 0;
+          }
+          input[type=radio] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: none;
+            opacity: 0;
+            &:disabled {
+              border-color: #b5b5b6;
+              color: #b5b5b6;
+
+              & + label:before {
+                content: "";
+                position: absolute;
+                top: rem(-12px);
+                left: rem(31px);
+                width: rem(20px);
+                height: rem(85px);
+                border-left: 1px solid #b5b5b6;
+                transform: rotate(58.7deg);
+              }
+            }
+          }
+        }
+        &__btn {
+          display: block;
+          position: relative;
+          width: rem(74px);
+          height: rem(46px);
+          margin: 0;
+          padding: 0;
+          border: 1px solid #000;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(44px);
+          text-align: center;
+          letter-spacing: rem(-1.5px);
+
+          &--active {
+            background: #000;
+            color: #fff;
+            &:before {
+              content: "";
+              position: absolute;
+              top: rem(5px);
+              left: rem(5px);
+              right: rem(5px);
+              bottom: rem(5px);
+              z-index: 1;
+              border: 1px solid #fff;
+            }
+          }
+
+        }
+      }
+      &__phone {
+        &__default {
+          margin-bottom: rem(40px);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          @extend %clear;
+          dt {
+            float: left;
+            margin-right: rem(20px);
+          }
+          dd {
+            float: left;
+            font-weight: 600;
+          }
+        }
+        &__check {
+          display: inline-block;
+          margin-bottom: rem(20px);
+
+          span {
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(26px);
+          }
+        }
+        &__new {
+          font-size: 0;
+          select {
+            width: rem(151px);
+            height: rem(70px);
+            border: 1px solid #b5b5b6;
+            color: #000;
+            font-size: rem(26px);
+          }
+          input {
+            width: rem(151px);
+            height: rem(70px);
+            color: #000;
+            font-size: rem(26px);
+            line-height: rem(80px);
+          }
+          span {
+            display: inline-block;
+            width: rem(20px);
+            height: rem(2px);
+            margin: rem(0 6px);
+            background: #b5b5b6;
+            vertical-align: middle;
+            @extend %hiddenText;
+          }
+        }
+      }
+      &__notice {
+        margin-top: rem(45px);
+        &__desc {
+          margin-top: rem(20px);
+          color: #b5b5b6;
+          font-size: rem(20px);
+          line-height: rem(30px);
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+      &__submit {
+        display: block;
+        width: 100%;
+        margin: rem(75px 0 80px);
+        background: $cPoint;
+        color: #fff;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(80px);
+        text-align: center;
+      }
+      &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: rem(90px);
+        height: rem(90px);
+        border: none;
+        background: none;
+        @extend %hiddenText;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: rem(-15px 0 0 -15px);
+          width: rem(31px);
+          height: rem(31px);
+          background: url(../images/layout/icon_drawer_close.png) no-repeat center center;
+          background-size: rem(31px 31px);
+        }
+      }
+    }
+    // 매장안내
+    .store-guide {
+      &__goods {
+        .about-goods {
+          display: flex;
+          position: relative;
+          flex-wrap: nowrap;
+          padding: rem(50px 0 60px);
+          &:after {
+            content: "";
+            position: absolute;
+            left: rem(-30px);
+            right: rem(-30px);
+            bottom: 0;
+            height: rem(10px);
+            border-top: 1px solid #ddd;
+            background: #efefef;
+          }
+          &__thumb {
+            display: block;
+            width: rem(155px);
+            height: rem(220px);
+          }
+          &__info {
+            display: block;
+            position: relative;
+            width: calc(100% - 7.75rem);
+            padding-left: rem(20px);
+          }
+          &__title {
+            color: #000;
+            font-size: rem(22px);
+            font-weight: 600;
+            line-height: rem(32px);
+            white-space: pre-line;
+            @include line(2);
+          }
+          &__option {
+            color: #000;
+            font-size: rem(20px);
+            line-height: rem(30px);
+            @include line();
+          }
+          &__price {
+            position: absolute;
+            bottom: 0;
+            left: rem(20px);
+            right: 0;
+
+          }
+          &__strike {
+            display: inline-block;
+            position: relative;
+            margin-right: rem(15px);
+            color: #b5b5b6;
+            font-size: rem(20px);
+            line-height: rem(32px);
+            text-decoration: none;
+            &:before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: rem(-5px);
+              right: rem(-5px);
+              border-top: 1px solid #b5b5b6;
+            }
+          }
+          &__result {
+            display: inline-block;
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 600;
+            line-height: rem(32px);
+
+            span {
+              font-size: rem(22px);
+            }
+          }
+          &__discount {
+            display: inline-block;
+            margin-left: rem(5px);
+            color: #e60000;
+            font-size: rem(20px);
+            line-height: rem(32px);
+          }
+        }
+      }
+      &__search {
+        .search-store {
+          position: relative;
+          padding: rem(45px 0 50px);
+          &:after {
+            content: "";
+            position: absolute;
+            left: rem(-30px);
+            right: rem(-30px);
+            bottom: 0;
+            height: rem(10px);
+            border-top: 1px solid #ddd;
+            background: #efefef;
+          }
+
+          &__title {
+            color: #000;
+            font-size: rem(22px);
+            font-weight: 600;
+            line-height: rem(32px);
+          }
+          &__filter {
+            margin-top: rem(25px);
+
+            .br__select-box {
+              margin-bottom: rem(20px);
+              border: 1px solid #b5b5b6;
+              .select-box__title {
+                span {
+                  line-height: rem(78px);
+                }
+              }
+            }
+          }
+          &__submit {
+            margin-top: rem(10px);
+            &__btn {
+              display: block;
+              width: 100%;
+              background: $cPoint;
+              color: #fff;
+              font-size: rem(26px);
+              line-height: rem(80px);
+            }
+          }
+        }
+      }
+      &__result {
+        .search-result {
+          position: relative;
+          padding: rem(45px 0 50px);
+          &__total {
+            color: #000;
+            font-size: rem(22px);
+            font-weight: 600;
+            line-height: rem(32px);
+          }
+          &__list {
+            margin-top: rem(15px);
+            border-top: 1px solid #b5b5b6;
+          }
+          &__box {
+            position: relative;
+            padding: rem(45px 170px 45px 0);
+            border-bottom: 1px solid #b5b5b6;
+          }
+          &__info {
+            &__name {
+              color: #000;
+              font-size: rem(26px);
+              font-weight: 600;
+              line-height: rem(36px);
+            }
+            &__addr {
+              margin-top: rem(14px);
+              color: #000;
+              font-size: rem(22px);
+              line-height: rem(32px);
+            }
+          }
+          &__btn {
+            position: absolute;
+            top: rem(45px);
+            right: 0;
+            width: rem(160px);
+            height: rem(80px);
+            background: #000;
+            color: #fff;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(80px);
+            text-align: center;
+          }
+        }
+      }
+    }
+    // 상품 Q&A
+    &__qna-write {
+      &__goods {
+        .qna-goods {
+          display: flex;
+          position: relative;
+          padding: rem(50px 0);
+          &:after {
+            content: "";
+            position: absolute;
+            left: rem(-30px);
+            right: rem(-30px);
+            bottom: 0;
+            height: rem(10px);
+            border-top: 1px solid #ddd;
+            background: #efefef;
+          }
+          &__thumb {
+            display: block;
+            width: rem(155px);
+            height: rem(220px);
+            overflow: hidden;
+            img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          &__info {
+            display: block;
+            position: relative;
+            width: calc(100% - 7.75rem);
+            padding-left: rem(20px);
+          }
+          &__title {
+            color: #000;
+            font-size: rem(22px);
+            font-weight: 600;
+            line-height: rem(32px);
+            white-space: pre-line;
+            @include line(2);
+          }
+          &__option {
+            margin-top: rem(20px);
+            color: #000;
+            font-size: rem(20px);
+            line-height: rem(30px);
+            @include line();
+          }
+        }
+      }
+      &__detail {
+        .write-form {
+          padding: rem(50px 0);
+
+          &__select {
+            margin-bottom: rem(20px);
+            select {
+              height: rem(85px);
+              font-size: rem(26px);
+            }
+          }
+          &__title {
+            padding-bottom: rem(50px);
+            border-bottom: 1px solid #b5b5b6;
+            input {
+              height: rem(80px);
+              font-size: rem(26px);
+            }
+          }
+          &__email {
+            margin-bottom: rem(25px);
+            padding: rem(50px 0 0);
+            font-size: rem(26px);
+
+            &--id {
+              width: rem(241px);
+              height: rem(80px);
+            }
+            &--host {
+              width: rem(290px);
+              height: rem(80px);
+            }
+            &--select {
+              width: 100%;
+              height: rem(80px);
+              margin-top: rem(20px);
+            }
+            .hyphen_2 {
+              margin: {
+                left: rem(7px);
+                right: rem(7px);
+              }
+              font-size: rem(24px);
+            }
+          }
+          &__send-email {
+            @extend %clear;
+            &__desc {
+              float: left;
+              color: #000;
+              font-size: rem(22px);
+              line-height: rem(38px);
+            }
+            &__radio {
+              float: right;
+              font-size: 0;
+              label {
+                margin-left: rem(30px);
+                span {
+                  display: inline-block;
+                  margin-left: rem(10px);
+                  color: #000;
+                  font-size: rem(22px);
+                  line-height: rem(32px);
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
+          &__content {
+            margin: {
+              top: rem(50px);
+              bottom: rem(30px);
+            }
+            textarea {
+              width: 100%;
+              height: rem(550px);
+            }
+          }
+          &__secret {
+            margin-bottom: rem(70px);
+            @extend %clear;
+            &__desc {
+              float: left;
+              color: #000;
+              font-size: rem(22px);
+              line-height: rem(38px);
+            }
+            &__radio {
+              float: right;
+              font-size: 0;
+              label {
+                margin-left: rem(30px);
+                span {
+                  display: inline-block;
+                  margin-left: rem(10px);
+                  color: #000;
+                  font-size: rem(22px);
+                  line-height: rem(32px);
+                  vertical-align: middle;
+                }
+                input[type=radio]:disabled + span {
+                  color: #b5b5b6;
+                }
+              }
+            }
+          }
+          &__notice {
+            margin-bottom: rem(75px);
+            &__desc {
+              margin-top: rem(30px);
+              padding-left: rem(12px);
+              color: #898989;
+              font-size: rem(22px);
+              line-height: rem(32px);
+              text-indent: rem(-12px);
+              &:first-child {
+                margin-top: 0;
+              }
+            }
+          }
+          &__submit {
+            &__btn {
+              display: block;
+              width: 100%;
+              height: rem(80px);
+              padding: 0;
+              border: none;
+              background: $cPoint;
+              color: #fff;
+              font-size: rem(26px);
+              font-weight: 600;
+              line-height: rem(80px);
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    //최근본상품 버튼
+    .goods-view {
+      &__recent-btn {
+        position: fixed;
+        right: rem(42px);
+        bottom: rem(334px);
+        z-index: 10;
+        overflow: hidden;
+        width: rem(71px);
+        height: rem(71px);
+        padding: 0;
+        //border:1px solid #898989;
+        border-radius: 100%;
+        @extend %hiddenText;
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    .tab-popup-content {
+      display: none;
+    }
+    .popup-content {
+      .br {
+        &__cs__title {
+          display: none;
+        }
+        &__wash {
+          padding: rem(30px 0);
+          &__title {
+            display: none;
+          }
+        }
+        &__guide {
+          padding: rem(0 0 30px);
+
+        }
+        &__claim {
+          padding: rem(30px 0);
+          &__title {
+            display: none;
+          }
+        }
+      }
+
+      .gform {
+        padding: rem(30px 0);
+      }
+      .br__claim {
+        .claim {
+          margin: 0;
+        }
+      }
+      .wash {
+        margin: 0;
+      }
+      #pop-shipping {
+        .gform__common:last-of-type {
+          display: none;
+        }
+      }
+    }
+
+    // 썸네일 확대보기
+    .goods-thumb__box__view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      @extend %hiddenText;
+    }
+    .layer-zoom {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      z-index: 500;
+
+      &--show {
+        display: block;
+      }
+
+      &__img {
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: auto;
+          height: 150%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: rem(70px);
+        height: rem(70px);
+        @extend %hiddenText;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: rem(30px);
+          height: rem(30px);
+          margin: rem(-15px 0 0 -15px);
+          background: $sprite30 no-repeat rem(-382px -2px);
+          background-size: rem(1221px 80px);
+        }
+      }
+    }
+
+    //혜택내역 layer
+    .layer__benefit-list {
+      display: none;
+      border-top: 1px solid #b5b5b6;
+      .benefit-list {
+
+        &__price {
+          padding: rem(30px 0);
+          border-bottom: 1px solid #b5b5b6;
+          @extend %clear;
+          dt {
+            float: left;
+            max-width: 50%;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(28px);
+            font-weight: 800;
+          }
+          dd {
+            float: right;
+            max-width: 50%;
+            color: #000;
+            font-size: rem(26px);
+            line-height: rem(28px);
+
+            span {
+              font-weight: 800;
+            }
+          }
+        }
+        &__type {
+          padding: rem(30px 0);
+          border-bottom: 1px solid #b5b5b6;
+          @extend %clear;
+          dt {
+            float: left;
+            clear: both;
+            max-width: 50%;
+            margin-top: rem(27px);
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(28px);
+
+            &:first-of-type {
+              margin-top: 0;
+            }
+          }
+          dd {
+            float: right;
+            max-width: 50%;
+            margin-top: rem(27px);
+            color: #000;
+            font-size: rem(26px);
+            line-height: rem(28px);
+
+            &:first-of-type {
+              margin-top: 0;
+            }
+
+            span {
+              font-weight: 800;
+            }
+          }
+        }
+        &__total {
+          padding: rem(30px 0);
+          @extend %clear;
+          dt {
+            float: left;
+            max-width: 50%;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(42px);
+            font-weight: 800;
+          }
+          dd {
+            float: right;
+            max-width: 50%;
+            color: $cPoint;
+            font-size: rem(32px);
+            line-height: rem(42px);
+            font-weight: 800;
+
+            span {
+              font-weight: 800;
+            }
+          }
+        }
+      }
+    }
+    .popup-layout {
+      .layer__benefit-list {
+        display: block;
+      }
+    }
+
+    &__coupon-down {
+      padding-top: rem(40px);
+      border-top: 1px solid #000;
+
+      &__list {
+        margin-top: rem(30px);
+      }
+      &__box {
+        overflow: hidden;
+        margin-bottom: rem(25px);
+        border: 1px solid #ddd;
+
+        .coupon-info {
+          padding: rem(20px) rem(15px) rem(25px) rem(20px);
+
+          &__img {
+            float: left;
+            width: rem(160px);
+            height: rem(80px);
+            background: url("../../images/common/img-goodsview-coupon.png") no-repeat;
+            background-size: rem(160px) rem(80px);
+            color: $cPoint;
+            text-align: center;
+            line-height: rem(82px);
+          }
+
+          &__price {
+            display: inline-block;
+            width: 8rem;
+            height: 4rem;
+            padding-top: rem(24px);
+            font: {
+              family: 'Rb';
+              size: rem(30px);
+            }
+            line-height: 1.2;
+
+            span {
+              font-size: rem(40px);
+            }
+          }
+
+          &__detail {
+            padding-left: rem(180px);
+          }
+
+          &__name {
+            color: #000;
+            font-size: rem(26px);
+            line-height: rem(34px);
+            @include line(2);
+          }
+
+          &__desc {
+            margin-top: rem(10px);
+            color: #999;
+            font-size: rem(22px);
+            line-height: rem(26px);
+          }
+
+          .font-rb {
+            font-family: $font_n;
+          }
+        }
+
+        .coupon-btn {
+          width: 100%;
+          border-top: rem(1px) dashed #ddd;
+          text-align: center;
+
+          button {
+            width: 100%;
+            height: rem(78px);
+            background: #fff;
+            border: none;
+            color: $cPoint;
+            font-weight: 600;
+            font-size: rem(22px);
+
+            &:after {
+              display: inline-block;
+              width: rem(18px);
+              height: rem(20px);
+              margin-left: rem(10px);
+              margin-bottom: rem(5px);
+              background: url("../../img/icon/m_sprite_shop.png") 0 0 no-repeat;
+              background-size: 50rem 50rem;
+              vertical-align: middle;
+              content: '';
+            }
+
+            &:disabled {
+              color: #999;
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      &__desc {
+        color: #666;
+        font-size: rem(24px);
+        &--light {
+          padding: rem(25px) 0;
+          border-top: rem(1px) solid #e8e8e8;
+          font-size: rem(22px);
+          line-height: rem(30px);
+
+          em {
+            display: inline-block;
+            width: rem(24px);
+            height: rem(18px);
+            background: url("../../img/icon/m_sprite_icon.png") rem(-200px) rem(-500px) no-repeat;
+            background-size: rem(1000px 1000px);
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.br {
+  .control {
+    display: inline-block;
+    height: rem(50px);
+    margin-top: rem(15px);
+    .option-up-down {
+      height: rem(50px);
+      li {
+        width: rem(50px);
+        height: 100%;
+        &:nth-child(odd) {
+          width: rem(50px);
+          height: rem(50px);
+          @extend %hiddenText;
+        }
+        input[type=text] {
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(50px);
+        }
+        button {
+          width: 100%;
+          height: 100%;
+          &.down {
+            background-position: rem(-500px -400px);
+          }
+          &.up {
+            background-position: rem(-600px -400px);
+          }
+        }
+      }
+    }
+  }
+  %sectionLine {
+    position: relative;
+    margin-top: rem(11px);
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      height: rem(10px);
+      border-top: 1px solid #dcdddd;
+      background: #efefef;
+    }
+  }
+
+  .goods-cart {
+    padding: rem(20px 30px);
+    border-top: 1px solid #dcdddd;
+    background: #efefef;
+    &:empty {
+      display: none;
+    }
+    &__wrap {
+      margin-left: rem(-30px);
+      width: calc(100% + 3rem);
+    }
+
+    &__box {
+      position: relative;
+      padding: rem(20px 0);
+    }
+    &__tit {
+      padding-right: rem(40px);
+      color: #000;
+      font-size: rem(22px);
+      font-weight: 600;
+      line-height: rem(32px);
+    }
+    &__sub {
+      color: #000;
+      font-size: rem(20px);
+      line-height: rem(30px);
+      @include line();
+    }
+
+    .price {
+      position: absolute;
+      bottom: rem(25px);
+      right: 0;
+      color: #000;
+      font-size: rem(20px);
+      font-weight: 600;
+      line-height: rem(30px);
+      em {
+        font-size: rem(22px);
+      }
+    }
+    .btn-option-del {
+      position: absolute;
+      top: rem(20px);
+      right: 0;
+      width: rem(32px);
+      height: rem(32px);
+      padding: 0;
+      background: url(../images/common/icon_detail_minicart_cancel.png) no-repeat;
+      background-size: 100%;
+    }
+  }
+
+  &__goods-view {
+    // 크리마 iframe 강제 크기 조정
+
+    .crema-applied {
+      width: 100% !important;
+      iframe {
+        width: 100% !important;
+      }
+      &.goods-photo,
+      &.crema-product-reviews[data-widget-id="17"] {
+        iframe {
+          width: 100% !important;
+        }
+      }
+    }
+
+    // 썸네일 슬라이드
+    &__thumb {
+      .goods-thumb {
+        position: relative;
+
+        %swiperNavBtn {
+          position: absolute;
+          top: 50%;
+          z-index: 1;
+          width: rem(60px);
+          height: rem(60px);
+          margin-top: rem(-30px);
+          padding: 0;
+          background: url(../images/common/btn_detail_thumb_arrow.png) no-repeat 0 0;
+          background-size: rem(127px 60px);
+          @extend %hiddenText;
+        }
+
+        .swiper {
+          &-pagination {
+            position: absolute;
+            top: auto;
+            left: auto;
+            right: rem(30px);
+            bottom: rem(40px);
+            width: auto;
+            color: #000;
+            font-size: rem(22px);
+            font-weight: 200;
+            text-shadow: rem(1px 1px 9px) rgba(0, 0, 0, .63);
+          }
+          &-button {
+            &-prev,
+            &-next {
+              display: none;
+              @extend %swiperNavBtn;
+            }
+            &-prev {
+              left: rem(5px);
+              background-position: 0 0;
+            }
+            &-next {
+              right: rem(5px);
+              background-position: rem(-67px 0);
+            }
+            &-disabled {
+              opacity: 0;
+            }
+          }
+
+          &-container-initialized {
+            .swiper-button {
+              &-prev,
+              &-next {
+                display: block;
+              }
+            }
+          }
+        }
+
+        &__box {
+          display: block;
+          width: 100%;
+          height: rem(800px);
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          iframe {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &__play {
+          position: absolute;
+          right: 0;
+          bottom: rem(60px);
+          width: rem(100px);
+          height: rem(100px);
+          @extend %hiddenText;
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: rem(-20px 0 0 -20px);
+            border-radius: 100%;
+            background: #f00;
+
+          }
+        }
+      }
+
+    }
+    // 타임세일
+    &__time-sale {
+      .time-sale {
+        height: rem(80px);
+        padding: rem(24px 30px);
+        background: #000;
+        @extend %clear;
+        &__title {
+          float: left;
+          color: #fff;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          &:before {
+            content: "";
+            display: inline-block;
+            margin-right: rem(14px);
+            width: rem(24px);
+            height: rem(32px);
+            background: $sprite30 no-repeat rem(-961px -42px);
+            background-size: rem(1221px 80px);
+            vertical-align: rem(-6px);
+          }
+        }
+        &__countdown {
+          display: none;
+          float: right;
+          color: $cPoint;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          span {
+
+            font-size: rem(26px);
+          }
+          &--show {
+            display: block;
+          }
+        }
+      }
+    }
+    // 상품기본정보
+    .goods-info {
+      padding: rem(0 30px);
+      // 뱃지
+      &__badge {
+        float: left;
+        min-height: rem(35px);
+        margin-bottom: rem(50px);
+        padding: rem(4px 0);
+
+        &__icon {
+          float: left;
+          width: rem(90px);
+          height: rem(35px);
+          margin-left: rem(10px);
+          background: url(../images/common/icon_detail_badge.png) no-repeat 0 0;
+          background-size: rem(390px 35px);
+          @extend %hiddenText;
+
+          &:first-of-type {
+            margin-left: 0;
+          }
+          &--water {
+            background-position: 0 0;
+          }
+          &--sale {
+            background-position: rem(-100px 0);
+          }
+          &--set {
+            background-position: rem(-200px 0);
+          }
+          &--cosmetics {
+            background-position: rem(-300px 0);
+          }
+        }
+      }
+      //공유하기
+      &__btns {
+        position: absolute;
+        top: rem(20px);
+        right: rem(10px);
+        &__share {
+          float: left;
+          padding: rem(20px);
+          @extend %hiddenText;
+          &:before {
+            content: '';
+            display: block;
+            width: rem(26px);
+            height: rem(30px);
+            background: $sprite30 no-repeat rem(-808px -2px);
+            background-size: rem(1221px 80px);
+          }
+        }
+        &__wish {
+          float: left;
+          position: relative;
+          padding: rem(20px);
+          @extend %hiddenText;
+          &:before {
+            content: '';
+            display: block;
+            width: rem(35px);
+            height: rem(30px);
+            background: $sprite30 no-repeat rem(-855px -2px);
+            background-size: rem(1221px 80px);
+          }
+          input[type=checkbox] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            padding: 0;
+            opacity: 0;
+          }
+          &.on {
+            &:before {
+              background-position-y: rem(-41px);
+            }
+          }
+        }
+
+      }
+      //상품명
+      &__title {
+        clear: both;
+        margin-bottom: rem(28px);
+        color: #000;
+        font-size: rem(30px);
+        line-height: rem(44px);
+        white-space: pre-line;
+        @include line(2);
+      }
+      // 가격정보
+      &__price {
+        position: relative;
+        padding-bottom: rem(40px);
+        &__strike {
+          display: inline-block;
+          position: relative;
+          margin-bottom: rem(10px);
+          color: #b5b5b6;
+          font-size: rem(26px);
+          line-height: rem(34px);
+          text-decoration: none;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: rem(-5px);
+            right: rem(-5px);
+            border-top: 1px solid #b5b5b6;
+          }
+        }
+        &__result {
+          display: block;
+          color: #000;
+          font-size: rem(26px);
+          font-weight: 600;
+          //line-height: 46px;
+
+          span {
+            font-size: rem(34px);
+          }
+        }
+        &__discount {
+          position: absolute;
+          right: 0;
+          bottom: rem(31px);
+          color: #e60000;
+          font-size: rem(40px);
+          line-height: rem(70px);
+          font-weight: 200;
+          font-family: $font_s;
+          font-style: italic;
+
+          span {
+            font-size: rem(70px);
+            font-family: $font_n;
+            font-style: normal;
+            font-weight: bold;
+          }
+        }
+      }
+      //혜택내역
+      &__benefit-list {
+        display: inline-block;
+        height: rem(30px);
+        margin-left: rem(20px);
+        padding: rem(0 14px);
+        border-radius: rem(30px);
+        background: #000;
+        color: #fff;
+        font-size: rem(18px);
+        vertical-align: text-top;
+
+        &:after {
+          content: "";
+          display: inline-block;
+          width: rem(8px);
+          height: rem(18px);
+          margin-left: rem(10px);
+          background: url(../images/common/icon_detail_benefit.png) no-repeat center center;
+          background-size: 100% auto;
+          vertical-align: top;
+        }
+      }
+      //쿠폰 다운로드
+      &__coupon {
+        padding: rem(20px 0 40px);
+
+        &__btn {
+          display: block;
+          width: 100%;
+          height: rem(70px);
+          background: $cPoint;
+          color: #fff;
+          font-size: rem(22px);
+          font-weight: 600;
+          line-height: 1;
+          text-align: center;
+
+          &:after {
+            content: "";
+            display: inline-block;
+            width: rem(26px);
+            height: rem(22px);
+            margin-left: rem(12px);
+            background: $sprite30 no-repeat rem(-809px -47px);
+            background-size: rem(1221px 80px);
+            vertical-align: top;
+          }
+        }
+      }
+      // 박스사선 before
+      %boxSlash {
+        content: "";
+        position: absolute;
+        top: rem(5px);
+        left: rem(5px);
+        right: rem(5px);
+        bottom: rem(5px);
+        z-index: 1;
+        border: 1px solid #fff;
+      }
+      // 색상
+      &__color {
+        padding: rem(40px 0);
+        border-top: 1px solid #d3d3d3;
+        &__title {
+          color: #000;
+          font-size: rem(22px);
+          font-weight: bold;
+          line-height: rem(22px);
+          span {
+            display: inline-block;
+            margin-left: rem(12px);
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 400;
+          }
+        }
+        &__list {
+          margin-top: rem(30px);
+          @extend %clear;
+        }
+        &__box {
+          float: left;
+          margin: rem(0 15px 15px 0);
+          &:nth-child(6n+1) {
+            clear: both;
+          }
+          &:nth-last-child(-n+6) {
+            margin-bottom: 0;
+          }
+        }
+        &__link {
+          display: block;
+          width: rem(74px);
+          height: rem(46px);
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          &--disabled {
+            img {
+              opacity: .6;
+            }
+          }
+          &--active {
+            position: relative;
+            outline: rem(4px) solid #000 !important;
+
+            &:before {
+              content: "";
+              position: absolute;
+              top: rem(5px);
+              left: rem(5px);
+              right: rem(5px);
+              bottom: rem(5px);
+              z-index: 1;
+              border: 2px solid #fff;
+            }
+          }
+        }
+
+      }
+      // 사이즈
+      &__size {
+        position: relative;
+        padding: rem(40px 0);
+        border-top: 1px solid #d3d3d3;
+
+        &__title {
+          color: #000;
+          font-size: rem(22px);
+          font-weight: bold;
+          line-height: rem(22px);
+          span {
+            display: inline-block;
+            margin-left: rem(12px);
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 400;
+          }
+        }
+        &__guide {
+          position: absolute;
+          top: rem(35px);
+          right: 0;
+          padding: 0;
+          border-bottom: 1px solid #b5b5b6;
+          color: #b5b5b6;
+          font-size: rem(20px);
+          line-height: rem(30px);
+
+        }
+        &__list {
+          margin-top: rem(30px);
+          @extend %clear;
+        }
+        &__box {
+          float: left;
+          margin: rem(0 15px 15px 0);
+          &:nth-child(6n+1) {
+            clear: both;
+          }
+          &:nth-last-child(-n+6) {
+            margin-bottom: 0;
+          }
+        }
+        &__btn {
+          display: block;
+          position: relative;
+          width: rem(74px);
+          height: rem(46px);
+          padding: 0;
+          border: 1px solid #000;
+          color: #000;
+          font-size: rem(22px);
+          letter-spacing: rem(-1.5px);
+
+          &--active {
+            background: #000;
+            color: #fff;
+            &:before {
+              content: "";
+              position: absolute;
+              top: rem(5px);
+              left: rem(5px);
+              right: rem(5px);
+              bottom: rem(5px);
+              z-index: 1;
+              border: 1px solid #fff;
+            }
+          }
+          &:disabled {
+            border-color: #b5b5b6;
+            color: #b5b5b6;
+            &:before {
+              content: "";
+              position: absolute;
+              top: rem(-12px);
+              left: rem(31px);
+              width: rem(20px);
+              height: rem(85px);
+              border-left: 1px solid #b5b5b6;
+              transform: rotate(58.7deg);
+            }
+          }
+        }
+        &__alarm {
+          display: block;
+          width: rem(163px);
+          height: rem(45px);
+          margin-top: rem(30px);
+          padding: 0;
+          border: 1px solid #000;
+          color: #000;
+          font-size: rem(20px);
+          font-weight: 600;
+          line-height: rem(45px);
+
+        }
+      }
+      // 세트옵션 선택
+      &__set {
+        padding: rem(40px 0);
+        border-top: 1px solid #d3d3d3;
+        &__title {
+          color: #000;
+          //font-size: 26px;
+          font-size: 100%;
+          font-weight: bold;
+          line-height: rem(26px);
+          span {
+            display: inline-block;
+            margin-left: rem(12px);
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 400;
+          }
+        }
+        &__list {
+          margin-top: rem(30px);
+        }
+        &__box {
+          margin-top: rem(15px);
+          &:first-child {
+            margin-top: 0;
+          }
+          .br__select-box {
+            border: 1px solid #b5b5b6;
+            .select-box {
+              &__title {
+                span {
+                  line-height: rem(60px);
+                }
+              }
+            }
+          }
+        }
+      }
+      //혜택, 정보
+      &__other {
+        padding: rem(40px 0);
+        border-top: 1px solid #d3d3d3;
+
+        &__list {
+          display: flex;
+          margin-top: rem(20px);
+          &:first-child {
+            margin-top: 0;
+          }
+          dt {
+            width: rem(110px);
+            margin-right: rem(32px);
+            color: #000;
+            font-size: rem(22px);
+            font-weight: 600;
+            line-height: rem(30px);
+          }
+          dd {
+            width: 100%;
+            color: #000;
+            font-size: rem(20px);
+            line-height: rem(30px);
+          }
+
+          &--point {
+            em {
+              color: #00bce7;
+            }
+          }
+        }
+      }
+      // 상품 후기 평균
+      &__review {
+        padding: rem(40px 0);
+        border-top: 1px solid #d3d3d3;
+        @extend %clear;
+        &__title {
+          float: left;
+          color: #000;
+          font-size: rem(22px);
+          font-weight: bold;
+          line-height: rem(22px);
+        }
+        &__star {
+          display: inline-block;
+          float: left;
+          position: relative;
+          height: rem(22px);
+          margin-left: rem(20px);
+          padding-right: rem(60px);
+          &--point {
+            display: block;
+            width: rem(160px);
+            height: 100%;
+            background: url(../images/common/bg_detail_star.png) no-repeat top left;
+            background-size: rem(100px 50px);
+            span {
+              display: block;
+              height: 100%;
+              background: url(../images/common/bg_detail_star.png) no-repeat bottom left;
+              background-size: rem(100px 50px);
+            }
+          }
+          &--number {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: $cPoint;
+            font-size: rem(20px);
+            line-height: rem(22px);
+          }
+        }
+        &__btn {
+          float: right;
+          position: relative;
+          padding: 0;
+          color: #b5b5b6;
+          font-size: rem(20px);
+          font-weight: 600;
+          line-height: rem(22px);
+          &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: rem(-3px);
+            border-bottom: 1px solid #b5b5b6;
+          }
+        }
+      }
+    }
+    &__information {
+      position: relative;
+      padding: rem(40px 30px 0);
+      .goods-info {
+        padding: 0;
+      }
+    }
+    // 상품옵션
+    &__option {
+      .goods-option {
+        @extend %sectionLine;
+        padding: rem(0 30px 30px);
+        &__title {
+          position: relative;
+          padding: rem(30px 0);
+          color: #000;
+          font-size: rem(34px);
+          font-weight: 600;
+          line-height: rem(54px);
+
+          &:after {
+            display: none;
+            position: absolute;
+            top: rem(60px);
+            right: 0;
+            width: rem(20px);
+            height: rem(14px);
+            background: url(../../img/icon/m_select_arrow.png) no-repeat;
+            background-size: rem(36px 14px);
+            content: "";
+          }
+
+          &--active {
+            &:after {
+              display: inline-block;
+            }
+          }
+
+        }
+        &__list {
+          display: block;
+
+          /*&--active {
+            display: block;
+          }*/
+        }
+        &__box {
+          display: flex;
+          padding: rem(40px 0);
+          border-bottom: 1px solid #b5b5b6;
+
+        }
+        &__thumb {
+          display: block;
+          width: rem(155px);
+          height: rem(220px);
+          border: 1px solid #dcdddd;
+
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &__info {
+          position: relative;
+          //width: calc(100% - 155px;
+          width: calc(100% - 7.75rem);
+          padding-left: rem(30px);
+
+          &__title {
+            display: block;
+            color: #000;
+            font-size: rem(22px);
+            font-weight: 600;
+            line-height: rem(32px);
+            @include line(2);
+          }
+          &__color {
+            display: block;
+            color: #000;
+            font-size: rem(20px);
+            line-height: rem(30px);
+            @include line();
+          }
+          &__price {
+            position: absolute;
+            left: rem(30px);
+            right: 0;
+            bottom: rem(80px);
+
+            .strike {
+              display: inline-block;
+              position: relative;
+              margin-right: rem(15px);
+              color: #b5b5b6;
+              font-size: rem(20px);
+              line-height: rem(32px);
+              text-decoration: none;
+              &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: rem(-5px);
+                right: rem(-5px);
+                border-top: 1px solid #b5b5b6;
+              }
+            }
+            .price {
+              display: inline-block;
+              color: #000;
+              font-size: rem(20px);
+              font-weight: 600;
+              line-height: rem(32px);
+
+              span {
+                font-size: rem(22px);
+              }
+            }
+            .discount {
+              display: inline-block;
+              margin-left: rem(5px);
+              color: #e60000;
+              font-size: rem(20px);
+              line-height: rem(32px);
+            }
+          }
+
+          .br__select-box {
+            .select-box {
+              position: absolute;
+              left: rem(30px);
+              right: 0;
+              bottom: 0;
+              //border: 1px solid #b5b5b6;
+              &__title {
+                span {
+                  line-height: rem(58px);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // 포토리뷰
+    &__photo {
+      @extend %sectionLine;
+      .goods-photo {
+        padding: rem(0 30px 80px);
+        &__title {
+          padding: rem(70px 0 30px);
+          color: #000;
+          font-size: rem(34px);
+          font-weight: 600;
+          line-height: rem(54px);
+        }
+        &__sub {
+          margin-bottom: rem(15px);
+          color: #898989;
+          font-size: rem(20px);
+          line-height: rem(30px);
+        }
+        /*&__wrap {
+          overflow: hidden;
+          height: 200px;
+          margin: 55px -30px 0;
+        }
+        &__list {
+          overflow: {
+            y: hidden;
+            x: auto;
+          }
+          padding: 0 30px 20px;
+          font-size: 0;
+          white-space: nowrap;
+        }
+        &__box {
+          display: inline-block;
+          width: 200px;
+          height: 200px;
+          margin-left: 30px;
+          &:first-child {
+            margin-left: 0;
+          }
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &__link {
+          display: block;
+        }*/
+      }
+    }
+    // 추천상품
+    &__recommend {
+      @extend %sectionLine;
+      .goods-recom {
+        padding: rem(0 30px 50px);
+        &__title {
+          padding: rem(70px 0 0);
+          color: #000;
+          font-size: rem(34px);
+          font-weight: 600;
+          line-height: rem(54px);
+        }
+        &__wrap {
+          overflow: hidden;
+          height: rem(495px);
+          margin: rem(50px -30px 0);
+        }
+        &__list {
+          overflow: {
+            y: hidden;
+            x: auto;
+          }
+          padding: rem(0 30px 20px);
+          font-size: 0;
+          white-space: nowrap;
+        }
+        &__box {
+          display: inline-block;
+          width: rem(200px);
+          margin-left: rem(30px);
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+        &__link {
+          display: block;
+        }
+        &__thumb {
+          width: 100%;
+          height: rem(282px);
+          border: 1px solid #dcdddd;
+
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &__info {
+          margin-top: rem(25px);
+          &__head {
+            display: block;
+            height: rem(30px);
+            color: #000;
+            font-size: rem(20px);
+            line-height: rem(30px);
+          }
+          &__title {
+            display: block;
+            color: #000;
+            font-size: rem(22px);
+            font-weight: 600;
+            line-height: rem(32px);
+            @include line();
+          }
+          &__color {
+            display: block;
+            height: rem(30px);
+            margin-top: rem(10px);
+            color: #000;
+            font-size: rem(20px);
+            line-height: rem(30px);
+            @include line();
+          }
+          &__price {
+            display: block;
+            position: relative;
+            margin-top: rem(25px);
+            padding: rem(40px 0 30px);
+            border-top: 1px solid #d1d3d4;
+          }
+          &__strike {
+            display: inline-block;
+            position: absolute;
+            top: rem(10px);
+            left: 0;
+            color: #b5b5b6;
+            font-size: rem(20px);
+            line-height: rem(30px);
+            text-decoration: none;
+            &:before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: rem(-5px);
+              right: rem(-5px);
+              border-top: 1px solid #b5b5b6;
+            }
+          }
+          &__result {
+            display: inline-block;
+            color: #000;
+            font-size: rem(20px);
+            font-weight: 600;
+            line-height: rem(30px);
+            span {
+              font-size: rem(24px);
+            }
+          }
+          &__discount {
+            display: inline-block;
+            margin-left: rem(5px);
+            color: #e8373d;
+            font-size: rem(20px);
+            line-height: rem(30px);
+          }
+          &__sold-out {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            color: #e60000;
+            font-size: rem(22px);
+            line-height: rem(30px);
+          }
+        }
+      }
+
+    }
+    // 크리마 핏
+    &__crema {
+      @extend %sectionLine;
+      text-align: center;
+
+    }
+    // event 배너
+    &__event {
+      @extend %sectionLine;
+      .goods-event {
+        padding: rem(80px 0);
+      }
+    }
+    // 탭영역
+    &__tabs {
+      @extend %sectionLine;
+      // 탭컨트롤
+      .goods-tabs {
+        height: rem(82px);
+        &__list {
+          display: flex;
+          height: rem(82px);
+          background: #fff;
+          border-bottom: 1px solid #b5b5b6;
+          &--fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+          }
+        }
+        &__box {
+          width: 25%;
+        }
+        &__btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          color: #000;
+          font-size: rem(20px);
+          font-weight: 600;
+          line-height: rem(30px);
+          text-align: center;
+          &--active {
+            &:after {
+              content: "";
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: rem(-1px);
+              border-bottom: rem(3px) solid $cPoint;
+            }
+          }
+        }
+        &__cont {
+          display: block;
+        }
+      }
+      // 상세정보 탭
+      .goods-detail {
+        &__acco {
+          &__btn {
+            display: block;
+            position: relative;
+            width: 100%;
+            padding: rem(30px 80px 30px 30px);
+            border-bottom: 1px solid #b5b5b6;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+            text-align: left;
+            &:after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              right: rem(29px);
+              width: rem(22px);
+              height: rem(12px);
+              margin-top: rem(-6px);
+              background: $sprite22 no-repeat rem(-65px -7px);
+              background-size: rem(410px 23px);
+            }
+            &--show {
+              &:after {
+                background-position-x: rem(-107px);
+              }
+              & + .goods-detail__acco__cont {
+                display: block;
+              }
+            }
+          }
+          &__cont {
+            display: none;
+            padding: rem(40px 30px);
+            border-bottom: 1px solid #b5b5b6;
+            // 사은품
+            .gift-cont {
+              @extend %clear;
+              &__thumb {
+                clear: both;
+                float: left;
+                width: rem(155px);
+                height: rem(220px);
+                margin-bottom: rem(30px);
+                border: 1px solid #dcdddd;
+                img {
+                  display: block;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+              &__info {
+                float: left;
+                position: relative;
+                width: calc(100% - 8.75rem);
+                height: rem(220px);
+                margin-left: rem(20px);
+                &__title {
+                  margin-top: rem(-5px);
+                  color: #000;
+                  font-size: rem(30px);
+                  line-height: rem(44px);
+                  white-space: pre-line;
+                  @include line(3);
+                }
+                &__date {
+                  margin-top: rem(18px);
+                  color: #000;
+                  font-size: rem(20px);
+                  line-height: rem(30px);
+                }
+                &__price {
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                  color: #000;
+                  font-size: rem(20px);
+                  font-weight: 600;
+                  line-height: rem(30px);
+                  span {
+                    font-size: rem(24px);
+                  }
+                }
+              }
+              &__notice {
+                float: left;
+                width: 100%;
+                padding: rem(20px 30px 20px 35px);
+                background: #efefef;
+                &__desc {
+                  display: block;
+                  color: #898989;
+                  font-size: rem(20px);
+                  line-height: rem(30px);
+                }
+              }
+            }
+            // 상품정보 제공 고시
+            .goods-announce {
+              display: flex;
+              margin-top: rem(10px);
+              &:first-child {
+                margin-top: 0;
+              }
+              &__title {
+                //width: 150px;
+                flex: rem(0 0 150px);
+                color: #000;
+                font-size: rem(20px);
+                line-height: rem(30px);
+              }
+              &__info {
+                width: 100%;
+                padding-left: rem(20px);
+                color: #898989;
+                font-size: rem(20px);
+                line-height: rem(30px);
+                word-break: break-all;
+              }
+            }
+          }
+        }
+        &__view {
+          img {
+            max-width: 100%;
+            height: auto !important;
+          }
+        }
+      }
+      // 상품후기 탭
+      .goods-review {
+        padding: rem(0px 30px 80px);
+        &__title {
+          padding-top: rem(75px);
+          color: #000;
+          font-size: rem(34px);
+          font-weight: 600;
+          line-height: rem(44px);
+          span {
+            font-weight: 400;
+          }
+        }
+        &__des {
+          margin-top: rem(20px);
+          color: #898989;
+          font-size: rem(20px);
+          line-height: rem(30px);
+        }
+        &__best {
+          margin-top: rem(55px);
+          padding: rem(30px 0);
+          border-top: 1px solid #000;
+
+          &__title {
+            color: #000;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(46px);
+          }
+          &__desc {
+            margin-top: rem(15px);
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+          }
+          &__rank {
+            margin: rem(25px 0);
+            .rank-list {
+              @extend %clear;
+              &__box {
+                float: left;
+                width: rem(162px);
+                height: rem(162px);
+                margin-left: rem(47px);
+                padding: rem(40px 0);
+                border-radius: 100%;
+                text-align: center;
+                background: #000;
+                &:first-child {
+                  margin-left: 0;
+                }
+              }
+              &__rank {
+                display: block;
+                color: #fff;
+                font-size: rem(22px);
+                line-height: rem(32px);
+              }
+              &__prize {
+                display: block;
+                color: #fff;
+                font-size: rem(30px);
+                font-weight: 600;
+                line-height: rem(40px);
+              }
+            }
+          }
+          &__refer {
+            color: #898989;
+            font-size: rem(22px);
+            line-height: rem(32px);
+          }
+          &__kind {
+            margin: rem(50px 0 0);
+            border-top: 1px solid #dcdddd;
+            .best-kind {
+              display: flex;
+              padding: rem(25px 0);
+              border-bottom: 1px solid #dcdddd;
+              &__title {
+                width: rem(164px);
+                padding: rem(0 15px);
+                color: #000;
+                font-size: rem(26px);
+                font-weight: 600;
+                line-height: rem(36px);
+              }
+              &__desc {
+                width: 100%;
+                padding: rem(0 35px 0 40px);
+                color: #000;
+                font-size: rem(22px);
+                line-height: rem(32px);
+              }
+            }
+          }
+        }
+        &__notice {
+          margin-top: rem(30px);
+          padding: rem(35px 20px);
+          background: #efefef;
+          &__title {
+            color: #000;
+            font-size: rem(30px);
+            font-weight: 600;
+            line-height: rem(40px);
+          }
+          &__list {
+            margin-top: rem(20px);
+            padding-right: rem(20px);
+          }
+          &__desc {
+            margin-top: rem(15px);
+            padding-left: rem(6px);
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+            text-indent: rem(-6px);
+            word-break: keep-all;
+            &:first-child {
+              margin-top: none;
+            }
+            span {
+              font-size: rem(20px);
+            }
+          }
+          &__crema {
+            text-align: center;
+          }
+        }
+      }
+      // 상품문의 탭
+      .goods-qna {
+        &__write {
+          position: relative;
+          padding: rem(75px 30px 80px);
+          &__title {
+            color: #000;
+            font-size: rem(34px);
+            font-weight: 600;
+            line-height: rem(44px);
+            span {
+              font-weight: 400;
+            }
+          }
+          &__desc {
+            margin-top: rem(35px);
+            width: rem(268px);
+            color: #898989;
+            font-size: rem(20px);
+            line-height: rem(30px);
+          }
+          &__btn {
+            position: absolute;
+            right: rem(30px);
+            bottom: rem(80px);
+            width: rem(250px);
+            background: #000;
+            color: #fff;
+            font-size: rem(22px);
+            font-weight: 600;
+            line-height: rem(80px);
+            text-align: center;
+          }
+        }
+        &__list {
+          border-top: 1px solid #b5b5b6;
+        }
+        &__box {
+          .qna-info {
+            display: block;
+            width: 100%;
+            padding: rem(40px 70px 40px 30px);
+            border-bottom: 1px solid #b5b5b6;
+            background: #fff;
+            text-align: left;
+            &__my-qna {
+              display: block;
+              margin-bottom: rem(25px);
+              color: $cPoint;
+              font-size: rem(20px);
+              font-weight: 600;
+              line-height: rem(30px);
+            }
+            &__state {
+              display: inline-block;
+              width: rem(110px);
+              height: rem(30px);
+              border: 1px solid #898989;
+              border-radius: rem(30px);
+              background: #fff;
+              color: #898989;
+              font-size: rem(20px);
+              font-weight: 600;
+              line-height: rem(28px);
+              text-align: center;
+              &--point {
+                border-color: $cPoint;
+                color: $cPoint;
+              }
+            }
+            &__type,
+            &__name,
+            &__date {
+              display: inline-block;
+              margin-left: rem(10px);
+              color: #898989;
+              font-size: rem(20px);
+              line-height: rem(30px);
+            }
+            &__title {
+              display: inline-block;
+              max-width: 100%;
+              margin-top: rem(15px);
+              color: #000;
+              font-size: rem(22px);
+              font-weight: 600;
+              line-height: rem(32px);
+              @include line(1);
+            }
+          }
+          .qna-detail {
+            display: none;
+            padding: rem(35px 30px);
+            border-bottom: 1px solid #b5b5b6;
+            background: #efefef;
+            &__question {
+              &__desc {
+                color: #000;
+                font-size: rem(20px);
+                line-height: rem(30px);
+                word-break: break-all;
+                white-space: pre-line;
+              }
+              &__mod {
+                margin-top: rem(25px);
+                @extend %clear;
+              }
+              &__btn {
+                float: right;
+                width: rem(80px);
+                height: rem(40px);
+                margin-left: rem(15px);
+                border: 1px solid #000;
+                color: #000;
+                font-size: rem(20px);
+                line-height: rem(38px);
+                text-align: center;
+              }
+            }
+            &__answer {
+
+              margin-top: rem(30px);
+              border-top: 1px solid #dcdddd;
+              &__info {
+                padding: rem(30px 10px 0);
+              }
+              &__name {
+                display: inline-block;
+                color: $cPoint;
+                font-size: rem(20px);
+                font-weight: 600;
+                line-height: rem(30px);
+              }
+              &__date {
+                display: inline-block;
+                margin-left: rem(5px);
+                color: #898989;
+                font-size: rem(20px);
+                line-height: rem(30px);
+              }
+              &__desc {
+                margin-top: rem(20px);
+                color: #000;
+                font-size: rem(20px);
+                line-height: rem(30px);
+                white-space: pre-line;
+              }
+            }
+          }
+          .qna-info {
+            &__title {
+              position: relative;
+              padding-right: rem(25px);
+              &:after {
+                content: "";
+                position: absolute;
+                top: rem(4px);
+                right: 0;
+                width: rem(17px);
+                height: rem(22px);
+                background: $sprite22 no-repeat rem(-323px -1px);
+                background-size: rem(410px 23px);
+              }
+            }
+          }
+          &--secret {
+            .qna-detail {
+              display: none !important;
+            }
+          }
+          &--show {
+            .qna-detail {
+              display: block;
+            }
+          }
+        }
+        .empty-content {
+          color: #000;
+          font-size: rem(24px);
+
+          &:before {
+            content: "";
+            display: block;
+            width: rem(101px);
+            height: rem(100px);
+            margin: auto auto rem(50px);
+            background: url(../../img/icon/m_sprite_icon.png) no-repeat rem(-600px -100px);
+            background-size: rem(1000px 1000px);
+          }
+        }
+      }
+      // 교환반품 탭
+      .goods-notice {
+        &:after {
+          content: "";
+          display: block;
+          height: rem(10px);
+          border-top: 1px solid #dcdddd;
+          background: #efefef;
+        }
+        &__box {
+          border-top: 1px solid #b5b5b6;
+          &:first-of-type {
+            border-top: 0;
+          }
+        }
+        &__btn {
+          display: block;
+          position: relative;
+          width: 100%;
+          padding: rem(25px 70px 25px 30px);
+          border-top: 1px solid #b5b5b6;
+          background: #fff;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(32px);
+          text-align: left;
+          &:first-child {
+            border-top: none;
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: rem(30px);
+            width: rem(12px);
+            height: rem(24px);
+            margin-top: rem(-12px);
+            background: $sprite22 no-repeat rem(-33px 0);
+            background-size: rem(410px 23px);
+          }
+        }
+      }
+    }
+    //미니카트
+    &__minicart {
+      display: flex;
+      align-content: flex-end;
+      flex-wrap: wrap;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: rem(80px);
+      z-index: 59;
+
+      &--toggle {
+        display: block;
+        width: 100%;
+        height: rem(36px);
+        padding: 0;
+        background: url(../../images/layout/bg_detail_minicart_open.png) no-repeat center top;
+        background-size: 100%;
+        @extend %hiddenText;
+      }
+      &--dimmed {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: rem(80px);
+        background: rgba(0, 0, 0, .6);
+        z-index: -1;
+      }
+      .minicart {
+        display: none;
+        overflow: hidden;
+        background: #fff;
+        width: 100%;
+        max-height: 70%; //이슈 올라와서 80%에서 70%로 줄임
+        //배너영역
+        &__banner {
+          padding: rem(15px);
+          background: #000;
+          &__desc {
+            color: #fff;
+            font-size: rem(18px);
+            line-height: rem(28px);
+            text-align: center;
+            &--point {
+              color: #00bce7;
+            }
+          }
+        }
+        .br__goods-view__information {
+          overflow: {
+            x: hidden;
+            y: auto;
+          }
+          @extend %touchScroll;
+          max-height: calc(100% - 7.4rem);
+          padding: rem(40px 0 0);
+
+          .goods-info {
+            padding: rem(0 30px 40px);
+            > div[class^=goods-info__] {
+              padding: rem(30px 0);
+              border-top: 0;
+              &:first-child {
+                padding-top: 0;
+              }
+            }
+            &__size {
+              &__guide {
+                top: rem(25px);
+              }
+            }
+          }
+          .goods-option {
+            &__title {
+              &:after {
+                display: block;
+              }
+            }
+            &__list {
+              display: none;
+            }
+            &--active {
+              .goods-option {
+                &__list {
+                  display: block;
+                }
+              }
+            }
+
+            &--add {
+
+            }
+          }
+
+        }
+        &__total {
+          padding: rem(20px 30px);
+          border-top: 1px solid #dcdddd;
+          text-align: right;
+
+          &__text {
+            display: inline-block;
+            margin-right: rem(20px);
+            color: #000;
+            font-size: rem(20px);
+          }
+          &__price {
+            color: $cPoint;
+            font-size: rem(26px);
+            line-height: rem(45px);
+            span {
+              font-size: rem(35px);
+            }
+          }
+          &__count {
+            display: inline-block;
+            margin-left: rem(10px);
+            color: $cPoint;
+            font-size: rem(26px);
+
+          }
+
+        }
+        .goods-info__set {
+          padding: {
+            left: rem(30px);
+            right: rem(30px);
+          }
+        }
+      }
+      &--show {
+        height: calc(100% - 4rem);
+        .br__goods-view__minicart--toggle {
+          height: rem(46px);
+        }
+        .br__goods-view__minicart--dimmed {
+          display: block;
+        }
+        .minicart {
+          display: block;
+        }
+        .br__goods-view__minicart--toggle {
+          background-image: url(../images/layout/bg_detail_minicart.png);
+        }
+      }
+    }
+
+    //상품상세 플로팅 버튼
+    &__btn {
+      //height: 80px;
+      %boxCommon {
+        display: block;
+        flex-basis: rem(250px);
+        height: rem(80px);
+        padding: 0;
+        background: $cPoint;
+        color: #fff;
+        font-size: rem(26px);
+        font-weight: 600;
+        line-height: rem(80px);
+        text-align: center;
+        box-sizing: border-box;
+      }
+      .goods-btn {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+        width: 100%;
+        background: #fff;
+
+        &__store {
+          @extend %boxCommon;
+          flex-basis: rem(140px);
+          border: 1px solid #000;
+          border-width: 1px 1px 1px 0;
+          background: #fff;
+          color: #000;
+        }
+        &__cart {
+          @extend %boxCommon;
+          background: #000;
+        }
+        &__buy {
+          @extend %boxCommon;
+          background: $cPoint;
+        }
+        &__sold-out {
+          @extend %boxCommon;
+          border-top: 1px solid #000;
+          border-bottom: 1px solid #000;
+          flex-basis: calc(100% - 7rem);
+          background: #666;
+        }
+      }
+    }
+
+  }
+  //
+  .layer-share {
+    &__title {
+      color: #000;
+      font-size: rem(26px);
+      line-height: rem(40px);
+      text-align: center;
+    }
+    &__option {
+      margin-top: rem(10px);
+      color: #000;
+      font-size: rem(20px);
+      line-height: rem(30px);
+      text-align: center;
+    }
+    &__list {
+      margin-top: rem(25px);
+      padding: rem(32px 22px);
+      border-top: 1px solid #b5b5b6;
+      font-size: 0;
+      text-align: center;
+    }
+    &__box {
+      display: inline-block;
+      padding: rem(0 12px);
+    }
+    &__btn {
+      display: block;
+      overflow: hidden;
+      width: rem(73px);
+      height: rem(73px);
+      padding: 0;
+      border-radius: 100%;
+      background: url(../images/common/icon_goods_sns.png) no-repeat 0 0;
+      background-size: rem(465px 74px);
+      @extend %hiddenText;
+
+      &--instagram {
+        background-position-x: 0;
+      }
+      &--kakaotalk {
+        background-position-x: rem(-97px);
+      }
+      &--facebook {
+        background-position-x: rem(-194px);
+      }
+      &--twitter {
+        background-position-x: rem(-291px);
+      }
+      &--url {
+        background-position-x: rem(-388px);
+      }
+    }
+  }
+  // 입고신청알림
+  .goods-alarm {
+    padding: rem(0 6px); // 스크롤 시 겹치는 것 때문에 추가
+    &__layer {
+      position: fixed !important;
+      top: rem(30px) !important;
+      height: calc(100% - 3rem);
+      max-height: none;
+      .popup-content {
+        height: calc(100% - 2.6rem);
+        overflow: {
+          x: hidden;
+          y: auto;
+        }
+        @extend %touchScroll;
+      }
+    }
+    &__title {
+      margin-bottom: rem(35px);
+      color: #000;
+      font-size: rem(42px);
+      line-height: rem(62px);
+      text-align: center;
+    }
+    &__desc {
+      margin-bottom: rem(45px);
+      color: #000;
+      font-size: rem(22px);
+      line-height: rem(32px);
+      text-align: center;
+    }
+    &__goods {
+      display: flex;
+      padding: rem(50px 0 70px);
+      border-top: 1px solid #b5b5b6;
+      &__thumb {
+        display: block;
+        width: rem(155px);
+        height: rem(220px);
+        border: 1px solid #dcdddd;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      &__info {
+        position: relative;
+        flex: 1;
+        padding-left: rem(20px);
+      }
+      &__title {
+        margin-top: rem(-5px);
+        color: #000;
+        font-size: rem(26px);
+        line-height: rem(40px);
+        @include line(2);
+      }
+      &__option {
+        margin-top: rem(18px);
+        color: #000;
+        font-size: rem(22px);
+        line-height: rem(32px);
+      }
+      &__price {
+        position: absolute;
+        left: rem(20px);
+        bottom: 0;
+      }
+      &__strike {
+        display: inline-block;
+        position: relative;
+        margin-right: rem(15px);
+        color: #808285;
+        font-size: rem(20px);
+        line-height: rem(30px);
+        text-decoration: none;
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: rem(-3px);
+          right: rem(-3px);
+          border-top: 1px solid #808285;
+        }
+      }
+      &__result {
+        color: #000;
+        font-size: rem(20px);
+        font-weight: 600;
+        line-height: rem(30px);
+
+        span {
+          font-size: rem(24px);
+        }
+      }
+      &__discount {
+        display: inline-block;
+        margin-left: rem(5px);
+        color: #e60000;
+        font-size: rem(20px);
+        line-height: rem(30px);
+      }
+    }
+    &__options {
+      position: relative;
+      margin-bottom: rem(70px);
+
+      &__title {
+        color: #000;
+        font-size: rem(22px);
+        font-weight: bold;
+        line-height: rem(22px);
+        span {
+          display: inline-block;
+          margin-left: rem(12px);
+          color: #000;
+          font-size: rem(20px);
+          font-weight: 400;
+        }
+      }
+      &__list {
+        margin-top: rem(30px);
+        @extend %clear;
+      }
+      &__box {
+        float: left;
+        position: relative;
+        margin: rem(0 0 15px 14px);
+        &:nth-child(6n+1) {
+          clear: both;
+          margin-left: 0;
+        }
+        &:nth-last-of-type(-n+6) {
+          margin-bottom: 0;
+        }
+        input[type=radio] {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: none;
+          opacity: 0;
+          &:disabled {
+            border-color: #b5b5b6;
+            color: #b5b5b6;
+
+            & + label:before {
+              content: "";
+              position: absolute;
+              top: rem(-12px);
+              left: rem(31px);
+              width: rem(20px);
+              height: rem(85px);
+              border-left: 1px solid #b5b5b6;
+              transform: rotate(58.7deg);
+            }
+          }
+        }
+      }
+      &__btn {
+        display: block;
+        position: relative;
+        width: rem(74px);
+        height: rem(46px);
+        margin: 0;
+        padding: 0;
+        border: 1px solid #000;
+        color: #000;
+        font-size: rem(22px);
+        line-height: rem(44px);
+        text-align: center;
+        letter-spacing: rem(-1.5px);
+
+        &--active {
+          background: #000;
+          color: #fff;
+          &:before {
+            content: "";
+            position: absolute;
+            top: rem(5px);
+            left: rem(5px);
+            right: rem(5px);
+            bottom: rem(5px);
+            z-index: 1;
+            border: 1px solid #fff;
+          }
+        }
+
+      }
+    }
+    &__phone {
+      &__default {
+        margin-bottom: rem(40px);
+        color: #000;
+        font-size: rem(22px);
+        line-height: rem(32px);
+        @extend %clear;
+        dt {
+          float: left;
+          margin-right: rem(20px);
+        }
+        dd {
+          float: left;
+          font-weight: 600;
+        }
+      }
+      &__check {
+        display: inline-block;
+        margin-bottom: rem(20px);
+
+        span {
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(26px);
+        }
+      }
+      &__new {
+        font-size: 0;
+        select {
+          width: rem(151px);
+          height: rem(70px);
+          border: 1px solid #b5b5b6;
+          color: #000;
+          font-size: rem(26px);
+        }
+        input {
+          width: rem(151px);
+          height: rem(70px);
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(80px);
+        }
+        span {
+          display: inline-block;
+          width: rem(20px);
+          height: rem(2px);
+          margin: rem(0 6px);
+          background: #b5b5b6;
+          vertical-align: middle;
+          @extend %hiddenText;
+        }
+      }
+    }
+    &__notice {
+      margin-top: rem(45px);
+      &__desc {
+        margin-top: rem(20px);
+        color: #b5b5b6;
+        font-size: rem(20px);
+        line-height: rem(30px);
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    &__submit {
+      display: block;
+      width: 100%;
+      margin: rem(75px 0 80px);
+      background: $cPoint;
+      color: #fff;
+      font-size: rem(26px);
+      font-weight: 600;
+      line-height: rem(80px);
+      text-align: center;
+    }
+    &__close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: rem(90px);
+      height: rem(90px);
+      border: none;
+      background: none;
+      @extend %hiddenText;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: rem(-15px 0 0 -15px);
+        width: rem(31px);
+        height: rem(31px);
+        background: url(../images/layout/icon_drawer_close.png) no-repeat center center;
+        background-size: rem(31px 31px);
+      }
+    }
+  }
+  // 매장안내
+  .store-guide {
+    &__goods {
+      .about-goods {
+        display: flex;
+        position: relative;
+        flex-wrap: nowrap;
+        padding: rem(50px 0 60px);
+        &:after {
+          content: "";
+          position: absolute;
+          left: rem(-30px);
+          right: rem(-30px);
+          bottom: 0;
+          height: rem(10px);
+          border-top: 1px solid #ddd;
+          background: #efefef;
+        }
+        &__thumb {
+          display: block;
+          width: rem(155px);
+          height: rem(220px);
+        }
+        &__info {
+          display: block;
+          position: relative;
+          width: calc(100% - 7.75rem);
+          padding-left: rem(20px);
+        }
+        &__title {
+          color: #000;
+          font-size: rem(22px);
+          font-weight: 600;
+          line-height: rem(32px);
+          white-space: pre-line;
+          @include line(2);
+        }
+        &__option {
+          color: #000;
+          font-size: rem(20px);
+          line-height: rem(30px);
+          @include line();
+        }
+        &__price {
+          position: absolute;
+          bottom: 0;
+          left: rem(20px);
+          right: 0;
+
+        }
+        &__strike {
+          display: inline-block;
+          position: relative;
+          margin-right: rem(15px);
+          color: #b5b5b6;
+          font-size: rem(20px);
+          line-height: rem(32px);
+          text-decoration: none;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: rem(-5px);
+            right: rem(-5px);
+            border-top: 1px solid #b5b5b6;
+          }
+        }
+        &__result {
+          display: inline-block;
+          color: #000;
+          font-size: rem(20px);
+          font-weight: 600;
+          line-height: rem(32px);
+
+          span {
+            font-size: rem(22px);
+          }
+        }
+        &__discount {
+          display: inline-block;
+          margin-left: rem(5px);
+          color: #e60000;
+          font-size: rem(20px);
+          line-height: rem(32px);
+        }
+      }
+    }
+    &__search {
+      .search-store {
+        position: relative;
+        padding: rem(45px 0 50px);
+        &:after {
+          content: "";
+          position: absolute;
+          left: rem(-30px);
+          right: rem(-30px);
+          bottom: 0;
+          height: rem(10px);
+          border-top: 1px solid #ddd;
+          background: #efefef;
+        }
+
+        &__title {
+          color: #000;
+          font-size: rem(22px);
+          font-weight: 600;
+          line-height: rem(32px);
+        }
+        &__filter {
+          margin-top: rem(25px);
+
+          .br__select-box {
+            margin-bottom: rem(20px);
+            border: 1px solid #b5b5b6;
+            .select-box__title {
+              span {
+                line-height: rem(78px);
+              }
+            }
+          }
+        }
+        &__submit {
+          margin-top: rem(10px);
+          &__btn {
+            display: block;
+            width: 100%;
+            background: $cPoint;
+            color: #fff;
+            font-size: rem(26px);
+            line-height: rem(80px);
+          }
+        }
+      }
+    }
+    &__result {
+      .search-result {
+        position: relative;
+        padding: rem(45px 0 50px);
+        &__total {
+          color: #000;
+          font-size: rem(22px);
+          font-weight: 600;
+          line-height: rem(32px);
+        }
+        &__list {
+          margin-top: rem(15px);
+          border-top: 1px solid #b5b5b6;
+        }
+        &__box {
+          position: relative;
+          padding: rem(45px 170px 45px 0);
+          border-bottom: 1px solid #b5b5b6;
+        }
+        &__info {
+          &__name {
+            color: #000;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(36px);
+          }
+          &__addr {
+            margin-top: rem(14px);
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(32px);
+          }
+        }
+        &__btn {
+          position: absolute;
+          top: rem(45px);
+          right: 0;
+          width: rem(160px);
+          height: rem(80px);
+          background: #000;
+          color: #fff;
+          font-size: rem(26px);
+          font-weight: 600;
+          line-height: rem(80px);
+          text-align: center;
+        }
+      }
+    }
+  }
+  // 상품 Q&A
+  &__qna-write {
+    &__goods {
+      .qna-goods {
+        display: flex;
+        position: relative;
+        padding: rem(50px 0);
+        &:after {
+          content: "";
+          position: absolute;
+          left: rem(-30px);
+          right: rem(-30px);
+          bottom: 0;
+          height: rem(10px);
+          border-top: 1px solid #ddd;
+          background: #efefef;
+        }
+        &__thumb {
+          display: block;
+          width: rem(155px);
+          height: rem(220px);
+          overflow: hidden;
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &__info {
+          display: block;
+          position: relative;
+          width: calc(100% - 7.75rem);
+          padding-left: rem(20px);
+        }
+        &__title {
+          color: #000;
+          font-size: rem(22px);
+          font-weight: 600;
+          line-height: rem(32px);
+          white-space: pre-line;
+          @include line(2);
+        }
+        &__option {
+          margin-top: rem(20px);
+          color: #000;
+          font-size: rem(20px);
+          line-height: rem(30px);
+          @include line();
+        }
+      }
+    }
+    &__detail {
+      .write-form {
+        padding: rem(50px 0);
+
+        &__select {
+          margin-bottom: rem(20px);
+          select {
+            height: rem(85px);
+            font-size: rem(26px);
+          }
+        }
+        &__title {
+          padding-bottom: rem(50px);
+          border-bottom: 1px solid #b5b5b6;
+          input {
+            height: rem(80px);
+            font-size: rem(26px);
+          }
+        }
+        &__email {
+          margin-bottom: rem(25px);
+          padding: rem(50px 0 0);
+          font-size: rem(26px);
+
+          &--id {
+            width: rem(241px);
+            height: rem(80px);
+          }
+          &--host {
+            width: rem(290px);
+            height: rem(80px);
+          }
+          &--select {
+            width: 100%;
+            height: rem(80px);
+            margin-top: rem(20px);
+          }
+          .hyphen_2 {
+            margin: {
+              left: rem(7px);
+              right: rem(7px);
+            }
+            font-size: rem(24px);
+          }
+        }
+        &__send-email {
+          @extend %clear;
+          &__desc {
+            float: left;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(38px);
+          }
+          &__radio {
+            float: right;
+            font-size: 0;
+            label {
+              margin-left: rem(30px);
+              span {
+                display: inline-block;
+                margin-left: rem(10px);
+                color: #000;
+                font-size: rem(22px);
+                line-height: rem(32px);
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+        &__content {
+          margin: {
+            top: rem(50px);
+            bottom: rem(30px);
+          }
+          textarea {
+            width: 100%;
+            height: rem(550px);
+          }
+        }
+        &__secret {
+          margin-bottom: rem(70px);
+          @extend %clear;
+          &__desc {
+            float: left;
+            color: #000;
+            font-size: rem(22px);
+            line-height: rem(38px);
+          }
+          &__radio {
+            float: right;
+            font-size: 0;
+            label {
+              margin-left: rem(30px);
+              span {
+                display: inline-block;
+                margin-left: rem(10px);
+                color: #000;
+                font-size: rem(22px);
+                line-height: rem(32px);
+                vertical-align: middle;
+              }
+              input[type=radio]:disabled + span {
+                color: #b5b5b6;
+              }
+            }
+          }
+        }
+        &__notice {
+          margin-bottom: rem(75px);
+          &__desc {
+            margin-top: rem(30px);
+            padding-left: rem(12px);
+            color: #898989;
+            font-size: rem(22px);
+            line-height: rem(32px);
+            text-indent: rem(-12px);
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+        }
+        &__submit {
+          &__btn {
+            display: block;
+            width: 100%;
+            height: rem(80px);
+            padding: 0;
+            border: none;
+            background: $cPoint;
+            color: #fff;
+            font-size: rem(26px);
+            font-weight: 600;
+            line-height: rem(80px);
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  //최근본상품 버튼
+  .goods-view {
+    &__recent-btn {
+      position: fixed;
+      right: rem(42px);
+      bottom: rem(334px);
+      z-index: 10;
+      overflow: hidden;
+      width: rem(71px);
+      height: rem(71px);
+      padding: 0;
+      //border:1px solid #898989;
+      border-radius: 100%;
+      @extend %hiddenText;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .tab-popup-content {
+    display: none;
+  }
+  .popup-content {
+    .br {
+      &__cs__title {
+        display: none;
+      }
+      &__wash {
+        padding: rem(30px 0);
+        &__title {
+          display: none;
+        }
+      }
+      &__guide {
+        padding: rem(0 0 30px);
+
+      }
+      &__claim {
+        padding: rem(30px 0);
+        &__title {
+          display: none;
+        }
+      }
+    }
+
+    .gform {
+      padding: rem(30px 0);
+    }
+    .br__claim {
+      .claim {
+        margin: 0;
+      }
+    }
+    .wash {
+      margin: 0;
+    }
+    #pop-shipping {
+      .gform__common:last-of-type {
+        display: none;
+      }
+    }
+  }
+
+  // 썸네일 확대보기
+  .goods-thumb__box__view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    @extend %hiddenText;
+  }
+  .layer-zoom {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 500;
+
+    &--show {
+      display: block;
+    }
+
+    &__img {
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        height: 150%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &__close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      width: rem(70px);
+      height: rem(70px);
+      @extend %hiddenText;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: rem(30px);
+        height: rem(30px);
+        margin: rem(-15px 0 0 -15px);
+        background: $sprite30 no-repeat rem(-382px -2px);
+        background-size: rem(1221px 80px);
+      }
+    }
+  }
+
+  //혜택내역 layer
+  .layer__benefit-list {
+    display: none;
+    border-top: 1px solid #b5b5b6;
+    .benefit-list {
+
+      &__price {
+        padding: rem(30px 0);
+        border-bottom: 1px solid #b5b5b6;
+        @extend %clear;
+        dt {
+          float: left;
+          max-width: 50%;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(28px);
+          font-weight: 800;
+        }
+        dd {
+          float: right;
+          max-width: 50%;
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(28px);
+
+          span {
+            font-weight: 800;
+          }
+        }
+      }
+      &__type {
+        padding: rem(30px 0);
+        border-bottom: 1px solid #b5b5b6;
+        @extend %clear;
+        dt {
+          float: left;
+          clear: both;
+          max-width: 50%;
+          margin-top: rem(27px);
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(28px);
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
+        dd {
+          float: right;
+          max-width: 50%;
+          margin-top: rem(27px);
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(28px);
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+
+          span {
+            font-weight: 800;
+          }
+        }
+      }
+      &__total {
+        padding: rem(30px 0);
+        @extend %clear;
+        dt {
+          float: left;
+          max-width: 50%;
+          color: #000;
+          font-size: rem(22px);
+          line-height: rem(42px);
+          font-weight: 800;
+        }
+        dd {
+          float: right;
+          max-width: 50%;
+          color: $cPoint;
+          font-size: rem(32px);
+          line-height: rem(42px);
+          font-weight: 800;
+
+          span {
+            font-weight: 800;
+          }
+        }
+      }
+    }
+  }
+  .popup-layout {
+    .layer__benefit-list {
+      display: block;
+    }
+  }
+
+  &__coupon-down {
+    padding-top: rem(40px);
+    border-top: 1px solid #000;
+
+    &__list {
+      margin-top: rem(30px);
+    }
+    &__box {
+      overflow: hidden;
+      margin-bottom: rem(25px);
+      border: 1px solid #ddd;
+
+      .coupon-info {
+        padding: rem(20px 15px 25px 20px);
+
+        &__img {
+          float: left;
+          width: rem(160px);
+          height: rem(80px);
+          background: url("../../images/common/img-goodsview-coupon.png") no-repeat;
+          background-size: rem(160px 80px);
+          color: $cPoint;
+          text-align: center;
+          line-height: rem(82px);
+        }
+
+        &__price {
+          display: inline-block;
+          width: 8rem;
+          height: 4rem;
+          padding-top: rem(24px);
+          font: {
+            family: 'Rb';
+            size: rem(30px);
+          }
+          line-height: 1.2;
+
+          span {
+            font-size: rem(40px);
+          }
+        }
+
+        &__detail {
+          padding-left: rem(180px);
+        }
+
+        &__name {
+          color: #000;
+          font-size: rem(26px);
+          line-height: rem(34px);
+          @include line(2);
+        }
+
+        &__desc {
+          margin-top: rem(10px);
+          color: #999;
+          font-size: rem(22px);
+          line-height: rem(26px);
+        }
+
+        .font-rb {
+          font-family: $font_n;
+        }
+      }
+
+      .coupon-btn {
+        width: 100%;
+        border-top: 1px dashed #ddd;
+        text-align: center;
+
+        button {
+          width: 100%;
+          height: rem(78px);
+          background: #fff;
+          border: none;
+          color: $cPoint;
+          font-weight: 600;
+          font-size: rem(22px);
+
+          &:after {
+            display: inline-block;
+            width: rem(18px);
+            height: rem(20px);
+            margin-left: rem(10px);
+            margin-bottom: rem(5px);
+            background: url("../../img/icon/m_sprite_shop.png") 0 0 no-repeat;
+            background-size: 50rem 50rem;
+            vertical-align: middle;
+            content: '';
+          }
+
+          &:disabled {
+            color: #999;
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    &__desc {
+      color: #666;
+      font-size: rem(24px);
+      &--light {
+        padding: rem(25px 0);
+        border-top: 1px solid #e8e8e8;
+        font-size: rem(22px);
+        line-height: rem(30px);
+
+        em {
+          display: inline-block;
+          width: rem(24px);
+          height: rem(18px);
+          background: url("../../img/icon/m_sprite_icon.png") rem(-200px -500px) no-repeat;
+        }
+      }
+    }
+
+  }
+}
+
+
+.wrap-coupon-down ul li .won {
+  font-size: rem(22px);
+}
+
+.wrap-coupon-down ul li .won span {
+  font-size: rem(32px);
+}
+
+html[lang=en] {
+  .br {
+    &__goods-view {
+      &__tabs {
+        .goods-review {
+          &__best {
+            padding-top: 0;
+
+            &__kind {
+              margin-top: 0;
+              border-top: none;
+            }
+          }
+        }
+      }
+      &__btn {
+        .goods-btn {
+          &__cart,
+          &__buy {
+            flex-basis: 50%;
+          }
+          &__store {
+            display: none;
+          }
+          &__sold-out {
+            flex-basis: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tab-review {
+  margin-top: rem(50px);
+  .top-area {
+    border-bottom: 1px solid #e8e8e8;
+    padding: rem(30px);
+
+    .title {
+      font-size: rem(26px);
+      font-weight: 600;
+      color: #222;
+      text-align: center;
+    }
+
+    .total-score {
+      text-align: center;
+      margin-top: rem(15px);
+      margin-bottom: rem(30px);
+
+      em {
+        font-size: rem(40px);
+        font-family: 'Rb';
+        font-weight: 600;
+        color: #222;
+        margin-left: rem(10px);
+      }
+
+      > * {
+        vertical-align: middle;
+      }
+
+      &.type2 {
+        margin-bottom: 0;
+        font-size: rem(22px);
+        color: #222;
+        font-weight: 600;
+
+        em {
+          font-size: rem(24px);
+          font-weight: 400;
+          vertical-align: middle;
+          margin-left: rem(5px);
+        }
+
+        span {
+          vertical-align: middle;
+        }
+
+        > span {
+          &:last-child:before {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: rem(16px);
+            background: #ccc;
+            margin: rem(0px 10px -2px 10px);
+          }
+        }
+      }
+
+      .set-star {
+        position: relative;
+        display: inline-block;
+        width: rem(85px);
+        height: rem(16px);
+        background: url('../../img/icon/m_sprite_icon.png') 0 0 repeat-x;
+        background-size: rem(1000px 1000px);
+        text-align: left;
+        margin-bottom: rem(3px);
+
+        .store {
+          display: inline-block;
+          height: rem(16px);
+          background: url('../../img/icon/m_sprite_icon.png') 0 rem(-16px) repeat-x;
+          background-size: rem(1000px 1000px);
+        }
+
+        &.gray {
+          width: rem(140px);
+          height: rem(24px);
+          background: url('../../img/icon/m_score_gray.png') 0 0 repeat-x;
+          background-size: rem(28px 48px);
+          .score {
+            height: rem(24px);
+            background: url('../../img/icon/m_score_gray.png') 0 rem(-24px) repeat-x;
+            background-size: rem(28px 48px);
+          }
+        }
+
+        &.big {
+          width: rem(250px);
+          height: rem(44px);
+          background: url('../../img/icon/m_score_b.png') 0 0 repeat-x;
+          background-size: rem(50px 88px);
+          .score {
+            height: rem(44px);
+            background: url('../../img/icon/m_score_b.png') 0 rem(-44px) repeat-x;
+            background-size: rem(50px 88px);
+          }
+        }
+      }
+    }
+  }
+
+  .detail-info-sorting {
+    a {
+      font-size: rem(22px);
+      color: #666;
+      margin-right: rem(10px);
+      line-height: rem(32px);
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: rem(25px);
+        height: rem(17px);
+        background: url("../../img/icon/m_sprite_icon.png") no-repeat rem(-602px -48px);
+        margin-right: rem(3px);
+      }
+
+      &.on {
+        color: #222;
+        &:before {
+          background: url("../../img/icon/m_sprite_icon.png") no-repeat rem(-602px -8px);
+          background-size: rem(1000px 1000px);
+        }
+      }
+    }
+  }
+}
+
+.review-content {
+  .top {
+    padding: rem(45px 25px 40px);
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 2px solid #222;
+  }
+
+  .review-tab {
+    overflow: hidden;
+    margin-bottom: rem(40px);
+
+    a {
+      display: inline-block;
+      width: calc(100% / 3);
+      border: 1px solid #ccc;
+      float: left;
+      text-align: center;
+      padding: rem(22px 0);
+      font-size: rem(22px);
+      color: #999;
+      border-right: 0;
+
+      em {
+        font-family: 'Rb';
+        margin-left: rem(3px);
+      }
+
+      &:last-child {
+        border-right: 1px solid #ccc;
+      }
+
+      &.active {
+        color: $cPoint;
+        border-color: $cPoint;
+
+        & + a {
+          border-left-color: $cPoint;
+        }
+      }
+    }
+  }
+
+  .review-list {
+    ul {
+      li {
+        border-bottom: 1px solid #e8e8e8;
+        font-size: rem(22px);
+
+        .review {
+          padding: rem(40px 25px);
+          position: relative;
+
+          &:after {
+            content: '';
+            display: inline-block;
+            width: rem(35px);
+            height: rem(20px);
+            background: url("../../img/icon/m_sprite_shop.png") rem(-900px 0) no-repeat;
+            position: absolute;
+            right: rem(25px);
+            top: rem(40px);
+          }
+          &.on {
+            &:after {
+              transform: rotate(180deg);
+            }
+          }
+          & > span {
+            vertical-align: middle;
+          }
+
+          %userAndDate {
+            font-size: rem(20px);
+            color: #999;
+            vertical-align: middle;
+            display: inline-block;
+            margin-bottom: rem(3px);
+            margin-left: rem(10px);
+          }
+          .date {
+            font-family: 'Rb';
+            margin-bottom: 0;
+            &:before {
+              content: '';
+              display: inline-block;
+              width: rem(2px);
+              height: rem(16px);
+              background: #ccc;
+              margin: rem(0 10px 0 5px);
+            }
+          }
+
+          .option {
+            color: #999;
+            margin-top: rem(10px);
+          }
+
+          .tit {
+            font-size: rem(24px);
+            color: #222;
+            margin-top: rem(15px);
+          }
+
+          &-detail {
+            background: #f7f7f9;
+            padding: rem(30px 25px 60px 25px);
+            border-top: 1px solid #e8e8e8;
+            display: none;
+
+            .wrap-score {
+              margin-bottom: rem(40px);
+              color: #222;
+              font-size: rem(20px);
+
+              span {
+                margin-right: rem(20px);
+              }
+            }
+
+            .content {
+              line-height: rem(32px);
+              color: #222;
+              white-space: pre-line;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+html[lang=en] {
+  .crema-type {
+    .tab-review {
+      margin-top: rem(50px);
+      .top-area {
+        border-bottom: 1px solid #e8e8e8;
+        padding: rem(30px);
+
+        .title {
+          font-size: rem(26px);
+          font-weight: 600;
+          color: #222;
+          text-align: center;
+        }
+
+        .total-score {
+          text-align: center;
+          margin-top: rem(15px);
+          margin-bottom: rem(30px);
+
+          em {
+            font-size: rem(40px);
+            font-family: 'Rb';
+            font-weight: 600;
+            color: #222;
+            margin-left: rem(10px);
+          }
+
+          > * {
+            vertical-align: middle;
+          }
+
+          &.type2 {
+            margin-bottom: 0;
+            font-size: rem(22px);
+            color: #222;
+            font-weight: 600;
+
+            em {
+              font-size: rem(24px);
+              font-weight: 400;
+              vertical-align: middle;
+              margin-left: rem(5px);
+            }
+
+            span {
+              vertical-align: middle;
+            }
+
+            > span {
+              &:last-child:before {
+                content: '';
+                display: inline-block;
+                width: 1px;
+                height: rem(16px);
+                background: #ccc;
+                margin: rem(0px 10px -2px 10px);
+              }
+            }
+          }
+
+          .set-star {
+            position: relative;
+            display: inline-block;
+            width: rem(85px);
+            height: rem(16px);
+            background: url('../../img/icon/m_sprite_icon.png') 0 0 repeat-x;
+            background-size: rem(1000px 1000px);
+            text-align: left;
+            margin-bottom: rem(3px);
+
+            .store {
+              display: inline-block;
+              height: rem(16px);
+              background: url('../../img/icon/m_sprite_icon.png') rem(0 -16px) repeat-x;
+              background-size: rem(1000px 1000px);
+            }
+
+            &.gray {
+              width: rem(140px);
+              height: rem(24px);
+              background: url('../../img/icon/m_score_gray.png') 0 0 repeat-x;
+              background-size: rem(28px 48px);
+
+              .score {
+                height: rem(24px);
+                background: url('../../img/icon/m_score_gray.png') rem(0 -24px) repeat-x;
+                background-size: rem(28px 48px);
+              }
+            }
+
+            &.big {
+              width: rem(250px);
+              height: rem(44px);
+              background: url('../../img/icon/m_score_b.png') 0 0 repeat-x;
+              background-size: rem(50px 88px);
+
+              .score {
+                height: rem(44px);
+                background: url('../../img/icon/m_score_b.png') rem(0 -44px) repeat-x;
+                background-size: rem(50px 88px);
+              }
+            }
+          }
+        }
+      }
+
+      .detail-info-sorting {
+        a {
+          font-size: rem(22px);
+          color: #666;
+          margin-right: rem(10px);
+
+          &:before {
+            content: '';
+            display: inline-block;
+            width: rem(25px);
+            height: rem(17px);
+            background: url("../../img/icon/m_sprite_icon.png") no-repeat rem(-602px -50px);
+            margin-right: rem(3px);
+          }
+
+          .on {
+            color: #222;
+            &:before {
+              background: url("../../img/icon/m_sprite_icon.png") no-repeat rem(-602px -9px);
+              background-size: rem(1000px 1000px);
+            }
+          }
+        }
+      }
+    }
+
+    .review-content {
+      .top {
+        padding: rem(45px 25px 40px);
+        border-top: 1px solid #e8e8e8;
+        border-bottom: rem(2px) solid #222;
+      }
+
+      .review-tab {
+        overflow: hidden;
+        margin-bottom: rem(40px);
+
+        a {
+          display: inline-block;
+          width: calc(100% / 3);
+          border: 1px solid #ccc;
+          float: left;
+          text-align: center;
+          padding: rem(22px 0);
+          font-size: rem(22px);
+          color: #999;
+          border-right: 0;
+
+          em {
+            font-family: 'Rb';
+            margin-left: rem(3px);
+          }
+
+          &:last-child {
+            border-right: 1px solid #ccc;
+          }
+
+          &.active {
+            color: #fc6161;
+            border-color: #fc6161;
+
+            & + a {
+              border-left-color: #fc6161
+            }
+          }
+        }
+      }
+
+      .review-list {
+        ul {
+          li {
+            border-bottom: 1px solid #e8e8e8;
+            font-size: rem(22px);
+
+            .review {
+              padding: rem(40px 25px);
+              position: relative;
+
+              &:after {
+                content: '';
+                display: inline-block;
+                width: rem(35px);
+                height: rem(20px);
+                //background: url("../../img/icon/m_sprite_shop.png") -900px 0 no-repeat;
+                position: absolute;
+                right: rem(25px);
+                top: rem(40px);
+              }
+              &.on {
+                &:after {
+                  transform: rotate(180deg);
+                }
+              }
+              & > span {
+                vertical-align: middle;
+              }
+
+              %userAndDate {
+                font-size: rem(20px);
+                color: #999;
+                vertical-align: middle;
+                display: inline-block;
+                margin-bottom: rem(3px);
+                margin-left: rem(10px);
+              }
+              .date {
+                font-family: 'Rb';
+                margin-bottom: 0px;
+                &:before {
+                  content: '';
+                  display: inline-block;
+                  width: rem(2px);
+                  height: rem(16px);
+                  background: #ccc;
+                  margin: rem(0 10px 0 5px);
+                }
+              }
+
+              .option {
+                color: #999;
+                margin-top: rem(10px);
+              }
+
+              .tit {
+                font-size: rem(24px);
+                color: #222;
+                margin-top: rem(15px);
+              }
+
+              &-detail {
+                background: #f7f7f9;
+                padding: rem(30px 25px 60px 25px);
+                border-top: 1px solid #e8e8e8;
+                display: none;
+
+                .wrap-score {
+                  margin-bottom: rem(40px);
+                  color: #222;
+                  font-size: rem(20px);
+
+                  span {
+                    margin-right: rem(20px);
+                  }
+                }
+
+                .content {
+                  line-height: rem(32px);
+                  color: #222;
+                  white-space: pre-line;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
