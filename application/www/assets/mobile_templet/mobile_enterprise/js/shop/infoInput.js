@@ -1664,6 +1664,10 @@ $(function () {
 });
 
 function couponClose(){
+    $('.popup-layout .close').trigger('click');
+}
+
+function couponClose2(){
     $('#mask').css('display', 'none');
     $('body').css({
         'position' : '',

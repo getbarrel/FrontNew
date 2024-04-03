@@ -158,6 +158,7 @@ function popup_customer_zipcode_m(){
 
     $('.popup-layout').show();
     $('#coupon-pop').css('display', 'none');
+    $('#coupon-deily-pop').css('display', 'none');
 }
 
 function popup_customer_coupon_m(){
