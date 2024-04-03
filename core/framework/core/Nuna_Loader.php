@@ -62,7 +62,6 @@ class Nuna_Loader extends CI_Loader
         }
     }
 
-
     protected function getResource($type, $res_params, $params, $opt)
     {
         switch ($type) {
