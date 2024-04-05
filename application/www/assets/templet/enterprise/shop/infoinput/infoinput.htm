@@ -694,7 +694,7 @@ dataLayer.push({
 			<!--<h2 id="agree_title">{=trans('비회원 구매 이용약관')}</h2>-->
 
 			<!-- 개인정보 수집 및 이용 동의 -->
-			<div class="pop-cont-detail" id="terms-2">
+			<div class="pop-cont-detail" id="terms-2" style="line-height:2;padding:30px">
 				{? langType == 'korean'}
 				{non_collection.contents}
 				{:}
@@ -717,7 +717,7 @@ dataLayer.push({
 			<!-- 비회원 구매 이용약관 -->
 			{? !layoutCommon.isLogin}
 			<!--<div class="pop-cont-detail" id="term{=use['ix']}">-->
-			<div class="pop-cont-detail" id="terms-1" style="max-width:800px">
+			<div class="pop-cont-detail" id="terms-1" style="line-height:2;padding:30px">
 				{? langType == 'korean'}
 				{use.contents}
 				{:}

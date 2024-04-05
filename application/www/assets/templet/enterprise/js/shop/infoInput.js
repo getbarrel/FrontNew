@@ -107,7 +107,7 @@ $(function () {
                 "left": '50%',
                 "overflow": 'auto',
                 "height" : "75%",
-                "width": "43%"
+                "width": "80%"
                 //"margin-top": -+$('.terms-layer-pop').height() / 2,
                 //"margin-left" : - + $('.terms-layer-pop').outerWidth() / 2
             })
