@@ -1237,7 +1237,8 @@ var devInfoinputObj = {
                         }, function (response) {
                             if (response.result == 'success') {
                                 var addressData = response.data;
-                                var index = self.orderAddressListData.length;
+                                //var index = self.orderAddressListData.length;
+                                var index = 0;
                                 addressData.index = index;
                                 self.orderAddressListData[index] = addressData;
                                 self.orderAddressList.setContent(self.orderAddressListData);

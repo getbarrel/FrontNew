@@ -1,5 +1,54 @@
 <script>var addressPopMode = 'member';</script>
-<div class="address-select">
+
+<div class="br__goods-view br__cart__change"> <!-- 디자인 적용을 위한 wrap 태그 -->
+    <div class="popup-content__wrap">
+        <div class="popup-content">
+            <div class="br__goods-view br__cart__change" >
+                <div class="goods-info">
+                    <ul class="product-list" id="devAddressBooKContent">
+                        <li id="devAddressBooKLoading"  class="devForbizTpl">
+                            <div class="mobile_address-contents">
+                                <header>
+                                    <h3>Loading...</h3>
+                                </header>
+                            </div>
+                        </li>
+                        <li class="product-list__item" style="padding-bottom" id="devAddressBooKList">
+                            <dl class="product-list__group">
+                                <dt class="product-list__group-left">
+                                    {[recipient]} {[#if default_yn]}<span>[{=trans('기본')}]</span>{[/if]}
+                                </dt>
+                                <dd class="product-list__group-right">
+                                    <div class="product-list__info goods-info">
+                                        <span class="address-select__info__name">{[recipient]}</span>
+                                        {[#if nation_name]}<p class="address-select__info__addr">{[nation_name]}</p>{[/if]}
+                                        <p class="address-select__info__addr">{[address1]} <br>{[address2]}</p>
+                                        {[#if city]}<p class="address-select__info__addr">{[city]}</p>{[/if]}
+                                        {[#if state]}<p class="address-select__info__addr">{[state]}</p>{[/if]}
+                                        <p class="address-select__info__phone">{[mobile]}</p>
+                                        <button class="btn-lg  devAddressBookItemSelect" style="background-color:#fff; border:1px solid #b5b5b6;" data-oid="{oid}" data-ix="{[ix]}">{=trans('주소 선택')}</button>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <div class="product-list__select goods-info__select" id="devSildeMinicartOptions" data-oprionCode="{dOpt}"></div>
+                        </li>
+                        {* Address book empty *}
+                        <li id="devAddressBooKEmpty"  class="devForbizTpl empty-content">
+                            <h3>{=trans('등록된 배송지가 없습니다.')}</h3>
+                        </li>
+                    </ul>
+                    <div class="br__more" id="devPageWrap"></div>
+                </div>
+            </div>
+            <div class="popup-layout__footer">
+                <button type="button" class="btn-lg btn-dark-line "><a href="javascript:void(0)" id="devAddressBookAddBtn">{=trans('새 배송지 추가')}</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="br__goods-view br__cart__change">
     <div>
         <ul class="address-select__list" id="devAddressBooKContent">
             {* Address book Loading *}
@@ -37,3 +86,4 @@
 <div class="address-select__btn btn-add-address">
     <a href="javascript:void(0)" id="devAddressBookAddBtn" class="join__email__check-btn">{=trans('새 배송지 추가')}</a>
 </div>
+-->

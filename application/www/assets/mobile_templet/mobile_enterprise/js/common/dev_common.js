@@ -286,7 +286,7 @@ var common = {
                     } else {
                         common.ajax(parameter1, parameter2, '', (function (response) {
                             $modalContent.append(response);
-                            if(parameter1 == "/popup/zipcode"){
+                            if(parameter1 == "/popup/zipcode" || parameter1 == "/mypage/addressbookSelect"){
                                 common.util.modal._zipCodeShow();
                             }else if(parameter1 == "/shop/couponPop"){
                                 if(parameter2.couponDiv == "D"){

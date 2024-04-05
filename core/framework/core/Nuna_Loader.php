@@ -116,208 +116,210 @@ class Nuna_Loader extends CI_Loader
         if (isset($db[$dbConfig])) {
             $dbObj = $db[$dbConfig];
         } else {
-            switch ($dbConfig) {
-                case 'slave':
-                    $db['slave']  = $this->database([
-                        /*'hostname' => $config[DB_CONNECTION_DIV]['slave']['host'],
-                        'username' => $config[DB_CONNECTION_DIV]['slave']['user'],
-                        'password' => $config[DB_CONNECTION_DIV]['slave']['pass'],
-                        'database' => $config[DB_CONNECTION_DIV]['slave']['name'],
-                        'port' => $config[DB_CONNECTION_DIV]['slave']['port'],
-                        'dbdriver' => FORBIZ_MALL_DB_DRIVER,
-                        'hostname' => '10.33.183.53',*/
+            if($_SERVER['SERVER_NAME'] == 'qa.barrelmade.co.kr'){
+                switch ($dbConfig) {
+                    case 'slave':
+                        $db['slave']  = $this->database([
+                            /*'hostname' => $config[DB_CONNECTION_DIV]['slave']['host'],
+                            'username' => $config[DB_CONNECTION_DIV]['slave']['user'],
+                            'password' => $config[DB_CONNECTION_DIV]['slave']['pass'],
+                            'database' => $config[DB_CONNECTION_DIV]['slave']['name'],
+                            'port' => $config[DB_CONNECTION_DIV]['slave']['port'],
+                            'dbdriver' => FORBIZ_MALL_DB_DRIVER,
+                            'hostname' => '10.33.183.53',*/
 
-                        //'hostname' => '10.33.180.104',
-                        'hostname' => '10.33.182.234', //version up
-                        'username' => 'barrel_prod',
-                        'password' => 'barrel!#@$prod',
-                        'database' => 'barrel_mall',
-                        'port' => '3306',
-                        'dbdriver' => 'mysqli',
-                        'dbprefix' => '',
-                        'pconnect' => FALSE,
-                        'db_debug' => (DB_CONNECTION_DIV !== 'production'),
-                        'cache_on' => FALSE,
-                        'cachedir' => '',
+                            //'hostname' => '10.33.180.104',
+                            'hostname' => '10.33.182.234', //version up
+                            'username' => 'barrel_prod',
+                            'password' => 'barrel!#@$prod',
+                            'database' => 'barrel_mall',
+                            'port' => '3306',
+                            'dbdriver' => 'mysqli',
+                            'dbprefix' => '',
+                            'pconnect' => FALSE,
+                            'db_debug' => (DB_CONNECTION_DIV !== 'production'),
+                            'cache_on' => FALSE,
+                            'cachedir' => '',
 
-                        /*'char_set' => $config[DB_CONNECTION_DIV]['slave']['char_set'] ?? 'utf8',
-                        'dbcollat' => $config[DB_CONNECTION_DIV]['slave']['dbcollat'] ?? 'utf8_general_ci',*/
+                            /*'char_set' => $config[DB_CONNECTION_DIV]['slave']['char_set'] ?? 'utf8',
+                            'dbcollat' => $config[DB_CONNECTION_DIV]['slave']['dbcollat'] ?? 'utf8_general_ci',*/
 
-                        'char_set' => 'utf8mb4' ?? 'utf8',
-                        'dbcollat' => 'utf8_general_ci' ?? 'utf8_general_ci',
-                        'swap_pre' => '',
-                        'encrypt' => FALSE,
-                        'compress' => FALSE,
-                        'stricton' => FALSE,
-                        'failover' => array(),
-                        'save_queries' => FALSE
-                    ], true);
-                    $dbObj        = $db['slave'];
-                    break;
-                case 'db':
-                case 'master':
-                    $db['master'] = $this->database([
+                            'char_set' => 'utf8mb4' ?? 'utf8',
+                            'dbcollat' => 'utf8_general_ci' ?? 'utf8_general_ci',
+                            'swap_pre' => '',
+                            'encrypt' => FALSE,
+                            'compress' => FALSE,
+                            'stricton' => FALSE,
+                            'failover' => array(),
+                            'save_queries' => FALSE
+                        ], true);
+                        $dbObj        = $db['slave'];
+                        break;
+                    case 'db':
+                    case 'master':
+                        $db['master'] = $this->database([
 
-                        /*'hostname' => $config[DB_CONNECTION_DIV]['master']['host'],
-                        'username' => $config[DB_CONNECTION_DIV]['master']['user'],
-                        'password' => $config[DB_CONNECTION_DIV]['master']['pass'],
-                        'database' => $config[DB_CONNECTION_DIV]['master']['name'],
-                        'port' => $config[DB_CONNECTION_DIV]['master']['port'],
-                        'dbdriver' => FORBIZ_MALL_DB_DRIVER,
-                        'hostname' => '10.33.183.53',*/
+                            /*'hostname' => $config[DB_CONNECTION_DIV]['master']['host'],
+                            'username' => $config[DB_CONNECTION_DIV]['master']['user'],
+                            'password' => $config[DB_CONNECTION_DIV]['master']['pass'],
+                            'database' => $config[DB_CONNECTION_DIV]['master']['name'],
+                            'port' => $config[DB_CONNECTION_DIV]['master']['port'],
+                            'dbdriver' => FORBIZ_MALL_DB_DRIVER,
+                            'hostname' => '10.33.183.53',*/
 
-                        //'hostname' => '10.33.180.104',
-                        'hostname' => '10.33.182.234', //version up
-                        'username' => 'barrel_prod',
-                        'password' => 'barrel!#@$prod',
-                        'database' => 'barrel_mall',
-                        'port' => '3306',
-                        'dbdriver' => 'mysqli',
-                        'dbprefix' => '',
-                        'pconnect' => FALSE,
-                        'db_debug' => (DB_CONNECTION_DIV !== 'production'),
-                        'cache_on' => FALSE,
-                        'cachedir' => '',
+                            //'hostname' => '10.33.180.104',
+                            'hostname' => '10.33.182.234', //version up
+                            'username' => 'barrel_prod',
+                            'password' => 'barrel!#@$prod',
+                            'database' => 'barrel_mall',
+                            'port' => '3306',
+                            'dbdriver' => 'mysqli',
+                            'dbprefix' => '',
+                            'pconnect' => FALSE,
+                            'db_debug' => (DB_CONNECTION_DIV !== 'production'),
+                            'cache_on' => FALSE,
+                            'cachedir' => '',
 
-                        'char_set' => $config[DB_CONNECTION_DIV]['master']['char_set'] ?? 'utf8',
-                        'dbcollat' => $config[DB_CONNECTION_DIV]['master']['dbcollat'] ?? 'utf8_general_ci',
+                            'char_set' => $config[DB_CONNECTION_DIV]['master']['char_set'] ?? 'utf8',
+                            'dbcollat' => $config[DB_CONNECTION_DIV]['master']['dbcollat'] ?? 'utf8_general_ci',
 
-                        /*'char_set' => 'utf8mb4' ?? 'utf8',
-                        'dbcollat' => 'utf8_general_ci' ?? 'utf8_general_ci',*/
-                        'swap_pre' => '',
-                        'encrypt' => FALSE,
-                        'compress' => FALSE,
-                        'stricton' => FALSE,
-                        'failover' => array(),
-                        'save_queries' => FALSE
-                    ], true);
+                            /*'char_set' => 'utf8mb4' ?? 'utf8',
+                            'dbcollat' => 'utf8_general_ci' ?? 'utf8_general_ci',*/
+                            'swap_pre' => '',
+                            'encrypt' => FALSE,
+                            'compress' => FALSE,
+                            'stricton' => FALSE,
+                            'failover' => array(),
+                            'save_queries' => FALSE
+                        ], true);
 
-                    $dbObj = $db['master'];
-                    break;
-                default:
-                    //if (isset($config[DB_CONNECTION_DIV][$dbConfig])) {
-                    $db[$dbConfig] = $this->database([
+                        $dbObj = $db['master'];
+                        break;
+                    default:
+                        //if (isset($config[DB_CONNECTION_DIV][$dbConfig])) {
+                        $db[$dbConfig] = $this->database([
 
-                        'hostname' => $config[DB_CONNECTION_DIV][$dbConfig]['host'],
-                        'username' => $config[DB_CONNECTION_DIV][$dbConfig]['user'],
-                        'password' => $config[DB_CONNECTION_DIV][$dbConfig]['pass'],
-                        'database' => $config[DB_CONNECTION_DIV][$dbConfig]['name'],
-                        'port' => $config[DB_CONNECTION_DIV][$dbConfig]['port'],
-                        'dbdriver' => FORBIZ_MALL_DB_DRIVER,
+                            /*'hostname' => $config[DB_CONNECTION_DIV][$dbConfig]['host'],
+                            'username' => $config[DB_CONNECTION_DIV][$dbConfig]['user'],
+                            'password' => $config[DB_CONNECTION_DIV][$dbConfig]['pass'],
+                            'database' => $config[DB_CONNECTION_DIV][$dbConfig]['name'],
+                            'port' => $config[DB_CONNECTION_DIV][$dbConfig]['port'],
+                            'dbdriver' => FORBIZ_MALL_DB_DRIVER,*/
 
-                        //'hostname' => '10.33.180.104',
-                        /*'hostname' => '10.33.182.234', //version up
-                        'username' => 'barrel_prod',
-                        'password' => 'barrel!#@$prod',
-                        'database' => 'barrel_mall',
-                        'port' => '3306',
-                        'dbdriver' => 'mysqli',*/
+                            //'hostname' => '10.33.180.104',
+                            'hostname' => '10.33.182.234', //version up
+                            'username' => 'barrel_prod',
+                            'password' => 'barrel!#@$prod',
+                            'database' => 'barrel_mall',
+                            'port' => '3306',
+                            'dbdriver' => 'mysqli',
 
-                        'dbprefix' => '',
-                        'pconnect' => FALSE,
-                        'db_debug' => (DB_CONNECTION_DIV !== 'production'),
-                        'cache_on' => FALSE,
-                        'cachedir' => '',
+                            'dbprefix' => '',
+                            'pconnect' => FALSE,
+                            'db_debug' => (DB_CONNECTION_DIV !== 'production'),
+                            'cache_on' => FALSE,
+                            'cachedir' => '',
+                            /*
+                            'char_set' => $config[DB_CONNECTION_DIV][$dbConfig]['char_set'] ?? 'utf8',
+                            'dbcollat' => $config[DB_CONNECTION_DIV][$dbConfig]['dbcollat'] ?? 'utf8_general_ci',
+                            */
+                            'char_set' => 'utf8mb4' ?? 'utf8',
+                            'dbcollat' => 'utf8_general_ci' ?? 'utf8_general_ci',
 
-                        'char_set' => $config[DB_CONNECTION_DIV][$dbConfig]['char_set'] ?? 'utf8',
-                        'dbcollat' => $config[DB_CONNECTION_DIV][$dbConfig]['dbcollat'] ?? 'utf8_general_ci',
+                            'swap_pre' => '',
+                            'encrypt' => FALSE,
+                            'compress' => FALSE,
+                            'stricton' => FALSE,
+                            'failover' => array(),
+                            'save_queries' => FALSE
+                        ], true);
 
-                        /*
-                                                    'char_set' => 'utf8mb4' ?? 'utf8',
-                                                    'dbcollat' => 'utf8_general_ci' ?? 'utf8_general_ci',
-                        */
-                        'swap_pre' => '',
-                        'encrypt' => FALSE,
-                        'compress' => FALSE,
-                        'stricton' => FALSE,
-                        'failover' => array(),
-                        'save_queries' => FALSE
-                    ], true);
+                        $dbObj = $db[$dbConfig];
+                        //} else {
+                        //    show_error("Databse {$dbConfig} not exists!");
+                        //}
+                        break;
+                }
+             }else{
+                switch ($dbConfig) {
+                    case 'slave':
+                        $db['slave']  = $this->database([
+                            'hostname' => $config[DB_CONNECTION_DIV]['slave']['host'],
+                            'username' => $config[DB_CONNECTION_DIV]['slave']['user'],
+                            'password' => $config[DB_CONNECTION_DIV]['slave']['pass'],
+                            'database' => $config[DB_CONNECTION_DIV]['slave']['name'],
+                            'port' => $config[DB_CONNECTION_DIV]['slave']['port'],
+                            'dbdriver' => FORBIZ_MALL_DB_DRIVER,
+                            'dbprefix' => '',
+                            'pconnect' => FALSE,
+                            'db_debug' => (DB_CONNECTION_DIV !== 'production'),
+                            'cache_on' => FALSE,
+                            'cachedir' => '',
+                            'char_set' => $config[DB_CONNECTION_DIV]['slave']['char_set'] ?? 'utf8',
+                            'dbcollat' => $config[DB_CONNECTION_DIV]['slave']['dbcollat'] ?? 'utf8_general_ci',
+                            'swap_pre' => '',
+                            'encrypt' => FALSE,
+                            'compress' => FALSE,
+                            'stricton' => FALSE,
+                            'failover' => array(),
+                            'save_queries' => FALSE
+                        ], true);
+                        $dbObj        = $db['slave'];
+                        break;
+                    case 'db':
+                    case 'master':
+                        $db['master'] = $this->database([
+                            'hostname' => $config[DB_CONNECTION_DIV]['master']['host'],
+                            'username' => $config[DB_CONNECTION_DIV]['master']['user'],
+                            'password' => $config[DB_CONNECTION_DIV]['master']['pass'],
+                            'database' => $config[DB_CONNECTION_DIV]['master']['name'],
+                            'port' => $config[DB_CONNECTION_DIV]['master']['port'],
+                            'dbdriver' => FORBIZ_MALL_DB_DRIVER,
+                            'dbprefix' => '',
+                            'pconnect' => FALSE,
+                            'db_debug' => (DB_CONNECTION_DIV !== 'production'),
+                            'cache_on' => FALSE,
+                            'cachedir' => '',
+                            'char_set' => $config[DB_CONNECTION_DIV]['master']['char_set'] ?? 'utf8',
+                            'dbcollat' => $config[DB_CONNECTION_DIV]['master']['dbcollat'] ?? 'utf8_general_ci',
+                            'swap_pre' => '',
+                            'encrypt' => FALSE,
+                            'compress' => FALSE,
+                            'stricton' => FALSE,
+                            'failover' => array(),
+                            'save_queries' => FALSE
+                        ], true);
 
-                    $dbObj = $db[$dbConfig];
-                    //} else {
-                    //    show_error("Databse {$dbConfig} not exists!");
-                    //}
-                    break;
+                        $dbObj = $db['master'];
+                        break;
+                    default:
+                        //if (isset($config[DB_CONNECTION_DIV][$dbConfig])) {
+                        $db[$dbConfig] = $this->database([
+                            'hostname' => $config[DB_CONNECTION_DIV][$dbConfig]['host'],
+                            'username' => $config[DB_CONNECTION_DIV][$dbConfig]['user'],
+                            'password' => $config[DB_CONNECTION_DIV][$dbConfig]['pass'],
+                            'database' => $config[DB_CONNECTION_DIV][$dbConfig]['name'],
+                            'port' => $config[DB_CONNECTION_DIV][$dbConfig]['port'],
+                            'dbdriver' => FORBIZ_MALL_DB_DRIVER,
+                            'dbprefix' => '',
+                            'pconnect' => FALSE,
+                            'db_debug' => (DB_CONNECTION_DIV !== 'production'),
+                            'cache_on' => FALSE,
+                            'cachedir' => '',
+                            'char_set' => $config[DB_CONNECTION_DIV][$dbConfig]['char_set'] ?? 'utf8',
+                            'dbcollat' => $config[DB_CONNECTION_DIV][$dbConfig]['dbcollat'] ?? 'utf8_general_ci',
+                            'swap_pre' => '',
+                            'encrypt' => FALSE,
+                            'compress' => FALSE,
+                            'stricton' => FALSE,
+                            'failover' => array(),
+                            'save_queries' => FALSE
+                        ], true);
+
+                        $dbObj = $db[$dbConfig];
+                        break;
+                }
             }
-            /*switch ($dbConfig) {
-                case 'slave':
-                    $db['slave']  = $this->database([
-                        'hostname' => $config[DB_CONNECTION_DIV]['slave']['host'],
-                        'username' => $config[DB_CONNECTION_DIV]['slave']['user'],
-                        'password' => $config[DB_CONNECTION_DIV]['slave']['pass'],
-                        'database' => $config[DB_CONNECTION_DIV]['slave']['name'],
-                        'port' => $config[DB_CONNECTION_DIV]['slave']['port'],
-                        'dbdriver' => FORBIZ_MALL_DB_DRIVER,
-                        'dbprefix' => '',
-                        'pconnect' => FALSE,
-                        'db_debug' => (DB_CONNECTION_DIV !== 'production'),
-                        'cache_on' => FALSE,
-                        'cachedir' => '',
-                        'char_set' => $config[DB_CONNECTION_DIV]['slave']['char_set'] ?? 'utf8',
-                        'dbcollat' => $config[DB_CONNECTION_DIV]['slave']['dbcollat'] ?? 'utf8_general_ci',
-                        'swap_pre' => '',
-                        'encrypt' => FALSE,
-                        'compress' => FALSE,
-                        'stricton' => FALSE,
-                        'failover' => array(),
-                        'save_queries' => FALSE
-                    ], true);
-                    $dbObj        = $db['slave'];
-                    break;
-                case 'db':
-                case 'master':
-                    $db['master'] = $this->database([
-                        'hostname' => $config[DB_CONNECTION_DIV]['master']['host'],
-                        'username' => $config[DB_CONNECTION_DIV]['master']['user'],
-                        'password' => $config[DB_CONNECTION_DIV]['master']['pass'],
-                        'database' => $config[DB_CONNECTION_DIV]['master']['name'],
-                        'port' => $config[DB_CONNECTION_DIV]['master']['port'],
-                        'dbdriver' => FORBIZ_MALL_DB_DRIVER,
-                        'dbprefix' => '',
-                        'pconnect' => FALSE,
-                        'db_debug' => (DB_CONNECTION_DIV !== 'production'),
-                        'cache_on' => FALSE,
-                        'cachedir' => '',
-                        'char_set' => $config[DB_CONNECTION_DIV]['master']['char_set'] ?? 'utf8',
-                        'dbcollat' => $config[DB_CONNECTION_DIV]['master']['dbcollat'] ?? 'utf8_general_ci',
-                        'swap_pre' => '',
-                        'encrypt' => FALSE,
-                        'compress' => FALSE,
-                        'stricton' => FALSE,
-                        'failover' => array(),
-                        'save_queries' => FALSE
-                    ], true);
-
-                    $dbObj = $db['master'];
-                    break;
-                default:
-                    //if (isset($config[DB_CONNECTION_DIV][$dbConfig])) {
-                    $db[$dbConfig] = $this->database([
-                        'hostname' => $config[DB_CONNECTION_DIV][$dbConfig]['host'],
-                        'username' => $config[DB_CONNECTION_DIV][$dbConfig]['user'],
-                        'password' => $config[DB_CONNECTION_DIV][$dbConfig]['pass'],
-                        'database' => $config[DB_CONNECTION_DIV][$dbConfig]['name'],
-                        'port' => $config[DB_CONNECTION_DIV][$dbConfig]['port'],
-                        'dbdriver' => FORBIZ_MALL_DB_DRIVER,
-                        'dbprefix' => '',
-                        'pconnect' => FALSE,
-                        'db_debug' => (DB_CONNECTION_DIV !== 'production'),
-                        'cache_on' => FALSE,
-                        'cachedir' => '',
-                        'char_set' => $config[DB_CONNECTION_DIV][$dbConfig]['char_set'] ?? 'utf8',
-                        'dbcollat' => $config[DB_CONNECTION_DIV][$dbConfig]['dbcollat'] ?? 'utf8_general_ci',
-                        'swap_pre' => '',
-                        'encrypt' => FALSE,
-                        'compress' => FALSE,
-                        'stricton' => FALSE,
-                        'failover' => array(),
-                        'save_queries' => FALSE
-                    ], true);
-
-                    $dbObj = $db[$dbConfig];
-                    break;
-            }*/
         }
 
         return $dbObj;

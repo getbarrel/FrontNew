@@ -251,13 +251,13 @@ class ForbizMallDefaultViewController extends ForbizView
     public function loadLayout()
     {
         if (is_object($this->msLayout)) {
-            /*$T            = new Tag();
+            $T            = new Tag();
             $T->file      = "/mallstory_SalesAnalysisTag.js";
             $T->userID    = sess_val('user', 'id');
             $T->siteID    = "";
             $T->data_root = DATA_ROOT;
             $T->email     = sess_val('user', 'mail');
-            $T->mobile    = sess_val('user', 'pcs');*/
+            $T->mobile    = sess_val('user', 'pcs');
 
             $not_allow_page = array();
 
@@ -273,11 +273,11 @@ class ForbizMallDefaultViewController extends ForbizView
 
             $this->event->trigger('viewController', [$this->router->routeUri]);
 
-            //if (!in_array($_SERVER['PHP_SELF'], $not_allow_page)) {
-                //return $this->msLayout->LoadLayOut().$T->ToTagString();
-            //} else {
+            if (!in_array($_SERVER['PHP_SELF'], $not_allow_page)) {
+                return $this->msLayout->LoadLayOut().$T->ToTagString();
+            } else {
                 return $this->msLayout->LoadLayOut();
-            //}
+            }
         } else {
             log_message('error', 'msLayout not loaded : Default code check please');
             return false;

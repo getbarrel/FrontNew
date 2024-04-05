@@ -104,7 +104,7 @@ var devAddressBookPopObj = {
         // 선택버튼 이벤트
         $('#devAddressBooKContent').on('click', '.devAddressBookItemSelect', function () {
             var oid = $(this).data('oid');
-            var deliveryIx = $(this).data('ix')
+            var deliveryIx = $(this).data('ix');
             if(oid){
                 self.chkAddressChange(oid, deliveryIx, '');
             }else{

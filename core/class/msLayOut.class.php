@@ -625,7 +625,7 @@ Class msLayOut
           $tpl->assign('title_img',$this->title_img);
           $tpl->assign('cate_main_img',$this->cate_main_img);
          */
-/*
+
         $T            = new Tag();
         $T->file      = "/mallstory_SalesAnalysisTag.js";
         $T->userID    = gVal('user', 'id');  //--> 사용자 아이디(생략가능)
@@ -633,7 +633,7 @@ Class msLayOut
         $T->data_root = $this->Config['mall_data_root'];  //--> 사용자 아이디(생략가능)
         $T->email     = gVal('user', 'mail');  //--> 사용자 이메일(생략가능)
         $T->mobile    = gVal('user', 'pcs');  //--> 사용자 이메일(생략가능)
-*/
+
 
 
         $not_allow_page = array('/shop/product_after.php',
@@ -641,11 +641,11 @@ Class msLayOut
             '/shop/premium_after.php'
         );
         //echo $_SERVER['PHP_SELF'];
-        /*if (!in_array($_SERVER['PHP_SELF'], $not_allow_page)) {
+        if (!in_array($_SERVER['PHP_SELF'], $not_allow_page)) {
             return $tpl->fetch('layout').$T->ToTagString();
-        } else {*/
+        } else {
             return $tpl->fetch('layout');
-        //}
+        }
 
         ob_end_flush();
     }

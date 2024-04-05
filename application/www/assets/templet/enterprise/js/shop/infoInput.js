@@ -81,18 +81,37 @@ $(function () {
         // $("body").css({
         //     "overflow": "hidden"
         // })
-        $('.terms-layer-pop').css({
-            "display": "block",
-            "visibility": "visible",
-            "opacity": "1",
-            "position": "absolute",
-            "z-index": "10000",
-            "top": $(window).scrollTop() + ($(window).height() / 2),
-            "left": '50%',
-            // "width": "100%",
-            "margin-top": -+$('.terms-layer-pop').height() / 2,
-            "margin-left" : - + $('.terms-layer-pop').outerWidth() / 2
-        })
+        if(id == "terms-2"){
+            $('.terms-layer-pop').css({
+                "display": "block",
+                "visibility": "visible",
+                "opacity": "1",
+                "position": "absolute",
+                "z-index": "10000",
+                "top": $(window).scrollTop() + ($(window).height() / 2),
+                "left": '50%',
+                "overflow": '',
+                "height" : '',
+                "width": ''
+                //"margin-top": -+$('.terms-layer-pop').height() / 2,
+                //"margin-left" : - + $('.terms-layer-pop').outerWidth() / 2
+            })
+        }else{
+            $('.terms-layer-pop').css({
+                "display": "block",
+                "visibility": "visible",
+                "opacity": "1",
+                "position": "absolute",
+                "z-index": "10000",
+                "top": $(window).scrollTop() + ($(window).height() / 2),
+                "left": '50%',
+                "overflow": 'auto',
+                "height" : "75%",
+                "width": "43%"
+                //"margin-top": -+$('.terms-layer-pop').height() / 2,
+                //"margin-left" : - + $('.terms-layer-pop').outerWidth() / 2
+            })
+        }
         $('#mask').css('display', 'block');
     });
 
@@ -216,7 +235,8 @@ var devInfoinputObj = {
 
                 if (response.result == 'success') {
                     var addressData = response.data;
-                    var index = self.orderAddressListData.length;
+                    //var index = self.orderAddressListData.length;
+                    var index = 0;
                     addressData.index = index;
                     self.orderAddressListData[index] = addressData;
                     self.orderAddressList.setContent(self.orderAddressListData);

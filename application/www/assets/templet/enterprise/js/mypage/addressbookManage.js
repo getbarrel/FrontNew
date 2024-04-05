@@ -56,8 +56,9 @@ var devAddressBookAddPopObj = {
                         //opener.cbReload();
                     }
                 }
-                //window.close();
-				location.href = '/mypage/addressBook';
+                opener.location.reload();
+                window.close();
+                //location.href = '/mypage/addressBook';
             }
         );
     },

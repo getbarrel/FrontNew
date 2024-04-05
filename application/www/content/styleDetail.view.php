@@ -80,10 +80,10 @@ foreach ($displayContentGroupList as $key => $val) {
 $view->assign('displayContentGroupList', $displayContentGroupList);
 
 //스타일큐레이션 좌측메뉴
-$displayContentClassDepthList = $displayModel->getDisplayContentClass('001002');
+$displayContentClassDepthList = $displayModel->getDisplayContentClass('001002','S');
 
 $view->assign('displayContentClassStyleList', $displayContentClassDepthList);
-$view->assign('pageCid', $cid);
+$view->assign('con_ix', $cid);
 $view->assign('pageDepth', "2");
 // //스타일큐레이션 좌측메뉴
 

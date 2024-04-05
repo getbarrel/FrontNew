@@ -3567,7 +3567,7 @@ class CustomMallOrderModel extends ForbizMallOrderModel
             ->from(TBL_SHOP_SHIPPING_ADDRESS)
             ->where('mem_ix', $userCode)
             ->whereNotIn('mem_ix', [''])
-            //->where('default_yn', 'Y')
+            ->where('default_yn', 'Y')
             ->exec()
             ->getResultArray();
 
