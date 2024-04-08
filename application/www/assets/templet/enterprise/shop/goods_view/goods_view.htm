@@ -883,9 +883,85 @@ enp('create', 'wish', 'barrel', { device: 'W', btnSelector: '.btn-wish' });
 				</div>
 				 추가 상품 옵션 E -->
 
-
-
 					<!-- 사은품 옵션 S -->
+					{? product_gift}
+					<div class="info__box info__box-gifts">
+						<dl class="info__list active">
+							<dt class="info__list-title">
+								<div class="info__title">
+									<a class="info__title-toggle" href="#;">사은품 <i class="ico ico-plus"></i></a>
+								</div>
+							</dt>
+							{@ productGiftInfo}
+							{? .status != 'soldout'}
+							<dd class="info__list-cont" style="display: block">
+								<dl class="product-item">
+									<dt class="product-item__thumbnail-box">
+										<div class="product-item__thumb">
+											<img src="{.image_src}" alt="{.pname}" />
+										</div>
+									</dt>
+									<dd class="product-item__infobox">
+										<div class="product-item__info">
+											<input type="hidden" id="giftPname_{.pid}" value="{.pname}">
+											<input type="hidden" id="giftDate_{.pid}" value="{=trans('행사기간')} : {.sell_priod_sdate} ~ {.sell_priod_edate}">
+											<input type="hidden" id="giftPrice_{.pid}" value="<em>{.add_info}</em>{=trans('원 상당')}">
+
+											<div class="product-item__title c-pointer">{.pname}</div>
+											<div class="product-item__option">
+												<span id="giftDate">{=trans('행사기간')} : {.sell_priod_sdate} ~ {.sell_priod_edate} </span>
+											</div>
+											<div class="product-item__price-group">
+												<div class="product-item__price price" id="giftPrice"><em>{.add_info}</em>{=trans('원 상당')}</div>
+											</div>
+											<div class="product-item__footer">
+												<div class="fb__form-item">
+													<input type="radio" class="fb__form-checkbox devGiftSelect" id = "devProductGift" name = "devProductGift" data-idx="{.index_}" value="{.pid}"/>
+													<label for="PhoneChange">선택</label>
+												</div>
+											</div>
+										</div>
+									</dd>
+								</dl>
+							</dd>
+							{/}
+							{/}
+							<dd class="info__list-cont" style="display: block">
+								<dl class="product-item">
+									<dt class="product-item__thumbnail-box">
+										<div class="product-item__thumb">
+											<img src="{layoutCommon.templetSrc}/images/common/icon_no-freebie.png" alt="사은품 선택 안함" />
+										</div>
+									</dt>
+									<dd class="product-item__infobox">
+										<div class="product-item__info">
+											<input type="hidden" id="giftPname_0000055421" value="사은품 선택 안함">
+											<input type="hidden" id="giftDate_0000055421" value="">
+											<input type="hidden" id="giftPrice_0000055421" value="">
+
+											<div class="product-item__title c-pointer">사은품 선택 안함</div>
+											<div class="product-item__option">
+												<span id="giftDate"></span>
+											</div>
+											<div class="product-item__price-group">
+												<div class="product-item__price price" id="giftPrice"></div>
+											</div>
+											<div class="product-item__footer">
+												<div class="fb__form-item">
+													<input type="radio" class="fb__form-checkbox devGiftSelect" id = "devProductGift" name = "devProductGift" data-idx="2" value="0000055421"/>
+													<label for="PhoneChange">선택</label>
+												</div>
+											</div>
+										</div>
+									</dd>
+								</dl>
+							</dd>
+						</dl>
+					</div>
+					{/}
+					<!-- 사은품 옵션 E -->
+
+					<!-- 사은품 옵션 S -- 
 					{? product_gift}
 					<div class="info__box info__box-gifts">
 						<dl class="info__list active">
@@ -925,6 +1001,7 @@ enp('create', 'wish', 'barrel', { device: 'W', btnSelector: '.btn-wish' });
 											<input type="hidden" id="giftDate_" value="">
 											<input type="hidden" id="giftPrice_" value="">
 											<div class="product-item__footer" style="margin-top:auto;">
+												
 												{@ product_gift}
 												{? .index_ < gift_selectbox_cnt}
 												<div class="fb__form-item">

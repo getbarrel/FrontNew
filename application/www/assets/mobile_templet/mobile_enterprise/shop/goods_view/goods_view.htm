@@ -415,7 +415,91 @@
 				</div>
 				-- 추가 옵션 상품 E -->
 
-                <!-- 사은품 상품 S -->
+				<!-- 사은품 상품 S -->
+				{? product_gift}
+				<div class="goods-info__toggle goods-info__gifts">
+					<div class="goods-info__toggle-title">
+						<button type="button" class="goods-info__toggle-title--btn">
+							<span class="title-sm">사은품</span>
+							<i class="ico ico-plus"></i>
+						</button>
+					</div>
+					<div class="goods-info__toggle-cont">
+						<div class="product-list">
+							<ul class="product-list__wrap">
+								{@ productGiftInfo}
+								{? .status != 'soldout'}
+								<li class="product-list__item">
+									<dl class="product-list__group">
+										<dt class="product-list__group-left">
+											<figure class="product-list__thumb">
+												<img src="{.image_src}" alt="{.pname}" />
+											</figure>
+										</dt>
+										<dd class="product-list__group-right">
+											<input type="hidden" id="giftPname_{.pid}" value="{.pname}">
+											<input type="hidden" id="giftDate_{.pid}" value="{=trans('행사기간')} : {.sell_priod_sdate} ~ {.sell_priod_edate}">
+											<input type="hidden" id="giftPrice_{.pid}" value="<em>{.add_info}</em>{=trans('원 상당')}">
+											<div class="product-list__info">
+												<div class="product-list__info__title">{.pname}</div>
+												<!-- 일반상품 상품 S -->
+												<div class="product-list__info__option">
+													<span id="giftDate">{=trans('행사기간')} : {.sell_priod_sdate} ~ {.sell_priod_edate} </span>
+												</div>
+												<div class="product-item__price-group">
+													<div class="product-item__price price" id="giftPrice"><em>{.add_info}</em>{=trans('원 상당')}</div>
+												</div>
+												<!-- 일반상품 상품 E -->
+
+												<div class="product-list__select">
+													<input type="radio" class="fb__form-checkbox devGiftSelect" id = "devProductGift" name = "devProductGift" value="{.pid}"/>
+													<label for="PhoneChange">사은품선택</label>
+												</div>
+											</div>
+										</dd>
+									</dl>
+								</li>
+								{/}
+								{/}
+                                <li class="product-list__item">
+                                    <dl class="product-list__group">
+                                        <dt class="product-list__group-left">
+                                            <figure class="product-list__thumb">
+                                                <img src="{layoutCommon.templetSrc}/images/common/icon_no-freebie_mo.png" alt="사은품 선택 안함" />
+                                            </figure>
+                                        </dt>
+                                        <dd class="product-list__group-right">
+                                            <input type="hidden" id="giftPname_0000055421" value="사은품 선택 안함">
+                                            <input type="hidden" id="giftDate_0000055421" value="">
+                                            <input type="hidden" id="giftPrice_0000055421" value="">
+                                            <div class="product-list__info">
+                                                <div class="product-list__info__title">사은품 선택 안함</div>
+                                                <!-- 일반상품 상품 S -->
+                                                <div class="product-list__info__option">
+                                                    <span id="giftDate"></span>
+                                                </div>
+                                                <div class="product-item__price-group">
+                                                    <div class="product-item__price price" id="giftPrice"></div>
+                                                </div>
+                                                <!-- 일반상품 상품 E -->
+
+                                                <div class="product-list__select">
+                                                    <input type="radio" class="fb__form-checkbox devGiftSelect" id = "devProductGift" name = "devProductGift" value="0000055421"/>
+                                                    <label for="PhoneChange">사은품선택</label>
+                                                </div>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				{/}
+				<!-- 사은품 상품 E -->
+
+
+                <!-- 사은품 상품 S --
                 {? product_gift}
                 <div class="goods-info__toggle goods-info__gifts">
                     <div class="goods-info__toggle-title">
@@ -494,7 +578,7 @@
                     </div>
                 </div>
                 {/}
-                <!-- 사은품 상품 E -->
+                -- 사은품 상품 E -->
 
 
 
@@ -2398,8 +2482,61 @@ $(document).ready(function () {
                                 </div>
                             </div>
 
+				<!-- 사은품 상품 S -->
+				{? product_gift}
+				<div class="goods-info__toggle goods-info__gifts">
+					<div class="goods-info__toggle-title">
+						<button type="button" class="goods-info__toggle-title--btn">
+							<span class="title-sm">사은품</span>
+							<i class="ico ico-plus"></i>
+						</button>
+					</div>
+					<div class="goods-info__toggle-cont">
+						<div class="product-list">
+							<ul class="product-list__wrap">
+								{@ productGiftInfo}
+								{? .status != 'soldout'}
+								<li class="product-list__item">
+									<dl class="product-list__group">
+										<dt class="product-list__group-left">
+											<figure class="product-list__thumb">
+												<img src="{.image_src}" alt="{.pname}" />
+											</figure>
+										</dt>
+										<dd class="product-list__group-right">
+											<input type="hidden" id="giftPname_{.pid}" value="{.pname}">
+											<input type="hidden" id="giftDate_{.pid}" value="{=trans('행사기간')} : {.sell_priod_sdate} ~ {.sell_priod_edate}">
+											<input type="hidden" id="giftPrice_{.pid}" value="<em>{.add_info}</em>{=trans('원 상당')}">
+											<div class="product-list__info">
+												<div class="product-list__info__title">{.pname}</div>
+												<!-- 일반상품 상품 S -->
+												<div class="product-list__info__option">
+													<span id="giftDate">{=trans('행사기간')} : {.sell_priod_sdate} ~ {.sell_priod_edate} </span>
+												</div>
+												<div class="product-item__price-group">
+													<div class="product-item__price price" id="giftPrice"><em>{.add_info}</em>{=trans('원 상당')}</div>
+												</div>
+												<!-- 일반상품 상품 E -->
 
-                            <!-- 사은품 상품 S -->
+												<div class="product-list__select">
+													<input type="radio" class="fb__form-checkbox devGiftSelect"  id = "devProductGift" name = "devProductGift" value="{.pid}" onClick="giftImgChange(this.value)"/>
+													<label for="PhoneChange">사은품선택</label>
+												</div>
+											</div>
+										</dd>
+									</dl>
+								</li>
+								{/}
+								{/}
+							</ul>
+						</div>
+					</div>
+				</div>
+				{/}
+				<!-- 사은품 상품 E -->
+
+
+                            <!-- 사은품 상품 S -- 
                             {? product_gift}
                             <div class="goods-info__toggle goods-info__gifts">
                                 <div class="goods-info__toggle-title">
