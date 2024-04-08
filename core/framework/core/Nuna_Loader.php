@@ -107,7 +107,11 @@ class Nuna_Loader extends CI_Loader
             }
 
             if ($dbConfigFile && file_exists($dbConfigFile)) {
-                //$config = require($dbConfigFile);
+                if($_SERVER['SERVER_NAME'] == 'qa.barrelmade.co.kr'){
+                    //$config = require($dbConfigFile);
+                }else{
+                    $config = require($dbConfigFile);
+                }
             } else {
                 exit("DB Config file not found! [{$dbConfigFile}]");
             }
