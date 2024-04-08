@@ -369,9 +369,10 @@ class CustomMallProductController extends ForbizMallProductController
                 $row['listprice'] = g_price($row['listprice']);
                 $row['dcprice'] = g_price($row['dcprice']);
                 $row['sellprice'] = g_price($row['sellprice']);
-                $row['optionDiv'] = $row['option_name'] . ':' . $productModel->getOptionDiv($row['op_id']);
-                $row['regdateYmd'] = date('Y-m-d', strtotime($row['regdate']));
-                $row['expiration_date'] = date('Y-m-d', strtotime($row['expiration_date']));
+                //$row['optionDiv'] = $row['option_name'] . ':' . $productModel->getOptionDiv($row['op_id']);
+                $row['optionDiv'] = $productModel->getOptionDiv($row['op_id']);
+                $row['regdateYmd'] = date('Y.m.d', strtotime($row['regdate']));
+                $row['expiration_date'] = date('Y.m.d', strtotime($row['expiration_date']));
 
 				if($row['rm_status'] == "N"){
 					$row['rm_status_name'] = "알림신청";
