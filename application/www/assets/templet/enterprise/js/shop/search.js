@@ -383,7 +383,8 @@ $(function () {
 var autoSearchDetail = {
     inAndSearch: function (){
         var self = search;
-        $('input[name=filterInsideText]').val($('.devInsideText').val());
+        //$('input[name=filterInsideText]').val($('.devInsideText').val());
+        $('input[name=filterText]').val($('.devInsideText').val());
         self.seachAjax.reload();  
     },
     initClick: function (){
@@ -474,5 +475,9 @@ function removeKeydown(value) {
         var removeValue = removeValue.replace(/alert/gi, "");
         var removeValue = removeValue.replace(/onclick/gi, "");
         $('#devSearchText').val(removeValue);
+
+        $('#filterText').val(removeValue);
+
+        $('#devListForm').submit();
     }
 }
