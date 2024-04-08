@@ -125,7 +125,12 @@ var search = {
         //결과 내 재검색
         $('#devGoInsideSearch').on('click', function () {
             var val = $('.devInsideText').val();
-            $('input[name=filterInsideText]').val(val);
+			
+            $('input[name=filterText]').val(val);
+            //$('input[name=filterInsideText]').val(val);
+			
+            $('#seatchText').html(val);
+            //$('.fb__search__title').html('<strong>‘'.val.'’</strong>의 검색 결과');
 
             self.seachAjax.reload();
         });
@@ -389,6 +394,7 @@ var autoSearchDetail = {
     },
     initAuotcomplete: function () {
         var self = autoSearch;
+
         $(".devAutoCompleteDetail").autocomplete({
             source: self.searchAutocomplete,
             delay: 500,
@@ -399,7 +405,7 @@ var autoSearchDetail = {
 
         }).data('ui-autocomplete')._renderItem = function (ul, item) {
             ul.addClass("in-item");
-            return $('<li></li>')
+            return $('<li style="padding-top:20px;"></li>')
                     .data("ui-autocomplete-item", item)
                     .append(item.label)
                     .appendTo(ul);

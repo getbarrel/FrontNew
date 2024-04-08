@@ -6,7 +6,11 @@ $view = getForbizView();
 $productModel = $view->import('model.mall.product');
 
 $searchText = $view->input->get('searchText');
+$filterText = $view->input->get('filterText');
+
 $searchText = trim(urldecode($searchText));
+$filterText = trim(urldecode($filterText));
+
 if (!empty($searchText)) {
     $view->assign('searchText', $searchText);
     $productModel->addSearchKeywordLog($searchText);
