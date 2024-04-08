@@ -807,7 +807,7 @@ class CustomMallOrderModel extends ForbizMallOrderModel
 
         $data = [];
         foreach ($rows as $k => $v) {
-            $v['pimg'] = get_product_images_src($v['pid'], is_adult());
+            $v['pimg'] = get_product_images_new_src($v['pid'], is_adult());
             $v['status_text'] = ForbizConfig::getOrderStatus($v['status']);
             $v['refund_status_text'] = ForbizConfig::getOrderStatus($v['refund_status']);
             $v['product_gift'] = $this->getProductGiftOrder($v['od_ix']);
