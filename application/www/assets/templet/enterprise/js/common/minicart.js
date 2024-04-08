@@ -1171,6 +1171,8 @@ var devMiniCart = function () {
 
                 var giftBoxCnt = 0; //사은품 갯수
                 var giftSelectCnt = 0;//선택된 사은품 갯수
+				//devProductGift
+				/*
                 $(self.giftSelectBox).each(function(){
                     giftBoxCnt ++;
                     if($(this).val()){
@@ -1178,8 +1180,17 @@ var devMiniCart = function () {
                         giftSelectCnt ++;
                     }
                 });
+				*/
+				$("input[name='devProductGift']").each(function() {
+                    giftBoxCnt ++;
+					if ($(this).is(":checked")) {
+						giftData.push($(this).val());
+                        giftSelectCnt ++;
+					}
+				});
 
-                if(giftBoxCnt > 0 && (giftBoxCnt != giftSelectCnt)){
+                //if(giftBoxCnt > 0 && (giftBoxCnt != giftSelectCnt)){
+                if(giftBoxCnt > 0 && (giftSelectCnt == 0)){
                     common.noti.alert(common.lang.get('cart.buy.noGiftSelect.alert'));
                     return;
                 }

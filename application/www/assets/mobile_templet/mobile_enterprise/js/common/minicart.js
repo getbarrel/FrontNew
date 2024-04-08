@@ -833,7 +833,7 @@ var devMiniCart = function () {
             $(self.choosedContents).on('click', self.deleteBtn, function () {
 
                 var id = $(this).parents('.devOptionBox').attr('devoptid');
-				console.log($(this).parent('li'));
+				//console.log($(this).parent('li'));
                 $('[devoptid="' + id + '"]').remove();
                 // $('[data-division="' + id + '"]').removeClass('goods-info__size__btn--active');
                 self._calculate();
@@ -1104,7 +1104,7 @@ var devMiniCart = function () {
 
 
             if (optionIdArr.length == 0) {
-                console.log('a');
+                //console.log('a');
                 common.noti.alert(common.lang.get('cart.buy.noSelect.alert'));
                 return;
             } else{
@@ -1129,15 +1129,16 @@ var devMiniCart = function () {
 
                 var giftBoxCnt = 0; //사은품 갯수
                 var giftSelectCnt = 0;//선택된 사은품 갯수
-                $(self.giftSelectBox).each(function(){
+				
+				$(self.giftSelectBox).each(function(){
                     giftBoxCnt ++;
                     if($(this).val()){
                         giftData.push($(this).val());
                         giftSelectCnt ++;
                     }
                 })
-
                 if(giftBoxCnt > 0 && (giftBoxCnt != giftSelectCnt)){
+					//console.log("AA");
                     common.noti.alert(common.lang.get('cart.buy.noGiftSelect.alert'));
                     return;
                 }
@@ -1184,7 +1185,7 @@ var devMiniCart = function () {
             // var pid = $(self.minicartArea).data('pid');
 
             if ($(self.choosedDetails).length == 0) {
-                console.log('B');
+                //console.log('B');
                 common.noti.alert(common.lang.get('cart.buy.noSelect.alert'));
                 return;
             } else {
@@ -1213,15 +1214,26 @@ var devMiniCart = function () {
 
                 var giftBoxCnt = 0; //사은품 갯수
                 var giftSelectCnt = 0;//선택된 사은품 갯수
-                $(self.giftSelectBox).each(function(){
+				/*
+				$(self.giftSelectBox).each(function(){
                     giftBoxCnt ++;
                     if($(this).val()){
                         giftData.push($(this).val());
                         giftSelectCnt ++;
                     }
                 })
+				*/
+				$("input[name='devProductGift']").each(function() {
+                    giftBoxCnt ++;
+					if ($(this).is(":checked")) {
+						giftData.push($(this).val());
+                        giftSelectCnt ++;
+					}
+				});
 
-                if(giftBoxCnt > 0 && (giftBoxCnt != giftSelectCnt)){
+                //if(giftBoxCnt > 0 && (giftBoxCnt != giftSelectCnt)){
+                if(giftBoxCnt > 0 && (giftSelectCnt == 0)){
+					//console.log("BB");
                     common.noti.alert(common.lang.get('cart.buy.noGiftSelect.alert'));
                     return;
                 }
@@ -1342,6 +1354,7 @@ var devMiniCart = function () {
 
                 var giftBoxCnt = 0; //사은품 갯수
                 var giftSelectCnt = 0;//선택된 사은품 갯수
+				/*
                 $(self.giftSelectBox).each(function(){
                     giftBoxCnt ++;
                     if($(this).val()){
@@ -1349,8 +1362,19 @@ var devMiniCart = function () {
                         giftSelectCnt ++;
                     }
                 })
-
-                if(giftBoxCnt > 0 && (giftBoxCnt != giftSelectCnt)){
+				*/
+				$("input[name='devProductGift']").each(function() {
+                    giftBoxCnt ++;
+					if ($(this).is(":checked")) {
+						giftData.push($(this).val());
+                        giftSelectCnt ++;
+					}
+				});
+				//console.log(giftBoxCnt);
+				//console.log(giftSelectCnt);
+                //if(giftBoxCnt > 0 && (giftBoxCnt != giftSelectCnt)){
+                if(giftBoxCnt > 0 && (giftSelectCnt == 0)){
+					//console.log("CC");
                     common.noti.alert(common.lang.get('cart.buy.noGiftSelect.alert'));
                     return;
                 }
