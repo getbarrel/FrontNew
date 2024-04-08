@@ -74,9 +74,17 @@ class CustomMallProductController extends ForbizMallProductController
         $filter['filterCid'] = ($subCid ? $subCid : $cid);
         $filter['filterBrands'] = $this->input->post('filterBrands');
         $filter['filterDeliveryFree'] = $this->input->post('filterDeliveryFree');
-        $filter['filterInsideText'] = $this->input->post('filterInsideText');
-        $filter['filterText'] = $this->input->post('filterText');
-        $isSearchPage = $this->input->post('filterSearchPage'); //search page 구분용
+
+        if($this->input->post('filterInsideText') != "") {
+			$filter['filterInsideText'] = "";
+			$filter['filterText'] = $this->input->post('filterInsideText');
+
+        }else{
+			$filter['filterInsideText'] = $this->input->post('filterInsideText');
+			$filter['filterText'] = $this->input->post('filterText');
+		}
+        
+		$isSearchPage = $this->input->post('filterSearchPage'); //search page 구분용
         $filter['product_filter'] = $this->input->post('product_filter');
         $filter['sprice'] = $this->input->post('sprice');
         $filter['eprice'] = $this->input->post('eprice');
@@ -103,7 +111,8 @@ class CustomMallProductController extends ForbizMallProductController
                 $row['sellprice'] = g_price($row['sellprice']);
                 $responseData['list'][$key] = $row;
             }
-            $responseData['filterInsideText'] = $filter['filterInsideText'];
+            //$responseData['filterInsideText'] = $filter['filterInsideText'];
+            $responseData['filterText'] = $filter['filterInsideText'];
         }
 
         $isFilterSearch = false;
@@ -142,8 +151,16 @@ class CustomMallProductController extends ForbizMallProductController
         //$filter['filterCid'] = ($subCid ? $subCid : $cid);
         $filter['filterBrands'] = $this->input->post('filterBrands');
         $filter['filterDeliveryFree'] = $this->input->post('filterDeliveryFree');
-        $filter['filterInsideText'] = $this->input->post('filterInsideText');
-        $filter['filterText'] = $this->input->post('filterText');
+
+        if($this->input->post('filterInsideText') != "") {
+			$filter['filterInsideText'] = "";
+			$filter['filterText'] = $this->input->post('filterInsideText');
+
+        }else{
+			$filter['filterInsideText'] = $this->input->post('filterInsideText');
+			$filter['filterText'] = $this->input->post('filterText');
+		}
+        
         $isSearchPage = $this->input->post('filterSearchPage'); //search page 구분용
         $filter['product_filter'] = $this->input->post('product_filter');
         $filter['sprice'] = $this->input->post('sprice');
@@ -169,7 +186,8 @@ class CustomMallProductController extends ForbizMallProductController
                 $row['sellprice'] = g_price($row['sellprice']);
                 $responseData['list'][$key] = $row;
             }
-            $responseData['filterInsideText'] = $filter['filterInsideText'];
+            //$responseData['filterInsideText'] = $filter['filterInsideText'];
+            $responseData['filterText'] = $filter['filterInsideText'];
         }
 
         $isFilterSearch = false;
