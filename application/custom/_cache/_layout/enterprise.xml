@@ -10001,6 +10001,39 @@
 		<caching_time>0</caching_time>
 		<regedit>2019-08-05 12:13:47</regedit>
 	</layout>
+	<layout mall_ix="bd926889c59e66f37a2ac64b56949a56" templet_name="enterprise" skin_type="P" pcode="010010000000000" cid="010010000000000" basic_link="/customer/storeInformationDetail" depth="1" vlevel1="10" vlevel2="10" vlevel3="0" vlevel4="0" vlevel5="0">
+		<vlevelf>010010000000000</vlevelf>
+		<cname>매장안내</cname>
+		<path>store_information_detail</path>
+		<layout>layout_main.htm</layout>
+		<page_navi></page_navi>
+		<header1>header_top.htm</header1>
+		<header2>header_menu.htm</header2>
+		<leftmenu></leftmenu>
+		<contents>store_information_detail.htm</contents>
+		<contents_add></contents_add>
+		<rightmenu></rightmenu>
+		<footer1>footer_menu.htm</footer1>
+		<footer2>footer_desc.htm</footer2>
+		<catimg></catimg>
+		<leftcatimg></leftcatimg>
+		<subimg></subimg>
+		<category_top_view></category_top_view>
+		<category_display_type>P</category_display_type>
+		<bbs_name></bbs_name>
+		<category_use>1</category_use>
+		<is_layout_apply>N</is_layout_apply>
+		<page_type></page_type>
+		<page_path>customer/store_information_detail</page_path>
+		<page_link></page_link>
+		<page_title></page_title>
+		<page_help></page_help>
+		<page_addscript></page_addscript>
+		<page_body></page_body>
+		<caching>0</caching>
+		<caching_time>0</caching_time>
+		<regedit>2019-08-05 12:13:47</regedit>
+	</layout>
 	<layout mall_ix="bd926889c59e66f37a2ac64b56949a56" templet_name="enterprise" skin_type="P" pcode="010011000000000" cid="010011000000000" basic_link="/customer/shippingGuide" depth="1" vlevel1="10" vlevel2="11" vlevel3="0" vlevel4="0" vlevel5="0">
 		<vlevelf>010011000000000</vlevelf>
 		<cname>배송및취소안내</cname>
