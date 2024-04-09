@@ -478,6 +478,8 @@ function removeKeydown(value) {
 
         $('#filterText').val(removeValue);
 
+        $('#seatchText').html(removeValue);
+
         $('#devListForm').submit();
     }
 }
