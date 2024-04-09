@@ -57,7 +57,7 @@ window.onload = modifyText;
                 </li>
 
                 {* list *}
-                <li class="event-bbs__list" id="devEventList">
+                <li class="event-bbs__list {[#if display_end_gubun]}event-end{[/if]}" id="devEventList">
                     <!-- 이벤트 종료시 class = event-end-->
                     <div class="event-bbs__category" style="color:{[c_preface]};{[b_preface]}{[i_preface]}{[u_preface]}">{[onOff]}</div>
                     <!--<a href="/event/eventDetail/{[event_ix]}">-->

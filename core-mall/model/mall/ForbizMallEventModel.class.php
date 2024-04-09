@@ -158,6 +158,8 @@ class ForbizMallEventModel extends ForbizModel
             ->select('list_img')
             ->select('display_gubun')
             ->select('display_date_use')
+            ->select('display_end')
+            ->select('display_state')
             //->select('LEFT(regdate, 10) AS regdate')
             //->select('(CASE WHEN ' . time() . ' > event_use_sdate AND ' . time() . ' < event_use_edate THEN "Y" ELSE null END) AS onOff')
             ->select('DATE_FORMAT(FROM_UNIXTIME(display_start), "%Y-%m-%d") AS startDate, DATE_FORMAT(FROM_UNIXTIME(display_end), "%Y-%m-%d") AS endDate')
@@ -172,6 +174,12 @@ class ForbizMallEventModel extends ForbizModel
 
         foreach ($list as $k => $v) {
             $list[$k]['imgPath'] = $domain . DATA_ROOT ."/images/content/" . $list[$k]['event_ix'] . "/" . $list[$k]['list_img'];
+
+            if($list[$k]['display_end'] < time() || $list[$k]['display_state'] == 'E'){
+                $list[$k]['display_end_gubun'] = true;
+            }else{
+                $list[$k]['display_end_gubun'] = false;
+            }
 
             if($wishModel->checkAlreadyContentWish($list[$k]['event_ix'], 'E')){
                 $list[$k]['alreadyWishContent'] = true;

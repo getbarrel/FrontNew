@@ -41,7 +41,7 @@ window.onload = modifyText;
 			<li class="gallery-bbs__list devForbizTpl" id="devEventListEmpty">{=trans('등록된 기획전이 없습니다.')}</li>
 
 			{* list *}
-			<li class="gallery-bbs__list"  id="devEventList">
+			<li class="gallery-bbs__list {[#if display_end_gubun]}event-end{[/if]}"  id="devEventList">
 				<!-- 이벤트 종료시 class = event-end-->
 				<div class="gallery-bbs__category" style="color:{[c_preface]};{[b_preface]}{[i_preface]}{[u_preface]}">{[onOff]}</div>
 				<!--<a href="/event/eventDetail/{[event_ix]}">-->
