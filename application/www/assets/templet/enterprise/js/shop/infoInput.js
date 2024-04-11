@@ -1017,6 +1017,7 @@ var devInfoinputObj = {
                             } else if (value == 'giftCompareFail'){
                                 // common.noti.alert(common.lang.get('infoinput.freeGiftCompareFail.alert'));
                                 msg = common.lang.get('infoinput.freeGiftCompareFail.alert');
+                                $('.devOrderGiftArea_'+key).hide();
                                 $('.devOrderGift_'+key).hide();
                                 $('#devOrderGiftList_'+key).empty();
                             }else {
