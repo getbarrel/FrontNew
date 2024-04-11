@@ -1038,6 +1038,142 @@ class CustomMallCouponModel extends ForbizMallCouponModel
         }*/
     }
 
+    /**
+     * 쿠폰 지급
+     * @param int $publishIx
+     * @return string
+     */
+    public function giveCouponTri($publishIx)
+    {
+        $couponDownCnt  = $this->checkCouponDownCnt($publishIx);
+        $datas          = $this->getCouponDatas($publishIx);
+
+        if($couponDownCnt < $datas['regist_count']){
+            if ($datas['use_date_type'] == 9) { //무제한
+                $use_date_limit = date('Y-m-d H:i:s', strtotime('+100 years'));;
+                $use_sdate = date('Y-m-d H:i:s');
+            } else if ($datas['use_date_type'] == 1) { //발행일 기준
+                $use_date_limit = $datas['publish_limit_date'];
+                $use_sdate = $datas['regdate'];
+            } else if ($datas['use_date_type'] == 2) {//발급일 기준
+                if ($datas['regist_date_type'] == 1) {
+                    $use_date_limit = date('Y-m-d H:i:s', strtotime('+' . $datas['regist_date_differ'] . ' years'));
+                } else if ($datas['regist_date_type'] == 2) {
+                    $use_date_limit = date('Y-m-d H:i:s', strtotime('+' . $datas['regist_date_differ'] . ' months'));
+                } else if ($datas['regist_date_type'] == 3) {
+                    $use_date_limit = date('Y-m-d H:i:s', strtotime('+' . $datas['regist_date_differ'] . ' days'));
+                }
+                $use_sdate = date('Y-m-d H:i:s');
+            } else if ($datas['use_date_type'] == 3) {//사용기간 지정
+                $use_date_limit = $datas['use_edate'];
+                $use_sdate = $datas['use_sdate'];
+            } else {
+                return 'fail';
+            }
+
+            //쿠폰 사용 여부가 사용 상태가 아닌 경우 등록하지 않는다.
+            if($datas['is_use'] !='1'){
+                return 'useFail';
+            }
+
+            if ($datas['issue_type'] == 2 && $datas['publish_type'] == 1) {
+                if ($this->checkPublishedConfig($publishIx)) {
+                    for ($rc = 0; $rc < $datas['regist_count']; $rc++) {
+                    $this->qb->insert(TBL_SHOP_CUPON_REGIST, [
+                        'publish_ix' => $publishIx,
+                        'mem_ix' => $this->userCode,
+                        'open_yn' => 0,
+                        'use_yn' => 0,
+                        'use_sdate' => $use_sdate,
+                        'use_date_limit' => $use_date_limit,
+                        'regdate' => date('Y-m-d H:i:s')
+                    ])->exec();
+                    }
+                } else {
+                    return 'useFail';
+                }
+            } else {
+                for ($rc = 0; $rc < $datas['regist_count']; $rc++) {
+                $this->qb->insert(TBL_SHOP_CUPON_REGIST, [
+                    'publish_ix' => $publishIx,
+                    'mem_ix' => $this->userCode,
+                    'open_yn' => 0,
+                    'use_yn' => 0,
+                    'use_sdate' => $use_sdate,
+                    'use_date_limit' => $use_date_limit,
+                    'regdate' => date('Y-m-d H:i:s')
+                ])->exec();
+                }
+            }
+            return 'success';
+        }else{
+            return 'overlap';
+        }
+
+        /*if (!$this->checkPublished($publishIx)) {
+            $datas = $this->getCouponDatas($publishIx);
+            if ($datas['use_date_type'] == 9) { //무제한
+                $use_date_limit = null;
+                $use_sdate = date('Y-m-d H:i:s');
+            } else if ($datas['use_date_type'] == 1) { //발행일 기준
+                $use_date_limit = $datas['publish_limit_date'];
+                $use_sdate = $datas['regdate'];
+            } else if ($datas['use_date_type'] == 2) {//발급일 기준
+                if ($datas['regist_date_type'] == 1) {
+                    $use_date_limit = date('Y-m-d H:i:s', strtotime('+' . $datas['regist_date_differ'] . ' years'));
+                } else if ($datas['regist_date_type'] == 2) {
+                    $use_date_limit = date('Y-m-d H:i:s', strtotime('+' . $datas['regist_date_differ'] . ' months'));
+                } else if ($datas['regist_date_type'] == 3) {
+                    $use_date_limit = date('Y-m-d H:i:s', strtotime('+' . $datas['regist_date_differ'] . ' days'));
+                }
+                $use_sdate = date('Y-m-d H:i:s');
+            } else if ($datas['use_date_type'] == 3) {//사용기간 지정
+                $use_date_limit = $datas['use_edate'];
+                $use_sdate = $datas['use_sdate'];
+            } else {
+                return 'fail';
+            }
+
+            //쿠폰 사용 여부가 사용 상태가 아닌 경우 등록하지 않는다.
+            if($datas['is_use'] !='1'){
+                return 'useFail';
+            }
+
+			if ($datas['issue_type'] == 2) {
+				if ($this->checkPublishedConfig($publishIx)) {
+					for ($rc = 0; $rc < $datas['regist_count']; $rc++) {
+						$this->qb->insert(TBL_SHOP_CUPON_REGIST, [
+							'publish_ix' => $publishIx,
+							'mem_ix' => $this->userCode,
+							'open_yn' => 0,
+							'use_yn' => 0,
+							'use_sdate' => $use_sdate,
+							'use_date_limit' => $use_date_limit,
+							'regdate' => date('Y-m-d H:i:s')
+						])->exec();
+					}
+				} else {
+					return 'useFail';
+				}
+			} else {
+				for ($rc = 0; $rc < $datas['regist_count']; $rc++) {
+					$this->qb->insert(TBL_SHOP_CUPON_REGIST, [
+						'publish_ix' => $publishIx,
+						'mem_ix' => $this->userCode,
+						'open_yn' => 0,
+						'use_yn' => 0,
+						'use_sdate' => $use_sdate,
+						'use_date_limit' => $use_date_limit,
+						'regdate' => date('Y-m-d H:i:s')
+					])->exec();
+				}
+			}
+            return 'success';
+        } else {
+            return 'overlap';
+        }*/
+    }
+
     public function getRandomCouponInfo($gc_ix=''){
 
         $nowDate = date('Y-m-d');

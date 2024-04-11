@@ -345,7 +345,8 @@ class CustomMallMypageModel extends ForbizMallMypageModel
                             /* @var $couponModel CustomMallCouponModel */
                             $couponModel = $this->import('model.mall.coupon');
                             foreach($cupon_info as $key=>$val){
-                                $couponModel->giveCoupon($val['gift_cupon_ix']);
+                                //$couponModel->giveCoupon($val['gift_cupon_ix']);
+                                $couponModel->giveCouponTri($val['gift_cupon_ix']);
                             }
 
                             if($gift_type == "C"){
