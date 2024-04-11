@@ -993,14 +993,20 @@ var devInfoinputObj = {
                                     $('.devOrderGiftArea_'+key).hide();
                                     $('.devOrderGift_'+key).hide();
                                     $('#devOrderGiftList_'+key).empty();
+
+                                    //장바구니 사은품 중복 노출 작업시 체크해야함
+                                    $("#giftNoCheckbox").val("N");
                                 }
                                 // return false;
                             } else if (value == 'giftCompareFail'){
                                 // common.noti.alert(common.lang.get('infoinput.freeGiftCompareFail.alert'));
                                 msg = common.lang.get('infoinput.freeGiftCompareFail.alert');
-                                $('.devOrderGiftArea_'+key).hide();
                                 $('.devOrderGift_'+key).hide();
                                 $('#devOrderGiftList_'+key).empty();
+
+                                //장바구니 사은품 중복 노출 작업시 체크해야함
+                                $('.devOrderGiftArea_'+key).hide();
+                                $("#giftNoCheckbox").val("N");
                             }else {
                                 if ($('.devOrderGiftArea_'+key).css('display') != 'none' && typeof $('.devOrderGiftArea_'+key).css('display') != "undefined") {
                                     //common.noti.alert(common.lang.get('infoinput.freeGiftSoldOut.alert'));
