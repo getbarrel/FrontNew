@@ -761,28 +761,32 @@ var devInfoinputObj = {
                     giftOrderData.push({giftPid:giftPid,giftCount:giftCount,fgIx:fgIx});
                 }*/
             }else{
-                $(".devGiftListByOrder").find('img').each(function () {
-                    var giftPid = $(this).data('devpid');
-                    var giftCount = $(this).data('devpcount');
-                    var fgIx = $(this).data('fg_ix');
-                    var freegift_condition = $(this).data('freegift_condition');
-                    switch(freegift_condition){
-                        case 'G':
-                            giftSelect = true;
-                            break;
-                        case 'C':
-                            giftSelectC = true;
-                            break;
-                        case 'P':
-                            giftSelectP = true;
-                            break;
-                    }
-                    if(fgIx && freegift_condition){
-                        giftOrderData.push({giftPid:giftPid,giftCount:giftCount,fgIx:fgIx,freegift_condition:freegift_condition});
-                    }else{
-                        giftOrderData.push({giftPid:giftPid,giftCount:giftCount,fgIx:fgIx});
-                    }
-                });
+                //장바구니 사은품 중복 노출 작업시 체크해야함
+                if($('#giftNoCheckbox').val() == "Y"){
+                    $(".devGiftListByOrder").find('img').each(function () {
+                        var giftPid = $(this).data('devpid');
+                        var giftCount = $(this).data('devpcount');
+                        var fgIx = $(this).data('fg_ix');
+                        var freegift_condition = $(this).data('freegift_condition');
+                        switch(freegift_condition){
+                            case 'G':
+                                giftSelect = true;
+                                break;
+                            case 'C':
+                                giftSelectC = true;
+                                break;
+                            case 'P':
+                                giftSelectP = true;
+                                break;
+                        }
+                        if(fgIx && freegift_condition){
+                            giftOrderData.push({giftPid:giftPid,giftCount:giftCount,fgIx:fgIx,freegift_condition:freegift_condition});
+                        }else{
+                            giftOrderData.push({giftPid:giftPid,giftCount:giftCount,fgIx:fgIx});
+                        }
+                    });
+                }
+                // //장바구니 사은품 중복 노출 작업시 체크해야함
 
                 //사은품 필수 선택 처리 [S]
                 var giftRequiredBool = true;
@@ -1000,7 +1004,11 @@ var devInfoinputObj = {
                         }
                         $.each(data, function(key, value) {
                             if(value == 'success'){
-                                $('.devOrderGiftArea_'+key).show();
+                                //장바구니 사은품 중복 노출 작업시 체크해야함
+                                //$('.devOrderGiftArea_'+key).show();
+                                $('.devOrderGiftArea_'+key).css("display","block");
+                                $("#giftNoCheckbox").val("Y");
+                                // //장바구니 사은품 중복 노출 작업시 체크해야함
                                 if (type == 'submit') {
                                     common.util.modal.open('ajax', freeGiftConditionText, '/popup/freebieSelect?cartIx=' + getCartIx + '&saleCouponPrice=' + parseInt(saleCouponPrice) + '&useMileage=' + parseInt(useMileage)+ '&freeGiftCondition=' + freeGiftCondition, window.popupLayerFullSize)
                                 }
@@ -1009,23 +1017,26 @@ var devInfoinputObj = {
                                 if ($('.devOrderGiftArea_'+key).css('display') != 'none' && typeof $('.devOrderGiftArea_'+key).css('display') != "undefined") {
                                     //common.noti.alert(common.lang.get('infoinput.freeGiftChangePrice.alert'));
                                     msg = common.lang.get('infoinput.freeGiftChangePrice.alert');
-                                    $('.devOrderGiftArea_'+key).hide();
-                                    $('.devOrderGift_'+key).hide();
-                                    $('#devOrderGiftList_'+key).empty();
 
                                     //장바구니 사은품 중복 노출 작업시 체크해야함
+                                    /*$('.devOrderGiftArea_'+key).hide();
+                                    $('.devOrderGift_'+key).hide();
+                                    $('#devOrderGiftList_'+key).empty();*/
+                                    $('.devOrderGiftArea_'+key).css("display","none");
                                     $("#giftNoCheckbox").val("N");
+                                    // //장바구니 사은품 중복 노출 작업시 체크해야함
                                 }
                                // return false;
                             } else if (value == 'giftCompareFail'){
                                 // common.noti.alert(common.lang.get('infoinput.freeGiftCompareFail.alert'));
                                 msg = common.lang.get('infoinput.freeGiftCompareFail.alert');
-                                $('.devOrderGift_'+key).hide();
-                                $('#devOrderGiftList_'+key).empty();
 
                                 //장바구니 사은품 중복 노출 작업시 체크해야함
-                                $('.devOrderGiftArea_'+key).hide();
+                                /*$('.devOrderGift_'+key).hide();
+                                $('#devOrderGiftList_'+key).empty();*/
+                                $('.devOrderGiftArea_'+key).css("display","none");
                                 $("#giftNoCheckbox").val("N");
+                                // //장바구니 사은품 중복 노출 작업시 체크해야함
                             }else {
                                 if ($('.devOrderGiftArea_'+key).css('display') != 'none' && typeof $('.devOrderGiftArea_'+key).css('display') != "undefined") {
                                     //common.noti.alert(common.lang.get('infoinput.freeGiftSoldOut.alert'));
