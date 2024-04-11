@@ -3594,7 +3594,7 @@ select:disabled {
 
 .NEWbarrelM .swiper-container {
   margin: 0 auto;
-  position: relative;
+  /*position: relative;*/
   overflow: hidden;
   list-style: none;
   padding: 0;
