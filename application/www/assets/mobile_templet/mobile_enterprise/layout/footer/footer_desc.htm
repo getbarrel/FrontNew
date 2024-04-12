@@ -55,6 +55,27 @@
 	//Enliple Tracker End_모비온
 </script>
 <!-- End Channel Plugin -->
+<!-- Start SDK -->
+<!-- 로그인했을 경우에만 사용자 정보 노출 -->
+<script id="bigin-user">
+	(window._bigin = window._bigin || {}).user = {
+		id: '{=layoutCommon.userInfo.id}', // ex) 'kakao_xxxxxxxxx'
+		email: '{=layoutCommon.userInfo.mail}', // ex) 'user@gmail.com’
+		name: '{=layoutCommon.userInfo.name}', // ex) '홍길동'
+		phone: '{=layoutCommon.userInfo.pcs}', // ex) '010-1234-1234'
+		signedUpAt: '{=layoutCommon.userInfo.regdate}', // ex) '2023-11-11 11:11:11
+	};
+	window.dataLayer.push({ event: 'bg.notify' });
+</script>
+<!-- 항상 노출 -->
+<script id="bigin-gtm">
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTag
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNod
+	})(window,document,'script','dataLayer','GTM-MZ4TGJ9K');
+</script>
+<!-- End SDK -->
 <section class="br__dockbar">
 	<ul class="br__dockbar__list">
 		<li class="dockbar-list">
@@ -227,7 +248,7 @@
 
 <!--
 <script src="../../js/mypage/review_bbs.js"></script>
-<!-- Channel Plugin Scripts --
+-- Channel Plugin Scripts --
 <script>
 	(function() {
 		var w = window;
@@ -291,7 +312,7 @@
 	enp('send', 'common', 'barrel');
 	//Enliple Tracker End_모비온
 </script>
-<!-- End Channel Plugin --
+!-- End Channel Plugin --
 <section class="br__footer">
 	<h2 class="br__hidden">꼬리말</h2>
 	<div class="br__footer__cscenter">
@@ -315,19 +336,19 @@
 	<div class="br__footer__btn-list">
 		<ul class="footer-btn">
 			<li class="footer-btn__box">
-				<!--{? is_login()}--
+				--{? is_login()}--
 				<a class="footer-btn__btn devLogout">{=trans('로그아웃')}</a>
-				<!--{:}--
+				--{:}--
 				<a class="footer-btn__btn" href="/member/login">{=trans('로그인')}</a>
-				<!--{/}--
+				--{/}--
 			</li>
 			<li class="footer-btn__box">
 				<a class="footer-btn__btn" href="/customer/">{=trans('고객센터')}</a>
 			</li>
-			<!--<li class="footer-btn__box">-->
-				<!--<a class="footer-btn__btn" href="javascript:alert('지원하지않는 기능입니다.');">{=trans('PC버전')}</a>-->
-			<!--</li>-->
-			<!--li class="footer-btn__box">
+			--<li class="footer-btn__box">--
+				--<a class="footer-btn__btn" href="javascript:alert('지원하지않는 기능입니다.');">{=trans('PC버전')}</a>--
+			--</li>--
+			--li class="footer-btn__box">
 				<a class="footer-btn__btn" href="javascript:alert('{=trans('서비스 준비중입니다.')}');">{=trans('앱 다운로드')}</a>
 			</li--
 		</ul>
@@ -382,11 +403,11 @@
 	<div class="br__footer__copyright">
 		<div class="copyright">
 			{? langType == 'korean'}
-			<!--span class="copyright__lang copyright__lang--kr js__lang__open">한국어</span--
+			--span class="copyright__lang copyright__lang--kr js__lang__open">한국어</span--
 			{: langType == 'english'}
-			<!--span class="copyright__lang copyright__lang--en js__lang__open">English</span--
+			--span class="copyright__lang copyright__lang--en js__lang__open">English</span--
 			{:}
-			<!--span class="copyright__lang copyright__lang--cn js__lang__open">中國語</span--
+			--span class="copyright__lang copyright__lang--cn js__lang__open">中國語</span--
 			{/}
 			<p class="copyright__text">© barrel. all rights reserved.</p>
 		</div>
@@ -395,7 +416,7 @@
 	<div class="br__footer__sns-list">
 		<ul class="sns-list">
 			<li class="sns-list__box">
-				<!-- a href="#instar" class="sns-list__box__link sns-list__box__link--instargram js__sns__open">instargram</a--
+				-- a href="#instar" class="sns-list__box__link sns-list__box__link--instargram js__sns__open">instargram</a--
 				<a href="https://www.instagram.com/getbarrel" class="sns-list__box__link sns-list__box__link--instargram">instargram</a>
 			</li>
 			<li class="sns-list__box">
@@ -408,7 +429,7 @@
 			<li class="sns-list__box">
 				<a href="https://pf.kakao.com/_VxfxjDd" class="sns-list__box__link sns-list__box__link--kakao">kakaoplus</a>
 			</li>
-			<!--li class="sns-list__box">
+			--li class="sns-list__box">
 				<a href="http://blog.naver.com/socal_kr" class="sns-list__box__link sns-list__box__link--blog">blog</a>
 			</li--
 			{/}
@@ -431,14 +452,14 @@
 		<form name="GD_AUTHMARK_FORM" method="get">
 			<input type="hidden" name="str_keycode" value='2020051937491960972409C31D25FF'/>
 		</form>
-		<!-- ISMS 인증마크 적용 시작 --
+		-- ISMS 인증마크 적용 시작 --
 		<script>
 			function onPopIsms() {
 				window.open('/company/isms','GD_ISMS','width=730, height=650, status=no, toolbar=no, menubar=no, location=no, scrollbars=no');
 			}
 		</script>
-		<!-- ISMS 인증마크 적용 종료 -->
-		<!-- GDWEB 인증마크 적용 시작 --
+		-- ISMS 인증마크 적용 종료 -
+		-- GDWEB 인증마크 적용 시작 --
 		<script>
             function onPopGdAuthMark() {
                 common.util.iframeModal.open('GDWEB DESIGN AWARDS','http://www.gdweb.co.kr/issue/?str_keycode=2020051937491960972409C31D25FF');
@@ -472,6 +493,6 @@
 	</div>
 </div>
 {/}
-<!-- 인클루드한 html 에서 해당 js를 로드하기 위해 추가한 것으로 작업시 해당 js는 body 위에 넣어주시면 됩니다. layout 폴더의 layout_default.html 참고하시면 됩니다.--
+-- 인클루드한 html 에서 해당 js를 로드하기 위해 추가한 것으로 작업시 해당 js는 body 위에 넣어주시면 됩니다. layout 폴더의 layout_default.html 참고하시면 됩니다.--
 <script type="text/javascript" src="/assets/mobile_templet/mobile_enterprise/assets/js/common.js"></script>
 -->

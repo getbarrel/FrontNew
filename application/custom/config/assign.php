@@ -11,6 +11,8 @@ return (function() {
         /* @var $couponModel CustomMallCouponModel */
         $couponModel = getForbiz()->import('model.mall.coupon');
 
+		$memberModel = getForbiz()->import('model.mall.member');
+
         $isLogin = is_login();
         $appType = getAppType();
 
@@ -78,9 +80,13 @@ return (function() {
                 , 'mem_type' => sess_val('user', 'mem_type')
 				, 'MBCODE' => sess_val('user', 'code')
 				, 'pcs' => sess_val('user', 'pcs')
+				, 'mail' => sess_val('user', 'mail')
             ];
         }
+
         $userInfo['cartCnt'] = $cartModel->cartCnt();
+        $regDate = $memberModel->getMemberDate(sess_val('user', 'code'));
+        $userInfo['regdate'] = $regDate['date'];
 
         //로그인화면 체크
         $loginPage = false;

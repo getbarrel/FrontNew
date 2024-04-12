@@ -719,6 +719,28 @@ class CustomMallMemberModel extends ForbizMallMemberModel
     }
 
     /**
+     * User code를 이용하여 가입일을 가져온다.
+     * @param string $userCode
+     * @return array
+     */
+    public function getMemberDate($userCode)
+    {
+        $data = $this->qb
+            ->select('cu.date')
+            ->from(TBL_COMMON_USER.' as cu')
+            ->join(TBL_COMMON_MEMBER_DETAIL.' as cmd', 'cu.code=cmd.code')
+            ->where('cu.code', $userCode)
+            ->exec()
+            ->getRowArray();
+
+        if (isset($data['id'])) {
+            $this->setAuthSessionData($data);
+        }
+
+        return $data;
+    }
+
+    /**
      * 아이디 찾기 (회원 이름, 회원 이메일)
      * 회원별 다중 아이디 존재 가능
      * @param $userName, $userEmail
