@@ -131,6 +131,43 @@ if ($id != '') {
         //각 상품후기 개수
         $reviews       = $reviewModel->getCount($id);
 
+		//sdk 추가 설정
+		$categoryName = $productModel->getCategoryNavigationList($cid);
+		foreach ($categoryName as $key => $val){
+			foreach ($val as $key1 => $val1){
+				foreach ($val1 as $key2 => $val2){
+					if($val1['isBelong'] == 1){
+						if($key2 == 'cname'){
+							$categories[] = $val2;
+						}
+					}
+				}
+			}
+		}
+
+		$sdkImg[] = $datas['image_src'];
+		foreach ($datas['add_image_src'] as $imgKey => $imgVal){
+			$sdkImg[] = $imgVal['smallImg'];
+		}
+
+		$sdkScript = "<script id='bigin-detail-page'> 
+(function () { 
+	window._bigin = window._bigin || {};
+	window._bigin.page = { 
+		product: { 
+			id: '".$id."', 
+			name: '".$datas["pname"]."', 
+			value: ".$datas["dcprice"].", 
+			categories: ".json_encode($categories).", 
+			images: ".json_encode($sdkImg)." 
+		} 
+	};
+	window.dataLayer.push({ event: 'bg.notify' });
+})();
+</script>";
+		$view->assign('sdkScript', $sdkScript);
+		//sdk 추가 설정
+
         // Data Assign
         $view->assign([
             'pid' => $id //상품 시스템코드, 카테고리값. ex) 상세주소/상품시스템코드/카테고리
