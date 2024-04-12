@@ -245,16 +245,6 @@ enp('create', 'wish', 'barrel', { device: 'W', btnSelector: '.btn-wish' });
 					<!-- 상품관련 메뉴 타이틀 -->
 					<div class="detail-tab__nav">
 						<ul>
-							<li class="active">
-								{? langType == 'korean'}
-									<a href="#devTabReview" title="devTabReview" data-content="">{=trans('상품 리뷰')}<span>({=total_review_cnt})</span></a>
-								{:}
-									<!--{* 글로벌 리뷰 (삭제) *}-->
-									{? false}
-									<a href="#devTabReview" title="devTabReview" data-content="devTabReview">{=trans('상품 리뷰')}{? allReviewTotal > 0}<span>({=total_review_cnt})</span>{/}</a>
-									{/}
-								{/}
-							</li>
 							<li>
 								<a href="#devTapDetail" title="devTapDetail" data-content="devViewDetail">{=trans('상품정보')}</a>
 							</li>
@@ -267,6 +257,16 @@ enp('create', 'wish', 'barrel', { device: 'W', btnSelector: '.btn-wish' });
 									<a href="#devTabRecom" title="devTabRecom" data-content="">{=trans('Size Guide')}</a>
 								</li>
 							{/}
+							<li class="active">
+								{? langType == 'korean'}
+								<a href="#devTabReview" title="devTabReview" data-content="">{=trans('상품 리뷰')}<span>({=total_review_cnt})</span></a>
+								{:}
+								<!--{* 글로벌 리뷰 (삭제) *}-->
+								{? false}
+								<a href="#devTabReview" title="devTabReview" data-content="devTabReview">{=trans('상품 리뷰')}{? allReviewTotal > 0}<span>({=total_review_cnt})</span>{/}</a>
+								{/}
+								{/}
+							</li>
 							<li>
 								<a href="#devTabInquiry" title="devTabInquiry" data-content="devTabInquiry">{=trans('상품문의')}<span>({=number_format(qnaTotal)})</span></a>
 							</li>
@@ -276,6 +276,36 @@ enp('create', 'wish', 'barrel', { device: 'W', btnSelector: '.btn-wish' });
 
 					<!-- 상품관련 메뉴 내용 -->
 					<div class="detail-tab__contents-wrap">
+						<!-- 상품 정보 -->
+						<div class="detail-tab__contents" id="devTapDetail">
+							{=html_entity_decode(basicinfo)}
+						</div>
+						<!-- 2024-04-02 상품상세 css 강제 변경 -->
+						<script>
+							$(document).ready(function() {
+								$(".fs_l").css({"margin": "1 auto 40px", "width" : "100%" });
+							});
+						</script>
+						<!-- // 2024-04-02 상품상세 css 강제 변경 -->
+						<!-- // 상품 정보 -->
+						<!-- 상품사이즈 가이드 -->
+						<div class="detail-tab__contents" id="devTabRecom">
+							<div class="detail-title__toggle active">
+								<div class="title-sm">사이즈 가이드</div>
+								<i class="ico ico-plus"></i>
+							</div>
+							<div class="detail-content">
+								<style>.crema-fit-product-combined-detail { margin: 60px 0 0px;}</style>
+								<div data-product-code="<?php echo (int){id};?>" class="crema-fit-product-combined-detail"></div>
+								<style> /* css 파일에 추가해 주세요 */
+								.size_btn_box {padding:48px 0px 0 ; margin-top:48px; border-top:5px solid #E5E5E5; text-align:center; }
+								.size_txt {font-size:18px; color:#000; margin-bottom:32px; }
+								.size_btn {display: inline-block; width: 100%; background: #000; color: #fff; font-size: 16px; line-height: 48px; }
+
+								</style>
+							</div>
+						</div>
+						<!-- // 상품사이즈 가이드 -->
 						<!-- 상품 리뷰 -->
 						<div class="detail-tab__contents" id="devTabReview">
 							<div class="detail-title__toggle active">
@@ -318,37 +348,6 @@ enp('create', 'wish', 'barrel', { device: 'W', btnSelector: '.btn-wish' });
 							</div>
 						</div>
 						<!-- // 상품 리뷰 -->
-						<!-- 상품 정보 -->
-						<div class="detail-tab__contents" id="devTapDetail">
-							{=html_entity_decode(basicinfo)}
-						</div>
-						<!-- 2024-04-02 상품상세 css 강제 변경 -->
-						<script>
-							$(document).ready(function() {
-								$(".fs_l").css({"margin": "1 auto 40px", "width" : "100%" });
-							});
-						</script>
-						<!-- // 2024-04-02 상품상세 css 강제 변경 -->
-						<!-- // 상품 정보 -->
-
-						<!-- 상품사이즈 가이드 -->
-						<div class="detail-tab__contents" id="devTabRecom">
-							<div class="detail-title__toggle active">
-								<div class="title-sm">사이즈 가이드</div>
-								<i class="ico ico-plus"></i>
-							</div>
-							<div class="detail-content">
-								<style>.crema-fit-product-combined-detail { margin: 60px 0 0px;}</style>
-								<div data-product-code="<?php echo (int){id};?>" class="crema-fit-product-combined-detail"></div>
-								<style> /* css 파일에 추가해 주세요 */
-								.size_btn_box {padding:48px 0px 0 ; margin-top:48px; border-top:5px solid #E5E5E5; text-align:center; }
-								.size_txt {font-size:18px; color:#000; margin-bottom:32px; }
-								.size_btn {display: inline-block; width: 100%; background: #000; color: #fff; font-size: 16px; line-height: 48px; }
-
-								</style>
-							</div>
-						</div>
-						<!-- // 상품사이즈 가이드 -->
 						<!-- 상품문의 -->
 						<form id="devProductQnaForm">
 							<input type="hidden" name="id" id="pid" value="{pid}" id="devQnaPid"/>
