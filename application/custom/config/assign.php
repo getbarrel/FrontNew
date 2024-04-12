@@ -200,7 +200,7 @@ return (function() {
 			}
 		}
 
-
+		/*
         $footerScript = '
         <script type="text/javascript" src="//wcs.naver.net/wcslog.js"> </script> 
         <script type="text/javascript"> 
@@ -213,6 +213,23 @@ return (function() {
         
         <!-- Google Tag Manager (noscript) -->
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZSZD5J"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+        ';
+		*/
+
+        $footerScript = '
+        <script type="text/javascript" src="//wcs.naver.net/wcslog.js"> </script> 
+        <script type="text/javascript"> 
+        if (!wcs_add) var wcs_add={};
+        wcs_add["wa"] = "s_273c58f4fec1";
+        if (!_nasa) var _nasa={};
+        wcs.inflow();
+        wcs_do(_nasa);
+        </script>
+        
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM9F928"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
         ';
@@ -237,6 +254,7 @@ return (function() {
         <!-- End Facebook Pixel Code -->
         ';
 
+	/*
     $layOutHeaderScript .= "
         <!-- Google Tag Manager -->
 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -246,6 +264,26 @@ return (function() {
 		})(window,document,'script','dataLayer','GTM-MZSZD5J');</script>
 		<!-- End Google Tag Manager -->
     ";
+	*/
+    $layOutHeaderScript .= "
+        <!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-PM9F928');</script>
+		<!-- End Google Tag Manager -->
+
+		<!-- Danggeun Market Code -->
+		<script src='https://karrot-pixel.business.daangn.com/0.1/karrot-pixel.umd.js'></script>
+		<script>
+		  window.karrotPixel.init('1712286267255600001');
+		  window.karrotPixel.track('ViewPage');
+		</script>
+		<!-- End Danggeun Market Code -->
+
+    ";
+
 
     $kakaoMomentScript ="        
     <script type='text/javascript' charset='UTF-8' src='//t1.daumcdn.net/adfit/static/kp.js'></script>
@@ -267,7 +305,7 @@ return (function() {
             ]
             , 'layout' => [
                 //'jsonPopupList' => json_encode($displayModel->getPopupList()),
-                'jsonPopupList' => json_encode($displayModel->getDisplayBannerCount(69)),
+                'jsonPopupList' => json_encode($displayModel->getDisplayBannerCount(66)),
                 'loginPage' => $loginPage,
                 'prepPage' => $prepPage,
                 'layOutHeaderScript' => $layOutHeaderScript,

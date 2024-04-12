@@ -37,8 +37,33 @@ foreach($cartData as $cart){
     }
 }
 
+//karrotPixel 스크립트 추가 [S]
+$karrotPixelItem = [];
+foreach($cartData as $cart){
+    foreach($cart['deliveryTemplateList'] as $cartDt){
+        foreach ($cartDt['productList'] as $key=>$val){
+			$karrotPixelItem[$key]['id'] = $val['pid'];
+			$karrotPixelItem[$key]['name'] = $val['pname'];
+			$karrotPixelItem[$key]['quantity'] = $val['pcount'];
+			$karrotPixelItem[$key]['price'] = str_replace(',','',g_price($val['dcprice']));
+        }
+    }
+}
+
+$karrotPixelSubScript = "
+<script type='text/javascript'>
+	window.karrotPixel.track(
+	  'AddToCart', 
+	  {
+		'products': ".json_encode($karrotPixelItem)."
+	  }
+	)
+</script>
+";
+$view->assign('karrotPixelSubScript', $karrotPixelSubScript);
+
 if($_SERVER["REMOTE_ADDR"] == '211.104.22.53'){
-    //print_r($cartData);
+    print_r($karrotPixelSubScript);
 }
 
 $view->assign([

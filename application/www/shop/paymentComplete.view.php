@@ -163,6 +163,21 @@ if (!empty($oid)) {
         }
     }
 
+    //karrotPixel 스크립트 추가 [S]
+    $karrotPixelItem = [];
+    if(isset($data['order']['orderDetail']) && is_array($data['order']['orderDetail'])){
+        foreach($data['order']['orderDetail'] as $dKey => $items){
+            if(is_array($items)){
+                foreach($items as $key=>$val){
+                    $karrotPixelItem[$key]['id'] = $val['pid'];
+                    $karrotPixelItem[$key]['name'] = $val['pname'];
+                    $karrotPixelItem[$key]['quantity'] = $val['pcnt'];
+                    $karrotPixelItem[$key]['price'] = str_replace(',','',g_price($val['pt_dcprice']));
+                }
+            }
+        }
+    }
+
 	$mobile_agent = "/(iPod|iPhone|Android|BlackBerry|SymbianOS|SCH-M\d+|Opera Mini|Windows CE|Nokia|SonyEricsson|webOS|PalmOS)/";
 
 	if(preg_match($mobile_agent, $_SERVER['HTTP_USER_AGENT'])){
@@ -199,7 +214,22 @@ if (!empty($oid)) {
         });
     </script>
     ";
+
+
+    $karrotPixelSubScript = "
+    <script type='text/javascript'>
+		window.karrotPixel.track(
+		  'Purchase', 
+		  {
+			'total_price': '{".$data['paymentInfo']['pt_dcprice']."}',
+			'total_quantity': '{".$data['paymentInfo']['total_pcnt']."}',
+			'products': ".json_encode($karrotPixelItem)."
+		  }
+		)
+    </script>
+    ";
     $view->assign('kakaoMomentSubScript', $kakaoMomentSubScript);
+    $view->assign('karrotPixelSubScript', $karrotPixelSubScript);
 //카카오 모먼트 장바구니 스크립트 추가  [E]
     // ouput layout
     echo $view->loadLayout();
