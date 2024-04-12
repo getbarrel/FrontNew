@@ -563,15 +563,24 @@ var common = {
                 return 'notiPopup' + popupIx;
             },
             load: function (datas) {
+				var chkPopup = 0;
 				$.each(datas, function (i, data) {
-					if (common.util.getCookie(common.noti.popup.getCookieKey(data.banner_ix)) != '1') {
-						if (i == 0){
-							var url = '/popup/noti/' + data.banner_ix;
-							common.noti.popup.compileLayerPopup();
-							common.ajax(url, {}, '', (function (response) {
-								data['popup_text'] = response;
-								common.noti.popup.showLayerPopupData(data);
-							 }), 'html');
+					if (common.util.getCookie(common.noti.popup.getCookieKey(data.banner_ix)) == '1') {
+						chkPopup = 1;
+					}
+				})
+
+				$.each(datas, function (i, data) {
+					if (chkPopup != 1){
+						if (common.util.getCookie(common.noti.popup.getCookieKey(data.banner_ix)) != '1') {
+							if (i == 0){
+								var url = '/popup/noti/' + data.banner_ix;
+								common.noti.popup.compileLayerPopup();
+								common.ajax(url, {}, '', (function (response) {
+									data['popup_text'] = response;
+									common.noti.popup.showLayerPopupData(data);
+								 }), 'html');
+							}
 						}
 					}
                 })

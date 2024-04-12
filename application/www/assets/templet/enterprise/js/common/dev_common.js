@@ -509,24 +509,39 @@ var common = {
             },
 
             load: function (datas) {
+				var chkPopup = 0;
 				$.each(datas, function (i, data) {
-					if (common.util.getCookie(common.noti.popup.getCookieKey(data.banner_ix)) != '1') {
-						if (i == 0){
-							var url = '/popup/noti/' + data.banner_ix;
-							common.noti.popup.compileLayerPopup();
-							common.ajax(url, {}, '', (function (response) {
-								data['popup_text'] = response;
-								common.noti.popup.showLayerPopupData(data);
-							 }), 'html');
+					if (common.util.getCookie(common.noti.popup.getCookieKey(data.banner_ix)) == '1') {
+						chkPopup = 1;
+					}
+				})
+				//console.log(chkPopup);
+				$.each(datas, function (i, data) {
+					//console.log(data.banner_ix);
+					//console.log(common.util.getCookie(common.noti.popup.getCookieKey(data.banner_ix)));
+					if (chkPopup != 1){
+						if (common.util.getCookie(common.noti.popup.getCookieKey(data.banner_ix)) != '1') {
+							if (i == 0){
+								var url = '/popup/noti/' + data.banner_ix;
+								common.noti.popup.compileLayerPopup();
+								common.ajax(url, {}, '', (function (response) {
+									data['popup_text'] = response;
+									common.noti.popup.showLayerPopupData(data);
+								 }), 'html');
+							}
 						}
 					}
                 })
             },
             close: function (popupType, popupIx) {
                 //쿠키 관련 set 처리
+				//console.log(popupType);
+				//console.log(popupIx);
+				//console.log($('.devPopupToday[devPopupIx=' + popupIx + ']:checked').length);
                 if ($('.devPopupToday[devPopupIx=' + popupIx + ']:checked').length > 0) {
                     common.util.setCookie(common.noti.popup.getCookieKey(popupIx), '1', 1);
                 }
+				console.log(common.util.getCookie(common.noti.popup.getCookieKey(popupIx)));
                 if (popupType == 'L') { //레이어 POPUP
                     $(".main_popupL").hide();
 					//$('.devNotiPopup[devPopupIx=' + popupIx + ']').remove();
