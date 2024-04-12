@@ -1154,6 +1154,12 @@ class CustomMallProductModel extends ForbizMallProductModel
                 ->where('psr.price between "' . $filter['sprice'] . '"  and  "' . $filter['eprice'] . '" ');
         }
 
+		/*
+			2024-04-09
+			shop_product table : markNum1, markNum2 필드 생성 
+			연결되는 테이블 조인으로 연결 테이블명 markImg1, markImg1 필드 생성 연결
+		*/
+
         $this->basicWhere($filter)
             ->from(TBL_SHOP_PRODUCT . ' p')
             ->join(TBL_SHOP_PRODUCT_DELIVERY . ' as pd', 'p.id=pd.pid', 'inner')
@@ -4084,7 +4090,7 @@ echo "End6";
         $rows = $this->qb
             ->select('p.id')
             ->select('p.pname')
-            ->from(TBL_SHOP_PRODUCT . ' AS p')            
+            ->from(TBL_SHOP_PRODUCT . ' AS p')
             ->exec()
             ->getResultArray();
 
@@ -4097,7 +4103,8 @@ echo "End6";
             //크리마 리뷰 카운트 가져오기
             $param = ['code' => (int)$val['id']];
             $data = $cremaModel->getProductInfo($param);
-            $total_review_cnt = $data['reviews_count'] ?? 0;
+            //$total_review_cnt = $data['reviews_count'] ?? 0;
+            $total_review_cnt = $data['meta_reviews_count'] ?? 0;
 
             $score = 0;
             if (isset($data['reviews_count'])) {
