@@ -305,7 +305,7 @@ return (function() {
             ]
             , 'layout' => [
                 //'jsonPopupList' => json_encode($displayModel->getPopupList()),
-                'jsonPopupList' => json_encode($displayModel->getDisplayBannerCount(66)),
+                'jsonPopupList' => json_encode($displayModel->getDisplayBannerCount(69)), // qa 66 stg 69
                 'loginPage' => $loginPage,
                 'prepPage' => $prepPage,
                 'layOutHeaderScript' => $layOutHeaderScript,

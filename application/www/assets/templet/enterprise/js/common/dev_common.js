@@ -541,7 +541,7 @@ var common = {
                 if ($('.devPopupToday[devPopupIx=' + popupIx + ']:checked').length > 0) {
                     common.util.setCookie(common.noti.popup.getCookieKey(popupIx), '1', 1);
                 }
-				console.log(common.util.getCookie(common.noti.popup.getCookieKey(popupIx)));
+				//console.log(common.util.getCookie(common.noti.popup.getCookieKey(popupIx)));
                 if (popupType == 'L') { //레이어 POPUP
                     $(".main_popupL").hide();
 					//$('.devNotiPopup[devPopupIx=' + popupIx + ']').remove();
