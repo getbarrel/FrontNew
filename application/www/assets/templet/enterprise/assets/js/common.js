@@ -2,6 +2,7 @@ $(function () {
 	main_menu();
 	topSchLayer();
 	swiperItem();
+	popupSlide();
 	topBtn();
 	paginationLayer();
 	tabJS();
@@ -355,46 +356,6 @@ function swiperItem() {
 			},
 		});
 	}
-	if ($("body").find(".popup-slide").length) {
-		var swiperPopupSlie = new Swiper(".main_popupL-slide", {
-			slidesPerView: "auto",
-			spaceBetween: 0,
-			loop: true,
-			speed: 400,
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-			pagination: {
-				el: ".swiper-pagination",
-				type: "fraction",
-				formatFractionCurrent: function (number) {
-					return ("0" + number).slice(-2);
-				},
-				formatFractionTotal: function (number) {
-					return ("0" + number).slice(-2);
-				},
-				renderFraction: function (currentClass, totalClass) {
-					return '<span class="' + currentClass + '"></span>' + " / " + '<span class="' + totalClass + '"></span>';
-				},
-			},
-			scrollbar: {
-				el: ".swiper-scrollbar",
-			},
-		});
-	}
-	if ($("body").find(".popup-slide2").length) {
-		var swiperPopupSlie2 = new Swiper(".main_popupL-slide", {
-			slidesPerView: "auto",
-			spaceBetween: 0,
-			loop: true,
-			speed: 400,
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-		});
-	}
 	if ($("body").find(".detail-slide").length) {
 		var swiperDetailVisual = new Swiper(".detail-slide", {
 			slidesPerView: "auto",
@@ -592,6 +553,67 @@ function swiperItem() {
 		});
 	}
 }
+
+//2024.04.14 수정 S
+function popupSlide() {
+	if ($("body").find(".popup-slide").length) { 
+		var swiperPopupSlie = new Swiper(".popup-slide", {
+			slidesPerView: "auto",
+			spaceBetween: 0,
+			loop: true,
+			speed: 400,
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: ".popup-swiper-pagination",
+				type: "fraction",
+				formatFractionCurrent: function (number) {
+					return ("0" + number).slice(-2);
+				},
+				formatFractionTotal: function (number) {
+					return ("0" + number).slice(-2);
+				},
+				renderFraction: function (currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span>' + " / " + '<span class="' + totalClass + '"></span>';
+				},
+			},
+			scrollbar: {
+				el: ".popup-swiper-scrollbar",
+			},
+		});
+	}
+	if ($("body").find(".popup-slide2").length) {
+		var swiperPopupSlie = new Swiper(".popup-slide2", {
+			slidesPerView: "auto",
+			spaceBetween: 0,
+			loop: true,
+			speed: 400,
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: ".popup-swiper-pagination2",
+				type: "fraction",
+				formatFractionCurrent: function (number) {
+					return ("0" + number).slice(-2);
+				},
+				formatFractionTotal: function (number) {
+					return ("0" + number).slice(-2);
+				},
+				renderFraction: function (currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span>' + " / " + '<span class="' + totalClass + '"></span>';
+				},
+			},
+			scrollbar: {
+				el: ".popup-swiper-scrollbar2",
+			},
+		});
+	}
+}
+//2024.04.14 수정 E
 
 function topBtn() {
 	$(window).scroll(function () {

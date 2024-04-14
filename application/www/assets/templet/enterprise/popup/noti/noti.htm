@@ -1,6 +1,9 @@
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="/assets/templet/enterprise/assets/js/swiper/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="/assets/templet/enterprise/assets/js/common.js"></script>
+<script>
+	$(function () {
+		popupSlide();
+	});
+</script>
 <!--팝업일때는 스크립트로 높이, 위드값 정해짐-->
 <div class="main_popupL-inner">
 	<div class="main_popupL-slide swiper-container popup-slide2">
@@ -14,8 +17,8 @@
 	</div>
 	<div class="main_popupL-slide--control">
 		<div class="swiper-control-group">
-			<div class="swiper-scrollbar"></div>
-			<div class="swiper-pagination"></div>
+			<div class="swiper-scrollbar popup-swiper-scrollbar2"></div>
+			<div class="swiper-pagination popup-swiper-pagination2"></div>
 		</div>
 	</div>
 </div>
