@@ -74,7 +74,7 @@ dataLayer.push({
 		});
 	});
 </script>
-
+{sdkScript}
 <!-- 컨텐츠 영역 S -->
 <section class="fb__infoinput fb__shop">
 	<div class="fb__shop__title-area">
@@ -356,9 +356,9 @@ dataLayer.push({
 				</div>
 
 				<div class="gift-list">
-					<ul class="product-item__wrap">
+					<ul class="product-item__wrap devOrderGiftList">
 						<!--{@ .gift_products}-->
-						<li class="product-item__list devOrderGiftList" id="devOrderGiftList_{.freegift_condition}"">
+						<li class="product-item__list" id="devOrderGiftList_{.freegift_condition}"">
 							<dl class="product-item">
 								<dt class="product-item__thumbnail-box devGiftListByOrder">
 									<div class="product-item__checkbox">

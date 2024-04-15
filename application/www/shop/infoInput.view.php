@@ -255,6 +255,7 @@ $contractionProductName = "";
 $productKindCount = 0;
 //장바구니 담긴 상품 정보
 $cartProductList = [];
+$sdkItem = [];
 foreach ($cartData as $cart) {
     if ($cart['company_id'] != ForbizConfig::getCompanyInfo('company_id')) {
         $isThirdBool = true;
@@ -262,6 +263,30 @@ foreach ($cartData as $cart) {
 
     foreach ($cart['deliveryTemplateList'] as $deliveryTemplate) {
         foreach ($deliveryTemplate['productList'] as $product) {
+
+			$categoryName = $productModel->getCategoryNavigationList($product['cid']);
+			foreach ($categoryName as $key => $val){
+				foreach ($val as $key1 => $val1){
+					foreach ($val1 as $key2 => $val2){
+						if($val1['isBelong'] == 1){
+							if($key2 == 'cname'){
+								$categories[] = $val2;
+							}
+						}
+					}
+				}
+			}
+
+			$options[] = $product['options_text'];
+			$options[] = $product['add_info'];
+			
+			$sdkItem[$keys]['id'] = $product['id'];
+			$sdkItem[$keys]['name'] = $product['pname'];
+			$sdkItem[$keys]['value'] = str_replace(',','',g_price($product['dcprice']));
+			$sdkItem[$keys]['categories'] = json_encode($categories);
+			$sdkItem[$keys]['quantity'] = $product['pcount'];
+			$sdkItem[$keys]['variants'] = json_encode($options);
+
             $cartProductList[] = [
                 'cart_ix' => $product['cart_ix'],
                 'pname' => $product['pname'],
@@ -275,6 +300,52 @@ foreach ($cartData as $cart) {
         }
     }
 }
+$sdkScript = "
+<script id='bigin-order-form-page'> 
+(function () { 
+	window._bigin = window._bigin || {};
+	window._bigin.page = { 
+		products: ".json_encode($sdkItem)."
+	};
+	window.dataLayer.push({ event: 'bg.notify' });
+})();
+</script>
+";
+$view->assign('sdkScript', $sdkScript);
+//print_r($sdkScript);
+/*
+$sdkItem = [];
+foreach($cartData as $cart){
+    foreach($cart['deliveryTemplateList'] as $cartDt){
+        foreach ($cartDt['productList'] as $keys=>$vals){
+
+			$categoryName = $productModel->getCategoryNavigationList($val['cid']);
+			foreach ($categoryName as $key => $val){
+				foreach ($val as $key1 => $val1){
+					foreach ($val1 as $key2 => $val2){
+						if($val1['isBelong'] == 1){
+							if($key2 == 'cname'){
+								$categories[] = $val2;
+							}
+						}
+					}
+				}
+			}
+
+			$options[] = $vals['options_text'];
+			$options[] = $vals['add_info'];
+			
+			$sdkItem[$keys]['id'] = $vals['id'];
+			$sdkItem[$keys]['name'] = $vals['pname'];
+			$sdkItem[$keys]['value'] = str_replace(',','',g_price($vals['dcprice']));
+			$sdkItem[$keys]['categories'] = json_encode($categories);
+			$sdkItem[$keys]['quantity'] = $vals['pcount'];
+			$sdkItem[$keys]['variants'] = json_encode($options);
+        }
+    }
+}
+*/
+
 if ($productKindCount > 1) {
     $contractionProductName .= ' 외 ' . ($productKindCount - 1) . '건';
 }
@@ -321,6 +392,7 @@ $view->assign('add_sattle_module_toss', ForbizConfig::getMallConfig('add_sattle_
 /* @var $paymentGatewayModel CustomMallPaymentGatewayModel */
 $paymentGatewayModel = $view->import('model.mall.payment.gateway');
 $view->assign('paymentIncludeJavaScript', $paymentGatewayModel->getPaymentIncludeJavaScript());
+
 
 if ($isLogin) {
 
