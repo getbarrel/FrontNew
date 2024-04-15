@@ -109,11 +109,6 @@ $sdkScript = "
 $view->assign('sdkScript', $sdkScript);
 //sdk 추가 설정
 
-
-if($_SERVER["REMOTE_ADDR"] == '211.104.22.53'){
-    print_r($karrotPixelSubScript);
-}
-
 $view->assign([
     'cartDeleteDay' => ForbizConfig::getMallConfig('cart_delete_day') //장바구니 보관일
     , 'cart' => $cartData
