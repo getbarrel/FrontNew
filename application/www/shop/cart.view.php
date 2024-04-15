@@ -15,6 +15,8 @@ $view->assign($mypageModel->doDashBoard($userCode));
 //장바구니 정보 가지고 오기
 /* @var $cartModel CustomMallCartModel */
 $cartModel = $view->import('model.mall.cart');
+$productModel = $view->import('model.mall.product');
+
 // 카트 상세 정보
 $cartData    = $cartModel->get();
 $cartSummary = $cartModel->getSummary($cartData);
@@ -61,6 +63,52 @@ $karrotPixelSubScript = "
 </script>
 ";
 $view->assign('karrotPixelSubScript', $karrotPixelSubScript);
+
+//sdk 추가 설정
+$sdkItem = [];
+foreach($cartData as $cart){
+    foreach($cart['deliveryTemplateList'] as $cartDt){
+        foreach ($cartDt['productList'] as $keys=>$vals){
+
+			$categoryName = $productModel->getCategoryNavigationList($val['cid']);
+			foreach ($categoryName as $key => $val){
+				foreach ($val as $key1 => $val1){
+					foreach ($val1 as $key2 => $val2){
+						if($val1['isBelong'] == 1){
+							if($key2 == 'cname'){
+								$categories[] = $val2;
+							}
+						}
+					}
+				}
+			}
+
+			$options[] = $vals['options_text'];
+			$options[] = $vals['add_info'];
+			
+			$sdkItem[$keys]['id'] = $vals['id'];
+			$sdkItem[$keys]['name'] = $vals['pname'];
+			$sdkItem[$keys]['value'] = str_replace(',','',g_price($vals['dcprice']));
+			$sdkItem[$keys]['categories'] = json_encode($categories);
+			$sdkItem[$keys]['quantity'] = $vals['pcount'];
+			$sdkItem[$keys]['variants'] = json_encode($options);
+        }
+    }
+}
+$sdkScript = "
+<script id='bigin-cart-page'> 
+(function () { 
+	window._bigin = window._bigin || {};
+	window._bigin.page = { 
+		products: ".json_encode($sdkItem)."
+	};
+	window.dataLayer.push({ event: 'bg.notify' });
+})();
+</script>
+";
+$view->assign('sdkScript', $sdkScript);
+//sdk 추가 설정
+
 
 if($_SERVER["REMOTE_ADDR"] == '211.104.22.53'){
     print_r($karrotPixelSubScript);
