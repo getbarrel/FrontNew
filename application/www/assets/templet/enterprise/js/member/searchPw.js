@@ -85,11 +85,11 @@ var devSearchPwdObj = {
         common.validation.set($('#devPcs2'), {'required': false});
         common.validation.set($('#devPcs3'), {'required': false});
         common.validation.set($('#devCertNo'), {'required': true});
-        common.validation.set($('#devUserEmail1,#devUserEmail2'), {
-            'required': true,
-            'dataFormat': 'email',
-            'getValueFunction': 'getEmail'
-        });
+		common.validation.set($('#devPcs1, #devPcs2, #devPcs3'), {
+			'required': true,
+			'dataFormat': 'mobile',
+			'getValueFunction': 'getPcsNumber'
+		});
     },
 
     initSearchPwdEvent: function () {

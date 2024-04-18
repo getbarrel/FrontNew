@@ -12,10 +12,11 @@
 					<legend>{=trans('비밀번호 찾기')}</legend>
 					<nav class="search__nav">
 						<div class="search__nav__btn">
-							<label><input type="radio" name="searchType" value="phone" checked class="nav--phone" />{=trans('<span>휴대폰 번호</span>')}</label>
+							<label><input type="radio" name="searchType" value="phone"  checked="checked" class="nav--phone" />{=trans('<span>휴대폰 번호</span>')}</label>
 							<label><input type="radio" name="searchType" value="email" />{=trans('<span>이메일</span>')}</label>
 						</div>
 					</nav>
+					<!-- <div id="search__password" class="search__content search__content--show"> -->
 					<div id="search__password" class="search__inner search__inner--show fb__join-input__form fb__member-search__email">
 						<ul class="search__company input-form__content-box">
 							<li class="inputs">
@@ -32,7 +33,24 @@
 									<p class="inputs__content__text" name="devUserName"></p>
 								</div>
 							</li>
-							<li class="inputs email_group" style="display: none">
+							<li class="inputs inputs__cellphone phone_group">
+								<div class="inputs__content fb__form-item">
+									<label for="devPcs1" class="inputs__title hide">{=trans('휴대폰')}</label>
+									<div class="selectWrap">
+										<select name="pcs1" id="devPcs1">
+											<option value="010">010</option>
+											<option value="011">011</option>
+											<option value="016">016</option>
+											<option value="017">017</option>
+											<option value="018">018</option>
+											<option value="019">019</option>
+										</select>
+										<input type="number" name="pcs2" id="devPcs2" placeholder="{=trans('0000')}" value="" title="{=trans('휴대폰번호')}" />
+										<input type="number" name="pcs3" id="devPcs3" placeholder="{=trans('0000')}" value="" title="{=trans('휴대폰번호')}" />
+									</div>
+								</div>
+							</li>
+							<li class="inputs email_group" style="display:none">
 								<div class="inputs__content fb__form-item">
 									<label for="devUserEmail1" class="inputs__title hide">{=trans('이메일')}</label>
 									<span class="pub-email">
@@ -51,23 +69,6 @@
 											</select>
 										</span>
 									</span>
-								</div>
-							</li>
-							<li class="inputs inputs__cellphone phone_group">
-								<div class="inputs__content fb__form-item">
-									<label for="devPcs1" class="inputs__title hide">{=trans('휴대폰')}</label>
-									<div class="selectWrap">
-										<select name="pcs1" id="devPcs1">
-											<option value="010">010</option>
-											<option value="011">011</option>
-											<option value="016">016</option>
-											<option value="017">017</option>
-											<option value="018">018</option>
-											<option value="019">019</option>
-										</select>
-										<input type="number" name="pcs2" id="devPcs2" placeholder="{=trans('0000')}" value="" title="{=trans('휴대폰번호')}" />
-										<input type="number" name="pcs3" id="devPcs3" placeholder="{=trans('0000')}" value="" title="{=trans('휴대폰번호')}" />
-									</div>
 								</div>
 							</li>
 							<li class="inputs noline">
@@ -90,9 +91,9 @@
 			<div class="search__footer">
 				<!-- 아이디 없는 경우 결과페이지 불필요, 출력조건 없음 - 오류 메시지 S -->
 				<!-- 오류시 노출 / 그 외에 숨김처리 -->
-				<p class="txt-error">입력하신 정보가 올바르지 않습니다.</p>
+				<p class="txt-error"></p>
 				<!-- 아이디 없는 경우 결과페이지 불필요, 출력조건 없음 - 오류 메시지 E -->
-				<a href="" class="btn-lg btn-dark" id="">확인</a>
+				<a href="javascript:void(0)" id="devUserPwdSearchSubmitButton" class="btn-lg btn-dark" id="">확인</a>
 			</div>
 		</div>
 	</div>
@@ -175,7 +176,7 @@
 			<div class="search__footer">
 				<!-- 아이디 없는 경우 결과페이지 불필요, 출력조건 없음 - 오류 메시지 S -->
 				<!-- 오류시 노출 / 그 외에 숨김처리 -->
-				<p class="txt-error">입력하신 정보가 올바르지 않습니다.</p>
+				<p class="txt-error"></p>
 				<!-- 아이디 없는 경우 결과페이지 불필요, 출력조건 없음 - 오류 메시지 E -->
 				<a href="" class="btn-lg btn-dark" id="">확인</a>
 			</div>
