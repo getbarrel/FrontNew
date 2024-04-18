@@ -498,7 +498,7 @@ class CustomMallProductController extends ForbizMallProductController
                     switch($freeGiftOrderItem['freegift_condition']){
                         case 'G';
                             $checkGiftSelect = $giftSelect;
-                            $freeGiftArray = $productModel->getFreeGiftNew($freeGiftOrderItem['freegift_condition'],$freeGiftCheckPrice);
+                            $freeGiftArray = $productModel->getFreeGiftNew($freeGiftOrderItem['freegift_condition'],$freeGiftCheckPrice,'','',$cartData);
                             break;
                         case 'P';
                             $checkGiftSelect = $giftSelectP;
@@ -511,12 +511,36 @@ class CustomMallProductController extends ForbizMallProductController
                     }
 
                     if (isset($freeGiftArray['gift_products'])) {
-
                         if(isset($freeGiftArray['fg_ix']) && isset($giftOrderData) && $checkGiftSelect == 'true'){
-
+                            //$responseArray['giftPid'] = [];
                             foreach($giftOrderData as $gOrderVal){
-
                                 if($gOrderVal['freegift_condition'] == $freeGiftArray['freegift_condition']){
+                                    /*if($gOrderVal['fgIx'] != $freeGiftArray['fg_ix']){
+                                        $responseArray[$freeGiftOrderItem['freegift_condition']] = 'giftCompareFail';
+                                    }else{*/
+                                        //$responseArray[$freeGiftOrderItem['freegift_condition']]['result'] = 'success';
+
+                                        $responseArray[$freeGiftOrderItem['freegift_condition']]['giftPid'][] = $gOrderVal['giftPid'];
+                                        $responseArray[$freeGiftOrderItem['freegift_condition']]['fgIx'][] = $gOrderVal['fgIx'];
+
+                                        foreach($freeGiftArray['gift_products'] as $gVal){
+                                            foreach($gVal as $gVal2){
+                                                if($gOrderVal['giftPid'] == $gVal2['pid'] && $gOrderVal['fgIx'] == $gVal2['event_fg_ix']){
+                                                    $responseArray[$freeGiftOrderItem['freegift_condition']]['pid'][] = $gVal2['pid'];
+                                                    $responseArray[$freeGiftOrderItem['freegift_condition']]['eFgIx'][] = $gVal2['event_fg_ix'];
+                                                }
+                                            }
+                                        }
+
+                                    //}
+                                    //$responseArray[$freeGiftOrderItem['freegift_condition']]['giftPid'][] = $gOrderVal['giftPid'];
+                                    //$responseArray[$freeGiftOrderItem['freegift_condition']]['pid'][] = $gOrderVal['giftPid'];
+                                }
+
+
+
+
+                                /*if($gOrderVal['freegift_condition'] == $freeGiftArray['freegift_condition']){
                                     if($gOrderVal['fgIx'] != $freeGiftArray['fg_ix']){
                                         $responseArray[$freeGiftOrderItem['freegift_condition']] = 'giftCompareFail';
                                         //$this->setResponseResult('giftCompareFail');
@@ -527,21 +551,40 @@ class CustomMallProductController extends ForbizMallProductController
                                     $responseArray[$freeGiftOrderItem['freegift_condition']] = 'success';
                                 }
 
+                                //$responseArray['giftPid'][] = $gOrderVal['giftPid'];
+                                $responseArray[$freeGiftOrderItem['freegift_condition']]['giftPid'][] = $gOrderVal['giftPid'];*/
                             }
+
+                            /*foreach($freeGiftArray['gift_products'] as $gVal){
+                                foreach($gVal as $gVal2){
+                                    $responseArray[$gVal['freegift_condition']]['pid'][] = $gVal2['pid'];
+                                }
+                            }*/
+/*if($_SERVER["REMOTE_ADDR"] == '211.104.22.53'){
+    print_r($responseArray);
+}*/
+
+
+                            if(count($responseArray[$freeGiftOrderItem['freegift_condition']]['giftPid']) == count($responseArray[$freeGiftOrderItem['freegift_condition']]['pid'])){
+                                $responseArray[$freeGiftOrderItem['freegift_condition']]['result'] = 'success';
+                            }else{
+                                $responseArray[$freeGiftOrderItem['freegift_condition']]['result'] = 'giftCompareFail';
+                            }
+
                         }else{
-                            $responseArray[$freeGiftOrderItem['freegift_condition']] = 'success';
+                            $responseArray[$freeGiftOrderItem['freegift_condition']]['result'] = 'success';
                             //$this->setResponseResult('success')->setResponseData($val['freegift_condition']);
                         }
 
                     }else{
                         if(isset($freeGiftArray['soldOut']) && $freeGiftArray['soldOut'] == true){
-                            $responseArray[$freeGiftOrderItem['freegift_condition']] = 'stockFail';
+                            $responseArray[$freeGiftOrderItem['freegift_condition']]['result'] = 'stockFail';
                             //$this->setResponseResult('stockFail');
                         }else if($cartSummary['summary']['payment_price'] != $freeGiftCheckPrice){
-                            $responseArray[$freeGiftOrderItem['freegift_condition']] = 'changePrice';
+                            $responseArray[$freeGiftOrderItem['freegift_condition']]['result'] = 'changePrice';
                             //$this->setResponseResult('changePrice');
                         }else{
-                            $responseArray[$freeGiftOrderItem['freegift_condition']] = 'stockFail';
+                            $responseArray[$freeGiftOrderItem['freegift_condition']]['result'] = 'stockFail';
                             //$this->setResponseResult('stockFail');
                         }
 

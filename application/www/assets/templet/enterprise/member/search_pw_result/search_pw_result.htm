@@ -1,4 +1,22 @@
-<section class="fb__member-search fb__search-result">
+<section class="fb__member-search fb__search-result fb__password-reset">
+	<div class="search">
+		<!-- 패스워드 변경 성공 S -->
+		<div id="search__id" class="search__wrap-show search__content">
+			<div class="search__header">
+				<h2 class="search__title title-md">{=trans('비밀번호 변경 완료')}</h2>
+				{=trans('<p>{userName} 회원님의 비밀번호가 정상적으로 변경되었습니다.</p>')}
+			</div>
+			<div class="search__content">
+				<div class="search__footer">
+					<a href="/member/login" class="btn-lg btn-dark-line">로그인</a>
+				</div>
+			</div>
+		</div>
+		<!-- 패스워드 변경 성공 E -->
+	</div>
+</section>
+
+<!-- <section class="fb__member-search fb__search-result">
     <div class="search">
         <header class="search__header">
             <h2 class="search__title">{=trans('아이디/비밀번호 찾기')}</h2>
@@ -23,5 +41,5 @@
             </div>
         </section>
     </div>
-</section>
+</section> -->
 

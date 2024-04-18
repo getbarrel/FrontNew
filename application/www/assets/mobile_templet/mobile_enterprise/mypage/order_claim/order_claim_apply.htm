@@ -32,12 +32,12 @@
 					<li class="product-list__item no-data" style="display: none">
 						<p class="empty-content">선택한 반품 신청 상품이 없습니다.</p>
 					</li>
-					<!-- 상품없음 E -->
+					-- 상품없음 E -->
 					{@ .value_}
 					<li class="product-list__item devBoxOn" data-odix="{..od_ix}" style="display:{? (odIx == '' || odIx == ..od_ix)}block{:}none{/}">
-						<input type="checkbox" class="devOdIxCls" id="devOdIx{..od_ix}" name="od_ix[]" value='{..od_ix}' style="display:" {? (..od_ix == odIx) || odIx == '' }checked{/} >
 						<div class="product-list__item-top">
-							<button type="button" class="btn-sm btn-line-no" data-odix="{..od_ix}">{claimTypeName} {=trans('삭제')}</button>
+							<div style="padding-right:290px;"><input type="checkbox" class="devOdIxCls" id="devOdIx{..od_ix}" name="od_ix[]" value='{..od_ix}' style="display:" {? (..od_ix == odIx) || odIx == '' }checked{/} ></div>
+							<button type="button" class="btn-sm btn-line-no " data-odix="{..od_ix}">{claimTypeName} {=trans('삭제')}</button>
 						</div>
 						<!-- 상품 S -->
 						<dl class="product-list__group">
@@ -125,8 +125,9 @@
 					<ul class="product-list">
 						{@ .value_}
 						<li class="product-list__item devBoxOff" data-odix="{..od_ix}"  style="display:{? (odIx != '' && odIx != ..od_ix)}block{:}none{/}">
+							
 							<div class="product-list__item-top">
-								<button type="button" class="btn-sm btn-line-no order-claim__goods__toggle" data-odix="{..od_ix}">{claimTypeName} 추가</button>
+								<button type="button" class="btn-sm btn-line-no " data-odix="{..od_ix}">{claimTypeName} {=trans('추가')}</button>
 							</div>
 							<!-- 상품 S -->
 							<dl class="product-list__group">
@@ -146,7 +147,6 @@
 											</div>
 										</div>
 										<!-- 세트 상품 E -->
-
 										<div class="product-list__info__price">
 											<span class="product-list__info__price--cost">{fbUnit.f}<em>{=g_price(..pt_dcprice)}</em>{fbUnit.b}</span>
 											<span class="product-list__info__status">{=trans('배송완료')}</span>

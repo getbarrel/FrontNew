@@ -158,6 +158,27 @@ $view->assign('cartSummary', $cartSummary['summary']);
 
         $view->assign('freeGift', $freeGift);
 
+        $freeGiftG = "N";
+        $freeGiftC = "N";
+        $freeGiftP = "N";
+
+        foreach ($freeGift as $key => $val) {
+            if($val['freegift_condition'] == "G"){
+                $freeGiftG = "Y";
+            }else if($val['freegift_condition'] == "C"){
+                $freeGiftC = "Y";
+            }else if($val['freegift_condition'] == "P"){
+                $freeGiftP = "Y";
+            }else{
+                $freeGiftG = "N";
+                $freeGiftC = "N";
+                $freeGiftP = "N";
+            }
+        }
+        $view->assign('freeGiftG', $freeGiftG);
+        $view->assign('freeGiftC', $freeGiftC);
+        $view->assign('freeGiftP', $freeGiftP);
+
         $orderGiftItem = $cartModel->getSeletedGiftItem($cartIxs[0], 'O');
         $view->assign('orderGiftItem', $orderGiftItem);
 

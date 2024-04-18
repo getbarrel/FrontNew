@@ -73,30 +73,34 @@
 					</dl>
 					<!-- 상품 E -->
 
-					<!-- 사은품 영역 S -- 
+					{*상품 사은품*}
+					{? ..product_gift}
+					<!-- 사은품 영역 S -->
 					<div class="product-gift-wrap">
 						<div class="product-gift__title">
 							<strong>구매 사은품</strong>
 						</div>
 						<ul class="product-gift__list">
+							{@ product_gift}
 							<li class="product-gift__box inner-gift devGiftList">
 								<figure class="product-gift__thumb">
-									<img src="/assets/templet/enterprise/assets/img/product/sample.png" alt="" />
+									<img src="{product_gift.image_src}" alt="" />
 								</figure>
 								<div class="product-gift__info">
-									<div class="product-gift__info__pname"><span>[사은품]</span> 키즈 데이지 튜브</div>
+									<div class="product-gift__info__pname">{product_gift.pname}</div>
 									<div class="product-gift__info__count">
-										<span>페일네온옐로우</span>
-										<span>OS</span>
-										<span>1개</span>
+										<!--<span>페일네온옐로우</span>
+										<span>OS</span>-->
+										<span>1{=trans('개')}</span>
 									</div>
 								</div>
 							</li>
+							{/}
 						</ul>
 					</div>
 					<!-- 사은품 영역 E -->
+					{/}
 
-					
 					<!-- 입금대기/결제완료 S -->
 					{? order.status == 'IR' || order.status == 'IC'}
 					<div class="claim__list__reason reason-box">
@@ -243,7 +247,7 @@
 		<div class="gift-list">
 			<ul class="product-item__wrap">
 				<li class="product-item__list">
-					<!-- 상품 영역 S -- 
+					-- 상품 영역 S --
 					<dl class="product-item">
 						<dt class="product-item__thumbnail-box">
 							<div class="product-item__thumb">
@@ -261,12 +265,12 @@
 							</div>
 						</dd>
 					</dl>
-					<!-- 상품 영역 E -- 
+					-- 상품 영역 E --
 				</li>
 			</ul>
 		</div>
 	</section>
-	<!-- 구매금액별 사은품 영역 E -->
+	-- 구매금액별 사은품 영역 E -->
 
 	<section class="fb__mypage__section pmt-info">
 		{? order.status == c.ORDER_STATUS_INCOM_COMPLETE}

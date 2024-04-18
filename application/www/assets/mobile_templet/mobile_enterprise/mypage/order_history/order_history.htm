@@ -126,7 +126,7 @@ window.cremaAsyncInit = function() { // init.js가 다운로드 & 실행된 후�
 					<dl class="product-list__item-date">
 						<dt>
 							<div class="order-day">{[order_date]}</div>
-							<span class="order-number"><a href="/mypage/orderDetail?oid={[oid]}" class="btn-link">{[oid]}</a></span>
+							<span class="order-number"><a href="/mypage/orderDetail?oid={[oid]}" class="btn-link"style="padding:0 0 0 0">{[oid]}</a></span>
 						</dt>
 						<dd>
 							<a href="/mypage/orderDetail?oid={[oid]}" class="btn-link">상세보기</a>
@@ -134,7 +134,7 @@ window.cremaAsyncInit = function() { // init.js가 다운로드 & 실행된 후�
 					</dl>
 					<!-- 상품 S -->
 					<div  id="devOrderDetailContent">
-						<div  id="devOrderDetailProduct">
+						<div  id="devOrderDetailProduct" style="paffing-top:10px;">
 							<dl class="product-list__group">
 								<dt class="product-list__group-left">
 									<figure class="product-list__thumb">
@@ -166,7 +166,7 @@ window.cremaAsyncInit = function() { // init.js가 다운로드 & 실행된 후�
 								</dd>
 							</dl>
 							<!-- 상품 E -->
-							<div class="product-list__footer">
+							<div class="product-list__footer" style="padding-bottom:10px;">
 								{* 입금확인 *}
 								{[#if isIncomeComplate]}
 								{[#if isMethod]}
@@ -197,6 +197,7 @@ window.cremaAsyncInit = function() { // init.js가 다운로드 & 실행된 후�
 								<button type="button" class="btn-lg btn-gray-line devInvoice" onclick="javascirt:void(0);" data-quick="{[quick]}" data-invoice_no="{[invoice_no]}">{=trans('배송추적')}</button>
 								{[/if]}
 
+								<div class="btn-group">
 								{[#if isByFinalized]}
 								<button type="button" class="btn-lg btn-gray-line devInvoice" onclick="javascirt:void(0);" data-quick="{[quick]}" data-invoice_no="{[invoice_no]}">{=trans('배송추적')}</button>
 								<!--{? layoutCommon.isLogin}-->
@@ -208,6 +209,7 @@ window.cremaAsyncInit = function() { // init.js가 다운로드 & 실행된 후�
 									<button class="btn-lg btn-gray-line"><button class="odeach__btn--bk devByFinalized" data-pid="{[pid]}" data-oid="{[oid]}" data-odix="{[ode_ix]}">{=trans('리뷰쓰기')}</button></button>
 									{/}
 								{/}
+								</div>
 								<!--{/}-->
 								{[/if]}
 							</div>

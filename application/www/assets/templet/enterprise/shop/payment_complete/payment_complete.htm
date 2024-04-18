@@ -387,6 +387,81 @@
 		<!--{/}-->
 		<!-- 사은품 E -->
 
+		<!-- 사은품 S -->
+		<!--{? freeGiftP}-->
+		<section class="fb__infoinput__gift wrap-gift-area">
+			<div class="fb__infoinput-title">
+				<div class="title-md">이벤트 제품 구매시 금액별 사은품</div>
+			</div>
+			<div class="gift-list">
+				<ul class="product-item__wrap">
+					<li class="product-item__list">
+						<!-- 상품 영역 S -->
+						<!--{@ freeGiftP}-->
+						<!--{@ gift_products}-->
+						<dl class="product-item">
+							<dt class="product-item__thumbnail-box">
+								<div class="product-item__thumb">
+									<img src="{..image_src}" alt="{..pname}" data-devpid="{..pid}" data-devpcount="{..pcnt}"/>
+								</div>
+							</dt>
+							<dd class="product-item__infobox">
+								<div class="product-item__info">
+									<div class="product-item__title">{..pname}</div>
+									<div class="product-item__option">
+										<span>{..pcnt}{=trans('개')}</span>
+									</div>
+								</div>
+							</dd>
+						</dl>
+						<!--{/}-->
+						<!--{/}-->
+						<!-- 상품 영역 E -->
+					</li>
+				</ul>
+			</div>
+		</section>
+		<!--{/}-->
+		<!-- 사은품 E -->
+
+		<!-- 사은품 S -->
+		<!--{? freeGiftC}-->
+		<section class="fb__infoinput__gift wrap-gift-area">
+			<div class="fb__infoinput-title">
+				<div class="title-md">특정 카테고리 사은품</div>
+			</div>
+			<div class="gift-list">
+				<ul class="product-item__wrap">
+					<li class="product-item__list">
+						<!-- 상품 영역 S -->
+						<!--{@ freeGiftC}-->
+						<!--{@ gift_products}-->
+						<dl class="product-item">
+							<dt class="product-item__thumbnail-box">
+								<div class="product-item__thumb">
+									<img src="{..image_src}" alt="{..pname}" data-devpid="{..pid}" data-devpcount="{..pcnt}"/>
+								</div>
+							</dt>
+							<dd class="product-item__infobox">
+								<div class="product-item__info">
+									<div class="product-item__title">{..pname}</div>
+									<div class="product-item__option">
+										<span>{..pcnt}{=trans('개')}</span>
+									</div>
+								</div>
+							</dd>
+						</dl>
+						<!--{/}-->
+						<!--{/}-->
+						<!-- 상품 영역 E -->
+					</li>
+				</ul>
+			</div>
+		</section>
+		<!--{/}-->
+		<!-- 사은품 E -->
+
+
 		<section class="fb__payment-complete__delivery-info delivery-info">
 			<div class="delivery-info__title">
 				<div class="title-md">{=trans('배송 정보')}</div>

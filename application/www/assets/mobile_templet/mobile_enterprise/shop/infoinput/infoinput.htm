@@ -269,9 +269,13 @@ dataLayer.push({
 
         <!-- 사은품 S -->
         {? freeGift}{*주문 사은품*}
+        <input type="hidden" name="freeGiftG" id="freeGiftG" value="{freeGiftG}">
+        <input type="hidden" name="freeGiftC" id="freeGiftC" value="{freeGiftC}">
+        <input type="hidden" name="freeGiftP" id="freeGiftP" value="{freeGiftP}">
         {@ freeGift}
         <!--{? .gift_products}-->
         <div class="infoinput-goods__gifts devOrderGiftArea devOrderGiftArea_{.freegift_condition}" data-freegift_condition = '{.freegift_condition}'>
+            <input type="hidden" name="{.freegift_condition}_giftUseYN" id="{.freegift_condition}_giftUseYN" value="Y">
             <div class="page-title">
                 <div class="title-md">{=trans(.freegift_condition_text)}</div>
                 <span class="total-count"><em>{=trans(.gift_cnt)}</em>개 선택 가능.</span>
@@ -279,26 +283,31 @@ dataLayer.push({
             <div class="product-list">
                 <ul class="product-list__wrap">
                     <!--{@ .gift_products}-->
-                    <li class="product-list__item devOrderGiftList" id="devOrderGiftList_{.freegift_condition}">
+                    <!--{@ ..value_}-->
+                    <li class="product-list__item devOrderGiftList" id="devOrderGiftList_{...pid}_{...event_fg_ix}_{.freegift_condition}">
                         <div class="product-list__item-top">
                             <label class="product-list__check">
-                                <input type="checkbox" id="giftCheckbox" class="cart_product_check" value="{..pid}" />
+                                <input type="radio" name="{.freegift_condition}_giftCheck" id="{.freegift_condition}_giftCheckbox_{...pid}" class="cart_product_check" value="{...pid}_{.freegift_condition}" onclick="radioChk(this.value);"/>
                             </label>
                         </div>
                         <dl class="product-list__group devGiftListByOrder">
                             <dt class="product-list__group-left">
                                 <figure class="product-list__thumb">
-                                    <img src="{..image_src}" alt="{..pname}" data-devpid="{..pid}" data-devpcount="{.gift_cnt}" data-fg_ix="{.fg_ix}" data-freegift_condition="{.freegift_condition}"/>
+                                    <img src="{...image_src}" alt="{...pname}" data-devpid="{...pid}" data-devpcount="{.gift_cnt}" data-fg_ix="{...event_fg_ix}" data-freegift_condition="{.freegift_condition}"/>
+                                    <input type="hidden" name="{.freegift_condition}_devpid_{...pid}" id="{.freegift_condition}_devpid_{...pid}" value="{...pid}">
+                                    <input type="hidden" name="{.freegift_condition}_devpcount_{...pid}" id="{.freegift_condition}_devpcount_{...pid}" value="{.gift_cnt}">
+                                    <input type="hidden" name="{.freegift_condition}_fg_ix_{...pid}" id="{.freegift_condition}_fg_ix_{...pid}" value="{...event_fg_ix}">
+                                    <input type="hidden" name="{.freegift_condition}_freegift_condition_{...pid}" id="{.freegift_condition}_freegift_condition_{...pid}" value="{.freegift_condition}">
                                 </figure>
                             </dt>
                             <dd class="product-list__group-right">
                                 <div class="product-list__info">
-                                    <div class="product-list__info__title">{=trans(..pname)}</div>
-                                    <!--<div class="product-list__info__option">
+                                    <div class="product-list__info__title">{=trans(...pname)}</div>
+                                    <div class="product-list__info__option">
                                         <div class="product-list__info__option-item">
-                                            <span class="color">페일네온옐로우</span>
+                                            <span class="color">{=trans(...event_title)}</span>
                                         </div>
-                                    </div>-->
+                                    </div>
 
                                     <!-- 갯수 S --
                                     <div class="control">
@@ -319,10 +328,15 @@ dataLayer.push({
                         </dl>
                     </li>
                     <!--{/}-->
+                    <!--{/}-->
                     <li class="product-list__item">
                         <div class="product-list__item-top">
                             <label class="product-list__check">
-                                <input type="checkbox" class="cart_product_check" id="giftNoCheckbox" value="Y" />
+                                <input type="radio" name="{.freegift_condition}_giftCheck" id="{.freegift_condition}_giftCheckbox_55421" value="55421" /> <!-- qa : 55410 || stg / real : 55421 -->
+                                <input type="hidden" name="{.freegift_condition}_devpid_55421" id="{.freegift_condition}_devpid_55421" value="55421">
+                                <input type="hidden" name="{.freegift_condition}_devpcount_55421" id="{.freegift_condition}_devpcount_55421" value="1">
+                                <input type="hidden" name="{.freegift_condition}_fg_ix_55421" id="{.freegift_condition}_fg_ix_55421" value="">
+                                <input type="hidden" name="{.freegift_condition}_freegift_condition_55421" id="{.freegift_condition}_freegift_condition_55421" value="G">
                                 <span style="color:#000;margin-left:0rem;">사은품 선택 안함.</span>
                             </label>
                         </div>

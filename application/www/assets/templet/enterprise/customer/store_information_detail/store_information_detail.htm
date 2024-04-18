@@ -1,57 +1,117 @@
-<section class="br__store-detail">
-      <h2 class="br__hidden">매장찾기상세</h2>
-      <figure class="br__store-detail__bg">
-            <img src="{layoutCommon.templetSrc}/img/sample/bg.jpg" alt="">
-      </figure>
-      <artcle class="store-each">
-            <h3 class="br__hidden">뒷배경 및 상세 정보</h3>
-            <div class="store-each__top">
-                  <h3 class="store-each__name">{storeInfo.store_name}</h3>
-                  {? storeInfo.store_tel}
-                  <a class="store-each__call" href="tel:{storeInfo.store_tel}">전화걸기아이콘</a>
-                  {/}
-            </div>
-            <p class="store-each__text">
-                  {storeInfo.store_address1}<br>
-                  {storeInfo.store_address2}
-            </p>
-            <div class="store-each__text">
-                  <span>{storeInfo.open_time}</span>
-                  <span>{storeInfo.open_time2}</span>
-                  <span>{storeInfo.open_time3}</span>
-            </div>
-      </artcle>
-      <artcle class="store-map store-map--fold">
-            <header class="store-map__top">
-                  <span class="store-map__foldicon store-map__foldicon--point">접기 아이콘</span>
-                  <h3 class="store-map__title">매장 지도 안내</h3>
-            </header>
-            <div class="store-map__scroll-area">
-                  <div class="store-map__map">
-                        지도 api
-                  </div>
-                  <p class="store-map__addr">
-                        {storeInfo.store_address1}<br>
-                        {storeInfo.store_address2}
-                  </p>
-                  <div class="store-map__by">
-                        <div class="store-map__by__open">
-                              <h4 class="store-map__title">지하철 이용 안내</h4>
-                              <span class="store-map__foldicon store-map__foldicon--normal">접기 아이콘</span>
+<!-- 컨텐츠 S -->
+<form id="devListForm">
+      <input type="hidden" name="page" value="1" id="devPage"/>
+      <input type="hidden" name="max" value="10" />
+      <input type="hidden" name="city" value="" id="devCity" />
+      <input type="hidden" name="area" value="" id="devArea" />
+      <input type="hidden" name="name" value="{storeName}" id="devStoreName" />
+</form>
+<section class="fb__customer fb__store">
+      <div class="fb__store-wrap">
+            <aside class="fb__store__lnb">
+                  <div class="lnb">
+                        <div class="lnb__title">{=trans('매장안내')}</div>
+                        <div class="lnb__top">
+                              <div class="fb__form-group">
+                                    <select class="fb__form-select" id="devCitySelect" name="city">
+                                          <option value="">{=trans('지역')}</option>
+                                          {@ cityList.list}
+                                          <option class="devSortTab" name="filterRadio" value="{.city_code}">{.city_code}</option>
+                                          {/}
+                                    </select>
+                                    <select class="fb__form-select" id="devAreaSelect" name="area">
+                                          <option class="devSortTab" value="">{=trans('시/군/구')}</option>
+                                    </select>
+                                    <button class="lnb__top__search btn-lg btn-dark-line" id="devSearchStore">검색</button>
+                              </div>
+                              <div class="fb__form-item">
+                                    <label for="devStoreInput" class="hide"></label>
+                                    <input class="lnb__top__name fb__form-input" type="text" id="devStoreInput" name="store_input" placeholder="매장명 검색" value="{storeName}" />
+                                    <i class="ico ico-search"></i>
+                              </div>
                         </div>
-                        <p class="store-map__by__detail">
-                                {storeInfo.subway}
-                        </p>
-                  </div>
-                  <div class="store-map__by">
-                        <div class="store-map__by__open">
-                              <h4 class="store-map__title">버스 이용 안내</h4>
-                              <span class="store-map__foldicon store-map__foldicon--normal">접기 아이콘</span>
+                        <div class="lnb__result">
+                              <div class="lnb__result__scroll">
+                                    <ul id="devListContents">
+                                          <li id="devListLoading" class="devForbizTpl"></li>
+
+                                          <li id="devListEmpty" class="empty-content devForbizTpl">{=trans('찾으시는 지역을 선택해 주세요.')}</li>
+
+                                          <li class="lnb__result__title">
+                                                <p class="empty-content"><span id="devStoreCnt">0</span>개의 배럴 매장이 검색되었습니다.</p>
+                                          </li>
+                                          <li class="js__each__store lnb__result__item" id="devListDetail">
+                                                <a href="javascript:void(0);" data-ob='[{[json]}]'>
+                                                      <dl class="lnb__result__each">
+                                                            <dt class="lnb__result__each-name">{[store_name]} <i class="ico ico-arrow-right "></i></dt>
+                                                            <dd class="lnb__result__each-detail">
+                                                                  <p class="devAddressInfo">{[store_address1]} {[store_address2]}</p>
+                                                            </dd>
+                                                      </dl>
+                                                </a>
+                                          </li>
+
+                                    </ul>
+                              </div>
                         </div>
-                        <p class="store-map__by__detail">
-                              {=nl2br(storeInfo.bus)}
-                        </p>
+                  </div>
+            </aside>
+            <div class="fb__store__map">
+                  <div class="fb__store__map-wrap">
+                        <div class="fb__store-slide swiper-container">
+                              <div class="swiper-wrapper">
+                                    {storeBasicInfo.src}
+                              </div>
+                              <div class="fb__store-slide__control">
+                                    <div class="swiper-control-group">
+                                          <div class="swiper-scrollbar"></div>
+                                          <div class="swiper-pagination"></div>
+                                          <button type="button" class="swiper-button swiper-button-prev"></button>
+                                          <button type="button" class="swiper-button swiper-button-next"></button>
+                                    </div>
+                              </div>
+                        </div>
+                        <div id="map" style="width: 830px; height: 600px; "></div>
                   </div>
             </div>
-      </artcle>
+
+            <section class="fb__store__detail s-detail ">
+                  <div class="fb__store__detail-wrap">
+                        <div class="fb__store__detail-info">
+                              <div class="fb__store__name">{storeBasicInfo.store_name}</div>
+                              <div class="fb__store__address">
+                                    <p>
+                                          {storeBasicInfo.store_address1}<br />
+                                          {storeBasicInfo.store_address2}
+                                    </p>
+                              </div>
+                              <div class="fb__store__businessDay">
+                                    <button type="button" class="btn-sns" id="_businessSns" onclick="window.open('{storeBasicInfo.sns_info}')"><i class="ico ico-instagram-bk"></i></button>
+                                    <p id="_businessDay">{storeBasicInfo.open_time}</p>
+                                    <p id="_businessTel">{storeBasicInfo.store_tel}</p>
+                              </div>
+                        </div>
+                        <div class="fb__store__detail-publicTransport">
+                              <div class="fb__store__detail-item">
+                                    <div class="title-sm">버스 이용 안내</div>
+                                    <ul class="fb__store-desc">
+                                          <li id="_bus">
+                                                {storeBasicInfo.bus}
+                                          </li>
+                                    </ul>
+                              </div>
+                              <div class="fb__store__detail-item">
+                                    <div class="title-sm">지하철 이용 안내</div>
+                                    <ul class="fb__store-desc">
+                                          <li id="_subway">
+                                                {storeBasicInfo.subway}
+                                          </li>
+                                    </ul>
+                              </div>
+                        </div>
+                  </div>
+            </section>
+      </div>
 </section>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={c.KAKAO_SCRIPT_KEY}&libraries=services"></script>
+<!-- 컨텐츠 E -->

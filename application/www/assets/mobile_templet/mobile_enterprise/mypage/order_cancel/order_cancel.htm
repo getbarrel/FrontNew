@@ -65,30 +65,35 @@
 					</dl>
 					<!-- 상품 E -->
 
-					<!-- 사은품 S -- 
+					{*상품 사은품*}
+					{? ..product_gift}
+					<!-- 사은품 S -->
 					<div class="product-list__freebie">
 						<div class="product-list__freebie__title"><span>구매 사은품</span></div>
 						<ul class="product-list__freebie__list">
+							{@ product_gift}
 							<li class="product-list__freebie__box">
 								<div class="product-list__freebie__thumb">
 									<figure>
-										<img src="/assets/mobile_templet/mobile_enterprise/assets/img/product/sample.png" alt="" />
+										<img src="{product_gift.image_src}" alt="" />
 									</figure>
 								</div>
 								<div class="product-list__freebie__info">
-									<div class="product-list__freebie__name">[사은품] 키즈 데이지 튜브</div>
+									<div class="product-list__freebie__name">{product_gift.pname}</div>
 									<div class="product-list__freebie__option">
 										<div class="product-list__freebie__option-item">
-											<span>페일네온옐로우</span>
-											<span>OS</span>
-											<span>1개</span>
+											<!--<span>페일네온옐로우</span>
+											<span>OS</span>-->
+											<span>1{=trans('개')}</span>
 										</div>
 									</div>
 								</div>
 							</li>
+							{/}
 						</ul>
 					</div>
-					-- 사은품 E -->
+					<!-- 사은품 E -->
+					{/}
 
 					<!-- 주문 취소 영역(입금대기&입금완료) S -->
 					<div class="reason-box">
@@ -111,7 +116,9 @@
 						<dl class="reason-box__inner">
 							<div class="reason-box__cont">
 								<div class="br__form-item devCancelCodeArea" data-odix="{..od_ix}">
-									<label for="" class="hide">{=trans('취소사유')}</label>
+									<div class="reason-box__title">
+										<div class="title-sm">{=trans('취소사유')}</div>
+									</div>
                                     <select name="cc_reason" class="br__form-select devCcReason" data-odix="{..od_ix}">
                                         {@ (cancelReason)}
                                         {? langType=='english' && ...key_ == 'ETC'}

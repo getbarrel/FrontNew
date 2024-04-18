@@ -6,7 +6,7 @@ $view = getForbizView();
 
 $oid = $view->getFlashData('payment_oid');
 /*if($_SERVER["REMOTE_ADDR"] == '211.104.22.53'){
-	$oid = "202403251643-0000219";
+	$oid = "202404181747-0000009";
 }*/
 if (!empty($oid)) {
     /* @var $mypageModel CustomMallMypageModel */

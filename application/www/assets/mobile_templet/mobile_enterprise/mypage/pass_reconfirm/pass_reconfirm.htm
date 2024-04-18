@@ -25,24 +25,44 @@
 <section class="br__mypage">
 	<div class="br__mypage__pass">
 		<div class="page-title my-title">
-			<div class="title-sm">회원정보 수정</div>
-			<div class="page-title__sub">회원님의 개인정보 보호를 위해 비밀번호를<br />다시 한번 입력해 주시기 바랍니다.</div>
+			<div class="title-sm">{=trans('비밀번호 재확인')}</div>
+			<div class="page-title__sub">{=trans('고객님의 개인정보보호를 위해 <br>비밀번호를 다시 입력해주시기 바랍니다.')}</div>
 		</div>
-		<form>
+		<form id="devRevalidatePasswordForm">
 			<div class="pass-box">
 				<div class="pass-box__input">
 					<label for="devUserPassword" class="hidden">비밀번호</label>
-					<input type="password" name="pass" id="devUserPassword" class="br__form-input" title="비밀번호" placeholder="비밀번호 입력" value="" />
+					<!-- <input type="password" name="pass" id="devUserPassword" class="br__form-input pass-input" title="비밀번호" placeholder="비밀번호 입력" value="" /> -->
+					<input type="password" class="pass-input" placeholder="{=trans('비밀번호')}" name="pass" value="" id="devUserPassword" title="{=trans('비밀번호')}"/>
 					<button type="button" class="btn-pw--visibility"><i class="ico ico-eye-hide"></i>비밀번호 확인 버튼</button>
 				</div>
 				<p class="txt-desc">영문 + 숫자 + 특수문자 2가지 이상 조합 및 8~16자리 입력 필수.</p>
 				<div class="pass-box__btn">
-					<input type="submit" value="확인" title="확인" class="btn-lg btn-dark-line pass-box__btn__login" id="devPasswordSubmit" />
+					<input type="submit" value="{=trans('확인')}" title="{=trans('확인')}" class="btn-lg btn-dark-line pass-box__btn__login" id="devPasswordSubmit" />
 				</div>
 			</div>
 		</form>
 	</div>
 </section>
+
+<!-- <section class="br__mypage">
+    <div class="br__mypage__pass">
+        <p class="pass-title">{=trans('비밀번호 재확인')}</p>
+        <p class="pass-subtitle">{=trans('고객님의 개인정보보호를 위해 <br>비밀번호를 다시 입력해주시기 바랍니다.')}</p>
+        <form id="devRevalidatePasswordForm">
+            <div class="pass-box">
+                <input type="password" class="pass-input" placeholder="{=trans('비밀번호')}" name="pass" value="" id="devUserPassword" title="=trans('비밀번호')}"/>
+            </div>
+            <div class="br__login__info">
+                <div class="information__btn">
+                    <input class="information__btn__nomem" type="submit" value="{=trans('확인')}" title="{=trans('확인')}" id="devPasswordSubmit" />
+                    <p class="txt-error" devtailmsg=""></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</section> -->
+
 {/}
 <!-- 컨텐츠 E -->
 

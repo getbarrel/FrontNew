@@ -16,7 +16,8 @@
 						</dl>
 					</div>
 				</div>
-				<div class="br__order-claim--desc">{=trans('취소처리 현황은 <span>마이페이지 > 반품/취소 내역</span>에서 확인하실 수 있습니다.')}</div>
+				<!-- <div class="br__order-claim--desc">{=trans('취소처리 현황은 <span>마이페이지 > 반품/취소 내역</span>에서 확인하실 수 있습니다.')}</div> -->
+				<div class="br__order-claim--desc">{=trans('취소 처리 현황은 <a href="/mypage/returnHistory">마이페이지 &gt; 반품/취소 내역</a>에서 확인하실 수 있습니다.')}</div>
 				<!--취소교환반품 신청내역조회일 때 E -->
 
 				<section class="br__order-content">
@@ -89,12 +90,12 @@
 					<!--결제 정보 S -- 
 					<div class="pay-comp__wrap payment">
 						<div class="br__mypage-title">
-							<div class="title-sm">환불 내역</div>
+							<div class="title-sm">{=trans('환불 내역')}</div>
 						</div>
 						<div class="pay-comp__payment">
 							<dl class="pay-comp__payment__total">
-								<dt>환불 예정 금액</dt>
-								<dd><em>1,265,550</em>원</dd>
+								<dt>{=trans('환불 예정 금액')}</dt>
+								<dd>{fbUnit.f}<em>{=g_price(paymentInfo.total_listprice)}</em>{fbUnit.b}</dd>
 							</dl>
 
 							<div class="pay-comp__payment__virtual" style="display: none">
@@ -132,7 +133,79 @@
 							</div>
 						</div>
 					</div>
-					<!--결제 정보 E -->
+					--결제 정보 E -->
+
+
+
+					<!--결제 정보 S --
+					<div class="pay-comp__wrap payment">
+						<div class="br__mypage-title">
+							<div class="title-sm">{=trans('결제 정보')}</div>
+						</div>
+						<div class="pay-comp__payment">
+							<dl class="pay-comp__payment__total">
+								<dt>총 결제 예정 금액</dt>
+								<dd>{fbUnit.f}<em>{=g_price(paymentInfo.payment[0].payment_price)}</em>{fbUnit.b}</dd>
+							</dl>
+
+							-- 가상 계좌 결제 시 노출 S --
+							--{@ paymentInfo.payment}--
+							{? .method == c.ORDER_METHOD_BANK || .method == c.ORDER_METHOD_VBANK || .method == c.ORDER_METHOD_ICHE || .method == c.ORDER_METHOD_ASCROW}
+							<div class="pay-comp__payment__virtual">
+								<div class="title-sm">입금 정보</div>
+								<div class="pay-comp__payment__virtual-text">
+									{.bank} / 계좌번호 : <em>{.bank_account_num}</em><br />
+									{.vb_info}{? .bank_input_name != ''}{=trans('예금주 : {.bank_input_name}')}{/}  <!-- 예금주 : 주식회사 배럴 --
+								</div>
+								<div class="layout-flex txt-red">
+									<span>{=trans('입금 기한')}</span>
+									<span>{=date('Y년 m월 d일', strtotime(.bank_input_date))}까지</span>
+								</div>
+							</div>
+							{/}
+							--{/}--
+
+							<div class="pay-comp__payment__list">
+								--{@ paymentInfo.payment}--
+								<dl class="pay-comp__payment__box">
+									<dt>{=trans('결제수단')}</dt>
+									<dd>{.method_text}</dd>
+								</dl>
+								--{/}--
+								<dl class="pay-comp__payment__box">
+									<dt>{=trans('총 상품금액')}</dt>
+									<dd>{fbUnit.f}<em>{=g_price(paymentInfo.total_listprice)}</em>{fbUnit.b}</dd>
+								</dl>
+								<dl class="pay-comp__payment__box">
+									<dt>{=trans('상품 할인')}</dt>
+									<dd>- {fbUnit.f}<em>{=g_price(paymentInfo.dr_dc)}</em>{fbUnit.b}</dd>
+								</dl>
+								<dl class="pay-comp__payment__box">
+									<dt>{=trans('등급 할인')}</dt>
+									<dd>- {fbUnit.f}<em>{=g_price(paymentInfo.mg_dc)}</em>{fbUnit.b}</dd>
+								</dl>
+								<dl class="pay-comp__payment__box">
+									<dt>{=trans('쿠폰 할인')}</dt>
+									<dd>- {fbUnit.f}<em>{=g_price(paymentInfo.cp_dc)}</em>{fbUnit.b}</dd>
+								</dl>
+								<dl class="pay-comp__payment__box">
+									<dt>{=trans('적립금 사용')}</dt>
+									<dd>- {fbUnit.f}<em>{=g_price(paymentInfo.use_reserve)}</em>{fbUnit.b}</dd>
+								</dl>
+								<dl class="pay-comp__payment__box">
+									<dt>{=trans('총 배송비')}</dt>
+									<dd>{fbUnit.f}<em>{=g_price(order.delivery_price)}</em>{fbUnit.b}</dd>
+								</dl>
+							</div>
+							<dl class="pay-comp__payment__benefits">
+								<dt>{=trans('적립 혜택')}</dt>
+								<dd>{fbUnit.f}<em>{=g_price(paymentInfo.total_reserve)}</em>{fbUnit.b}</dd>
+							</dl>
+						</div>
+					</div>
+					--결제 정보 E -->
+
+
 					<div class="use-notice">
 						<h3 class="use-notice__title">{=trans('유의사항')}</h3>
 						<ul class="use-notice__list">

@@ -310,7 +310,7 @@ var devOrderClaim = {
             });
 
             // *** 주문취소 신청/해제
-            $(".order-claim__goods__toggle").on('click', function () {
+            $(".btn-line-no").on('click', function () {
                 $("#devClaimItemSec1").show();
                 self.boxOnOff($(this).data('odix'));
             });

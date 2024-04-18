@@ -366,7 +366,6 @@ class CustomMallProductModel extends ForbizMallProductModel
                 foreach ($addProductlist as $addProdcut) {
                     //추가 구성 상품으로 등록된 상품이 또다른 추가 구성 상품을 가지고 있다면 프로세스가 중지 되어야 하기에 addoptiontype 추가 처리하여 조작 함
                     $optionData = $this->getOption($addProdcut['pid'], 'all', '', 'second');
-                    //echo $kdd;
                     if (count($optionData['viewOptions']) == 1 && $optionData['viewOptions'][0]['option_kind'] == 'b') {
                         $addoption = [
                             'opn_ix' => $addProdcut['pid']
@@ -712,7 +711,7 @@ class CustomMallProductModel extends ForbizMallProductModel
         return $data2;
     }
 
-    public function getFreeGiftNew($freeGiftCondition,$payment_price=0, $fgKey=[],$imageSizeType = 's'){
+    public function getFreeGiftNew($freeGiftCondition,$payment_price=0, $fgKey=[],$imageSizeType = 's',$cartData=''){
 
         switch($freeGiftCondition){
             case 'C':
@@ -750,77 +749,122 @@ class CustomMallProductModel extends ForbizMallProductModel
             ->whereIn('fg.mall_ix',['', MALL_IX])
             //->orderBy('fg.fg_ix','RANDOM')
             ->orderBy('fpg.sale_condition_s','desc')
-            ->limit(1)
+            //->limit(1)
             ->exec()
             ->getResultArray();
 
         $data = [];
 
+        foreach ($cartData as $company) {
+            foreach ($company['deliveryTemplateList'] as $deliveryTemplate) {
+                foreach ($deliveryTemplate['productList'] as $product => $val) {
+                    if($product == 0){
+                        $id = $val['id'];
+                    }else{
+                        $id = $id.", ".$val['id'];
+                    }
+                    $cartPrice[$val['id']] = $val['dcprice'] * $val['pcount'];
+                }
+            }
+        }
+
         if (!empty($rows)) {
             foreach ($rows as $row) {
-                // 공통 검색 로직
-                $this->qb
-                    ->select('p.id')
-                    ->select('p.pname')
-                    ->select('p.is_adult')
-                    ->select('p.stock')
-                    ->select('p.sell_ing_cnt')
-                    ->select('p.disp')
-                    ->select('p.state')
-                    ->from(TBL_SHOP_FREEGIFT_PRODUCT_RELATION . ' AS fpr')
-                    ->join(TBL_SHOP_PRODUCT . ' AS p', 'fpr.pid = p.id')
-                    ->where('fpr.fg_ix', $row['fg_ix'])
-                    ->where("if(p.is_sell_date = '1',p.sell_priod_sdate <= '".date('Y-m-d H:i:s')."' and p.sell_priod_edate >= '".date('Y:m:d H:i:s')."','1=1')",
-                        '', false)
-                    ->orderBy('fpr.vieworder');
 
-                // 회원조건이 있는가?
-                if ($row['member_target'] == 'M') {
-                    // 특정 회원
-                    $prows = $this->qb
-                        ->join(TBL_SHOP_FREEGIFT_DISPLAY_RELATION . ' AS fdr', 'fpr.fg_ix = fdr.fg_ix')
-                        ->where('r_ix', $this->userInfo->code)// 회원코드
-                        ->exec()
-                        ->getResultArray();
-                } elseif ($row['member_target'] == 'G') {
-                    // 회원그룹
-                    $prows = $this->qb
-                        ->join(TBL_SHOP_FREEGIFT_DISPLAY_RELATION . ' AS fdr', 'fpr.fg_ix = fdr.fg_ix')
-                        ->where('r_ix', $this->userInfo->gp_ix)// 그룹코드
-                        ->exec()
-                        ->getResultArray();
-                } else {
-                    // 전체 회원
-                    $prows = $this->qb
-                        ->exec()
-                        ->getResultArray();
-                }
-                $data['gift_cnt'] = $row['gift_cnt'];
-                $data['freegift_event_title'] = $row['freegift_event_title'];
-                $data['sale_condition_s'] = $row['sale_condition_s'];
-                $data['sale_condition_e'] = $row['sale_condition_e'];
-                $data['fg_ix'] = $row['fg_ix'];
-                $data['freegift_condition'] = $row['freegift_condition'];
-                $data['freegift_condition_text'] = $freegift_condition_text;
-                $data['freegift_condition_text_select'] = $freegift_condition_text." 선택";
-                if (!empty($prows)) {
-                    $soldOutCheck = true;
-                    foreach ($prows as $prow) {
-                        $stock = $prow['stock'] - $prow['sell_ing_cnt'];
-                        $status = $this->setStatus($prow['disp'], $prow['state'], $stock);
-                        if ($stock > 0 && $status == 'sale') {
-                            $soldOutCheck = false;
-                            $data['gift_products'][$prow['id']] = [
-                                'pid' => $prow['id']
-                                , 'image_src' => get_product_images_src($prow['id'], $this->isUserAdult, $imageSizeType, $prow['is_adult']) //이미지
-                                , 'pname' => $prow['pname']
-                                , 'status' => $status
-                                , 'stock' =>$stock
-                            ];
+                //$sql = "select sum(sellprice) as noSellPrice from shop_product as p, shop_freegift_select_product_relation as fspr where fspr.fg_ix = '".$row['fg_ix']."' and fspr.pid = p.id and fspr.pid in ($id)";
+                //$noSellPriceRow = $this->qb->exec($sql)->getResultArray();
+                /*if($noSellPriceRow[0]['noSellPrice'] != ''){
+                    $freeGiftPrice = $payment_price - $noSellPriceRow[0]['noSellPrice'];
+                }else{
+                    $freeGiftPrice = $payment_price;
+                }*/
+                $sql = "select id from shop_product as p, shop_freegift_select_product_relation as fspr where fspr.fg_ix = '".$row['fg_ix']."' and group_code = 3 and fspr.pid = p.id and fspr.pid in ($id)";
+                $idRow = $this->qb->exec($sql)->getResultArray();
+
+                $noSellPriceRow = 0;
+                foreach($idRow as $key => $val){
+                    $noSellPriceRow = $noSellPriceRow + $cartPrice[$val['id']];
+                    /*foreach ($cartData as $company) {
+                        foreach ($company['deliveryTemplateList'] as $deliveryTemplate) {
+                            foreach ($deliveryTemplate['productList'] as $product => $pVal) {
+                                if($val['id'] == $pVal['id']){
+                                    $noSellPriceRow = $pVal['dcprice'] * $pVal['pcount'];
+                                    $freeGiftPrice = $payment_price - $noSellPriceRow;
+                                }
+                            }
                         }
+                    }*/
+                }
+                $freeGiftPrice = $payment_price - $noSellPriceRow;
+
+                if(($freeGiftCondition == "G" && $freeGiftPrice >= $row['sale_condition_s']) || $freeGiftCondition == "C" || $freeGiftCondition == "P"){
+                    // 공통 검색 로직
+                    $this->qb
+                        ->select('p.id')
+                        ->select('p.pname')
+                        ->select('p.is_adult')
+                        ->select('p.stock')
+                        ->select('p.sell_ing_cnt')
+                        ->select('p.disp')
+                        ->select('p.state')
+                        ->from(TBL_SHOP_FREEGIFT_PRODUCT_RELATION . ' AS fpr')
+                        ->join(TBL_SHOP_PRODUCT . ' AS p', 'fpr.pid = p.id')
+                        ->where('fpr.fg_ix', $row['fg_ix'])
+                        ->where("if(p.is_sell_date = '1',p.sell_priod_sdate <= '".date('Y-m-d H:i:s')."' and p.sell_priod_edate >= '".date('Y:m:d H:i:s')."','1=1')",
+                            '', false)
+                        ->orderBy('fpr.vieworder');
+
+                    // 회원조건이 있는가?
+                    if ($row['member_target'] == 'M') {
+                        // 특정 회원
+                        $prows = $this->qb
+                            ->join(TBL_SHOP_FREEGIFT_DISPLAY_RELATION . ' AS fdr', 'fpr.fg_ix = fdr.fg_ix')
+                            ->where('r_ix', $this->userInfo->code)// 회원코드
+                            ->exec()
+                            ->getResultArray();
+                    } elseif ($row['member_target'] == 'G') {
+                        // 회원그룹
+                        $prows = $this->qb
+                            ->join(TBL_SHOP_FREEGIFT_DISPLAY_RELATION . ' AS fdr', 'fpr.fg_ix = fdr.fg_ix')
+                            ->where('r_ix', $this->userInfo->gp_ix)// 그룹코드
+                            ->exec()
+                            ->getResultArray();
+                    } else {
+                        // 전체 회원
+                        $prows = $this->qb
+                            ->exec()
+                            ->getResultArray();
                     }
-                    if($soldOutCheck){
-                        $data['soldOut'] =  $soldOutCheck;
+
+                    $data['gift_cnt'] = $row['gift_cnt'];
+                    $data['freegift_event_title'] = $row['freegift_event_title'];
+                    $data['sale_condition_s'] = $row['sale_condition_s'];
+                    $data['sale_condition_e'] = $row['sale_condition_e'];
+                    $data['fg_ix'] = $row['fg_ix'];
+                    $data['freegift_condition'] = $row['freegift_condition'];
+                    $data['freegift_condition_text'] = $freegift_condition_text;
+                    $data['freegift_condition_text_select'] = $freegift_condition_text." 선택";
+                    if (!empty($prows)) {
+                        $soldOutCheck = true;
+                        foreach ($prows as $prow) {
+                            $stock = $prow['stock'] - $prow['sell_ing_cnt'];
+                            $status = $this->setStatus($prow['disp'], $prow['state'], $stock);
+                            if ($stock > 0 && $status == 'sale') {
+                                $soldOutCheck = false;
+                                $data['gift_products'][][$prow['id']] = [
+                                    'pid' => $prow['id']
+                                    , 'image_src' => get_product_images_new_src($prow['id'], $this->isUserAdult, $imageSizeType, $prow['is_adult']) //이미지
+                                    , 'pname' => $prow['pname']
+                                    , 'status' => $status
+                                    , 'stock' =>$stock
+                                    , 'event_title' => $row['freegift_event_title']
+                                    , 'event_fg_ix' => $row['fg_ix']
+                                ];
+                            }
+                        }
+                        if($soldOutCheck){
+                            $data['soldOut'] =  $soldOutCheck;
+                        }
                     }
                 }
             }
@@ -1168,10 +1212,7 @@ class CustomMallProductModel extends ForbizMallProductModel
         $this->qb->stopCache();
 
         $total = $this->qb->getCount('DISTINCT p.id');
-        if($_SERVER["REMOTE_ADDR"] == '211.104.22.53'){
-            //print_r($page);
-			//$max = 10;
-        }
+
         $paging = $this->qb->setTotalRows($total)->pagination($page, $max);
 
         $this->qb->startCache();
@@ -1210,10 +1251,6 @@ class CustomMallProductModel extends ForbizMallProductModel
             union all            
             select * 
             from ( $sql2 ) as a2 group by id limit " . $limit . " ";
-        /*if($_SERVER["REMOTE_ADDR"] == '61.43.140.103'){
-            print_r($sql);
-            exit;
-        }*/
 
         $list = $this->qb->exec($sql)->getResultArray();
         $this->qb->flushCache();
@@ -4760,12 +4797,12 @@ echo "End6";
 
         switch($freeGiftCondition){
             case 'all':
-                $datas[] = $this->getFreeGiftNew('G',$payment_price);// 구매금액별 사은품 정보
+                $datas[] = $this->getFreeGiftNew('G',$payment_price,'','',$cartData);// 구매금액별 사은품 정보
                 $datas[] = $this->getFreeGiftByCategory($cartData);//카테고리별 사은품
                 $datas[] = $this->getFreeGiftByProducts($cartData,$payment_price);// 특정 상품포함 사은품 정보
                 break;
             case 'G';
-                $datas[] = $this->getFreeGiftNew('G',$payment_price);// 구매금액별 사은품 정보
+                $datas[] = $this->getFreeGiftNew('G',$payment_price,'','',$cartData);// 구매금액별 사은품 정보
                 break;
             case 'C';
                 $datas[] = $this->getFreeGiftByCategory($cartData);//카테고리별 사은품
@@ -4807,7 +4844,7 @@ echo "End6";
             }
         }
         if(isset($matchGiftKey) && count($matchGiftKey) > 0){
-            return $this->getFreeGiftNew('C','',array_unique($matchGiftKey));
+            return $this->getFreeGiftNew('C','',array_unique($matchGiftKey),'',$cartData);
         }
     }
 
@@ -4835,7 +4872,7 @@ echo "End6";
         }
 
         if(isset($matchGiftKey) && count($matchGiftKey) > 0){
-            return $this->getFreeGiftNew('P',$payment_price,array_unique($matchGiftKey));
+            return $this->getFreeGiftNew('P',$payment_price,array_unique($matchGiftKey),'',$cartData);
         }
     }
 

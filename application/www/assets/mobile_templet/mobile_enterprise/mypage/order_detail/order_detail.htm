@@ -96,11 +96,11 @@
 						<!--{/}-->
 
 						<!--{? ..isDeliveryComplate}{* 배송완료 *}-->
+						<button class="btn-lg btn-dark-line odeach__btn--all devBuyFinalizedBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('구매확정')}</button>
 						<div class="btn-group">
-							<button class="btn-lg btn-dark-line devOrderReturnBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('반품신청')}</button>
+							<button class="btn-lg btn-gray-line devOrderReturnBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('반품신청')}</button>
 							<button class="btn-lg btn-gray-line devDeliveryTrace" data-quick="{..quick}" data-tracking_expiration="{..tracking_expiration}" data-invoice_no="{..invoice_no}">{=trans('배송조회')}</button>
 						</div>
-						<button class="btn-lg btn-dark-line odeach__btn--all devBuyFinalizedBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('구매확정')}</button>
 						<!--{/}-->
 
 						<!--{? ..isByFinalized}{* 구매확정 *}-->

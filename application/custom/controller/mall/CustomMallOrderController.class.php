@@ -284,7 +284,6 @@ class CustomMallOrderController extends ForbizMallOrderController
                 //선택된 사은품의 갯수와 설정된 갯수를 체크 하기 위한 데이터 [S]
                 $freeGiftCntCheckData = [];
                 //선택된 사은품의 갯수와 설정된 갯수를 체크 하기 위한 데이터 [E]
-
                 foreach($freeGiftOrder as $key=>$freeGiftOrderItem){
 
                     //선택된 사은품의 갯수와 설정된 갯수를 체크 하기 위한 데이터 [S]
@@ -299,7 +298,7 @@ class CustomMallOrderController extends ForbizMallOrderController
                     switch($freeGiftOrderItem['freegift_condition']){
                         case 'G';
                             $checkGiftSelect = $giftSelect;
-                            $freeGiftArray = $productModel->getFreeGiftNew($freeGiftOrderItem['freegift_condition'],$giftCheckPrice);
+                            $freeGiftArray = $productModel->getFreeGiftNew($freeGiftOrderItem['freegift_condition'],$giftCheckPrice,'','',$cartList);
                             $freeGiftCntCheckData[$freeGiftOrderItem['fgIx']]['checkGiftSelect'] = $giftSelect;
                             break;
                         case 'P';
@@ -321,12 +320,12 @@ class CustomMallOrderController extends ForbizMallOrderController
                     }
 
                     //구매금액이 변경되어 사은품 정보가 변경되어야 하는데 변경되지 않았을때
-                    if(isset($freeGiftArray['fg_ix']) && isset($freeGiftOrderItem) && $checkGiftSelect == 'true' ){
+                    /*if(isset($freeGiftArray['fg_ix']) && isset($freeGiftOrderItem) && $checkGiftSelect == 'true' ){
                         if($freeGiftOrderItem['fgIx'] != $freeGiftArray['fg_ix']){
                             $this->setResponseResult('giftCompareFail');
                             return;
                         }
-                    }
+                    }*/
 
                     //구매금액대별 사은품 필수 선택 체크
                     if(isset($freeGiftArray['gift_products']) && !isset($freeGiftOrderItem) && $checkGiftSelect == 'false'){
@@ -336,10 +335,10 @@ class CustomMallOrderController extends ForbizMallOrderController
                 }
 
                 //사은품 지급 수량과 실제로 선택한 수량이 다른경우 체크
-                if(is_array($freeGiftCntCheckData) && count($freeGiftCntCheckData) > 0){
+                /*if(is_array($freeGiftCntCheckData) && count($freeGiftCntCheckData) > 0){
                     foreach($freeGiftCntCheckData as $checkData){
 
-                        /* @var $orderModel CustomMallOrderModel */
+                         @var $orderModel CustomMallOrderModel
                         $orderModel = $this->import('model.mall.order');
                         $giftCntResult = $orderModel->getGiftItemCntCheck(array($checkData));
                         if($giftCntResult['giftCntBool'] === false && $checkData['checkGiftSelect'] == 'true'){
@@ -347,7 +346,7 @@ class CustomMallOrderController extends ForbizMallOrderController
                             return;
                         }
                     }
-                }
+                }*/
 
                 //사은품 재고 채크 방식 변경
                 //구매금액별, 카테고리별, 특정상품 포함 이 추가 됨에 따라 동일한 사은품이 각각 포함 될 경우 해당 상품의 수량이 합산되어 계산되어야 하기 때문에
@@ -357,24 +356,27 @@ class CustomMallOrderController extends ForbizMallOrderController
                // print_r($freeGiftOrder);
                 foreach($freeGiftOrder as $key=>$freeGiftOrderItem){
                     //선택된 사은품의 상품별 합산 수량을 구한다.
-                    if(isset($giftSelectCntArr[$freeGiftOrderItem['giftPid']])){
-                        $giftSelectCntArr[$freeGiftOrderItem['giftPid']] += $freeGiftOrderItem['giftCount'];
-                    }else{
-                        $giftSelectCntArr[$freeGiftOrderItem['giftPid']] = $freeGiftOrderItem['giftCount'];
-                    }
-
-                }
-
-                if(count($giftSelectCntArr) > 0){
-                    /* @var $orderModel CustomMallOrderModel */
-                    $orderModel = $this->import('model.mall.order');
-                    $giftResult = $orderModel->getGiftItemStockCheck($giftSelectCntArr);
-                    if($giftResult['giftStockBool'] === false){
-                        $this->setResponseResult('giftItemStockFail')->setResponseData($giftResult);
-                        return;
+                    $giftPid = $freeGiftOrderItem['giftPid'];
+                    if($giftPid != "55421"){ // qa : 55410 || stg / real : 55421
+                        if(isset($giftSelectCntArr[$freeGiftOrderItem['giftPid']])){
+                            $giftSelectCntArr[$freeGiftOrderItem['giftPid']] += $freeGiftOrderItem['giftCount'];
+                        }else{
+                            $giftSelectCntArr[$freeGiftOrderItem['giftPid']] = $freeGiftOrderItem['giftCount'];
+                        }
                     }
                 }
 
+                if($giftPid != "55421"){ // qa : 55410 || stg / real : 55421
+                    if(count($giftSelectCntArr) > 0){
+                        /* @var $orderModel CustomMallOrderModel */
+                        $orderModel = $this->import('model.mall.order');
+                        $giftResult = $orderModel->getGiftItemStockCheck($giftSelectCntArr);
+                        if($giftResult['giftStockBool'] === false){
+                            $this->setResponseResult('giftItemStockFail')->setResponseData($giftResult);
+                            return;
+                        }
+                    }
+                }
 
                 //구매금액대별 사은품 재고 체크
                 //사은품이 존재하고, 선택한 사은품이 있을때 체크 1

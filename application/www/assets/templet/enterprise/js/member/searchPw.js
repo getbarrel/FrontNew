@@ -79,11 +79,11 @@ var devSearchPwdObj = {
     initValidation: function () {
         common.validation.set($('#devUserId'), {'required': true});
         common.validation.set($('#devUserName'), {'required': true});
-        common.validation.set($('#devUserEmail1'), {'required': true});
-        common.validation.set($('#devUserEmail2'), {'required': true});
-        common.validation.set($('#devPcs1'), {'required': false});
-        common.validation.set($('#devPcs2'), {'required': false});
-        common.validation.set($('#devPcs3'), {'required': false});
+        common.validation.set($('#devUserEmail1'), {'required': false});
+        common.validation.set($('#devUserEmail2'), {'required': false});
+        common.validation.set($('#devPcs1'), {'required': true});
+        common.validation.set($('#devPcs2'), {'required': true});
+        common.validation.set($('#devPcs3'), {'required': true});
         common.validation.set($('#devCertNo'), {'required': true});
 		common.validation.set($('#devPcs1, #devPcs2, #devPcs3'), {
 			'required': true,
@@ -133,6 +133,7 @@ var devSearchPwdObj = {
 
         // 인증번호 요청
         $("#devCertRequestBtn").click(function(e){
+			console.log($("input[name=searchType]:checked").val());
             // self.certiReq(self)
             var _userid =  $("#devUserId").val();
             var _username = $("#devUserName").val();

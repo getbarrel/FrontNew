@@ -349,7 +349,7 @@ class CustomMallOrderModel extends ForbizMallOrderModel
             foreach ($rows as $row) {
                 $data[] = [
                     'pid' => $row['pid']
-                    , 'image_src' => get_product_images_src($row['pid'], true, $sizeType)
+                    , 'image_src' => get_product_images_new_src($row['pid'], true, $sizeType)
                     , 'pname' => $row['pname']
                     , 'od_ix' => $row['od_ix']
                     , 'pcnt' => $row['pcnt']
@@ -400,7 +400,7 @@ class CustomMallOrderModel extends ForbizMallOrderModel
             foreach ($rows as $row) {
                 $data['gift_products'][] = [
                     'pid' => $row['pid']
-                    , 'image_src' => get_product_images_src($row['pid'], true, $sizeType)
+                    , 'image_src' => get_product_images_new_src($row['pid'], true, $sizeType)
                     , 'pname' => $row['pname']
                     , 'od_ix' => $row['od_ix']
                     , 'pcnt' => $row['pcnt']
