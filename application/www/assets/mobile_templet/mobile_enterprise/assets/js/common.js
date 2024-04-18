@@ -194,11 +194,11 @@ function menuJS() {
 }
 function topBtn() {
 	$(window).scroll(function () {
-		if ($(this).scrollTop() > 100) {
+		//if ($(this).scrollTop() > 100) {
 			$(".br__floating__btn--top").parents("li").addClass("active");
-		} else {
-			$(".br__floating__btn--top").parents("li").removeClass("active");
-		}
+		//} else {
+		//	$(".br__floating__btn--top").parents("li").removeClass("active");
+		//}
 	});
 
 	$(".br__floating__btn--top").click(function () {

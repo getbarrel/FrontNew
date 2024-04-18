@@ -68,11 +68,19 @@
 </script>
 <!-- 항상 노출 -->
 <script id="bigin-gtm">
+	/*
 	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTag
 		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNod
 	})(window,document,'script','dataLayer','GTM-MZ4TGJ9K');
+	*/
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MZ4TGJ9K');
+
 </script>
 <!-- End SDK -->
 <!--floating menu S -->
@@ -83,7 +91,7 @@
 			<a href="https://pf.kakao.com/_VxfxjDd" class="fb__floating__btn--talk"><i class="ico ico-KakaoTalk">카카오톡</i></a>
 		</li>
 		<!--{/}-->
-		<li>
+		<li class="active">
 			<a href="#;" class="fb__floating__btn--top"><i class="ico ico-arrow-top">TOP</i></a>
 		</li>
 	</ul>

@@ -123,7 +123,7 @@ body.scrollUp .br__header {
 }
 
 body.scrollUp .br__floating-btn {
-  bottom: 6rem;
+  bottom: 6.8rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -135,7 +135,7 @@ body.scrollUp .br__floating-shop {
 }
 
 body.scrollUp .br__floating-goods {
-  bottom: 10rem;
+  bottom: 10.8rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -261,7 +261,7 @@ body.scrollDown .br__header {
 }
 
 body.scrollDown .br__floating-btn {
-  bottom: 1.8rem;
+  bottom: 6.8rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -273,7 +273,7 @@ body.scrollDown .br__floating-shop {
 }
 
 body.scrollDown .br__floating-goods {
-  bottom: 5rem;
+  bottom: 10.8rem;
 }
 
 body.scrollDown .br__floating-view {
@@ -373,7 +373,7 @@ body.scrollEnd .br__header {
 }
 
 body.scrollEnd .br__floating-btn {
-  bottom: 1.8rem;
+  bottom: 6.8rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -469,7 +469,7 @@ body.scrollEnd .br__order-claim .br__order-footer {
 }
 
 body.scrollGoods .br__floating-view {
-  bottom: 7rem;
+  bottom: 13rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -10768,7 +10768,7 @@ select:disabled {
   display: block;
   position: fixed;
   top: auto;
-  bottom: 1.8rem;
+  bottom: 6.8rem;
   left: auto;
   right: 1.8rem;
   z-index: 59;
@@ -10860,17 +10860,17 @@ select:disabled {
 
 .NEWbarrelM .br__floating-goods {
   position: fixed;
-  bottom: 1.8rem;
+  bottom: 10.8rem;
 }
 
 .NEWbarrelM .br__floating-shop {
   position: fixed;
-  bottom: 1.8rem;
+  bottom: 6.8rem;
 }
 
 .NEWbarrelM .br__floating-view {
   position: fixed;
-  bottom: 1.8rem;
+  bottom: 6.8rem;
 }
 
 .NEWbarrelM .br__floating-cs {

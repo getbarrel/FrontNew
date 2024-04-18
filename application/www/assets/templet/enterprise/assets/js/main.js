@@ -8293,21 +8293,22 @@ var main = function main() {
         var $line = $(".pubFloaingLine");
 
         //플로팅 위치 하단
-        var _btm_height = $window.height() - 270;
+        var _btm_height = $window.height();
+        //var _btm_height = $window.height() - 270;
         //플로팅 위치 중간
         var _half_height = $window.height() / 2 - $target.height() / 2;
         $window.on("scroll.posFloating", function () {
             var _start_offset = $line.length > 0 ? $line.offset().top : $(window).height() + 100;
-            if ($window.scrollTop() > _start_offset - _btm_height) {
+            //if ($window.scrollTop() > _start_offset - _btm_height) {
 
                 $target.addClass("fb__floating--fixed").css({
                     "top": ''
                 });
-            } else {
-                $target.removeClass("fb__floating--fixed").css({
-                    "top": _start_offset
-                });
-            }
+            //} else {
+            //    $target.removeClass("fb__floating--fixed").css({
+            //        "top": _start_offset
+            //    });
+            //}
         });
         $window.trigger('scroll.posFloating');
     };
