@@ -281,9 +281,8 @@ foreach ($cartData as $cart) {
     if ($cart['company_id'] != ForbizConfig::getCompanyInfo('company_id')) {
         $isThirdBool = true;
     }
-
     foreach ($cart['deliveryTemplateList'] as $deliveryTemplate) {
-        foreach ($deliveryTemplate['productList'] as $product) {
+        foreach ($deliveryTemplate['productList'] as $keys=>$product) {
 
 			$categoryName = $productModel->getCategoryNavigationList($product['cid']);
 			foreach ($categoryName as $key => $val){
@@ -321,6 +320,7 @@ foreach ($cartData as $cart) {
         }
     }
 }
+
 $sdkScript = "
 <script id='bigin-order-form-page'> 
 (function () { 
