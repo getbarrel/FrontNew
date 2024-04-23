@@ -199,6 +199,66 @@
 	{ / }
 	<!-- Best Items 영역 E -->
 
+	<!-- Style Guide 영역 S -->
+	<section class="fb-main__section fb-main__StyleGuide">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_style == 'L'}left{: mainContentInfo.s_style == 'C'}center{: mainContentInfo.s_style == 'R'}right{/};color:{mainContentInfo.c_style};{? mainContentInfo.b_style == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_style == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_style == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.style_title}</h3>
+				<span style="color:{mainContentInfo.c_style_e};{? mainContentInfo.b_style_e == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_style_e == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_style_e == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.style_e}</span>
+				<a href="/content/styleList">전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						<!--<li class="active"><a href="javascript:void(0);">ALL</a></li>-->
+						{ @ displayContentClassStyleList }<!-- color:{.c_preface}; -->
+						<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);" class="brandNav__sub-link" style="{? .b_preface == 'Y' }font-weight: bold;{ / } {? .i_preface == 'Y' }font-style:oblique;{ / } {? .u_preface == 'Y' }text-decoration-line: underline;{ / }">{? .index_ == 0 }전체{ : }{ .cname }{ / }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ displayContentClassStyleList }
+					<div class="fb-tab__contents {? .index_ == 0 } active{ / }">
+						<div class="fb-main__card-slider swiper-container goods-slider3">
+							<div class="swiper-wrapper">
+								{ @ .styleGuide }
+								<div class="swiper-slide">
+									<div class="fb-main__card-item">
+										<div class="fb-main__card-title--sm" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{..preface}</div>
+										<dl class="fb-main__card-cont">
+											<dt class="fb-main__card-img">
+												<a href="/content/styleDetail/{..con_ix}/{..cid}">
+													<img src="{..contentImgSrc}" alt="" />
+												</a>
+											</dt>
+											<dd class="fb-main__card-textBOX">
+												<a href="/content/styleDetail/{..con_ix}/{..cid}">
+													<div class="fb-main__card-title" style="text-align:{? ..s_title == 'L'}left{: ..s_title == 'C'}center{: ..s_title == 'R'}right{/};color:{..c_title};{? ..b_title == 'Y' }font-weight: bold;{ / } {? ..i_title == 'Y' }font-style:oblique;{ / } {? ..u_title == 'Y' }text-decoration-line: underline;{ / }">
+														{..title}
+													</div>
+													<p style="color:{..c_explanation};{? ..b_explanation == 'Y' }font-weight: bold;{ / } {? ..i_explanation == 'Y' }font-style:oblique;{ / } {? ..u_explanation == 'Y' }text-decoration-line: underline;{ / }">{..explanation}</p>
+												</a>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								{ / }
+							</div>
+							<div class="fb-main__card-control">
+								<div class="swiper-control-group">
+									<div class="swiper-scrollbar"></div>
+									<div class="swiper-pagination"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{ / }
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Style Guide 영역 E -->
+
 	<!-- 동영상 banner 영역 S -->
 	{? mainMovieBannerInfo}
 	<section class="fb-main__section fb-main__banner">
@@ -453,66 +513,6 @@
 			{ / }
 		{ / }
 	{ / }
-
-	<!-- Style Guide 영역 S -->
-	<section class="fb-main__section fb-main__StyleGuide">
-		<div class="fb-main__inner">
-			<div class="fb-main__title">
-				<h3 style="text-align:{? mainContentInfo.s_style == 'L'}left{: mainContentInfo.s_style == 'C'}center{: mainContentInfo.s_style == 'R'}right{/};color:{mainContentInfo.c_style};{? mainContentInfo.b_style == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_style == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_style == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.style_title}</h3>
-				<span style="color:{mainContentInfo.c_style_e};{? mainContentInfo.b_style_e == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_style_e == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_style_e == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.style_e}</span>
-				<a href="/content/styleList">전체보기</a>
-			</div>
-			<div class="fb-tab__wrap">
-				<div class="fb-tab__nav">
-					<ul>
-						<!--<li class="active"><a href="javascript:void(0);">ALL</a></li>-->
-						{ @ displayContentClassStyleList }<!-- color:{.c_preface}; -->
-							<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);" class="brandNav__sub-link" style="{? .b_preface == 'Y' }font-weight: bold;{ / } {? .i_preface == 'Y' }font-style:oblique;{ / } {? .u_preface == 'Y' }text-decoration-line: underline;{ / }">{? .index_ == 0 }전체{ : }{ .cname }{ / }</a></li>
-						{ / }
-					</ul>
-				</div>
-				<div class="fb-tab__contents-wrap">
-					{ @ displayContentClassStyleList }
-					<div class="fb-tab__contents {? .index_ == 0 } active{ / }">
-						<div class="fb-main__card-slider swiper-container goods-slider3">
-							<div class="swiper-wrapper">
-								{ @ .styleGuide }
-								<div class="swiper-slide">
-									<div class="fb-main__card-item">
-										<div class="fb-main__card-title--sm" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{..preface}</div>
-										<dl class="fb-main__card-cont">
-											<dt class="fb-main__card-img">
-												<a href="/content/styleDetail/{..con_ix}/{..cid}">
-													<img src="{..contentImgSrc}" alt="" />
-												</a>
-											</dt>
-											<dd class="fb-main__card-textBOX">
-												<a href="/content/styleDetail/{..con_ix}/{..cid}">
-													<div class="fb-main__card-title" style="text-align:{? ..s_title == 'L'}left{: ..s_title == 'C'}center{: ..s_title == 'R'}right{/};color:{..c_title};{? ..b_title == 'Y' }font-weight: bold;{ / } {? ..i_title == 'Y' }font-style:oblique;{ / } {? ..u_title == 'Y' }text-decoration-line: underline;{ / }">
-														{..title}
-													</div>
-													<p style="color:{..c_explanation};{? ..b_explanation == 'Y' }font-weight: bold;{ / } {? ..i_explanation == 'Y' }font-style:oblique;{ / } {? ..u_explanation == 'Y' }text-decoration-line: underline;{ / }">{..explanation}</p>
-												</a>
-											</dd>
-										</dl>
-									</div>
-								</div>
-								{ / }
-							</div>
-							<div class="fb-main__card-control">
-								<div class="swiper-control-group">
-									<div class="swiper-scrollbar"></div>
-									<div class="swiper-pagination"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					{ / }
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Style Guide 영역 E -->
 
 	<!-- Barrel Journal / Barrel Campaign 영역 S -->
 	<section class="fb-main__section fb-main__barrel-group">
