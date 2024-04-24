@@ -71,25 +71,6 @@ var SalesAnalysisTag = {
         }
 
         (new Image()).src = requestURL.join('');
-
-        //this.testRun();
-    },
-    testRun: function () {
-        var requestURL = [
-            "http://dev.forbizkorea.co.kr",
-            "/collect.php?",
-            "siteID=", this.siteID,
-            "&data_root=/data/enterprise_data",
-            "&URL=", this.URL,
-            "&agent_type=", this.agent_type
-        ];
-
-        if (this.referer) {
-            requestURL.push('&referer=');
-            requestURL.push(this.referer);
-        }
-
-        (new Image()).src = requestURL.join('');
     },
     init: function (data, campaignType, campaignID) {
         this.setReferer().setUrl().setAgentType();
