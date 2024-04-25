@@ -573,7 +573,11 @@ function putFullNgramDict($index = ES_INDEX)
             ->from(TBL_SHOP_PRODUCT . " as p")
             ->join(TBL_SHOP_PRODUCT_OPTIONS_DETAIL . " as po", "po.pid = p.id")
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
+            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            ->where('p.disp', 1) // 노출함 1 노출안함 0
+            ->notLike('p.pname', '테스트')
             ->exec()->getResultArray();
+
     $idx = 1;
     foreach ($rows as $key => $val) {
         $pullTextSpace = $pullText = strip_tags($val['pname'] . $val['add_info'] . $val['search_keyword'] . $val['gname']);

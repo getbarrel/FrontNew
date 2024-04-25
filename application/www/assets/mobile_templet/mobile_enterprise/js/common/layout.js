@@ -20,7 +20,6 @@ $(document).ready(function () {
     //상단검색시
     $('#devHeaderSearchButton').on('click', function () {
 		var id = "devHeaderSearchText";
-		//console.log(id);
 		goSearch(id);
         return false;
     });
@@ -50,7 +49,6 @@ $(document).ready(function () {
         var delText = $(this).attr('devDelText');
         $(this).closest('[devDelkey]').remove();
         common.ajax(common.util.getControllerUrl('deleteRecentKeyword', 'product'), {searchText: delText}, "", function () {
-            console.log("AA : " + $('.search__list').children().length)
             if($('#devRecent').children().length == 0){
                 $('#tab2').html("<div class=\"empty-content\" style=\"padding:20px 0 0 0\">\n" +
                     "\t\t\t\t\t\t\t최근 검색어가 없습니다.\n" +
@@ -105,7 +103,6 @@ function searchTxtRemove() {
 }
 
 function devRecentKeyWordDelete(val){
-    alert(val);
     $(this).closest('[devDelkey]').remove();
     common.ajax(common.util.getControllerUrl('deleteRecentKeyword', 'product'), {searchText: delText}, "", function () {
         if($('.ul-recent-search').children().length == 0){
@@ -255,9 +252,9 @@ var autoSearch = {
 			}).data('ui-autocomplete')._renderItem = function (ul, item) {
 				ul.addClass("top-item");
 				$(".br__search__layer").show();
-				var li = $('<li></li>')
-						.data("ui-autocomplete-item", item)                    
-						.append("<a href='#'>" + item.label + "<button></button></a>")
+				var li = $('<li style=\'margin:10px\'></li>')
+						.data("ui-autocomplete-item", item)
+						.append("<a href='/shop/search/?searchText=" + encodeURI(item.value) + "'>" + item.label + "</a><button></button>")
 						.appendTo(ul);
 
 				$(".auto-complete__list").append(li);
