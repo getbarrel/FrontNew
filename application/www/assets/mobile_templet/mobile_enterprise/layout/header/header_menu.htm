@@ -62,11 +62,19 @@
 <section class="br__drawer">
 	<h2 class="hidden">drawer menu</h2>
 	<section class="br__drawer__search">
+		<script type="text/javascript">
+			function igChkMenu(){
+				var ig_chkNenuVal = document.getElementById("devHeaderSearchTextMenu").value;
+				if(ig_chkNenuVal == "") {
+					$("#searchMenu").css("display", "none");
+				}
+			}
+		</script>
 		<div class="br__search-inner">
 			<div class="br__search__title">
 				<div class="wrap_search-bar">
 					<label for="devHeaderSearchTextMenu" class="hide">검색어 입력 영역</label>
-					<input class="search-input br__form-input" type="text" id="devHeaderSearchTextMenu" placeholder="검색어를 입력해 주세요." onblur="removeHeaderTag(this.value);" onkeyup="igChk()" autocomplete="off" data-id="devHeaderSearchTextMenu">
+					<input class="search-input br__form-input devAutoCompleteMenu" type="text" id="devHeaderSearchTextMenu" placeholder="검색어를 입력해 주세요." onblur="removeHeaderTag(this.value);" onkeyup="igChkMenu()" autocomplete="off" data-id="devHeaderSearchTextMenu">
 					<button class="search-btn" id="devHeaderSearchButtonMenu">
 						<i class="ico ico-search"></i>
 					</button>
@@ -75,27 +83,13 @@
 					<button class="search-close" title="닫기" onclick="SideLayerJS('navigation');">닫기</button>
 				</div>
 			</div>
-			<!-- <div class="br__search__layer">
+			<div class="br__search__layer_menu" id="searchMenu" style="display:none;">
 				<div class="auto-complete">
-					<ul class="auto-complete__list">
-						<li>
-							<a href="#"><em>래</em>쉬가드</a>
-						</li>
-						<li>
-							<a href="#">오션 <em>래</em>쉬가드</a>
-						</li>
-						<li>
-							<a href="#">남자 <em>래</em>쉬가드</a>
-						</li>
-						<li>
-							<a href="#">여자 <em>래</em>쉬가드</a>
-						</li>
-						<li>
-							<a href="#">키즈 <em>래</em>쉬가드</a>
-						</li>
+					<ul class="auto-complete__newlist">
+
 					</ul>
 				</div>
-			</div> -->
+			</div>
 		</div>
 	</section>
 	<div class="br__drawer__scroll">

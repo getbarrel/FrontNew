@@ -262,6 +262,34 @@ var autoSearch = {
 			};
 		}
     },
+    initAuotMenucomplete: function () {
+        var self = autoSearch;
+        if($(".devAutoCompleteMenu").length > 0){		/* 2024-02-21 AutoComplete 있을시만 적용 */
+            $(".devAutoCompleteMenu").autocomplete({
+                source: self.searchAutocomplete,
+                delay: 500,
+                select: function (event, ui){
+                },
+                open: function () {
+                    $('.ui-menu-item span').removeClass('ui-menu-item-wrapper');
+                    $('.ui-menu-item div').removeClass('ui-menu-item-wrapper');
+                },
+                close: function() {
+                    //$(".br__search__layer").hide();
+                },
+            }).data('ui-autocomplete')._renderItem = function (ul, item) {
+                ul.addClass("top-item");
+                $(".br__search__layer_menu").show();
+                var li = $('<li style=\'margin:10px\'></li>')
+                    .data("ui-autocomplete-item", item)
+                    .append("<a href='/shop/search/?searchText=" + encodeURI(item.value) + "'>" + item.label + "</a><button></button>")
+                    .appendTo(ul);
+
+                $(".auto-complete__newlist").append(li);
+                return li;
+            };
+        }
+    },
     cache: {},
     searchAutocomplete: function (req, res) {
         var self = autoSearch;
@@ -292,6 +320,7 @@ var autoSearch = {
     run: function () {
         var self = this;
         self.initAuotcomplete();
+        self.initAuotMenucomplete();
         self.initClick();
     }
 }
