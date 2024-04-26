@@ -575,7 +575,7 @@ function putFullNgramDict($index = ES_INDEX)
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
             ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
             ->where('p.disp', 1) // 노출함 1 노출안함 0
-            ->notLike('p.pname', '테스트')
+            //->notLike('p.pname', '테스트')
             ->exec()->getResultArray();
 
     $idx = 1;
@@ -629,6 +629,8 @@ function putFullNgramDictDate($index = ES_INDEX, $mode = "crate")
             ->from(TBL_SHOP_PRODUCT . " as p")
             ->join(TBL_SHOP_PRODUCT_OPTIONS_DETAIL . " as po", "po.pid = p.id")
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
+            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
 
     $index_info = getEsClient()->cat()->indices(['index' => $index]);
@@ -680,6 +682,8 @@ function putFullNgramDictUpdate($index = ES_INDEX, $sdate = null, $edate = null)
             ->from(TBL_SHOP_PRODUCT . " as p")
             ->join(TBL_SHOP_PRODUCT_OPTIONS_DETAIL . " as po", "po.pid = p.id")
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
+            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->betweenDate('p.editdate', $sdate, $edate)
             ->exec()->getResultArray();
     foreach ($rows as $key => $val) {
@@ -1520,6 +1524,8 @@ function putAutocompletDicMake($index = ES_AUTOCOMPLET_INDEX)
             ->from(TBL_SHOP_PRODUCT . " as p")
             ->join(TBL_SHOP_PRODUCT_OPTIONS_DETAIL . " as po", "po.pid = p.id")
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
+            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
     $idx = 1;
     foreach ($rows as $key => $val) {
@@ -1562,6 +1568,8 @@ function putAutocompletDicMakeDate($index = ES_AUTOCOMPLET_INDEX, $mode = "crate
             ->from(TBL_SHOP_PRODUCT . " as p")
             ->join(TBL_SHOP_PRODUCT_OPTIONS_DETAIL . " as po", "po.pid = p.id")
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
+            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
     $index_info = getEsClient()->cat()->indices(['index' => $index]);
     $org_idx = $idx = $index_info[0]['docs.count'] ?? 0;
@@ -1633,7 +1641,7 @@ function getAutocomplet($searchText, $searchSize = ES_MIN_SEARCH_SIZE, $index = 
             $arrKeyword = array_values(array_unique($arr));
 
             foreach ($arrKeyword as $key => $val) {
-                if (strpos($val,"테스트") === false) {
+                if (strpos($val,"테스트") === false || strpos($val,"test") === false || strpos($val,"문자발송") === false) {
                     $keyword[] = $val;
                 }else{
 
@@ -2004,6 +2012,8 @@ function putGlobalDicMake($index = ES_INDEX_EN)
             ->from(TBL_SHOP_PRODUCT_GLOBAL . " as p")
             ->join(TBL_SHOP_PRODUCT_OPTIONS_DETAIL_GLOBAL . " as po", "po.pid = p.id")
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
+            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
     $idx = 1;
     foreach ($rows as $key => $val) {
@@ -2202,6 +2212,8 @@ function getProductId($searchText, $searchSize = ES_SEARCH_SIZE, $index = ES_IND
             ->select("p.search_keyword")
             ->from(TBL_SHOP_PRODUCT . " as p")
             ->where('p.id', $searchText)
+            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
     $view->table->set_heading('상품아이디', '상품명', '추가색상', '키워드');
     echo $view->table->generate($rows);
@@ -2225,6 +2237,8 @@ function setProductId($searchText, $index = ES_INDEX)
             ->join(TBL_SHOP_PRODUCT_OPTIONS_DETAIL . " as po", "po.pid = p.id", 'left')
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid", 'left')
             ->where('p.id', $searchText)
+            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
 
     //$view->load->library('table');
