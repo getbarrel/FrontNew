@@ -1638,15 +1638,7 @@ function getAutocomplet($searchText, $searchSize = ES_MIN_SEARCH_SIZE, $index = 
                 $arr[] = $val['_source']['serachword'];
             }
 
-            $arrKeyword = array_values(array_unique($arr));
-
-            foreach ($arrKeyword as $key => $val) {
-                if (strpos($val,"테스트") === false || strpos($val,"test") === false || strpos($val,"문자발송") === false) {
-                    $keyword[] = $val;
-                }else{
-
-                }
-            }
+            $keyword = array_values(array_unique($arr));
 
             foreach ($keyword as $key => $val) {
                 $result[$key]['value'] = $val;
