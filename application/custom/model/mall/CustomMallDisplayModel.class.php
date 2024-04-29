@@ -763,8 +763,8 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
 
     function getContentMainGroupRelationMO($cmgr_ix){
 
-        $sql = "SELECT con_ix, title, list_img, group_con_gubun, banner_link, sort, banner_desc, b_name, i_name, u_name, c_name, s_name, b_desc, i_desc, u_desc, c_desc, s_desc, shot_title, b_title, i_title, u_title, c_title, s_title FROM (
-				(SELECT c.con_ix, c.title, c.list_img, cmgrc.group_con_gubun, '' as banner_link, cmgrc.sort, 
+        $sql = "SELECT con_ix, title, list_img, list_img_m, group_con_gubun, banner_link, sort, banner_desc, b_name, i_name, u_name, c_name, s_name, b_desc, i_desc, u_desc, c_desc, s_desc, shot_title, b_title, i_title, u_title, c_title, s_title FROM (
+				(SELECT c.con_ix, c.title, c.list_img, c.list_img_m, cmgrc.group_con_gubun, '' as banner_link, cmgrc.sort, 
 				'' AS banner_desc, '' AS b_name, '' AS i_name, '' AS u_name, '' AS c_name, '' AS s_name, '' AS b_desc, '' AS i_desc, '' AS u_desc, '' AS c_desc, '' AS s_desc,
 				'' AS shot_title, '' AS b_title, '' AS i_title, '' AS u_title, '' AS c_title, '' AS s_title
 				FROM 
@@ -772,7 +772,7 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
 				shop_content_main_group_content_relation cmgrc 
 				WHERE c.con_ix = cmgrc.con_ix AND cmgrc.cmgr_ix = '" . $cmgr_ix . "' AND cmgrc.group_con_gubun = 'S' ORDER BY cmgrc.sort ASC)
 				UNION ALL
-				(SELECT b.banner_ix as con_ix, b.banner_name_m as title, b.banner_img_on as list_img, cmgrc.group_con_gubun, b.banner_link, cmgrc.sort, 
+				(SELECT b.banner_ix as con_ix, b.banner_name_m as title, b.banner_img_on as list_img, '' as list_img_m, cmgrc.group_con_gubun, b.banner_link, cmgrc.sort, 
 				b.banner_desc_m, b_name_m, i_name_m, u_name_m, c_name_m, s_name_m, b_desc_m, i_desc_m, u_desc_m, c_desc_m, s_desc_m, 
 				b.shot_title_m, b_title_m, i_title_m, u_title_m, c_title_m, s_title_m 
 				FROM 
@@ -820,10 +820,20 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
         foreach($result as $key => $val){
             if($val['group_con_gubun'] == "S"){
                 $contentPath = IMAGE_SERVER_DOMAIN . DATA_ROOT . '/images/content/' . sprintf('%010d',$val['con_ix']) . '/'; //배너이미지 기본 경로
+                if($val['list_img_m'] == ''){
+                    $result[$key]['contentImgSrc'] = $contentPath.$val['list_img'];
+                    $result[$key]['contentImgSrcM'] = $contentPath.$val['list_img'];
+                }else{
+                    $result[$key]['contentImgSrc'] = $contentPath.$val['list_img'];
+                    $result[$key]['contentImgSrcM'] = $contentPath.$val['list_img_m'];
+                }
             }else if($val['group_con_gubun'] == "B"){
                 $contentPath = IMAGE_SERVER_DOMAIN . DATA_ROOT . '/images/banner/' . $val['con_ix'] . '/'; //배너이미지 기본 경로
+                $result[$key]['contentImgSrc'] = $contentPath.$val['list_img'];
+                $result[$key]['contentImgSrcM'] = $contentPath.$val['list_img'];
             }
-            $result[$key]['contentImgSrc'] = $contentPath.$val['list_img'];
+            /*$result[$key]['contentImgSrc'] = $contentPath.$val['list_img'];
+            $result[$key]['contentImgSrcM'] = $contentPath.$val['list_img_m'];*/
             /*$result[$key]['title'] = nl2br($val['title']);
             $result[$key]['title_en'] = nl2br($val['title_en']);
             $result[$key]['preface'] = nl2br($val['preface']);

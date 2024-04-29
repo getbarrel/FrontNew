@@ -255,7 +255,7 @@ if ($view->isCached() === false) {
                         $mainContentMainGroupRelationList[$n]['displayTotalCnt']    = $num;
                         $mainContentMainGroupRelationList[$n]['con_ix']             = $val1['con_ix'];
                         $mainContentMainGroupRelationList[$n]['group_con_gubun']    = $val1['group_con_gubun'];
-                        $mainContentMainGroupRelationList[$n]['contentImgSrc']      = $val1['contentImgSrc'];
+                        $mainContentMainGroupRelationList[$n]['contentImgSrc']      = $val1['contentImgSrcM'];
                         $mainContentMainGroupRelationList[$n]['title']      = $val1['title'];
                         $mainContentMainGroupRelationList[$n]['s_title']      = $val1['s_title'];
                         $mainContentMainGroupRelationList[$n]['b_title']      = $val1['b_title'];
@@ -310,7 +310,7 @@ if ($view->isCached() === false) {
                         }
                         $mainContentMainGroupRelationList[$n-$b]['slider_banner'][$b]['con_ix']             = $val1['con_ix'];
                         $mainContentMainGroupRelationList[$n-$b]['slider_banner'][$b]['group_con_gubun']    = $val1['group_con_gubun'];
-                        $mainContentMainGroupRelationList[$n-$b]['slider_banner'][$b]['contentImgSrc']      = $val1['contentImgSrc'];
+                        $mainContentMainGroupRelationList[$n-$b]['slider_banner'][$b]['contentImgSrc']      = $val1['contentImgSrcM'];
                         $mainContentMainGroupRelationList[$n-$b]['slider_banner'][$b]['banner_link']        = $val1['banner_link'];
                         $mainContentMainGroupRelationList[$n-$b]['slider_banner'][$b]['banner_desc']        = $val1['banner_desc'];
                         $mainContentMainGroupRelationList[$n-$b]['slider_banner'][$b]['banner_name']        = $val1['title'];
@@ -349,7 +349,7 @@ if ($view->isCached() === false) {
                         $mainContentMainGroupRelationList[$n]['c_main_group_explanation'] = $val['c_main_group_explanation'];
                         $mainContentMainGroupRelationList[$n]['con_ix']             = $val1['con_ix'];
                         $mainContentMainGroupRelationList[$n]['group_con_gubun']    = $val1['group_con_gubun'];
-                        $mainContentMainGroupRelationList[$n]['contentImgSrc']      = $val1['contentImgSrc'];
+                        $mainContentMainGroupRelationList[$n]['contentImgSrc']      = $val1['contentImgSrcM'];
                         $mainContentMainGroupRelationList[$n]['banner_link']        = $val1['banner_link'];
                         $mainContentMainGroupRelationList[$n]['slider_group_con_gubun']    = $val1['slider_group_con_gubun'];
                         $mainContentMainGroupRelationList[$n]['banner_desc']   = $val1['banner_desc'];
