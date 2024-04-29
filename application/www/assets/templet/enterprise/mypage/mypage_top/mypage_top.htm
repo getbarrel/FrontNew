@@ -23,7 +23,10 @@
 			<div class="fb__mypage-top__item col">
 				<span>회원등급</span>
 				<div class="title-md level-name">{=mypage.gpName}</div>
+				{ ? currentGroup.gp_level == "3" }
+				{ : }
 				<p class="level-text"><span>{=trans('{fbUnit.f}<em class="fb__mypage-top__grade--font">{=g_price(needPrice)}</em>{fbUnit.b}')}</span>을 추가 결제하시면 <span>{nextGroup.gp_name}</span> 혜택을 받을 수 있어요!</p>
+				{ / }
 			</div>
 		</div>
 		<div class="fb__mypage-top__btn">

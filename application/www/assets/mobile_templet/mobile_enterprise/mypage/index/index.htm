@@ -23,9 +23,10 @@
 						<span class="my-grade__text__title--point">{mypage.gpName}</span>
 					</a>
 				</div>
-                {? currentGroup.gp_level > 3 }
-                <p class="my-grade__text__after">{=trans('<strong class="my-grade__text__after--point">{fbUnit.f}{=g_price(needPrice)}{fbUnit.b}</strong>원을 추가 결제하시면 <strong>{nextGroup.gp_name}</strong> 혜택을 받을 수 있어요!')}</p>
-                {/}
+				{ ? currentGroup.gp_level == 3 }
+				{ : }
+				<p class="my-grade__text__after">{=trans('<strong class="my-grade__text__after--point">{fbUnit.f}{=g_price(needPrice)}{fbUnit.b}</strong>원을 추가 결제하시면 <strong>{nextGroup.gp_name}</strong> 혜택을 받을 수 있어요!')}</p>
+				{ / }
 			</div>
 		</div>
 		<div class="my-benefit">
