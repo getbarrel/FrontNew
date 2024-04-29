@@ -134,9 +134,13 @@ function searchLayerClose() {
     $('.br__search').hide();
     $('.br__floating-btn').show();
     $("#devHeaderSearchText").blur().val("");
+    $("#devHeaderSearchTextMenu").blur().val("");
     $('body').css('position', 'relative');
 	$("body").removeClass("scrollNO");
     $(window).scrollTop(window.oriScroll);
+
+    $(".br__search__layer").css("display", "none");
+    $(".br__search__layer_menu").css("display", "none");
 }
 
 
@@ -247,7 +251,7 @@ var autoSearch = {
 					$('.ui-menu-item div').removeClass('ui-menu-item-wrapper');
 				},
 				close: function() {
-					//$(".br__search__layer").hide();
+					$(".br__search__layer").hide();
 				},
 			}).data('ui-autocomplete')._renderItem = function (ul, item) {
 				ul.addClass("top-item");
@@ -257,7 +261,7 @@ var autoSearch = {
 						.append("<a href='/shop/search/?searchText=" + encodeURI(item.value) + "'>" + item.label + "</a><button></button>")
 						.appendTo(ul);
 
-				$(".auto-complete__list").append(li);
+				//$(".auto-complete__list").append(li);
 				return li;
 			};
 		}
@@ -271,11 +275,11 @@ var autoSearch = {
                 select: function (event, ui){
                 },
                 open: function () {
-                    $('.ui-menu-item span').removeClass('ui-menu-item-wrapper');
-                    $('.ui-menu-item div').removeClass('ui-menu-item-wrapper');
+                    //$('.ui-menu-item span').removeClass('ui-menu-item-wrapper');
+                    //$('.ui-menu-item div').removeClass('ui-menu-item-wrapper');
                 },
                 close: function() {
-                    //$(".br__search__layer").hide();
+                    $(".br__search__layer_menu").hide();
                 },
             }).data('ui-autocomplete')._renderItem = function (ul, item) {
                 ul.addClass("top-item");
@@ -285,7 +289,7 @@ var autoSearch = {
                     .append("<a href='/shop/search/?searchText=" + encodeURI(item.value) + "'>" + item.label + "</a><button></button>")
                     .appendTo(ul);
 
-                $(".auto-complete__newlist").append(li);
+                //$(".auto-complete__newlist").append(li);
                 return li;
             };
         }
@@ -302,6 +306,7 @@ var autoSearch = {
                     function () {
                         // 전송전 데이타 검증
                         $(".auto-complete__list > li").remove();
+                        $(".auto-complete__newlist > li").remove();
                         return true;
                     },
                     function (response) {
@@ -309,6 +314,7 @@ var autoSearch = {
                         if (response.result == "success" && typeof response.data !== "undefined" && response.data.length > 0) {
                             self.cache[term] = response.data;
                             $(".auto-complete__list > li").remove();
+                            $(".auto-complete__newlist > li").remove();
                             return res(response.data);
                         } else {
                             return res([]);

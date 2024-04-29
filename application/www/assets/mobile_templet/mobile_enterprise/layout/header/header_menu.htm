@@ -66,7 +66,7 @@
 			function igChkMenu(){
 				var ig_chkNenuVal = document.getElementById("devHeaderSearchTextMenu").value;
 				if(ig_chkNenuVal == "") {
-					$("#searchMenu").css("display", "none");
+					$(".br__search__layer_menu").css("display", "none");
 				}
 			}
 		</script>
@@ -80,7 +80,7 @@
 					</button>
 				</div>
 				<div class="wrap_search-close">
-					<button class="search-close" title="닫기" onclick="SideLayerJS('navigation');">닫기</button>
+					<button class="search-close" title="닫기" onclick="SideLayerJS('navigation');searchLayerClose();">닫기</button>
 				</div>
 			</div>
 			<div class="br__search__layer_menu" id="searchMenu" style="display:none;">
