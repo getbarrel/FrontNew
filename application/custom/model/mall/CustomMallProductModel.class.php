@@ -2953,6 +2953,9 @@ class CustomMallProductModel extends ForbizMallProductModel
                     case 'COLOR':
                         $filter_type_text = "색상";
                         break;
+                    case 'GENDER':
+                        $filter_type_text = "성별";
+                        break;
                 }
 
                 $filterArray[$val['filter_type']]['filter_type'] = $val['filter_type'];
