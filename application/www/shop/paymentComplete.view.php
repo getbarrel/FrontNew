@@ -85,7 +85,7 @@ if (!empty($oid)) {
     <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script> 
     <script type="text/javascript"> 
     var _nasa={};
-    _nasa["cnv"] = wcs.cnv("1",'.str_replace(',','',g_price($val['pt_dcprice'])).'); // 전환유형, 전환가치 설정해야함. 설치매뉴얼 참고
+    _nasa["cnv"] = wcs.cnv("'.$data['paymentInfo']['total_pcnt'].'",'.str_replace(',','',g_price($data['paymentInfo']['pt_dcprice'])).'); // 전환유형, 전환가치 설정해야함. 설치매뉴얼 참고
     </script> 
 
     ';
