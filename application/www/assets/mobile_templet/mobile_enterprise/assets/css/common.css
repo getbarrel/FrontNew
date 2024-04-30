@@ -12324,6 +12324,37 @@ select:disabled {
   color: #ff4e00;
 }
 
+
+/*===================================================*/
+
+
+.NEWbarrelM .br__search__layer .auto-complete__newlist {
+  width: 100%;
+}
+
+.NEWbarrelM .br__search__layer .auto-complete__newlist li {
+  position: relative;
+  width: 100%;
+}
+
+.NEWbarrelM .br__search__layer .auto-complete__newlist li a {
+  display: block;
+  padding: 1rem 0;
+  margin: 0;
+  border: none;
+  line-height: 1.8rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #000;
+}
+
+.NEWbarrelM .br__search__layer .auto-complete__newlist li a em {
+  color: #ff4e00;
+}
+
+
+/*===================================================*/
+
 .NEWbarrelM .br__search__detail {
   position: relative;
   width: 100%;
@@ -13489,7 +13520,7 @@ select:disabled {
   margin: 0 2rem;
   border-bottom: 1px solid #ededed;
   line-height: 1.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: #a5a5a5;
 }
@@ -13548,7 +13579,7 @@ select:disabled {
 
 .NEWbarrelM .br__goods-view .goods-info__model-number {
   line-height: 1.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: #a5a5a5;
 }
