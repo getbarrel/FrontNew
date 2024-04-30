@@ -126,7 +126,6 @@ $cateArrList = array();
 //$cateName = '';
 $topCateName = '';
 $topCateCid = '';
-
 for($i=0; $i<count($cateData); $i++) {
     $cate = $cateData[$i];
     $depth = $cate['depth'];
@@ -137,16 +136,33 @@ for($i=0; $i<count($cateData); $i++) {
        $cateDepth = $cate['depth'];
     }
 
+}
+
+for($i=0; $i<count($cateData); $i++) {
+
+    $cate = $cateData[$i];
+    $depth = $cate['depth'];
+	/*
+    //현재 선택된 카테고리 네임
+    if($cate['cid'] == $cid) {
+       $cateName = $cate['cname'];
+       $cateDepth = $cate['depth'];
+    }
+
+	*/
     if($depth == 0) {
         $cateArr = $cateData[$i];
         $topCateName = $cate['cname'];
         $topCateCid = $cate['cid'];
     }else if($depth == 1){
+		if(substr($cate['cid'],0,6) == substr($cid,0,6) ) {
+			$subCateName = $cate['cname'];
+			$subCateCid = $cate['cid'];
+		}
         $cateArr['subCate'][$cate['vlevel2']-1] = $cateData[$i];
     }else if($depth == 2) {
         $cateArr['subCate'][$cate['vlevel2']-1]['subCate'][$cate['vlevel3']-1] = $cateData[$i];
     }
-
     if($cateDepth == 0) {
 		if($cateData[$i]['depth'] == 1){;
 			$cateArrList['subCate'][$cate['vlevel2']-1] = $cateData[$i];
@@ -166,7 +182,6 @@ for($i=0; $i<count($cateData); $i++) {
     }
 }
 
-
 #필터 정보가져오기
 $filter = $productModel->getFilterList();
 
@@ -176,6 +191,8 @@ $view->assign('chkMenu', "goodsLists");
 $view->assign('cateName', $cateName);
 $view->assign('cateDepth', $cateDepth);
 $view->assign('topCateName', $topCateName);
+$view->assign('subCateCid', $subCateCid);
+$view->assign('subCateName', $subCateName);
 $view->assign('topCateCid', $topCateCid);
 $view->assign('cateArr', $cateArr);
 $view->assign('cateArrList', $cateArrList);
