@@ -46,15 +46,15 @@
 									</div>
 									<div class="fb__goods__important">
 										{[#if state_soldout]}
-										<span class="fb__goods__price__state" style="display: none">{=trans('품절')}</span>
+										<span class="fb__goods__price__state">{=trans('품절')}</span>
 										{[else]}
 										{[#if isPercent]}
 										<div class="fb__goods__sale"><p class="per"><em>{[discount_rate]}</em>%</p></div>
 										{[/if]}
-										{[/if]}
 										<span class="fb__goods__price">{[dcprice]}</span>
 										{[#if isDiscount]}
 										<span class="fb__goods__noprice">{[listprice]}</span>
+										{[/if]}
 										{[/if]}
 									</div>
 									<p class="fb__goods__condition">{=trans('30,000원 이상 구매 시 무료배송')}</p>

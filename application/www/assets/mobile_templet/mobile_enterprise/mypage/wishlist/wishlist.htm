@@ -64,16 +64,17 @@
 										<div class="goods-list__title">{[pname]}</div>
 										<div class="goods-list__color">{[add_info]}</div>
 										<div class="goods-list__price">
-											{[#if isPercent]}
-											<div class="goods-list__price__percent"><span>{[discount_rate]}</span>%</div>
-											{[/if]}
-											<div class="goods-list__price__discount">{fbUnit.f}<span>{[dcprice]}</span>{fbUnit.b}</div>
-											{[#if isDiscount]}
-											<div class="goods-list__price__cost">{fbUnit.f}<del>{[listprice]}</del>{fbUnit.b}</div>
-											{[/if]}
 											<!-- 품절일 경우 S -->
 											{[#if state_soldout]}
 											<div class="goods-list__price__state">{=trans('품절')}</div>
+											{[else]}
+											{[#if isPercent]}
+											<div class="goods-list__price__percent"><span>{[discount_rate]}</span>%</div>
+											{[/if]}
+											<div class="goods-list__price__discount">{fbUnit.f}<span>{[dcprice]}</span></div>
+											{[#if isDiscount]}
+											<div class="goods-list__price__cost">{fbUnit.f}<del>{[listprice]}</del></div>
+											{[/if]}
 											{[/if]}
 										</div>
 									</div>
