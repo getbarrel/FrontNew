@@ -372,7 +372,8 @@ class CustomMallProductModel extends ForbizMallProductModel
                             , 'option_name' => $optionData['options'][0]['pname']
                             , 'add_info' => $optionData['options'][0]['add_info']
                             , 'pid' => $addProdcut['pid']
-                            , 'images' => get_product_images_src($addProdcut['pid'], true, 'c')
+                            //, 'images' => get_product_images_src($addProdcut['pid'], true, 'c')
+                            , 'images' => get_product_images_src_new($addProdcut['pid'], '', 'slist', '', 0) //이미지
                         ];
                         $addoption['optionDetailList'] = $optionData['options'];
                         $addOptions[] = $addoption;
@@ -3178,6 +3179,7 @@ class CustomMallProductModel extends ForbizMallProductModel
             ->select('p.sellprice')
             ->select('p.disp')
             ->select('p.stock')
+            ->select('p.slistNum')
             ->from(TBL_SHOP_PRODUCT . ' AS p')
             ->betweenDate('p.regdate', $sdate, $edate)
             ->exec()
@@ -3245,6 +3247,12 @@ class CustomMallProductModel extends ForbizMallProductModel
                 $url = HTTP_PROTOCOL . 'www.' . FORBIZ_BASEURL . '/shop/goodsView/' . $val['id'];
             }
 
+            if($val['slistNum'] == 0){
+                $slistNum = 0;
+            }else{
+                $slistNum = $val['slistNum']-1;
+            }
+
             $param = [
                 'code' => (int)$val['id']
                 , 'name' => $val['pname'] . ' ' . $val['add_info']
@@ -3253,7 +3261,8 @@ class CustomMallProductModel extends ForbizMallProductModel
                 , 'final_price' => $val['sellprice']
                 , 'category_codes' => $inCate  //카테고리 arr 타입
                 , 'display' => $val['disp']   //사용여부
-                , 'image_url' => get_product_images_src($val['id'], $this->isUserAdult, 's')
+                //, 'image_url' => get_product_images_src($val['id'], $this->isUserAdult, 's')
+                , 'image_url' => get_product_images_src_new($row['id'], $this->isUserAdult, 'slist', '', $slistNum) //이미지
                 , 'stock_count' => $stock_count  // 재고있음 여부
                 , 'product_options' => $crema_options
 //                , 'sub_product_codes' => [] //셋트상품코드
@@ -3295,6 +3304,7 @@ class CustomMallProductModel extends ForbizMallProductModel
             ->select('p.sellprice')
             ->select('p.disp')
             ->select('p.stock')
+            ->select('p.slistNum')
             ->from(TBL_SHOP_PRODUCT . ' AS p')
             ->betweenDate('p.editdate', $sdate, $edate)
             ->exec()
@@ -3362,6 +3372,12 @@ class CustomMallProductModel extends ForbizMallProductModel
                 $url = HTTP_PROTOCOL . 'www.' . FORBIZ_BASEURL . '/shop/goodsView/' . $val['id'];
             }
 
+            if($val['slistNum'] == 0){
+                $slistNum = 0;
+            }else{
+                $slistNum = $val['slistNum']-1;
+            }
+
             $param = [
                 'code' => (int)$val['id']
                 , 'name' => $val['pname'] . ' ' . $val['add_info']
@@ -3370,7 +3386,8 @@ class CustomMallProductModel extends ForbizMallProductModel
                 , 'final_price' => $val['sellprice']
                 , 'category_codes' => $inCate  //카테고리 arr 타입
                 , 'display' => $val['disp']   //사용여부
-                , 'image_url' => get_product_images_src($val['id'], $this->isUserAdult, 's')
+                //, 'image_url' => get_product_images_src($val['id'], $this->isUserAdult, 's')
+                , 'image_url' => get_product_images_src_new($row['id'], $this->isUserAdult, 'slist', '', $slistNum) //이미지
                 , 'stock_count' => $stock_count  // 재고있음 여부
                 , 'product_options' => $crema_options
      //           , 'sub_product_codes' => [] //셋트상품코드
