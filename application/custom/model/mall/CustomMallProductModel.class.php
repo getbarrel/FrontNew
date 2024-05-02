@@ -3262,7 +3262,7 @@ class CustomMallProductModel extends ForbizMallProductModel
                 , 'category_codes' => $inCate  //카테고리 arr 타입
                 , 'display' => $val['disp']   //사용여부
                 //, 'image_url' => get_product_images_src($val['id'], $this->isUserAdult, 's')
-                , 'image_url' => get_product_images_src_new($row['id'], $this->isUserAdult, 'slist', '', $slistNum) //이미지
+                , 'image_url' => get_product_images_src_new($val['id'], $this->isUserAdult, 'slist', '', $slistNum) //이미지
                 , 'stock_count' => $stock_count  // 재고있음 여부
                 , 'product_options' => $crema_options
 //                , 'sub_product_codes' => [] //셋트상품코드
@@ -3387,7 +3387,7 @@ class CustomMallProductModel extends ForbizMallProductModel
                 , 'category_codes' => $inCate  //카테고리 arr 타입
                 , 'display' => $val['disp']   //사용여부
                 //, 'image_url' => get_product_images_src($val['id'], $this->isUserAdult, 's')
-                , 'image_url' => get_product_images_src_new($row['id'], $this->isUserAdult, 'slist', '', $slistNum) //이미지
+                , 'image_url' => get_product_images_src_new($val['id'], $this->isUserAdult, 'slist', '', $slistNum) //이미지
                 , 'stock_count' => $stock_count  // 재고있음 여부
                 , 'product_options' => $crema_options
      //           , 'sub_product_codes' => [] //셋트상품코드
