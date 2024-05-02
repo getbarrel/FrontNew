@@ -35,7 +35,7 @@
 					<li class="product-item__list">
 						{@ .value_}
 						<!-- 상품 S -->
-						<dl class="product-item devCancelBoxOn" data-odix="{..od_ix}" style="display:{? (..od_ix == odIx) || odIx == ''}{:}none{/}">
+						<dl class="product-item devCancelBoxOn" data-odix="{..od_ix}" style="display:{? (odIx == '' || odIx == ..od_ix)}block{:}none{/}">
 						
 							<dt class="product-item__thumbnail-box">
 								<div class="product-item__thumb">
@@ -399,7 +399,7 @@
 				<li class="product-item__list ">
 				{@ .value_}
 					<!-- 상품 S -->
-					<input type="checkbox" class="devOdIxCls" id="devOdIx{..od_ix}" name="od_ix[]" value='{..od_ix}' style="display:none" {? (..od_ix == odIx) || odIx == '' }checked{/} >	
+					<input type="checkbox" class="devOdIxCls" id="devOdIx{..od_ix}" name="od_ix[]" value='{..od_ix}' style="display:none" {? (..od_ix == odIx) || odIx == '' }checked{/}  >
 					<dl class="product-item devCancelBoxOn" data-odix="{..od_ix}" style="display:{? (..od_ix == odIx) || odIx == ''}{:}none{/}">
 						<dt class="product-item__thumbnail-box">
 							<div class="product-item__thumb">

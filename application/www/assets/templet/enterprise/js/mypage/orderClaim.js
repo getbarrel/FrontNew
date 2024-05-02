@@ -132,6 +132,8 @@ var devOrderClaim = {
 
         showBoxOnOff: function (odix) {
             var self = this;
+			var checked = $("#devOdIx"+odix).is(':checked');
+
             $("#devClaimItemSec1").show();
 
             $(".devCancelBoxOff").each(function () {
@@ -143,6 +145,7 @@ var devOrderClaim = {
             $(".devCancelBoxOn").each(function () {
                 if ($(this).data('odix') == odix) {
                     $(this).toggle();
+					$("#devOdIx"+odix).attr("checked",true);
                 }
             });
 
@@ -153,6 +156,7 @@ var devOrderClaim = {
 
             $(".devClaimCntCls").each(function(){
                 var ckbox = $(this).data("odix");
+
                 if($(this).filter(':visible').length == 1){
                     $("#devOdIx"+ckbox).attr("checked",true);
                 }else{
@@ -164,11 +168,15 @@ var devOrderClaim = {
         },
 
 
-
         initEvent: function () {
             var self = this;
             // *** 주문취소 신청/해제
             $(".claim__list__icon").on('click', function () {
+				var checked = $("#devOdIx"+$(this).data('odix')).is(':checked');
+				if (checked){
+					$("#devOdIx"+$(this).data('odix')).prop('checked', false);
+				}
+				
                 self.showBoxOnOff($(this).data('odix'));
             });
 
