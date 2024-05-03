@@ -132,7 +132,9 @@ enp('create', 'wish', 'barrel', { device: 'W', btnSelector: '.btn-wish' });
 				{/}
 				{? movie }
 				<li>
-					<div id="videoPlayer" data-vimeo-url="{movie}" data-url="{movie}"></div>
+					<iframe src="{movie}" width="410px" height="513px" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+					<!-- <iframe src="{movie}" width="410px" height="513px" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+					<div id="videoPlayer" data-vimeo-url="{movie}" data-url="{movie}" style="width:410px; height:513px; box-sizing:border-box; float:left; margin:0 10px 10px 0;"></div>  -->
 				</li>
 				{/}
 				{@ add_image_src}
