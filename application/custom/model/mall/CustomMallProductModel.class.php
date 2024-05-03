@@ -3655,6 +3655,7 @@ echo "End6";
             ->select('p.sellprice')
             ->select('p.disp')
             ->select('p.stock')
+            ->select('p.slistNum')
             ->from(TBL_SHOP_PRODUCT . ' AS p ')
 			->orderBy('id', 'asc')
 			->limit(900, $startLimit)
@@ -3723,6 +3724,12 @@ echo "End6";
 				$url = HTTP_PROTOCOL . 'www.getbarrel.com/shop/goodsView/' . $val['id'];
             }
 
+            if($val['slistNum'] == 0){
+                $slistNum = 0;
+            }else{
+                $slistNum = $val['slistNum']-1;
+            }
+
             $param = [
                 'code' => (int)$val['id']
                 , 'name' => $val['pname'] . ' ' . $val['add_info']
@@ -3731,7 +3738,8 @@ echo "End6";
                 , 'final_price' => $val['sellprice']
                 , 'category_codes' => $inCate  //카테고리 arr 타입
                 , 'display' => $val['disp']   //사용여부
-                , 'image_url' => get_product_images_src($val['id'], $this->isUserAdult, 's')
+                //, 'image_url' => get_product_images_src($val['id'], $this->isUserAdult, 's')
+                , 'image_url' => get_product_images_src_new($val['id'], $this->isUserAdult, 'slist', '', $slistNum) //이미지
                 , 'stock_count' => $stock_count  // 재고있음 여부
                 , 'product_options' => $crema_options
                 , 'shop_builder_created_at' => date('Y-m-d\TH:i:sO')  //datetinme ISO8601
