@@ -363,6 +363,25 @@ class CustomMallMemberLoginModel extends ForbizMallMemberLoginModel
                     ->set('connect_ip', $_SERVER["REMOTE_ADDR"])
                     ->insert(TBL_COMMON_MEMBER_CONNECT_LOG)
                     ->exec();
+
+                //	_로그인 성공시 member_log 입력 처리
+                $mobile_agent = "/(iPod|iPhone|Android|BlackBerry|SymbianOS|SCH-M\d+|Opera Mini|Windows CE|Nokia|SonyEricsson|webOS|PalmOS)/";
+
+                if(preg_match($mobile_agent, $_SERVER['HTTP_USER_AGENT'])){
+                    $gubun = "M";
+                }else{
+                    $gubun = "P";
+                }
+
+                $this->qb
+                    ->set('mem_id', $id)
+                    ->set('ip', $_SERVER['REMOTE_ADDR'])
+                    ->set('gubun', $gubun)
+                    ->set('log_date', date('Y-m-d H:i:s'))
+                    ->set('log_div', 'I')
+                    ->insert("member_log")
+                    ->exec();
+                //	_로그인 성공시 member_log 입력 처리
             }
         } elseif ($connectType == 'logout' || $connectType == 'maintain') {
             // logout: 회원이 로그아웃 버튼 클릭으로 실제 로그아웃 했을때 기록 업데이트
@@ -376,6 +395,25 @@ class CustomMallMemberLoginModel extends ForbizMallMemberLoginModel
                 ->limit(1)
                 ->exec()
                 ->getRowArray();
+
+            //	_로그아웃 성공시 member_log 입력 처리
+            $mobile_agent = "/(iPod|iPhone|Android|BlackBerry|SymbianOS|SCH-M\d+|Opera Mini|Windows CE|Nokia|SonyEricsson|webOS|PalmOS)/";
+
+            if(preg_match($mobile_agent, $_SERVER['HTTP_USER_AGENT'])){
+                $gubun = "M";
+            }else{
+                $gubun = "P";
+            }
+
+            $this->qb
+                ->set('mem_id', $id)
+                ->set('ip', $_SERVER['REMOTE_ADDR'])
+                ->set('gubun', $gubun)
+                ->set('log_date', date('Y-m-d H:i:s'))
+                ->set('log_div', 'O')
+                ->insert("member_log")
+                ->exec();
+            //	_로그아웃 성공시 member_log 입력 처리
 
             if (isset($row['lo_ix']) && $row['lo_ix'] > 0) {
                 $this->qb

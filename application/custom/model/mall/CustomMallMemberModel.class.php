@@ -1191,6 +1191,25 @@ class CustomMallMemberModel extends ForbizMallMemberModel
 							}
 						//	//로그인 실패 횟수 체크
 				}
+
+            //	_로그인 실패시 member_log 입력 처리
+            $mobile_agent = "/(iPod|iPhone|Android|BlackBerry|SymbianOS|SCH-M\d+|Opera Mini|Windows CE|Nokia|SonyEricsson|webOS|PalmOS)/";
+
+            if(preg_match($mobile_agent, $_SERVER['HTTP_USER_AGENT'])){
+                $gubun = "M";
+            }else{
+                $gubun = "P";
+            }
+
+            $this->qb
+                ->set('mem_id', $id)
+                ->set('ip', $_SERVER['REMOTE_ADDR'])
+                ->set('gubun', $gubun)
+                ->set('log_date', date('Y-m-d H:i:s'))
+                ->set('log_div', 'N')
+                ->insert("member_log")
+                ->exec();
+            //	_로그인 실패시 member_log 입력 처리
 			//	ig_로그인 실패시 처리
 				
 

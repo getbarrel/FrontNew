@@ -80,7 +80,7 @@ class ForbizMallMemberController extends ForbizMallController
                 $chkFiled = ['pass'];
 
                 if (form_validation($chkFiled)) {
-                    $res = $this->memberModel->checkUserPassword(sess_val('user', 'code'), $this->input->post('pass'));
+                    $res = $this->memberModel->checkUserPassword(sess_val('user', 'code'), $this->input->post('pass'), sess_val('user', 'id'));
 
                     if ($res) {
                         $this->setFlashData('reconfirmPassMode', $reconfirmType);

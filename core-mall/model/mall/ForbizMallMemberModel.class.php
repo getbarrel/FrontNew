@@ -1250,7 +1250,7 @@ class ForbizMallMemberModel extends ForbizModel
      * @param string $userPw
      * @return boolean
      */
-    public function checkUserPassword($userCode, $userPw)
+    public function checkUserPassword($userCode, $userPw, $userId)
     {
         $rowCnt = $this->qb
             ->from(TBL_COMMON_USER)
@@ -1261,6 +1261,38 @@ class ForbizMallMemberModel extends ForbizModel
             ->orWhere('pw', $this->encryptUserPassword($userPw))
             ->groupEnd()
             ->getCount();
+
+        $mobile_agent = "/(iPod|iPhone|Android|BlackBerry|SymbianOS|SCH-M\d+|Opera Mini|Windows CE|Nokia|SonyEricsson|webOS|PalmOS)/";
+
+        if(preg_match($mobile_agent, $_SERVER['HTTP_USER_AGENT'])){
+            $gubun = "M";
+        }else{
+            $gubun = "P";
+        }
+
+        if($rowCnt > 0){
+            //	성공시 member_log 입력 처리
+            $this->qb
+                ->set('mem_id', $userId)
+                ->set('ip', $_SERVER['REMOTE_ADDR'])
+                ->set('gubun', $gubun)
+                ->set('log_date', date('Y-m-d H:i:s'))
+                ->set('log_div', 'S')
+                ->insert("member_log")
+                ->exec();
+            //	성공시 member_log 입력 처리
+        }else{
+            //	실패시 member_log 입력 처리
+            $this->qb
+                ->set('mem_id', $userId)
+                ->set('ip', $_SERVER['REMOTE_ADDR'])
+                ->set('gubun', $gubun)
+                ->set('log_date', date('Y-m-d H:i:s'))
+                ->set('log_div', 'F')
+                ->insert("member_log")
+                ->exec();
+            //	실패시 성공시 member_log 입력 처리
+        }
 
         return $rowCnt > 0;
     }
