@@ -173,6 +173,10 @@
 							</div>
 							<p class="fb__goods__condition">{[#if deliveryText]}<p class="per"><em>{[discount_rate]}</em>%</p>{[else]} {=trans('배송정보 정책 미입력')} {[/if]}</p>
 						</a>
+						<!-- 이미지 하단 마커 S -->
+						<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/{[marker_left_dn]}.gif) no-repeat center;"></div>
+						<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/{[marker_right_dn]}.gif) no-repeat center;"></div>
+						<!-- // 이미지 하단 마커 S -->
 						<a href="javascript:void(0);" class="product-box__heart {[#if alreadyWish]}product-box__heart--active{[/if]}" data-devWishBtn="{[id]}">hart</a>
 					</li>
 				</ul>

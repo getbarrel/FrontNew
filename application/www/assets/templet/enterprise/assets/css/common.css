@@ -1214,6 +1214,70 @@ table .empty-content {
   background-size: 100% auto;
 }
 
+.NEWbarrel .product-box__img1 {
+  position: absolute;
+  top: auto;
+  bottom: 110px;
+  left: 5px;
+  right: auto;
+  z-index: 10;
+  width: 70px;
+  height: 70px;
+  text-indent: -9999px;
+  font-size: 0;
+  background-size: 100% auto;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.NEWbarrel .product-box__img2 {
+  position: absolute;
+  top: auto;
+  bottom: 110px;
+  left: auto;
+  right: 5px;
+  z-index: 10;
+  width: 70px;
+  height: 70px;
+  text-indent: -9999px;
+  font-size: 0;
+  background-size: 100% auto;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.NEWbarrel .product-box__img3 {
+  position: absolute;
+  top: auto;
+  bottom: 100px;
+  left: 5px;
+  right: auto;
+  z-index: 10;
+  width: 70px;
+  height: 70px;
+  text-indent: -9999px;
+  font-size: 0;
+  background-size: 100% auto;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.NEWbarrel .product-box__img4 {
+  position: absolute;
+  top: auto;
+  bottom: 100px;
+  left: auto;
+  right: 5px;
+  z-index: 10;
+  width: 70px;
+  height: 70px;
+  text-indent: -9999px;
+  font-size: 0;
+  background-size: 100% auto;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
 .NEWbarrel .product-item {
   position: relative;
   display: -ms-grid;
