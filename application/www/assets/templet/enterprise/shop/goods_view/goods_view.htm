@@ -625,8 +625,8 @@ enp('create', 'wish', 'barrel', { device: 'W', btnSelector: '.btn-wish' });
 					<div class="info__model-number">{pcode}</div>
 					<div class="info__price">
 						{? discount_rate > 0}<div class="info__price--percent"><em>{discount_rate}</em>%</div>{/}
-						<div class="info__price--now">{fbUnit.f}<em>{=g_price(dcprice)}</em>{fbUnit.b}</div>
-						{? discount_rate > 0}<div class="info__price--ori">{fbUnit.f}<span>{=g_price(listprice)}</span>{fbUnit.b}</div>{/}
+						<div class="info__price--now">{fbUnit.f}<em>{=g_price(dcprice)}</em></div>
+						{? discount_rate > 0}<div class="info__price--ori">{fbUnit.f}<span  style="font-size:12px;">{=g_price(listprice)}</span></div>{/}
 					</div>
 					<div class="info__header-group">
 						<div class="btn-group">
