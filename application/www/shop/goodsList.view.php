@@ -126,6 +126,7 @@ $cateArrList = array();
 //$cateName = '';
 $topCateName = '';
 $topCateCid = '';
+
 for($i=0; $i<count($cateData); $i++) {
     $cate = $cateData[$i];
     $depth = $cate['depth'];
@@ -135,7 +136,6 @@ for($i=0; $i<count($cateData); $i++) {
        $cateName = $cate['cname'];
        $cateDepth = $cate['depth'];
     }
-
 }
 
 for($i=0; $i<count($cateData); $i++) {
@@ -180,6 +180,10 @@ for($i=0; $i<count($cateData); $i++) {
 			}
 		}
     }
+}
+
+if($cateDepth == 2){
+    $topCateCid = substr($cid,0,6)."000000000";
 }
 
 #필터 정보가져오기
