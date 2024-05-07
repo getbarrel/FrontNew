@@ -614,6 +614,17 @@
 						</div>
 					</div>
 				</div>
+
+				{? mainContentInfo.journal_frame_img != '' }
+					<style>
+						.NEWbarrelM .barrel-item__slider-bg span,
+						.NEWbarrelM .barrel-item__slider-bg span.right,
+						.NEWbarrelM .barrel-item__slider-bg::before,
+						.NEWbarrelM .barrel-item__slider-bg::after {
+							background-image: url('./data/barrel_data/images/frame/{mainContentInfo.conm_ix}/{mainContentInfo.journal_frame_img}');
+						}
+					</style>
+				{ / }
 				{ / }
 				<div class="barrel-item">
 					<div class="br-main__title">

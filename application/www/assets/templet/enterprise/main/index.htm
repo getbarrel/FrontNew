@@ -528,7 +528,7 @@
 					<!--<div class="" style="background: url(/data/barrel_data/images/frame/0000000002/frameImg_0000000002.gif) no-repeat center 0;">
 						<div class="" style="background: url(/data/barrel_data/images/frame/0000000002/frameImg_0000000002.gif) no-repeat center 0;"></div>-->
 						<div class="fb-main__barrel-slider--group">
-							<div class="fb-main__barrel-slider--bg"></div>
+						<div class="fb-main__barrel-slider--bg"></div>
 						<div class="fb-main__barrel-slider swiper-container">
 							<div class="swiper-wrapper">
 								{ @ mainJournalInfo }
@@ -560,6 +560,16 @@
 						<button type="button" class="swiper-button swiper-button-next">다음</button>
 					</div>
 				</div>
+				{? mainContentInfo.journal_frame_img != '' }
+					<style>
+						.NEWbarrel .fb-main__barrel-slider--group::before,
+						.NEWbarrel .fb-main__barrel-slider--group::after,
+						.NEWbarrel .fb-main__barrel-slider--bg::before,
+						.NEWbarrel .fb-main__barrel-slider--bg::after {
+							background-image: url('./data/barrel_data/images/frame/{mainContentInfo.conm_ix}/{mainContentInfo.journal_frame_img}');
+						}
+					</style>
+				{ / }
 				{ / }
 				<div class="fb-barrel__item">
 					<div class="fb-main__title">
