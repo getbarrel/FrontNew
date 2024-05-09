@@ -237,8 +237,8 @@ if ($view->isCached() === false) {
                     $mainContentGroupRelationInfo = $displayModel->getContentGroupRelation($val1['con_ix']);
 
                     foreach($mainContentGroupRelationInfo as $key2 => $val2){
-                        //$mainContentGroupProductRelationInfo = $displayModel->getContentGroupProductRelation($val1['con_ix'], $val2['cgr_ix']);
-                        $mainContentGroupProductRelationInfo = $displayModel->getContentGroupProductRelation($val1['con_ix']);
+                        $mainContentGroupProductRelationInfo = $displayModel->getContentGroupProductRelation($val1['con_ix'], $val2['cgr_ix']);
+                        //$mainContentGroupProductRelationInfo = $displayModel->getContentGroupProductRelation($val1['con_ix']);
 
                         $ids = [];
                         foreach($mainContentGroupProductRelationInfo as $key3 => $val3){
@@ -586,8 +586,8 @@ if ($view->isCached() === false) {
                     $mainContentGroupRelationInfo = $displayModel->getContentGroupRelation($val1['con_ix']);
 
                     foreach($mainContentGroupRelationInfo as $key2 => $val2){
-                        //$mainContentGroupProductRelationInfo = $displayModel->getContentGroupProductRelation($val1['con_ix'], $val2['cgr_ix']);
-                        $mainContentGroupProductRelationInfo = $displayModel->getContentGroupProductRelation($val1['con_ix']);
+                        $mainContentGroupProductRelationInfo = $displayModel->getContentGroupProductRelation($val1['con_ix'], $val2['cgr_ix']);
+                        //$mainContentGroupProductRelationInfo = $displayModel->getContentGroupProductRelation($val1['con_ix']);
 
                         $ids = [];
                         foreach($mainContentGroupProductRelationInfo as $key3 => $val3){
