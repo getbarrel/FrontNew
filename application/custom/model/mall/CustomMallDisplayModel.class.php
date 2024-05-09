@@ -233,6 +233,7 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
             ->where('banner_position', 66)
             //->where('banner_position', 2)
             ->where('NOW() between use_sdate and use_edate')
+            ->orderBy('view_order', 'asc')
             ->orderBy('use_sdate', 'asc')
             ->orderBy('use_edate', 'asc')
             ->limit(3)
