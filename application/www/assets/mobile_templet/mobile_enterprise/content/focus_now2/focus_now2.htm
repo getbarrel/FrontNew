@@ -1,117 +1,130 @@
 <!-- 컨텐츠 영역 S -->
 <section class="br__FocusNow-detail">
   <div class="detail-layout">
-   { ? displayContentList.content_text_mo }
-   <div class="detail-layout__lnb" style="position: relative;">
-    <div class="img-box">
-     <!--<img src="/assets/mobile_templet/mobile_enterprise/assets/img/FocusNow_banner_img01.png" alt="" />-->
-     { displayContentList.content_text_mo }
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
-    <script>
-     $(document).ready(function() {
-      $('img[usemap]').rwdImageMaps();
-     });
-    </script>
-   </div>
-   { / }
-  { ? displayContentGroupList }
-  <div class="detail-layout__content">
-   <div class="br-tab__wrap">
-    { ? displayContentList.category_use == 'Y' }
-    <div class="br-tab__nav">
-     <ul class="br__FocusNow-nav">
-      { @ displayContentGroupList }
-      <li class="{ ? .index_ == 0}active{ / }" style="{ ? displayContentList.r_category ==  'R'}border-radius:10px;{ / }background-color:{displayContentList.ba_category};border-color:{displayContentList.bo_category};">
-       <a href="javascript:void(0);" title="specia{ .group_code }">{ .group_title }</a>
-      </li>
-      { / }
-     </ul>
+   { ? displayContentList }
+    { ? displayContentList.content_text_mo }
+    <div class="detail-layout__lnb" style="position: relative;">
+     <div class="img-box">
+      <!--<img src="/assets/mobile_templet/mobile_enterprise/assets/img/FocusNow_banner_img01.png" alt="" />-->
+      { displayContentList.content_text_mo }
+     </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
+     <script>
+      $(document).ready(function() {
+       $('img[usemap]').rwdImageMaps();
+      });
+     </script>
     </div>
     { / }
-    <div class="br-tab__contents-wrap">
-     { @ displayContentGroupList }
-     <div class="br-tab__contents detail-layout__section" id="specia{ .group_code }">
-      { ? group_text_mo }
-      <div class="br__FocusNow-banner">
-       <!--<img src="/assets/mobile_templet/mobile_enterprise/assets/img/FocusNow_banner_img02.png" alt="" />-->
-       { .group_text_mo }
-      </div>
-      { / }
-      <section class="detail-goods__wrap">
-       { ? group_title }
-       <div class="title-md" style="margin-top:40px;position: relative;display: flex;-webkit-box-align: end;align-items: flex-end;gap: 0 100px;width: 100%;text-align:{? .s_group_title == 'L'}left{: .s_group_title == 'C'}center{: s_group_title == 'R'}right{/};color:{ .c_group_title };{? .b_group_title == 'Y' }font-weight: bold;{ / } {? .i_group_title == 'Y' }font-style:oblique;{ / } {? .u_group_title == 'Y' }text-decoration-line: underline;{ / }">{ .group_title }</div>
+   { ? displayContentGroupList }
+   <div class="detail-layout__content">
+    <div class="br-tab__wrap">
+     { ? displayContentList.category_use == 'Y' }
+     <div class="br-tab__nav">
+      <ul class="br__FocusNow-nav">
+       { @ displayContentGroupList }
+       <li class="{ ? .index_ == 0}active{ / }" style="{ ? displayContentList.r_category ==  'R'}border-radius:10px;{ / }background-color:{displayContentList.ba_category};border-color:{displayContentList.bo_category};">
+        <a href="javascript:void(0);" title="specia{ .group_code }">{ .group_title }</a>
+       </li>
        { / }
-       <!-- 상품 리스트 S -->
-       <div class="br__goods-list__wrap br__goods-list__wrap--normal">
-        <div class="goods-list">
-         <ul class="goods-list__list">
-          { @ .productList }
-           { ? .productList }
-            <li class="goods-list__box">
-             <a href="/shop/goodsView/{ ..id }" class="goods-list__link">
-              <div class="goods-list__thumb">
-               <div class="goods-list__thumb-slide swiper-container">
-                <div class="swiper-wrapper">
-                 <div class="swiper-slide">
-                  <img src="{ ..image_src }" alt="" />
-                 </div>
-                 <div class="swiper-slide">
-                  <img src="{ ..image_src2 }" alt="" />
-                 </div>
-                </div>
-                <div class="swiper-control-group">
-                 <div class="swiper-scrollbar"></div>
-                </div>
-               </div>
-               <!-- 버튼으로 할 경우 S -->
-               <!-- 숨김처리 -->
-               <button type="button" class="btn-wishlist {? ..alreadyWish == 'Y'}active{/}" onclick="contentWish('{..id}', 'C', this)" style="z-index: 999999;">
-                <!-- 선택시 button class = active 추가-->
-                <i class="ico ico-wishlist"></i>위시리스트
-               </button>
-               <!-- 버튼으로 할 경우 E -->
-
-               <!-- 체크 박스로 할 경우 S -->
-               <label class="goods-list__wish" style="display: none">
-                <input type="checkbox" class="goods-list__wish__btn" />
-               </label>
-               <!-- 체크 박스로 할 경우 E -->
-              </div>
-              <div class="goods-list__info">
-               <div class="goods-list__pre br__goods__pre" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</div>
-               <div class="goods-list__title">{ ..pname }</div>
-               <div class="goods-list__color">{ ..add_info }</div>
-               <div class="goods-list__price">
-                <div class="goods-list__price__percent" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
-                <div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
-                <div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
-                <!-- 품절일 경우 S -->
-                <!-- 숨김 처리 -->
-                <div class="goods-list__price__state" style="display: none">품절</div>
-                <!-- 품절일 경우 E -->
-               </div>
-              </div>
-             </a>
-            </li>
-           { : }
-            <!-- 상품이 없을 경우 S -->
-            <!-- 숨김처리 -->
-            <li class="goods-list__box no-data">
-             <p class="empty-content">일치하는 상품이 없습니다.</p>
-            </li>
-            <!-- 상품이 없을 경우 E -->
-           { / }
-          { / }
-         </ul>
-        </div>
-       </div>
-       <!-- 상품 리스트 E -->
-      </section>
+      </ul>
      </div>
      { / }
+     <div class="br-tab__contents-wrap">
+      { @ displayContentGroupList }
+      <div class="br-tab__contents detail-layout__section" id="specia{ .group_code }">
+       { ? group_text_mo }
+       <div class="br__FocusNow-banner">
+        <!--<img src="/assets/mobile_templet/mobile_enterprise/assets/img/FocusNow_banner_img02.png" alt="" />-->
+        { .group_text_mo }
+       </div>
+       { / }
+       <section class="detail-goods__wrap">
+        { ? group_title }
+        <div class="title-md" style="margin-top:40px;position: relative;display: flex;-webkit-box-align: end;align-items: flex-end;gap: 0 100px;width: 100%;text-align:{? .s_group_title == 'L'}left{: .s_group_title == 'C'}center{: s_group_title == 'R'}right{/};color:{ .c_group_title };{? .b_group_title == 'Y' }font-weight: bold;{ / } {? .i_group_title == 'Y' }font-style:oblique;{ / } {? .u_group_title == 'Y' }text-decoration-line: underline;{ / }">{ .group_title }</div>
+        { / }
+        <!-- 상품 리스트 S -->
+        <div class="br__goods-list__wrap br__goods-list__wrap--normal">
+         <div class="goods-list">
+          <ul class="goods-list__list">
+           { @ .productList }
+            { ? .productList }
+             <li class="goods-list__box">
+              <a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+               <div class="goods-list__thumb">
+                <div class="goods-list__thumb-slide swiper-container">
+                 <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                   <img src="{ ..image_src }" alt="" />
+                  </div>
+                  <div class="swiper-slide">
+                   <img src="{ ..image_src2 }" alt="" />
+                  </div>
+                 </div>
+                 <div class="swiper-control-group">
+                  <div class="swiper-scrollbar"></div>
+                 </div>
+                </div>
+                <!-- 버튼으로 할 경우 S -->
+                <!-- 숨김처리 -->
+                <button type="button" class="btn-wishlist {? ..alreadyWish == 'Y'}active{/}" onclick="contentWish('{..id}', 'C', this)" style="z-index: 999999;">
+                 <!-- 선택시 button class = active 추가-->
+                 <i class="ico ico-wishlist"></i>위시리스트
+                </button>
+                <!-- 버튼으로 할 경우 E -->
+
+                <!-- 체크 박스로 할 경우 S -->
+                <label class="goods-list__wish" style="display: none">
+                 <input type="checkbox" class="goods-list__wish__btn" />
+                </label>
+                <!-- 체크 박스로 할 경우 E -->
+               </div>
+               <div class="goods-list__info">
+                <div class="goods-list__pre br__goods__pre" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</div>
+                <div class="goods-list__title">{ ..pname }</div>
+                <div class="goods-list__color">{ ..add_info }</div>
+                <div class="goods-list__price">
+                 <div class="goods-list__price__percent" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+                 <div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+                 <div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+                 <!-- 품절일 경우 S -->
+                 <!-- 숨김 처리 -->
+                 <div class="goods-list__price__state" style="display: none">품절</div>
+                 <!-- 품절일 경우 E -->
+                </div>
+               </div>
+              </a>
+             </li>
+            { : }
+             <!-- 상품이 없을 경우 S -->
+             <!-- 숨김처리 -->
+             <li class="goods-list__box no-data">
+              <p class="empty-content">일치하는 상품이 없습니다.</p>
+             </li>
+             <!-- 상품이 없을 경우 E -->
+            { / }
+           { / }
+          </ul>
+         </div>
+        </div>
+        <!-- 상품 리스트 E -->
+       </section>
+      </div>
+      { / }
+     </div>
     </div>
+   </div>
+   { / }
+  {:}
+  <div class="br__cart__section no-data">
+   <p class="empty-content">
+    {=trans('종료된<br />')}
+    {=trans('이벤트 입니다.')}
+   </p>
+   <div class="btn-group col">
+    <button type="button" class="btn-lg btn-dark-line">{=trans('이전 페이지')}</button>
+    <button type="button" class="btn-lg btn-gray-line" id="devHomeButton">{=trans('홈으로')}</button>
    </div>
   </div>
   { / }
