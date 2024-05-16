@@ -2551,6 +2551,14 @@ class CustomMallProductModel extends ForbizMallProductModel
 
         $datas = $this->qb->exec()->getResultArray();
 
+        $this->qb
+            ->select('cid')
+            ->from(TBL_SHOP_PRODUCT_RELATION)
+            ->where('pid', $pid)
+            ->limit(1);
+
+        $cate = $this->qb->exec()->getResultArray();
+
         if (is_array($datas) && count($datas) > 0) {
             $gidArray = [];
             foreach ($datas as $key => $val) {
@@ -2580,17 +2588,33 @@ class CustomMallProductModel extends ForbizMallProductModel
                     $sameItem[] = $gid['gid'];
                 }
 
-                $sameProduct = $this->basicWhere()
-                    ->select('od.pid')
-                    ->select('p.listNum, p.overNum, p.slistNum, p.nailNum, p.pattNum')
-                    ->from(TBL_SHOP_PRODUCT . ' as p')
-                    ->join(TBL_SHOP_PRODUCT_OPTIONS . ' as o', 'p.id = o.pid', 'left')
-                    ->join(TBL_SHOP_PRODUCT_OPTIONS_DETAIL . ' as od', 'o.opn_ix = od.opn_ix', 'left')
-                    ->whereIn('od.option_gid', $sameItem)
-                    ->where('o.option_kind', 'b')
-                    ->groupBy('od.pid')
-                    ->exec()->getResultArray();
-
+                if(substr($cate[0]['cid'],0,3) == '107'){
+                    $sameProduct = $this->basicWhere()
+                        ->select('od.pid')
+                        ->select('p.listNum, p.overNum, p.slistNum, p.nailNum, p.pattNum')
+                        ->from(TBL_SHOP_PRODUCT . ' as p')
+                        ->join(TBL_SHOP_PRODUCT_OPTIONS . ' as o', 'p.id = o.pid', 'left')
+                        ->join(TBL_SHOP_PRODUCT_OPTIONS_DETAIL . ' as od', 'o.opn_ix = od.opn_ix', 'left')
+                        ->join(TBL_SHOP_PRODUCT_RELATION . ' as r', 'p.id = r.pid', 'left')
+                        ->like('r.cid', '107')
+                        ->whereIn('od.option_gid', $sameItem)
+                        ->where('o.option_kind', 'b')
+                        ->groupBy('od.pid')
+                        ->exec()->getResultArray();
+                }else{
+                    $sameProduct = $this->basicWhere()
+                        ->select('od.pid')
+                        ->select('p.listNum, p.overNum, p.slistNum, p.nailNum, p.pattNum')
+                        ->from(TBL_SHOP_PRODUCT . ' as p')
+                        ->join(TBL_SHOP_PRODUCT_OPTIONS . ' as o', 'p.id = o.pid', 'left')
+                        ->join(TBL_SHOP_PRODUCT_OPTIONS_DETAIL . ' as od', 'o.opn_ix = od.opn_ix', 'left')
+                        ->join(TBL_SHOP_PRODUCT_RELATION . ' as r', 'p.id = r.pid', 'left')
+                        ->notLike('r.cid', '107')
+                        ->whereIn('od.option_gid', $sameItem)
+                        ->where('o.option_kind', 'b')
+                        ->groupBy('od.pid')
+                        ->exec()->getResultArray();
+                }
 
                 if (is_array($sameProduct) && count($sameProduct) > 0) {
                     foreach ($sameProduct as $key => $val) {
