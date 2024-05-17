@@ -1994,6 +1994,7 @@ class CustomMallOrderModel extends ForbizMallOrderModel
                 $orderType = 3;
                 $sendYn = 'Y';
             } else { //지정택배 방문요청
+                $returnDeliveryInfos['sendType'] = 2;
                 $orderType = 4;
                 $sendYn = 'N';
             }
