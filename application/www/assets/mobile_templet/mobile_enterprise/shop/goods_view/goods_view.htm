@@ -46,7 +46,8 @@
                     {/}
                     {? movie }
                         <li class="swiper-slide" id="videoPlayer" data-vimeo-url="{movie}" data-url="{movie}">
-							<div class="goods-thumb__box" id="js__video__target" data-movie="{movie}"></div>
+							<!--<div class="goods-thumb__box" id="js__video__target" data-movie="{movie}"></div>-->
+                            <iframe src="{movie}" width="100%" height="500px" frameborder="0" style="pointer-events:none;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </li>
                     {/}
                 </ul>

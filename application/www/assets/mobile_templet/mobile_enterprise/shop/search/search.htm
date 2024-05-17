@@ -62,9 +62,11 @@
                 <li id="devListLoading">loading...</li>
 
                 {* empty contents *}
+				<li id="devListEmpty" class="goods-list__box no-data devForbizTpl">
                 <article class="result__data" id="devListEmpty">
                     <em>{=trans('검색결과가 없습니다.')}</em>
                 </article>
+				</li>
 
                 {* list contents *}
                 <li class="goods-list__box" id="devListDetail">
@@ -110,6 +112,11 @@
                         <input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{[id]}" onclick="productWish('{[id]}')">
                         {[/if]}
                     </label>
+
+					<!-- 이미지 하단 마커 S -->
+					<div class="product-box__img3" style="background: url(/data/barrel_data/images/icon/mo_{[marker_left_dn]}.gif) no-repeat center;"></div>
+					<div class="product-box__img4" style="background: url(/data/barrel_data/images/icon/mo_{[marker_right_dn]}.gif) no-repeat center;"></div>
+					<!-- // 이미지 하단 마커 S -->
                 </li>
             </ul>
             <div class="br__more devPageBtnCls" id="devPageWrap"></div>
