@@ -1993,7 +1993,7 @@ class CustomMallOrderModel extends ForbizMallOrderModel
             if ($returnDeliveryInfos['sendType'] == 1) { //직접 발송
                 $orderType = 3;
                 $sendYn = 'Y';
-            } else { //지정택배 방문요청
+            } else if ($returnDeliveryInfos['sendType'] == 2){ //지정택배 방문요청
                 $orderType = 4;
                 $sendYn = 'N';
             }

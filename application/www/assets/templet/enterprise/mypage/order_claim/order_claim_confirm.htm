@@ -110,7 +110,7 @@
 	<section class="fb__mypage__section return-info">
 		<div class="fb__mypage-title">
 			<div class="title-sm">{=trans('{claimTypeName} 발송 방법')}</div>
-			<span class="method">{? applyData.send_type == 1}직접발송 <span>(구매자께서 개별로 상품을 이미 발송한 경우)</span>{:}지정택배 방문요청 <span>(판매사와 계약된 택배업체에서 방문수령 수거)</span>{/}</span>
+			<span class="method">{? applyData.send_type == 1}직접발송 <span>(구매자께서 개별로 상품을 이미 발송한 경우)</span>{: applyData.send_type == 2}지정택배 방문요청 <span>(판매사와 계약된 택배업체에서 방문수령 수거)</span>{/}</span>
 		</div>
 		<!--<div class="delivery-info__box">
 			<div class="delivery-info__recipient">김배럴</div>

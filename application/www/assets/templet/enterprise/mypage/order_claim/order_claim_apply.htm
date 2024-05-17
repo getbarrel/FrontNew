@@ -194,9 +194,10 @@
 				<div class="fb-tab__wrap">
 					<div class="fb-tab__nav">
 						<ul>
-							<li class="active"><a href="#;">{=trans('직접 발송')}</a></li>
-							<li><a href="#;">{=trans('지정택배 방문')}</a></li>
+							<li class="active"><a href="#;" onclick="returnAddrType(1);">{=trans('직접 발송')}</a></li>
+							<li><a href="#;" onclick="returnAddrType(2);">{=trans('지정택배 방문')}</a></li>
 						</ul>
+						<input type="hidden" name="send_type" id="send_type" value="1">
 					</div>
 					<div class="fb-tab__contents-wrap" id="devDirectDelivery">
 						<div class="fb-tab__contents active">

@@ -442,3 +442,7 @@ $(function () {
         }
     });
 });
+
+function returnAddrType(type){
+    $("#send_type").val(type);
+}
