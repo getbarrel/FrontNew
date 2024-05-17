@@ -846,6 +846,19 @@ var devInfoinputObj = {
             requestData.giftSelectC = giftSelectC;
             requestData.giftSelectP = giftSelectP;
 
+            if(self.summaryData.payment_price > 0){
+            }else{
+                common.ajax(
+                    common.util.getControllerUrl('paymentLog', 'order'),{},'',
+                    function (response) {
+                        if (response.result == 'success') {
+                        } else {
+                        }
+                    }
+                );
+                self.changeOrderData();
+            }
+
             if (!self.paymentBool) {
                 common.ajax(common.util.getControllerUrl('paymentRequest', 'order'), requestData, (function () {
                     self.paymentBool = true;

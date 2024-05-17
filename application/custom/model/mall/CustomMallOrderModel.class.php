@@ -4950,4 +4950,14 @@ class CustomMallOrderModel extends ForbizMallOrderModel
                 ->exec();
         }
     }
+
+    public function paymentLog(){
+        $this->qb
+            ->insert('shop_order_payment_logs')
+            ->set('id',$this->userInfo->id)
+            ->set('ip',$_SERVER["REMOTE_ADDR"])
+            ->set('type',$_SERVER['HTTP_USER_AGENT'])
+            ->set('regdate',date('Y-m-d H:i:s'))
+            ->exec();
+    }
 }

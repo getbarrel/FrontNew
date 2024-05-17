@@ -704,7 +704,6 @@ var devInfoinputObj = {
 		});
         //구매하기
         $('#devPaymentButton').click(function () {
-
             /*if($('#giftNoCheckbox').val() == "Y"){
                 if(!$('#giftCheckbox').is(':checked') && !$('#giftNoCheckbox').is(':checked')){
                     alert("구매 금액별 사은품을 선택하세요.");
@@ -910,6 +909,19 @@ var devInfoinputObj = {
             requestData.giftSelect = giftSelect;
             requestData.giftSelectC = giftSelectC;
             requestData.giftSelectP = giftSelectP;
+
+            if(self.summaryData.payment_price > 0){
+            }else{
+                common.ajax(
+                    common.util.getControllerUrl('paymentLog', 'order'),{},'',
+                    function (response) {
+                        if (response.result == 'success') {
+                        } else {
+                        }
+                    }
+                );
+                self.changeOrderData();
+            }
 
             if (!self.paymentBool) {
                 common.ajax(common.util.getControllerUrl('paymentRequest', 'order'), requestData, (function () {

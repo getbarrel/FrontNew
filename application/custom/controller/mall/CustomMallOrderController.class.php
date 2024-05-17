@@ -1387,4 +1387,9 @@ class CustomMallOrderController extends ForbizMallOrderController
 
         return $deduction_value;
     }
+
+    public function paymentLog(){
+        $orderModel = $this->import('model.mall.order');
+        $orderModel->paymentLog();
+    }
 }
