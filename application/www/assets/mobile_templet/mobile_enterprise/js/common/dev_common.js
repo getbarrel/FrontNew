@@ -1199,7 +1199,6 @@ var common = {
     pagination: {
         pagingTpl: [
             '<button type="button" class="devPageBtnCls" data-page="{{nextPageNum}}" type="button" {[#if lastPageNumDisable]}disabled{[/if]}>',
-			'더보기',
             '</button>'
         ],
         pagingGlobalTpl: [

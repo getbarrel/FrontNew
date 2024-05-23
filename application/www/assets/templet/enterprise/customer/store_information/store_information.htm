@@ -10,7 +10,16 @@
 	<div class="fb__store-wrap">
 		<aside class="fb__store__lnb">
 			<div class="lnb">
-				<div class="lnb__title">{=trans('매장안내')}</div>
+				<div class="lnb__title" style="display: flex; justify-content: space-between;">
+					<span class="lnb__title_t">
+					{=trans('매장안내')}
+					</span>
+					<a href="/customer/waterscape">
+						<span class="lnb__title_s" style="color:#00B4E6">
+							{=trans('도수수경/매장안내')}
+						</span>
+					</a>
+				</div>
 				<div class="lnb__top">
 					<div class="fb__form-group">
 						<select class="fb__form-select" id="devCitySelect" name="city">

@@ -10,7 +10,7 @@
 					<li class="swiper-slide ">
 						<a href="/customer/faq">자주 묻는 질문</a>
 					</li>
-					<li class="swiper-slide active">
+					<li class="swiper-slide ">
 						<a href="/customer/notice">공지사항</a>
 					</li>
 					<li class="swiper-slide">
@@ -19,7 +19,7 @@
 					<li class="swiper-slide">
 						<a href="/customer/storeInformation">매장안내</a>
 					</li>
-					<li class="swiper-slide">
+					<li class="swiper-slide active">
 						<a href="/customer/waterscape">도수수경/매장안내</a>
 					</li>
 					<li class="swiper-slide">
@@ -46,19 +46,19 @@
 		<section class="board-detail__wrap">
 			<section class="board-detail__header">
 				<div class="page-title">
-					<div class="title-md">{=trans('공지사항')}</div>
+					<div class="title-md">{=trans('도수수경/매장안내')}</div>
 				</div>
 			</section>
 			<section class="board-detail__content">
 				<input type="hidden" id="isList" value="N" />
 				<div class="detail-bbs__wrap">
 					<div class="detail-bbs__header">
-						<div class="detail-bbs__header-sub">
+						<!--<div class="detail-bbs__header-sub">
 							{? is_notice == 'Y'}
 							<span class="detail-bbs__category category">{=trans('공지')}</span>
 							{/}
 							<span class="detail-bbs__date date">{reg_date}</span>
-						</div>
+						</div>-->
 						<div class="detail-bbs__header-group">
 							<h3 class="detail-bbs__title">{bbs_subject}</h3>
 						</div>
@@ -77,7 +77,7 @@
 						{/}
 					</div>
 					<div class="detail-bbs__footer">
-						<button type="button" class="btn-default btn-dark-line"><a href="/customer/notice">{=trans('목록으로')}</a></button>
+						<button type="button" class="btn-default btn-dark-line"><a href="/customer/waterscape">{=trans('목록으로')}</a></button>
 					</div>
 				</div>
 			</section>

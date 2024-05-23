@@ -10,7 +10,7 @@
 					<li class="swiper-slide ">
 						<a href="/customer/faq">자주 묻는 질문</a>
 					</li>
-					<li class="swiper-slide active">
+					<li class="swiper-slide ">
 						<a href="/customer/notice">공지사항</a>
 					</li>
 					<li class="swiper-slide">
@@ -19,7 +19,7 @@
 					<li class="swiper-slide">
 						<a href="/customer/storeInformation">매장안내</a>
 					</li>
-					<li class="swiper-slide">
+					<li class="swiper-slide active">
 						<a href="/customer/waterscape">도수수경/매장안내</a>
 					</li>
 					<li class="swiper-slide">
@@ -44,7 +44,7 @@
 			</div>
 		</section>
 		<div class="page-title">
-			<div class="title-md">{=trans('공지사항')}</div>
+			<div class="title-md">{=trans('도수수경/매장안내')}</div>
 		</div>
 		<section class="board-bbs__wrap">
 			<div class="board-search__form">
@@ -54,27 +54,43 @@
 				<input type="hidden" name="bType" value="{=bType}" id="bType"/>
 				<input type='hidden' name='isList' value ='Y' id='isList'/>
 				<input type='hidden' name='isMobile' value ='Y' id='isMobile'/>
+				<input type="hidden" name="divIx" value="{=divIx}" id="divIx">
+				<input type="hidden" name="bbsIx" value="{=bbsIx}" id="bbsIx">
 				<label for="" class="hide">게시글 검색 입력창</label>
 				<input type="text" id="searchText" name="searchText" class="fb__form-input" placeholder="{=trans('검색어를 입력하세요.')}"  value="{=searchText}" />
 				<button type="button" id="btnSearch" class="btn-search"><i class="ico ico-search"></i></button>
 			</form>
+			</div>
+			<div class="board-tab__wrap">
+				<div class="br-tab__nav br-tab__slide swiper-container">
+					<ul class="swiper-wrapper" id="devDivs">
+						<li id="devDivIx2" class="swiper-slide active">
+							<a href="javascript:void(0)" devDivIx="" data-divix="">{=trans('전체')}</a>
+						</li>
+						{@ bbs_divs}
+						<li id="devDivIx2{.div_ix}" class="swiper-slide">
+							<a href="javascript:void(0)" devDivIx="{.div_ix}" data-divix="{.div_ix}">{.div_name}</a>
+						</li>
+						{/}
+					</ul>
+				</div>
 			</div>
 			<ul class="board-bbs__list" id="devBbsContent">
 				<li id="devBbsLoading" class="board-bbs__item no-data">
 					<p>Loading...</p>
 				</li>
 				<li id="devBbsEmpty" class="board-bbs__item no-data">
-					<p class="empty-content">등록된 공지사항이 없습니다.</p>
+					<p class="empty-content">등록된 도수수경 매장안내가 없습니다.</p>
 				</li>
 				
 				<li class="board-bbs__item"  id="devBbsList">
 					<div class="board-bbs__title-group">
-						<div class="board-bbs__title-sub">
+						<!--<div class="board-bbs__title-sub">
 							<a class="board-bbs__link" href="javascript:void(0)" devBbsIx="{[bbs_ix]}">
 							<span class="board-bbs__category">{[#if is_notice]}<span class="cs__noti__badge">{=trans('공지')}</span>{[/if]}</span>
 							<span class="board-bbs__day">{[reg_date]}</span>
 							</a>
-						</div>
+						</div>-->
 						<div class="board-bbs__title">
 							<a class="board-bbs__link" href="javascript:void(0)" devBbsIx="{[bbs_ix]}">
 								{=trans('{[bbs_subject]}')}
@@ -86,7 +102,7 @@
 			</ul>
 
 			<div id="devPageWrap" class="board-footer">
-				<button type="button" class="btn-lg btn-dark-line">더보기</button>
+				<!--<button type="button" class="btn-lg btn-dark-line">더보기</button>-->
 			</div>
 			<!-- <div class="board-footer" id="devPageWrap"></div> -->
 		</section>

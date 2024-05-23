@@ -10561,6 +10561,39 @@
 		<caching_time>0</caching_time>
 		<regedit>2019-09-16 10:36:37</regedit>
 	</layout>
+	<layout mall_ix="20bd04dac38084b2bafdd6d78cd596b1" templet_name="mobile_enterprise" skin_type="M" pcode="010021000000000" cid="010021000000000" basic_link="/customer/waterscape" depth="1" vlevel1="10" vlevel2="20" vlevel3="0" vlevel4="0" vlevel5="0">
+		<vlevelf>010021000000000</vlevelf>
+		<cname>도수수경매장안내</cname>
+		<path>waterscape</path>
+		<layout>layout_default.htm</layout>
+		<page_navi></page_navi>
+		<header1>header_top.htm</header1>
+		<header2>header_menu.htm</header2>
+		<leftmenu></leftmenu>
+		<contents></contents>
+		<contents_add></contents_add>
+		<rightmenu></rightmenu>
+		<footer1>footer_menu.htm</footer1>
+		<footer2>footer_desc.htm</footer2>
+		<catimg></catimg>
+		<leftcatimg></leftcatimg>
+		<subimg></subimg>
+		<category_top_view></category_top_view>
+		<category_display_type>P</category_display_type>
+		<bbs_name></bbs_name>
+		<category_use>1</category_use>
+		<is_layout_apply>N</is_layout_apply>
+		<page_type></page_type>
+		<page_path>customer/waterscape</page_path>
+		<page_link></page_link>
+		<page_title></page_title>
+		<page_help></page_help>
+		<page_addscript></page_addscript>
+		<page_body></page_body>
+		<caching>0</caching>
+		<caching_time>0</caching_time>
+		<regedit>2019-09-16 10:36:37</regedit>
+	</layout>
 	<layout mall_ix="20bd04dac38084b2bafdd6d78cd596b1" templet_name="mobile_enterprise" skin_type="M" pcode="028005000000000" cid="028005000000000" basic_link="/brand/teacherMember" depth="1" vlevel1="28" vlevel2="5" vlevel3="0" vlevel4="0" vlevel5="0">
 		<vlevelf>028005000000000</vlevelf>
 		<cname>배럴티처 모집</cname>

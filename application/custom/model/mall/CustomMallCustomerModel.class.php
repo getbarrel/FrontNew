@@ -507,6 +507,13 @@ class CustomMallCustomerModel extends ForbizMallCustomerModel
             }
         }
 
+        if ($param['divIx'] > 0) {
+            $this->qb->groupStart();
+            $this->qb->where("bbs_div", $param['divIx']);
+            $this->qb->orwhere("sub_bbs_div", $param['divIx']);
+            $this->qb->groupEnd();
+        }
+
         // 유효한 공지 리스트
         $list2 = $this->qb->select("bbs_ix, bbs_ix AS idx, bbs_subject, bbs_contents, bbs_file_1, regdate, DATE_FORMAT(regdate,'%Y-%m-%d') AS reg_date, '' AS is_notice, bbs_hit")
         ->from($this->tableName)
@@ -590,6 +597,13 @@ class CustomMallCustomerModel extends ForbizMallCustomerModel
                 $this->qb->orLike("bbs_contents", $param['searchText']);
                 $this->qb->groupEnd();
             }
+        }
+
+        if ($param['divIx'] > 0) {
+            $this->qb->groupStart();
+            $this->qb->where("bbs_div", $param['divIx']);
+            $this->qb->orwhere("sub_bbs_div", $param['divIx']);
+            $this->qb->groupEnd();
         }
 
         // 유효한 공지 리스트
@@ -871,11 +885,18 @@ class CustomMallCustomerModel extends ForbizMallCustomerModel
             ->exec()
             ->getRowArray();
         if($result){
+
+            if($this->boardConfig['board_ename'] == "Find_Prescription_Swimming_Goggles_Store"){
+                $board_ename = "waterscape";
+            }else{
+                $board_ename = $this->boardConfig['board_ename'];
+            }
+
             // (이전 레코드)
             $result['before_record'] = $this->qb->select("bbs_pass, mem_ix, bbs_ix, bbs_subject, bbs_hidden, bbs_re_cnt, bbs_hit, regdate, date_format(regdate, '%Y-%m-%d') reg_date, bbs_etc1, bbs_etc2, bbs_rec_cnt")
                 ->select("bbs_name AS writer")
                 ->select("CONCAT(SUBSTR(bbs_name,1,1),'*',SUBSTR(bbs_name,3)) AS bbs_name")
-                ->select("CONCAT('/customer/" . $this->boardConfig['board_ename'] . "/read/', bbs_ix) AS link")
+                ->select("CONCAT('/customer/" . $board_ename . "/read/', bbs_ix) AS link")
                 ->select("CASE WHEN regdate > DATE_SUB(now(), interval " . $this->boardConfig['design_new_priod'] . " HOUR) THEN 1 ELSE 0 END AS new")
                 ->from($this->tableName)
                 ->where('bbs_ix <', $bbs_ix)
@@ -890,7 +911,7 @@ class CustomMallCustomerModel extends ForbizMallCustomerModel
             $result['next_record'] = $this->qb->select("bbs_pass, mem_ix, bbs_ix, bbs_subject, bbs_hidden, bbs_re_cnt, bbs_hit, regdate, date_format(regdate, '%Y-%m-%d') reg_date, bbs_etc1, bbs_etc2, bbs_rec_cnt")
                 ->select("bbs_name AS writer")
                 ->select("CONCAT(SUBSTR(bbs_name,1,1), '*', SUBSTR(bbs_name,3)) AS bbs_name")
-                ->select("CONCAT('/customer/" . $this->boardConfig['board_ename'] . "/read/', bbs_ix) AS link")
+                ->select("CONCAT('/customer/" . $board_ename . "/read/', bbs_ix) AS link")
                 ->select("CASE WHEN regdate > DATE_SUB(now(), interval " . $this->boardConfig['design_new_priod'] . " HOUR) THEN 1 ELSE 0 END AS new")
                 ->from($this->tableName)
                 ->where('bbs_ix >', $bbs_ix)

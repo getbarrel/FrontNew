@@ -203,6 +203,8 @@ class CustomMallCustomerController extends ForbizMallCustomerController
             $param['sDate']      = $this->input->post("sDate");
             $param['eDate']      = $this->input->post("eDate");
             $param['searchText'] = $this->input->post("searchText");
+            $param['bbsIx']      = $this->input->post('bbsIx');
+            $param['divIx']      = $this->input->post("divIx");   // 분류코드
 
             $this->customerModel->setBoardConfig($param['bType']);
             $responseData = $this->customerModel->noticeList($param);
@@ -223,6 +225,7 @@ class CustomMallCustomerController extends ForbizMallCustomerController
             $param['sType']      = $this->input->post('sType');
             $param['curPage']    = $this->input->post("page");
             $param['searchText'] = $this->input->post("searchText");
+            $param['divIx']      = $this->input->post("divIx");   // 분류코드
 
             $this->customerModel->setBoardConfig($param['bType']);
             $responseData = $this->customerModel->getNoticeMixedList($param);
