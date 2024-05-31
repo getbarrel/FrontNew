@@ -274,7 +274,7 @@
 						<dt>{=trans('{claimTypeName}할 상품금액')}</dt>
 						<dd>{=trans('<em>{=g_price(expectedRefund.productPrice)}</em>원')}</dd>
 					</dl>
-					<dl class="pay-comp__payment__box">
+					<!--<dl class="pay-comp__payment__box">
 						<dt>{=trans('환불 예정 배송비')}</dt>
 						<dd>{=trans('<em>{=g_price(expectedRefund.deliveryPrice)}</em>원')}</dd>
 					</dl>
@@ -287,7 +287,7 @@
                     <dl class="pay-comp__payment__box">
                         <dt>{=trans('{claimTypeName}시 추가 배송비(차감)')}</dt>
                         <dd>{=trans('<em>{=g_price(expectedRefund.claimDeliveryPrice)}</em>원')}</dd>
-                    </dl>
+                    </dl>-->
                     <dl class="pay-comp__payment__box">
                         <dt>{=trans('환불 예정 금액')}</dt>
                         <dd>{=trans('<em>{=g_price(expectedRefund.expectedRefundPrice)}</em>원')}</dd>
@@ -302,6 +302,9 @@
                         <dd>{expectedRefund.refundBankName} / {expectedRefund.refundBankOwner} / {expectedRefund.refundBankNumber}</dd>
                     </dl>
                     {/}
+					<dl class="pay-comp__payment__box">
+						<dt style="padding-left:5px;color:#ff4e00;font-weight:bold;">{=trans('※ 단순변심 등 구매자의 사유로 반품할 경우 왕복 배송비가 발생합니다.')}</dt>
+					</dl>
 				</div>
 			</div>
 		</div>
