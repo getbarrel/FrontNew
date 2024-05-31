@@ -276,9 +276,10 @@ dataLayer.push({
         <!--{? .gift_products}-->
         <div class="infoinput-goods__gifts devOrderGiftArea devOrderGiftArea_{.freegift_condition}" data-freegift_condition = '{.freegift_condition}'>
             <input type="hidden" name="{.freegift_condition}_giftUseYN" id="{.freegift_condition}_giftUseYN" value="Y">
+            <input type="hidden" name="gift_cnt" id="gift_cnt" value="{.gift_cnt}">
             <div class="page-title">
                 <div class="title-md">{=trans(.freegift_condition_text)}</div>
-                <span class="total-count"><em>{=trans(.gift_cnt)}</em>개 선택 가능.</span>
+                <span class="total-count"><em style="color:#FF4E00;" id="gift_cnt_text">{=trans(.gift_cnt)}</em>개 선택 가능.</span>
             </div>
             <div class="product-list">
                 <ul class="product-list__wrap">
@@ -287,7 +288,8 @@ dataLayer.push({
                     <li class="product-list__item devOrderGiftList" id="devOrderGiftList_{...pid}_{...event_fg_ix}_{.freegift_condition}">
                         <div class="product-list__item-top">
                             <label class="product-list__check">
-                                <input type="radio" name="{.freegift_condition}_giftCheck" id="{.freegift_condition}_giftCheckbox_{...pid}" class="cart_product_check" value="{...pid}_{.freegift_condition}" onclick="radioChk(this.value);"/>
+                                <!--<input type="radio" name="{.freegift_condition}_giftCheck" id="{.freegift_condition}_giftCheckbox_{...pid}" class="cart_product_check" value="{...pid}_{.freegift_condition}" onclick="radioChk(this.value);"/>-->
+                                <input type="checkbox" name="{.freegift_condition}_giftCheck" id="{.freegift_condition}_giftCheckbox_{...pid}" class="cart_product_check" value="{...pid}_{.freegift_condition}" onclick="checkBoxChk(this.value);"/>
                             </label>
                         </div>
                         <dl class="product-list__group devGiftListByOrder">
@@ -295,7 +297,7 @@ dataLayer.push({
                                 <figure class="product-list__thumb">
                                     <img src="{...image_src}" alt="{...pname}" data-devpid="{...pid}" data-devpcount="{.gift_cnt}" data-fg_ix="{...event_fg_ix}" data-freegift_condition="{.freegift_condition}"/>
                                     <input type="hidden" name="{.freegift_condition}_devpid_{...pid}" id="{.freegift_condition}_devpid_{...pid}" value="{...pid}">
-                                    <input type="hidden" name="{.freegift_condition}_devpcount_{...pid}" id="{.freegift_condition}_devpcount_{...pid}" value="{.gift_cnt}">
+                                    <input type="hidden" name="{.freegift_condition}_devpcount_{...pid}" id="{.freegift_condition}_devpcount_{...pid}" value="1">
                                     <input type="hidden" name="{.freegift_condition}_fg_ix_{...pid}" id="{.freegift_condition}_fg_ix_{...pid}" value="{...event_fg_ix}">
                                     <input type="hidden" name="{.freegift_condition}_freegift_condition_{...pid}" id="{.freegift_condition}_freegift_condition_{...pid}" value="{.freegift_condition}">
                                 </figure>
@@ -332,7 +334,8 @@ dataLayer.push({
                     <li class="product-list__item">
                         <div class="product-list__item-top">
                             <label class="product-list__check">
-                                <input type="radio" name="{.freegift_condition}_giftCheck" id="{.freegift_condition}_giftCheckbox_55421" value="55421" /> <!-- qa : 55410 || stg / real : 55421 -->
+                                <!--<input type="radio" name="{.freegift_condition}_giftCheck" id="{.freegift_condition}_giftCheckbox_55421" value="55421" />-->
+                                <input type="checkbox" name="{.freegift_condition}_giftCheck" id="{.freegift_condition}_giftCheckbox_55421" value="55421" onclick="checkBoxChk(this.value)"/><!-- qa : 55410 || stg / real : 55421 -->
                                 <input type="hidden" name="{.freegift_condition}_devpid_55421" id="{.freegift_condition}_devpid_55421" value="55421">
                                 <input type="hidden" name="{.freegift_condition}_devpcount_55421" id="{.freegift_condition}_devpcount_55421" value="1">
                                 <input type="hidden" name="{.freegift_condition}_fg_ix_55421" id="{.freegift_condition}_fg_ix_55421" value="">

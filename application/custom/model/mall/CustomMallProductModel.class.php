@@ -770,6 +770,7 @@ class CustomMallProductModel extends ForbizMallProductModel
         }
 
         if (!empty($rows)) {
+            $rowsCnt = 0;
             foreach ($rows as $row) {
 
                 //$sql = "select sum(sellprice) as noSellPrice from shop_product as p, shop_freegift_select_product_relation as fspr where fspr.fg_ix = '".$row['fg_ix']."' and fspr.pid = p.id and fspr.pid in ($id)";
@@ -837,7 +838,14 @@ class CustomMallProductModel extends ForbizMallProductModel
                             ->getResultArray();
                     }
 
-                    $data['gift_cnt'] = $row['gift_cnt'];
+                    if($rowsCnt == 0){
+                        $data['gift_cnt'] = $row['gift_cnt'];
+                    }else{
+                        if($data['gift_cnt'] < $row['gift_cnt']){
+                            $data['gift_cnt'] = $row['gift_cnt'];
+                        }
+                    }
+
                     $data['freegift_event_title'] = $row['freegift_event_title'];
                     $data['sale_condition_s'] = $row['sale_condition_s'];
                     $data['sale_condition_e'] = $row['sale_condition_e'];
@@ -865,9 +873,11 @@ class CustomMallProductModel extends ForbizMallProductModel
                         }
                         if($soldOutCheck){
                             $data['soldOut'] =  $soldOutCheck;
+                            $data['gift_cnt'] = $data['gift_cnt'] - $data['soldOut'];
                         }
                     }
                 }
+                $rowsCnt++;
             }
         }
 

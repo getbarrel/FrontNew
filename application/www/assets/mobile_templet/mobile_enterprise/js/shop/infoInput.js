@@ -644,12 +644,40 @@ var devInfoinputObj = {
                 }
             }*/
 
-            if($('#freeGiftG').val() == "Y" && $('#G_giftUseYN').val() == "Y"){
+            var box_count = 0;
+            var checkboxs = document.getElementsByName("G_giftCheck");
+
+            var nogift = "N";
+            var c = 0;
+            for (var i = 0; i < checkboxs.length; i++){
+                if(eval(checkboxs[i].checked) == true){
+                    box_count++;
+
+                    var val = checkboxs[i].value;
+                    var condition = val.split('_');
+
+                    // qa : 55410 || stg / real : 55421
+                    if(c == 0 && condition[0] == 55421){
+                        nogift = "Y";
+                    }
+                    c++;
+                }
+            }
+
+            if($('#gift_cnt').val() == box_count || nogift == "Y") {
+            }else{
+                if(($('#freeGiftG').val() == "Y" || $('#freeGiftG').val() == "O") && $('#G_giftUseYN').val() == "Y"){
+                    alert("구매 금액별 사은품은 총 " + $('#gift_cnt').val() + " 개를 선택할 수 있습니다.");
+                    return false;
+                }
+            }
+
+            /*if($('#freeGiftG').val() == "Y" && $('#G_giftUseYN').val() == "Y"){
                 if(!$('input:radio[name=G_giftCheck]').is(':checked')){
                     alert("구매 금액별 사은품을 선택하세요.");
                     return false;
                 }
-            }
+            }*/
 
             if($('#freeGiftC').val() == "Y" && $('#C_giftUseYN').val() == "Y"){
                 if(!$('input:radio[name=C_giftCheck]').is(':checked')){
@@ -693,7 +721,33 @@ var devInfoinputObj = {
             var giftSelectP = false;
 
             if($('#G_giftUseYN').val() == "Y"){
-                var gPid = $("input[name='G_giftCheck']:checked").val();
+                for (var i = 0; i < checkboxs.length; i++){
+                    if(eval(checkboxs[i].checked) == true){
+                        var gPid = checkboxs[i].value;
+                        var condition = gPid.split('_');
+                        var giftPid = $('#G_devpid_'+condition[0]).val();
+                        var giftCount = $('#G_devpcount_'+condition[0]).val();
+                        var fgIx = $('#G_fg_ix_'+condition[0]).val();
+                        var freegift_condition = $('#G_freegift_condition_'+condition[0]).val();
+                        switch(freegift_condition){
+                            case 'G':
+                                giftSelect = true;
+                                break;
+                            case 'C':
+                                giftSelectC = true;
+                                break;
+                            case 'P':
+                                giftSelectP = true;
+                                break;
+                        }
+                        //if(fgIx && freegift_condition){
+                        giftOrderData.push({giftPid:giftPid,giftCount:giftCount,fgIx:fgIx,freegift_condition:freegift_condition});
+                        /*}else{
+                            giftOrderData.push({giftPid:giftPid,giftCount:giftCount,fgIx:fgIx});
+                        }*/
+                    }
+                }
+                /*var gPid = $("input[name='G_giftCheck']:checked").val();
                 var condition = gPid.split('_');
                 var giftPid = $('#G_devpid_'+condition[0]).val();
                 var giftCount = $('#G_devpcount_'+condition[0]).val();
@@ -710,9 +764,9 @@ var devInfoinputObj = {
                         giftSelectP = true;
                         break;
                 }
-                //if(fgIx && freegift_condition){
+                if(fgIx && freegift_condition){
                 giftOrderData.push({giftPid:giftPid,giftCount:giftCount,fgIx:fgIx,freegift_condition:freegift_condition});
-                /*}else{
+                }else{
                     giftOrderData.push({giftPid:giftPid,giftCount:giftCount,fgIx:fgIx});
                 }*/
             }
@@ -1157,6 +1211,8 @@ var devInfoinputObj = {
                                 }
 
                                 $("input:radio[name='"+key+"_giftCheck']").prop('checked', false);
+                                $("#gift_cnt").val(gPid.length);
+                                $("#gift_cnt_text").html(gPid.length);
 
                                 //장바구니 사은품 중복 노출 작업시 체크해야함
                                 /*$('.devOrderGift_'+key).hide();
@@ -1854,5 +1910,27 @@ function radioChk(val){
         $('#freeGiftC').val('O');
     }else if(condition[1] == "P"){
         $('#freeGiftP').val('O');
+    }
+}
+
+function checkBoxChk(val){
+    var condition = val.split('_');
+
+    // qa : 55410 || stg / real : 55421
+    if(condition[0] == 55421){
+        //var checkboxs = document.getElementsByName(condition[1]+"_giftCheck");
+        //for (var i = 0; i < checkboxs.length-1; i++){
+        //    checkboxs[i].checked = false;
+        //}
+    }else{
+        //$('#'+condition[1]+'_giftCheckbox_55421').prop('checked',false);
+
+        if(condition[1] == "G"){
+            $('#freeGiftG').val('O');
+        }else if(condition[1] == "C"){
+            $('#freeGiftC').val('O');
+        }else if(condition[1] == "P"){
+            $('#freeGiftP').val('O');
+        }
     }
 }
