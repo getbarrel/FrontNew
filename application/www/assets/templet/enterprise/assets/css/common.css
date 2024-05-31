@@ -1218,7 +1218,6 @@ table .empty-content {
   position: absolute;
   top: auto;
   bottom: 110px;
-  left: 5px;
   right: auto;
   z-index: 10;
   width: 70px;
@@ -1235,7 +1234,7 @@ table .empty-content {
   top: auto;
   bottom: 110px;
   left: auto;
-  right: 5px;
+  right: 0px;
   z-index: 10;
   width: 70px;
   height: 70px;
@@ -1250,7 +1249,6 @@ table .empty-content {
   position: absolute;
   top: auto;
   bottom: 100px;
-  left: 5px;
   right: auto;
   z-index: 10;
   width: 70px;
@@ -1267,7 +1265,7 @@ table .empty-content {
   top: auto;
   bottom: 100px;
   left: auto;
-  right: 5px;
+  right: 0px;
   z-index: 10;
   width: 70px;
   height: 70px;
@@ -9270,7 +9268,7 @@ table .empty-content {
   transition: all 0.2s ease-in-out;
 }
 
-.NEWbarrel .fb__left-goodsList .goodsNav__subList-link.goodsNav__subList-link--active, 
+.NEWbarrel .fb__left-goodsList .goodsNav__subList-link.goodsNav__subList-link--active,
 .NEWbarrel .fb__left-goodsList .goodsNav__subList-link:hover {
   color: #000;
 }
