@@ -1216,8 +1216,8 @@ table .empty-content {
 
 .NEWbarrel .product-box__img1 {
   position: absolute;
-  top: auto;
-  bottom: 80px;
+  top: 280px;
+  bottom: auto;
   right: auto;
   z-index: 10;
   width: 70px;
@@ -1231,8 +1231,8 @@ table .empty-content {
 
 .NEWbarrel .product-box__img2 {
   position: absolute;
-  top: auto;
-  bottom: 80px;
+  top: 280px;
+  bottom: auto;
   left: auto;
   right: 0px;
   z-index: 10;
@@ -1247,8 +1247,8 @@ table .empty-content {
 
 .NEWbarrel .product-box__img3 {
   position: absolute;
-  top: auto;
-  bottom: 100px;
+  top: 280px;
+  bottom: auto;
   right: auto;
   z-index: 10;
   width: 70px;
@@ -1262,8 +1262,8 @@ table .empty-content {
 
 .NEWbarrel .product-box__img4 {
   position: absolute;
-  top: auto;
-  bottom: 100px;
+  top: 280px;
+  bottom: auto;
   left: auto;
   right: 0px;
   z-index: 10;
