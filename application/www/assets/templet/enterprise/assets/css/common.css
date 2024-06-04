@@ -1217,7 +1217,7 @@ table .empty-content {
 .NEWbarrel .product-box__img1 {
   position: absolute;
   top: auto;
-  bottom: 110px;
+  bottom: 80px;
   right: auto;
   z-index: 10;
   width: 70px;
@@ -1232,7 +1232,7 @@ table .empty-content {
 .NEWbarrel .product-box__img2 {
   position: absolute;
   top: auto;
-  bottom: 110px;
+  bottom: 80px;
   left: auto;
   right: 0px;
   z-index: 10;

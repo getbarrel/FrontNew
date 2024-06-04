@@ -3958,7 +3958,7 @@ select:disabled {
 
 .NEWbarrelM .product-box__img1 {
   position: absolute;
-  bottom: 0.5rem;
+  bottom: 0rem;
   font-size: 0;
   width: 70px;
   height: 70px;
@@ -3976,7 +3976,7 @@ select:disabled {
 
 .NEWbarrelM .product-box__img2 {
   position: absolute;
-  bottom: 0.5rem;
+  bottom: 0rem;
   right: 0rem;
   font-size: 0;
   width: 70px;
