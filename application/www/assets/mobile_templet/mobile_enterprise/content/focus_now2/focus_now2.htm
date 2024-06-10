@@ -41,9 +41,10 @@
        </div>
        { / }
        <section class="detail-goods__wrap">
-        { ? group_title }
-        <div class="title-md" style="margin-top:40px;position: relative;display: flex;-webkit-box-align: end;align-items: flex-end;gap: 0 100px;width: 100%;text-align:{? .s_group_title == 'L'}left{: .s_group_title == 'C'}center{: s_group_title == 'R'}right{/};color:{ .c_group_title };{? .b_group_title == 'Y' }font-weight: bold;{ / } {? .i_group_title == 'Y' }font-style:oblique;{ / } {? .u_group_title == 'Y' }text-decoration-line: underline;{ / }">{ .group_title }</div>
-        { / }
+			<div class="title-md" style="position: relative;display: flex;-webkit-box-align: end;align-items: flex-end;gap: 0 100px;width: 100%;text-align:{? .s_group_title == 'L'}left{: .s_group_title == 'C'}center{: s_group_title == 'R'}right{/};color:{ .c_group_title };{? .b_group_title == 'Y' }font-weight: bold;{ / } {? .i_group_title == 'Y' }font-style:oblique;{ / } {? .u_group_title == 'Y' }text-decoration-line: underline;{ / }">
+			{ .group_title }
+				<span style="line-height:24px;font-size:16px;font-weight:600;color:#a5a5a5;color:{.c_group_explanation};{? .b_group_explanation == 'Y' }font-weight: bold;{ / } {? .i_group_explanation == 'Y' }font-style:oblique;{ / } {? .u_group_explanation == 'Y' }text-decoration-line: underline;{ / }">{ .group_explanation }</span>
+			</div>
         <!-- 상품 리스트 S -->
         <div class="br__goods-list__wrap br__goods-list__wrap--normal">
          <div class="goods-list">
