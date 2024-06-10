@@ -45,6 +45,69 @@ class CustomMallMypageModel extends ForbizMallMypageModel
 
         $ret = $this->doOrderDetail($userCode, $applyData['oid'], false, $orderSearch, [], $exchange);
 
+        // 구매금액별 사은품 존재여부 체크 및 반품해야할 사은품 처리 부분
+        if($ret['order']['freeGift']){
+            // 주문전체금액 - 반품금액 계산하여 구매금액별 사은품 구간 체크하기
+            //$totalPrice     = $ret['paymentInfo']['payment'][0]['payment_price'];
+            $totalPrice     = $ret['paymentInfo']['nowPrice'];
+            $refundPrice    = $ret['paymentInfo']['pt_dcprice'];
+            $remainingPrice = $totalPrice - $refundPrice;
+            $giftProducts   = $ret['order']['freeGift'][0]['gift_products'];
+
+            // 월래 금액 사은품 목록 가져오기(금액별 사은품 일때)
+            $rows = $this->qb
+                ->select('fpr.pid')
+                ->select('fg.freegift_event_title')
+                ->from(TBL_SHOP_FREEGIFT . ' AS fg')
+                ->join(TBL_SHOP_FREEGIFT_PRODUCT_GROUP . ' AS fpg', 'fg.fg_ix = fpg.fg_ix')
+                ->join(TBL_SHOP_FREEGIFT_PRODUCT_RELATION . ' AS fpr', 'fg.fg_ix = fpr.fg_ix')
+                ->where('fg.freegift_condition', 'G')   // where('fg.freegift_condition', $freeGiftCondition) 현재는 금액별 사은품으로 G 이지만 C(특정 카테고리 사은품) P(이벤트 제품 구매시 금액별 사은품) 이 부분도 체크 해야함.
+                ->where('fg.disp', 1)// 전시여부 = 전시
+                ->where('fg.fg_use_sdate <=', time())
+                ->where('fg.fg_use_edate >=', time())
+                ->where('fpg.sale_condition_s <=', $totalPrice)
+                ->where('fpg.sale_condition_e >=', $totalPrice)
+                ->whereIn('fg.mall_ix',['', MALL_IX])
+                ->orderBy('fpg.sale_condition_s','desc')
+                ->exec()
+                ->getResultArray();
+
+            foreach ($giftProducts as $key => $freeGift) {
+                foreach ($rows as $row) {
+                    if($freeGift['pid'] == $row['pid']){
+                        $ret['order']['freeGift'][0]['gift_products'][$key]['giftTitle'] = $row['freegift_event_title'];
+                    }
+                }
+            }
+            $giftProducts   = $ret['order']['freeGift'][0]['gift_products'];
+
+            // 남은 금액 사은품 목록 가져오기(금액별 사은품 일때)
+            $rows = $this->qb
+                ->select('fpr.pid')
+                ->from(TBL_SHOP_FREEGIFT . ' AS fg')
+                ->join(TBL_SHOP_FREEGIFT_PRODUCT_GROUP . ' AS fpg', 'fg.fg_ix = fpg.fg_ix')
+                ->join(TBL_SHOP_FREEGIFT_PRODUCT_RELATION . ' AS fpr', 'fg.fg_ix = fpr.fg_ix')
+                ->where('fg.freegift_condition', 'G')   // where('fg.freegift_condition', $freeGiftCondition) 현재는 금액별 사은품으로 G 이지만 C(특정 카테고리 사은품) P(이벤트 제품 구매시 금액별 사은품) 이 부분도 체크 해야함.
+                ->where('fg.disp', 1)// 전시여부 = 전시
+                ->where('fg.fg_use_sdate <=', time())
+                ->where('fg.fg_use_edate >=', time())
+                ->where('fpg.sale_condition_s <=', $remainingPrice)
+                ->where('fpg.sale_condition_e >=', $remainingPrice)
+                ->whereIn('fg.mall_ix',['', MALL_IX])
+                ->orderBy('fpg.sale_condition_s','desc')
+                ->exec()
+                ->getResultArray();
+
+            foreach ($giftProducts as $key => $freeGift) {
+                foreach ($rows as $row) {
+                    if($freeGift['pid'] == $row['pid']){
+                        unset($giftProducts[$key]);
+                    }
+                }
+            }
+            $ret['refundGiftProduct'] = $giftProducts;
+        }
+
         $ret['applyData'] = $applyData;
 
         // 반품인가?
@@ -81,6 +144,25 @@ class CustomMallMypageModel extends ForbizMallMypageModel
         $ret['confirmKey'] = md5(time().rand());
 
         return $ret;
+    }
+
+    public function getOrderGift($oid, $odIxs, $claimCnt)
+    {
+        /* @var $orderModel CustomMallOrderModel */
+        $orderModel = $this->import('model.mall.order');
+
+        $extData = [];
+        foreach ($odIxs as $odIx) {
+            $claim_cnt  = $claimCnt[$odIx];
+            $set_groups = $orderModel->chkSetGroup($oid, [$odIx => $claim_cnt]);
+            foreach ($set_groups as $od_ix => $cnt) {
+                $extData['od_ix'][]               = $od_ix;
+                $extData['claim_cnt'][$od_ix]     = $claim_cnt;
+                $extData['claim_set_cnt'][$od_ix] = $cnt;
+            }
+        }
+
+        return $extData;
     }
 
     /**
@@ -170,6 +252,8 @@ class CustomMallMypageModel extends ForbizMallMypageModel
         if (!empty($orderInfo)) {
             $orderPaymentInfo = $orderModel->getPaymentInfo($orderId);
 
+            $orderRefundInfoPrice = $orderModel->getRefundPaymentInfo($orderId);
+
             // 마일리지
             $reserve    = 0;
             $cartCoupon = 0;
@@ -197,6 +281,7 @@ class CustomMallMypageModel extends ForbizMallMypageModel
                 'total_listprice' => 0,
                 'pt_dcprice' => 0,
                 'total_pcnt' => 0,
+                'nowPrice'  => $orderRefundInfoPrice['allPrice'],
                 'payment' => $orderPaymentInfo
             ];
 

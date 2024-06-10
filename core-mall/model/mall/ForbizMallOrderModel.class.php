@@ -2059,6 +2059,17 @@ class ForbizMallOrderModel extends ForbizModel
         return $data;
     }
 
+    public function getRefundPaymentInfo($oid)
+    {
+        return $row = $this->qb
+            ->select('sum(pt_dcprice) as allPrice')
+            ->from(TBL_SHOP_ORDER_DETAIL)
+            ->where('oid', $oid)
+            ->whereIn('status', [ORDER_STATUS_DELIVERY_ING, ORDER_STATUS_DELIVERY_COMPLETE, ORDER_STATUS_BUY_FINALIZED])    // DI(배송중), DC(배송완료), BF(거래확정)
+            ->exec()
+            ->getRowArray();
+    }
+
     /**
      * 결제 정보를 가지고 온다
      * @param $oid

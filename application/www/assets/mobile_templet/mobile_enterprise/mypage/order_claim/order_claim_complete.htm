@@ -87,6 +87,43 @@
         {/}
         <!-- 주문 내역 - 리스트 E -->
 
+        {? applyData.claim_reason != "PD"}
+        {? refundGiftProduct}
+        <div class="br__odhistory__list">
+            <div class="br__mypage-title">
+                <div class="title-sm">반품 해야 할 사은품</div>
+            </div>
+            <ul class="product-list">
+                {@ refundGiftProduct}
+                {? .giftTitle}
+                <input type="hidden" name="refundGiftPid" id="refundGiftPid" value="{.pid}">
+                <li class="product-list__item">
+                    <dl class="product-list__group">
+                        <dt class="product-list__group-left">
+                            <figure class="product-list__thumb">
+                                <img src="{.image_src}"">
+                            </figure>
+                        </dt>
+                        <dd class="product-list__group-right">
+                            <div class="product-list__info">
+                                <div class="product-list__info__title">{.pname}</div>
+
+                                <div class="product-list__info__option">
+                                    <div class="product-list__info__option-item">
+                                        <span class="size">{.giftTitle}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </li>
+                {/}
+                {/}
+            </ul>
+        </div>
+        {/}
+        {/}
+
         <!--반품 방식 S -->
         <div class="pay-comp__wrap address">
             <div class="br__mypage-title">

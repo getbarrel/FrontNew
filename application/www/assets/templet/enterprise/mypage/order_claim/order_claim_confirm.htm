@@ -107,6 +107,48 @@
 		{/}
 	</section>
 
+	{? applyData.claim_reason != "PD"}
+	{? refundGiftProduct}
+	<section class="fb__mypage__section cancel-area">
+		<div class="fb__mypage-title">
+			<div class="title-sm">{=trans('{claimTypeName} 해야 할 사은품')}</div>
+		</div>
+		<div class="fb__mypage-claim claim__list claim__able">
+			<ul class="product-item__wrap">
+				{@ refundGiftProduct}
+				{? .giftTitle}
+				<input type="hidden" name="refundGiftPid" id="refundGiftPid" value="{.pid}">
+					<li class="product-item__list">
+						<dl class="product-item">
+							<dt class="product-item__thumbnail-box">
+								<div class="product-item__thumb">
+									<a href="/shop/goodsView/{.pid}">
+										<img src="{.image_src}">
+									</a>
+								</div>
+							</dt>
+							<dd class="product-item__infobox">
+								<div class="product-item__info">
+									<div class="product-item__title c-pointer">
+										<a href="/shop/goodsView/{.pid}">{.pname}</a>
+									</div>
+									<div class="product-item__option">
+										<a href="/shop/goodsView/{.pid}">
+											<span>{.giftTitle}</span>
+										</a>
+									</div>
+								</div>
+							</dd>
+						</dl>
+					</li>
+				{/}
+				{/}
+			</ul>
+		</div>
+	</section>
+	{/}
+	{/}
+
 	<section class="fb__mypage__section return-info">
 		<div class="fb__mypage-title">
 			<div class="title-sm">{=trans('{claimTypeName} 발송 방법')}</div>

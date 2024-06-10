@@ -304,11 +304,11 @@ class CustomMallMypageController extends ForbizMallMypageController
                     // 반품/교환 확인
                     // Get Confirm Data
                     $claimConfirmData = $this->getFlashData('claimConfirmData');
-
                     if (isset($claimConfirmData['confirmKey']) && $claimConfirmData['confirmKey'] === $this->input->post('confirm_key')) {
                         // Set Complete Data
                         $CompleteData = [
                             'order' => $claimConfirmData['order'],
+                            'refundGiftProduct' => $claimConfirmData['refundGiftProduct'],
                             'claimCnt' => $claimConfirmData['applyData']['claim_cnt'],
                             'claimSetCnt' => $claimConfirmData['applyData']['claim_set_cnt'], // 세트/코디 구성상품 * 반품/교환 수량
                             'claimReason' => $claimConfirmData['applyData']['claim_reason'],   // 1개
