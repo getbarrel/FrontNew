@@ -39,7 +39,6 @@ $(function () {
         .setController('faqList', 'customer')
         .setGotoTop(100)
         .init(function (data) {
-			console.log(data.data.list);
             faqList.setContent(data.data.list, data.data.paging);
             if ($("#bbsIx").val() != '') {
                 $('.devFaqAnswer').slideDown();

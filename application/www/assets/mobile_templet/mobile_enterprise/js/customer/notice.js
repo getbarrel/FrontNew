@@ -16,7 +16,9 @@ $(function () {
 
 		// 페이지네이션 재정의
 		bbsList.setContent = function (list, paging) {
-			
+            if(paging.cur_page == 1){
+                this.removeContent();
+            }
 			//this.removeContent();
 			if (list.length > 0) {
 				for (var i = 0; i < list.length; i++) {

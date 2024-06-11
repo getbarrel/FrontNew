@@ -16,7 +16,9 @@ $(function () {
 
 		// 페이지네이션 재정의
 		bbsList.setContent = function (list, paging) {
-			
+            if(paging.cur_page == 1){
+                this.removeContent();
+            }
 			//this.removeContent();
 			if (list.length > 0) {
 				for (var i = 0; i < list.length; i++) {
@@ -46,13 +48,13 @@ $(function () {
             .setUseHash(true)
             .setPaginationTpl(common.boardPagination)
             .init(function (data) {
-                $('#devBbsContent').empty()
+                //$('#devBbsContent').empty();
                 bbsList.setContent(data.data.list, data.data.paging);
                 if (data.data.searchText != "" && data.data.total == 0) {
                     $("#emptyMsg em").text(data.data.searchText);
                     $("#emptyMsg").append("에 대한 검색 결과가 없습니다.");
                 } else {
-                    $("#emptyMsg").text("등록된 공지사항이 없습니다");
+                    $("#emptyMsg").text("등록된 도수수경/매장정보가 없습니다");
                 }
             });
     }
