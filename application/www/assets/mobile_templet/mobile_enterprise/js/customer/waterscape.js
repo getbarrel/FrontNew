@@ -43,7 +43,7 @@ $(function () {
             .setPagination('#devPageWrap')
             .setPageNum('#devPage')
             .setForm('#devBbsForm')
-            .setController('noticeList', 'customer')
+            .setController('mixedNoticeList', 'customer')
             .setRemoveContent(false)
             .setUseHash(true)
             .setPaginationTpl(common.boardPagination)
