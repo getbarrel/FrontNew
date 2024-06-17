@@ -45,7 +45,19 @@ var snsShare = new function() {
             if(!this.kakaoInit){ this.setKakaoInit(); }
             this.kakaoStoryShare();
         }else if(sns == 'url-copy'){
-            this.copyClip();
+            var url = '';    // <a>태그에서 호출한 함수인 clip 생성
+            var textarea = document.createElement("textarea");
+            //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
+
+            document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
+            url = window.document.location.href;  //url에는 현재 주소값을 넣어줌
+            textarea.value = url;  // textarea 값에 url를 넣어줌
+            textarea.select();  //textarea를 설정
+            document.execCommand("copy");   // 복사
+            document.body.removeChild(textarea); //extarea 요소를 없애줌
+
+            alert('상품의 URL이 복사되었습니다.'); // alert창을 띄워서 확인.
+            //this.copyClip();
             return false;
         }else{
             window.open(this.snsUrl[sns], 'pop', 'menubar=no,status=no,scrollbars=yes,resizable=yes,width=500,height=300,top=50,left=50');
