@@ -44,9 +44,9 @@ foreach($displayList['list'] as $key){
 $pageNumTpl = "";
 foreach($displayList['paging']['page_list'] as $key2 => $val2){
 	if($paramPage == $val2) {
-		$pageNumTpl .='<a href="/content/styleList/'.$val2.'" class="devPageBtnCls on" data-page="'.$val2.'">'.$val2.'</a>';
+		$pageNumTpl .='<a href="/content/styleList/'.$con_ix.'/'.$val2.'" class="devPageBtnCls on" data-page="'.$val2.'">'.$val2.'</a>';
 	}else{
-		$pageNumTpl .= '<a href="/content/styleList/'.$val2.'" class="devPageBtnCls" data-page="'.$val2.'">'.$val2.'</a>';
+		$pageNumTpl .= '<a href="/content/styleList/'.$con_ix.'/'.$val2.'" class="devPageBtnCls" data-page="'.$val2.'">'.$val2.'</a>';
 	}
 }
 
