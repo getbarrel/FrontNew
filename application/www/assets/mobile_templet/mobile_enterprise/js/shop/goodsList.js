@@ -26,7 +26,7 @@ var goodsList = {
             .setLoadingTpl('#devListLoading')
             .setListTpl('#devListDetail')
             .setEmptyTpl('#devListEmpty')
-            .setContainerType('table')
+            .setContainerType('ul')
             .setContainer('#devListContents')
             .setPagination('#devPageWrap')
             .setPageNum('#devPage')
