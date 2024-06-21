@@ -1269,7 +1269,7 @@ var common = {
             changeSearch: false,
             validName: function (name) {
                 switch (name) {
-                    case 'max':
+                    //case 'max':
                     case 'page':
                     case 'ForbizCsrfTestName':
                         return false;
