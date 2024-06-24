@@ -79,6 +79,7 @@ common.lang.load('product.bbsQnaHidden.alert', "비공개 문의입니다.");
 common.lang.load('product.pcodeCoyp.alert', "상품번호가 복사되었습니다.");
 common.lang.load('product.qnaTitle.popup', "상품문의 작성");
 common.lang.load('product.noMember.productQna.confirm', "상품문의 작성은 로그인 시에만 가능합니다.{common.lineBreak}로그인하시겠습니까?");
+common.lang.load('product.noMember.applyStock.confirm', "재입고 알림 신청은 로그인 시에만 가능합니다.{common.lineBreak}로그인하시겠습니까?");
 common.lang.load('product.noMember.reView.confirm', "댓글 작성은 로그인 시에만 가능합니다.{common.lineBreak}로그인하시겠습니까?");
 common.lang.load('product.noMember.productReview.confirm', "로그인한 상태에서만 선택 가능합니다. {common.lineBreak}로그인하시겠습니까?");
 common.lang.load('product.add.confirm.input', "댓글을 등록 하시겠습니까?");
@@ -117,6 +118,14 @@ $(function () {
     });
 
     $('#devSumbitBtn').on('click', function () {
+
+        if (forbizCsrf.isLogin) {
+            //common.util.popup('/shop/goodsQnaWrite/' + pid, 720, 1050, common.lang.get('product.qnaTitle.popup'), true);
+        } else {
+            common.noti.confirm(common.lang.get('product.noMember.applyStock.confirm', ''), function () {
+                document.location.href = '/member/login?url=' + encodeURI('/shop/goodsView/' + $('#pid').val());
+            });
+        }
 
         if(!$('#option_id').val()){
             alert("옵션을 선택하시기 바랍니다.");

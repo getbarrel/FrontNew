@@ -419,14 +419,14 @@
 
 				<!-- 사은품 상품 S -->
 				{? product_gift}
-				<div class="goods-info__toggle goods-info__gifts">
+				<div class="goods-info__toggle goods-info__gifts active">
 					<div class="goods-info__toggle-title">
 						<button type="button" class="goods-info__toggle-title--btn">
 							<span class="title-sm">사은품</span>
 							<i class="ico ico-plus"></i>
 						</button>
 					</div>
-					<div class="goods-info__toggle-cont">
+					<div class="goods-info__toggle-cont" style="display:block">
 						<div class="product-list">
 							<ul class="product-list__wrap">
 								{@ productGiftInfo}
@@ -1091,7 +1091,7 @@
 
                         <div class="br__account__content">
                             <form id="devProductQnaForm">
-                                <input type="hidden" name="id" value="{pid}" id="devQnaPid"/>
+                                <input type="hidden" name="id" id="pid" value="{pid}" id="devQnaPid"/>
                                 <input type="hidden" name="qnaType" value="all"/>
                                 <input type="hidden" name="qnaDiv" value="all"/>
                                 <input type="hidden" name="page" value="1" id="devQnaPage"/>

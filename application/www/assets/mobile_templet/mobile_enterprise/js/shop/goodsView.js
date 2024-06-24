@@ -117,7 +117,7 @@ common.lang.load('product.noMember.confirm', "로그인이 필요합니다.");
 common.lang.load('product.bbsQnaHidden.alert', "비공개 문의입니다.");
 common.lang.load('product.bbsQnaDelete.alert', "문의 내역을 삭제 하시겠습니까?.");
 common.lang.load('product.bbsQnaDeleteFail.alert', "삭제가 실패 되었습니다. 다시 시도 바랍니다.");
-
+common.lang.load('product.noMember.applyStock.confirm', "재입고 알림 신청은 로그인 시에만 가능합니다.{common.lineBreak}로그인하시겠습니까?");
 common.lang.load('coupon.download.fail', '쿠폰 다운로드에 실패하였습니다');
 common.lang.load('coupon.download.success', '쿠폰이 정상적으로 다운로드 되었습니다.');
 
@@ -150,6 +150,14 @@ $(function () {
     });
 
     $('#devSubmitBtnLayer').on('click', function () {
+        if (forbizCsrf.isLogin) {
+            //common.util.popup('/shop/goodsQnaWrite/' + pid, 720, 1050, common.lang.get('product.qnaTitle.popup'), true);
+        } else {
+            common.noti.confirm(common.lang.get('product.noMember.applyStock.confirm', ''), function () {
+                document.location.href = '/member/login?url=' + encodeURI('/shop/goodsView/' + $('#pid').val());
+            });
+        }
+
         if(!$('#option_id').val()){
             alert("옵션을 선택하시기 바랍니다.");
             return;
