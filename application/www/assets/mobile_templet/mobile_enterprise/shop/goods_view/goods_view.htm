@@ -350,7 +350,7 @@
 
 
 				<!-- 추가 상품 옵션 S -->
-				<div class="info__box info__box-addition" id="devMinicartTopAddOption">
+				<!--<div class="info__box info__box-addition" id="devMinicartTopAddOption">
 					<dl class="info__list active" id="dlClassTag">
 						{* add option select *}
 						<dt class="info__list-title">
@@ -363,20 +363,20 @@
 
 						</dd>
 					</dl>
-				</div>
+				</div>-->
 				<!-- 추가 상품 옵션 E -->
 
-				<!-- 추가 옵션 상품 S -- 
-				<div class="goods-info__toggle goods-info__addition active">
+				<!-- 추가 옵션 상품 S -->
+				<div class="goods-info__toggle goods-info__addition active" id="devMinicartTopAddOption" style="display:none;">
 					<div class="goods-info__toggle-title">
 						<button type="button" class="goods-info__toggle-title--btn">
 							<span class="title-sm">추가 옵션 상품</span>
 							<i class="ico ico-plus"></i>
 						</button>
 					</div>
-					<div class="goods-info__toggle-cont">
-						<div class="product-list">
-							<ul class="product-list__wrap">
+					<div class="goods-info__toggle-cont" style="display:block">
+						<div class="product-list" id="devSlideMinicartAddOption">
+							<!--<ul class="product-list__wrap">
 								<li class="product-list__item">
 									<dl class="product-list__group">
 										<dt class="product-list__group-left">
@@ -398,9 +398,9 @@
 												
 
 												<div class="product-list__info__price">
-													<span class="product-list__info__price--discount">10%</span>
-													<del class="product-list__info__price--strike"><em>1,405,550</em>원</del>
-													<span class="product-list__info__price--cost"><em>1,265,550</em>원</span>
+													<span class="product-list__info__price&#45;&#45;discount">10%</span>
+													<del class="product-list__info__price&#45;&#45;strike"><em>1,405,550</em>원</del>
+													<span class="product-list__info__price&#45;&#45;cost"><em>1,265,550</em>원</span>
 												</div>
 												<div class="product-list__select">
 													<select class="br__form-select">
@@ -411,11 +411,11 @@
 										</dd>
 									</dl>
 								</li>
-							</ul>
+							</ul>-->
 						</div>
 					</div>
 				</div>
-				-- 추가 옵션 상품 E -->
+				<!-- 추가 옵션 상품 E -->
 
 				<!-- 사은품 상품 S -->
 				{? product_gift}

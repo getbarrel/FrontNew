@@ -457,6 +457,7 @@ var devMiniCart = function () {
                     }
                 }
                 str.push('</ul>');
+                $("#devMinicartTopAddOption").show();
                 $(this.addOptionsContents).append(str.join('')).removeClass('hidden');
 
                 $(this.addOptionsContents).on('change', '.devMinicartAddOptionsBox', function(){
