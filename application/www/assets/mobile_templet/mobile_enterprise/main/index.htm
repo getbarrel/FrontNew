@@ -126,7 +126,7 @@
 	<!-- 2. 확인 완료 -->
 
 
-	<!-- Best Items 영역 S -->
+	<!-- Best Items 1 영역 S -->
 	{ ? mainBastCateUse == "Y" }
 	<section class="br-main__section br-main__BestItems">
 		<div class="br-main__inner">
@@ -230,7 +230,961 @@
 		</div>
 	</section>
 	{ / }
-	<!-- Best Items 영역 E -->
+	<!-- Best Items 1 영역 E -->
+
+	<!-- Best Items 2 영역 S -->
+	{ ? mainBastCateUse2 == "Y" }
+	<section class="br-main__section br-main__BestItems">
+		<div class="br-main__inner">
+			<div class="br-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best2 == 'L'}left{: mainContentInfo.s_best2 == 'C'}center{: mainContentInfo.s_best2 == 'R'}right{/};color:{mainContentInfo.c_best2};{? mainContentInfo.b_best2 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best2 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best2 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title2}</h3>
+				<span style="color:{mainContentInfo.c_best_e2};{? mainContentInfo.b_best_e2 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e2 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e2 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e2}</span>
+				<a href="/shop/goodsList/{mainBastCateCode2}">전체보기</a>
+			</div>
+			<div class="br-tab__wrap">
+				<div class="br-tab__nav br-tab__slide swiper-container" id="one">
+					<ul class="swiper-wrapper">
+						{ @ mainBastCateList2 }
+						<li class="swiper-slide {? .index_ == 0 }active{ / }"><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="br-tab__contents-wrap">
+					{ @ mainBastCateProductListAll2 }
+					<div class="br-tab__contents {? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="br-main__card-slider swiper-container goods-slider">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="goods-list__box swiper-slide">
+									<a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+										<div class="goods-list__thumb">
+											<div class="goods-list__thumb-slide swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide">
+														<img src="{ ..image_src}" alt="" />
+													</div>
+												</div>
+											</div>
+											<!-- 버튼으로 할 경우 S -->
+											<!-- 숨김처리 -->
+											<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}active{/}" onclick="contentWish('{.con_ix}', 'C', this)" style="display: none">
+												<!-- 선택시 button class = active 추가-->
+												<i class="ico ico-wishlist"></i>위시리스트
+											</button>
+											<!-- 버튼으로 할 경우 E -->
+
+											<!-- 이미지 하단 마커 S -->
+											<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/mo_{..marker_left_dn}.gif) no-repeat center;"></div>
+											<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/mo_{..marker_right_dn}.gif) no-repeat center;"></div>
+											<!-- // 이미지 하단 마커 S -->
+
+											<!-- 체크 박스로 할 경우 S -->
+											<label class="br-main__card-wish" style="display: none">
+												<input type="checkbox" class="br-main__card-wish--btn" />
+											</label>
+											<label class="goods-list__wish">
+												<input type="checkbox" class="goods-list__wish__btn" />
+											</label>
+
+											<label class="goods-list__wish" devwishbtn="{..id}">
+												{? ..alreadyWish}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')" checked>
+												{:}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')">
+												{/}
+											</label>
+											<!-- 체크 박스로 할 경우 E -->
+										</div>
+										<div class="goods-list__info">
+											{ ? ..preface}<div class="goods-list__pre br__goods__pre">{ ..preface }</div>{/}
+											<div class="goods-list__title">{ ..pname }</div>
+											<div class="goods-list__color">{ ..add_info }</div>
+											<div class="goods-list__price">
+												<div class="goods-list__price__percent"  {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+											<div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+											<div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+										<!-- 품절일 경우 S -->
+										<!-- 숨김 처리 -->
+										<div class="goods-list__price__state" style="display: none">품절</div>
+										<!-- 품절일 경우 E -->
+								</div>
+							</div>
+							</a>
+						</div>
+						{ / }
+						<div class="goods-list__box swiper-slide">
+							<a href="/shop/goodsList/{=mainBastCateList2[.index_].cid}" class="best_more">
+								<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more_bg.jpg">
+								<span>
+									<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more.svg" class="best_more_btn">
+									<p>{=mainBastCateList2[.index_].cname} 전체보기</p>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="br-main__card-control">
+						<div class="swiper-control-group">
+							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{ / }
+		</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 2 영역 E -->
+
+	<!-- Best Items 3 영역 S -->
+	{ ? mainBastCateUse3 == "Y" }
+	<section class="br-main__section br-main__BestItems">
+		<div class="br-main__inner">
+			<div class="br-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best3 == 'L'}left{: mainContentInfo.s_best3 == 'C'}center{: mainContentInfo.s_best3 == 'R'}right{/};color:{mainContentInfo.c_best3};{? mainContentInfo.b_best3 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best3 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best3 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title3}</h3>
+				<span style="color:{mainContentInfo.c_best_e3};{? mainContentInfo.b_best_e3 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e3 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e3 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e3}</span>
+				<a href="/shop/goodsList/{mainBastCateCode3}">전체보기</a>
+			</div>
+			<div class="br-tab__wrap">
+				<div class="br-tab__nav br-tab__slide swiper-container" id="one">
+					<ul class="swiper-wrapper">
+						{ @ mainBastCateList3 }
+						<li class="swiper-slide {? .index_ == 0 }active{ / }"><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="br-tab__contents-wrap">
+					{ @ mainBastCateProductListAll3 }
+					<div class="br-tab__contents {? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="br-main__card-slider swiper-container goods-slider">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="goods-list__box swiper-slide">
+									<a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+										<div class="goods-list__thumb">
+											<div class="goods-list__thumb-slide swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide">
+														<img src="{ ..image_src}" alt="" />
+													</div>
+												</div>
+											</div>
+											<!-- 버튼으로 할 경우 S -->
+											<!-- 숨김처리 -->
+											<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}active{/}" onclick="contentWish('{.con_ix}', 'C', this)" style="display: none">
+												<!-- 선택시 button class = active 추가-->
+												<i class="ico ico-wishlist"></i>위시리스트
+											</button>
+											<!-- 버튼으로 할 경우 E -->
+
+											<!-- 이미지 하단 마커 S -->
+											<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/mo_{..marker_left_dn}.gif) no-repeat center;"></div>
+											<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/mo_{..marker_right_dn}.gif) no-repeat center;"></div>
+											<!-- // 이미지 하단 마커 S -->
+
+											<!-- 체크 박스로 할 경우 S -->
+											<label class="br-main__card-wish" style="display: none">
+												<input type="checkbox" class="br-main__card-wish--btn" />
+											</label>
+											<label class="goods-list__wish">
+												<input type="checkbox" class="goods-list__wish__btn" />
+											</label>
+
+											<label class="goods-list__wish" devwishbtn="{..id}">
+												{? ..alreadyWish}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')" checked>
+												{:}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')">
+												{/}
+											</label>
+											<!-- 체크 박스로 할 경우 E -->
+										</div>
+										<div class="goods-list__info">
+											{ ? ..preface}<div class="goods-list__pre br__goods__pre">{ ..preface }</div>{/}
+											<div class="goods-list__title">{ ..pname }</div>
+											<div class="goods-list__color">{ ..add_info }</div>
+											<div class="goods-list__price">
+												<div class="goods-list__price__percent"  {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+											<div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+											<div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+										<!-- 품절일 경우 S -->
+										<!-- 숨김 처리 -->
+										<div class="goods-list__price__state" style="display: none">품절</div>
+										<!-- 품절일 경우 E -->
+								</div>
+							</div>
+							</a>
+						</div>
+						{ / }
+						<div class="goods-list__box swiper-slide">
+							<a href="/shop/goodsList/{=mainBastCateList3[.index_].cid}" class="best_more">
+								<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more_bg.jpg">
+								<span>
+									<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more.svg" class="best_more_btn">
+									<p>{=mainBastCateList3[.index_].cname} 전체보기</p>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="br-main__card-control">
+						<div class="swiper-control-group">
+							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{ / }
+		</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 3 영역 E -->
+
+	<!-- Best Items 4 영역 S -->
+	{ ? mainBastCateUse4 == "Y" }
+	<section class="br-main__section br-main__BestItems">
+		<div class="br-main__inner">
+			<div class="br-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best4 == 'L'}left{: mainContentInfo.s_best4 == 'C'}center{: mainContentInfo.s_best4 == 'R'}right{/};color:{mainContentInfo.c_best4};{? mainContentInfo.b_best4 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best4 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best4 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title4}</h3>
+				<span style="color:{mainContentInfo.c_best_e4};{? mainContentInfo.b_best_e4 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e4 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e4 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e4}</span>
+				<a href="/shop/goodsList/{mainBastCateCode4}">전체보기</a>
+			</div>
+			<div class="br-tab__wrap">
+				<div class="br-tab__nav br-tab__slide swiper-container" id="one">
+					<ul class="swiper-wrapper">
+						{ @ mainBastCateList4 }
+						<li class="swiper-slide {? .index_ == 0 }active{ / }"><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="br-tab__contents-wrap">
+					{ @ mainBastCateProductListAll4 }
+					<div class="br-tab__contents {? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="br-main__card-slider swiper-container goods-slider">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="goods-list__box swiper-slide">
+									<a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+										<div class="goods-list__thumb">
+											<div class="goods-list__thumb-slide swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide">
+														<img src="{ ..image_src}" alt="" />
+													</div>
+												</div>
+											</div>
+											<!-- 버튼으로 할 경우 S -->
+											<!-- 숨김처리 -->
+											<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}active{/}" onclick="contentWish('{.con_ix}', 'C', this)" style="display: none">
+												<!-- 선택시 button class = active 추가-->
+												<i class="ico ico-wishlist"></i>위시리스트
+											</button>
+											<!-- 버튼으로 할 경우 E -->
+
+											<!-- 이미지 하단 마커 S -->
+											<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/mo_{..marker_left_dn}.gif) no-repeat center;"></div>
+											<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/mo_{..marker_right_dn}.gif) no-repeat center;"></div>
+											<!-- // 이미지 하단 마커 S -->
+
+											<!-- 체크 박스로 할 경우 S -->
+											<label class="br-main__card-wish" style="display: none">
+												<input type="checkbox" class="br-main__card-wish--btn" />
+											</label>
+											<label class="goods-list__wish">
+												<input type="checkbox" class="goods-list__wish__btn" />
+											</label>
+
+											<label class="goods-list__wish" devwishbtn="{..id}">
+												{? ..alreadyWish}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')" checked>
+												{:}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')">
+												{/}
+											</label>
+											<!-- 체크 박스로 할 경우 E -->
+										</div>
+										<div class="goods-list__info">
+											{ ? ..preface}<div class="goods-list__pre br__goods__pre">{ ..preface }</div>{/}
+											<div class="goods-list__title">{ ..pname }</div>
+											<div class="goods-list__color">{ ..add_info }</div>
+											<div class="goods-list__price">
+												<div class="goods-list__price__percent"  {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+											<div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+											<div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+										<!-- 품절일 경우 S -->
+										<!-- 숨김 처리 -->
+										<div class="goods-list__price__state" style="display: none">품절</div>
+										<!-- 품절일 경우 E -->
+								</div>
+							</div>
+							</a>
+						</div>
+						{ / }
+						<div class="goods-list__box swiper-slide">
+							<a href="/shop/goodsList/{=mainBastCateList4[.index_].cid}" class="best_more">
+								<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more_bg.jpg">
+								<span>
+									<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more.svg" class="best_more_btn">
+									<p>{=mainBastCateList4[.index_].cname} 전체보기</p>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="br-main__card-control">
+						<div class="swiper-control-group">
+							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{ / }
+		</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 4 영역 E -->
+
+	<!-- Best Items 5 영역 S -->
+	{ ? mainBastCateUse5 == "Y" }
+	<section class="br-main__section br-main__BestItems">
+		<div class="br-main__inner">
+			<div class="br-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best5 == 'L'}left{: mainContentInfo.s_best5 == 'C'}center{: mainContentInfo.s_best5 == 'R'}right{/};color:{mainContentInfo.c_best5};{? mainContentInfo.b_best5 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best5 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best5 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title5}</h3>
+				<span style="color:{mainContentInfo.c_best_e5};{? mainContentInfo.b_best_e5 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e5 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e5 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e5}</span>
+				<a href="/shop/goodsList/{mainBastCateCode5}">전체보기</a>
+			</div>
+			<div class="br-tab__wrap">
+				<div class="br-tab__nav br-tab__slide swiper-container" id="one">
+					<ul class="swiper-wrapper">
+						{ @ mainBastCateList5 }
+						<li class="swiper-slide {? .index_ == 0 }active{ / }"><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="br-tab__contents-wrap">
+					{ @ mainBastCateProductListAll5 }
+					<div class="br-tab__contents {? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="br-main__card-slider swiper-container goods-slider">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="goods-list__box swiper-slide">
+									<a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+										<div class="goods-list__thumb">
+											<div class="goods-list__thumb-slide swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide">
+														<img src="{ ..image_src}" alt="" />
+													</div>
+												</div>
+											</div>
+											<!-- 버튼으로 할 경우 S -->
+											<!-- 숨김처리 -->
+											<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}active{/}" onclick="contentWish('{.con_ix}', 'C', this)" style="display: none">
+												<!-- 선택시 button class = active 추가-->
+												<i class="ico ico-wishlist"></i>위시리스트
+											</button>
+											<!-- 버튼으로 할 경우 E -->
+
+											<!-- 이미지 하단 마커 S -->
+											<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/mo_{..marker_left_dn}.gif) no-repeat center;"></div>
+											<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/mo_{..marker_right_dn}.gif) no-repeat center;"></div>
+											<!-- // 이미지 하단 마커 S -->
+
+											<!-- 체크 박스로 할 경우 S -->
+											<label class="br-main__card-wish" style="display: none">
+												<input type="checkbox" class="br-main__card-wish--btn" />
+											</label>
+											<label class="goods-list__wish">
+												<input type="checkbox" class="goods-list__wish__btn" />
+											</label>
+
+											<label class="goods-list__wish" devwishbtn="{..id}">
+												{? ..alreadyWish}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')" checked>
+												{:}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')">
+												{/}
+											</label>
+											<!-- 체크 박스로 할 경우 E -->
+										</div>
+										<div class="goods-list__info">
+											{ ? ..preface}<div class="goods-list__pre br__goods__pre">{ ..preface }</div>{/}
+											<div class="goods-list__title">{ ..pname }</div>
+											<div class="goods-list__color">{ ..add_info }</div>
+											<div class="goods-list__price">
+												<div class="goods-list__price__percent"  {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+											<div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+											<div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+										<!-- 품절일 경우 S -->
+										<!-- 숨김 처리 -->
+										<div class="goods-list__price__state" style="display: none">품절</div>
+										<!-- 품절일 경우 E -->
+								</div>
+							</div>
+							</a>
+						</div>
+						{ / }
+						<div class="goods-list__box swiper-slide">
+							<a href="/shop/goodsList/{=mainBastCateList5[.index_].cid}" class="best_more">
+								<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more_bg.jpg">
+								<span>
+									<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more.svg" class="best_more_btn">
+									<p>{=mainBastCateList5[.index_].cname} 전체보기</p>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="br-main__card-control">
+						<div class="swiper-control-group">
+							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{ / }
+		</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 5 영역 E -->
+
+	<!-- Best Items 6 영역 S -->
+	{ ? mainBastCateUse6 == "Y" }
+	<section class="br-main__section br-main__BestItems">
+		<div class="br-main__inner">
+			<div class="br-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best6 == 'L'}left{: mainContentInfo.s_best6 == 'C'}center{: mainContentInfo.s_best6 == 'R'}right{/};color:{mainContentInfo.c_best6};{? mainContentInfo.b_best6 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best6 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best6 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title6}</h3>
+				<span style="color:{mainContentInfo.c_best_e6};{? mainContentInfo.b_best_e6 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e6 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e6 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e6}</span>
+				<a href="/shop/goodsList/{mainBastCateCode6}">전체보기</a>
+			</div>
+			<div class="br-tab__wrap">
+				<div class="br-tab__nav br-tab__slide swiper-container" id="one">
+					<ul class="swiper-wrapper">
+						{ @ mainBastCateList6 }
+						<li class="swiper-slide {? .index_ == 0 }active{ / }"><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="br-tab__contents-wrap">
+					{ @ mainBastCateProductListAll6 }
+					<div class="br-tab__contents {? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="br-main__card-slider swiper-container goods-slider">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="goods-list__box swiper-slide">
+									<a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+										<div class="goods-list__thumb">
+											<div class="goods-list__thumb-slide swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide">
+														<img src="{ ..image_src}" alt="" />
+													</div>
+												</div>
+											</div>
+											<!-- 버튼으로 할 경우 S -->
+											<!-- 숨김처리 -->
+											<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}active{/}" onclick="contentWish('{.con_ix}', 'C', this)" style="display: none">
+												<!-- 선택시 button class = active 추가-->
+												<i class="ico ico-wishlist"></i>위시리스트
+											</button>
+											<!-- 버튼으로 할 경우 E -->
+
+											<!-- 이미지 하단 마커 S -->
+											<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/mo_{..marker_left_dn}.gif) no-repeat center;"></div>
+											<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/mo_{..marker_right_dn}.gif) no-repeat center;"></div>
+											<!-- // 이미지 하단 마커 S -->
+
+											<!-- 체크 박스로 할 경우 S -->
+											<label class="br-main__card-wish" style="display: none">
+												<input type="checkbox" class="br-main__card-wish--btn" />
+											</label>
+											<label class="goods-list__wish">
+												<input type="checkbox" class="goods-list__wish__btn" />
+											</label>
+
+											<label class="goods-list__wish" devwishbtn="{..id}">
+												{? ..alreadyWish}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')" checked>
+												{:}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')">
+												{/}
+											</label>
+											<!-- 체크 박스로 할 경우 E -->
+										</div>
+										<div class="goods-list__info">
+											{ ? ..preface}<div class="goods-list__pre br__goods__pre">{ ..preface }</div>{/}
+											<div class="goods-list__title">{ ..pname }</div>
+											<div class="goods-list__color">{ ..add_info }</div>
+											<div class="goods-list__price">
+												<div class="goods-list__price__percent"  {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+											<div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+											<div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+										<!-- 품절일 경우 S -->
+										<!-- 숨김 처리 -->
+										<div class="goods-list__price__state" style="display: none">품절</div>
+										<!-- 품절일 경우 E -->
+								</div>
+							</div>
+							</a>
+						</div>
+						{ / }
+						<div class="goods-list__box swiper-slide">
+							<a href="/shop/goodsList/{=mainBastCateList6[.index_].cid}" class="best_more">
+								<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more_bg.jpg">
+								<span>
+									<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more.svg" class="best_more_btn">
+									<p>{=mainBastCateList6[.index_].cname} 전체보기</p>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="br-main__card-control">
+						<div class="swiper-control-group">
+							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{ / }
+		</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 6 영역 E -->
+
+	<!-- Best Items 7 영역 S -->
+	{ ? mainBastCateUse7 == "Y" }
+	<section class="br-main__section br-main__BestItems">
+		<div class="br-main__inner">
+			<div class="br-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best7 == 'L'}left{: mainContentInfo.s_best7 == 'C'}center{: mainContentInfo.s_best7 == 'R'}right{/};color:{mainContentInfo.c_best7};{? mainContentInfo.b_best7 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best7 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best7 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title7}</h3>
+				<span style="color:{mainContentInfo.c_best_e7};{? mainContentInfo.b_best_e7 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e7 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e7 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e7}</span>
+				<a href="/shop/goodsList/{mainBastCateCode7}">전체보기</a>
+			</div>
+			<div class="br-tab__wrap">
+				<div class="br-tab__nav br-tab__slide swiper-container" id="one">
+					<ul class="swiper-wrapper">
+						{ @ mainBastCateList7 }
+						<li class="swiper-slide {? .index_ == 0 }active{ / }"><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="br-tab__contents-wrap">
+					{ @ mainBastCateProductListAll7 }
+					<div class="br-tab__contents {? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="br-main__card-slider swiper-container goods-slider">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="goods-list__box swiper-slide">
+									<a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+										<div class="goods-list__thumb">
+											<div class="goods-list__thumb-slide swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide">
+														<img src="{ ..image_src}" alt="" />
+													</div>
+												</div>
+											</div>
+											<!-- 버튼으로 할 경우 S -->
+											<!-- 숨김처리 -->
+											<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}active{/}" onclick="contentWish('{.con_ix}', 'C', this)" style="display: none">
+												<!-- 선택시 button class = active 추가-->
+												<i class="ico ico-wishlist"></i>위시리스트
+											</button>
+											<!-- 버튼으로 할 경우 E -->
+
+											<!-- 이미지 하단 마커 S -->
+											<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/mo_{..marker_left_dn}.gif) no-repeat center;"></div>
+											<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/mo_{..marker_right_dn}.gif) no-repeat center;"></div>
+											<!-- // 이미지 하단 마커 S -->
+
+											<!-- 체크 박스로 할 경우 S -->
+											<label class="br-main__card-wish" style="display: none">
+												<input type="checkbox" class="br-main__card-wish--btn" />
+											</label>
+											<label class="goods-list__wish">
+												<input type="checkbox" class="goods-list__wish__btn" />
+											</label>
+
+											<label class="goods-list__wish" devwishbtn="{..id}">
+												{? ..alreadyWish}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')" checked>
+												{:}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')">
+												{/}
+											</label>
+											<!-- 체크 박스로 할 경우 E -->
+										</div>
+										<div class="goods-list__info">
+											{ ? ..preface}<div class="goods-list__pre br__goods__pre">{ ..preface }</div>{/}
+											<div class="goods-list__title">{ ..pname }</div>
+											<div class="goods-list__color">{ ..add_info }</div>
+											<div class="goods-list__price">
+												<div class="goods-list__price__percent"  {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+											<div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+											<div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+										<!-- 품절일 경우 S -->
+										<!-- 숨김 처리 -->
+										<div class="goods-list__price__state" style="display: none">품절</div>
+										<!-- 품절일 경우 E -->
+								</div>
+							</div>
+							</a>
+						</div>
+						{ / }
+						<div class="goods-list__box swiper-slide">
+							<a href="/shop/goodsList/{=mainBastCateList7[.index_].cid}" class="best_more">
+								<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more_bg.jpg">
+								<span>
+									<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more.svg" class="best_more_btn">
+									<p>{=mainBastCateList7[.index_].cname} 전체보기</p>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="br-main__card-control">
+						<div class="swiper-control-group">
+							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{ / }
+		</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 7 영역 E -->
+
+	<!-- Best Items 8 영역 S -->
+	{ ? mainBastCateUse8 == "Y" }
+	<section class="br-main__section br-main__BestItems">
+		<div class="br-main__inner">
+			<div class="br-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best8 == 'L'}left{: mainContentInfo.s_best8 == 'C'}center{: mainContentInfo.s_best8 == 'R'}right{/};color:{mainContentInfo.c_best8};{? mainContentInfo.b_best8 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best8 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best8 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title8}</h3>
+				<span style="color:{mainContentInfo.c_best_e8};{? mainContentInfo.b_best_e8 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e8 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e8 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e8}</span>
+				<a href="/shop/goodsList/{mainBastCateCode8}">전체보기</a>
+			</div>
+			<div class="br-tab__wrap">
+				<div class="br-tab__nav br-tab__slide swiper-container" id="one">
+					<ul class="swiper-wrapper">
+						{ @ mainBastCateList8 }
+						<li class="swiper-slide {? .index_ == 0 }active{ / }"><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="br-tab__contents-wrap">
+					{ @ mainBastCateProductListAll8 }
+					<div class="br-tab__contents {? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="br-main__card-slider swiper-container goods-slider">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="goods-list__box swiper-slide">
+									<a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+										<div class="goods-list__thumb">
+											<div class="goods-list__thumb-slide swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide">
+														<img src="{ ..image_src}" alt="" />
+													</div>
+												</div>
+											</div>
+											<!-- 버튼으로 할 경우 S -->
+											<!-- 숨김처리 -->
+											<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}active{/}" onclick="contentWish('{.con_ix}', 'C', this)" style="display: none">
+												<!-- 선택시 button class = active 추가-->
+												<i class="ico ico-wishlist"></i>위시리스트
+											</button>
+											<!-- 버튼으로 할 경우 E -->
+
+											<!-- 이미지 하단 마커 S -->
+											<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/mo_{..marker_left_dn}.gif) no-repeat center;"></div>
+											<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/mo_{..marker_right_dn}.gif) no-repeat center;"></div>
+											<!-- // 이미지 하단 마커 S -->
+
+											<!-- 체크 박스로 할 경우 S -->
+											<label class="br-main__card-wish" style="display: none">
+												<input type="checkbox" class="br-main__card-wish--btn" />
+											</label>
+											<label class="goods-list__wish">
+												<input type="checkbox" class="goods-list__wish__btn" />
+											</label>
+
+											<label class="goods-list__wish" devwishbtn="{..id}">
+												{? ..alreadyWish}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')" checked>
+												{:}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')">
+												{/}
+											</label>
+											<!-- 체크 박스로 할 경우 E -->
+										</div>
+										<div class="goods-list__info">
+											{ ? ..preface}<div class="goods-list__pre br__goods__pre">{ ..preface }</div>{/}
+											<div class="goods-list__title">{ ..pname }</div>
+											<div class="goods-list__color">{ ..add_info }</div>
+											<div class="goods-list__price">
+												<div class="goods-list__price__percent"  {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+											<div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+											<div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+										<!-- 품절일 경우 S -->
+										<!-- 숨김 처리 -->
+										<div class="goods-list__price__state" style="display: none">품절</div>
+										<!-- 품절일 경우 E -->
+								</div>
+							</div>
+							</a>
+						</div>
+						{ / }
+						<div class="goods-list__box swiper-slide">
+							<a href="/shop/goodsList/{=mainBastCateList8[.index_].cid}" class="best_more">
+								<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more_bg.jpg">
+								<span>
+									<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more.svg" class="best_more_btn">
+									<p>{=mainBastCateList8[.index_].cname} 전체보기</p>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="br-main__card-control">
+						<div class="swiper-control-group">
+							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{ / }
+		</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 8 영역 E -->
+
+	<!-- Best Items 9 영역 S -->
+	{ ? mainBastCateUse9 == "Y" }
+	<section class="br-main__section br-main__BestItems">
+		<div class="br-main__inner">
+			<div class="br-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best9 == 'L'}left{: mainContentInfo.s_best9 == 'C'}center{: mainContentInfo.s_best9 == 'R'}right{/};color:{mainContentInfo.c_best9};{? mainContentInfo.b_best9 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best9 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best9 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title9}</h3>
+				<span style="color:{mainContentInfo.c_best_e9};{? mainContentInfo.b_best_e9 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e9 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e9 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e9}</span>
+				<a href="/shop/goodsList/{mainBastCateCode9}">전체보기</a>
+			</div>
+			<div class="br-tab__wrap">
+				<div class="br-tab__nav br-tab__slide swiper-container" id="one">
+					<ul class="swiper-wrapper">
+						{ @ mainBastCateList9 }
+						<li class="swiper-slide {? .index_ == 0 }active{ / }"><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="br-tab__contents-wrap">
+					{ @ mainBastCateProductListAll9 }
+					<div class="br-tab__contents {? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="br-main__card-slider swiper-container goods-slider">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="goods-list__box swiper-slide">
+									<a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+										<div class="goods-list__thumb">
+											<div class="goods-list__thumb-slide swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide">
+														<img src="{ ..image_src}" alt="" />
+													</div>
+												</div>
+											</div>
+											<!-- 버튼으로 할 경우 S -->
+											<!-- 숨김처리 -->
+											<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}active{/}" onclick="contentWish('{.con_ix}', 'C', this)" style="display: none">
+												<!-- 선택시 button class = active 추가-->
+												<i class="ico ico-wishlist"></i>위시리스트
+											</button>
+											<!-- 버튼으로 할 경우 E -->
+
+											<!-- 이미지 하단 마커 S -->
+											<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/mo_{..marker_left_dn}.gif) no-repeat center;"></div>
+											<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/mo_{..marker_right_dn}.gif) no-repeat center;"></div>
+											<!-- // 이미지 하단 마커 S -->
+
+											<!-- 체크 박스로 할 경우 S -->
+											<label class="br-main__card-wish" style="display: none">
+												<input type="checkbox" class="br-main__card-wish--btn" />
+											</label>
+											<label class="goods-list__wish">
+												<input type="checkbox" class="goods-list__wish__btn" />
+											</label>
+
+											<label class="goods-list__wish" devwishbtn="{..id}">
+												{? ..alreadyWish}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')" checked>
+												{:}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')">
+												{/}
+											</label>
+											<!-- 체크 박스로 할 경우 E -->
+										</div>
+										<div class="goods-list__info">
+											{ ? ..preface}<div class="goods-list__pre br__goods__pre">{ ..preface }</div>{/}
+											<div class="goods-list__title">{ ..pname }</div>
+											<div class="goods-list__color">{ ..add_info }</div>
+											<div class="goods-list__price">
+												<div class="goods-list__price__percent"  {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+											<div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+											<div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+										<!-- 품절일 경우 S -->
+										<!-- 숨김 처리 -->
+										<div class="goods-list__price__state" style="display: none">품절</div>
+										<!-- 품절일 경우 E -->
+								</div>
+							</div>
+							</a>
+						</div>
+						{ / }
+						<div class="goods-list__box swiper-slide">
+							<a href="/shop/goodsList/{=mainBastCateList9[.index_].cid}" class="best_more">
+								<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more_bg.jpg">
+								<span>
+									<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more.svg" class="best_more_btn">
+									<p>{=mainBastCateList9[.index_].cname} 전체보기</p>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="br-main__card-control">
+						<div class="swiper-control-group">
+							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{ / }
+		</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 9 영역 E -->
+
+	<!-- Best Items 10 영역 S -->
+	{ ? mainBastCateUse10 == "Y" }
+	<section class="br-main__section br-main__BestItems">
+		<div class="br-main__inner">
+			<div class="br-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best10 == 'L'}left{: mainContentInfo.s_best10 == 'C'}center{: mainContentInfo.s_best10 == 'R'}right{/};color:{mainContentInfo.c_best10};{? mainContentInfo.b_best10 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best10 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best10 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title10}</h3>
+				<span style="color:{mainContentInfo.c_best_e10};{? mainContentInfo.b_best_e10 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e10 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e10 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e10}</span>
+				<a href="/shop/goodsList/{mainBastCateCode10}">전체보기</a>
+			</div>
+			<div class="br-tab__wrap">
+				<div class="br-tab__nav br-tab__slide swiper-container" id="one">
+					<ul class="swiper-wrapper">
+						{ @ mainBastCateList10 }
+						<li class="swiper-slide {? .index_ == 0 }active{ / }"><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="br-tab__contents-wrap">
+					{ @ mainBastCateProductListAll10 }
+					<div class="br-tab__contents {? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="br-main__card-slider swiper-container goods-slider">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="goods-list__box swiper-slide">
+									<a href="/shop/goodsView/{ ..id }" class="goods-list__link">
+										<div class="goods-list__thumb">
+											<div class="goods-list__thumb-slide swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide">
+														<img src="{ ..image_src}" alt="" />
+													</div>
+												</div>
+											</div>
+											<!-- 버튼으로 할 경우 S -->
+											<!-- 숨김처리 -->
+											<button type="button" class="btn-wishlist {? .alreadyWishContent == 'Y'}active{/}" onclick="contentWish('{.con_ix}', 'C', this)" style="display: none">
+												<!-- 선택시 button class = active 추가-->
+												<i class="ico ico-wishlist"></i>위시리스트
+											</button>
+											<!-- 버튼으로 할 경우 E -->
+
+											<!-- 이미지 하단 마커 S -->
+											<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/mo_{..marker_left_dn}.gif) no-repeat center;"></div>
+											<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/mo_{..marker_right_dn}.gif) no-repeat center;"></div>
+											<!-- // 이미지 하단 마커 S -->
+
+											<!-- 체크 박스로 할 경우 S -->
+											<label class="br-main__card-wish" style="display: none">
+												<input type="checkbox" class="br-main__card-wish--btn" />
+											</label>
+											<label class="goods-list__wish">
+												<input type="checkbox" class="goods-list__wish__btn" />
+											</label>
+
+											<label class="goods-list__wish" devwishbtn="{..id}">
+												{? ..alreadyWish}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')" checked>
+												{:}
+												<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{..id}" onclick="productWish('{..id}')">
+												{/}
+											</label>
+											<!-- 체크 박스로 할 경우 E -->
+										</div>
+										<div class="goods-list__info">
+											{ ? ..preface}<div class="goods-list__pre br__goods__pre">{ ..preface }</div>{/}
+											<div class="goods-list__title">{ ..pname }</div>
+											<div class="goods-list__color">{ ..add_info }</div>
+											<div class="goods-list__price">
+												<div class="goods-list__price__percent"  {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><span>{ ..discount_rate }</span>%</div>
+											<div class="goods-list__price__discount"><span>{ ..dcprice }</span></div>
+											<div class="goods-list__price__cost" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }><del>{ ..sellprice }</del></div>
+										<!-- 품절일 경우 S -->
+										<!-- 숨김 처리 -->
+										<div class="goods-list__price__state" style="display: none">품절</div>
+										<!-- 품절일 경우 E -->
+								</div>
+							</div>
+							</a>
+						</div>
+						{ / }
+						<div class="goods-list__box swiper-slide">
+							<a href="/shop/goodsList/{=mainBastCateList10[.index_].cid}" class="best_more">
+								<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more_bg.jpg">
+								<span>
+									<img src="/assets/mobile_templet/mobile_enterprise/assets/img/best_more.svg" class="best_more_btn">
+									<p>{=mainBastCateList10[.index_].cname} 전체보기</p>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="br-main__card-control">
+						<div class="swiper-control-group">
+							<div class="swiper-scrollbar"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{ / }
+		</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 10 영역 E -->
 
 	<!-- Style Guide 영역 S -->
 	<section class="br-main__section br-main__StyleGuide">

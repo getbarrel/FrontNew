@@ -115,14 +115,14 @@
 	</section>
 	<!-- Hot Contents 영역 E -->
 
-	<!-- Best Items 영역 S -->
+	<!-- Best Items 1 영역 S -->
 	{ ? mainBastCateUse == "Y" }
 	<section class="fb-main__section fb-main__BestItems">
 		<div class="fb-main__inner">
 			<div class="fb-main__title">
 				<h3 style="text-align:{? mainContentInfo.s_best == 'L'}left{: mainContentInfo.s_best == 'C'}center{: mainContentInfo.s_best == 'R'}right{/};color:{mainContentInfo.c_best};{? mainContentInfo.b_best == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title}</h3>
 				<span style="color:{mainContentInfo.c_best_e};{? mainContentInfo.b_best_e == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e}</span>
-				<a href="/shop/subGoodsList/{mainBastCateCode}">상품 전체보기</a>
+				<a href="/shop/subGoodsList/{mainBastCateCode}" style="bottom:29px;">상품 전체보기</a>
 			</div>
 			<div class="fb-tab__wrap">
 				<div class="fb-tab__nav">
@@ -201,7 +201,799 @@
 		</div>
 	</section>
 	{ / }
-	<!-- Best Items 영역 E -->
+	<!-- Best Items 1 영역 E -->
+
+	<!-- Best Items 2 영역 S -->
+	{ ? mainBastCateUse2 == "Y" }
+	<section class="fb-main__section fb-main__BestItems">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best2 == 'L'}left{: mainContentInfo.s_best2 == 'C'}center{: mainContentInfo.s_best2 == 'R'}right{/};color:{mainContentInfo.c_best2};{? mainContentInfo.b_best2 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best2 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best2 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title2}</h3>
+				<span style="color:{mainContentInfo.c_best_e2};{? mainContentInfo.b_best_e2 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e2 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e2 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e2}</span>
+				<a href="/shop/subGoodsList/{mainBastCateCode2}" style="bottom:29px;">상품 전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						{ @ mainBastCateList2 }
+						<!--li {? .index_ == 0 }class="active"{ / }><a href="/shop/subGoodsList/{.cid}">{ .cname }</a></li-->
+						<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ mainBastCateProductListAll2 }
+					<div class="fb-tab__contents{? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="fb-main__card-slider swiper-container goods-slider2">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="swiper-slide">
+									<div class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+												<p class="per"><em>{ ..discount_rate }</em>%</p>
+											</div>
+											<span class="fb__goods__price">{ ..dcprice }</span>
+											<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+											<!-- 품절일 경우 노출 S -->
+											<span class="fb__goods__price__state" style="display: none">품절</span>
+											<!-- 품절일 경우 노출 S -->
+									</div>
+									<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+									</a>
+									<!-- 이미지 하단 마커 S -->
+									<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/{..marker_left_dn}.gif) no-repeat center;"></div>
+									<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/{..marker_right_dn}.gif) no-repeat center;"></div>
+									<!-- // 이미지 하단 마커 S -->
+									<!--<a href="javascript:void(0);" class="product-box__heart">hart</a>-->
+									<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+								</div>
+							</div>
+							{ / }
+							<div class="swiper-slide">
+								<a href="/shop/goodsList/{=mainBastCateList2[.index_].cid}" class="best_more">
+									<img src="/assets/templet/enterprise/assets/img/best_more_bg.jpg">
+									<div>
+										<img src="/assets/templet/enterprise/assets/img/best_more.svg" class="best_more_btn">
+										<p>{=mainBastCateList2[.index_].cname} 전체보기</p>
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="fb-main__card-control">
+							<div class="swiper-control-group">
+								<div class="swiper-scrollbar"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{ / }
+			</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 2 영역 E -->
+
+	<!-- Best Items 3 영역 S -->
+	{ ? mainBastCateUse3 == "Y" }
+	<section class="fb-main__section fb-main__BestItems">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best3 == 'L'}left{: mainContentInfo.s_best3 == 'C'}center{: mainContentInfo.s_best3 == 'R'}right{/};color:{mainContentInfo.c_best3};{? mainContentInfo.b_best3 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best3 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best3 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title3}</h3>
+				<span style="color:{mainContentInfo.c_best_e3};{? mainContentInfo.b_best_e3 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e3 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e3 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e3}</span>
+				<a href="/shop/subGoodsList/{mainBastCateCode3}" style="bottom:29px;">상품 전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						{ @ mainBastCateList3 }
+						<!--li {? .index_ == 0 }class="active"{ / }><a href="/shop/subGoodsList/{.cid}">{ .cname }</a></li-->
+						<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ mainBastCateProductListAll3 }
+					<div class="fb-tab__contents{? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="fb-main__card-slider swiper-container goods-slider2">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="swiper-slide">
+									<div class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+												<p class="per"><em>{ ..discount_rate }</em>%</p>
+											</div>
+											<span class="fb__goods__price">{ ..dcprice }</span>
+											<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+											<!-- 품절일 경우 노출 S -->
+											<span class="fb__goods__price__state" style="display: none">품절</span>
+											<!-- 품절일 경우 노출 S -->
+									</div>
+									<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+									</a>
+									<!-- 이미지 하단 마커 S -->
+									<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/{..marker_left_dn}.gif) no-repeat center;"></div>
+									<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/{..marker_right_dn}.gif) no-repeat center;"></div>
+									<!-- // 이미지 하단 마커 S -->
+									<!--<a href="javascript:void(0);" class="product-box__heart">hart</a>-->
+									<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+								</div>
+							</div>
+							{ / }
+							<div class="swiper-slide">
+								<a href="/shop/goodsList/{=mainBastCateList3[.index_].cid}" class="best_more">
+									<img src="/assets/templet/enterprise/assets/img/best_more_bg.jpg">
+									<div>
+										<img src="/assets/templet/enterprise/assets/img/best_more.svg" class="best_more_btn">
+										<p>{=mainBastCateList3[.index_].cname} 전체보기</p>
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="fb-main__card-control">
+							<div class="swiper-control-group">
+								<div class="swiper-scrollbar"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{ / }
+			</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 3 영역 E -->
+
+	<!-- Best Items 4 영역 S -->
+	{ ? mainBastCateUse4 == "Y" }
+	<section class="fb-main__section fb-main__BestItems">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best4 == 'L'}left{: mainContentInfo.s_best4 == 'C'}center{: mainContentInfo.s_best4 == 'R'}right{/};color:{mainContentInfo.c_best4};{? mainContentInfo.b_best4 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best4 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best4 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title4}</h3>
+				<span style="color:{mainContentInfo.c_best_e4};{? mainContentInfo.b_best_e4 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e4 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e4 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e4}</span>
+				<a href="/shop/subGoodsList/{mainBastCateCode4}" style="bottom:29px;">상품 전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						{ @ mainBastCateList4 }
+						<!--li {? .index_ == 0 }class="active"{ / }><a href="/shop/subGoodsList/{.cid}">{ .cname }</a></li-->
+						<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ mainBastCateProductListAll4 }
+					<div class="fb-tab__contents{? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="fb-main__card-slider swiper-container goods-slider2">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="swiper-slide">
+									<div class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+												<p class="per"><em>{ ..discount_rate }</em>%</p>
+											</div>
+											<span class="fb__goods__price">{ ..dcprice }</span>
+											<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+											<!-- 품절일 경우 노출 S -->
+											<span class="fb__goods__price__state" style="display: none">품절</span>
+											<!-- 품절일 경우 노출 S -->
+									</div>
+									<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+									</a>
+									<!-- 이미지 하단 마커 S -->
+									<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/{..marker_left_dn}.gif) no-repeat center;"></div>
+									<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/{..marker_right_dn}.gif) no-repeat center;"></div>
+									<!-- // 이미지 하단 마커 S -->
+									<!--<a href="javascript:void(0);" class="product-box__heart">hart</a>-->
+									<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+								</div>
+							</div>
+							{ / }
+							<div class="swiper-slide">
+								<a href="/shop/goodsList/{=mainBastCateList4[.index_].cid}" class="best_more">
+									<img src="/assets/templet/enterprise/assets/img/best_more_bg.jpg">
+									<div>
+										<img src="/assets/templet/enterprise/assets/img/best_more.svg" class="best_more_btn">
+										<p>{=mainBastCateList4[.index_].cname} 전체보기</p>
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="fb-main__card-control">
+							<div class="swiper-control-group">
+								<div class="swiper-scrollbar"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{ / }
+			</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 4 영역 E -->
+
+	<!-- Best Items 5 영역 S -->
+	{ ? mainBastCateUse5 == "Y" }
+	<section class="fb-main__section fb-main__BestItems">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best5 == 'L'}left{: mainContentInfo.s_best5 == 'C'}center{: mainContentInfo.s_best5 == 'R'}right{/};color:{mainContentInfo.c_best5};{? mainContentInfo.b_best5 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best5 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best5 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title5}</h3>
+				<span style="color:{mainContentInfo.c_best_e5};{? mainContentInfo.b_best_e5 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e5 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e5 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e5}</span>
+				<a href="/shop/subGoodsList/{mainBastCateCode5}" style="bottom:29px;">상품 전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						{ @ mainBastCateList5 }
+						<!--li {? .index_ == 0 }class="active"{ / }><a href="/shop/subGoodsList/{.cid}">{ .cname }</a></li-->
+						<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ mainBastCateProductListAll5 }
+					<div class="fb-tab__contents{? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="fb-main__card-slider swiper-container goods-slider2">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="swiper-slide">
+									<div class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+												<p class="per"><em>{ ..discount_rate }</em>%</p>
+											</div>
+											<span class="fb__goods__price">{ ..dcprice }</span>
+											<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+											<!-- 품절일 경우 노출 S -->
+											<span class="fb__goods__price__state" style="display: none">품절</span>
+											<!-- 품절일 경우 노출 S -->
+									</div>
+									<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+									</a>
+									<!-- 이미지 하단 마커 S -->
+									<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/{..marker_left_dn}.gif) no-repeat center;"></div>
+									<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/{..marker_right_dn}.gif) no-repeat center;"></div>
+									<!-- // 이미지 하단 마커 S -->
+									<!--<a href="javascript:void(0);" class="product-box__heart">hart</a>-->
+									<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+								</div>
+							</div>
+							{ / }
+							<div class="swiper-slide">
+								<a href="/shop/goodsList/{=mainBastCateList5[.index_].cid}" class="best_more">
+									<img src="/assets/templet/enterprise/assets/img/best_more_bg.jpg">
+									<div>
+										<img src="/assets/templet/enterprise/assets/img/best_more.svg" class="best_more_btn">
+										<p>{=mainBastCateList5[.index_].cname} 전체보기</p>
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="fb-main__card-control">
+							<div class="swiper-control-group">
+								<div class="swiper-scrollbar"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{ / }
+			</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 5 영역 E -->
+
+	<!-- Best Items 6 영역 S -->
+	{ ? mainBastCateUse6 == "Y" }
+	<section class="fb-main__section fb-main__BestItems">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best6 == 'L'}left{: mainContentInfo.s_best6 == 'C'}center{: mainContentInfo.s_best6 == 'R'}right{/};color:{mainContentInfo.c_best6};{? mainContentInfo.b_best6 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best6 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best6 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title6}</h3>
+				<span style="color:{mainContentInfo.c_best_e6};{? mainContentInfo.b_best_e6 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e6 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e6 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e6}</span>
+				<a href="/shop/subGoodsList/{mainBastCateCode6}" style="bottom:29px;">상품 전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						{ @ mainBastCateList6 }
+						<!--li {? .index_ == 0 }class="active"{ / }><a href="/shop/subGoodsList/{.cid}">{ .cname }</a></li-->
+						<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ mainBastCateProductListAll6 }
+					<div class="fb-tab__contents{? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="fb-main__card-slider swiper-container goods-slider2">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="swiper-slide">
+									<div class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+												<p class="per"><em>{ ..discount_rate }</em>%</p>
+											</div>
+											<span class="fb__goods__price">{ ..dcprice }</span>
+											<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+											<!-- 품절일 경우 노출 S -->
+											<span class="fb__goods__price__state" style="display: none">품절</span>
+											<!-- 품절일 경우 노출 S -->
+									</div>
+									<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+									</a>
+									<!-- 이미지 하단 마커 S -->
+									<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/{..marker_left_dn}.gif) no-repeat center;"></div>
+									<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/{..marker_right_dn}.gif) no-repeat center;"></div>
+									<!-- // 이미지 하단 마커 S -->
+									<!--<a href="javascript:void(0);" class="product-box__heart">hart</a>-->
+									<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+								</div>
+							</div>
+							{ / }
+							<div class="swiper-slide">
+								<a href="/shop/goodsList/{=mainBastCateList6[.index_].cid}" class="best_more">
+									<img src="/assets/templet/enterprise/assets/img/best_more_bg.jpg">
+									<div>
+										<img src="/assets/templet/enterprise/assets/img/best_more.svg" class="best_more_btn">
+										<p>{=mainBastCateList6[.index_].cname} 전체보기</p>
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="fb-main__card-control">
+							<div class="swiper-control-group">
+								<div class="swiper-scrollbar"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{ / }
+			</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 6 영역 E -->
+
+	<!-- Best Items 7 영역 S -->
+	{ ? mainBastCateUse7 == "Y" }
+	<section class="fb-main__section fb-main__BestItems">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best7 == 'L'}left{: mainContentInfo.s_best7 == 'C'}center{: mainContentInfo.s_best7 == 'R'}right{/};color:{mainContentInfo.c_best7};{? mainContentInfo.b_best7 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best7 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best7 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title7}</h3>
+				<span style="color:{mainContentInfo.c_best_e7};{? mainContentInfo.b_best_e7 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e7 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e7 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e7}</span>
+				<a href="/shop/subGoodsList/{mainBastCateCode7}" style="bottom:29px;">상품 전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						{ @ mainBastCateList7 }
+						<!--li {? .index_ == 0 }class="active"{ / }><a href="/shop/subGoodsList/{.cid}">{ .cname }</a></li-->
+						<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ mainBastCateProductListAll7 }
+					<div class="fb-tab__contents{? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="fb-main__card-slider swiper-container goods-slider2">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="swiper-slide">
+									<div class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+												<p class="per"><em>{ ..discount_rate }</em>%</p>
+											</div>
+											<span class="fb__goods__price">{ ..dcprice }</span>
+											<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+											<!-- 품절일 경우 노출 S -->
+											<span class="fb__goods__price__state" style="display: none">품절</span>
+											<!-- 품절일 경우 노출 S -->
+									</div>
+									<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+									</a>
+									<!-- 이미지 하단 마커 S -->
+									<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/{..marker_left_dn}.gif) no-repeat center;"></div>
+									<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/{..marker_right_dn}.gif) no-repeat center;"></div>
+									<!-- // 이미지 하단 마커 S -->
+									<!--<a href="javascript:void(0);" class="product-box__heart">hart</a>-->
+									<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+								</div>
+							</div>
+							{ / }
+							<div class="swiper-slide">
+								<a href="/shop/goodsList/{=mainBastCateList7[.index_].cid}" class="best_more">
+									<img src="/assets/templet/enterprise/assets/img/best_more_bg.jpg">
+									<div>
+										<img src="/assets/templet/enterprise/assets/img/best_more.svg" class="best_more_btn">
+										<p>{=mainBastCateList7[.index_].cname} 전체보기</p>
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="fb-main__card-control">
+							<div class="swiper-control-group">
+								<div class="swiper-scrollbar"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{ / }
+			</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 7 영역 E -->
+
+	<!-- Best Items 8 영역 S -->
+	{ ? mainBastCateUse8 == "Y" }
+	<section class="fb-main__section fb-main__BestItems">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best8 == 'L'}left{: mainContentInfo.s_best8 == 'C'}center{: mainContentInfo.s_best8 == 'R'}right{/};color:{mainContentInfo.c_best8};{? mainContentInfo.b_best8 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best8 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best8 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title8}</h3>
+				<span style="color:{mainContentInfo.c_best_e8};{? mainContentInfo.b_best_e8 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e8 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e8 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e8}</span>
+				<a href="/shop/subGoodsList/{mainBastCateCode8}" style="bottom:29px;">상품 전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						{ @ mainBastCateList8 }
+						<!--li {? .index_ == 0 }class="active"{ / }><a href="/shop/subGoodsList/{.cid}">{ .cname }</a></li-->
+						<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ mainBastCateProductListAll8 }
+					<div class="fb-tab__contents{? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="fb-main__card-slider swiper-container goods-slider2">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="swiper-slide">
+									<div class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+												<p class="per"><em>{ ..discount_rate }</em>%</p>
+											</div>
+											<span class="fb__goods__price">{ ..dcprice }</span>
+											<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+											<!-- 품절일 경우 노출 S -->
+											<span class="fb__goods__price__state" style="display: none">품절</span>
+											<!-- 품절일 경우 노출 S -->
+									</div>
+									<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+									</a>
+									<!-- 이미지 하단 마커 S -->
+									<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/{..marker_left_dn}.gif) no-repeat center;"></div>
+									<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/{..marker_right_dn}.gif) no-repeat center;"></div>
+									<!-- // 이미지 하단 마커 S -->
+									<!--<a href="javascript:void(0);" class="product-box__heart">hart</a>-->
+									<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+								</div>
+							</div>
+							{ / }
+							<div class="swiper-slide">
+								<a href="/shop/goodsList/{=mainBastCateList8[.index_].cid}" class="best_more">
+									<img src="/assets/templet/enterprise/assets/img/best_more_bg.jpg">
+									<div>
+										<img src="/assets/templet/enterprise/assets/img/best_more.svg" class="best_more_btn">
+										<p>{=mainBastCateList8[.index_].cname} 전체보기</p>
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="fb-main__card-control">
+							<div class="swiper-control-group">
+								<div class="swiper-scrollbar"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{ / }
+			</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 8 영역 E -->
+
+	<!-- Best Items 9 영역 S -->
+	{ ? mainBastCateUse9 == "Y" }
+	<section class="fb-main__section fb-main__BestItems">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best9 == 'L'}left{: mainContentInfo.s_best9 == 'C'}center{: mainContentInfo.s_best9 == 'R'}right{/};color:{mainContentInfo.c_best9};{? mainContentInfo.b_best9 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best9 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best9 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title9}</h3>
+				<span style="color:{mainContentInfo.c_best_e9};{? mainContentInfo.b_best_e9 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e9 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e9 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e9}</span>
+				<a href="/shop/subGoodsList/{mainBastCateCode9}" style="bottom:29px;">상품 전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						{ @ mainBastCateList9 }
+						<!--li {? .index_ == 0 }class="active"{ / }><a href="/shop/subGoodsList/{.cid}">{ .cname }</a></li-->
+						<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ mainBastCateProductListAll9 }
+					<div class="fb-tab__contents{? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="fb-main__card-slider swiper-container goods-slider2">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="swiper-slide">
+									<div class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+												<p class="per"><em>{ ..discount_rate }</em>%</p>
+											</div>
+											<span class="fb__goods__price">{ ..dcprice }</span>
+											<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+											<!-- 품절일 경우 노출 S -->
+											<span class="fb__goods__price__state" style="display: none">품절</span>
+											<!-- 품절일 경우 노출 S -->
+									</div>
+									<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+									</a>
+									<!-- 이미지 하단 마커 S -->
+									<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/{..marker_left_dn}.gif) no-repeat center;"></div>
+									<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/{..marker_right_dn}.gif) no-repeat center;"></div>
+									<!-- // 이미지 하단 마커 S -->
+									<!--<a href="javascript:void(0);" class="product-box__heart">hart</a>-->
+									<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+								</div>
+							</div>
+							{ / }
+							<div class="swiper-slide">
+								<a href="/shop/goodsList/{=mainBastCateList9[.index_].cid}" class="best_more">
+									<img src="/assets/templet/enterprise/assets/img/best_more_bg.jpg">
+									<div>
+										<img src="/assets/templet/enterprise/assets/img/best_more.svg" class="best_more_btn">
+										<p>{=mainBastCateList9[.index_].cname} 전체보기</p>
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="fb-main__card-control">
+							<div class="swiper-control-group">
+								<div class="swiper-scrollbar"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{ / }
+			</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 9 영역 E -->
+
+	<!-- Best Items 10 영역 S -->
+	{ ? mainBastCateUse10 == "Y" }
+	<section class="fb-main__section fb-main__BestItems">
+		<div class="fb-main__inner">
+			<div class="fb-main__title">
+				<h3 style="text-align:{? mainContentInfo.s_best10 == 'L'}left{: mainContentInfo.s_best10 == 'C'}center{: mainContentInfo.s_best10 == 'R'}right{/};color:{mainContentInfo.c_best10};{? mainContentInfo.b_best10 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best10 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best10 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_title10}</h3>
+				<span style="color:{mainContentInfo.c_best_e10};{? mainContentInfo.b_best_e10 == 'Y' }font-weight: bold;{ / } {? mainContentInfo.i_best_e10 == 'Y' }font-style:oblique;{ / } {? mainContentInfo.u_best_e10 == 'Y' }text-decoration-line: underline;{ / }">{mainContentInfo.best_e10}</span>
+				<a href="/shop/subGoodsList/{mainBastCateCode10}" style="bottom:29px;">상품 전체보기</a>
+			</div>
+			<div class="fb-tab__wrap">
+				<div class="fb-tab__nav">
+					<ul>
+						{ @ mainBastCateList10 }
+						<!--li {? .index_ == 0 }class="active"{ / }><a href="/shop/subGoodsList/{.cid}">{ .cname }</a></li-->
+						<li {? .index_ == 0 }class="active"{ / }><a href="javascript:void(0);">{ .cname }</a></li>
+						{ / }
+					</ul>
+				</div>
+				<div class="fb-tab__contents-wrap">
+					{ @ mainBastCateProductListAll10 }
+					<div class="fb-tab__contents{? .index_ == 0 } active{ / }" id="bestItemListDivNum_{.index_}">
+						<div class="fb-main__card-slider swiper-container goods-slider2">
+							<div class="swiper-wrapper">
+								{ @ .bastProductList }
+								<div class="swiper-slide">
+									<div class="fb__goods__list">
+										<a href="/shop/goodsView/{ ..id }" class="fb__goods__link">
+											<figure class="fb__goods__img">
+												<div>
+													<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{ ..image_src}" onmouseover="this.src='{ ..image_src2}'" onmouseout="this.src='{ ..image_src}'">
+												</div>
+											</figure>
+											<div class="fb__goods__info">
+												<ul class="fb__goods__infoBox">
+													<li class="fb__goods__etc" style="color:{..c_preface};{? ..b_preface == 'Y' }font-weight: bold;{ / } {? ..i_preface == 'Y' }font-style:oblique;{ / } {? ..u_preface == 'Y' }text-decoration-line: underline;{ / }">{ ..preface }</li>
+													<li class="fb__goods__name">{ ..pname }</li>
+													<li class="fb__goods__option">{ ..add_info }</li>
+													<li class="fb__goods__brand"></li>
+												</ul>
+											</div>
+											<div class="fb__goods__important">
+												<div class="fb__goods__sale" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>
+												<p class="per"><em>{ ..discount_rate }</em>%</p>
+											</div>
+											<span class="fb__goods__price">{ ..dcprice }</span>
+											<span class="fb__goods__noprice" {? ..discount_rate == 0 || ..discount_rate == '' }style="display:none;"{ / }>{ ..sellprice }</span>
+											<!-- 품절일 경우 노출 S -->
+											<span class="fb__goods__price__state" style="display: none">품절</span>
+											<!-- 품절일 경우 노출 S -->
+									</div>
+									<p class="fb__goods__condition">30,000원 이상 구매 시 무료배송</p>
+									</a>
+									<!-- 이미지 하단 마커 S -->
+									<div class="product-box__img1" style="background: url(/data/barrel_data/images/icon/{..marker_left_dn}.gif) no-repeat center;"></div>
+									<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/{..marker_right_dn}.gif) no-repeat center;"></div>
+									<!-- // 이미지 하단 마커 S -->
+									<!--<a href="javascript:void(0);" class="product-box__heart">hart</a>-->
+									<a href="javascript:void(0);" class="product-box__heart {? ..alreadyWish}product-box__heart--active{/}" style="top:15px;" data-devWishBtn="{ ..id }">hart</a>
+								</div>
+							</div>
+							{ / }
+							<div class="swiper-slide">
+								<a href="/shop/goodsList/{=mainBastCateList10[.index_].cid}" class="best_more">
+									<img src="/assets/templet/enterprise/assets/img/best_more_bg.jpg">
+									<div>
+										<img src="/assets/templet/enterprise/assets/img/best_more.svg" class="best_more_btn">
+										<p>{=mainBastCateList10[.index_].cname} 전체보기</p>
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="fb-main__card-control">
+							<div class="swiper-control-group">
+								<div class="swiper-scrollbar"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{ / }
+			</div>
+		</div>
+		</div>
+	</section>
+	{ / }
+	<!-- Best Items 10 영역 E -->
 
 	<!-- Style Guide 영역 S -->
 	<section class="fb-main__section fb-main__StyleGuide">

@@ -147,7 +147,7 @@ if ($view->isCached() === false) {
             $view->assign('mainContentSpecialInfo', $mainContentSpecialInfo);
         }
 
-        #메인페이지 베스트아이템 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        #메인페이지 베스트아이템1 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
         if($mainContentInfo['best_use'] == 'Y' && $mainContentInfo['bast_cate']){
             $mainCategoryInfo = $displayModel->getCategoryInfo($mainContentInfo['bast_cate']);
 
@@ -168,7 +168,6 @@ if ($view->isCached() === false) {
             $view->assign('mainBastCateList', $mainBastCateList);
 
             foreach($mainBastCateList as $key => $val){
-
                 if($mainCategoryInfo['depth'] == 0){
                     $mainBastCateProductInfo = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
                 }else{
@@ -198,6 +197,474 @@ if ($view->isCached() === false) {
             $view->assign('mainBastCateUse', "Y");
         }else{
             $view->assign('mainBastCateUse', "N");
+        }
+
+        #메인페이지 베스트아이템2 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use2'] == 'Y' && $mainContentInfo['bast_cate2']){
+            $mainCategoryInfo2 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate2']);
+
+            if($mainCategoryInfo2['depth'] == 0){
+                $subCate2 = substr($mainContentInfo['bast_cate2'],0,3);
+            }else if($mainCategoryInfo2['depth'] == 1){
+                $subCate2 =  substr($mainContentInfo['bast_cate2'],0,6);
+            }else if($mainCategoryInfo2['depth'] == 2){
+                $subCate2 =  substr($mainContentInfo['bast_cate2'],0,9);
+            }else if($mainCategoryInfo2['depth'] == 3){
+                $subCate2 =  substr($mainContentInfo['bast_cate2'],0,12);
+            }else if($mainCategoryInfo2['depth'] == 4){
+                $subCate2 =  $mainContentInfo['bast_cate2'];
+            }
+            $view->assign('mainBastCateCode2', $mainContentInfo['bast_cate2']);
+
+            $mainBastCateList2 = $displayModel->getBastCateInfo($subCate2, $mainCategoryInfo2['depth']);
+            $view->assign('mainBastCateList2', $mainBastCateList2);
+
+            foreach($mainBastCateList2 as $key => $val){
+                if($mainCategoryInfo2['depth'] == 0){
+                    $mainBastCateProductInfo2 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo2 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo2 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList2 = $productModel->getListById($ids);
+                $mainBastCateProductListAll2[$key]['bastProductList'] = $mainBastCateProductList2;
+
+                if (!empty($mainBastCateProductListAll2[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll2[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll2[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+            $view->assign('mainBastCateProductListAll2', $mainBastCateProductListAll2);
+            $view->assign('mainBastCateUse2', "Y");
+        }else{
+            $view->assign('mainBastCateUse2', "N");
+        }
+
+        #메인페이지 베스트아이템3 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use3'] == 'Y' && $mainContentInfo['bast_cate3']){
+            $mainCategoryInfo3 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate3']);
+
+            if($mainCategoryInfo3['depth'] == 0){
+                $subCate3 = substr($mainContentInfo['bast_cate3'],0,3);
+            }else if($mainCategoryInfo3['depth'] == 1){
+                $subCate3 =  substr($mainContentInfo['bast_cate3'],0,6);
+            }else if($mainCategoryInfo3['depth'] == 2){
+                $subCate3 =  substr($mainContentInfo['bast_cate3'],0,9);
+            }else if($mainCategoryInfo3['depth'] == 3){
+                $subCate3 =  substr($mainContentInfo['bast_cate3'],0,12);
+            }else if($mainCategoryInfo3['depth'] == 4){
+                $subCate3 =  $mainContentInfo['bast_cate3'];
+            }
+            $view->assign('mainBastCateCode3', $mainContentInfo['bast_cate3']);
+
+            $mainBastCateList3 = $displayModel->getBastCateInfo($subCate3, $mainCategoryInfo3['depth']);
+            $view->assign('mainBastCateList3', $mainBastCateList3);
+
+            foreach($mainBastCateList3 as $key => $val){
+                if($mainCategoryInfo3['depth'] == 0){
+                    $mainBastCateProductInfo3 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo3 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo3 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList3 = $productModel->getListById($ids);
+                $mainBastCateProductListAll3[$key]['bastProductList'] = $mainBastCateProductList3;
+
+                if (!empty($mainBastCateProductListAll3[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll3[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll3[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+            $view->assign('mainBastCateProductListAll3', $mainBastCateProductListAll3);
+            $view->assign('mainBastCateUse3', "Y");
+        }else{
+            $view->assign('mainBastCateUse3', "N");
+        }
+
+        #메인페이지 베스트아이템4 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use4'] == 'Y' && $mainContentInfo['bast_cate4']){
+            $mainCategoryInfo4 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate4']);
+
+            if($mainCategoryInfo4['depth'] == 0){
+                $subCate4 = substr($mainContentInfo['bast_cate4'],0,3);
+            }else if($mainCategoryInfo4['depth'] == 1){
+                $subCate4 =  substr($mainContentInfo['bast_cate4'],0,6);
+            }else if($mainCategoryInfo4['depth'] == 2){
+                $subCate4 =  substr($mainContentInfo['bast_cate4'],0,9);
+            }else if($mainCategoryInfo4['depth'] == 3){
+                $subCate4 =  substr($mainContentInfo['bast_cate4'],0,12);
+            }else if($mainCategoryInfo4['depth'] == 4){
+                $subCate4 =  $mainContentInfo['bast_cate4'];
+            }
+            $view->assign('mainBastCateCode4', $mainContentInfo['bast_cate4']);
+
+            $mainBastCateList4 = $displayModel->getBastCateInfo($subCate4, $mainCategoryInfo4['depth']);
+            $view->assign('mainBastCateList4', $mainBastCateList4);
+
+            foreach($mainBastCateList4 as $key => $val){
+                if($mainCategoryInfo4['depth'] == 0){
+                    $mainBastCateProductInfo4 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo4 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo4 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList4 = $productModel->getListById($ids);
+                $mainBastCateProductListAll4[$key]['bastProductList'] = $mainBastCateProductList4;
+
+                if (!empty($mainBastCateProductListAll4[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll4[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll4[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+            $view->assign('mainBastCateProductListAll4', $mainBastCateProductListAll4);
+            $view->assign('mainBastCateUse4', "Y");
+        }else{
+            $view->assign('mainBastCateUse4', "N");
+        }
+
+        #메인페이지 베스트아이템5 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use5'] == 'Y' && $mainContentInfo['bast_cate5']){
+            $mainCategoryInfo5 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate5']);
+
+            if($mainCategoryInfo5['depth'] == 0){
+                $subCate5 = substr($mainContentInfo['bast_cate5'],0,3);
+            }else if($mainCategoryInfo5['depth'] == 1){
+                $subCate5 =  substr($mainContentInfo['bast_cate5'],0,6);
+            }else if($mainCategoryInfo5['depth'] == 2){
+                $subCate5 =  substr($mainContentInfo['bast_cate5'],0,9);
+            }else if($mainCategoryInfo5['depth'] == 3){
+                $subCate5 =  substr($mainContentInfo['bast_cate5'],0,12);
+            }else if($mainCategoryInfo5['depth'] == 4){
+                $subCate5 =  $mainContentInfo['bast_cate5'];
+            }
+            $view->assign('mainBastCateCode5', $mainContentInfo['bast_cate5']);
+
+            $mainBastCateList5 = $displayModel->getBastCateInfo($subCate5, $mainCategoryInfo5['depth']);
+            $view->assign('mainBastCateList5', $mainBastCateList5);
+
+            foreach($mainBastCateList5 as $key => $val){
+                if($mainCategoryInfo5['depth'] == 0){
+                    $mainBastCateProductInfo5 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo5 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo5 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList5 = $productModel->getListById($ids);
+                $mainBastCateProductListAll5[$key]['bastProductList'] = $mainBastCateProductList5;
+
+                if (!empty($mainBastCateProductListAll5[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll5[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll5[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+            $view->assign('mainBastCateProductListAll5', $mainBastCateProductListAll5);
+            $view->assign('mainBastCateUse5', "Y");
+        }else{
+            $view->assign('mainBastCateUse5', "N");
+        }
+
+        #메인페이지 베스트아이템6 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use6'] == 'Y' && $mainContentInfo['bast_cate6']){
+            $mainCategoryInfo6 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate6']);
+
+            if($mainCategoryInfo6['depth'] == 0){
+                $subCate6 = substr($mainContentInfo['bast_cate6'],0,3);
+            }else if($mainCategoryInfo6['depth'] == 1){
+                $subCate6 =  substr($mainContentInfo['bast_cate6'],0,6);
+            }else if($mainCategoryInfo6['depth'] == 2){
+                $subCate6 =  substr($mainContentInfo['bast_cate6'],0,9);
+            }else if($mainCategoryInfo6['depth'] == 3){
+                $subCate6 =  substr($mainContentInfo['bast_cate6'],0,12);
+            }else if($mainCategoryInfo6['depth'] == 4){
+                $subCate6 =  $mainContentInfo['bast_cate6'];
+            }
+            $view->assign('mainBastCateCode6', $mainContentInfo['bast_cate6']);
+
+            $mainBastCateList6 = $displayModel->getBastCateInfo($subCate6, $mainCategoryInfo6['depth']);
+            $view->assign('mainBastCateList6', $mainBastCateList6);
+
+            foreach($mainBastCateList6 as $key => $val){
+                if($mainCategoryInfo6['depth'] == 0){
+                    $mainBastCateProductInfo6 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo6 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo6 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList6 = $productModel->getListById($ids);
+                $mainBastCateProductListAll6[$key]['bastProductList'] = $mainBastCateProductList6;
+
+                if (!empty($mainBastCateProductListAll6[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll6[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll6[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+            $view->assign('mainBastCateProductListAll6', $mainBastCateProductListAll6);
+            $view->assign('mainBastCateUse6', "Y");
+        }else{
+            $view->assign('mainBastCateUse6', "N");
+        }
+
+        #메인페이지 베스트아이템7 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use7'] == 'Y' && $mainContentInfo['bast_cate7']){
+            $mainCategoryInfo7 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate7']);
+
+            if($mainCategoryInfo7['depth'] == 0){
+                $subCate7 = substr($mainContentInfo['bast_cate7'],0,3);
+            }else if($mainCategoryInfo7['depth'] == 1){
+                $subCate7 =  substr($mainContentInfo['bast_cate7'],0,6);
+            }else if($mainCategoryInfo7['depth'] == 2){
+                $subCate7 =  substr($mainContentInfo['bast_cate7'],0,9);
+            }else if($mainCategoryInfo7['depth'] == 3){
+                $subCate7 =  substr($mainContentInfo['bast_cate7'],0,12);
+            }else if($mainCategoryInfo7['depth'] == 4){
+                $subCate7 =  $mainContentInfo['bast_cate7'];
+            }
+            $view->assign('mainBastCateCode7', $mainContentInfo['bast_cate7']);
+
+            $mainBastCateList7 = $displayModel->getBastCateInfo($subCate7, $mainCategoryInfo7['depth']);
+            $view->assign('mainBastCateList7', $mainBastCateList7);
+
+            foreach($mainBastCateList7 as $key => $val){
+                if($mainCategoryInfo7['depth'] == 0){
+                    $mainBastCateProductInfo7 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo7 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo7 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList7 = $productModel->getListById($ids);
+                $mainBastCateProductListAll7[$key]['bastProductList'] = $mainBastCateProductList7;
+
+                if (!empty($mainBastCateProductListAll7[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll7[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll7[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+            $view->assign('mainBastCateProductListAll7', $mainBastCateProductListAll7);
+            $view->assign('mainBastCateUse7', "Y");
+        }else{
+            $view->assign('mainBastCateUse7', "N");
+        }
+
+        #메인페이지 베스트아이템8 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use8'] == 'Y' && $mainContentInfo['bast_cate8']){
+            $mainCategoryInfo8 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate8']);
+
+            if($mainCategoryInfo8['depth'] == 0){
+                $subCate8 = substr($mainContentInfo['bast_cate8'],0,3);
+            }else if($mainCategoryInfo8['depth'] == 1){
+                $subCate8 =  substr($mainContentInfo['bast_cate8'],0,6);
+            }else if($mainCategoryInfo8['depth'] == 2){
+                $subCate8 =  substr($mainContentInfo['bast_cate8'],0,9);
+            }else if($mainCategoryInfo8['depth'] == 3){
+                $subCate8 =  substr($mainContentInfo['bast_cate8'],0,12);
+            }else if($mainCategoryInfo8['depth'] == 4){
+                $subCate8 =  $mainContentInfo['bast_cate8'];
+            }
+            $view->assign('mainBastCateCode8', $mainContentInfo['bast_cate8']);
+
+            $mainBastCateList8 = $displayModel->getBastCateInfo($subCate8, $mainCategoryInfo8['depth']);
+            $view->assign('mainBastCateList8', $mainBastCateList8);
+
+            foreach($mainBastCateList8 as $key => $val){
+                if($mainCategoryInfo8['depth'] == 0){
+                    $mainBastCateProductInfo8 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo8 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo8 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList8 = $productModel->getListById($ids);
+                $mainBastCateProductListAll8[$key]['bastProductList'] = $mainBastCateProductList8;
+
+                if (!empty($mainBastCateProductListAll8[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll8[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll8[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+            $view->assign('mainBastCateProductListAll8', $mainBastCateProductListAll8);
+            $view->assign('mainBastCateUse8', "Y");
+        }else{
+            $view->assign('mainBastCateUse8', "N");
+        }
+
+        #메인페이지 베스트아이템9 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use9'] == 'Y' && $mainContentInfo['bast_cate9']){
+            $mainCategoryInfo9 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate9']);
+
+            if($mainCategoryInfo9['depth'] == 0){
+                $subCate9 = substr($mainContentInfo['bast_cate9'],0,3);
+            }else if($mainCategoryInfo9['depth'] == 1){
+                $subCate9 =  substr($mainContentInfo['bast_cate9'],0,6);
+            }else if($mainCategoryInfo9['depth'] == 2){
+                $subCate9 =  substr($mainContentInfo['bast_cate9'],0,9);
+            }else if($mainCategoryInfo9['depth'] == 3){
+                $subCate9 =  substr($mainContentInfo['bast_cate9'],0,12);
+            }else if($mainCategoryInfo9['depth'] == 4){
+                $subCate9 =  $mainContentInfo['bast_cate9'];
+            }
+            $view->assign('mainBastCateCode9', $mainContentInfo['bast_cate9']);
+
+            $mainBastCateList9 = $displayModel->getBastCateInfo($subCate9, $mainCategoryInfo9['depth']);
+            $view->assign('mainBastCateList9', $mainBastCateList9);
+
+            foreach($mainBastCateList9 as $key => $val){
+                if($mainCategoryInfo9['depth'] == 0){
+                    $mainBastCateProductInfo9 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo9 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo9 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList9 = $productModel->getListById($ids);
+                $mainBastCateProductListAll9[$key]['bastProductList'] = $mainBastCateProductList9;
+
+                if (!empty($mainBastCateProductListAll9[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll9[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll9[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+            $view->assign('mainBastCateProductListAll9', $mainBastCateProductListAll9);
+            $view->assign('mainBastCateUse9', "Y");
+        }else{
+            $view->assign('mainBastCateUse9', "N");
+        }
+
+        #메인페이지 베스트아이템10 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use10'] == 'Y' && $mainContentInfo['bast_cate10']){
+            $mainCategoryInfo10 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate10']);
+
+            if($mainCategoryInfo10['depth'] == 0){
+                $subCate10 = substr($mainContentInfo['bast_cate10'],0,3);
+            }else if($mainCategoryInfo10['depth'] == 1){
+                $subCate10 =  substr($mainContentInfo['bast_cate10'],0,6);
+            }else if($mainCategoryInfo10['depth'] == 2){
+                $subCate10 =  substr($mainContentInfo['bast_cate10'],0,9);
+            }else if($mainCategoryInfo10['depth'] == 3){
+                $subCate10 =  substr($mainContentInfo['bast_cate10'],0,12);
+            }else if($mainCategoryInfo10['depth'] == 4){
+                $subCate10 =  $mainContentInfo['bast_cate10'];
+            }
+            $view->assign('mainBastCateCode10', $mainContentInfo['bast_cate10']);
+
+            $mainBastCateList10 = $displayModel->getBastCateInfo($subCate10, $mainCategoryInfo10['depth']);
+            $view->assign('mainBastCateList10', $mainBastCateList10);
+
+            foreach($mainBastCateList10 as $key => $val){
+                if($mainCategoryInfo10['depth'] == 0){
+                    $mainBastCateProductInfo10 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo10 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo10 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList10 = $productModel->getListById($ids);
+                $mainBastCateProductListAll10[$key]['bastProductList'] = $mainBastCateProductList10;
+
+                if (!empty($mainBastCateProductListAll10[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll10[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll10[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+            $view->assign('mainBastCateProductListAll10', $mainBastCateProductListAll10);
+            $view->assign('mainBastCateUse10', "Y");
+        }else{
+            $view->assign('mainBastCateUse10', "N");
         }
 
         #메인페이지에 등록된 상품그룹 가져오기
@@ -487,9 +954,8 @@ if ($view->isCached() === false) {
             $view->assign('mainContentSpecialInfo', $mainContentSpecialInfo);
         }
 
-        #메인페이지 베스트아이템 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        #메인페이지 베스트아이템1 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
         if($mainContentInfo['best_use'] == 'Y' && $mainContentInfo['bast_cate']){
-
             $mainCategoryInfo = $displayModel->getCategoryInfo($mainContentInfo['bast_cate']);
 
             if($mainCategoryInfo['depth'] == 0){
@@ -506,7 +972,6 @@ if ($view->isCached() === false) {
             $view->assign('mainBastCateCode', $mainContentInfo['bast_cate']);
 
             $mainBastCateList = $displayModel->getBastCateInfo($subCate, $mainCategoryInfo['depth']);
-
             $view->assign('mainBastCateList', $mainBastCateList);
 
             foreach($mainBastCateList as $key => $val){
@@ -542,6 +1007,501 @@ if ($view->isCached() === false) {
             $view->assign('mainBastCateUse', "Y");
         }else{
             $view->assign('mainBastCateUse', "N");
+        }
+
+        #메인페이지 베스트아이템2 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use2'] == 'Y' && $mainContentInfo['bast_cate2']){
+            $mainCategoryInfo2 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate2']);
+
+            if($mainCategoryInfo2['depth'] == 0){
+                $subCate2 = substr($mainContentInfo['bast_cate2'],0,3);
+            }else if($mainCategoryInfo2['depth'] == 1){
+                $subCate2 =  substr($mainContentInfo['bast_cate2'],0,6);
+            }else if($mainCategoryInfo2['depth'] == 2){
+                $subCate2 =  substr($mainContentInfo['bast_cate2'],0,9);
+            }else if($mainCategoryInfo2['depth'] == 3){
+                $subCate2 =  substr($mainContentInfo['bast_cate2'],0,12);
+            }else if($mainCategoryInfo2['depth'] == 4){
+                $subCate2 =  $mainContentInfo['bast_cate2'];
+            }
+            $view->assign('mainBastCateCode2', $mainContentInfo['bast_cate2']);
+
+            $mainBastCateList2 = $displayModel->getBastCateInfo($subCate2, $mainCategoryInfo2['depth']);
+            $view->assign('mainBastCateList2', $mainBastCateList2);
+
+            foreach($mainBastCateList2 as $key => $val){
+                if($mainCategoryInfo2['depth'] == 0){
+                    $mainBastCateProductInfo2 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo2 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo2 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList2 = $productModel->getListById($ids);
+                $mainBastCateProductListAll2[$key]['cid']             = $val['cid'];
+                $mainBastCateProductListAll2[$key]['cname']           = $val['cname'];
+                $mainBastCateProductListAll2[$key]['bastProductList'] = $mainBastCateProductList2;
+
+                if (!empty($mainBastCateProductListAll2[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll2[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll2[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+
+            $view->assign('mainBastCateProductListAll2', $mainBastCateProductListAll2);
+            $view->assign('mainBastCateUse2', "Y");
+        }else{
+            $view->assign('mainBastCateUse2', "N");
+        }
+
+        #메인페이지 베스트아이템3 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use3'] == 'Y' && $mainContentInfo['bast_cate3']){
+            $mainCategoryInfo3 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate3']);
+
+            if($mainCategoryInfo3['depth'] == 0){
+                $subCate3 = substr($mainContentInfo['bast_cate3'],0,3);
+            }else if($mainCategoryInfo3['depth'] == 1){
+                $subCate3 =  substr($mainContentInfo['bast_cate3'],0,6);
+            }else if($mainCategoryInfo3['depth'] == 2){
+                $subCate3 =  substr($mainContentInfo['bast_cate3'],0,9);
+            }else if($mainCategoryInfo3['depth'] == 3){
+                $subCate3 =  substr($mainContentInfo['bast_cate3'],0,12);
+            }else if($mainCategoryInfo3['depth'] == 4){
+                $subCate3 =  $mainContentInfo['bast_cate3'];
+            }
+            $view->assign('mainBastCateCode3', $mainContentInfo['bast_cate3']);
+
+            $mainBastCateList3 = $displayModel->getBastCateInfo($subCate3, $mainCategoryInfo3['depth']);
+            $view->assign('mainBastCateList3', $mainBastCateList3);
+
+            foreach($mainBastCateList3 as $key => $val){
+                if($mainCategoryInfo3['depth'] == 0){
+                    $mainBastCateProductInfo3 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo3 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo3 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList3 = $productModel->getListById($ids);
+                $mainBastCateProductListAll3[$key]['cid']             = $val['cid'];
+                $mainBastCateProductListAll3[$key]['cname']           = $val['cname'];
+                $mainBastCateProductListAll3[$key]['bastProductList'] = $mainBastCateProductList3;
+
+                if (!empty($mainBastCateProductListAll3[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll3[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll3[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+
+            $view->assign('mainBastCateProductListAll3', $mainBastCateProductListAll3);
+            $view->assign('mainBastCateUse3', "Y");
+        }else{
+            $view->assign('mainBastCateUse3', "N");
+        }
+
+        #메인페이지 베스트아이템4 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use4'] == 'Y' && $mainContentInfo['bast_cate4']){
+            $mainCategoryInfo4 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate4']);
+
+            if($mainCategoryInfo4['depth'] == 0){
+                $subCate4 = substr($mainContentInfo['bast_cate4'],0,3);
+            }else if($mainCategoryInfo4['depth'] == 1){
+                $subCate4 =  substr($mainContentInfo['bast_cate4'],0,6);
+            }else if($mainCategoryInfo4['depth'] == 2){
+                $subCate4 =  substr($mainContentInfo['bast_cate4'],0,9);
+            }else if($mainCategoryInfo4['depth'] == 3){
+                $subCate4 =  substr($mainContentInfo['bast_cate4'],0,12);
+            }else if($mainCategoryInfo4['depth'] == 4){
+                $subCate4 =  $mainContentInfo['bast_cate4'];
+            }
+            $view->assign('mainBastCateCode4', $mainContentInfo['bast_cate4']);
+
+            $mainBastCateList4 = $displayModel->getBastCateInfo($subCate4, $mainCategoryInfo4['depth']);
+            $view->assign('mainBastCateList4', $mainBastCateList4);
+
+            foreach($mainBastCateList4 as $key => $val){
+                if($mainCategoryInfo4['depth'] == 0){
+                    $mainBastCateProductInfo4 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo4 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo4 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList4 = $productModel->getListById($ids);
+                $mainBastCateProductListAll4[$key]['cid']             = $val['cid'];
+                $mainBastCateProductListAll4[$key]['cname']           = $val['cname'];
+                $mainBastCateProductListAll4[$key]['bastProductList'] = $mainBastCateProductList4;
+
+                if (!empty($mainBastCateProductListAll4[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll4[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll4[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+
+            $view->assign('mainBastCateProductListAll4', $mainBastCateProductListAll4);
+            $view->assign('mainBastCateUse4', "Y");
+        }else{
+            $view->assign('mainBastCateUse4', "N");
+        }
+
+        #메인페이지 베스트아이템5 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use5'] == 'Y' && $mainContentInfo['bast_cate5']){
+            $mainCategoryInfo5 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate5']);
+
+            if($mainCategoryInfo5['depth'] == 0){
+                $subCate5 = substr($mainContentInfo['bast_cate5'],0,3);
+            }else if($mainCategoryInfo5['depth'] == 1){
+                $subCate5 =  substr($mainContentInfo['bast_cate5'],0,6);
+            }else if($mainCategoryInfo5['depth'] == 2){
+                $subCate5 =  substr($mainContentInfo['bast_cate5'],0,9);
+            }else if($mainCategoryInfo5['depth'] == 3){
+                $subCate5 =  substr($mainContentInfo['bast_cate5'],0,12);
+            }else if($mainCategoryInfo5['depth'] == 4){
+                $subCate5 =  $mainContentInfo['bast_cate5'];
+            }
+            $view->assign('mainBastCateCode5', $mainContentInfo['bast_cate5']);
+
+            $mainBastCateList5 = $displayModel->getBastCateInfo($subCate5, $mainCategoryInfo5['depth']);
+            $view->assign('mainBastCateList5', $mainBastCateList5);
+
+            foreach($mainBastCateList5 as $key => $val){
+                if($mainCategoryInfo5['depth'] == 0){
+                    $mainBastCateProductInfo5 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo5 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo5 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList5 = $productModel->getListById($ids);
+                $mainBastCateProductListAll5[$key]['cid']             = $val['cid'];
+                $mainBastCateProductListAll5[$key]['cname']           = $val['cname'];
+                $mainBastCateProductListAll5[$key]['bastProductList'] = $mainBastCateProductList5;
+
+                if (!empty($mainBastCateProductListAll5[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll5[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll5[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+
+            $view->assign('mainBastCateProductListAll5', $mainBastCateProductListAll5);
+            $view->assign('mainBastCateUse5', "Y");
+        }else{
+            $view->assign('mainBastCateUse5', "N");
+        }
+
+        #메인페이지 베스트아이템6 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use6'] == 'Y' && $mainContentInfo['bast_cate6']){
+            $mainCategoryInfo6 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate6']);
+
+            if($mainCategoryInfo6['depth'] == 0){
+                $subCate6 = substr($mainContentInfo['bast_cate6'],0,3);
+            }else if($mainCategoryInfo6['depth'] == 1){
+                $subCate6 =  substr($mainContentInfo['bast_cate6'],0,6);
+            }else if($mainCategoryInfo6['depth'] == 2){
+                $subCate6 =  substr($mainContentInfo['bast_cate6'],0,9);
+            }else if($mainCategoryInfo6['depth'] == 3){
+                $subCate6 =  substr($mainContentInfo['bast_cate6'],0,12);
+            }else if($mainCategoryInfo6['depth'] == 4){
+                $subCate6 =  $mainContentInfo['bast_cate6'];
+            }
+            $view->assign('mainBastCateCode6', $mainContentInfo['bast_cate6']);
+
+            $mainBastCateList6 = $displayModel->getBastCateInfo($subCate6, $mainCategoryInfo6['depth']);
+            $view->assign('mainBastCateList6', $mainBastCateList6);
+
+            foreach($mainBastCateList6 as $key => $val){
+                if($mainCategoryInfo6['depth'] == 0){
+                    $mainBastCateProductInfo6 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo6 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo6 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList6 = $productModel->getListById($ids);
+                $mainBastCateProductListAll6[$key]['cid']             = $val['cid'];
+                $mainBastCateProductListAll6[$key]['cname']           = $val['cname'];
+                $mainBastCateProductListAll6[$key]['bastProductList'] = $mainBastCateProductList6;
+
+                if (!empty($mainBastCateProductListAll6[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll6[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll6[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+
+            $view->assign('mainBastCateProductListAll6', $mainBastCateProductListAll6);
+            $view->assign('mainBastCateUse6', "Y");
+        }else{
+            $view->assign('mainBastCateUse6', "N");
+        }
+
+        #메인페이지 베스트아이템7 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use7'] == 'Y' && $mainContentInfo['bast_cate7']){
+            $mainCategoryInfo7 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate7']);
+
+            if($mainCategoryInfo7['depth'] == 0){
+                $subCate7 = substr($mainContentInfo['bast_cate7'],0,3);
+            }else if($mainCategoryInfo7['depth'] == 1){
+                $subCate7 =  substr($mainContentInfo['bast_cate7'],0,6);
+            }else if($mainCategoryInfo7['depth'] == 2){
+                $subCate7 =  substr($mainContentInfo['bast_cate7'],0,9);
+            }else if($mainCategoryInfo7['depth'] == 3){
+                $subCate7 =  substr($mainContentInfo['bast_cate7'],0,12);
+            }else if($mainCategoryInfo7['depth'] == 4){
+                $subCate7 =  $mainContentInfo['bast_cate7'];
+            }
+            $view->assign('mainBastCateCode7', $mainContentInfo['bast_cate7']);
+
+            $mainBastCateList7 = $displayModel->getBastCateInfo($subCate7, $mainCategoryInfo7['depth']);
+            $view->assign('mainBastCateList7', $mainBastCateList7);
+
+            foreach($mainBastCateList7 as $key => $val){
+                if($mainCategoryInfo7['depth'] == 0){
+                    $mainBastCateProductInfo7 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo7 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo7 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList7 = $productModel->getListById($ids);
+                $mainBastCateProductListAll7[$key]['cid']             = $val['cid'];
+                $mainBastCateProductListAll7[$key]['cname']           = $val['cname'];
+                $mainBastCateProductListAll7[$key]['bastProductList'] = $mainBastCateProductList7;
+
+                if (!empty($mainBastCateProductListAll7[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll7[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll7[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+
+            $view->assign('mainBastCateProductListAll7', $mainBastCateProductListAll7);
+            $view->assign('mainBastCateUse7', "Y");
+        }else{
+            $view->assign('mainBastCateUse7', "N");
+        }
+
+        #메인페이지 베스트아이템8 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use8'] == 'Y' && $mainContentInfo['bast_cate8']){
+            $mainCategoryInfo8 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate8']);
+
+            if($mainCategoryInfo8['depth'] == 0){
+                $subCate8 = substr($mainContentInfo['bast_cate8'],0,3);
+            }else if($mainCategoryInfo8['depth'] == 1){
+                $subCate8 =  substr($mainContentInfo['bast_cate8'],0,6);
+            }else if($mainCategoryInfo8['depth'] == 2){
+                $subCate8 =  substr($mainContentInfo['bast_cate8'],0,9);
+            }else if($mainCategoryInfo8['depth'] == 3){
+                $subCate8 =  substr($mainContentInfo['bast_cate8'],0,12);
+            }else if($mainCategoryInfo8['depth'] == 4){
+                $subCate8 =  $mainContentInfo['bast_cate8'];
+            }
+            $view->assign('mainBastCateCode8', $mainContentInfo['bast_cate8']);
+
+            $mainBastCateList8 = $displayModel->getBastCateInfo($subCate8, $mainCategoryInfo8['depth']);
+            $view->assign('mainBastCateList8', $mainBastCateList8);
+
+            foreach($mainBastCateList8 as $key => $val){
+                if($mainCategoryInfo8['depth'] == 0){
+                    $mainBastCateProductInfo8 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo8 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo8 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList8 = $productModel->getListById($ids);
+                $mainBastCateProductListAll8[$key]['cid']             = $val['cid'];
+                $mainBastCateProductListAll8[$key]['cname']           = $val['cname'];
+                $mainBastCateProductListAll8[$key]['bastProductList'] = $mainBastCateProductList8;
+
+                if (!empty($mainBastCateProductListAll8[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll8[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll8[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+
+            $view->assign('mainBastCateProductListAll8', $mainBastCateProductListAll8);
+            $view->assign('mainBastCateUse8', "Y");
+        }else{
+            $view->assign('mainBastCateUse8', "N");
+        }
+
+        #메인페이지 베스트아이템9 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use9'] == 'Y' && $mainContentInfo['bast_cate9']){
+            $mainCategoryInfo9 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate9']);
+
+            if($mainCategoryInfo9['depth'] == 0){
+                $subCate9 = substr($mainContentInfo['bast_cate9'],0,3);
+            }else if($mainCategoryInfo9['depth'] == 1){
+                $subCate9 =  substr($mainContentInfo['bast_cate9'],0,6);
+            }else if($mainCategoryInfo9['depth'] == 2){
+                $subCate9 =  substr($mainContentInfo['bast_cate9'],0,9);
+            }else if($mainCategoryInfo9['depth'] == 3){
+                $subCate9 =  substr($mainContentInfo['bast_cate9'],0,12);
+            }else if($mainCategoryInfo9['depth'] == 4){
+                $subCate9 =  $mainContentInfo['bast_cate9'];
+            }
+            $view->assign('mainBastCateCode9', $mainContentInfo['bast_cate9']);
+
+            $mainBastCateList9 = $displayModel->getBastCateInfo($subCate9, $mainCategoryInfo9['depth']);
+            $view->assign('mainBastCateList9', $mainBastCateList9);
+
+            foreach($mainBastCateList9 as $key => $val){
+                if($mainCategoryInfo9['depth'] == 0){
+                    $mainBastCateProductInfo9 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo9 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo9 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList9 = $productModel->getListById($ids);
+                $mainBastCateProductListAll9[$key]['cid']             = $val['cid'];
+                $mainBastCateProductListAll9[$key]['cname']           = $val['cname'];
+                $mainBastCateProductListAll9[$key]['bastProductList'] = $mainBastCateProductList9;
+
+                if (!empty($mainBastCateProductListAll9[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll9[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll9[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+
+            $view->assign('mainBastCateProductListAll9', $mainBastCateProductListAll9);
+            $view->assign('mainBastCateUse9', "Y");
+        }else{
+            $view->assign('mainBastCateUse9', "N");
+        }
+
+        #메인페이지 베스트아이템10 설정 가져오기(베스트아이템 사용유무 사용/미사용 여부 확인)
+        if($mainContentInfo['best_use10'] == 'Y' && $mainContentInfo['bast_cate10']){
+            $mainCategoryInfo10 = $displayModel->getCategoryInfo($mainContentInfo['bast_cate10']);
+
+            if($mainCategoryInfo10['depth'] == 0){
+                $subCate10 = substr($mainContentInfo['bast_cate10'],0,3);
+            }else if($mainCategoryInfo10['depth'] == 1){
+                $subCate10 =  substr($mainContentInfo['bast_cate10'],0,6);
+            }else if($mainCategoryInfo10['depth'] == 2){
+                $subCate10 =  substr($mainContentInfo['bast_cate10'],0,9);
+            }else if($mainCategoryInfo10['depth'] == 3){
+                $subCate10 =  substr($mainContentInfo['bast_cate10'],0,12);
+            }else if($mainCategoryInfo10['depth'] == 4){
+                $subCate10 =  $mainContentInfo['bast_cate10'];
+            }
+            $view->assign('mainBastCateCode10', $mainContentInfo['bast_cate10']);
+
+            $mainBastCateList10 = $displayModel->getBastCateInfo($subCate10, $mainCategoryInfo10['depth']);
+            $view->assign('mainBastCateList10', $mainBastCateList10);
+
+            foreach($mainBastCateList10 as $key => $val){
+                if($mainCategoryInfo10['depth'] == 0){
+                    $mainBastCateProductInfo10 = $displayModel->getBastCateProductInfo(substr($val['cid'],0,6), $val['category_sort']);
+                }else{
+                    $mainBastCateProductInfo10 = $displayModel->getBastCateProductInfo($val['cid'], $val['category_sort']);
+                }
+
+                $ids = [];
+                foreach($mainBastCateProductInfo10 as $key1 => $val1){
+                    $ids[] = $val1['id'];
+                }
+
+                $mainBastCateProductList10 = $productModel->getListById($ids);
+                $mainBastCateProductListAll10[$key]['cid']             = $val['cid'];
+                $mainBastCateProductListAll10[$key]['cname']           = $val['cname'];
+                $mainBastCateProductListAll10[$key]['bastProductList'] = $mainBastCateProductList10;
+
+                if (!empty($mainBastCateProductListAll10[$key]['bastProductList'])) {
+                    foreach ($mainBastCateProductListAll10[$key]['bastProductList'] as $key1 => $row) {
+                        $row['listprice'] = g_price($row['listprice']);
+                        $row['dcprice'] = g_price($row['dcprice']);
+                        $row['sellprice'] = g_price($row['sellprice']);
+                        $preface = explode('_', $row['preface']);
+                        $row['preface'] = $preface[0];
+                        $mainBastCateProductListAll10[$key]['bastProductList'][$key1] = $row;
+                    }
+                }
+            }
+
+            $view->assign('mainBastCateProductListAll10', $mainBastCateProductListAll10);
+            $view->assign('mainBastCateUse10', "Y");
+        }else{
+            $view->assign('mainBastCateUse10', "N");
         }
 
         #메인페이지에 등록된 상품그룹 가져오기
