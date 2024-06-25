@@ -612,6 +612,19 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
             ->orderBy('vlevel'.($depth+2), 'ASC')
             ->exec()
             ->getResultArray();
+
+        if(!$result){
+            $result = $this->qb
+                ->select('cid, cname, category_sort')
+                ->from(TBL_SHOP_CATEGORY_INFO)
+                ->where('depth', $depth)
+                //->where('category_use', 1)
+                ->whereIn('category_use', [1, 2])
+                ->like('cid', $subCate, 'after')
+                ->orderBy('vlevel'.($depth+2), 'ASC')
+                ->exec()
+                ->getResultArray();
+        }
         return $result;
     }
 
@@ -1150,13 +1163,26 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
 
         $limit = $perPage;
 
-        $this->qb->select("*")
-            ->from('shop_content')
-            ->like('cid', $cid, 'after')
-            ->where('display_use', 'Y')
-            ->where('display_state', 'D')
-            ->where('display_start <=', time())
-            ->where('display_end >=', time());
+        if($cid == '001001'){
+            $this->qb->select("*")
+                ->from('shop_content as c')
+                ->join('shop_content_class as cc', 'c.cid = cc.cid', 'left')
+                ->like('c.cid', $cid, 'after')
+                ->where('cc.content_list_use', 0)
+                ->where('c.display_use', 'Y')
+                ->where('c.display_state', 'D')
+                ->where('c.display_start <=', time())
+                ->where('c.display_end >=', time());
+        }else{
+            $this->qb->select("*")
+                ->from('shop_content')
+                ->like('cid', $cid, 'after')
+                ->where('display_use', 'Y')
+                ->where('display_state', 'D')
+                ->where('display_start <=', time())
+                ->where('display_end >=', time());
+        }
+
         $total2 = $this->qb->getCount();
 
         $total = $total2;
@@ -1169,19 +1195,37 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
 
         $offset = $paging['offset'];
 
-        $result['list'] = $this->qb
-            ->select('con_ix, cid, depth, display_gubun, company_id, title, preface, b_preface, i_preface, u_preface, c_preface, explanation, list_img, recommend_img, b_title, i_title, u_title, c_title, s_title, display_date_use, display_start, display_end')
-            ->from('shop_content')
-            ->like('cid', $cid, 'after')
-            ->where('display_use', 'Y')
-            ->where('display_state', 'D')
-            ->where('display_start <=', time())
-            ->where('display_end >=', time())
-            ->orderBy('sort', 'ASC')
-            ->orderBy('regdate', 'DESC')
-			->limit($limit, $offset)
-            ->exec()
-            ->getResultArray();
+        if($cid == '001001'){
+            $result['list'] = $this->qb
+                ->select('c.con_ix, c.cid, c.depth, c.display_gubun, c.company_id, c.title, c.preface, c.b_preface, c.i_preface, c.u_preface, c.c_preface, c.explanation, c.list_img, c.recommend_img, c.b_title, c.i_title, c.u_title, c.c_title, c.s_title, c.display_date_use, c.display_start, c.display_end')
+                ->from('shop_content as c')
+                ->join('shop_content_class as cc', 'c.cid = cc.cid', 'left')
+                ->like('c.cid', $cid, 'after')
+                ->where('cc.content_list_use', 0)
+                ->where('c.display_use', 'Y')
+                ->where('c.display_state', 'D')
+                ->where('c.display_start <=', time())
+                ->where('c.display_end >=', time())
+                ->orderBy('c.sort', 'ASC')
+                ->orderBy('c.regdate', 'DESC')
+                ->limit($limit, $offset)
+                ->exec()
+                ->getResultArray();
+        }else{
+            $result['list'] = $this->qb
+                ->select('con_ix, cid, depth, display_gubun, company_id, title, preface, b_preface, i_preface, u_preface, c_preface, explanation, list_img, recommend_img, b_title, i_title, u_title, c_title, s_title, display_date_use, display_start, display_end')
+                ->from('shop_content')
+                ->like('cid', $cid, 'after')
+                ->where('display_use', 'Y')
+                ->where('display_state', 'D')
+                ->where('display_start <=', time())
+                ->where('display_end >=', time())
+                ->orderBy('sort', 'ASC')
+                ->orderBy('regdate', 'DESC')
+                ->limit($limit, $offset)
+                ->exec()
+                ->getResultArray();
+        }
 
         foreach($result['list'] as $key => $val){
             $contentPath = IMAGE_SERVER_DOMAIN . DATA_ROOT . '/images/content/' . $val['con_ix'] . '/'; //배너이미지 기본 경로
@@ -1221,14 +1265,25 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
 
         $this->qb->startCache();
 
-        $this->qb
-            ->from('shop_content')
-            ->like('cid', $cid, 'after')
-            ->where('display_use', 'Y')
-            ->where('display_state', 'D')
-            ->where('display_start <=', time())
-            ->where('display_end >=', time());
-
+        if($cid == '001001'){
+            $this->qb
+                ->from('shop_content as c')
+                ->join('shop_content_class as cc', 'c.cid = cc.cid', 'left')
+                ->like('c.cid', $cid, 'after')
+                ->where('cc.content_list_use', 0)
+                ->where('c.display_use', 'Y')
+                ->where('c.display_state', 'D')
+                ->where('c.display_start <=', time())
+                ->where('c.display_end >=', time());
+        }else{
+            $this->qb
+                ->from('shop_content')
+                ->like('cid', $cid, 'after')
+                ->where('display_use', 'Y')
+                ->where('display_state', 'D')
+                ->where('display_start <=', time())
+                ->where('display_end >=', time());
+        }
 
         if (is_array($where) && !empty($where)) {
             foreach ($where as $k => $v) {
@@ -1246,14 +1301,26 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
         $limit = $perPage;
         $offset = $paging['offset'];
 
-        $this->qb->orderBy('sort', 'ASC')->orderBy('regdate', 'DESC');
+        if($cid == '001001'){
+            $this->qb->orderBy('c.sort', 'ASC')->orderBy('c.regdate', 'DESC');
 
-        $list = $this->qb
-            ->select('con_ix, cid, depth, display_gubun, company_id, title, preface, b_preface, i_preface, u_preface, c_preface, explanation, list_img, recommend_img, b_title, i_title, u_title, c_title, s_title, display_date_use, display_start, display_end')
-            ->select('DATE_FORMAT(FROM_UNIXTIME(display_start), "%Y-%m-%d") AS startDate, DATE_FORMAT(FROM_UNIXTIME(display_end), "%Y-%m-%d") AS endDate')
-            ->limit($limit, $offset)
-            ->exec()
-            ->getResultArray();
+            $list = $this->qb
+                ->select('c.con_ix, c.cid, c.depth, c.display_gubun, c.company_id, c.title, c.preface, c.b_preface, c.i_preface, c.u_preface, c.c_preface, c.explanation, c.list_img, c.recommend_img, c.b_title, c.i_title, c.u_title, c.c_title, c.s_title, c.display_date_use, c.display_start, c.display_end')
+                ->select('DATE_FORMAT(FROM_UNIXTIME(c.display_start), "%Y-%m-%d") AS startDate, DATE_FORMAT(FROM_UNIXTIME(c.display_end), "%Y-%m-%d") AS endDate')
+                ->limit($limit, $offset)
+                ->exec()
+                ->getResultArray();
+        }else{
+            $this->qb->orderBy('sort', 'ASC')->orderBy('regdate', 'DESC');
+
+            $list = $this->qb
+                ->select('con_ix, cid, depth, display_gubun, company_id, title, preface, b_preface, i_preface, u_preface, c_preface, explanation, list_img, recommend_img, b_title, i_title, u_title, c_title, s_title, display_date_use, display_start, display_end')
+                ->select('DATE_FORMAT(FROM_UNIXTIME(display_start), "%Y-%m-%d") AS startDate, DATE_FORMAT(FROM_UNIXTIME(display_end), "%Y-%m-%d") AS endDate')
+                ->limit($limit, $offset)
+                ->exec()
+                ->getResultArray();
+        }
+
         $this->qb->flushCache();
 
         $domain = (!empty(IMAGE_SERVER_DOMAIN) ? IMAGE_SERVER_DOMAIN : HTTP_PROTOCOL . FORBIZ_HOST );
