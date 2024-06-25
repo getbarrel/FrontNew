@@ -1,12 +1,5 @@
 		<!-- 팝업 유형의 레이아웃 S -->
 		{? wg_is_kakao_page == 'F'}
-		<section id="container" class="br__layout-popup">
-			<header class="br__layout-popup__header">
-				<div class="br__layout-popup__page-title">{=trans('로그인')}</div>
-				<!-- <button type="button" class="btn-link btn-close">닫기</button> -->
-			</header>
-			<div class="br__layout-popup__contents">
-				<!-- 컨텐츠 S -->
 				<section class="br__login br__login--member br__login--show">
 					<div class="page-title">
 						<div class="title-sm">카카오 간편 로그인</div>
@@ -145,7 +138,7 @@
 									{? isNonMemberBuy}
 										<button type="button" class="btn-lg btn-gray-line information__btn__nomem devNonmemberOrder">{=trans('비회원 구매하기')}</button>
 									{:}
-										<button type="button" class="btn-lg btn-gray-line information__btn__nomem" id="devLoginSubmitButton">{=trans('비회원 주문조회')}</button>
+										<a href="javascript:void(0);" class="btn-lg btn-gray-line information__sns__link information__sns__link--naver" id="devOrderCheck">{=trans('비회원 주문조회')}</a>
 									{/}
 								</li>
 							</ul>
@@ -153,6 +146,35 @@
 					</div>
 				</section>
 				<!-- 컨텐츠 E -->
+				<section class="br__login br__login--nomember" id="nonMemOrder">
+					<h2 class="br__login__title">{=trans('비회원 주문조회')}</h2>
+					<div class="br__login__info">
+						<div class="information">
+							<h3 class="br__hidden">{=trans('주문/배송조회')}</h3>
+							<form id="devNonMemberLoginForm">
+								<input type="hidden" name="url" value="{url}"/>
+								<div class="information__input">
+									<input type="text" placeholder="{=trans('주문자명')}"  name="buyerName" id="devBuyerName" title="{=trans('주문자명')}">
+									<p class="txt-error" devTailMsg="devBuyerName"></p>
+								</div>
+								<div class="information__input information__input--half">
+									<input type="text" placeholder="{=trans('주문번호')}"  name="orderId" id="devOrderId" title="{=trans('주문번호')}">
+									<span class="information__input__hyphen">-</span>
+									<input type="text" name="orderId2" id="devOrderId2" title="{=trans('주문번호')}">
+									<p class="txt-error" devTailMsg="orderId devOrderId2"></p>
+								</div>
+								<div class="information__input">
+									<input type="password" placeholder="{=trans('비회원 주문 패스워드')}"  name="orderPassword" id="devOrderPassword" title="{=trans('주문 비밀번호')}">
+									<p class="txt-error" devTailMsg="devOrderPassword"></p>
+								</div>
+
+								<div class="information__btn">
+									<button class="information__btn__order" id="devNonMemberLoginSubmitButton">{=trans('주문/배송조회')}</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</section>
 			</div>
 		</section>
 		{ : }
@@ -335,7 +357,7 @@
                     <a href="{naver_login}" class="information__sns__link information__sns__link--naver">{=trans('네이버로 시작하기')}</a>
 
                 </li>
-                <!-- <li class="information__sns__list">
+                -- <li class="information__sns__list">
                     <a href="{kakao_login}" class="information__sns__link information__sns__link-kakaotalk">{=trans('카카오톡으로 시작하기')}</a>
                 </li> -->
                 <!-- li class="information__sns__list marT1r">
@@ -369,7 +391,7 @@
     </div>
 </section>
 { : }
-<!-- [S] 회원가입 새 페이지 -- 
+-- [S] 회원가입 새 페이지 --
 <section class="br__login br__login--member br__login--show">
     <h2 class="br__login__title">{=trans('회원가입')}</h2>
     <div class="br__login__info">
@@ -394,9 +416,9 @@
             </div>
     </div>
 </section>
-<!-- [E] 회원가입 새 페이지 -- 
+-- [E] 회원가입 새 페이지 --
 { / }
-<!-- 2019.07.11 비회원 주문조회 -- 
+-- 2019.07.11 비회원 주문조회 --
 <section class="br__login br__login--nomember">
     <h2 class="br__login__title">{=trans('비회원 주문조회')}</h2>
     <div class="br__login__info">
@@ -447,9 +469,9 @@
         </div>
     </div>
 </section>
-<!-- EOD : 2019.07.11 비회원 주문조회 -- 
+-- EOD : 2019.07.11 비회원 주문조회 --
 
-<!-- 추후 삭제 예정 -- 
+-- 추후 삭제 예정 --
 {? false}
 <div class="wrap-member">
     <h1 class="wrap-title">
@@ -533,4 +555,4 @@
 
 </div>
 {/}
-<!-- 추후 삭제 예정 -->
+-- 추후 삭제 예정 -->

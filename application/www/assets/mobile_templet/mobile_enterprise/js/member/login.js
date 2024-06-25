@@ -145,6 +145,15 @@ var setSNSGoogle = function (info) {
 
 }
 
+$('#devOrderCheck').click(function () {
+    if ($('#nonMemOrder').css("display") == "block"){
+        $('#nonMemOrder').hide();
+    }else{
+        $('#nonMemOrder').show();
+    }
+
+});
+
 $(function(){
     $(".devSaveIdCheck").click(function(){
         var id = $('#devUserId').val();
@@ -165,6 +174,8 @@ $(function(){
             }
         );
     });
+
+    $('#nonMemOrder').hide();
 
     //테스트용
     if ( document.cookie.indexOf("userSaveLoginId") > 0 ){
