@@ -393,7 +393,7 @@
 								<li class="sub__list">
 									<h2 class="sub__title">
 										{? ..category_type == "C"}
-										<a href="/shop/subGoodsList/{..cid}">
+										<a href="/shop/goodsList/{..cid}">
 										{:}
 										<a href="{..category_link}">
 										{/}
@@ -403,7 +403,7 @@
 									<ul class="sub__menu__inner">
 										<!--{@..subCateList}-->
 										{? ...category_type == "C"}
-											<li class="sub__menu__list"><a href="/shop/subGoodsList/{...cid}">{...cname}</a></li>
+											<li class="sub__menu__list"><a href="/shop/goodsList/{...cid}">{...cname}</a></li>
 										{:}
 											<li class="sub__menu__list"><a href="{...category_link}">{...cname}</a></li>
 										{/}

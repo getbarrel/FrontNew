@@ -9,7 +9,7 @@
 			{@ cateArr.subCate}
 			<li class="goodsNav__list">
 				<div class="goodsNav__subHeader">
-					<a href="/shop/subGoodsList/{.cid}" class="goodsNav__subHeader--link">
+					<a href="/shop/goodsList/{.cid}" class="goodsNav__subHeader--link">
 						<h3 class="goodsNav__subList {? .cid == cid} goodsNav__subList--active {/}">{.cname}</h3>
 					</a>
 				</div>
@@ -17,7 +17,7 @@
 				<ul class="goodsNav__cont goodsNav__cont--active">
 					{@ .subCate}
 					<li class="goodsNav__subList-inner">
-						<a href="/shop/subGoodsList/{..cid}" class="goodsNav__subList-link {? ..cid == cid} goodsNav__subList-link--active {/}">{..cname}</a>
+						<a href="/shop/goodsList/{..cid}" class="goodsNav__subList-link {? ..cid == cid} goodsNav__subList-link--active {/}">{..cname}</a>
 					</li>
 					{/}
 				</ul>
