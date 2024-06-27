@@ -206,7 +206,7 @@
 			<div class="pay-comp__payment">
 				<dl class="pay-comp__payment__total">
 					<dt>환불 예정 금액</dt>
-					<dd><em>1,265,550</em>원</dd>
+					<dd><em id="devCancelTotalReturnPrice">0</em>원</dd>
 				</dl>
 
 				<!-- 가상 계좌 결제 시 노출 S -->
@@ -225,7 +225,7 @@
 				<!-- 가상 계좌 결제 시 노출 E -->
 
 				<div class="pay-comp__payment__list">
-					<dl class="pay-comp__payment__box">
+					<dl class="pay-comp__payment__box" style="display: none">
 						<dt>{=trans('결제방법')}</dt>
 						<dd>
 
@@ -235,15 +235,15 @@
 					</dl>
 					<dl class="pay-comp__payment__box">
 						<dt>취소 신청 총 결제금액</dt>
-						<dd><em>1,405,550</em>원</dd>
+						<dd><em id="devCancelTotalPrice">0</em>원</dd>
 					</dl>
 					<dl class="pay-comp__payment__box">
 						<dt>환불 예정 배송비</dt>
-						<dd><em>0</em>원</dd>
+						<dd><em id="devCancelDeliveryReturnPrice">0</em>원</dd>
 					</dl>
 					<dl class="pay-comp__payment__box">
 						<dt>취소 시 차감 배송비</dt>
-						<dd><em>0</em>원</dd>
+						<dd><em id="devCancelTotalReceivePrice">0</em>원</dd>
 					</dl>
 				</div>
 			</div>
