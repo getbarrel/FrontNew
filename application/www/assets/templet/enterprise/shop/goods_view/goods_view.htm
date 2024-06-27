@@ -1086,10 +1086,18 @@ enp('create', 'wish', 'barrel', { device: 'W', btnSelector: '.btn-wish' });
 					</div>
 					<div class="goods-btn-area">
 						<div class="btn-group">
-							<!--<button type="button" class="btn-lg btn-dark-line" onclick="NewPopupJS('goodsView-AddToCart')">장바구니</button>
-							<button type="button" class="btn-lg btn-dark" onclick="NewPopupJS('goodsView-member')">구매하기</button>-->
+							{? status == 'sale'}
 							<button type="button" class="btn-lg btn-dark-line devAddCart devAddCart__layerBtn" onclick="teraCart('{=pid}')">장바구니</button>
+							{/}
+							{? status == 'sale'}
 							<button type="button" class="btn-lg btn-dark devOrderDirect">구매하기</button>
+							{: status == 'ready'}
+							<button type="button" class="btn-lg btn-dark goods-btn__buy devOrderDirect" disabled>{=trans('판매예정')}</button>
+							{: status == 'end'}
+							<button type="button" class="btn-lg btn-dark goods-btn__buy devOrderDirect" disabled>{=trans('판매종료')}</button>
+							{:}
+							<button type="button" class="btn-lg btn-dark goods-btn__buy devOrderDirect" disabled>{=trans('일시품절')}</button>
+							{/}
 						</div>
 						<!-- 장바구니 담겼을 경우 팝업 S -->
 						<div class="popup-layout" id="goodsView-AddToCart" style="display:none;position:absolute;top:-224px;left:-78px;width:390px;height:196px;background:#fff;border:1px solid #000;">

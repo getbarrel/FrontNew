@@ -56,6 +56,9 @@ class CustomMallProductModel extends ForbizMallProductModel
                 ->groupBy('po.opn_ix');
         }
 
+        $state = [0, 1, 4];
+
+
         // step1
         // 상품 옵션 기본정보 리스트
         $optionRows = $this->qb
@@ -70,7 +73,8 @@ class CustomMallProductModel extends ForbizMallProductModel
             ->join(TBL_SHOP_PRODUCT . ' AS p', 'po.pid=p.id')
             ->where('po.option_use', '1')
             ->where('po.pid', $id)
-            ->where('p.state', 1)
+            //->where('p.state', 1)
+            ->whereIn('p.state', $state)
             ->where('p.disp', 1)
             ->orderby('po.option_vieworder', 'asc')
             ->exec()
