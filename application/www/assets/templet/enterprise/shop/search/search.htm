@@ -66,8 +66,8 @@
 					</nav>
 				</div>
 				<div class="fb__main__goods fb__main__goodsInner">
-					<!--필터 검색 시 검색 결과가 없을 시 S -->
-					<div id="devEmptyKeyword" class="empty-content">
+					<!--필터 검색 시 검색 결과가 없을 시 S  
+					<div id="devListEmpty" class="empty-content ">
 						<p class="fb__search-noresult__info"><i></i> <span>{=trans('검색 결과가 없습니다.')}</span></p>
 						<div class="fb__search-noresult__list">
 							<span>-{=trans('검색어가 올바르게 입력되었는지 확인해 주세요.')}</span>
@@ -75,7 +75,12 @@
 							<span>-{=trans('검색어의 띄어쓰기를 다르게 해보세요.')}</span>
 						</div>
 					</div>
-					<!--필터 검색 시 검색 결과가 없을 시 E -->
+					필터 검색 시 검색 결과가 없을 시 E -->
+					<div id="devFilterEmpty" class="empty-content">
+						<p>검색어가 올바르게 입력되었는지 확인해 주세요.</p>
+						<span>일반적인 검색어로 다시 검색해 주세요<br>감색어의 띄어쓰기를 다르게 해보세요.</span>
+						<!-- <p>선택하신 조건에 대한 검색 결과가 없습니다.<br><br><span>다른 옵션을 선택하여 검색해 보세요.</span></p> -->
+					</div>
 					<ul class="fb__goods three-boxes-wrap" id="devListContents">
 					
 						<li class="devForbizTpl" id="devSubCategorys"></li> 
@@ -83,7 +88,7 @@
 						{* loading  contents *}
 						<li class="empty-content devListLoading" id="devListLoading">loading...</li>
 						{* empty contents *}
-						<li class="empty-content devForbizTpl" id="devListEmpty">
+						<li class="empty-content devListEmpty devForbizTpl" id="devListEmpty">
 							<p class="fb__search-noresult__info"><i></i> <span>{=trans('검색 결과가 없습니다.')}</span></p>
 							<div class="fb__search-noresult__list">
 								<span>-{=trans('검색어가 올바르게 입력되었는지 확인해 주세요.')}</span>

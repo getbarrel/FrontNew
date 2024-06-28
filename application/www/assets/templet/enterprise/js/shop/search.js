@@ -63,8 +63,14 @@ var search = {
                 .setUseHash(true)
                 .setController('getSearchGoodsList', 'product')
                 .init(function (response) {
-//console.log(response);
+
                     $('.devListLoading').css('display','none');
+
+					if (response.data.total > 0){
+						$('#devFilterEmpty').css('display','none');
+					}else{
+						$('#devFilterEmpty').css('display','');
+					}
                     self.seachAjax.setContent(response.data.list, response.data.paging);
 //                    $(".devColorCount").remove();
 //                    $(".devFilterItemColor").each(function (item) {
@@ -82,6 +88,33 @@ var search = {
                     lazyload();//퍼블 레이지로드 삽입
                 });
 
+
+//        self.goodsListAjax
+//            .setLoadingTpl('#devListLoading')
+//            .setListTpl('#devListDetail')
+//            .setEmptyTpl('#devListEmpty')
+//            .setContainerType('ul')
+//            .setContainer('#devListContents')
+//            .setPagination('#devPageWrap')
+//            .setPageNum('#devPage')
+//            .setForm('#devListForm')
+//            .setUseHash(true)
+//            .setController('getGoodsList', 'product')
+//            .init(function (response) {
+//                if(response.result == 'emptySearchFilter'){
+//                    $('.devListLoading').css('display','none');
+//                    $('#devListContents').css('display','none');
+//                    $('#devFilterEmpty').css('display','');
+//                }else{
+//                    $('.devListLoading').css('display','none');
+//                    $('#devFilterEmpty').css('display','none');
+//                    $('#devListContents').css('display','');
+//                }
+//                // 전체 상품 수
+//                $('#devTotalProduct').text(common.util.numberFormat(response.data.total));
+//                self.goodsListAjax.setContent(response.data.list, response.data.paging);
+//                // lazyload();//퍼블 레이지로드 삽입
+//            });
 
 
         $('#devPageWrap').on('click', '.devPageBtnCls', function () { // 페이징 버튼 이벤트 설정
