@@ -175,9 +175,9 @@ $(function () {
 
         if(confirm("입고알림 신청을 하시겠습니까?")){
 
-            pid         = $('#pid').val();
-            option_id   = $('#option_id').val();
-            pcs         = $('#devPcs1').val() + "-" +$('#devPcs2').val() + "-" +$('#devPcs3').val();
+            var pid         = $('#pid').val();
+            var option_id   = $('#option_id').val();
+            var pcs         = $('#devPcs1').val() + "-" +$('#devPcs2').val() + "-" +$('#devPcs3').val();
 
             var allData = { "pid": pid, "option_id": option_id, "pcs": pcs };
 
