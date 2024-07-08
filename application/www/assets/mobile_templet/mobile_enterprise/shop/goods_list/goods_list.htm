@@ -41,51 +41,12 @@
 		</div>
 	</div>
 
-	<!--<div class="br__goods-banner">
-		<div class="br__slide swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<a href=""><img src="/assets/mobile_templet/mobile_enterprise/assets/img/goods_banner_img.png" alt="" /></a>
-					<div class="br__goods-banner&#45;&#45;title">
-						<div class="title-md">
-							우먼 리플렉션 아쿠아<br />
-							브릿지백 스트랩 스윔슈트
-						</div>
-						<p>
-							온/오프라인 배럴 전 제품 15만원 이상 구매 시<br />
-							스페셜 기프트 증정!
-						</p>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<a href=""><img src="/assets/mobile_templet/mobile_enterprise/assets/img/goods_banner_img.png" alt="" /></a>
-					<div class="br__goods-banner&#45;&#45;title">
-						<div class="title-md">
-							우먼 리플렉션 아쿠아<br />
-							브릿지백 스트랩 스윔슈트
-						</div>
-						<p>
-							온/오프라인 배럴 전 제품 15만원 이상 구매 시<br />
-							스페셜 기프트 증정!
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="br__slide-control" style="padding:165px 1.8rem;">
-				<div class="swiper-control-group">
-					<div class="swiper-scrollbar popup-swiper-scrollbar"></div>
-					<div class="swiper-pagination popup-swiper-pagination"></div>
-				</div>
-			</div>
-		</div>
-	</div>-->
-
 	{ ? bannerInfo }
-	{ ? bannerInfo.imgSrcOn }
 	<div class="br__goods-banner">
 		<div class="br__slide swiper-container">
 			<div class="swiper-wrapper">
 				{ @ bannerInfo }
+				{ ? .imgSrcOn }
 				<div class="swiper-slide">
 					<a href=""><img src="{ .imgSrcOn }" alt="" /></a>
 					<div class="br__goods-banner--title">
@@ -98,6 +59,7 @@
 					</div>
 				</div>
 				{ / }
+				{ / }
 			</div>
 			<div class="br__slide-control" style="padding:168px 1.8rem;">
 				<div class="swiper-control-group">
@@ -107,7 +69,6 @@
 			</div>
 		</div>
 	</div>
-	{ / }
 	{ / }
 
 	<!-- 상품 리스트 S -->

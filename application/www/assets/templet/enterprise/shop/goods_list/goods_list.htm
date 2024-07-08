@@ -27,6 +27,7 @@
 				<div class="banner__slider swiper-container">
 					<div class="swiper-wrapper">
 						{@ bannerInfo }
+						{? .imgSrc }
 						<div class="banner__sliderList swiper-slide">
 							<div class="banner__sliderList-group">
 								<div class="banner__sliderList-brand">{ .shot_title }</div>
@@ -41,6 +42,7 @@
 								<img src="{ .imgSrc }" alt="" />
 							</div>
 						</div>
+						{ / }
 						{ / }
 					</div>
 					<div class="banner__slider-nav">
