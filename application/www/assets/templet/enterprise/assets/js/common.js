@@ -506,15 +506,33 @@ function swiperItem() {
 		});
 	}
 	if ($("body").find(".fb-main__goods-slider").length) {
+		/*2024-06-29 수정 시작*/
 		var swiperMainGoods = new Swiper(".fb-main__goods-slider", {
 			slidesPerView: "auto",
 			spaceBetween: 0,
 			loop: false,
-			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
+			freeMode: true,
+			observeParents: true,
+			pagination: {
+				el: ".swiper-pagination",
+				type: "fraction",
+				formatFractionCurrent: function (number) {
+					return ("0" + number).slice(-2);
+				},
+				formatFractionTotal: function (number) {
+					return ("0" + number).slice(-2);
+				},
+				renderFraction: function (currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span>' + " / " + '<span class="' + totalClass + '"></span>';
+				},
+			},
+			scrollbar: {
+				el: ".swiper-scrollbar",
+				dragSize: "339",
+				draggable: true,
 			},
 		});
+		/*//2024-06-29 수정 끝*/
 	}
 	if ($("body").find(".fb-main__barrel-slider").length) {
 		var swiperMainBarrel = new Swiper(".fb-main__barrel-slider", {

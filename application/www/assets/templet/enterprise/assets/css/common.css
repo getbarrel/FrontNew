@@ -2390,6 +2390,13 @@ table .empty-content {
   color: #fff;
 }
 
+/* 2024-06-29 수정 */
+.NEWbarrel .swiper-scrollbar.swiper-scrollbar-lock,
+.NEWbarrel .swiper-pagination.swiper-pagination-lock {
+  display: none;
+} 
+/* //2024-06-29 수정 */
+
 .NEWbarrel .swiper-pagination-current, .NEWbarrel .swiper-pagination-total {
   padding: 0 3px;
   line-height: 15px;
@@ -8230,10 +8237,24 @@ table .empty-content {
           justify-content: space-between;
 }
 
+/* 2024-06-29 수정 */
 .NEWbarrel .fb-FocusNow__cont .fb-main__goods {
+  position: relative;
   width: calc(100% + 48px);
+  height: 100%;
   overflow: hidden;
 }
+
+.NEWbarrel .fb-FocusNow__cont .swiper-container {
+  height: 100%;
+}
+
+.NEWbarrel .fb-FocusNow__cont .fb-main__card-control {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+/* //2024-06-29 수정 */
 
 .NEWbarrel .fb-FocusNow__detail .detail-layout {
   gap: 0 45px;

@@ -555,12 +555,60 @@ function swiperItem() {
 			},
 		});
 	}
+	/*2024-06-29 수정 시작*/
 	if ($("body").find(".goods-slider").length) {
 		var swiperMainCard2 = new Swiper(".goods-slider", {
 			slidesPerView: "auto",
 			spaceBetween: 8,
+			freeMode: true,
+			observeParents: true,
+			pagination: {
+				el: ".swiper-pagination3",
+				type: "fraction",
+				formatFractionCurrent: function (number) {
+					return ("0" + number).slice(-2);
+				},
+				formatFractionTotal: function (number) {
+					return ("0" + number).slice(-2);
+				},
+				renderFraction: function (currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span>' + " / " + '<span class="' + totalClass + '"></span>';
+				},
+			},
+			scrollbar: {
+				el: ".swiper-scrollbar3",
+				dragSize: "40",
+				draggable: true,
+			},
 		});
 	}
+	if ($("body").find(".br-main__FocusNow-slider").length) {
+		var swiperMainCardNEW2 = new Swiper(".br-main__FocusNow-slider", {
+			slidesPerView: "auto",
+			spaceBetween: 8,
+			freeMode: true,
+			observeParents: true,
+			pagination: {
+				el: ".swiper-pagination2",
+				type: "fraction",
+				formatFractionCurrent: function (number) {
+					return ("0" + number).slice(-2);
+				},
+				formatFractionTotal: function (number) {
+					return ("0" + number).slice(-2);
+				},
+				renderFraction: function (currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span>' + " / " + '<span class="' + totalClass + '"></span>';
+				},
+			},
+			scrollbar: {
+				el: ".swiper-scrollbar2",
+				dragSize: "40",
+				draggable: true,
+			},
+		});
+	}
+	/*//2024-06-29 수정 끝*/
 	if ($("body").find(".barrel-item__slider").length) {
 		var swiperMainBarrel = new Swiper(".barrel-item__slider", {
 			slidesPerView: 1,

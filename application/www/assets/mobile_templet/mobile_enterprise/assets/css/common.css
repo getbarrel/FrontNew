@@ -5122,12 +5122,15 @@ select:disabled {
   gap: 6rem 0;
 }
 
+/* 2024-06-29 수정 */
 .NEWbarrelM .barrel-item__group {
   position: relative;
   width: 100%;
+  min-height: 90vw;
   max-width: 40rem;
   margin: 0 auto;
 }
+/* //2024-06-29 수정 */
 
 .NEWbarrelM .barrel-item__slider {
   position: relative;
@@ -15278,6 +15281,12 @@ select:disabled {
   color: #fff;
 }
 
+/* 2024-06-29 수정 */
+.NEWbarrelM .br-main__BestItems .br-main__card-control {
+  margin-top: 2rem;
+}
+/* //2024-06-29 수정 */
+
 .NEWbarrelM .br-main__section {
   padding-top: 6rem;
   overflow: hidden;
@@ -15545,6 +15554,17 @@ select:disabled {
   background-color: #ededed;
 }
 
+/* 2024-06-29 수정 */
+.NEWbarrelM .swiper-scrollbar.swiper-scrollbar-lock,
+.NEWbarrelM .swiper-pagination.swiper-pagination-lock {
+  display: none !important;
+} 
+.NEWbarrelM .br-main__card-control .swiper-pagination.swiper-pagination-lock,
+.NEWbarrelM .br-main__card-control .swiper-scrollbar.swiper-scrollbar-lock{
+  display: none !important;
+}
+/* //2024-06-29 수정 */
+
 .NEWbarrelM .br-main__card-control .swiper-scrollbar-drag {
   background-color: #000;
 }
@@ -15798,6 +15818,46 @@ select:disabled {
   width: 15.6rem;
   padding: 0;
 }
+
+/*2024-06-29 수정 시작 */
+.NEWbarrelM .br-main__FocusNow .br-main__card-control {
+  margin-top: 2rem;
+}
+
+.NEWbarrelM .br-main__FocusNow .swiper-control-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.NEWbarrelM .br-main__FocusNow .swiper-scrollbar {
+  width: calc(100% - 5rem);
+  min-width: calc(100% - 5rem);
+  max-width: calc(100% - 5rem);
+}
+
+.NEWbarrelM .br-main__FocusNow .swiper-scrollbar.swiper-scrollbar-horizontal {
+  display:block!important;
+  background-color: #ededed;
+}
+
+.NEWbarrelM .br-main__FocusNow .swiper-scrollbar-drag {
+  background-color: #000;
+}
+
+.NEWbarrelM .br-main__FocusNow .swiper-pagination {
+  min-width: 3.1rem;
+  font-size: 1rem;
+  color: #a5a5a5;
+}
+
+.NEWbarrelM .br-main__FocusNow .swiper-pagination span {
+  color: #a5a5a5;
+}
+/*2024-06-29 수정 끝*/
 
 .NEWbarrelM .br-main__StyleGuide .br-main__title {
   margin-bottom: 2rem;
