@@ -46,7 +46,7 @@
 		<div class="br__slide swiper-container">
 			<div class="swiper-wrapper">
 				{ @ bannerInfo }
-				{ ? .imgSrcOn }
+				{ ? .imgSrcOn == "A" || .banner_loc == "M"}
 				<div class="swiper-slide">
 					<a href=""><img src="{ .imgSrcOn }" alt="" /></a>
 					<div class="br__goods-banner--title">

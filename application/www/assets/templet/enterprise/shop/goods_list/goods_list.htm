@@ -27,7 +27,7 @@
 				<div class="banner__slider swiper-container">
 					<div class="swiper-wrapper">
 						{@ bannerInfo }
-						{? .imgSrc }
+						{? .imgSrc == "A" || .banner_loc == "P"}
 						<div class="banner__sliderList swiper-slide">
 							<div class="banner__sliderList-group">
 								<div class="banner__sliderList-brand">{ .shot_title }</div>
