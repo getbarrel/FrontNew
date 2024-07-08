@@ -21,13 +21,13 @@
 <!-- 대분류 배너 영역 S -->
 {? bannerInfo }
 <section class="fb__goods-list__banner">
-	<section class="fb__subGoods-list" style="min-height:0px;">
+	<!--<section class="fb__subGoods-list" style="min-height:0px;">
 		<div class="banner">
-			<div class="banner__sliderWrap fb__main__slider fb__subGoods-list__slider">
+			<div class="banner__sliderWrap fb__main__slider fb__subGoods-list__slider">-->
 				<div class="banner__slider swiper-container">
 					<div class="swiper-wrapper">
-						{@ bannerInfo }
-						{? .imgSrc == "A" || .banner_loc == "P"}
+						{ @ bannerInfo }
+						{ ? .banner_loc == "A" || .banner_loc == "P"}
 						<div class="banner__sliderList swiper-slide">
 							<div class="banner__sliderList-group">
 								<div class="banner__sliderList-brand">{ .shot_title }</div>
@@ -54,9 +54,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+	<!--</div>
+</div>
+</section>-->
 </section>
 { / }
 <!-- 대분류 배너 영역 E -->
