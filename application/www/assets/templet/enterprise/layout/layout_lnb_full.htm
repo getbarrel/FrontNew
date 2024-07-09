@@ -20,19 +20,37 @@
         gtag('config', 'G-8JMZSEV839');
     </script>
 
+    <!-- Criteo Loader File 23.06.29-->
+    <script type="text/javascript" src="//dynamic.criteo.com/js/ld/ld.js?a=104564" async="true"></script>
+    <!-- END Criteo Loader File -->
+
+    <!--[S] FAVICON-->
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon_32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon/favicon_48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon/favicon_64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/favicon/favicon_128.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon_192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/favicon/favicon_256.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/favicon_152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon_180.png">
+
     <!-- css -->
     <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.GroupCssSrc ) }-->
     <link rel="stylesheet" type="text/css" href="{layout.GroupCssSrc}?version={c.CLIENT_VERSION}">
     <!--{/}-->
-    
-	<!-- js library -->
-    <script>var forbizCsrf = { name:"{layout.ForbizCsrfName}", hash:"{layout.ForbizCsrfHash}", isLogin:{=json_encode(layoutCommon.isLogin)}};</script>
+    <link rel="shortcut icon" href="{layoutCommon.templetSrc}/images/favicon.ico" type="image/x-icon">
+
+    <!-- js library -->
+    <script>var forbizCsrf = { name:"{layout.ForbizCsrfName}", hash:"{layout.ForbizCsrfHash}", isLogin:{=json_encode(layoutCommon.isLogin)}}, barrelFat = {}; barrelFat.useFat = {? empty(useFat)}0{:}{=useFat}{/};</script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/assets/css/main.css?version={c.CLIENT_VERSION}">
     <script src="{layoutCommon.templetSrc}/assets/js/vendor.js?version={c.CLIENT_VERSION}"></script>
     <script src="{layoutCommon.templetSrc}/assets/js/main.js?version={c.CLIENT_VERSION}"></script>
     <!--<script src="{layoutCommon.templetSrc}/js/common/library.js?version={c.CLIENT_VERSION}"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.2.0/decimal.min.js"></script>
+
 
     <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.LanguageJsSrc)}-->
     <!-- 언어 -->
@@ -141,6 +159,7 @@
     </nav>
 </header>
 <section id="container" class="fb__layout__leftmenu-type__full">
+    <!--{?  useFat === true }{#_fat}{/}-->
     <!--{? layoutCommon.bodyId == 'shop_goodsView'}-->
     <!--{:}-->
     <nav class="layout-lnb <!--{? layoutCommon.bodyId == 'shop_search'}--> layout-lnb__search <!--{/}-->">
