@@ -1219,7 +1219,7 @@ table .empty-content {
   top: 280px;
   bottom: auto;
   right: auto;
-  z-index: 10;
+  z-index: 9;
   width: 70px;
   height: 70px;
   text-indent: -9999px;
@@ -1235,7 +1235,7 @@ table .empty-content {
   bottom: auto;
   left: auto;
   right: 0px;
-  z-index: 10;
+  z-index: 9;
   width: 70px;
   height: 70px;
   text-indent: -9999px;

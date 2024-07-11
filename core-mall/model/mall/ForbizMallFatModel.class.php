@@ -194,7 +194,8 @@ class ForbizMallFatModel extends ForbizModel
                 } else {
                     $rows[$key]['cnv_rt'] = 0;
                 }
-                $rows[$key]['thumb'] = get_product_images_src($row['pid'], true, 's');
+                //$rows[$key]['thumb'] = get_product_images_src($row['pid'], true, 's');
+                $rows[$key]['thumb'] = get_product_images_src_new($row['pid'], true, 'slist', '', 0);
             }
         }
 
@@ -937,7 +938,8 @@ class ForbizMallFatModel extends ForbizModel
                 } else {
                     $rows[$key]['cnv_rt'] = 0;
                 }
-                $rows[$key]['thumb'] = get_product_images_src($row['pid'], true, 's');
+                //$rows[$key]['thumb'] = get_product_images_src($row['pid'], true, 's');
+                $rows[$key]['thumb'] = get_product_images_src_new($row['pid'], true, 'slist', '', 0);
             }
         }
 
