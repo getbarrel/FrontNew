@@ -236,7 +236,7 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
             ->orderBy('view_order', 'asc')
             ->orderBy('use_sdate', 'asc')
             ->orderBy('use_edate', 'asc')
-            ->limit(3)
+            //->limit(3)
             ->exec()
             ->getResultArray();
 
