@@ -28,9 +28,10 @@
 				<fieldset class="search-area">
 					<div class="search-area__inner">
 						<label for="devHeaderSearchText" class="hide">{=trans('검색텍스트')}</label>
-						<input type="text" class="header-input-search search-area__text devAutoComplete devAutoCompleteDetail devInsideText" id="devSearchText" placeholder="{=trans('검색어를 입력해주세요.')}" onblur="removeTag(this.value);" onkeypress="removeKeyPress(this.value);" onkeydown="removeKeydown(this.value);"/>
-						<i class="search_close_btn" id="devSearchCloseBtn"></i>
-						<button class="search-area__del">삭제버튼</button>
+						<input type="search" class="header-input-search search-area__text devAutoComplete devAutoCompleteDetail devInsideText" id="devSearchText" placeholder="{=trans('검색어를 입력해주세요.')}" onblur="removeTag(this.value);" onkeypress="removeKeyPress(this.value);" onkeydown="removeKeydown(this.value);" style="padding:15px 30px 15px 70px;"/>
+						<button class="search-clear-button" id="clear-search2" style="right:-25px;">x</button>
+						<!-- <i class="search_close_btn" id="devSearchCloseBtn"></i>
+						<button class="search-area__del">삭제버튼</button> -->
 						<input type="button" id="devGoInsideSearch" class="btn_sch_submit"/>
 					</div>
 				</fieldset>
@@ -41,6 +42,24 @@
 				
 			</div>
 		</div>
+		<script>
+			const searchInput2 = document.getElementById('devSearchText');
+			const clearButton2 = document.getElementById('clear-search2');
+
+			searchInput2.addEventListener('input', () => {
+				if (searchInput2.value.length > 0) {
+					clearButton2.style.display = 'block';
+				} else {
+					clearButton2.style.display = 'none';
+				}
+			});
+
+			clearButton2.addEventListener('click', () => {
+				searchInput2.value = '';
+				clearButton2.style.display = 'none';
+				searchInput2.focus();
+			});
+		</script>
 	</section>
 	<!-- 상품 리스트 S -->
 	<div class="fb__goods-list">

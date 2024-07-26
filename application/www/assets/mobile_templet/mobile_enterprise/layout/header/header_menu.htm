@@ -36,7 +36,53 @@
     .crema-type .br__drawer__global .global-box__select__list li img {width:auto; height:20px; margin-right:5px; vertical-align:middle;}
 
 </style>
+<style>
+	.search-container {
+		position: relative;
+		display: inline-block;
+	}
 
+	input[type="search"] {
+		width: 200px;
+		padding: 8px 30px 8px 12px; /* 오른쪽에 버튼 공간을 확보 */
+		border: 2px solid #ccc;
+		border-radius: 4px;
+		background-color: #f0f0f0;
+		color: #333;
+	}
+
+	input[type="search"]::placeholder {
+		color: #888;
+	}
+
+	input[type="search"]:focus {
+		border-color: #66afe9;
+		outline: none;
+		box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+	}
+
+	input[type="search"]::-webkit-search-cancel-button {
+		-webkit-appearance: none;
+	}
+
+	.search-clear-button {
+		position: absolute;
+		right: 10px;
+		top: 42%;
+		transform: translateY(-50%);
+		border: none;
+		color: black; /* 버튼 텍스트 색상 */
+		border-radius: 50%;
+		cursor: pointer;
+		padding: 0px;
+		width: 25px;
+		height: 20px;
+		font-size: 20px;
+		text-align: center;
+		line-height: 1;
+		display: none; /* 초기에는 숨기기 */
+	}
+</style>
 <section class="br__dockbar">
     <ul class="br__dockbar__list">
         <li class="dockbar-list">
@@ -72,9 +118,10 @@
 		</script>
 		<div class="br__search-inner">
 			<div class="br__search__title">
-				<div class="wrap_search-bar">
+				<div class="wrap_search-bar search-container">
 					<label for="devHeaderSearchTextMenu" class="hide">검색어 입력 영역</label>
-					<input class="search-input br__form-input devAutoCompleteMenu" type="text" id="devHeaderSearchTextMenu" placeholder="검색어를 입력해 주세요." onblur="removeHeaderTag(this.value);" onkeyup="igChkMenu()" autocomplete="off" data-id="devHeaderSearchTextMenu">
+					<input class="search-input br__form-input devAutoCompleteMenu" type="search" id="devHeaderSearchTextMenu" placeholder="검색어를 입력해 주세요." onblur="removeHeaderTag(this.value);" onkeyup="igChkMenu()" autocomplete="off" data-id="devHeaderSearchTextMenu">
+					<button class="search-clear-button" id="clear-search">x</button>
 					<button class="search-btn" id="devHeaderSearchButtonMenu">
 						<i class="ico ico-search"></i>
 					</button>
@@ -91,6 +138,24 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			const searchInput = document.getElementById('devHeaderSearchText');
+			const clearButton = document.getElementById('clear-search');
+
+			searchInput.addEventListener('input', () => {
+				if (searchInput.value.length > 0) {
+					clearButton.style.display = 'block';
+				} else {
+					clearButton.style.display = 'none';
+				}
+			});
+
+			clearButton.addEventListener('click', () => {
+				searchInput.value = '';
+				clearButton.style.display = 'none';
+				searchInput.focus();
+			});
+		</script>
 	</section>
 	<div class="br__drawer__scroll">
 		<section class="br__drawer__goods">

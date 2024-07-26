@@ -1,14 +1,62 @@
+<style>
+	.search-container {
+		position: relative;
+		display: inline-block;
+	}
+
+	input[type="search"] {
+		width: 200px;
+		padding: 8px 30px 8px 12px; /* 오른쪽에 버튼 공간을 확보 */
+		border: 2px solid #ccc;
+		border-radius: 4px;
+		background-color: #f0f0f0;
+		color: #333;
+	}
+
+	input[type="search"]::placeholder {
+		color: #888;
+	}
+
+	input[type="search"]:focus {
+		border-color: #66afe9;
+		outline: none;
+		box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+	}
+
+	input[type="search"]::-webkit-search-cancel-button {
+		-webkit-appearance: none;
+	}
+
+	.search-clear-button {
+		position: absolute;
+		right: 10px;
+		top: 42%;
+		transform: translateY(-50%);
+		border: none;
+		color: black; /* 버튼 텍스트 색상 */
+		border-radius: 50%;
+		cursor: pointer;
+		padding: 0px;
+		width: 25px;
+		height: 20px;
+		font-size: 20px;
+		text-align: center;
+		line-height: 1;
+		display: none; /* 초기에는 숨기기 */
+	}
+</style>
 <section id="header" class="br__search__detail">
 
-    <article class="br__search__title">
+    <div class="br__search__title search-container">
         <button class="search-back" onclick="history.back();"></button>
         <label for="devHeaderSearchText" class="hide">검색어 입력 영역</label>
-		<input class="search-input after devAutoComplete" type="text" id="devHeaderSearchText" value="{searchText}" onblur="removeHeaderTag(this.value);" onkeypress="removeKeyPress(this.value);" onkeydown="removeKeydown(this.value);" data-id="devHeaderSearchText">
-		<button class="search-btn" id="devHeaderSearchButton" style="left:5.8rem">
+		<input class="search-input after devAutoComplete" type="search" id="devHeaderSearchText" value="{searchText}" onblur="removeHeaderTag(this.value);" onkeypress="removeKeyPress(this.value);" onkeydown="removeKeydown(this.value);" data-id="devHeaderSearchText">
+		<button class="search-clear-button" id="clear-search" style="right:43px">x</button>
+		<!-- <button class="search-btn" id="devHeaderSearchButton" style="left:5.8rem">
 			<i class="ico ico-search"></i>
 		</button>
-        <button class="search-close after" onclick="searchTxtRemove();" style="display:none;"></button>
-    </article>
+        <button class="search-close after" onclick="searchTxtRemove();" style="display:none;"></button> -->
+    </div>
 
     <article class="br__search__layer" style="display:none;">
         <div class="auto-complete">

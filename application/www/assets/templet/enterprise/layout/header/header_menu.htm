@@ -86,6 +86,53 @@
 
 //]]>
 </script>
+    <style>
+        .search-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        input[type="search"] {
+            width: 200px;
+            padding: 8px 30px 8px 12px; /* 오른쪽에 버튼 공간을 확보 */
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        input[type="search"]::placeholder {
+            color: #888;
+        }
+
+        input[type="search"]:focus {
+            border-color: #66afe9;
+            outline: none;
+            box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+        }
+
+        input[type="search"]::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+        }
+
+        .search-clear-button {
+            position: absolute;
+            right: 13px;
+            top: 42%;
+            transform: translateY(-50%);
+            border: none;
+            color: black; /* 버튼 텍스트 색상 */
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0px;
+            width: 25px;
+            height: 20px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 1;
+            display: none; /* 초기에는 숨기기 */
+        }
+    </style>
 	<!-- 검색 창 레이어 S-->
 	<div class="wrap_sch">
 		<div id="sch_mask"></div>
@@ -93,11 +140,12 @@
 			<div class="sch_box">
 				<div class="ipt_sch">
 					<fieldset class="search-area">
-						<div class="search-area__inner">
+						<div class="search-area__inner search-container">
 							<label for="devHeaderSearchText" class="hide">검색텍스트</label>
-							<input type="text" class="header-input-search search-area__text devAutoComplete" id="devHeaderSearchText" devTagUrl="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_url}{/}" placeholder="검색어를 입력해주세요." value="{=searchText}" onblur="removeHeaderTag(this.value);" onkeypress="removeKeyPress(this.value);" onkeydown="removeKeydown(this.value);">
-							<i class="search_close_btn" id="devSearchCloseBtn" style="display:none;"></i>
-							<button class="search-area__del">삭제버튼</button>
+							<input type="search" class="header-input-search search-area__text devAutoComplete" id="devHeaderSearchText" devTagUrl="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_url}{/}" placeholder="검색어를 입력해주세요." value="{=searchText}" onblur="removeHeaderTag(this.value);" onkeypress="removeKeyPress(this.value);" onkeydown="removeKeydown(this.value);" style="padding:15px 30px 15px 70px;">
+							<button class="search-clear-button" id="clear-search">x</button>
+							<!-- <i class="search_close_btn" id="devSearchCloseBtn" style="display:none;"></i>
+							<button class="search-area__del">삭제버튼</button> -->
 							<input type="submit" id="devHeaderSearchButton" class="btn_sch_submit">
 							<!-- 텍스트 입력시 자동 완성 텍스트 레이어 S 
 							<div class="search-area__layer">
@@ -126,6 +174,24 @@
 						<a href="javascript:void(0);" class="btn_sch_close">닫기</a>
 					</div>
 				</div>
+				<script>
+					const searchInput = document.getElementById('devHeaderSearchText');
+					const clearButton = document.getElementById('clear-search');
+
+					searchInput.addEventListener('input', () => {
+						if (searchInput.value.length > 0) {
+							clearButton.style.display = 'block';
+						} else {
+							clearButton.style.display = 'none';
+						}
+					});
+
+					clearButton.addEventListener('click', () => {
+						searchInput.value = '';
+						clearButton.style.display = 'none';
+						searchInput.focus();
+					});
+				</script>
 				<div class="wrap_sch_scroll">
 					<!--div class="wrap_sch_result">
 						<h2 class="tit">‘<strong>래쉬가드</strong>’의 검색 결과</h2>
