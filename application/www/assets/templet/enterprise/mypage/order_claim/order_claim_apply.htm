@@ -194,13 +194,13 @@
 				<div class="fb-tab__wrap">
 					<div class="fb-tab__nav">
 						<ul>
-							<li class="active"><a href="#;" onclick="returnAddrType(1);">{=trans('직접 발송')}</a></li>
-							<li><a href="#;" onclick="returnAddrType(2);">{=trans('지정택배 방문')}</a></li>
+							<li><a href="#;" onclick="returnAddrType(1);">{=trans('직접 발송')}</a></li>
+							<li class="active"><a href="#;" onclick="returnAddrType(2);">{=trans('지정택배 방문')}</a></li>
 						</ul>
-						<input type="hidden" name="send_type" id="send_type" value="1">
+						<input type="hidden" name="send_type" id="send_type" value="2">
 					</div>
 					<div class="fb-tab__contents-wrap" id="devDirectDelivery">
-						<div class="fb-tab__contents active">
+						<div class="fb-tab__contents">
 							<ul class="address-list">
 								<li class="address-list__item">
 									<div class="list-info">
@@ -216,7 +216,7 @@
 								</li>
 							</ul>
 						</div>
-						<div class="fb-tab__contents" id="devClaimAdressForm1">
+						<div class="fb-tab__contents active" id="devClaimAdressForm1">
 							<ul class="delivery-info__box">
 								<li class="delivery-info__item delivery-info__list-name">
 									<div class="delivery-info__list">
