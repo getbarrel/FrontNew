@@ -67,13 +67,22 @@
         <!-- 상품슬라이드 E -->
 
         <!-- 타임세일 S -->
-        <!-- 숨김 처리 -->
+        <!-- 숨김 처리
         <section class="br__goods-view__time-sale" style="display: none">
             <div class="time-sale">
                 <p class="time-sale__title"><span>타임세일 상품</span></p>
                 <p class="time-sale__countdown time-sale__countdown--show"><span>01:00</span> 후 종료!</p>
             </div>
         </section>
+        숨김 처리 -->
+        {? discountView}
+        <section class="br__goods-view__time-sale">
+            <div class="time-sale">
+                <p class="time-sale__title"><span>{=trans('타임세일 상품')}</span></p>
+                <p class="time-sale__countdown">{=trans('<span>{saleTime}</span> 후 종료!')}</p>
+            </div>
+        </section>
+        {/}
         <!-- 타임세일 E -->
 
         <!-- 상품기본정보 S -->
