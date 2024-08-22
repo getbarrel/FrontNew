@@ -39,6 +39,7 @@ var devEventObj = {
 					}
 			
                     self.ajaxEventList.setContent(data.data.list, data.data.paging);
+                    $('.devEventLoading').hide();
                 });
 
     },
