@@ -16,38 +16,38 @@
 			<div class="success__box-item">
 				<div class="title-sm">{? langTYpe == 'korean'}{=trans('가입 되어 있는 ID')}{:}{=trans('Your ID is ')}{/}</div>
 				<div class="success__box-text">
-					<p class="id">{.id}</p>
+					<p class="id">{.id}({.memState}계정)</p>
 				</div>
 			</div>
-			<div class="success__box-item">
+			<!--<div class="success__box-item">
 				<div class="title-sm">{? langTYpe == 'korean'}{=trans('회원 가입일')}{:}{=trans('Your Regist Date is ')}{/}</div>
 				<div class="success__box-text">
 					<p class="day">{.userData}</p>
 				</div>
-			</div>
+			</div>-->
             {/}
 			{:}
 			<div class="success__box-item">
 				<div class="title-sm">{? langTYpe == 'korean'}{=trans('가입 되어 있는 ID')}{:}{=trans('Your ID is ')}{/}</div>
 				<div class="success__box-text">
 					{@ userData}
-					<p class="id">{.id}</p>
+					<p class="id">{.id}({.memState}계정)</p>
 					{/}
 				</div>
 			</div>
-			<div class="success__box-item">
+			<!--<div class="success__box-item">
 				<div class="title-sm">{? langTYpe == 'korean'}{=trans('회원 가입일')}{:}{=trans('Your Regist Date is ')}{/}</div>
 				<div class="success__box-text">
 					{@ userData}
-					<p class="day">2023.01.01</p>
+					<p class="day">{.userData}</p>
 					{/}
 				</div>
-			</div>
+			</div>-->
 			{/}
 		</div>
 		<div class="find-user__btn">
-			<a href="#;" class="btn-lg btn-dark-line find-user__btn__submit">로그인</a>
-			<a href="#;" class="btn-lg btn-dark-line">비밀번호 찾기</a>
+			<a href="/member/login?url=" class="btn-lg btn-dark-line find-user__btn__submit">로그인</a>
+			<a href="/member/searchPw" class="btn-lg btn-dark-line">비밀번호 찾기</a>
 		</div>
 	</div>
 	<!-- 아이디 찾기 성공한 경우 E -->

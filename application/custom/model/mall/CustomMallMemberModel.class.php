@@ -75,9 +75,26 @@ class CustomMallMemberModel extends ForbizMallMemberModel
                 return $result;
             }
         } else {
-            // 등록안됨
-            $result['code']= "notExistPcs";
-            return $result;
+            if ($this->pcsExistsSleep($id, $name, $pcs)) {
+                // 간편로그인 ID 회원 예외처리 (fa@, nh@, ka@)
+                $check_member = $this->ckeckSNSId($id, $name, $pcs);
+                if (isset($check_member['sns_type'])) {
+                    $result['code']= "snsMember";
+                    $result['login_type'] = $check_member['sns_type'];
+                    return $result;
+                } else {
+                    // 등록됨
+                    $randnum = rand(11111, 99999);
+                    sms_msg_send($pcs, sprintf('[%s] 인증번호[%05d]를  입력해 주세요.', ForbizConfig::getCompanyInfo('shop_name'), $randnum));
+                    $result['code']= "success";
+                    $result['certifyNum'] = $randnum;
+                    return $result;
+                }
+            } else {
+                // 등록안됨
+                $result['code']= "notExistPcs";
+                return $result;
+            }
         }
     }
 
@@ -91,6 +108,24 @@ class CustomMallMemberModel extends ForbizMallMemberModel
         $cnt = $this->qb
             ->from(TBL_COMMON_USER." as cu")
             ->join(TBL_COMMON_MEMBER_DETAIL." as cmd", 'cu.code = cmd.code', 'left')
+            ->where('cu.id', $id)
+            ->encryptWhere('cmd.pcs', $pcs)
+            ->encryptWhere('cmd.name', $name)
+            ->whereNotIn('cu.mem_type', 'A')
+            ->getCount();
+        return $cnt > 0;
+    }
+
+    /**
+     * 등록된 핸드폰 번호인지 확인한다.(휴면회원)
+     * @param string $pcs
+     * @return boolean
+     */
+    public function pcsExistsSleep($id, $name, $pcs)
+    {
+        $cnt = $this->qb
+            ->from(TBL_COMMON_USER_SLEEP." as cu")
+            ->join(TBL_COMMON_MEMBER_DETAIL_SLEEP." as cmd", 'cu.code = cmd.code', 'left')
             ->where('cu.id', $id)
             ->encryptWhere('cmd.pcs', $pcs)
             ->encryptWhere('cmd.name', $name)
@@ -753,24 +788,44 @@ class CustomMallMemberModel extends ForbizMallMemberModel
             ->select('cu.code')
             ->select('cu.id')
             ->decryptSelect('md.name')
+            ->select("'일반' as memState")
             ->from(TBL_COMMON_MEMBER_DETAIL.' AS md')
             ->join(TBL_COMMON_USER.' AS cu', 'md.code = cu.code')
-            ->encryptWhere('md.mail', $userEmail)
-            ->where("cu.language", BASIC_LANGUAGE);
-
+            ->encryptWhere('md.mail', $userEmail);
+            //->where("cu.language", BASIC_LANGUAGE);
         if (BASIC_LANGUAGE == 'korean') {
             $this->qb->encryptWhere('md.name', $userName);
         }
-
         if ($userId != '') {
             $this->qb->where('cu.id', $userId);
         }
-
         // 어드민 계정 제외
         $this->qb->where('cu.mem_type != ', 'A');
-
-        $rows = $this->qb->exec()
+        $userRows = $this->qb->exec()
             ->getResultArray();
+
+        $this->qb
+            ->select('cu.code')
+            ->select('cu.id')
+            ->decryptSelect('md.name')
+            ->select("'휴면' as memState")
+            ->from(TBL_COMMON_MEMBER_DETAIL_SLEEP.' AS md')
+            ->join(TBL_COMMON_USER_SLEEP.' AS cu', 'md.code = cu.code')
+            ->encryptWhere('md.mail', $userEmail);
+            //->where("cu.language", BASIC_LANGUAGE);
+        if (BASIC_LANGUAGE == 'korean') {
+            $this->qb->encryptWhere('md.name', $userName);
+        }
+        if ($userId != '') {
+            $this->qb->where('cu.id', $userId);
+        }
+        // 어드민 계정 제외
+        $this->qb->where('cu.mem_type != ', 'A');
+        $sleepRows = $this->qb->exec()
+            ->getResultArray();
+
+        $rows = array_merge($userRows, $sleepRows);
+
         $result['login_type'] = "";
         if (count($rows) > 0) {
             $snsList = $this->qb
@@ -812,10 +867,11 @@ class CustomMallMemberModel extends ForbizMallMemberModel
     public function getUserIdByPhone($userName, $userPhone)
     {
 
-        $rows = $this->qb
+        $userRows = $this->qb
             ->select('cu.code')
             ->select('cu.id')
             ->decryptSelect('md.name')
+            ->select("'일반' as memState")
             ->from(TBL_COMMON_MEMBER_DETAIL.' AS md')
             ->join(TBL_COMMON_USER.' AS cu', 'md.code = cu.code')
             ->encryptWhere('md.pcs', $userPhone)
@@ -823,6 +879,21 @@ class CustomMallMemberModel extends ForbizMallMemberModel
             ->where('cu.mem_type != ', 'A')
             ->exec()
             ->getResultArray();
+
+        $sleepRows = $this->qb
+            ->select('cu.code')
+            ->select('cu.id')
+            ->decryptSelect('md.name')
+            ->select("'휴면' as memState")
+            ->from(TBL_COMMON_MEMBER_DETAIL_SLEEP.' AS md')
+            ->join(TBL_COMMON_USER_SLEEP.' AS cu', 'md.code = cu.code')
+            ->encryptWhere('md.pcs', $userPhone)
+            ->encryptWhere('md.name', $userName)
+            ->where('cu.mem_type != ', 'A')
+            ->exec()
+            ->getResultArray();
+
+        $rows = array_merge($userRows, $sleepRows);
 
         if (count($rows) > 0) {
             $snsList = $this->qb
@@ -867,8 +938,8 @@ class CustomMallMemberModel extends ForbizMallMemberModel
             ->decryptSelect('md.name')
             ->from(TBL_COMMON_MEMBER_DETAIL.' AS md')
             ->join(TBL_COMMON_USER.' AS cu', 'md.code = cu.code')
-            ->where("cu.id", $userId)
-            ->where("cu.language", BASIC_LANGUAGE);
+            ->where("cu.id", $userId);
+            //->where("cu.language", BASIC_LANGUAGE);
 
         if (BASIC_LANGUAGE == 'korean') {
             $this->qb->encryptWhere('md.name', $userName);
@@ -890,7 +961,37 @@ class CustomMallMemberModel extends ForbizMallMemberModel
             $result['code'] = 'success';
             $result['data'] = $rows['0']['code'];
         } else {
-            $result['code'] = 'fail';
+            $this->qb->startCache();
+            $this->qb
+                ->select('cu.code')
+                ->decryptSelect('md.name')
+                ->from(TBL_COMMON_MEMBER_DETAIL_SLEEP.' AS md')
+                ->join(TBL_COMMON_USER_SLEEP.' AS cu', 'md.code = cu.code')
+                ->where("cu.id", $userId);
+                //->where("cu.language", BASIC_LANGUAGE);
+
+            if (BASIC_LANGUAGE == 'korean') {
+                $this->qb->encryptWhere('md.name', $userName);
+            }
+
+
+            if ($searchType == 'phone') {
+                $this->qb->encryptWhere("md.pcs", $userPcs);
+            } else {
+                $this->qb->encryptWhere("md.mail", $userEmail);
+            }
+
+            $this->qb->stopCache();
+            $rows = $this->qb->exec()->getResultArray();
+            $this->qb->flushCache();
+
+            if (count($rows) > 0) {
+                $this->setAuthSessionData($rows);
+                $result['code'] = 'success';
+                $result['data'] = $rows['0']['code'];
+            } else {
+                $result['code'] = 'fail';
+            }
         }
 
         return $result;
@@ -976,9 +1077,16 @@ class CustomMallMemberModel extends ForbizMallMemberModel
                 return 'equalCurrentPw';
             }
 
+            //현재 사용중인 비밀번호와 비교(휴면)
+            if ($this->compareCurrentPasswordSleep($userCode, $encryptPw)) {
+                return 'equalCurrentPw';
+            }
+
 
             // 비밀번호 변경
             $this->updatePassword($userCode, $encryptPw);
+            // 비밀번호 변경(휴면)
+            $this->updatePasswordSleep($userCode, $encryptPw);
             //정기 비밀번호 변경
             $this->setChangePasswordSession(false);
         }
@@ -997,6 +1105,20 @@ class CustomMallMemberModel extends ForbizMallMemberModel
                 ->from(TBL_COMMON_USER)
                 ->where('code', $userCode)
                 ->exec()->getRowArray();
+
+        if ($res['pw'] == $encryptPw) return true;
+        else return false;
+    }
+
+    /**
+     * 현재비밀번호와 새로운 비밀번호와 비교(휴면)
+     */
+    public function compareCurrentPasswordSleep($userCode, $encryptPw)
+    {
+        $res = $this->qb->select('pw')
+            ->from(TBL_COMMON_USER_SLEEP)
+            ->where('code', $userCode)
+            ->exec()->getRowArray();
 
         if ($res['pw'] == $encryptPw) return true;
         else return false;

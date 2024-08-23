@@ -133,7 +133,7 @@ var devSearchPwdObj = {
 
         // 인증번호 요청
         $("#devCertRequestBtn").click(function(e){
-			console.log($("input[name=searchType]:checked").val());
+			//console.log($("input[name=searchType]:checked").val());
             // self.certiReq(self)
             var _userid =  $("#devUserId").val();
             var _username = $("#devUserName").val();

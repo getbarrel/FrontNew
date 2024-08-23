@@ -895,6 +895,22 @@ class ForbizMallMemberModel extends ForbizModel
     }
 
     /**
+     * 회원 비밀번호 수정(휴면)
+     * @param $userCode
+     * @param $encryptPw
+     */
+    public function updatePasswordSleep($userCode, $encryptPw)
+    {
+        // 비밀번호 변경
+        return $this->qb
+            ->set('pw', $encryptPw)
+            ->set('change_pw_date', date('Y-m-d H:i:s'))
+            ->where('code', $userCode)
+            ->update(TBL_COMMON_USER_SLEEP)
+            ->exec();
+    }
+
+    /**
      * 휴면 계정 활성화
      * @param $userCode
      * @param $message

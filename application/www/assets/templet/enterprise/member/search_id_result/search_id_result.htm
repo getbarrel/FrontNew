@@ -12,13 +12,13 @@
 					<div class="title-sm">{=trans('가입 되어 있는 ID')}</div>
 					{? count(userData) == 1}
 						{@ userData}
-						<div class="search__content__id">{.id}</div>
+						<div class="search__content__id">{.id}({.memState}계정)</div>
 						{/}
 					{:}
 						{@ userData}
 						{? userData.index_ == 0}
 						{/}
-						<div class="search__content__id">{.id}</div>
+						<div class="search__content__id">{.id}({.memState}계정)</div>
 						{/}
 					{/}
 				</div>
