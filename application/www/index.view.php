@@ -92,7 +92,12 @@ $wishModel = $view->import('model.mall.wish');
 $view->assign('slideBannerPopUp', $slideBannerPopUp);*/
 
 #메인 상단 프로모션 배너 노출
-$mainBannerInfo = $displayModel->getDisplayBannerGroup(67);
+if($_SERVER['SERVER_NAME'] == 'qa.barrelmade.co.kr'){
+    $mainBannerInfo = $displayModel->getDisplayBannerGroup(68);
+}else{
+    $mainBannerInfo = $displayModel->getDisplayBannerGroup(67);
+}
+
 
 #동영상 노출
 $mainMovieBannerInfo = $displayModel->getDisplayBannerGroup(68);

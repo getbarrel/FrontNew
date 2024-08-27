@@ -1473,6 +1473,8 @@ class CustomMallProductModel extends ForbizMallProductModel
 			->select('r.cid')
             ->select('p.marker_left_dn')
             ->select('p.marker_right_dn')
+            ->select('p.movie')
+            ->select('p.movie_now')
             ->from(TBL_SHOP_PRODUCT . ' AS p')
 			->join(TBL_SHOP_PRODUCT_RELATION . ' AS r', 'p.id=r.pid', 'inner')
             ->whereIn('p.id', $ids)
