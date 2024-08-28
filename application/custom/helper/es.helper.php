@@ -575,7 +575,7 @@ function putFullNgramDict($index = ES_INDEX)
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
             ->join(TBL_SHOP_PRODUCT_RELATION . " as r", "r.pid = p.id")
             ->notLike('r.cid','107')
-            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            //->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
             ->where('p.disp', 1) // 노출함 1 노출안함 0
             //->notLike('p.pname', '테스트')
             ->exec()->getResultArray();
@@ -633,7 +633,7 @@ function putFullNgramDictDate($index = ES_INDEX, $mode = "crate")
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
             ->join(TBL_SHOP_PRODUCT_RELATION . " as r", "r.pid = p.id")
             ->notLike('r.cid','107')
-            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            //->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
             ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
 
@@ -688,7 +688,7 @@ function putFullNgramDictUpdate($index = ES_INDEX, $sdate = null, $edate = null)
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
             ->join(TBL_SHOP_PRODUCT_RELATION . " as r", "r.pid = p.id")
             ->notLike('r.cid','107')
-            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            //->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
             ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->betweenDate('p.editdate', $sdate, $edate)
             ->exec()->getResultArray();
@@ -1532,7 +1532,7 @@ function putAutocompletDicMake($index = ES_AUTOCOMPLET_INDEX)
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
             ->join(TBL_SHOP_PRODUCT_RELATION . " as r", "r.pid = p.id")
             ->notLike('r.cid','107')
-            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            //->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
             ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
     $idx = 1;
@@ -1578,7 +1578,7 @@ function putAutocompletDicMakeDate($index = ES_AUTOCOMPLET_INDEX, $mode = "crate
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
             ->join(TBL_SHOP_PRODUCT_RELATION . " as r", "r.pid = p.id")
             ->notLike('r.cid','107')
-            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            //->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
             ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
     $index_info = getEsClient()->cat()->indices(['index' => $index]);
@@ -2016,7 +2016,7 @@ function putGlobalDicMake($index = ES_INDEX_EN)
             ->join(TBL_INVENTORY_GOODS . " as g", "po.option_gid = g.gid")
             ->join(TBL_SHOP_PRODUCT_RELATION . " as r", "r.pid = p.id")
             ->notLike('r.cid','107')
-            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            //->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
             ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
     $idx = 1;
@@ -2218,7 +2218,7 @@ function getProductId($searchText, $searchSize = ES_SEARCH_SIZE, $index = ES_IND
             ->join(TBL_SHOP_PRODUCT_RELATION . " as r", "r.pid = p.id")
             ->notLike('r.cid','107')
             ->where('p.id', $searchText)
-            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            //->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
             ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
     $view->table->set_heading('상품아이디', '상품명', '추가색상', '키워드');
@@ -2245,7 +2245,7 @@ function setProductId($searchText, $index = ES_INDEX)
             ->join(TBL_SHOP_PRODUCT_RELATION . " as r", "r.pid = p.id")
             ->notLike('r.cid','107')
             ->where('p.id', $searchText)
-            ->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
+            //->where('p.state', 1) // 판매중 1 일시품절 0 판매중지 2 판매예정 4 판매종료 5
             ->where('p.disp', 1) // 노출함 1 노출안함 0
             ->exec()->getResultArray();
 
