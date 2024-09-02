@@ -109,18 +109,15 @@
 						<a href="/shop/goodsView/{[id]}" class="goods-list__link">
 							<div class="goods-list__thumb-slide swiper-container">
 								<div class="swiper-wrapper">
-									{[#if movie_now]}
-									<div class="swiper-slide">
-										<iframe src="{[movie]}" width="100%" height="250px" frameborder="0" style="pointer-events:none;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+									<div class="swiper-slide" style="top: 0;left: 0;position: relative;width: 100%;height: 100%;">
+										<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[image_src]}" alt="{[pname]}" style="width: 100%;height: 100%;object-fit: cover;">
+										<iframe src="{[movie]}" frameborder="0" style="pointer-events:none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;border: none;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 									</div>
-									{[else]}
-									<div class="swiper-slide">
-										<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[image_src]}" alt="{[pname]}">
+
+									<div class="swiper-slide" style="top: 0;left: 0;position: relative;width: 100%;height: 100%;">
+										<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[image_src2]}" alt="{[pname]}" style="width: 100%;height: 100%;object-fit: cover;">
 									</div>
-									<div class="swiper-slide">
-										<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[image_src2]}" alt="{[pname]}">
-									</div>
-									{[/if]}
 
 								</div>
 								<div class="swiper-control-group">
@@ -141,15 +138,6 @@
 						<div class="product-box__img2" style="background: url(/data/barrel_data/images/icon/mo_{[marker_right_dn]}.gif) no-repeat center;"></div>
 						<!-- // 이미지 하단 마커 S -->
 						<!-- 체크 박스로 할 경우 S -->
-						{[#if movie_now]}
-						<label class="goods-list__wish" devwishbtn="{[id]}" style="top:32rem;">
-							{[#if alreadyWish]}
-							<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{[id]}" onclick="productWish('{[id]}')" checked>
-							{[else]}
-							<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{[id]}" onclick="productWish('{[id]}')">
-							{[/if]}
-						</label>
-						{[else]}
 						<label class="goods-list__wish" devwishbtn="{[id]}">
 							{[#if alreadyWish]}
 							<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{[id]}" onclick="productWish('{[id]}')" checked>
@@ -157,7 +145,6 @@
 							<input type="checkbox" class="goods-list__wish__btn" id="wishCheckBox_{[id]}" onclick="productWish('{[id]}')">
 							{[/if]}
 						</label>
-						{[/if]}
 						<!-- 체크 박스로 할 경우 E -->
 					</div>
 					<a href="/shop/goodsView/{[id]}" class="goods-list__link">
