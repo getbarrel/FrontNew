@@ -1062,6 +1062,10 @@ class CustomMallProductModel extends ForbizMallProductModel
                 $li['thumb_src'] = get_product_images_src_new($li['id'], $this->isUserAdult, 'patt', $li['is_adult'], $li['pattNum']-1); // thumb이미지
             }
 
+            if(!$li['movie_now']){
+                $li['movie'] = "";
+            }
+
             $li['big_image_src'] = get_product_images_src($li['id'], $this->isUserAdult, 'b', $li['is_adult']); // thumb이미지
             $li['add_image_src'] = $this->getAddImagesSrc($li['id'], $li['is_adult']); //추가이미지
             $li['status'] = $this->setStatus($li['disp'], $li['state'], $li['stock']); //판매 상태
@@ -1527,6 +1531,9 @@ class CustomMallProductModel extends ForbizMallProductModel
                 $li['isDiscount'] = false;
                 $li['isPercent'] = false;
                 $li['number'] = $z;
+                if(!$li['movie_now']){
+                    $li['movie'] = "";
+                }
                 if ($li['listprice'] > $li['dcprice']) {
                     $li['isDiscount'] = true;
                     $product_percent_display = ForbizConfig::getMallConfig('product_percent_display');
