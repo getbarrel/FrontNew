@@ -70,5 +70,6 @@ $view->assign('pageList', $displayList['paging']['page_list']);
 $view->assign('pagelistCnt', count($displayList['paging']['page_list']));
 $view->assign('pageNumTpl', $pageNumTpl);
 $view->assign('paramCid', $paramCid);
+$view->assign('paramCidSplit', substr($paramCid,0,6));
 
 echo $view->loadLayout();

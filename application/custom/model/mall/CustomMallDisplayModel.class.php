@@ -924,7 +924,7 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
             ->select('*')
             ->from('shop_content_class')
             ->where('content_view', '1')
-            ->where('content_use', '1');
+            ->where('content_list_use', '0');
             if($cid == ""){
                 $this->qb->where('depth', '1');
             }else{
@@ -933,7 +933,7 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
                     $this->qb->where('depth', '2');
                 }
             }
-            $this->qb->orderBy('cid', 'ASC');
+            $this->qb->orderBy('vlevel2', 'ASC');
 
         $result = $this->qb->exec()->getResultArray();
 
@@ -1150,6 +1150,81 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
 		
 		$result['total'] = $total;
 		$result['paging'] = $paging;
+
+        return $result;
+    }
+
+    function getDisplayContentTeam($cid, $param="", $idx=""){
+        if (intVal($this->boardConfig['board_max_cnt']) == 0) {
+            $perPage = 9;
+        } else {
+            $perPage = $this->boardConfig['board_max_cnt'];
+        }
+
+        $limit = $perPage;
+
+        $this->qb->select("*")
+            ->from('shop_content')
+            ->like('cid', $cid, 'after');
+        if($idx != ""){
+            $this->qb->where('JSON_UNQUOTE(JSON_EXTRACT(player_subject, \'$."'.$idx.'"\')) =', 'Y');
+        }
+        $this->qb->where('display_use', 'Y')
+            ->where('display_state', 'D')
+            ->where('display_start <=', time())
+            ->where('display_end >=', time());
+        $total2 = $this->qb->getCount();
+
+        $total = $total2;
+
+        if(is_mobile()){
+            $paging = $this->qb->setTotalRows($total)->pagination($param, $perPage,5);
+        }else{
+            $paging = $this->qb->setTotalRows($total)->pagination($param, $perPage);
+        }
+
+        $offset = $paging['offset'];
+
+        $this->qb
+            ->select('con_ix, cid, depth, company_id, title, preface, b_preface, i_preface, u_preface, c_preface, explanation, list_img, recommend_img, b_title, i_title, u_title, c_title, s_title')
+            ->from('shop_content')
+            ->like('cid', $cid, 'after');
+        if($idx != ""){
+            $this->qb->where('JSON_UNQUOTE(JSON_EXTRACT(player_subject, \'$."'.$idx.'"\')) =', 'Y');
+        }
+            //->where('JSON_UNQUOTE(JSON_EXTRACT(player_subject, \'$."2"\')) =', 'Y')
+        $this->qb->where('display_use', 'Y')
+            ->where('display_state', 'D')
+            ->where('display_start <=', time())
+            ->where('display_end >=', time())
+            ->orderBy('sort', 'ASC')
+            ->limit($limit, $offset);
+        $result['list'] = $this->qb->exec()->getResultArray();
+
+        foreach($result['list'] as $key => $val){
+            $contentPath = IMAGE_SERVER_DOMAIN . DATA_ROOT . '/images/content/' . $val['con_ix'] . '/'; //배너이미지 기본 경로
+            $result['list'][$key]['contentImgSrc'] = $contentPath.$val['list_img'];
+            $result['list'][$key]['title'] = nl2br($val['title']);
+            $result['list'][$key]['title_en'] = nl2br($val['title_en']);
+            $result['list'][$key]['preface'] = nl2br($val['preface']);
+            $result['list'][$key]['preface_en'] = nl2br($val['preface_en']);
+            $result['list'][$key]['explanation'] = nl2br($val['explanation']);
+            $result['list'][$key]['explanation_en'] = nl2br($val['explanation_en']);
+            $result['list'][$key]['display_start'] = date("Y.m.d",$val['display_start']);
+            $result['list'][$key]['display_end'] = date("Y.m.d",$val['display_end']);
+        }
+        $total = count($result['list']);
+
+
+        // array 페이징
+        if(intval($param) == '0'){
+            $start ='0';
+        }else{
+            $start = ($param-1) * $perPage;
+        }
+
+        $result['total'] = $total;
+        $result['paging'] = $paging;
 
         return $result;
     }
@@ -1521,6 +1596,18 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
             }
         }
         return $depth;
+    }
+
+    function getDisplayTeamSubject(){
+
+        $result = $this->qb
+            ->select('*')
+            ->from('shop_content_player_subject')
+            ->where('disp', 'Y')
+            ->exec()
+            ->getResultArray();
+
+        return $result;
     }
 
     // //2024년 리뉴얼 신규

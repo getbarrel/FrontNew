@@ -39,8 +39,8 @@
 				</li>
 				{ @ displayContentClassList }
 					{ ? .cid != '001001000000000' }
-						<li class="brandNav__main-menu { ? .cid == '001002000000000' }line{ / } active">
-							<a href="{ ? .cid == '001002000000000' }/content/styleList{: .cid == '001003000000000'}/content/teamList{: .cid == '001004000000000'}/customer/bestReview{/}" class="brandNav__main-link">{ .cname }</a>
+						<li class="brandNav__main-menu { ? .index_ == 0 }line{ / } active">
+							<a href="{ ? .cid == '001002000000000' }/content/styleList{: .cid == '001003000000000'}/content/teamList{: .cid == '001004000000000'}/customer/bestReview{: }/content/specialList/{.cid}{/}" class="brandNav__main-link">{ .cname }</a>
 						</li>
 					{ / }
 				{ / }

@@ -6,15 +6,23 @@
 		<input type="hidden" name="max" value="9" id="devMax"/>
 		<div class="gallery-bbs__header">
 			<h2 class="fb__main__title">
-				{ @ displayContentClassDepthList }
-					{?paramCid == "001001"}
-						{? .index_ == 0}
-						전체
+				{ ? paramCidSplit == "001001"}
+					{ @ displayContentClassDepthList }
+						{?paramCid == "001001"}
+							{? .index_ == 0}
+								전체
+							{/}
 						{/}
-					{/}
-					{?paramCid == .cid}
-						{ .cname }
-					{/}
+						{?paramCid == .cid}
+							{ .cname }
+						{/}
+					{ / }
+				{ : }
+					{ @ displayContentClassList }
+						{?paramCid == .cid}
+							{ .cname }
+						{/}
+					{ / }
 				{ / }
 			</h2>
 		</div>
