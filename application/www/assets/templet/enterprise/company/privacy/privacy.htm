@@ -1,32 +1,113 @@
-<div class="wrap-window-popup company-popup">
-    <p class="popup-title">
-        {? type == 'sprint'}
-        <span>{=trans('개인정보 수집 및 이용')}</span>
-        {:}
-        <span>{piTitle}</span>
-        {/}
-    </p>
+<style>
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-head {
+        padding-bottom: 30px;
+        border-bottom: 2px solid #000;
+        text-align: center;
+    }
 
-    <div class="popup-content">
-        <div class="prev-agreement devContents">
-            {? type == 'sprint'}
-            <div style="line-height:1.4;white-space: pre-line;">
-                {#sprintPrivacy}
-            </div>
-            {:}
-            {@ policy}
-            <div class='devPolicyContentsClass' id='devPolicyContentsId{policy.pi_ix}'>
-                {policy.pi_contents}
-            </div>
-            {/}
-            <br>
-            <select id="devPolicyHistory">
-                <option value="">{=trans('약관 변경 이력 보기')}</option>
-                {@ policy}
-                <option value="{policy.pi_ix}">{=trans('{policy.regdate} 시행')}</option>
-                {/}
-            </select>
-            {/}
-        </div>
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-head .title-lg {
+        line-height: 32px;
+        font-size: 26px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body {
+        padding: 30px 0;
+        line-height: 16px;
+        font-size: 14px;
+        font-weight: normal;
+        color: #585858;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .title-sm {
+        line-height: 19px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body * {
+        word-break: keep-all;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-box {
+        padding-top: 30px;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-box:first-child {
+        padding-top: 0;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body .privacy-box .privacy-table {
+        padding-top: 8px;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body .privacy-box .privacy-table table {
+        border: 1px solid #707070;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body .privacy-box .privacy-table table thead th {
+        padding: 7px;
+        border: 1px solid #707070;
+        border-width: 0 1px 1px 0;
+        background-color: #dcdcdc;
+        line-height: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #585858;
+        word-break: keep-all;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body .privacy-box .privacy-table table tbody td,
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body .privacy-box .privacy-table table tbody th {
+        padding: 7px;
+        border: 1px solid #707070;
+        vertical-align: middle;
+        line-height: 16px;
+        font-size: 14px;
+        font-weight: normal;
+        color: #585858;
+        word-break: keep-all;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body .privacy-box .privacy-table table tbody th {
+        background-color: #dcdcdc;
+        font-weight: 600;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body .privacy-box .privacy-table table .title-sm {
+        text-decoration: underline;
+        line-height: 19px;
+        font-size: 16px;
+        color: #585858;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body .privacy-box .privacy-table + .privacy-text {
+        padding-top: 8px;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body .privacy-box .privacy-select {
+        margin-top: 24px;
+    }
+
+    .prev-agreement .devPolicyContentsClass .fb__content .privacy-wrap .privacy-body .privacy-box .privacy-select select {
+        border-color: #707070;
+        font-size: 12px;
+        color: #585858;
+    }
+</style>
+<div class="prev-agreement devContents">
+    {@ policy}
+    <div class='devPolicyContentsClass' id='devPolicyContentsId{policy.pi_ix}'>
+        {policy.pi_contents}
     </div>
+    {/}
+    <br>
+    <select id="devPolicyHistory">
+        <option value="">{=trans('약관 변경 이력 보기')}</option>
+        {@ policy}
+        <option value="{policy.pi_ix}">{=trans('{policy.regdate} 시행')}</option>
+        {/}
+    </select>
 </div>
