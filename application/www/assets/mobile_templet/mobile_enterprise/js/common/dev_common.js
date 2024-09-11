@@ -1424,33 +1424,46 @@ var common = {
                 return this;
             },
             setContent: function (list, paging) {
-				
                 var self = this;
-                //마지막 페이지 또는 page가 1일때 숨김
+
+                // 마지막 페이지 또는 page가 1일 때 숨김
                 if (this.remove === false && paging && (paging.cur_page == paging.last_page || paging.page_list.length <= 1)) {
                     this.hidePagination();
                 } else {
                     this.sowPagination();
                 }
-                //삭제옵션, 페이지 검색시 1페이지, paging 정보 없을때
+
+                // 삭제 옵션, 페이지 검색 시 1페이지, paging 정보 없을 때
                 if (this.remove === true || !paging || paging.cur_page == 1) {
                     this.removeContent();
                     self.setHistoryState('response', null);
                 }
+
                 if (list.length > 0) {
                     for (var i = 0; i < list.length; i++) {
                         var row = list[i];
-                        $(this.container).append(this.listTpl(row));
+
+                        // 기존의 템플릿 렌더링 방식을 그대로 사용하되,
+                        // 템플릿을 jQuery 객체로 래핑하여 직접 수정
+                        var $content = $(this.listTpl(row)); // 렌더링된 템플릿을 jQuery로 감쌈
+
+                        // 'title'을 삽입하는 위치의 정확한 셀렉터를 사용해야 함
+                        $content.find('.event-bbs__title').html(row.title); // 여기서 .title-selector는 타이틀 요소의 클래스명
+                        $content.find('.event-bbs__title-sub').html(row.explanation); // 여기서 .title-selector는 타이틀 요소의 클래스명
+
+                        // 최종적으로 컨테이너에 HTML을 추가
+                        $(this.container).append($content);
+
                     }
 
                     if (paging) {
                         $(this.pagination).html(this.paginationTpl.getHtml(paging));
                     }
 
-                    //history 정보에 sate 정보 set
+                    // history 정보에 state 정보 set
                     var currentState = self.getHistoryState('response');
                     if (currentState != null && !this.remove) {
-                        //list data의 키 찾기
+                        // list data의 키 찾기
                         var listKeyName = self.getResponseListKeyName(list);
                         self.response.data[listKeyName] = currentState.data[listKeyName].concat(list);
                     }
