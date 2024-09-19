@@ -24,8 +24,10 @@
     <!-- END Criteo Loader File -->
 
     <!--[S] FAVICON-->
-    <link rel="shortcut icon" href="/favicon/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon_16.png">
+    <!--<link rel="shortcut icon" href="/favicon/favicon.ico">-->
+    <link rel="shortcut icon" href="https://www.getbarrel.com{layoutCommon.templetSrc}/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://www.getbarrel.com{layoutCommon.templetSrc}/images/favicon.ico" type="image/x-icon">
+    <!--<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon_16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon_32.png">
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon/favicon_48.png">
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon/favicon_64.png">
@@ -33,14 +35,13 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon_192.png">
     <link rel="icon" type="image/png" sizes="256x256" href="/favicon/favicon_256.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/favicon/favicon_152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon_180.png">-->
     <!--[E] FAVICON-->
 
     <!-- css -->
     <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.GroupCssSrc ) }-->
     <link rel="stylesheet" type="text/css" href="{layout.GroupCssSrc}?version={c.CLIENT_VERSION}">
     <!--{/}-->
-    <link rel="shortcut icon" href="{layoutCommon.templetSrc}/images/favicon.ico" type="image/x-icon">
     <!-- js library -->
     <script>var forbizCsrf = { name:"{layout.ForbizCsrfName}", hash:"{layout.ForbizCsrfHash}", isLogin:{=json_encode(layoutCommon.isLogin)}}, barrelFat = {}; barrelFat.useFat = {? empty(useFat)}0{:}{=useFat}{/};</script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
