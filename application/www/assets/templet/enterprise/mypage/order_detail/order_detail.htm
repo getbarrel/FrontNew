@@ -552,7 +552,7 @@
 				<dd class="delivery-info__cont">
                     {@ deliveryInfo.msg}
                     <div {? .index_ > 0 && deliveryInfo.pcnt > 5}class="section devDeliveryMsgBox" style="display:none"{:}class="section"{/}>
-                        {? deliveryInfo.pcnt > 1}<p class="product">{? .brand_name}[{.brand_name}]{/}{.pname}</p>{/}
+                        {? deliveryInfo.pcnt > 1}<!--<p class="product">{? .brand_name}[{.brand_name}]{/}{.pname}</p>-->{/}
                         <p id="devDeliveryMsgText{.msg_ix}">{.msg}</p>
 						{? order.status == c.ORDER_STATUS_INCOM_READY || order.status == c.ORDER_STATUS_INCOM_COMPLETE}
                         {? langType == 'korean'}
