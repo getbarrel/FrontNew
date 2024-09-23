@@ -123,11 +123,10 @@ body.scrollUp .br__header {
 }
 
 body.scrollUp .br__floating-btn {
-  bottom: 6.8rem;
+  bottom: 1.8rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-
 body.scrollUp .br__floating-shop {
   bottom: 12rem;
   -webkit-transition: all 0.3s ease-in-out;
@@ -141,7 +140,7 @@ body.scrollUp .br__floating-goods {
 }
 
 body.scrollUp .br__floating-view {
-  bottom: 6rem;
+  bottom: 7rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -201,7 +200,7 @@ body.scrollUp .br__infoinput__submit {
 }
 
 body.scrollUp .br__goods-view__btn {
-  bottom: -8rem;
+  bottom: 5rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -225,7 +224,7 @@ body.scrollUp .br__order-claim .br__order-footer {
 }
 
 body.scrollUp.scrollGoods .br__floating-view {
-  bottom: 12rem;
+  bottom: 7rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -261,7 +260,7 @@ body.scrollDown .br__header {
 }
 
 body.scrollDown .br__floating-btn {
-  bottom: 6.8rem;
+  bottom: 1.8rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -277,7 +276,7 @@ body.scrollDown .br__floating-goods {
 }
 
 body.scrollDown .br__floating-view {
-  bottom: 1.8rem;
+  bottom: 7rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -290,6 +289,12 @@ body.scrollDown .br__floating-my {
 
 body.scrollDown .br__dockbar {
   bottom: -8rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+body.scrollDown .br__goods-view__btn {
+  bottom: 0rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -469,7 +474,7 @@ body.scrollEnd .br__order-claim .br__order-footer {
 }
 
 body.scrollGoods .br__floating-view {
-  bottom: 13rem;
+  bottom: 7rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -10858,7 +10863,7 @@ select:disabled {
   display: block;
   position: fixed;
   top: auto;
-  bottom: 6.8rem;
+  bottom: 1.8rem;
   left: auto;
   right: 1.8rem;
   z-index: 59;
@@ -10960,7 +10965,7 @@ select:disabled {
 
 .NEWbarrelM .br__floating-view {
   position: fixed;
-  bottom: 6.8rem;
+  bottom: 7rem;
 }
 
 .NEWbarrelM .br__floating-cs {
@@ -14918,7 +14923,7 @@ select:disabled {
 
 .NEWbarrelM .br__goods-view__btn {
   position: fixed;
-  bottom: -8rem;
+  bottom: 5rem;
   left: 0;
   z-index: 60;
   display: -webkit-box;

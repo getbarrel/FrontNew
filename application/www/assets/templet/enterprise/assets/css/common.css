@@ -11300,6 +11300,8 @@ table .empty-content {
   z-index: 50;
 }
 
+.banner__slider-nav {position:absolute; bottom:40px; left:100px;}
+
 .NEWbarrel .fb__subGoods-list + #devPageWrap {
   margin-left: 135px;
 }
