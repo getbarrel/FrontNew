@@ -927,13 +927,14 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
             ->where('content_list_use', '0');
             if($cid == ""){
                 $this->qb->where('depth', '1');
+                $this->qb->orderBy('vlevel2', 'ASC');
             }else{
                 $this->qb->like('cid', $cid, 'after');
                 if($gubun != "S"){
                     $this->qb->where('depth', '2');
                 }
+                $this->qb->orderBy('vlevel3', 'ASC');
             }
-            $this->qb->orderBy('vlevel2', 'ASC');
 
         $result = $this->qb->exec()->getResultArray();
 
