@@ -27,6 +27,32 @@
         }
     }
 </script>
+
+<script>
+    var emnet_tagm_products=[];
+</script>
+
+<script>
+    emnet_tagm_products.push({
+        'name': '{=pname}',
+        'id': '{=pid}',
+        'price': '{=dcprice}',
+        'quantity': '1'
+    });
+</script>
+
+<!-- 상품상세 dataLayer -->
+<script>
+    dataLayer.push({
+        'event': 'viewContent',
+        'ecommerce': {
+            'detail': {
+                'products': emnet_tagm_products
+            }
+        }
+    });
+</script>
+
 {sdkScript}
     <section class="br__goods-view">
         <h2 class="br__hidden">상품상세</h2>
