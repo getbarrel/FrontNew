@@ -1448,10 +1448,14 @@ var common = {
                         var $content = $(this.listTpl(row)); // 렌더링된 템플릿을 jQuery로 감쌈
 
                         // 'title'을 삽입하는 위치의 정확한 셀렉터를 사용해야 함
+                        //$content.find('.event-bbs__title').html(row.title); // 여기서 .title-selector는 타이틀 요소의 클래스명
+                        //$content.find('.event-bbs__title-sub').html(row.explanation); // 여기서 .title-selector는 타이틀 요소의 클래스명
                         //$content.find('.event-bbs__title').html(row.title.replace(/\n/g, '<br>')); // 여기서 .title-selector는 타이틀 요소의 클래스명
                         //$content.find('.event-bbs__title-sub').html(row.explanation.replace(/\n/g, '<br>')); // 여기서 .title-selector는 타이틀 요소의 클래스명
-                        $content.find('.event-bbs__title').html(row.title); // 여기서 .title-selector는 타이틀 요소의 클래스명
-                        $content.find('.event-bbs__title-sub').html(row.explanation); // 여기서 .title-selector는 타이틀 요소의 클래스명
+                        var title = row.title ? row.title.replace(/\n/g, '<br>') : row.title;
+                        $content.find('.event-bbs__title').html(title);
+                        var explanation = row.explanation ? row.explanation.replace(/\n/g, '<br>') : row.explanation;
+                        $content.find('.event-bbs__title-sub').html(explanation);
 
                         // 최종적으로 컨테이너에 HTML을 추가
                         $(this.container).append($content);
