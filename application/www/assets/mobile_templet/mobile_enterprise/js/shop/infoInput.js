@@ -919,7 +919,7 @@ var devInfoinputObj = {
                 }), (function (response) {
                     if (response.result == 'success') {
                         //금액 비교
-                        console.log(self.summaryData.payment_price + " // " + response.data.payment.payment_price)
+                        //console.log(self.summaryData.payment_price + " // " + response.data.payment.payment_price)
                         if (self.summaryData.payment_price == response.data.payment.payment_price) {
                             if (response.data.payment.method == "8") {//무료결제
                                 common.noti.alert(common.lang.get('infoinput.paymentRequest.noti.paymentFree'), function () {
@@ -932,7 +932,7 @@ var devInfoinputObj = {
                             }
                         } else {
                             self.paymentBool = false;
-                            common.noti.alert('error_m8');
+                            common.noti.alert('일시적은 네트워크 오류로 결제가 중단되었습니다.\n\n새로고침 후 다시 시도해주시기 바랍니다.');
                         }
                     } else {
                         self.paymentBool = false;
