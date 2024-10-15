@@ -50,13 +50,32 @@
     <div class="br__search__title search-container">
         <button class="search-back" onclick="history.back();"></button>
         <label for="devHeaderSearchText" class="hide">검색어 입력 영역</label>
-		<input class="search-input after devAutoComplete" type="search" id="devHeaderSearchText" value="{searchText}" onblur="removeHeaderTag(this.value);" onkeypress="removeKeyPress(this.value);" onkeydown="removeKeydown(this.value);" data-id="devHeaderSearchText">
-		<button class="search-clear-button" id="clear-search" style="right:43px">x</button>
-		<!-- <button class="search-btn" id="devHeaderSearchButton" style="left:5.8rem">
+		<input class="search-input after devAutoComplete" type="search" id="devHeaderSearchText" value="{searchText}" onblur="removeHeaderTag(this.value);" onkeypress="removeKeyPress(this.value);" onkeydown="removeKeydown(this.value);" data-id="devHeaderSearchText" style="padding:0 1.8rem 0 2.0rem">
+		<button class="search-clear-button" id="clear-search" style="right:70px;padding:10px 0 26px 0;">x</button>
+		<button class="search-btn" id="devHeaderSearchButton" style="left:auto;right:50px;">
 			<i class="ico ico-search"></i>
 		</button>
-        <button class="search-close after" onclick="searchTxtRemove();" style="display:none;"></button> -->
+        <!--<button class="search-close after" onclick="searchTxtRemove();" style="display:none;"></button>-->
     </div>
+
+    <script>
+        const searchInput = document.getElementById('devHeaderSearchText');
+        const clearButton = document.getElementById('clear-search');
+
+        searchInput.addEventListener('input', () => {
+            if (searchInput.value.length > 0) {
+                clearButton.style.display = 'block';
+            } else {
+                clearButton.style.display = 'none';
+            }
+        });
+
+        clearButton.addEventListener('click', () => {
+            searchInput.value = '';
+            clearButton.style.display = 'none';
+            searchInput.focus();
+        });
+    </script>
 
     <article class="br__search__layer" style="display:none;">
         <div class="auto-complete">

@@ -25,7 +25,8 @@ $(document).ready(function () {
     });
     //상단검색시
     $('#devHeaderSearchButtonMenu').on('click', function () {
-        goSearch();
+        var id = "devHeaderSearchTextMenu";
+        goSearch(id);
         return false;
     });
 

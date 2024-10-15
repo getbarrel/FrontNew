@@ -120,9 +120,9 @@
 			<div class="br__search__title">
 				<div class="wrap_search-bar search-container">
 					<label for="devHeaderSearchTextMenu" class="hide">검색어 입력 영역</label>
-					<input class="search-input br__form-input devAutoCompleteMenu" type="search" id="devHeaderSearchTextMenu" placeholder="검색어를 입력해 주세요." onblur="removeHeaderTag(this.value);" onkeyup="igChkMenu()" autocomplete="off" data-id="devHeaderSearchTextMenu">
-					<button class="search-clear-button" id="clear-search">x</button>
-					<button class="search-btn" id="devHeaderSearchButtonMenu">
+					<input class="search-input br__form-input devAutoCompleteMenu" type="search" id="devHeaderSearchTextMenu" placeholder="검색어를 입력해 주세요." onblur="removeHeaderTag(this.value);" onkeyup="igChkMenu()" autocomplete="off" data-id="devHeaderSearchTextMenu" style="padding:0 1.8rem 0 2.0rem">
+					<button class="search-clear-button" id="clear-search-menu" style="right:30px;padding:10px 0 26px 0;">x</button>
+					<button class="search-btn" id="devHeaderSearchButtonMenu" style="left:auto;right:10px;">
 						<i class="ico ico-search"></i>
 					</button>
 				</div>
@@ -139,21 +139,21 @@
 			</div>
 		</div>
 		<script>
-			const searchInput = document.getElementById('devHeaderSearchText');
-			const clearButton = document.getElementById('clear-search');
+			const searchInputMenu = document.getElementById('devHeaderSearchTextMenu');
+			const clearButtonMenu = document.getElementById('clear-search-menu');
 
-			searchInput.addEventListener('input', () => {
-				if (searchInput.value.length > 0) {
-					clearButton.style.display = 'block';
+			searchInputMenu.addEventListener('input', () => {
+				if (searchInputMenu.value.length > 0) {
+					clearButtonMenu.style.display = 'block';
 				} else {
-					clearButton.style.display = 'none';
+					clearButtonMenu.style.display = 'none';
 				}
 			});
 
-			clearButton.addEventListener('click', () => {
-				searchInput.value = '';
-				clearButton.style.display = 'none';
-				searchInput.focus();
+			clearButtonMenu.addEventListener('click', () => {
+				searchInputMenu.value = '';
+				clearButtonMenu.style.display = 'none';
+				searchInputMenu.focus();
 			});
 		</script>
 	</section>

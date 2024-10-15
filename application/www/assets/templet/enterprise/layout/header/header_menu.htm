@@ -142,11 +142,11 @@
 					<fieldset class="search-area">
 						<div class="search-area__inner search-container">
 							<label for="devHeaderSearchText" class="hide">검색텍스트</label>
-							<input type="search" class="header-input-search search-area__text devAutoComplete" id="devHeaderSearchText" devTagUrl="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_url}{/}" placeholder="검색어를 입력해주세요." value="{=searchText}" onblur="removeHeaderTag(this.value);" onkeypress="removeKeyPress(this.value);" onkeydown="removeKeydown(this.value);" style="padding:15px 30px 15px 70px;">
-							<button class="search-clear-button" id="clear-search">x</button>
+							<input type="search" class="header-input-search search-area__text devAutoComplete" id="devHeaderSearchText" devTagUrl="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_url}{/}" placeholder="검색어를 입력해주세요." value="{=searchText}" onblur="removeHeaderTag(this.value);" onkeypress="removeKeyPress(this.value);" onkeydown="removeKeydown(this.value);" style="padding:15px 30px 15px 35px;">
+							<button class="search-clear-button" id="clear-search" style="right:45px;">x</button>
 							<!-- <i class="search_close_btn" id="devSearchCloseBtn" style="display:none;"></i>
 							<button class="search-area__del">삭제버튼</button> -->
-							<input type="submit" id="devHeaderSearchButton" class="btn_sch_submit">
+							<input type="submit" id="devHeaderSearchButton" class="btn_sch_submit" style="left:auto;right:25px;top:45%;">
 							<!-- 텍스트 입력시 자동 완성 텍스트 레이어 S 
 							<div class="search-area__layer">
 								<ul class="search-area__auto-text">
