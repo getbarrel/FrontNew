@@ -21,6 +21,7 @@ function trans($text, $language = false)
     } else {
         $languageData = [];
     }
+
     return $languageData[md5($text)] ?? $text;
 }
 
@@ -108,7 +109,13 @@ function get_product_images_src($id, $isUserAdult, $sizeType = 'm', $isAdult = f
 }
 
 function get_product_images_detail_src($id){
-    $basicPath = DATA_ROOT . "/images/productNew/";
+
+    $addQaDir = "";
+    if($_SERVER['HTTP_HOST'] == "qa.barrelmade.co.kr"){
+        $addQaDir = "QA/";
+    }
+
+    $basicPath = DATA_ROOT . "/images/productNew/".$addQaDir;
 
     $domain = (!empty(IMAGE_SERVER_DOMAIN) ? IMAGE_SERVER_DOMAIN : HTTP_PROTOCOL . FORBIZ_HOST );
 
@@ -116,6 +123,7 @@ function get_product_images_detail_src($id){
     $imgDir = implode("/", str_split($id, 2));
 
     $imgpath = $basicPath.$imgDir;
+
     $porductImg = "";
 
     if (file_exists($imgpath)) {
@@ -144,7 +152,12 @@ function get_product_images_detail_src($id){
 
 function get_product_images_new_src($id)
 {
-    $basicPath = DATA_ROOT . "/images/productNew/";
+    $addQaDir = "";
+    if($_SERVER['HTTP_HOST'] == "qa.barrelmade.co.kr"){
+        $addQaDir = "QA/";
+    }
+
+    $basicPath = DATA_ROOT . "/images/productNew/".$addQaDir;
 
     $domain = (!empty(IMAGE_SERVER_DOMAIN) ? IMAGE_SERVER_DOMAIN : HTTP_PROTOCOL . FORBIZ_HOST );
 
@@ -155,7 +168,26 @@ function get_product_images_new_src($id)
     $porductImg = "";
 
     if (file_exists($imgpath)) {
-        $imageSrc = $basicPath . '/' . $imgDir . "/" . "basic_" . $id . "_0.gif";
+        if (is_dir($imgpath)){
+            $handle  = opendir($imgpath); // 디렉토리 open
+
+            // 디렉토리의 파일을 전체 삭제.
+            while (false !== ($filename = readdir($handle))) {
+                // 파일인 경우만 목록에 추가한다.
+                if(is_file($imgpath . "/" . $filename)){
+                    $imgName = explode("_", $filename);
+                    $imgDate = $imgName['2'];
+                    break;
+                }
+            }
+
+            closedir($handle); // 디렉토리 close
+        }
+        if(strlen($imgDate) == 14){
+            $imageSrc = $imgpath . "/" . "basic_" . $id . "_" . $imgDate . "_0.gif";
+        }else{
+            $imageSrc = $imgpath . "/" . "basic_" . $id . "_0.gif";
+        }
     }else{
         $imageSrc = $basicPath . "/shop/noimg.gif";
     }
@@ -163,7 +195,13 @@ function get_product_images_new_src($id)
 }
 
 function get_product_images_src_new($id, $isUserAdult, $sizeType = 'm', $isAdult = false, $imgNum){
-    $basicPath = DATA_ROOT . "/images/addimgNew";
+
+    $addQaDir = "";
+    if($_SERVER['HTTP_HOST'] == "qa.barrelmade.co.kr"){
+        $addQaDir = "/QA";
+    }
+
+    $basicPath = DATA_ROOT . "/images/addimgNew".$addQaDir;
 
     $domain = (!empty(IMAGE_SERVER_DOMAIN) ? IMAGE_SERVER_DOMAIN : HTTP_PROTOCOL . FORBIZ_HOST );
 
@@ -175,7 +213,30 @@ function get_product_images_src_new($id, $isUserAdult, $sizeType = 'm', $isAdult
         $id = zerofill($id);
         $imgDir = implode("/", str_split($id, 2));
 
-        $imageSrc = $basicPath . '/' . $imgDir . "/" . $sizeType . "_" . $id . "_" . $imgNum . ".gif";
+        $addImgPath = $basicPath.'/'.$imgDir;
+
+        if (is_dir($addImgPath)){
+            $handle  = opendir($addImgPath); // 디렉토리 open
+
+            // 디렉토리의 파일을 전체 삭제.
+            while (false !== ($filename = readdir($handle))) {
+                // 파일인 경우만 목록에 추가한다.
+                if(is_file($addImgPath . "/" . $filename)){
+                    $imgName = explode("_", $filename);
+                    $imgDate = $imgName['2'];
+                    break;
+                }
+            }
+
+            closedir($handle); // 디렉토리 close
+        }
+
+        if(strlen($imgDate) == 14){
+            $imageSrc = $basicPath . '/' . $imgDir . "/" . $sizeType . "_" . $id . "_" . $imgDate . "_" . $imgNum . ".gif";
+        }else{
+            $imageSrc = $basicPath . '/' . $imgDir . "/" . $sizeType . "_" . $id . "_" . $imgNum . ".gif";
+        }
+
         //이미지 없을떄 (nas 이용시 다중 접속에 의한 속도 지연 문제로 배럴데이 이벤트 처리 2020-03-03 JK
         if (defined('IS_BARREL_DAY') && IS_BARREL_DAY === false) {
             if (!file_exists($_SERVER['DOCUMENT_ROOT'] . $imageSrc)) {
