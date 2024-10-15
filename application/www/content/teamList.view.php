@@ -5,12 +5,14 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 $view = getForbizView();
 $params = $view->getParams();
 
-if(strlen($params[0]) > 1) {
-	$con_ix = $view->getParams(0);
+if(strlen($params[0]) >= 1) {
+	//$con_ix = $view->getParams(0);
+    $paramIdx  = $view->getParams(0);
 	$paramPage = $view->getParams(1);
 }else{
 	$paramPage = $view->getParams(0);
-	$con_ix = "";
+	//$con_ix = "";
+    $paramIdx  = "";
 }
 
 if($paramPage == "") {
@@ -20,7 +22,9 @@ if($paramPage == "") {
 $displayModel = $view->import('model.mall.display');
 $wishModel = $view->import('model.mall.wish');
 
-$displayList = $displayModel->getDisplayContent('001003');
+$displayList = $displayModel->getDisplayContentTeam('001003', $paramPage, $paramIdx);
+//print_r($displayList);
+$displayTeamSubject = $displayModel->getDisplayTeamSubject();
 
 $c = 0;
 foreach($displayList['list'] as $key){
@@ -32,7 +36,6 @@ foreach($displayList['list'] as $key){
     $c++;
 }
 
-// ¹è·²ÀÎ»çÀÌµå > ÆäÀÌÂ¡
 $pageNumTpl = "";
 foreach($displayList['paging']['page_list'] as $key2 => $val2){
 	if($paramPage == $val2) {
@@ -55,5 +58,8 @@ $view->assign('lastPage', $displayList['paging']['last_page']);
 $view->assign('pageList', $displayList['paging']['page_list']);
 $view->assign('pagelistCnt', count($displayList['paging']['page_list']));
 $view->assign('pageNumTpl', $pageNumTpl);
+$view->assign('displayTeamSubject', $displayTeamSubject);
+$view->assign('paramIdx', $paramIdx);
+
 
 echo $view->loadLayout();

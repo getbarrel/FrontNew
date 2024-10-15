@@ -37,10 +37,14 @@
 								<p style="color:{displayContentList.c_explanation};{? displayContentList.b_explanation == 'Y' }font-weight: bold;{ / } {? displayContentList.i_explanation == 'Y' }font-style:oblique;{ / } {? displayContentList.u_explanation == 'Y' }text-decoration-line: underline;{ / }">{displayContentList.explanation}</p>
 								<div class="fb-teamBARREL__profile-footer">
 									{ @ displayContentList.instar }
-										<a href="{ .Url }"><i class="ico ico-instagram"></i></a>
+										{ ? .Url != "" }
+											<a href="{ .Url }"><i class="ico ico-instagram"></i></a>
+										{ / }
 									{ / }
 									{ @ displayContentList.youtube }
-										<a href="{ .Url }"><i class="ico ico-youtube"></i></a>
+										{ ? .Url != "" }
+											<a href="{ .Url }"><i class="ico ico-youtube"></i></a>
+										{ / }
 									{ / }
 								</div>
 							</div>

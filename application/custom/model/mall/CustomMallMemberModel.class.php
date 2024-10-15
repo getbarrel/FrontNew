@@ -1333,7 +1333,7 @@ class CustomMallMemberModel extends ForbizMallMemberModel
                 ->exec();
             //	_로그인 실패시 member_log 입력 처리
 			//	ig_로그인 실패시 처리
-				
+
 
             return "fail";
         } else {
@@ -1705,7 +1705,7 @@ class CustomMallMemberModel extends ForbizMallMemberModel
             $this->cremaModel = new CremaHandler(['environment' => DB_CONNECTION_DIV]);
 
             $member = [];
-            
+
             foreach ($rows as $key => $val) {
 
 				if ($val['gp_ix'] == "14") {
@@ -1775,4 +1775,191 @@ class CustomMallMemberModel extends ForbizMallMemberModel
             ->insert('crema_logs')
             ->exec();
     }
+
+    /**
+     * User code를 이용하여 프로필을 가져온다.
+     * @param string $userCode
+     * @return array
+	 * mem_type -> M:일반회원 C: 사업자 A: 직원 F:글로벌
+	 * birthday_div -> 양력/음력구분값
+	 * sex_div -> 성별
+     */
+    public function getApiMemberProfile($Code, $CUS_NO_INNER = null, $CUS_CARD_CD = null, $name = null, $pcs = null, $startDate = null, $endDate = null)
+    {
+
+		if(strlen($Code) <= 15) {
+			$userCode = "";
+			$pcs = $Code;
+		}else{
+			$userCode = $Code;
+			$pcs = "";
+		}
+
+        $couponModel = $this->import('model.mall.coupon');
+
+        $this->qb
+            ->select('cu.id as web_id')
+            ->select('cu.code')
+            ->select('cmd.add_etc5 as CUS_NO_INNER')
+            ->select('cmd.add_etc6 as CUS_CARD_CD')
+            ->decryptSelect('cmd.name')
+            ->decryptSelect('cmd.pcs')
+            ->select('mg.gp_ix as cus_gradeIdx')
+            ->select('mg.gp_name as cus_gradeName')
+            ->select('CONVERT(cu.mileage, SIGNED) as mileage')
+            ->from(TBL_COMMON_USER.' as cu')
+            ->join(TBL_COMMON_MEMBER_DETAIL.' as cmd', 'cu.code=cmd.code')
+            ->join(TBL_SHOP_GROUPINFO.' as mg', 'cmd.gp_ix = mg.gp_ix');
+
+        if ($userCode != '') {
+            $this->qb->where('cu.code', $userCode);
+        }
+        if ($CUS_NO_INNER != '') {
+            $this->qb->where('cmd.add_etc5', $CUS_NO_INNER);
+        }
+        if ($CUS_CARD_CD != '') {
+            $this->qb->where('cmd.add_etc6', $CUS_CARD_CD);
+        }
+        if ($name != '') {
+            $this->qb->where('cu.code', $name);
+        }
+        if ($pcs != '') {
+			$this->qb->like("REPLACE(AES_DECRYPT(UNHEX(cmd.pcs),'2ad265d024a06e3039c3649213a834390412aa7097ea05eea4e0b44c88ecf7972ad265d024a06e3039c3649213a834390412aa7097ea05eea4e0b44c88ecf797'),'-','')", $pcs);
+			$this->qb->orLike("AES_DECRYPT(UNHEX(cmd.pcs),'2ad265d024a06e3039c3649213a834390412aa7097ea05eea4e0b44c88ecf7972ad265d024a06e3039c3649213a834390412aa7097ea05eea4e0b44c88ecf797')", $pcs);
+        }
+        if ($startDate != '' && $endDate != '') {
+            $this->qb->where('cu.date >=', $startDate." 00:00:00");
+            $this->qb->where('cu.date <=', $endDate." 23:59:59");
+        }
+
+		$data = $this->qb->exec() ->getResultArray();
+        if (isset($data['web_id'])) {
+            $data['pcs']  = $data['pcs'];
+            $data['mail'] = $data['mail'];
+        }
+
+		if(count($data) == 0) {
+			$retData	= array('RESULT' => 'FAIL', "ERRMSG" => "검색된 회원이 없습니다.");
+		} else {
+			$retData	= array('RESULT' => 'SUCCESS', "ERRMSG" => "", "LISTCOUNT" => count($data));
+			array_push($retData['MEMBERLIST'], "");
+		}
+
+		foreach ($data as $key => $val) {
+			if($val["pcs"]) {
+				$pcs         = explode('-', $val['pcs']);
+				$data[$key]['pcs'] = $pcs[0].'-****-'.$pcs[2] ?? '';
+			}
+			array_push($val['coupon'], "");
+
+			//쿠폰 리스트
+			$coupons		= $couponModel->getApiUserCouponList($val['code']);
+			$data[$key]['coupon'] = array_change_key_case($coupons, CASE_UPPER);
+		}
+
+		//회원리스트 배력에 추가
+		$retData['MEMBERLIST'] = array_change_key_case($data, CASE_UPPER);
+
+        return $retData;
+    }
+
+    /**
+     * User code를 이용하여 프로필을 가져온다.
+     * @param string $userCode : 회원 코드
+     * @param string $proc_gb : 처리 구분
+     * @return array
+	 * proc_gb -> C : 신규가입,  U : 변경, D : 탈퇴
+   */
+    public function getApiMemberErpReg($userCode, $proc_gb)
+    {
+		$view			= getForbizView();
+		$jwtModel		= $view->import('model.mall.jwt');
+
+		//$sendUrl		= "https://erp.getbarrel.com/barrelAPI/memberRegister";
+		$sendUrl		= "http://barreldev-p.sgerp.com/barrelAPI/memberRegister";
+
+        $this->qb
+            ->select('cu.id as web_id')
+            ->select('cu.code as on_cust_cd')
+            ->decryptSelect('cmd.name','cus_nm')
+            ->select('1 as cus_grade')
+            ->select('cmd.add_etc4 as join_cd')
+            ->select('"" as proc_gb')
+            ->select('cu.date as proc_dt')
+            ->from(TBL_COMMON_USER.' as cu')
+            ->join(TBL_COMMON_MEMBER_DETAIL.' as cmd', 'cu.code=cmd.code')
+            ->join(TBL_SHOP_GROUPINFO.' as mg', 'cmd.gp_ix = mg.gp_ix')
+			->where('cu.code', $userCode);
+
+		$data = $this->qb->exec() ->getRowArray();
+
+		// API 호출
+		//==========================
+
+		$data['proc_gb'] = $proc_gb;
+		$data['proc_dt'] = date("Ymd", strtotime($data['proc_dt']));
+
+		$tokenVal			= $jwtModel->hashing($data);
+
+		$url = $sendUrl."?tokenVal=".$tokenVal;
+		$postData = ['tokenVal' => $tokenVal];
+		$postDataString = http_build_query($postData);
+
+		// 헤더 설정 (필요한 경우)
+		$headers = [
+			'Content-Type:application/json',
+			'Content-Length: ' . strlen($postDataString)
+		];
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);				// 요청할 URL
+		curl_setopt($ch, CURLOPT_POST, true);				// POST 요청으로 설정
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);		// 응답을 문자열로 반환
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30);				// 요청 타임아웃 설정
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postDataString); // POST 데이터 설정
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers); // 헤더 추가
+
+		$response = curl_exec($ch);
+		// API 호출
+        return $response;
+
+    }
+
+	public function commApiMemGroup(){
+        $data = $this->qb
+            ->select('gp_ix')
+            ->select('gp_name')
+            ->select('gp_ename')
+            ->select('sale_rate')
+            ->select('sale_rate')
+            ->select('gp_level')
+            ->select('order_price')
+            ->select('FORMAT(ed_order_price ,0) AS ed_order_price')
+            ->select('gp_type')
+            ->select('selling_type')
+            ->select('use_discount_type')
+            ->select('retail_dc')
+            ->select('round_depth')
+            ->select('round_type')
+            ->select('dc_standard_price')
+            ->select('use_coupon_yn')
+            ->select('use_reserve_yn')
+            ->select('use_discount_category_yn')
+            ->select('use_discount_category_mileage_yn')
+            ->select('date_format(regdate, "%Y%m%d") as regdate')
+            ->from(TBL_SHOP_GROUPINFO)
+            ->orderBy('gp_level', 'asc')
+            ->exec()
+            ->getResultArray();
+
+		if(count($data) == 0) {
+			$retData	= array('RESULT' => 'FAIL', "ERRMSG" => "검색된 회원등급이 없습니다.");
+		} else {
+			$retData	= array('RESULT' => 'SUCCESS', "ERRMSG" => "", "LISTCOUNT" => count($data));
+			array_push($retData['GROUPLIST'], "");
+			$retData['GROUPLIST'] = arrayKeysToUpper($data);
+		}
+
+        return $retData;
+	}
 }

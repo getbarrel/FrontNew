@@ -11,13 +11,15 @@
 						<div class="gallery-bbs__tab">
 							<div class="br-tab__slide swiper-container">
 								<ul class="swiper-wrapper">
-									<li class="swiper-slide active"><a href="#;">전체</a></li>
-									<li class="swiper-slide"><a href="#;">서핑</a></li>
-									<li class="swiper-slide"><a href="#;">수영</a></li>
+									<li class="swiper-slide {?paramIdx == ''}active{ / }"><a href="/content/teamList">전체</a></li>
+									{ @ displayTeamSubject }
+									<li class="swiper-slide {?paramIdx == .idx}active{ / }"><a href="/content/teamList/{.idx}">{.subject}</a></li>
+									{ / }
+									<!--<li class="swiper-slide"><a href="#;">수영</a></li>
 									<li class="swiper-slide"><a href="#;">프리다이빙</a></li>
 									<li class="swiper-slide"><a href="#;">스쿠버다이빙</a></li>
 									<li class="swiper-slide"><a href="#;">요가</a></li>
-									<li class="swiper-slide"><a href="#;">필라테스</a></li>
+									<li class="swiper-slide"><a href="#;">필라테스</a></li>-->
 								</ul>
 							</div>
 						</div>

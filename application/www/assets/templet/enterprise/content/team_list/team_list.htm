@@ -6,31 +6,54 @@
 							<p>
 								다양한 워터스포츠 종목에서 우수한 실력을 겸비하고<br />
 								끊임없는 도전 정신으로 자신의 종목에서 최선을 다하는 선수로 구성된<br />
-								팀 배럴을 소개합니다.
+								팀 배럴을 소개합니다. AA
 							</p>
 							<div class="fb-tab__nav-btn">
-								<ul>
-									<li class="active">
-										<a href="#;">전체</a>
+								<ul style="display: flex;flex-wrap: wrap;gap: 10px;">
+									<li class="{?paramIdx == ''}active{ / }" style="box-sizing: border-box;text-align: center;">
+										<a href="/content/teamList">전체</a>
 									</li>
-									<li>
-										<a href="#;">서핑</a>
+									{ @ displayTeamSubject }
+									<li class="{?paramIdx == .idx}active{ / }" style="box-sizing: border-box;text-align: center;">
+										<a href="/content/teamList/{.idx}">{.subject}</a>
 									</li>
-									<li>
-										<a href="#;">수영</a>
+									{ / }
+									<!--<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크1</a>
 									</li>
-									<li>
-										<a href="#;">프리다이빙</a>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크2</a>
 									</li>
-									<li>
-										<a href="#;">스쿠버다이빙</a>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크3</a>
 									</li>
-									<li>
-										<a href="#;">요가</a>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크4</a>
 									</li>
-									<li>
-										<a href="#;">필라테스</a>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크5</a>
 									</li>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크6</a>
+									</li>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크7</a>
+									</li>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크8</a>
+									</li>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크9</a>
+									</li>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크10</a>
+									</li>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크11</a>
+									</li>
+									<li style="box-sizing: border-box;text-align: center;">
+										<a href="#;">종목체크12</a>
+									</li>-->
 								</ul>
 							</div>
 						</div>
