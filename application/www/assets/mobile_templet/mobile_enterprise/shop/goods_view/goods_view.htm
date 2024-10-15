@@ -505,7 +505,7 @@
                                                 <img src="{layoutCommon.templetSrc}/images/common/icon_no-freebie_mo.png" alt="사은품 선택 안함" />
                                             </figure>
                                         </dt>
-                                        <dd class="product-list__group-right">
+                                        <dd class="product-list__group-right"><!-- qa : 55410 || stg / real : 55421 -->
                                             <input type="hidden" id="giftPname_0000055421" value="사은품 선택 안함">
                                             <input type="hidden" id="giftDate_0000055421" value="">
                                             <input type="hidden" id="giftPrice_0000055421" value="">
@@ -921,19 +921,19 @@
                             <a href="#detail">상품정보</a>
                         </li>
                         <li class="swiper-slide">
-                            <a href="#sizeGuide">사이즈 가이드</a>
+                            <a href="#review">상품리뷰(<em>{=total_review_cnt}</em>)</a>
                         </li>
                         <li class="swiper-slide">
-                            <a href="#review">상품 리뷰 <em>{=total_review_cnt}</em></a>
+                            <a href="#sizeGuide">사이즈</a>
                         </li>
                         <li class="swiper-slide">
                             <a href="#qna">상품문의</a>
                         </li>
                         <li class="swiper-slide">
-                            <a href="#washing">세탁 & 주의사항</a>
+                            <a href="#washing">세탁&주의사항</a>
                         </li>
                         <li class="swiper-slide">
-                            <a href="#return">반품 & 환불</a>
+                            <a href="#return">반품&환불</a>
                         </li>
                     </ul>
                 </div>
@@ -949,8 +949,8 @@
                     </div>
                 </div>
                 <div class="goods-tabs__content goods-detail--info" id="detail-info">
-                    <div class="br__account active">
-                        <button type="button" class="br__account__title active">
+                    <div class="br__account">
+                        <button type="button" class="br__account__title">
                             <span class="title-sm">상품정보 제공고시</span>
                             <i class="ico ico-plus"></i>
                         </button>
@@ -980,36 +980,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="goods-tabs__content goods-size__guide" id="sizeGuide">
-                    <div class="br__account active">
-                        <button type="button" class="br__account__title active">
-                            <span class="title-sm">사이즈 가이드</span>
-                            <i class="ico ico-plus"></i>
-                        </button>
-                        <div class="br__account__content">
-                            <section class="goods-tabs__cont br__goods-view__crema">
-                                <a id="goods-fit" class="br__hidden--anchor">{=trans('크리마 핏 가이드')}</a>
-                                <!-- <h3 class="br__hidden">{=trans('크리마 핏 가이드')}</h3> -->
-                                <div class="goods-crema">
-                                    <style>.crema-fit-product-combined-detail > iframe { max-width: 100% !important; }</style>
-                                    <!--<div data-product-code="<?php echo (int){id};?>" data-mvp="1" class="crema-fit-product-size-detail"></div>-->
-                                    <div data-product-code="<?php echo (int){id};?>" data-widget-id="25" class="crema-fit-product-combined-detail"></div>
-                                </div>
-                            </section>
-
-                            <style> /* css 파일에 추가해 주세요 */
-                            .size_btn_box {padding:48px 0px 0 ; margin-top:48px; border-top:5px solid #E5E5E5; text-align:center; }
-                            .size_txt {font-size:18px; color:#000; margin-bottom:32px; }
-                            .size_btn {display: inline-block; width: 100%; background: #000; color: #fff; font-size: 16px; line-height: 48px; }
-
-                            </style>
-                        </div>
-                    </div>
-                </div>
                 <div class="goods-tabs__content goods-review" id="review">
                     <div class="br__account active">
                         <button type="button" class="br__account__title active">
-                            <span class="title-sm">상품 리뷰</span>
+                            <span class="title-sm">상품리뷰</span>
                             <i class="ico ico-plus"></i>
                         </button>
                         <div class="br__account__content">
@@ -1089,6 +1063,32 @@
                                     <!--{*e 추가*}-->
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-tabs__content goods-size__guide" id="sizeGuide">
+                    <div class="br__account active">
+                        <button type="button" class="br__account__title active">
+                            <span class="title-sm">사이즈 가이드</span>
+                            <i class="ico ico-plus"></i>
+                        </button>
+                        <div class="br__account__content">
+                            <section class="goods-tabs__cont br__goods-view__crema">
+                                <a id="goods-fit" class="br__hidden--anchor">{=trans('크리마 핏 가이드')}</a>
+                                <!-- <h3 class="br__hidden">{=trans('크리마 핏 가이드')}</h3> -->
+                                <div class="goods-crema">
+                                    <style>.crema-fit-product-combined-detail > iframe { max-width: 100% !important; }</style>
+                                    <!--<div data-product-code="<?php echo (int){id};?>" data-mvp="1" class="crema-fit-product-size-detail"></div>-->
+                                    <div data-product-code="<?php echo (int){id};?>" data-widget-id="25" class="crema-fit-product-combined-detail"></div>
+                                </div>
+                            </section>
+
+                            <style> /* css 파일에 추가해 주세요 */
+                            .size_btn_box {padding:48px 0px 0 ; margin-top:48px; border-top:5px solid #E5E5E5; text-align:center; }
+                            .size_txt {font-size:18px; color:#000; margin-bottom:32px; }
+                            .size_btn {display: inline-block; width: 100%; background: #000; color: #fff; font-size: 16px; line-height: 48px; }
+
+                            </style>
                         </div>
                     </div>
                 </div>
