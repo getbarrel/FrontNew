@@ -882,6 +882,7 @@ class CustomMallDisplayModel extends ForbizMallDisplayModel
             ->from('shop_content_group_product_relation as cgpr')
             ->join(TBL_SHOP_PRODUCT . ' AS p', 'cgpr.pid=p.id', 'inner')
             ->where('cgpr.con_ix', $con_ix)
+            ->whereIn('mall_ix', ['', MALL_IX])
             ->where('p.disp', 1);
         if($cgr_ix != ""){
             $this->qb->where('cgr_ix', $cgr_ix);
