@@ -513,6 +513,10 @@ function swiperItem() {
 			loop: false,
 			freeMode: true,
 			observeParents: true,
+			navigation: {
+				nextEl: ".swiper-button-next-f",
+				prevEl: ".swiper-button-prev-f",
+			},
 			pagination: {
 				el: ".swiper-pagination",
 				type: "fraction",
