@@ -14,6 +14,23 @@
 
         { event: "setSiteType", type: deviceType},
         { event: "viewHome"});
+
+	/*var crema_userId = null;
+	var crema_userNm = null;
+
+	{? layoutCommon.isLogin}
+	crema_userId = "{layoutCommon.userInfo.id}";
+	crema_userNm = "{layoutCommon.userInfo.name}";
+	{/}
+
+		window.cremaAsyncInit = function() { // init.js가 다운로드 & 실행된 후에 실행하는 함수
+			//console.log("[CREMA] cremaAsyncInit() - EXECUTED!");
+			crema.init(crema_userId, crema_userNm);
+			//console.log("[CREMA] crema.init() - EXECUTED!");
+		};
+
+	(function(i,s,o,g,r,a,m){if(s.getElementById(g)){return};a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.id=g;a.async=1;a.src=r;m.parentNode.insertBefore(a,m)})
+	(window,document,'script','crema-jssdk','//{c.CREMA_WIDGET_HOST}/getbarrel.com/init.js');*/
 </script>
 <!-- END Criteo 홈페이지 태그 -->
 
@@ -1038,6 +1055,7 @@
 	<!-- Best Items 10 영역 E -->
 
 	<!-- Style Guide 영역 S -->
+	{? mainContentInfo.style_use == "Y"}
 	<section class="fb-main__section fb-main__StyleGuide">
 		<div class="fb-main__inner">
 			<div class="fb-main__title">
@@ -1095,6 +1113,7 @@
 			</div>
 		</div>
 	</section>
+	{/}
 	<!-- Style Guide 영역 E -->
 
 	<!-- 동영상 banner 영역 S -->
@@ -1556,6 +1575,11 @@
 		</div>
 	</section>
 	<!-- Barrel Journal / Barrel Campaign 영역 E -->
+	<!-- 크리마 리뉴 영역 S --
+	<section class="fb-main__section fb-main__banner" style="padding: 0px 0 20px;">
+		<div class="crema-reviews" data-widget-id="52" data-widget-style="square_gallery"></div>
+	</section>
+	-- 크리마 리뉴 영역 E -->
 </section>
 <!-- 컨텐츠 영역 E -->
 
