@@ -54,9 +54,9 @@ if(preg_match($mobile_agent, $_SERVER['HTTP_USER_AGENT'])){
             <div class="system-page__time">
                 시스템 점검 기간 :
                 <?php
-                if (time() >= strtotime('2024-11-14 02:00:00') && time() < strtotime('2024-11-14 04:00:00')) {
+                if (time() >= strtotime('2024-11-14 02:00:00') && time() < strtotime('2024-11-14 05:00:00')) {
                     ?>
-                    <p>2024.11.14 오전 02:00 ~ 2024.11.14 오전 04:00</p>
+                    <p>2024.11.14 오전 02:00 ~ 2024.11.14 오전 05:00</p>
                     <?php
                 } else {
                     ?>

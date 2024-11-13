@@ -2,7 +2,7 @@
 return function() {
     // 접속 허용 IP
     date_default_timezone_set('Asia/Seoul');
-    if ((time() >= strtotime('2024-11-14 02:00:00') && time() < strtotime('2024-11-14 04:00:00')) || (time() >= strtotime('2024-11-26 02:00:00') && time() < strtotime('2024-11-26 04:00:00'))  ) {
+    if ((time() >= strtotime('2024-11-14 02:00:00') && time() < strtotime('2024-11-14 05:00:00')) || (time() >= strtotime('2024-11-26 02:00:00') && time() < strtotime('2024-11-26 04:00:00'))  ) {
         $allowIpAddr = [
             '220.75.187.234' // 클라이언트 IP
             ,'221.151.188.10' // 포비즈 IP
