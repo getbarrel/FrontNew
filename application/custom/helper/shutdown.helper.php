@@ -19,6 +19,7 @@ return function() {
             ,'218.48.123.15' //이커머스 담당자
             ,'1.229.54.170' //박현
             ,'221.168.43.164' //김동찬(집)
+            ,'118.32.133.95' //(집)
         ];
         if(PHP_SAPI !== 'cli' && !defined('STDIN')) {
             if (isset($_SERVER['HTTP_CLIENT_IP']) && $_SERVER['HTTP_CLIENT_IP']) {
