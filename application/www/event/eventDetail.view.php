@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))
 /***
  * 대기열 적용
  */
-$WG_GATE_ID = WEB_GATE_ID_3;
+/*$WG_GATE_ID = WEB_GATE_ID_3;
 $WG_SERVICE_ID  = WEB_GATE_SERVICE_ID;                   // fixed
 $WG_SECRET_TEXT = "BARREL-LEGGINGS";   // fixed
 $WG_VALIDATION_KEY  = $WG_SERVICE_ID . "-" . $WG_GATE_ID . "-" . $WG_SECRET_TEXT;
@@ -85,7 +85,7 @@ if($wg_is_need_to_redirect  && (defined('IS_USE_WEB_GATE') && IS_USE_WEB_GATE ==
 }
 
 // 페이지 새로고침 시에도 대기열을 체크하기위해 아래와 같이 쿠키를 삭제해줍니다.
-setcookie($WG_COOKIE_NAME, "", time() + (-1 * 86400), "/"); // 86400 = 1 day
+setcookie($WG_COOKIE_NAME, "", time() + (-1 * 86400), "/"); // 86400 = 1 day*/
 
 
 // Load Forbiz View
